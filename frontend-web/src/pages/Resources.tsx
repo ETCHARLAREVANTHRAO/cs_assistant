@@ -7,6 +7,7 @@ import {
   resourcesUpdateErrorNotebook,
   type ErrorNotebookItem,
   type ResourcePYQSolution,
+  type ResourceBookRecommendation,
   type ResourcesSummaryResponse,
 } from '../services/api';
 
@@ -72,7 +73,7 @@ export default function Resources() {
   );
 
   const bookItems = useMemo(
-    () => (summary?.book_recommendations ?? []).filter((item) => subjectMatches(item.subject) && matches([item.subject, item.title, item.author, item.use_for])),
+    () => (summary?.book_recommendations ?? []).filter((item: ResourceBookRecommendation) => subjectMatches(item.subject) && matches([item.subject, item.title, item.author, item.use_for])),
     [summary, subject, lowerQuery],
   );
 
@@ -199,7 +200,7 @@ export default function Resources() {
                 )}
                 {activeTab === 'books' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {bookItems.map((item) => (
+                    {bookItems.map((item: ResourceBookRecommendation) => (
                       <div key={`${item.subject}-${item.title}`} className="bg-surface rounded-lg border border-border shadow-soft p-5 flex flex-col justify-between">
                         <div>
                           <div className="flex items-center justify-between gap-2 mb-3">

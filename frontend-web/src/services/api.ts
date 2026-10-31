@@ -618,6 +618,7 @@ export interface ResourcesSummaryResponse {
   formula_sheets: ResourceFormulaSheet[];
   cheat_sheets: ResourceCheatSheet[];
   short_tricks: ResourceShortTrick[];
+  book_recommendations: ResourceBookRecommendation[];
   error_notebook: ErrorNotebookItem[];
 }
 
