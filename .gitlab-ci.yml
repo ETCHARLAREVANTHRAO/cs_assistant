@@ -1,0 +1,60 @@
+stages:
+  - test
+  - build
+
+default:
+  interruptible: true
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  npm_config_cache: "$CI_PROJECT_DIR/.cache/npm"
+
+# ----------------------------------------------------
+# 1. Backend Python Unit Tests
+# ----------------------------------------------------
+backend-test:
+  stage: test
+  image: python:3.11-slim
+  cache:
+    key: "pip-$CI_COMMIT_REF_SLUG"
+    paths:
+      - .cache/pip
+  before_script:
+    - cd backend
+    - python -m pip install --upgrade pip
+    - pip install -r requirements.txt
+  script:
+    - python -m pytest tests/
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == "main"'
+    - if: '$CI_COMMIT_BRANCH == "develop"'
+    - changes:
+        - backend/**/*
+
+# ----------------------------------------------------
+# 2. Frontend Web Build & Typecheck (React + Vite)
+# ----------------------------------------------------
+frontend-web-build:
+  stage: build
+  image: node:20-alpine
+  cache:
+    key: "npm-$CI_COMMIT_REF_SLUG"
+    paths:
+      - .cache/npm
+  before_script:
+    - cd frontend-web
+    - npm install --prefer-offline --no-audit
+  script:
+    - npm run build
+  artifacts:
+    name: "web-dist-$CI_COMMIT_SHORT_SHA"
+    paths:
+      - frontend-web/dist/
+    expire_in: 1 week
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == "main"'
+    - if: '$CI_COMMIT_BRANCH == "develop"'
+    - changes:
+        - frontend-web/**/*

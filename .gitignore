@@ -65,3 +65,6 @@ frontend-mobile/web/
 Thumbs.db
 .vscode/
 .idea/
+
+# CI caches
+.cache/
