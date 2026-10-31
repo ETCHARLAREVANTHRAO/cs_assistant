@@ -97,3 +97,4 @@ Scan the QR code with the **Expo Go** app on your phone.
 
 ## 🔒 Security Note
 Never commit `.env` files or model weights (`*.gguf`) into source control. All secrets should be configured locally using `.env.example` as a template.
+
