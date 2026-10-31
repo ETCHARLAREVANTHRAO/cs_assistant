@@ -1,0 +1,2147 @@
+1
+Discrete Mathematics: Combinatory
+ 
+(51)
+Syllabus:
+ 
+Combinatorics:
+ 
+Counting,
+ 
+Recurrence relations,
+ 
+Generating functions.
+Welcome to the "Discrete Mathematics: Combinatory" chapter! This section is a cornerstone of computer science,
+providing the fundamental tools to count, arrange, and select objects, analyze algorithms, and understand probability.
+For the GATE Computer Science exam, combinatorics is crucial for topics like algorithm analysis (counting operations,
+permutations), data structures (hashing, tree traversals), probability, and even network protocols. Typically, you can
+expect 3-5 marks from this area, often in conjunction with probability or algorithm analysis. Questions range from direct
+application of formulas to more complex problem-solving scenarios requiring a combination of principles, sometimes
+involving tricky wording or subtle conditions like 'distinct' vs. 'identical' items, or 'empty' vs. 'non-empty' containers.
+Topic-wise Key Concepts
+Balls In Bins
+Definition and Core Idea:
+ The "Balls In Bins" paradigm is a versatile model for various counting problems. It involves
+distributing a certain number of "balls" (items) into a certain number of "bins" (containers or categories), considering
+whether the balls are identical or distinct, and whether the bins are identical or distinct, and if bins can be empty or must
+contain at least one ball.
+Important Formulas, Theorems, and Results:
+1
+. 
+Distinct Balls into Distinct Bins:
+Any number of balls per bin:
+ If there are 
+ distinct balls and 
+ distinct bins, each ball can go into any of the 
+bins. Total ways: 
+.
+At most one ball per bin (injective mapping):
+ This is equivalent to permutations. Total ways: 
+ if 
+, and 
+ otherwise.
+2
+. 
+Identical Balls into Distinct Bins:
+Any number of balls per bin (stars and bars):
+ If there are 
+ identical balls and 
+ distinct bins, this is
+equivalent to finding non-negative integer solutions to 
+. Total ways: 
+.
+At least one ball per bin (stars and bars with pre-allocation):
+ First, place one ball in each bin, leaving 
+balls to distribute. Total ways: 
+ if 
+, and 
+ otherwise.
+3
+. 
+Distinct Balls into Identical Bins:
+ This is related to 
+Stirling Numbers of the Second Kind
+.
+Any number of balls per bin:
+ Sum of Stirling numbers of the second kind. Total ways: 
+.
+At least one ball per bin:
+ Total ways: 
+.
+4
+. 
+Identical Balls into Identical Bins:
+ This is related to integer partitions.
+Any number of balls per bin:
+ The number of partitions of 
+ into at most 
+ parts, denoted 
+.
+At least one ball per bin:
+ The number of partitions of 
+ into exactly 
+ parts, denoted 
+. There is no simple
+closed-form formula; often solved using generating functions or recursion.
+Key Properties and Identities:
+The "stars and bars" formula 
+ is fundamental for problems involving distributing identical items
+into distinct categories or finding non-negative integer solutions.
+Understanding the distinction between "distinct" and "identical" for both balls and bins is paramount.
+Common Pitfalls or Tricky Points:
+
+
+Confusing Identical vs. Distinct:
+ This is the most common error. Always identify if the items being distributed and
+the containers are distinguishable or not.
+Empty vs. Non-empty Bins:
+ Pay close attention to whether bins are allowed to be empty or if they must contain at
+least one item. This changes the formula significantly.
+Overlapping Cases:
+ Ensure that cases are mutually exclusive and exhaustive when breaking down a problem.
+Standard Problem-Solving Techniques or Shortcuts:
+Mapping to Stars and Bars:
+ Many problems can be rephrased as distributing identical items into distinct bins. For
+example, finding the number of non-negative integer solutions to an equation.
+Inclusion-Exclusion Principle:
+ For problems where "at least one" condition is difficult to apply directly, use
+inclusion-exclusion to subtract cases where bins are empty.
+Complementary Counting:
+ Sometimes it's easier to count the total ways and subtract the "unwanted" ways.
+Combinatory
+Definition and Core Idea:
+ Combinatorics is the branch of discrete mathematics concerned with counting, arrangement,
+and selection of objects. It deals with permutations (arrangements where order matters) and combinations (selections
+where order does not matter), often involving constraints or repetitions.
+Important Formulas, Theorems, and Results:
+1
+. 
+Permutations (Order Matters):
+Permutations of 
+ distinct items taken 
+ at a time:
+ 
+.
+Permutations of 
+ distinct items taken 
+ at a time:
+ 
+.
+Permutations with Repetition (multiset permutations):
+ For 
+ items where there are 
+ identical items of type
+1, 
+ of type 2, ..., 
+ of type 
+, and 
+. Total ways: 
+.
+Circular Permutations:
+ For 
+ distinct items arranged in a circle, total ways: 
+. If arrangements are
+symmetric (e.g., beads on a necklace), divide by 2: 
+.
+2
+. 
+Combinations (Order Does Not Matter):
+Combinations of 
+ distinct items taken 
+ at a time:
+ 
+.
+Combinations with Repetition (multiset combinations):
+ Selecting 
+ items from 
+ types with repetition
+allowed. Total ways: 
+. This is equivalent to the "identical balls into distinct bins" problem.
+3
+. 
+Binomial Theorem:
+4
+. 
+Multinomial Theorem:
+Key Properties and Identities:
+Symmetry Identity:
+ 
+.
+Pascal's Identity:
+ 
+.
+Sum of Binomial Coefficients:
+ 
+.
+Hockey-stick Identity:
+ 
+.
+Common Pitfalls or Tricky Points:
+Overcounting/Undercounting:
+ Ensure each valid arrangement/selection is counted exactly once. This often
+happens when dealing with symmetry or identical items.
+"At Least" / "At Most" Conditions:
+ These often require complementary counting or casework.
+Distinguishing Permutations vs. Combinations:
+ If the order of selection or arrangement matters, it's a
+permutation. If not, it's a combination.
+
+
+Standard Problem-Solving Techniques or Shortcuts:
+Principle of Multiplication:
+ If a task can be broken into a sequence of 
+ independent steps, and step 
+ can be
+performed in 
+ ways, then the total number of ways is 
+.
+Principle of Addition:
+ If a task can be performed in one of 
+ mutually exclusive ways, and way 
+ can be performed
+in 
+ ways, then the total number of ways is 
+.
+Complementary Counting:
+ Count the total number of ways and subtract the number of "unwanted" ways. Useful
+for "at least one" type problems.
+Casework:
+ Break down a complex problem into simpler, mutually exclusive cases and sum the results.
+Counting
+Definition and Core Idea:
+ Counting, in a broader sense, encompasses the fundamental principles used to determine
+the size of finite sets. It builds upon combinatory concepts and introduces powerful tools like the Principle of Inclusion-
+Exclusion to handle complex scenarios involving overlapping sets.
+Important Formulas, Theorems, and Results:
+1
+. 
+Principle of Inclusion-Exclusion (PIE):
+For two sets:
+ 
+.
+For three sets:
+ 
+.
+General form for 
+ sets:
+ 
+\[ \left| \bigcup_{i=1}^n A_i \right| = \sum_{i} |A_i| - \sum_{i
+2
+. 
+Derangements:
+ A permutation of 
+ objects such that no object remains in its original position. The number of
+derangements of 
+ objects, denoted 
+ or 
+:
+For large 
+, 
+.
+Key Properties and Identities:
+PIE is essential for counting elements in the union of non-disjoint sets.
+Derangements are a specific application of PIE for permutations with no fixed points.
+Common Pitfalls or Tricky Points:
+Incorrectly Identifying Sets for PIE:
+ Clearly define the properties that form the sets 
+ and their
+intersections.
+Misapplying PIE:
+ Ensure you are alternating signs correctly and covering all necessary intersections.
+"At Least One" vs. "Exactly One":
+ PIE typically helps with "at least one" conditions. For "exactly one," you might
+need to combine PIE with complementary counting or other techniques.
+Standard Problem-Solving Techniques or Shortcuts:
+Casework:
+ Break down complex problems into simpler, mutually exclusive scenarios.
+Complementary Counting:
+ Count the total possibilities and subtract the undesirable ones. Often used in
+conjunction with PIE.
+Direct Application of PIE:
+ For problems involving properties that overlap, PIE is usually the most direct approach.
+Generating Functions
+Definition and Core Idea:
+ A generating function is a formal power series where the coefficients represent the terms of
+a sequence. It provides a powerful algebraic tool for solving recurrence relations, counting problems, and proving
+combinatorial identities by converting sequence operations into algebraic manipulations.
+Important Formulas, Theorems, and Results:
+1
+. 
+Definition:
+ For a sequence 
+, its ordinary generating function (OGF) is 
+.
+2
+. 
+Common Generating Functions:
+
+
+Constant sequence 
+:
+ 
+.
+Arithmetic progression 
+:
+ 
+.
+Binomial coefficients 
+ for fixed 
+:
+ 
+.
+Combinations with repetition 
+ for fixed 
+:
+ 
+.
+Sequence 
+:
+ 
+.
+Sequence 
+:
+ 
+.
+3
+. 
+Operations on Generating Functions:
+Addition:
+ If 
+ and 
+, then 
+.
+Multiplication (Convolution):
+ If 
+ and 
+, then 
+, where 
+. This is crucial for counting combinations of independent choices.
+Differentiation:
+ 
+. So, 
+.
+Integration:
+ 
+.
+Shift:
+ 
+ (shifts coefficients to the right). 
+ (shifts
+coefficients to the left).
+Key Properties and Identities:
+The coefficient of 
+ in a generating function 
+ is 
+, denoted 
+.
+Generating functions are particularly useful for problems involving sums, combinations with repetition, and solving
+linear recurrence relations.
+Common Pitfalls or Tricky Points:
+Forming the Correct GF:
+ Carefully translate the problem's constraints (e.g., minimum/maximum number of items,
+distinct/identical items) into the terms of the generating function.
+Extracting Coefficients:
+ This often requires partial fraction decomposition for rational functions or using
+generalized binomial theorem.
+Confusion with Exponential Generating Functions (EGFs):
+ EGFs are used for permutations, while OGFs are for
+combinations. GATE typically focuses on OGFs.
+Standard Problem-Solving Techniques or Shortcuts:
+Solving Recurrence Relations:
+1
+. 
+Write the recurrence relation.
+2
+. 
+Multiply by 
+ and sum over all valid 
+.
+3
+. 
+Manipulate the sums to relate them to the generating function 
+.
+4
+. 
+Solve for 
+ as a rational function.
+5
+. 
+Use partial fraction decomposition and known series expansions to find the coefficient of 
+.
+Counting Combinations:
+ Represent each type of item or choice as a factor in the generating function. The
+coefficient of 
+ in the product of these factors gives the number of ways to choose 
+ items.
+Modular Arithmetic
+Definition and Core Idea:
+ Modular arithmetic is a system of arithmetic for integers, where numbers "wrap around"
+when they reach a certain value—the modulus. It's fundamental in cryptography, number theory, and hashing, and is
+used in GATE for problems involving remainders, large powers, and divisibility.
+Important Formulas, Theorems, and Results:
+1
+. 
+Congruence Relation:
+ 
+ if 
+ divides 
+, or equivalently, 
+ and 
+ have the same remainder
+when divided by 
+.
+2
+. 
+Basic Properties:
+If 
+ and 
+, then:
+
+
+ for any positive integer 
+.
+3
+. 
+Modular Inverse:
+ An integer 
+ is the modular multiplicative inverse of 
+ modulo 
+ if 
+.
+An inverse exists if and only if 
+.
+Can be found using the Extended Euclidean Algorithm.
+4
+. 
+Euler's Totient Function 
+:
+ Counts the number of positive integers up to 
+ that are relatively prime to 
+.
+If 
+ (prime factorization), then 
+.
+If 
+ is prime, 
+.
+If 
+ is prime, 
+.
+5
+. 
+Fermat's Little Theorem:
+ If 
+ is a prime number, then for any integer 
+ not divisible by 
+, 
+.
+Also, 
+ for any integer 
+.
+6
+. 
+Euler's Theorem:
+ If 
+ and 
+ are coprime positive integers, then 
+. (Fermat's Little Theorem is a
+special case of Euler's Theorem when 
+ is prime).
+7
+. 
+Chinese Remainder Theorem (CRT):
+ (Conceptually important, full formula rarely needed for GATE) If integers 
+ are pairwise coprime, then for any given integers 
+, there exists an integer 
+ that
+solves the system of congruences:
+Moreover, all solutions 
+ are congruent modulo 
+.
+Key Properties and Identities:
+Modular arithmetic allows us to work with remainders, simplifying calculations involving very large numbers.
+The concept of modular inverse is critical for division in modular arithmetic (multiplication by inverse).
+Fermat's Little Theorem and Euler's Theorem are powerful for simplifying large exponents modulo a number.
+Common Pitfalls or Tricky Points:
+Division:
+ Division is not directly defined. Instead, multiply by the modular inverse. If the inverse doesn't exist (i.e., 
+), division is not possible.
+Negative Results:
+ If a calculation yields a negative number, add the modulus until it's positive. E.g., 
+.
+Large Exponents:
+ Always reduce the exponent modulo 
+ (if 
+) or modulo 
+ (if 
+ is prime
+and 
+) to simplify calculations using Euler's or Fermat's theorem.
+Standard Problem-Solving Techniques or Shortcuts:
+Repeated Squaring (Exponentiation by Squaring):
+ Efficiently compute 
+ by repeatedly squaring the
+base and reducing modulo 
+.
+Example: 
+ if 
+ is even, 
+ if 
+ is odd.
+Finding Modular Inverse:
+Extended Euclidean Algorithm:
+ For 
+. If 
+, then 
+, so 
+is the inverse.
+Fermat's Little Theorem:
+ If 
+ is prime, 
+.
+Euler's Theorem:
+ If 
+, 
+.
+Properties of Congruence:
+ Apply addition, subtraction, multiplication properties to simplify expressions before
+taking the final modulo.
+Pigeonhole Principle
+Definition and Core Idea:
+ The Pigeonhole Principle (PHP) is a fundamental concept stating that if 
+ items are put into 
+
+
+ containers, with 
+, then at least one container must contain more than one item. It's a simple yet powerful tool
+for proving existence in combinatorial problems.
+Important Formulas, Theorems, and Results:
+1
+. 
+Basic Pigeonhole Principle:
+ If 
+ pigeons are placed into 
+ pigeonholes, and 
+, then at least one pigeonhole
+contains more than one pigeon.
+2
+. 
+Generalized Pigeonhole Principle:
+ If 
+ pigeons are placed into 
+ pigeonholes, then at least one pigeonhole must
+contain at least 
+ pigeons.
+Key Properties and Identities:
+PHP is an existence principle; it tells you that something must happen, but not how to find it or how many times it
+happens.
+It's often used in proofs to show that a certain condition must hold true.
+Common Pitfalls or Tricky Points:
+Identifying Pigeons and Pigeonholes:
+ The most crucial step is correctly defining what constitutes a "pigeon" and a
+"pigeonhole" in the context of the problem. This often requires creative thinking.
+Applying Generalized PHP:
+ Ensure you correctly calculate 
+.
+"At Least" vs. "Exactly":
+ PHP guarantees "at least" a certain number; it doesn't guarantee "exactly."
+Standard Problem-Solving Techniques or Shortcuts:
+Creative Definitions:
+ The key is to define pigeons and pigeonholes in a way that makes the principle applicable.
+Pigeons are often the items being distributed or selected.
+Pigeonholes are often categories, properties, or possible outcomes.
+Proof by Contradiction:
+ Sometimes, assuming the opposite of what you want to prove (i.e., no pigeonhole has
+more than 
+ pigeons) can lead to a contradiction using PHP.
+Small Examples:
+ Test with small numbers to understand the problem structure and how to define
+pigeons/pigeonholes.
+Recurrence Relation
+Definition and Core Idea:
+ A recurrence relation is an equation that defines a sequence where each term is given as a
+function of its preceding terms. They are fundamental in algorithm analysis (e.g., complexity of recursive algorithms),
+combinatorics (e.g., Fibonacci numbers), and discrete probability.
+Important Formulas, Theorems, and Results:
+1
+. 
+Linear Homogeneous Recurrence Relations with Constant Coefficients:
+Characteristic Equation:
+ 
+.
+Distinct Roots:
+ If 
+ are distinct roots, the general solution is 
+.
+Repeated Roots:
+ If a root 
+ has multiplicity 
+, its contribution to the general solution is 
+.
+The constants 
+ are determined by the initial conditions.
+2
+. 
+Linear Non-Homogeneous Recurrence Relations:
+The general solution is 
+, where 
+ is the homogeneous solution and 
+ is a particular
+solution.
+Finding 
+:
+ Guess a form for 
+ based on 
+.
+If 
+ is a polynomial of degree 
+, guess 
+. If 
+ is a root of the characteristic
+equation with multiplicity 
+, multiply by 
+.
+If 
+ is an exponential 
+, guess 
+. If 
+ is a root of the characteristic equation with multiplicity 
+,
+
+
+multiply by 
+.
+3
+. 
+Master Theorem (for Divide and Conquer Recurrences):
+ For recurrences of the form 
+where 
+, 
+, and 
+ is asymptotically positive.
+1
+. 
+If 
+ for some 
+, then 
+.
+2
+. 
+If 
+, then 
+.
+3
+. 
+If 
+ for some 
+, AND 
+ for some 
+ and sufficiently large 
+(regularity condition), then 
+.
+Key Properties and Identities:
+The order of a recurrence relation is the difference between the largest and smallest indices.
+Linear recurrence relations with constant coefficients are solvable using the characteristic equation method.
+The Master Theorem provides a quick way to find asymptotic bounds for many divide-and-conquer algorithms.
+Common Pitfalls or Tricky Points:
+Incorrect Characteristic Equation:
+ Ensure all terms are on one side and coefficients are correct.
+Handling Repeated Roots:
+ Don't forget the 
+ factors for repeated roots.
+Finding Particular Solutions:
+ The guess for 
+ must be adjusted if it overlaps with the homogeneous solution.
+Boundary Conditions:
+ Always use initial conditions to find the constants 
+ in the general solution.
+Master Theorem Conditions:
+ Carefully check all three cases and the regularity condition for case 3.
+Standard Problem-Solving Techniques or Shortcuts:
+Characteristic Equation Method:
+ The standard approach for linear homogeneous recurrences.
+Substitution Method:
+ For simpler recurrences, guess a solution and prove it by induction.
+Generating Functions:
+ A powerful general method for solving linear recurrences (see Generating Functions
+section).
+Master Theorem:
+ For divide-and-conquer algorithms, this is the fastest way to find the asymptotic complexity.
+Summation
+Definition and Core Idea:
+ Summation involves finding the sum of a sequence of numbers, often expressed using
+sigma notation. It's crucial for analyzing algorithm complexity, calculating probabilities, and working with series in
+various mathematical contexts.
+Important Formulas, Theorems, and Results:
+1
+. 
+Arithmetic Series:
+ Sum of an arithmetic progression 
+.
+If 
+, sum of first 
+ integers: 
+.
+2
+. 
+Geometric Series:
+ Sum of a geometric progression 
+.
+Infinite Geometric Series:
+ If 
+, then 
+.
+3
+. 
+Sum of Squares:
+4
+. 
+Sum of Cubes:
+
+
+5
+. 
+Harmonic Series:
+ 
+. 
+, where 
+ (Euler-Mascheroni constant).
+6
+. 
+Telescoping Sums:
+ A sum where intermediate terms cancel out.
+Key Properties and Identities:
+Linearity:
+ 
+.
+Changing the limits of summation requires careful adjustment of the terms.
+Common Pitfalls or Tricky Points:
+Off-by-One Errors:
+ Incorrectly determining the number of terms in a series (e.g., summing from 
+ to 
+ vs. 
+ to 
+).
+Incorrectly Identifying Series Type:
+ Make sure it's truly arithmetic, geometric, or another standard type before
+applying formulas.
+Convergence of Infinite Series:
+ For infinite geometric series, ensure 
+.
+Standard Problem-Solving Techniques or Shortcuts:
+Direct Formula Application:
+ For standard series (arithmetic, geometric, sums of powers), memorize and apply the
+formulas.
+Telescoping:
+ Look for terms that can be expressed as differences, leading to cancellation.
+Splitting Sums:
+ Break a complex sum into multiple simpler sums using linearity.
+Changing Index:
+ Adjust the summation index to match standard formulas (e.g., starting from 0 or 1).
+Integral Approximation:
+ For sums that don't have a closed form, integrals can provide good upper and lower
+bounds (e.g., for harmonic series).
+Quick Formula Reference
+Permutations:
+Permutations with Repetition: 
+Circular Permutations: 
+Combinations:
+Combinations with Repetition: 
+Symmetry: 
+Pascal's Identity: 
+Sum: 
+Balls In Bins:
+Distinct Balls, Distinct Bins (any per bin): 
+Distinct Balls, Distinct Bins (at most one per bin): 
+Identical Balls, Distinct Bins (any per bin): 
+Identical Balls, Distinct Bins (at least one per bin): 
+Distinct Balls, Identical Bins (at least one per bin): 
+ (Stirling numbers of 2nd kind)
+Principle of Inclusion-Exclusion (PIE):
+Derangements:
+ 
+Generating Functions:
+
+
+1.1
+1.1.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+None of the above
+Modular Arithmetic:
+Fermat's Little Theorem (p prime, 
+): 
+Euler's Theorem (
+): 
+Euler's Totient Function: 
+Pigeonhole Principle:
+Basic: If 
+ pigeons in 
+ holes and 
+, at least one hole has >1 pigeon.
+Generalized: At least one hole has 
+ pigeons.
+Recurrence Relations:
+Homogeneous Linear: 
+ (solve characteristic equation 
+).
+Master Theorem: For 
+. Compare 
+ with 
+.
+Summation Formulas:
+Arithmetic Series: 
+Sum of first 
+ integers: 
+Geometric Series: 
+Infinite Geometric Series (
+): 
+Sum of Squares: 
+Sum of Cubes: 
+Important Tips for GATE
+1
+. 
+Read Carefully:
+ Pay extreme attention to keywords like "distinct," "identical," "at least," "at most," "with
+replacement," "without replacement," "ordered," "unordered," "empty bins allowed," etc. These words dictate which
+formula or technique to use.
+2
+. 
+Visualize and Simplify:
+ For combinatorics and PHP problems, try to draw small examples or simplify the problem
+to a smaller scale to understand the underlying structure. This helps in correctly identifying pigeons/pigeonholes or
+the counting method.
+3
+. 
+Master the Basics:
+ Ensure you are fluent with fundamental permutations, combinations, and the stars and bars
+technique. Many complex problems are built upon these basic principles.
+4
+. 
+Practice with PYQs:
+ Solve previous year GATE questions diligently. This helps you understand the common
+patterns, tricky phrasing, and expected depth of knowledge. Pay attention to how different concepts are combined in
+a single question.
+5
+. 
+Complementary Counting:
+ For "at least" or "not allowed" type problems, consider using complementary counting
+(Total ways - Unwanted ways). This can often simplify the problem significantly compared to direct counting.
+6
+. 
+Time Management for Recurrence Relations:
+ For recurrence relations, if it's a divide-and-conquer type, try the
+Master Theorem first. If it's a linear recurrence, be quick with characteristic equations and solving for constants
+using initial conditions.
+7
+. 
+Modular Arithmetic for Large Numbers:
+ Always reduce intermediate results modulo 
+ in modular arithmetic. For
+large exponents, use Fermat's Little Theorem or Euler's Theorem to reduce the exponent modulo 
+ (or 
+ if 
+ is prime).
+8
+. 
+Don't Be Afraid of Casework:
+ If a problem seems too complex for a single formula, break it down into mutually
+exclusive cases. Calculate each case separately and sum the results. Ensure cases are exhaustive.
+Balls In Bins 
+(6)
+Balls In Bins: GATE CSE 1999 | Question: 1.3
+The number of binary strings of 
+ zeros and 
+ ones in which no two ones are adjacent is
+gate1999
+ 
+combinatory
+ 
+normal
+ 
+counting
+ 
+balls-in-bins
+
+
+1.1.2
+1.1.3
+1.1.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.1.5
+1.1.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.2
+Answer key
+☟
+Balls In Bins: GATE CSE 2000 | Question: 5
+A multiset is an unordered collection of elements where elements may repeat any number of times. The size
+of a multiset is the number of elements in it, counting repetitions.
+a
+. 
+What is the number of multisets of size 
+ that can be constructed from n distinct elements so that at least one
+element occurs exactly twice?
+b
+. 
+How many multisets can be constructed from n distinct elements? 
+gatecse-2000
+ 
+combinatory
+ 
+normal
+ 
+descriptive
+ 
+counting
+ 
+balls-in-bins
+Answer key
+☟
+Balls In Bins: GATE CSE 2002 | Question: 13
+a
+. 
+In how many ways can a given positive integer 
+ be expressed as the sum of 
+ positive integers (which are
+not necessarily distinct). For example, for 
+, the number of ways is 
+, i.e., 
+. Give only the
+answer without any explanation.
+b
+. 
+In how many ways can a given positive integer 
+ be expressed as the sum of 
+ positive integers (which are
+not necessarily distinct). For example, for 
+, the number of ways is 
+, i.e., 
+ and 
+. Give only the answer without explanation.
+c
+. 
+In how many ways can a given positive integer 
+ be expressed as the sum of 
+ positive integers (which are
+not necessarily distinct). Give only the answer without explanation.
+gatecse-2002
+ 
+combinatory
+ 
+normal
+ 
+descriptive
+ 
+balls-in-bins
+Answer key
+☟
+Balls In Bins: GATE CSE 2003 | Question: 34
+ identical balls are to be placed in 
+ distinct bags. You are given that 
+, where 
+ is a natural
+number 
+. In how many ways can the balls be placed in the bags if each bag must contain at least 
+balls?
+gatecse-2003
+ 
+combinatory
+ 
+balls-in-bins
+ 
+normal
+Answer key
+☟
+Balls In Bins: GATE CSE 2022 | Question: 22
+The number of arrangements of six identical balls in three identical bins is _____________ .
+gatecse-2022
+ 
+numerical-answers
+ 
+combinatory
+ 
+balls-in-bins
+ 
+one-mark
+Answer key
+☟
+Balls In Bins: GATE IT 2004 | Question: 35
+In how many ways can we distribute 
+ distinct balls, 
+ in 
+ distinct cells, 
+such that Ball 
+ is not in cell 
+, 
+  and each cell contains exactly one ball?
+gateit-2004
+ 
+combinatory
+ 
+normal
+ 
+balls-in-bins
+Answer key
+☟
+Combinatory 
+(18)
+
+
+1.2.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+.
+1.2.2
+1.2.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.2.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+None of the above
+1.2.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.2.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.2.7
+Combinatory: GATE CSE 1990 | Question: 3-ix
+The number of ways in which 
+ and 
+ can be arranged in a row is:
+gate1990
+ 
+normal
+ 
+combinatory
+Answer key
+☟
+Combinatory: GATE CSE 1991 | Question: 16,a
+Find the number of binary strings 
+ of length 
+ with an equal number of 
+ and 
+ and the property that
+every prefix of 
+ has at least as many 
+ as 
+gate1991
+ 
+combinatory
+ 
+normal
+ 
+descriptive
+ 
+catalan-number
+Answer key
+☟
+Combinatory: GATE CSE 1998 | Question: 1.23
+How many sub strings of different lengths (non-zero) can be formed from a character string of length 
+?
+gate1998
+ 
+combinatory
+ 
+normal
+Answer key
+☟
+Combinatory: GATE CSE 1999 | Question: 2.2
+Two girls have picked 
+ roses, 
+ sunﬂowers and 
+ daﬀodils. What is the number of ways they can divide
+the flowers among themselves?
+gate1999
+ 
+combinatory
+ 
+normal
+Answer key
+☟
+Combinatory: GATE CSE 2001 | Question: 2.1
+How many 
+-digit even numbers have all 
+ digits distinct?
+gatecse-2001
+ 
+combinatory
+ 
+normal
+Answer key
+☟
+Combinatory: GATE CSE 2003 | Question: 4
+Let 
+ be a sequence of 
+ distinct integers sorted in ascending order. How many distinct pairs of sequences,
+ and 
+ are there such that
+i
+. 
+each is sorted in ascending order,
+ii
+. 
+ has 
+ and 
+ has 
+ elements, and
+iii
+. 
+the result of merging 
+ and 
+ gives 
+gatecse-2003
+ 
+combinatory
+ 
+normal
+Answer key
+☟
+Combinatory: GATE CSE 2003 | Question: 5
+ couples are invited to a party with the condition that every husband should be accompanied by his wife.
+However, a wife need not be accompanied by her husband. The number of diﬀerent gatherings possible at
+the party is
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.2.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.2.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+None of the above
+1.2.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.2.11
+1.2.12
+1.2.13
+gatecse-2003
+ 
+combinatory
+ 
+normal
+Answer key
+☟
+Combinatory: GATE CSE 2004 | Question: 75
+Mala has the colouring book in which each English letter is drawn two times. She wants to paint each of
+these 
+ prints with one of 
+ colours, such that the colour pairs used to colour any two letters are diﬀerent.
+Both prints of a letter can also be coloured with the same colour. What is the minimum value of 
+ that satisﬁes this
+requirement?
+gatecse-2004
+ 
+combinatory
+Answer key
+☟
+Combinatory: GATE CSE 2007 | Question: 84
+Suppose that a robot is placed on the Cartesian plane. At each step it is allowed to move either one unit up
+or one unit right, i.e., if it is at 
+ then it can move to either 
+ or 
+.
+How many distinct paths are there for the robot to reach the point 
+ starting from the initial position 
+?
+gatecse-2007
+ 
+combinatory
+Answer key
+☟
+Combinatory: GATE CSE 2007 | Question: 85
+Suppose that a robot is placed on the Cartesian plane. At each step it is allowed to move either one unit up
+or one unit right, i.e., if it is at 
+ then it can move to either 
+ or 
+.
+Suppose that the robot is not allowed to traverse the line segment from 
+ to 
+. With this constraint, how
+many distinct paths are there for the robot to reach 
+ starting from 
+?
+gatecse-2007
+ 
+combinatory
+ 
+normal
+ 
+discrete-mathematics
+Answer key
+☟
+Combinatory: GATE CSE 2014 | Set 1 | Question: 49
+A pennant is a sequence of numbers, each number being 
+ or 
+. An 
+pennant is a sequence of numbers
+with sum equal to 
+. For example, 
+ is a 
+pennant. The set of all possible 
+pennants is 
+, the
+set of all possible 
+pennants is 
+ and the set of all 
+pennants is 
+. Note that the
+pennant 
+ is not the same as the pennant 
+. The number of 
+pennants is________
+gatecse-2014-set1
+ 
+combinatory
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Combinatory: GATE CSE 2015 | Set 3 | Question: 5
+The number of 
+ digit numbers having their digits in non-decreasing order (from left to right) constructed by
+using the digits belonging to the set 
+ is ________.
+gatecse-2015-set3
+ 
+combinatory
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Combinatory: GATE CSE 2019 | Question: 5
+Let 
+ Let 
+. Consider the following two statements on 
+.
+
+
+A
+. 
+Only I
+B
+. 
+Only II
+C
+. 
+Both I and II
+D
+. 
+Neither I nor II
+1.2.14
+1.2.15
+1.2.16
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.2.17
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.2.18
+I
+. 
+II
+. 
+Which of the above statements is/are TRUE?
+gatecse-2019
+ 
+engineering-mathematics
+ 
+discrete-mathematics
+ 
+combinatory
+ 
+one-mark
+Answer key
+☟
+Combinatory: GATE CSE 2020 | Question: 42
+The number of permutations of the characters in LILAC so that no character appears in its original position, if
+the two L’s are indistinguishable, is ______.
+gatecse-2020
+ 
+numerical-answers
+ 
+combinatory
+ 
+two-marks
+Answer key
+☟
+Combinatory: GATE CSE 2025 | Set 1 | Question: 20
+Let 
+ be the set of all ternary strings deﬁned over the alphabet 
+. Consider all strings in 
+ that
+contain at least one occurrence of two consecutive symbols, that is, 
+, 
+ or 
+. The number of
+such strings of length 
+ that are possible is __________. (Answer in integer).
+gatecse2025-set1
+ 
+combinatory
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Combinatory: GATE CSE 2026 | Set 1 | Question: 2
+Consider 
+ matrices with their elements from 
+. The number of such matrices with even number of
+ s in every row and every column is
+gatecse-2026-set1
+ 
+combinatory
+ 
+one-mark
+Answer key
+☟
+Combinatory: GATE IT 2005 | Question: 46
+A line 
+ in a circuit is said to have a 
+ fault if the line permanently has a logic value 
+.
+Similarly a line 
+ in a circuit is said to have a 
+ fault if the line permanently has a logic value 
+. A circuit is said to have a multiple 
+ fault if one or more lines have stuck at faults. The total number of
+distinct multiple 
+ faults possible in a circuit with 
+ lines is 
+gateit-2005
+ 
+combinatory
+ 
+normal
+Answer key
+☟
+Combinatory: GATE IT 2008 | Question: 25
+In how many ways can 
+ blue balls and 
+ red balls be distributed in 
+ distinct boxes?
+A. 
+B. 
+C. 
+
+
+1.3
+1.3.1
+1.3.2
+1.3.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.3.4
+D. 
+gateit-2008
+ 
+combinatory
+ 
+normal
+Answer key
+☟
+Counting 
+(6)
+Counting: GATE CSE 1990 | Question: 3-iii
+The number of rooted binary trees with 
+ nodes is,
+A
+. 
+Equal to the number of ways of multiplying 
+ matrices.
+B
+. 
+Equal to the number of ways of arranging 
+ out of 
+ distinct elements.
+C
+. 
+Equal to 
+.
+D
+. 
+Equal to 
+.
+gate1990
+ 
+normal
+ 
+combinatory
+ 
+catalan-number
+ 
+multiple-selects
+ 
+counting
+Answer key
+☟
+Counting: GATE CSE 1991 | Question: 02-iv
+Match the pairs in the following questions by writing the corresponding letters only.
+gate1991
+ 
+combinatory
+ 
+normal
+ 
+match-the-following
+ 
+counting
+Answer key
+☟
+Counting: GATE CSE 1994 | Question: 1.15
+The number of substrings (of all lengths inclusive) that can be formed from a character string of length 
+ is
+gate1994
+ 
+combinatory
+ 
+counting
+ 
+normal
+Answer key
+☟
+Counting: GATE CSE 2021 | Set 1 | Question: 19
+There are 
+ jobs with distinct diﬃculty levels, and 
+ computers with distinct processing speeds. Each job is
+assigned to a computer such that:
+The fastest computer gets the toughest job and the slowest computer gets the easiest job.
+Every computer gets at least one job.
+The number of ways in which this can be done is ___________.
+gatecse-2021-set1
+ 
+combinatory
+ 
+counting
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+
+
+1.3.5
+1.3.6
+A
+. 
+ 
+B
+. 
+ !
+C
+. 
+D
+. 
+1.4
+1.4.1
+1.4.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.4.3
+1.4.4
+Counting: GATE CSE 2021 | Set 2 | Question: 50
+Let 
+ be a set consisting of 
+ elements. The number of tuples of the form 
+ such that 
+ and 
+ are
+subsets of 
+, and 
+ is ___________
+gatecse-2021-set2
+ 
+combinatory
+ 
+counting
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Counting: GATE CSE 2023 | Question: 38
+Let 
+ where 
+ is a large positive integer greater than 
+ Let 
+ be a positive integer
+less than 
+. Let 
+ be subsets of 
+ with 
+ and 
+. We say that a permutation of 
+separates 
+ from 
+ if one of the following is true.
+All members of 
+ appear in the permutation before any of the members of 
+.
+All members of 
+ appear in the permutation before any of the members of 
+.
+How many permutations of 
+ separate 
+ from 
+ 
+gatecse-2023
+ 
+combinatory
+ 
+counting
+ 
+two-marks
+Answer key
+☟
+Generating Functions 
+(6)
+Generating Functions: GATE CSE 1987 | Question: 10b
+What is the generating function 
+ for the sequence of Fibonacci numbers?
+gate1987
+ 
+combinatory
+ 
+generating-functions
+ 
+descriptive
+Answer key
+☟
+Generating Functions: GATE CSE 2005 | Question: 50
+Let 
+, where 
+. What is 
+?
+gatecse-2005
+ 
+normal
+ 
+generating-functions
+Answer key
+☟
+Generating Functions: GATE CSE 2016 | Set 1 | Question: 26
+The coefficient of 
+ in 
+ is ___________.
+gatecse-2016-set1
+ 
+combinatory
+ 
+generating-functions
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Generating Functions: GATE CSE 2017 | Set 2 | Question: 47
+If the ordinary generating function of a sequence 
+  is 
+, then 
+ is equal to
+___________ .
+gatecse-2017-set2
+ 
+combinatory
+ 
+generating-functions
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+
+
+1.4.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.4.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5
+1.5.1
+1.5.2
+1.6
+1.6.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.6.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.7
+Generating Functions: GATE CSE 2018 | Question: 1
+Which one of the following is a closed form expression for the generating function of the sequence 
+,
+where 
+?
+gatecse-2018
+ 
+generating-functions
+ 
+normal
+ 
+combinatory
+ 
+one-mark
+Answer key
+☟
+Generating Functions: GATE CSE 2022 | Question: 26
+Which one of the following is the closed form for the generating function of the sequence 
+ deﬁned
+below?
+gatecse-2022
+ 
+combinatory
+ 
+generating-functions
+ 
+two-marks
+Answer key
+☟
+Modular Arithmetic 
+(2)
+Modular Arithmetic: GATE CSE 2016 | Set 2 | Question: 29
+The value of the expression 
+ in the range 
+ to 
+, is ________.
+gatecse-2016-set2
+ 
+modular-arithmetic
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Modular Arithmetic: GATE CSE 2019 | Question: 21
+The value of 
+ is _____
+gatecse-2019
+ 
+numerical-answers
+ 
+combinatory
+ 
+modular-arithmetic
+ 
+one-mark
+Answer key
+☟
+Pigeonhole Principle 
+(2)
+Pigeonhole Principle: GATE CSE 2000 | Question: 1.1
+The minimum number of cards to be dealt from an arbitrarily shuﬄed deck of 
+ cards to guarantee that
+three cards are from same suit is
+gatecse-2000
+ 
+easy
+ 
+pigeonhole-principle
+ 
+combinatory
+Answer key
+☟
+Pigeonhole Principle: GATE CSE 2005 | Question: 44
+What is the minimum number of ordered pairs of non-negative numbers that should be chosen to ensure
+that there are two pairs 
+ and 
+ in the chosen set such that,  
+   and   
+gatecse-2005
+ 
+set-theory&algebra
+ 
+normal
+ 
+pigeonhole-principle
+Answer key
+☟
+Recurrence Relation 
+(7)
+
+
+1.7.1
+1.7.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.7.3
+1.7.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.7.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Recurrence Relation: GATE CSE 1996 | Question: 9
+The Fibonacci sequence 
+ is defined by the following recurrence:
+Prove by induction that every third element of the sequence is even.
+gate1996
+ 
+recurrence-relation
+ 
+proof
+ 
+descriptive
+Answer key
+☟
+Recurrence Relation: GATE CSE 2016 | Set 1 | Question: 2
+Let 
+ be the number of 
+-bit strings that do 
+NOT
+ contain two consecutive 
+. Which one of the following is
+the recurrence relation for 
+?
+gatecse-2016-set1
+ 
+combinatory
+ 
+recurrence-relation
+ 
+easy
+Answer key
+☟
+Recurrence Relation: GATE CSE 2016 | Set 1 | Question: 27
+Consider the recurrence relation 
+. Let  
+. The value of 
+ is
+__________.
+gatecse-2016-set1
+ 
+combinatory
+ 
+recurrence-relation
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Recurrence Relation: GATE CSE 2022 | Question: 41
+Consider the following recurrence:
+Then, which of the following statements is/are 
+gatecse-2022
+ 
+combinatory
+ 
+recurrence-relation
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Recurrence Relation: GATE CSE 2023 | Question: 5
+The Lucas sequence 
+ is defined by the recurrence relation:
+with 
+ and 
+.
+Which one of the options given is TRUE?
+gatecse-2023
+ 
+combinatory
+ 
+recurrence-relation
+ 
+one-mark
+Answer key
+☟
+
+
+1.7.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.7.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.8
+1.8.1
+1.8.2
+1.8.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Recurrence Relation: GATE IT 2004 | Question: 34
+Let 
+ ... be harmonic numbers. Then, for 
+,  
+ can be expressed as
+gateit-2004
+ 
+recurrence-relation
+ 
+combinatory
+ 
+normal
+Answer key
+☟
+Recurrence Relation: GATE IT 2007 | Question: 76
+Consider the sequence 
+ defined by the recurrence relation 
+, where 
+.
+Suppose there exists a 
+non-empty, open
+ interval 
+ such that for all 
+ satisfying 
+, the
+sequence converges to a limit. The sequence converges to the value?
+gateit-2007
+ 
+combinatory
+ 
+normal
+ 
+recurrence-relation
+Answer key
+☟
+Summation 
+(4)
+Summation: GATE CSE 1989 | Question: 4-i
+How many substrings (of all lengths inclusive) can be formed from a character string of length 
+? Assume all
+characters to be distinct, prove your answer.
+gate1989
+ 
+descriptive
+ 
+combinatory
+ 
+normal
+ 
+proof
+ 
+counting
+ 
+summation
+Answer key
+☟
+Summation: GATE CSE 1994 | Question: 15
+Use the patterns given to prove that
+A
+. 
+(You are not permitted to employ induction)
+B
+. 
+Use the result obtained in (A) to prove that 
+gate1994
+ 
+combinatory
+ 
+proof
+ 
+summation
+ 
+descriptive
+Answer key
+☟
+Summation: GATE CSE 2008 | Question: 24
+Let 
+ and 
+, where 
+ is a positive integer. Then
+gatecse-2008
+ 
+combinatory
+ 
+easy
+ 
+summation
+Answer key
+☟
+
+
+1.8.4
+Summation: GATE CSE 2015 | Set 1 | Question: 26
+ = ______.
+gatecse-2015-set1
+ 
+combinatory
+ 
+normal
+ 
+numerical-answers
+ 
+summation
+Answer key
+☟
+Answer Keys
+1.1.1
+D
+1.1.2
+N/A
+1.1.3
+N/A
+1.1.4
+B
+1.1.5
+7
+1.1.6
+A
+1.2.1
+A
+1.2.2
+N/A
+1.2.3
+D
+1.2.4
+D
+1.2.5
+B
+1.2.6
+C
+1.2.7
+B
+1.2.8
+C
+1.2.9
+A
+1.2.10
+D
+1.2.11
+89
+1.2.12
+15
+1.2.13
+C
+1.2.14
+12
+1.2.15
+195:195
+1.2.16
+A
+1.2.17
+B
+1.2.18
+A
+1.3.1
+A;C
+1.3.2
+N/A
+1.3.3
+D
+1.3.4
+65 : 65
+1.3.5
+59049 : 59049
+1.3.6
+D
+1.4.1
+N/A
+1.4.2
+B
+1.4.3
+10
+1.4.4
+15
+1.4.5
+D
+1.4.6
+A
+1.5.1
+4
+1.5.2
+2
+1.6.1
+C
+1.6.2
+C
+1.7.1
+N/A
+1.7.2
+B
+1.7.3
+197.9 : 198.1
+1.7.4
+A;B;C
+1.7.5
+A
+1.7.6
+B
+1.7.7
+B
+1.8.1
+N/A
+1.8.2
+N/A
+1.8.3
+A
+1.8.4
+0.99

@@ -1,0 +1,3390 @@
+2
+Discrete Mathematics: Graph Theory
+ 
+(88)
+Syllabus:
+ 
+Connectivity,
+ 
+Matching,
+ 
+Coloring.
+Welcome to the Graph Theory chapter, a cornerstone of Discrete Mathematics and a frequently tested area in the
+GATE Computer Science examination. Graph Theory provides a powerful framework for modeling relationships and
+processes across various domains, from social networks and transportation systems to computer networks and
+algorithm design. For GATE CS, this subject typically carries a weightage of 
+5-8 marks
+, often integrated with Data
+Structures and Algorithms. Questions range from direct application of definitions and formulas, analysis of graph
+properties, tracing graph algorithms, to problem-solving scenarios involving connectivity, coloring, and planarity. A
+strong grasp of graph theory fundamentals is crucial not only for scoring well but also for understanding advanced
+topics in computer science.
+Topic-wise Key Concepts
+Counting
+Counting in graph theory involves determining the number of possible graphs, paths, cycles, or specific structures within
+graphs. It often relies on fundamental combinatorial principles.
+Definition and Core Idea:
+ This topic focuses on enumerating different types of graphs or substructures within them,
+using principles of permutations, combinations, and other combinatorial techniques. It's about understanding how
+many ways a graph can be formed or how many specific patterns exist.
+Important Formulas, Theorems, and Results:
+1
+. 
+Number of simple labeled graphs with 
+ vertices:
+This is because for each pair of 
+ vertices, there can either be an edge or not.
+2
+. 
+Number of simple directed labeled graphs with 
+ vertices:
+For each ordered pair of distinct vertices 
+, there can be an edge from 
+ to 
+, or not.
+3
+. 
+Number of spanning trees in a complete graph 
+ (Cayley's Formula):
+This formula is critical for counting trees on a given set of labeled vertices.
+4
+. 
+Number of spanning trees in a general graph (Matrix Tree Theorem):
+ 
+This theorem uses the Laplacian
+matrix of a graph, but its direct application is usually beyond GATE scope; Cayley's formula is more common.
+5
+. 
+Number of paths of length 
+ between two vertices in an adjacency matrix:
+ The 
+-th entry of 
+ (where 
+ is the adjacency matrix) gives the number of paths of length 
+ from vertex 
+ to vertex 
+.
+Key Properties and Identities:
+Understanding the difference between labeled and unlabeled graphs is crucial. GATE questions usually imply
+labeled graphs unless specified.
+Basic combinatorial identities like 
+ and 
+ are fundamental.
+The Inclusion-Exclusion Principle can be used for more complex counting problems, especially when dealing with
+properties that overlap.
+Common Pitfalls or Tricky Points:
+Overcounting or Undercounting:
+ Ensure each distinct configuration is counted exactly once.
+Distinguishing Labeled vs. Unlabeled:
+ Most GATE questions assume labeled vertices unless stated
+otherwise, which simplifies counting. Unlabeled graph counting is significantly harder.
+Specific Graph Types:
+ Be careful when counting paths/cycles in specific graph types like trees, complete
+graphs, or bipartite graphs.
+
+
+Standard Problem-Solving Techniques or Shortcuts:
+Direct Application of Formulas:
+ For simple graphs, complete graphs, and spanning trees, direct formula
+application is common.
+Combinatorial Arguments:
+ Break down the problem into smaller, manageable choices and multiply/add the
+possibilities.
+Recurrence Relations:
+ For counting paths or specific structures, sometimes a recurrence relation can be
+formulated and solved.
+Degree of Graph
+The degree of a vertex is a fundamental property that quantifies its connectivity within a graph. It's essential for
+understanding graph structure and validating basic graph properties.
+Definition and Core Idea:
+ The degree of a vertex 
+, denoted 
+ or 
+, is the number of edges incident to it.
+For directed graphs, we distinguish between in-degree (edges pointing to 
+) and out-degree (edges pointing from 
+).
+Important Formulas, Theorems, and Results:
+1
+. 
+Handshaking Lemma (for undirected graphs):
+ The sum of the degrees of all vertices in any undirected graph
+is equal to twice the number of edges.
+This is a cornerstone theorem in graph theory.
+2
+. 
+For directed graphs:
+ The sum of in-degrees equals the sum of out-degrees, and both are equal to the total
+number of edges.
+3
+. 
+Number of odd-degree vertices:
+ In any undirected graph, the number of vertices with odd degree must be
+even. This is a direct consequence of the Handshaking Lemma.
+4
+. 
+Maximum degree 
+ and Minimum degree 
+:
+ These denote the maximum and minimum degrees
+among all vertices in graph 
+, respectively.
+Key Properties and Identities:
+The Handshaking Lemma is a powerful tool for checking the validity of a degree sequence or finding the number
+of edges.
+A graph cannot exist if its degree sequence violates the Handshaking Lemma or has an odd number of odd-
+degree vertices.
+For a simple graph with 
+ vertices, the maximum degree of any vertex is 
+.
+Common Pitfalls or Tricky Points:
+Self-loops:
+ In some contexts, a self-loop at a vertex contributes 2 to its degree. GATE questions usually specify
+if self-loops are allowed or assume simple graphs (no self-loops, no multiple edges).
+Multiple Edges:
+ If multiple edges are allowed between two vertices, each edge contributes to the degree.
+Directed vs. Undirected:
+ Always be clear whether the graph is directed or undirected when calculating degrees.
+Standard Problem-Solving Techniques or Shortcuts:
+Direct Application of Handshaking Lemma:
+ Often used to find the number of edges given a degree sequence,
+or to determine if a given degree sequence is possible.
+Parity Check:
+ Quickly identify impossible degree sequences by checking the number of odd-degree vertices.
+Graph Algorithms
+Graph algorithms are systematic procedures for solving problems on graphs, such as finding paths, spanning trees, or
+optimal routes. They are central to computer science applications.
+Definition and Core Idea:
+ These are algorithms designed to traverse, search, analyze, and optimize properties of
+graphs. They form the backbone of many real-world applications, from network routing to social network analysis.
+Important Algorithms, Formulas, and Complexities:
+1
+. 
+Breadth-First Search (BFS):
+ Explores a graph layer by layer.
+Purpose:
+ Find shortest path in unweighted graphs, find connected components.
+Time Complexity:
+ 
+ for adjacency list, 
+ for adjacency matrix.
+2
+. 
+Depth-First Search (DFS):
+ Explores as far as possible along each branch before backtracking.
+Purpose:
+ Find connected components, topological sort, detect cycles, find bridges/articulation points.
+
+
+Time Complexity:
+ 
+ for adjacency list, 
+ for adjacency matrix.
+3
+. 
+Dijkstra's Algorithm:
+ Finds the shortest paths from a single source vertex to all other vertices in a graph with
+non-negative edge weights.
+Purpose:
+ Single-source shortest path.
+Time Complexity:
+ 
+ with a Fibonacci heap, 
+ with a binary heap, 
+ with
+adjacency matrix.
+4
+. 
+Prim's Algorithm:
+ Finds a Minimum Spanning Tree (MST) in a weighted, undirected graph.
+Purpose:
+ MST.
+Time Complexity:
+ 
+ with a binary heap, 
+ with adjacency matrix.
+5
+. 
+Kruskal's Algorithm:
+ Finds a Minimum Spanning Tree (MST) in a weighted, undirected graph.
+Purpose:
+ MST.
+Time Complexity:
+ 
+ or 
+ using a Disjoint Set Union (DSU) data structure.
+6
+. 
+Bellman-Ford Algorithm:
+ Finds the shortest paths from a single source vertex to all other vertices, even with
+negative edge weights. Detects negative cycles.
+Purpose:
+ Single-source shortest path with negative weights.
+Time Complexity:
+ 
+.
+7
+. 
+Floyd-Warshall Algorithm:
+ Finds all-pairs shortest paths in a weighted graph, can handle negative weights but
+not negative cycles.
+Purpose:
+ All-pairs shortest path.
+Time Complexity:
+ 
+.
+8
+. 
+Topological Sort:
+ Linear ordering of vertices such that for every directed edge 
+, 
+ comes before 
+.
+Applicable only to Directed Acyclic Graphs (DAGs).
+Purpose:
+ Ordering tasks with dependencies.
+Time Complexity:
+ 
+ (using DFS or Kahn's algorithm).
+9
+. 
+Ford-Fulkerson Algorithm (and Edmonds-Karp):
+ Finds the maximum flow in a flow network.
+Purpose:
+ Maximum flow.
+Time Complexity:
+ Ford-Fulkerson is not polynomial in general; Edmonds-Karp is 
+.
+Key Properties and Identities:
+Greedy Algorithms:
+ Prim's, Kruskal's, Dijkstra's are greedy algorithms that make locally optimal choices.
+Dynamic Programming:
+ Floyd-Warshall and Bellman-Ford use dynamic programming principles.
+Connectivity:
+ BFS/DFS can determine if a graph is connected or find its connected components.
+Cycles:
+ DFS can detect cycles in both directed and undirected graphs.
+Common Pitfalls or Tricky Points:
+Negative Edge Weights:
+ Dijkstra's fails with negative edge weights; use Bellman-Ford or Floyd-Warshall.
+Disconnected Graphs:
+ Algorithms like Dijkstra's might not reach all vertices if the graph is disconnected from
+the source.
+Choosing the Right Algorithm:
+ Understand the constraints (weighted/unweighted, directed/undirected,
+negative weights, single-source/all-pairs) to select the appropriate algorithm.
+Adjacency List vs. Matrix:
+ Be aware of how the graph representation affects time complexity.
+Standard Problem-Solving Techniques or Shortcuts:
+Tracing:
+ Practice tracing algorithms step-by-step on small graphs to understand their mechanics.
+Recognizing Patterns:
+ Identify if a problem can be mapped to a standard graph algorithm (e.g., "minimum cost
+to connect all cities" suggests MST).
+Complexity Analysis:
+ Be able to derive or recall the time and space complexity for common algorithms.
+Graph Coloring
+Graph coloring assigns labels (colors) to graph elements subject to certain constraints, often used to model scheduling
+or resource allocation problems.
+Definition and Core Idea:
+ Vertex coloring assigns a color to each vertex such that no two adjacent vertices have
+the same color. The minimum number of colors required for a graph 
+ is called its chromatic number, denoted 
+.
+Important Formulas, Theorems, and Results:
+1
+. 
+Chromatic Number 
+:
+ The smallest integer 
+ such that 
+ is 
+-colorable.
+2
+. 
+Lower Bound:
+ For any graph 
+, 
+, where 
+ is the clique number (size of the largest clique).
+3
+. 
+Upper Bound (Brooks' Theorem):
+ For a connected graph 
+ that is neither a complete graph nor an odd cycle, 
+, where 
+ is the maximum degree. In general, 
+.
+4
+. 
+Bipartite Graphs:
+ A graph is bipartite if and only if it contains no odd-length cycles. If a graph is bipartite and
+has at least one edge, then 
+.
+
+
+5
+. 
+Planar Graphs (Four Color Theorem):
+ Every planar graph is 4-colorable. Thus, for any planar graph 
+, 
+.
+6
+. 
+Chromatic Polynomial 
+:
+ A polynomial whose value at integer 
+ is the number of ways to color 
+ using
+at most 
+ colors. For a graph with 
+ vertices, 
+ is a polynomial in 
+ of degree 
+.
+Key Properties and Identities:
+A graph is 2-colorable if and only if it is bipartite.
+If a graph contains a clique of size 
+, then at least 
+ colors are needed.
+The chromatic number of a complete graph 
+ is 
+.
+The chromatic number of a cycle graph 
+ is 2 if 
+ is even, and 3 if 
+ is odd.
+Common Pitfalls or Tricky Points:
+Minimum vs. Any Coloring:
+ The goal is to find the minimum number of colors, not just any valid coloring.
+Identifying Cliques:
+ Finding the largest clique (
+) can be hard, but it provides a lower bound for 
+.
+Edge Coloring (
+):
+ Similar concept but for edges (adjacent edges have different colors). Vizing's Theorem
+states 
+. GATE usually focuses on vertex coloring.
+Standard Problem-Solving Techniques or Shortcuts:
+Greedy Coloring:
+ Assign colors iteratively to vertices in some order (e.g., decreasing degree). While not always
+optimal, it's a common heuristic.
+Identify Cliques and Odd Cycles:
+ These structures directly give lower bounds for the chromatic number.
+Trial and Error/Backtracking:
+ For small graphs, try to color with 2, then 3, etc., until a valid coloring is found.
+Graph Connectivity
+Graph connectivity measures how robust a graph is to the removal of vertices or edges. It's crucial for network reliability
+and fault tolerance.
+Definition and Core Idea:
+ Connectivity refers to the property of a graph being "connected," meaning there's a path
+between any two vertices. More generally, it quantifies how many vertices or edges must be removed to disconnect
+the graph.
+Important Formulas, Theorems, and Results:
+1
+. 
+Connected Graph:
+ A graph is connected if there is a path between every pair of distinct vertices.
+2
+. 
+Connected Components:
+ Maximal connected subgraphs.
+3
+. 
+Cut Vertex (Articulation Point):
+ A vertex whose removal increases the number of connected components.
+4
+. 
+Cut Edge (Bridge):
+ An edge whose removal increases the number of connected components.
+5
+. 
+Vertex Connectivity 
+:
+ The minimum number of vertices whose removal disconnects 
+ or reduces it to a
+trivial graph. A graph is 
+-connected if 
+.
+6
+. 
+Edge Connectivity 
+:
+ The minimum number of edges whose removal disconnects 
+. A graph is 
+-edge-
+connected if 
+.
+7
+. 
+Relationship:
+ For any graph 
+, 
+, where 
+ is the minimum degree of 
+.
+8
+. 
+Menger's Theorem:
+ For any two non-adjacent vertices 
+ and 
+ in a graph 
+, the maximum number of vertex-
+disjoint paths between 
+ and 
+ is equal to the minimum number of vertices whose removal separates 
+ and 
+.
+(Similar theorem for edge-disjoint paths and edge cuts).
+Key Properties and Identities:
+A tree with more than one vertex has 
+ and 
+.
+A complete graph 
+ has 
+ and 
+.
+If a graph has a bridge, its edge connectivity is 1. If it has an articulation point, its vertex connectivity is 1 (unless
+it's 
+).
+Common Pitfalls or Tricky Points:
+Trivial Graph:
+ For a complete graph 
+, removing 
+ vertices disconnects it into a trivial graph (single
+vertex), so 
+.
+Distinguishing Vertex vs. Edge Connectivity:
+ Carefully read whether the question asks for vertex or edge
+removal.
+Disconnected Graphs:
+ For a disconnected graph, 
+ and 
+.
+Standard Problem-Solving Techniques or Shortcuts:
+BFS/DFS:
+ Can be used to find connected components, bridges, and articulation points.
+Trial and Error:
+ For small graphs, try removing vertices/edges to find the minimum set that disconnects the
+graph.
+Apply 
+:
+ This inequality provides quick bounds.
+Graph Isomorphism
+
+
+Graph isomorphism determines if two graphs are structurally identical, regardless of their vertex labeling or drawing
+style. It's a fundamental concept for comparing graphs.
+Definition and Core Idea:
+ Two graphs 
+ and 
+ are isomorphic if there exists a bijective
+function 
+ such that for any pair of vertices 
+, 
+ if and only if 
+.
+Essentially, they have the same structure.
+Important Properties (Invariants):
+1
+. 
+Number of Vertices:
+ 
+.
+2
+. 
+Number of Edges:
+ 
+.
+3
+. 
+Degree Sequence:
+ Both graphs must have the same degree sequence (multiset of degrees).
+4
+. 
+Number of Connected Components:
+ Must be the same.
+5
+. 
+Cycle Lengths:
+ The number of cycles of each specific length must be the same.
+6
+. 
+Connectivity:
+ Same vertex and edge connectivity.
+7
+. 
+Chromatic Number:
+ Must be the same.
+8
+. 
+Presence of Subgraphs:
+ If 
+ contains a subgraph 
+, then 
+ must also contain 
+.
+Key Properties and Identities:
+If any of the invariants differ, the graphs are definitely NOT isomorphic.
+If all invariants are the same, the graphs MIGHT be isomorphic, but it's not a guarantee (e.g., regular graphs can
+have the same degree sequence but be non-isomorphic).
+The Graph Isomorphism Problem (determining if two graphs are isomorphic) is in NP, but its exact complexity
+class is unknown (neither P nor NP-complete is proven). For GATE, problems are usually small enough to solve
+by inspection or invariant checking.
+Common Pitfalls or Tricky Points:
+Proving Non-Isomorphism:
+ This is generally easier; just find one invariant that differs.
+Proving Isomorphism:
+ This requires finding an explicit bijective mapping 
+, which can be challenging. Often, it
+involves matching vertices with identical properties (e.g., same degree, same neighborhood structure).
+Visual Deception:
+ Graphs drawn differently can be isomorphic, and graphs drawn similarly can be non-
+isomorphic.
+Standard Problem-Solving Techniques or Shortcuts:
+Check Invariants Systematically:
+ Start with simple invariants like number of vertices, edges, and degree
+sequence. If any differ, stop.
+Match Vertices by Properties:
+ Look for unique vertices (e.g., a vertex with degree 1, or a vertex part of a
+unique cycle structure) and try to map them.
+Adjacency Matrix Comparison:
+ If two graphs are isomorphic, their adjacency matrices can be made identical
+by permuting rows and columns. This is computationally intensive for humans but conceptually useful.
+Graph Matching
+Graph matching is about finding a set of edges that do not share any common vertices, often used in assignment
+problems or resource allocation.
+Definition and Core Idea:
+ A matching 
+ in a graph 
+ is a set of edges such that no two edges in 
+ share a
+common vertex. A vertex is 
+matched
+ (or covered) if it is an endpoint of an edge in 
+; otherwise, it is 
+unmatched
+.
+Important Formulas, Theorems, and Results:
+1
+. 
+Maximum Matching:
+ A matching with the largest possible number of edges.
+2
+. 
+Perfect Matching:
+ A matching that covers all vertices of the graph. A perfect matching can only exist if 
+ is
+even.
+3
+. 
+Augmenting Path:
+ A path that starts and ends at unmatched vertices, and whose edges alternate between
+being in the current matching and not in the current matching. An augmenting path can be used to increase the
+size of a matching.
+4
+. 
+Hall's Marriage Theorem (for Bipartite Graphs):
+ A bipartite graph 
+ has a matching that
+covers all vertices in 
+ if and only if for every subset 
+, 
+, where 
+ is the set of
+neighbors of vertices in 
+.
+5
+. 
+Tutte's Theorem (for General Graphs):
+ A graph 
+ has a perfect matching if and only if for every subset 
+, the number of odd components in 
+ is less than or equal to 
+. (This is more complex and less
+common in GATE than Hall's).
+Key Properties and Identities:
+The size of a maximum matching in a bipartite graph can be found using network flow algorithms (e.g., by
+converting to a max-flow problem).
+Every perfect matching is a maximum matching, but not vice-versa.
+A graph can have multiple maximum matchings.
+
+
+Common Pitfalls or Tricky Points:
+Confusing Matching with Vertex Cover or Edge Cover:
+ These are related but distinct concepts. A vertex
+cover is a set of vertices that touch all edges. An edge cover is a set of edges that touch all vertices (only exists
+if no isolated vertices).
+General vs. Bipartite Graphs:
+ Finding maximum matchings in general graphs is more complex (e.g., Edmonds'
+blossom algorithm) than in bipartite graphs. GATE usually focuses on bipartite matching or simpler cases.
+Existence of Perfect Matching:
+ A perfect matching requires an even number of vertices.
+Standard Problem-Solving Techniques or Shortcuts:
+Greedy Approach:
+ While not always optimal for maximum matching, a greedy approach (e.g., pick an edge,
+remove its endpoints, repeat) can give a good starting point.
+Augmenting Paths:
+ For bipartite graphs, the concept of augmenting paths is key. Start with an empty matching,
+find an augmenting path, update the matching, and repeat until no more augmenting paths exist. This is the
+basis of the Hopcroft-Karp algorithm.
+Applying Hall's Theorem:
+ For bipartite graphs, use Hall's condition to check for the existence of a matching
+covering one side.
+Graph Planarity
+Graph planarity deals with whether a graph can be drawn on a plane without any edges crossing. It has applications in
+circuit design and network visualization.
+Definition and Core Idea:
+ A graph is planar if it can be drawn in the plane without any edges crossing each other
+(except at vertices). Such a drawing is called a planar embedding.
+Important Formulas, Theorems, and Results:
+1
+. 
+Euler's Formula for Planar Graphs:
+ For any connected planar graph with 
+ vertices, 
+ edges, and 
+ faces
+(regions),
+This formula is fundamental for planar graphs.
+2
+. 
+Corollaries of Euler's Formula (for simple connected planar graphs with 
+):
+If 
+ has no cycles of length 3 (i.e., no 
+ subgraph), then 
+.
+In general, 
+.
+There is at least one vertex with degree at most 5 (
+).
+3
+. 
+Kuratowski's Theorem:
+ A graph is planar if and only if it does not contain a subgraph that is a subdivision of 
+ (complete graph on 5 vertices) or 
+ (complete bipartite graph with 3 vertices in each partition).
+A subdivision of a graph is obtained by replacing edges with paths.
+Key Properties and Identities:
+ and 
+ are non-planar.
+Any graph that contains 
+ or 
+ as a minor (or subdivision) is non-planar.
+The dual of a planar graph is also planar.
+Common Pitfalls or Tricky Points:
+Misapplying Euler's Formula:
+ Remember it's for 
+connected
+ planar graphs. For disconnected graphs, 
+, where 
+ is the number of connected components.
+Identifying Subdivisions:
+ Recognizing 
+ or 
+ subdivisions can be tricky. Look for 5 vertices all connected
+to each other (possibly via paths) or 6 vertices arranged in a bipartite manner.
+Different Drawings:
+ A graph might look non-planar in one drawing but be planar in another. The definition
+requires 
+existence
+ of a planar drawing.
+Standard Problem-Solving Techniques or Shortcuts:
+Check Euler's Formula Corollaries:
+ If 
+ (or 
+ if no triangles), the graph is definitely
+non-planar. This is a quick check for non-planarity.
+Look for 
+ or 
+ Subdivisions:
+ Try to simplify the graph by removing degree-2 vertices (which don't affect
+planarity for Kuratowski's theorem) or identifying dense subgraphs.
+Redrawing:
+ For small graphs, try to redraw them to eliminate crossings.
+Jaccard Coefficient
+The Jaccard Coefficient is a statistical measure used to gauge the similarity between two sets, finding applications in
+data mining, machine learning, and graph analysis (e.g., comparing neighbor sets).
+Definition and Core Idea:
+ The Jaccard Coefficient (or Jaccard Index) measures the similarity between two finite
+
+
+sets, 
+ and 
+, as the size of their intersection divided by the size of their union. It quantifies the overlap between
+the sets.
+Important Formulas, Theorems, and Results:
+1
+. 
+Jaccard Coefficient 
+:
+2
+. 
+Jaccard Distance 
+:
+ Measures dissimilarity.
+Key Properties and Identities:
+The Jaccard Coefficient ranges from 0 to 1.
+ if 
+ (perfect similarity).
+ if 
+ (no similarity).
+It is symmetric: 
+.
+It is sensitive to the size of the union; a large union with a small intersection leads to a low coefficient.
+Common Pitfalls or Tricky Points:
+Miscalculating Intersection or Union:
+ Ensure correct set operations, especially when dealing with lists that
+might contain duplicates (convert to sets first).
+Empty Sets:
+ If both sets are empty, the Jaccard coefficient is usually defined as 1 (perfect similarity). If one is
+empty and the other is not, it's 0.
+Application Context:
+ In graph theory, it's often used to compare the neighborhood sets of two vertices to
+determine their "structural similarity" or to compare sets of features associated with graph nodes.
+Standard Problem-Solving Techniques or Shortcuts:
+Direct Calculation:
+ Identify the elements in the intersection and union, then apply the formula.
+Venn Diagrams:
+ For small sets, a Venn diagram can help visualize the intersection and union.
+Quick Formula Reference
+Counting Simple Labeled Graphs (
+ vertices):
+ 
+Counting Simple Directed Labeled Graphs (
+ vertices):
+ 
+Cayley's Formula (Spanning Trees in 
+):
+ 
+Handshaking Lemma (Undirected):
+ 
+Handshaking Lemma (Directed):
+ 
+BFS/DFS Time Complexity:
+ 
+ (adj list), 
+ (adj matrix)
+Dijkstra's Time Complexity:
+ 
+ (binary heap), 
+ (adj matrix)
+Prim's/Kruskal's Time Complexity (MST):
+ 
+ or 
+Bellman-Ford Time Complexity:
+ 
+Floyd-Warshall Time Complexity:
+ 
+Topological Sort Time Complexity:
+ 
+Chromatic Number Lower Bound:
+ 
+ (clique number)
+Chromatic Number Upper Bound (Brooks' Theorem):
+ 
+ (for non-complete, non-odd cycle
+connected graphs), else 
+Bipartite Graph Chromatic Number:
+ 
+ (if connected and has edges)
+Planar Graph Chromatic Number (Four Color Theorem):
+ 
+Connectivity Relationship:
+ 
+Euler's Formula (Connected Planar Graph):
+ 
+Planarity Condition (Simple Connected Planar, 
+):
+ 
+Planarity Condition (Simple Connected Planar, no 
+, 
+):
+ 
+Kuratowski's Theorem:
+ Planar iff no 
+ or 
+ subdivision
+Jaccard Coefficient:
+ 
+Jaccard Distance:
+ 
+Important Tips for GATE
+
+
+2.1
+2.1.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.1.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.1.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.2
+1
+. 
+Master Definitions and Basic Properties:
+ Many GATE questions test fundamental definitions (e.g., what is a
+bridge, what is a perfect matching) and direct consequences of theorems. Ensure you know what each term means
+precisely.
+2
+. 
+Practice Drawing and Visualizing Graphs:
+ For problems involving planarity, isomorphism, or connectivity,
+sketching the graph and trying different layouts can be immensely helpful. Don't rely solely on abstract
+representations.
+3
+. 
+Understand Algorithm Mechanics and Complexity:
+ Don't just memorize complexities; understand how BFS,
+DFS, Dijkstra's, Prim's, and Kruskal's work step-by-step. Be prepared to trace them on small examples and identify
+their time/space complexities for both adjacency list and matrix representations.
+4
+. 
+Pay Attention to Graph Types and Constraints:
+ Is the graph directed or undirected? Weighted or unweighted?
+Simple or multi-graph? Does it allow self-loops? These details significantly impact which formulas or algorithms
+apply. For example, Dijkstra's fails with negative edge weights.
+5
+. 
+Use Invariants for Isomorphism:
+ When checking for isomorphism, systematically compare invariants like number
+of vertices, edges, degree sequence, and cycle lengths. If any invariant differs, the graphs are not isomorphic. This
+is a powerful shortcut.
+6
+. 
+Be Wary of Common Pitfalls:
+ Remember that Euler's formula applies to connected planar graphs. Dijkstra's
+doesn't work with negative weights. A greedy coloring isn't always optimal. Keep these exceptions in mind.
+7
+. 
+Time Management for Tracing Problems:
+ For algorithm tracing questions, work carefully and systematically. Use
+scratch paper to keep track of visited nodes, distances, or parent pointers. Avoid rushing, as a single error can
+invalidate the entire trace.
+8
+. 
+Review Special Graph Types:
+ Be familiar with properties of common graphs like complete graphs (
+), complete
+bipartite graphs (
+), cycle graphs (
+), path graphs (
+), and trees. Their specific properties often appear in
+questions.
+Counting 
+(3)
+Counting: GATE CSE 2001 | Question: 2.15
+How many undirected graphs (not necessarily connected) can be constructed out of a given set 
+ of 
+ vertices?
+gatecse-2001
+ 
+graph-theory
+ 
+normal
+ 
+counting
+Answer key
+☟
+Counting: GATE CSE 2004 | Question: 79
+How many graphs on 
+ labeled vertices exist which have at least 
+ edges ?
+gatecse-2004
+ 
+graph-theory
+ 
+combinatory
+ 
+normal
+ 
+counting
+Answer key
+☟
+Counting: GATE CSE 2012 | Question: 38
+Let 
+ be a complete undirected graph on 
+ vertices. If vertices of 
+ are labeled, then the number of distinct
+cycles of length 
+ in 
+ is equal to
+gatecse-2012
+ 
+graph-theory
+ 
+normal
+ 
+marks-to-all
+ 
+counting
+Answer key
+☟
+Degree of Graph 
+(13)
+
+
+2.2.1
+2.2.2
+2.2.3
+2.2.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.2.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.2.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.2.7
+Degree of Graph: GATE CSE 1987 | Question: 9c
+Show that the number of odd-degree vertices in a finite graph is even.
+gate1987
+ 
+graph-theory
+ 
+degree-of-graph
+ 
+descriptive
+ 
+proof
+Answer key
+☟
+Degree of Graph: GATE CSE 1991 | Question: 16-b
+Show that all vertices in an undirected ﬁnite graph cannot have distinct degrees, if the graph has at least two
+vertices.
+gate1991
+ 
+graph-theory
+ 
+degree-of-graph
+ 
+descriptive
+ 
+proof
+Answer key
+☟
+Degree of Graph: GATE CSE 1995 | Question: 24
+Prove that in finite graph, the number of vertices of odd degree is always even.
+gate1995
+ 
+graph-theory
+ 
+degree-of-graph
+ 
+proof
+ 
+descriptive
+Answer key
+☟
+Degree of Graph: GATE CSE 2003 | Question: 40
+A graph 
+ satisﬁes 
+. The min-degree of 
+ is deﬁned as 
+.
+Therefore, min-degree of 
+ cannot be 
+gatecse-2003
+ 
+graph-theory
+ 
+normal
+ 
+degree-of-graph
+Answer key
+☟
+Degree of Graph: GATE CSE 2006 | Question: 71
+The 
+  vertices of a graph 
+ corresponds to all subsets of a set of size 
+, for 
+.  Two vertices of 
+ are
+adjacent if and only if the corresponding sets intersect in exactly two elements.
+The number of vertices of degree zero in 
+ is:
+gatecse-2006
+ 
+graph-theory
+ 
+normal
+ 
+degree-of-graph
+Answer key
+☟
+Degree of Graph: GATE CSE 2006 | Question: 72
+The 
+  vertices of a graph 
+ corresponds to all subsets of a set of size 
+, for 
+. Two vertices of 
+ are
+adjacent if and only if the corresponding sets intersect in exactly two elements.
+The maximum degree of a vertex in 
+ is:
+gatecse-2006
+ 
+graph-theory
+ 
+normal
+ 
+degree-of-graph
+Answer key
+☟
+Degree of Graph: GATE CSE 2009 | Question: 3
+Which one of the following is 
+TRUE
+ for any simple connected undirected graph with more than 
+ vertices?
+A
+. 
+   No two vertices have the same degree.
+B
+. 
+   At least two vertices have the same degree.
+C
+. 
+   At least three vertices have the same degree.
+D
+. 
+   All vertices have the same degree.
+gatecse-2009
+ 
+graph-theory
+ 
+normal
+ 
+degree-of-graph
+
+
+2.2.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.2.9
+A
+. 
+I and II
+B
+. 
+III and IV
+C
+. 
+IV only
+D
+. 
+II and IV
+2.2.10
+A
+. 
+ P only
+B
+. 
+ Q only
+C
+. 
+ Both P and Q
+D
+. 
+ Neither P nor Q
+2.2.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.2.12
+2.2.13
+Answer key
+☟
+Degree of Graph: GATE CSE 2010 | Question: 1
+Let 
+ be a graph. Deﬁne 
+, where 
+ is the number of vertices of degree 
+ in 
+If 
+ and 
+ are two different trees with 
+, then
+gatecse-2010
+ 
+graph-theory
+ 
+normal
+ 
+degree-of-graph
+Answer key
+☟
+Degree of Graph: GATE CSE 2010 | Question: 28
+The degree sequence of a simple graph is the sequence of the degrees of the nodes in the graph in
+decreasing order. Which of the following sequences can not be the degree sequence of any graph?
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+gatecse-2010
+ 
+graph-theory
+ 
+degree-of-graph
+Answer key
+☟
+Degree of Graph: GATE CSE 2013 | Question: 25
+Which of the following statements is/are TRUE for undirected graphs?
+P: Number of odd degree vertices is even.
+Q: Sum of degrees of all vertices is even.
+gatecse-2013
+ 
+graph-theory
+ 
+easy
+ 
+degree-of-graph
+Answer key
+☟
+Degree of Graph: GATE CSE 2014 | Set 1 | Question: 52
+An ordered 
+tuple 
+ with 
+ is called 
+graphic 
+ if there exists a simple
+undirected graph with 
+ vertices having degrees 
+ respectively. Which one of the following 
+-
+tuples is NOT graphic?
+gatecse-2014-set1
+ 
+graph-theory
+ 
+normal
+ 
+degree-of-graph
+Answer key
+☟
+Degree of Graph: GATE CSE 2017 | Set 2 | Question: 23
+ is an undirected graph with 
+ vertices and 
+ edges such that each vertex of 
+ has degree at least 
+.
+Then the maximum possible value of 
+ is _________ .
+gatecse-2017-set2
+ 
+graph-theory
+ 
+numerical-answers
+ 
+degree-of-graph
+Answer key
+☟
+Degree of Graph: GATE CSE 2026 | Set 1 | Question: 37
+Let 
+ be a simple, undirected graph. A vertex cover of 
+ is a subset 
+ such that for every 
+ or 
+. Let the size of the smallest vertex cover in 
+ be 
+. Let 
+ be any vertex
+cover of size 
+.
+
+
+2.3
+2.3.1
+2.4
+2.4.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.4.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+For a vertex 
+, which of the following constraints will always ensure that 
+ ?
+A
+. 
+The degree of 
+ is at least 
+B
+. 
+The vertex 
+ is on a path of length 
+C
+. 
+The vertex 
+ is on a cycle of length 
+D
+. 
+The vertex 
+ is a part of a clique of size 
+gatecse-2026-set1
+ 
+graph-theory
+ 
+two-marks
+ 
+degree-of-graph
+ 
+multiple-selects
+Answer key
+☟
+Graph Algorithms 
+(1)
+Graph Algorithms: GATE CSE 2026 | Set 1 | Question: 45
+An undirected, unweighted, simple graph 
+ is said to be 
+-colorable if there exists a function 
+ such that for every 
+.
+Which of the following statements about 
+-colorable graphs is/are true?
+A
+. 
+If 
+ is 
+-colorable, then 
+ may contain cycles of odd length
+B
+. 
+If 
+ is 
+-colorable, then 
+ may contain cycles of even length
+C
+. 
+An optimal algorithm for testing whether 
+ is 
+-colorable runs in time 
+, if 
+ is represented as an
+adjacency list
+D
+. 
+An optimal algorithm for testing whether 
+ is 
+-colorable runs in time 
+, if 
+ is represented as an
+adjacency list
+gatecse-2026-set1
+ 
+graph-theory
+ 
+graph-algorithms
+ 
+two-marks
+ 
+multiple-selects
+Answer key
+☟
+Graph Coloring 
+(11)
+Graph Coloring: GATE CSE 2002 | Question: 1.4
+The minimum number of colours required to colour the vertices of a cycle with 
+ nodes in such a way that no
+two adjacent nodes have the same colour is
+gatecse-2002
+ 
+graph-theory
+ 
+graph-coloring
+ 
+normal
+Answer key
+☟
+Graph Coloring: GATE CSE 2004 | Question: 77
+The minimum number of colours required to colour the following graph, such that no two adjacent vertices
+are assigned the same color, is
+gatecse-2004
+ 
+graph-theory
+ 
+graph-coloring
+ 
+easy
+Answer key
+☟
+
+
+2.4.3
+A
+. 
+B
+. 
+C
+. 
+   
+D
+. 
+2.4.4
+2.4.5
+2.4.6
+2.4.7
+2.4.8
+Graph Coloring: GATE CSE 2009 | Question: 2
+What is the chromatic number of an 
+ vertex simple connected graph which does not contain any odd length
+cycle? Assume 
+.
+gatecse-2009
+ 
+graph-theory
+ 
+graph-coloring
+ 
+normal
+Answer key
+☟
+Graph Coloring: GATE CSE 2016 | Set 2 | Question: 03
+The minimum number of colours that is sufficient to vertex-colour any planar graph is ________.
+gatecse-2016-set2
+ 
+graph-theory
+ 
+graph-coloring
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Graph Coloring: GATE CSE 2018 | Question: 18
+The chromatic number of the following graph is _____
+graph-theory
+ 
+graph-coloring
+ 
+numerical-answers
+ 
+gatecse-2018
+ 
+one-mark
+Answer key
+☟
+Graph Coloring: GATE CSE 2020 | Question: 52
+Graph 
+ is obtained by adding vertex 
+ to 
+ and making 
+ adjacent to every vertex of 
+. The
+minimum number of colours required to edge-colour 
+ is _______
+gatecse-2020
+ 
+numerical-answers
+ 
+graph-theory
+ 
+graph-coloring
+ 
+two-marks
+Answer key
+☟
+Graph Coloring: GATE CSE 2023 | Question: 45
+Let 
+ be a simple, ﬁnite, undirected graph with vertex set 
+. Let 
+ denote the maximum
+degree of 
+ and let 
+ denote the set of all possible colors. Color the vertices of 
+ using the
+following greedy strategy: for 
+ : no neighbour of 
+ is colored 
+Which of the following statements is/are 
+A
+. 
+This procedure results in a proper vertex coloring of 
+.
+B
+. 
+The number of colors used is at most 
+.
+C
+. 
+The number of colors used is at most 
+.
+D
+. 
+The number of colors used is equal to the chromatic number of 
+.
+gatecse-2023
+ 
+graph-theory
+ 
+graph-coloring
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Graph Coloring: GATE CSE 2024 | Set 1 | Question: 41
+The chromatic number of a graph is the minimum number of colours used in a 
+proper 
+colouring of the graph.
+Let 
+ be any graph with 
+ vertices and chromatic number 
+. Which of the following statements is/are always
+TRUE?
+A
+. 
+ contains a complete subgraph with 
+ vertices
+
+
+2.4.9
+2.4.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.4.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5
+2.5.1
+B
+. 
+ contains an independent set of size at least 
+C
+. 
+ contains at least 
+ edges
+D
+. 
+ contains a vertex of degree at least 
+ 
+gatecse-2024-set1
+ 
+multiple-selects
+ 
+graph-theory
+ 
+graph-coloring
+ 
+two-marks
+Answer key
+☟
+Graph Coloring: GATE CSE 2024 | Set 2 | Question: 50
+The chromatic number of a graph is the minimum number of colours used in a proper colouring of the graph.
+The chromatic number of the following graph is __________.
+gatecse-2024-set2
+ 
+graph-theory
+ 
+numerical-answers
+ 
+graph-coloring
+ 
+two-marks
+Answer key
+☟
+Graph Coloring: GATE IT 2006 | Question: 25
+Consider the undirected graph 
+ deﬁned as follows. The vertices of 
+ are bit strings of length 
+. We have
+an edge between vertex 
+ and vertex 
+ if and only if 
+ and 
+ diﬀer in exactly one bit position (in other words,
+ can be obtained from 
+ by flipping a single bit). The ratio of the chromatic number of 
+ to the diameter of 
+ is,
+gateit-2006
+ 
+graph-theory
+ 
+graph-coloring
+ 
+normal
+Answer key
+☟
+Graph Coloring: GATE IT 2008 | Question: 3
+What is the chromatic number of the following graph?
+ 
+gateit-2008
+ 
+graph-theory
+ 
+graph-coloring
+ 
+easy
+Answer key
+☟
+Graph Connectivity 
+(40)
+Graph Connectivity: GATE CSE 1987 | Question: 9d
+
+
+2.5.2
+2.5.3
+2.5.4
+2.5.5
+2.5.6
+Specify an adjacency-lists representation of the undirected graph given above.
+gate1987
+ 
+graph-theory
+ 
+easy
+ 
+graph-connectivity
+ 
+descriptive
+Answer key
+☟
+Graph Connectivity: GATE CSE 1988 | Question: 2xvi
+Write the adjacency matrix representation of the graph given in below figure.
+gate1988
+ 
+descriptive
+ 
+graph-theory
+ 
+graph-connectivity
+Answer key
+☟
+Graph Connectivity: GATE CSE 1990 | Question: 1-viii
+A graph which has the same number of edges as its complement must have number of vertices congruent to
+________ or ________ modulo 
+.
+gate1990
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+fill-in-the-blanks
+Answer key
+☟
+Graph Connectivity: GATE CSE 1991 | Question: 01,xv
+The maximum number of possible edges in an undirected graph with 
+ vertices and 
+ components is
+______.
+gate1991
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+normal
+ 
+fill-in-the-blanks
+Answer key
+☟
+Graph Connectivity: GATE CSE 1992 | Question: 03,iii
+How many edges can there be in a forest with 
+ components having 
+ vertices in all?
+gate1992
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+descriptive
+Answer key
+☟
+Graph Connectivity: GATE CSE 1993 | Question: 8.1
+Consider a simple connected graph 
+ with 
+ vertices and 
+ edges 
+. Then, which of the following
+statements are true?
+A
+. 
+ has no cycles
+B
+. 
+The graph obtained by removing any edge from 
+ is not connected
+C
+. 
+ has at least one cycle
+D
+. 
+The graph obtained by removing any two edges from 
+ is not connected
+E
+. 
+None of the above 
+gate1993
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+easy
+ 
+multiple-selects
+
+
+2.5.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.8
+2.5.9
+2.5.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+None of the above
+2.5.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Answer key
+☟
+Graph Connectivity: GATE CSE 1994 | Question: 1.6, ISRO2008-29
+The number of distinct simple graphs with up to three nodes is
+gate1994
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+combinatory
+ 
+normal
+ 
+isro2008
+ 
+counting
+Answer key
+☟
+Graph Connectivity: GATE CSE 1994 | Question: 2.5
+The number of edges in a regular graph of degree 
+ and 
+ vertices is ____________
+gate1994
+ 
+graph-theory
+ 
+easy
+ 
+graph-connectivity
+ 
+fill-in-the-blanks
+Answer key
+☟
+Graph Connectivity: GATE CSE 1994 | Question: 24
+An independent set in a graph is a subset of vertices such that no two vertices in the subset are connected
+by an edge. An incomplete scheme for a greedy algorithm to ﬁnd a maximum independent set in a tree is
+given below:
+V
+:
+ 
+Set
+ 
+of
+ all vertices 
+in
+ the tree
+;
+ 
+I 
+:=
+ 
+ϕ
+while
+ V 
+≠
+ 
+ϕ
+ 
+do
+ 
+begin
+ 
+    
+select
+ a vertex u 
+∊
+ V such that 
+    _______
+;
+    V 
+:=
+ V 
+-
+ 
+{
+u
+};
+ 
+    
+if
+ u 
+is
+ such that 
+    ________then I 
+:=
+ I 
+∪
+ 
+{
+u
+}
+ 
+end
+;
+ 
+Output
+(
+I
+);
+ 
+A
+. 
+Complete the algorithm by specifying the property of vertex 
+ in each case.
+B
+. 
+What is the time complexity of the algorithm?
+gate1994
+ 
+graph-theory
+ 
+normal
+ 
+descriptive
+ 
+graph-connectivity
+Answer key
+☟
+Graph Connectivity: GATE CSE 1995 | Question: 1.25
+The minimum number of edges in a connected cyclic graph on 
+ vertices is:
+gate1995
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+easy
+Answer key
+☟
+Graph Connectivity: GATE CSE 1999 | Question: 1.15
+The number of articulation points of the following graph is
+gate1999
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+normal
+Answer key
+☟
+
+
+2.5.12
+2.5.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.14
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+2.5.15
+A
+. 
+cannot have a cut vertex
+B
+. 
+must have a cycle
+C
+. 
+must have a cut-edge (bridge)
+D
+. 
+has chromatic number strictly
+greater than those of 
+ and 
+2.5.16
+A
+. 
+B
+. 
+C
+. 
+less than 
+D
+. 
+more than 
+Graph Connectivity: GATE CSE 1999 | Question: 5
+Let 
+ be a connected, undirected graph. A cut in 
+ is a set of edges whose removal results in 
+ being
+broken into two or more components, which are not connected with each other. The size of a cut is called its
+cardinality. A min-cut of 
+ is a cut in 
+ of minimum cardinality. Consider the following graph:
+a
+. 
+Which of the following sets of edges is a cut?
+i
+. 
+ii
+. 
+b
+. 
+What is cardinality of min-cut in this graph?
+c
+. 
+Prove that if a connected undirected graph 
+ with 
+ vertices has a min-cut of cardinality 
+, then 
+ has at least 
+ edges.
+gate1999
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+normal
+ 
+descriptive
+ 
+proof
+Answer key
+☟
+Graph Connectivity: GATE CSE 2002 | Question: 1.25, ISRO2008-30, ISRO2016-6
+The maximum number of edges in a 
+-node undirected graph without self loops is
+gatecse-2002
+ 
+graph-theory
+ 
+easy
+ 
+isro2008
+ 
+isro2016
+ 
+graph-connectivity
+Answer key
+☟
+Graph Connectivity: GATE CSE 2003 | Question: 8, ISRO2009-53
+Let 
+ be an arbitrary graph with 
+ nodes and 
+ components. If a vertex is removed from 
+, the number of
+components in the resultant graph must necessarily lie down between
+gatecse-2003
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+normal
+ 
+isro2009
+Answer key
+☟
+Graph Connectivity: GATE CSE 2004 | Question: 81
+Let 
+ and 
+ be connected graphs on the same vertex set 
+ with more than two
+vertices. If 
+  is not a connected graph, then the graph 
+gatecse-2004
+ 
+graph-theory
+ 
+difficult
+ 
+graph-connectivity
+Answer key
+☟
+Graph Connectivity: GATE CSE 2005 | Question: 11
+Let 
+ be a simple graph with 
+ vertices and 
+ edges. The size of the minimum vertex cover of G is 
+.
+Then, the size of the maximum independent set of 
+ is:
+gatecse-2005
+ 
+graph-theory
+ 
+normal
+ 
+graph-connectivity
+
+
+2.5.17
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.18
+A
+. 
+Any 
+-regular graph where 
+ is an
+even number.
+B
+. 
+A complete graph on 
+ vertices.
+C
+. 
+The complement of a cycle on 
+vertices.
+D
+. 
+None of the above
+2.5.19
+2.5.20
+A
+. 
+ only
+B
+. 
+ and 
+ only
+C
+. 
+ only
+D
+. 
+ and 
+ only
+2.5.21
+Answer key
+☟
+Graph Connectivity: GATE CSE 2006 | Question: 73
+The 
+  vertices of a graph 
+ corresponds to all subsets of a set of size 
+, for 
+.  Two vertices of 
+ are
+adjacent if and only if the corresponding sets intersect in exactly two elements.
+The number of connected components in 
+ is:
+gatecse-2006
+ 
+graph-theory
+ 
+normal
+ 
+graph-connectivity
+Answer key
+☟
+Graph Connectivity: GATE CSE 2007 | Question: 23
+Which of the following graphs has an Eulerian circuit?
+gatecse-2007
+ 
+graph-theory
+ 
+normal
+ 
+graph-connectivity
+Answer key
+☟
+Graph Connectivity: GATE CSE 2008 | Question: 42
+ is a graph on 
+ vertices and 
+ edges. The edges of 
+ can be partitioned into two edge-disjoint
+spanning trees. Which of the following is NOT true for 
+?
+A
+. 
+For every subset of 
+ vertices, the induced subgraph has at most 
+ edges.
+B
+. 
+The minimum cut in 
+ has at least 
+ edges.
+C
+. 
+There are at least 
+ edge-disjoint paths between every pair of vertices.
+D
+. 
+There are at least 
+ vertex-disjoint paths between every pair of vertices.
+gatecse-2008
+ 
+graph-connectivity
+ 
+normal
+Answer key
+☟
+Graph Connectivity: GATE CSE 2013 | Question: 26
+The line graph 
+ of a simple graph 
+ is defined as follows:
+There is exactly one vertex 
+ in 
+ for each edge 
+ in 
+.
+For any two edges 
+ and 
+ in 
+, 
+ has an edge between 
+ and 
+, if and only if 
+ and 
+ are incident
+with the same vertex in 
+.
+Which of the following statements is/are TRUE?
+(P) The line graph of a cycle is a cycle.
+(Q) The line graph of a clique is a clique.
+(R) The line graph of a planar graph is planar.
+(S) The line graph of a tree is a tree.
+ 
+gatecse-2013
+ 
+graph-theory
+ 
+normal
+ 
+graph-connectivity
+Answer key
+☟
+Graph Connectivity: GATE CSE 2014 | Set 1 | Question: 51
+Consider an undirected graph 
+ where self-loops are not allowed. The vertex set of 
+ is 
+. There is an edge between 
+ and 
+ if 
+ and 
+
+
+2.5.22
+2.5.23
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.24
+2.5.25
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.26
+A
+. 
+I only
+B
+. 
+II only
+C
+. 
+Both I and II
+D
+. 
+Neither I nor II
+2.5.27
+. The number of edges in this graph is______.
+gatecse-2014-set1
+ 
+graph-theory
+ 
+numerical-answers
+ 
+normal
+ 
+graph-connectivity
+Answer key
+☟
+Graph Connectivity: GATE CSE 2014 | Set 2 | Question: 3
+The maximum number of edges in a bipartite graph on 
+ vertices is____
+gatecse-2014-set2
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Graph Connectivity: GATE CSE 2014 | Set 3 | Question: 51
+If 
+ is the forest with 
+ vertices and 
+ connected components, how many edges does 
+ have?
+gatecse-2014-set3
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+normal
+Answer key
+☟
+Graph Connectivity: GATE CSE 2015 | Set 2 | Question: 50
+In a connected graph, a bridge is an edge whose removal disconnects the graph. Which one of the following
+statements is true?
+A
+. 
+A tree has no bridges
+B
+. 
+A bridge cannot be part of a simple cycle
+C
+. 
+Every edge of a clique with size 
+ is a bridge (A clique is any complete subgraph of a graph)
+D
+. 
+A graph with bridges cannot have cycle
+gatecse-2015-set2
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+easy
+Answer key
+☟
+Graph Connectivity: GATE CSE 2019 | Question: 12
+Let 
+ be an undirected complete graph on 
+ vertices, where 
+. Then, the number of diﬀerent
+Hamiltonian cycles in 
+ is equal to
+gatecse-2019
+ 
+engineering-mathematics
+ 
+discrete-mathematics
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+one-mark
+Answer key
+☟
+Graph Connectivity: GATE CSE 2019 | Question: 38
+Let 
+ be any connected, weighted, undirected graph.
+I
+. 
+ has a unique minimum spanning tree, if no two edges of 
+ have the same weight.
+II
+. 
+ has a unique minimum spanning tree, if, for every cut of 
+, there is a unique minimum-weight edge crossing
+the cut.
+Which of the following statements is/are TRUE?
+gatecse-2019
+ 
+engineering-mathematics
+ 
+discrete-mathematics
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+two-marks
+ 
+minimum-spanning-tree
+ 
+algorithms
+ 
+graph-algorithms
+Answer key
+☟
+Graph Connectivity: GATE CSE 2021 | Set 1 | Question: 36
+Let 
+ be an undirected unweighted connected graph. The 
+diameter
+ of 
+ is defined as:
+
+
+2.5.28
+2.5.29
+A
+. 
+B
+. 
+ divided by 
+C
+. 
+ divided by 
+D
+. 
+ divided by 
+2.5.30
+2.5.31
+2.5.32
+Let 
+ be the adjacency matrix of 
+.
+Define graph 
+ on the same set of vertices with adjacency matrix 
+, where 
+Which one of the following statements is true?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2021-set1
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+two-marks
+Answer key
+☟
+Graph Connectivity: GATE CSE 2022 | Question: 20
+Consider a simple undirected graph of 
+ vertices. If the graph is disconnected, then the maximum number
+of edges it can have is _______________ .
+gatecse-2022
+ 
+numerical-answers
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+one-mark
+Answer key
+☟
+Graph Connectivity: GATE CSE 2022 | Question: 27
+Consider a simple undirected unweighted graph with at least three vertices. If 
+ is the adjacency matrix of
+the graph, then the number of 
+cycles in the graph is given by the trace of
+gatecse-2022
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+two-marks
+Answer key
+☟
+Graph Connectivity: GATE CSE 2022 | Question: 42
+Which of the properties hold for the adjacency matrix 
+ of a simple undirected unweighted graph having 
+vertices?
+A
+. 
+The diagonal entries of 
+ are the degrees of the vertices of the graph.
+B
+. 
+If the graph is connected, then none of the entries of 
+ can be zero.
+C
+. 
+If the sum of all the elements of 
+ is at most 
+ then the graph must be acyclic.
+D
+. 
+If there is at least a 
+ in each of 
+ rows and columns, then the graph must be connected.
+gatecse-2022
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Graph Connectivity: GATE CSE 2024 | Set 1 | Question: 24
+The number of spanning trees in a 
+complete 
+graph of 
+ vertices labelled 
+ and 
+ is _________.
+gatecse-2024-set1
+ 
+numerical-answers
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+one-mark
+Answer key
+☟
+Graph Connectivity: GATE CSE 2024 | Set 2 | Question: 41
+Let 
+ be an undirected connected graph in which every edge has a positive integer weight. Suppose that
+
+
+2.5.33
+A
+. 
+ is a cycle
+B
+. 
+ is a perfect matching
+C
+. 
+ is a complete graph
+D
+. 
+There is no such graph 
+2.5.34
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.35
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.36
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.37
+A
+. 
+Hamiltonian cycle
+B
+. 
+grid
+C
+. 
+hypercube
+D
+. 
+tree
+every spanning tree in 
+ has 
+even 
+weight. Which of the following statements is/are TRUE for 
+every 
+such
+graph 
+?
+A
+. 
+All edges in 
+ have even weight
+B
+. 
+All edges in 
+ have even weight 
+ all edges in 
+ have odd weight
+C
+. 
+In each cycle 
+ in 
+, all edges in 
+ have even weight
+D
+. 
+In each cycle 
+ in 
+, either all edges in 
+ have even weight 
+ all edges in 
+ have odd weight
+gatecse-2024-set2
+ 
+graph-theory
+ 
+multiple-selects
+ 
+graph-connectivity
+ 
+two-marks
+Answer key
+☟
+Graph Connectivity: GATE CSE 2024 | Set 2 | Question: 7
+​​​​
+Let 
+ be the adjacency matrix of a simple undirected graph 
+. Suppose 
+ is its own inverse. Which one of
+the following statements is 
+always 
+TRUE?
+gatecse-2024-set2
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+one-mark
+Answer key
+☟
+Graph Connectivity: GATE IT 2004 | Question: 37
+What is the number of vertices in an undirected connected graph with 
+ edges, 
+ vertices of degree 
+vertices of degree 
+ and remaining of degree 
+?
+gateit-2004
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+normal
+Answer key
+☟
+Graph Connectivity: GATE IT 2004 | Question: 5
+What is the maximum number of edges in an acyclic undirected graph with 
+ vertices?
+gateit-2004
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+normal
+Answer key
+☟
+Graph Connectivity: GATE IT 2005 | Question: 56
+Let 
+ be a directed graph whose vertex set is the set of numbers from 
+ to 
+. There is an edge from a
+vertex 
+ to a vertex 
+ iff either 
+ or 
+. The minimum number of edges in a path in 
+ from vertex
+ to vertex 
+ is
+gateit-2005
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+normal
+Answer key
+☟
+Graph Connectivity: GATE IT 2006 | Question: 11
+If all the edge weights of an undirected graph are positive, then any subset of edges that connects all the
+vertices and has minimum total weight is a
+gateit-2006
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+easy
+Answer key
+☟
+
+
+2.5.38
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.39
+A
+. 
+regular
+B
+. 
+complete
+C
+. 
+Hamiltonian
+D
+. 
+Euler
+2.5.40
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.6
+2.6.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.6.2
+2.6.3
+Graph Connectivity: GATE IT 2007 | Question: 25
+What is the largest integer 
+ such that every simple connected graph with 
+ vertices and 
+ edges contains
+at least 
+ different spanning trees ?
+gateit-2007
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+tricky
+Answer key
+☟
+Graph Connectivity: GATE IT 2008 | Question: 27
+ is a simple undirected graph. Some vertices of 
+ are of odd degree. Add a node 
+ to 
+ and make it
+adjacent to each odd degree vertex of 
+. The resultant graph is sure to be
+gateit-2008
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+normal
+Answer key
+☟
+Graph Connectivity: GATE IT 2008 | Question: 4
+What is the size of the smallest 
+ (Maximal Independent Set) of a chain of nine nodes?
+gateit-2008
+ 
+normal
+ 
+graph-connectivity
+Answer key
+☟
+Graph Isomorphism 
+(4)
+Graph Isomorphism: GATE CSE 2012 | Question: 26
+Which of the following graphs is isomorphic to 
+ 
+gatecse-2012
+ 
+graph-theory
+ 
+graph-isomorphism
+ 
+normal
+Answer key
+☟
+Graph Isomorphism: GATE CSE 2014 | Set 2 | Question: 51
+A cycle on 
+ vertices is isomorphic to its complement. The value of 
+ is _____.
+gatecse-2014-set2
+ 
+graph-theory
+ 
+numerical-answers
+ 
+normal
+ 
+graph-isomorphism
+Answer key
+☟
+Graph Isomorphism: GATE CSE 2015 | Set 2 | Question: 28
+A graph is self-complementary if it is isomorphic to its complement. For all self-complementary graphs on 
+vertices, 
+ is
+
+
+A
+. 
+A multiple of 4
+B
+. 
+Even
+C
+. 
+Odd
+D
+. 
+Congruent to 0 
+ 4, or, 1 
+4.
+2.6.4
+2.7
+2.7.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.7.2
+2.8
+2.8.1
+gatecse-2015-set2
+ 
+graph-theory
+ 
+graph-isomorphism
+Answer key
+☟
+Graph Isomorphism: GATE CSE 2022 | Question: 40
+The following simple undirected graph is referred to as the Peterson graph.
+Which of the following statements is/are 
+A
+. 
+The chromatic number of the graph is 
+B
+. 
+The graph has a Hamiltonian path.
+C
+. 
+The following graph is isomorphic to the Peterson graph.
+D
+. 
+The size of the largest independent set of the given graph is 
+ (A subset of vertices of a graph form an
+independent set if no two vertices of the subset are adjacent.)
+gatecse-2022
+ 
+graph-theory
+ 
+graph-isomorphism
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Graph Matching 
+(2)
+Graph Matching: GATE CSE 2003 | Question: 36
+How many perfect matching are there in a complete graph of 
+ vertices?
+gatecse-2003
+ 
+graph-theory
+ 
+graph-matching
+ 
+normal
+Answer key
+☟
+Graph Matching: GATE CSE 2026 | Set 1 | Question: 47
+Let 
+ be an undirected graph, which is a path on 
+ vertices. The number of matchings in 
+ is 
+.
+(answer in integer)
+gatecse-2026-set1
+ 
+graph-theory
+ 
+graph-matching
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Graph Planarity 
+(13)
+Graph Planarity: GATE CSE 1987 | Question: 2e
+State whether the following statement is TRUE or FALSE:
+There is a linear-time algorithm for testing the planarity of finite graphs.
+gate1987
+ 
+graph-theory
+ 
+graph-planarity
+ 
+true-false
+
+
+2.8.2
+2.8.3
+2.8.4
+2.8.5
+A
+. 
+ edges, 
+ vertices
+B
+. 
+ edges, 
+ vertices
+C
+. 
+ edges, 
+ vertices
+D
+. 
+ edges, 
+ vertices
+2.8.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.8.7
+Answer key
+☟
+Graph Planarity: GATE CSE 1989 | Question: 3-vi
+Which of the following graphs is/are planar?
+gate1989
+ 
+normal
+ 
+graph-theory
+ 
+graph-planarity
+ 
+descriptive
+Answer key
+☟
+Graph Planarity: GATE CSE 1990 | Question: 3-xi
+A graph is planar if and only if,
+A
+. 
+It does not contain a subgraph homeomorphic to 
+ and 
+.
+B
+. 
+It does not contain a subgraph isomorphic to 
+ and 
+.
+C
+. 
+It does not contain a subgraph isomorphic to 
+ or 
+D
+. 
+It does not contain a subgraph homeomorphic to 
+ or 
+.
+gate1990
+ 
+normal
+ 
+graph-theory
+ 
+graph-planarity
+ 
+multiple-selects
+Answer key
+☟
+Graph Planarity: GATE CSE 1992 | Question: 01,x
+Maximum number of edges in a planar graph with 
+ vertices is _____
+gate1992
+ 
+graph-theory
+ 
+graph-planarity
+ 
+easy
+ 
+fill-in-the-blanks
+Answer key
+☟
+Graph Planarity: GATE CSE 1992 | Question: 02,viii
+A non-planar graph with minimum number of vertices has
+gate1992
+ 
+graph-theory
+ 
+normal
+ 
+graph-planarity
+Answer key
+☟
+Graph Planarity: GATE CSE 2005 | Question: 10
+Let 
+ be a simple connected planar graph with 
+ vertices and 
+ edges. Then, the number of faces in the
+planar embedding of the graph is:
+gatecse-2005
+ 
+graph-theory
+ 
+graph-planarity
+Answer key
+☟
+Graph Planarity: GATE CSE 2005 | Question: 47
+Which one of the following graphs is NOT planar?
+
+
+A
+. 
+G1
+B
+. 
+G2
+C
+. 
+G3
+D
+. 
+G4
+2.8.8
+A
+. 
+The graph is connected
+B
+. 
+The graph is Eulerian
+C
+. 
+The graph has a vertex-cover of
+size at most 
+D
+. 
+The graph has an independent set
+of size at least 
+2.8.9
+A
+. 
+K4 is a planar while Q3 is not
+B
+. 
+Both K4 and Q3 are planar
+C
+. 
+Q3 is planar while K4 is not
+D
+. 
+Neither K4 nor Q3 is planar
+2.8.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.8.11
+ 
+gatecse-2005
+ 
+graph-theory
+ 
+graph-planarity
+ 
+normal
+Answer key
+☟
+Graph Planarity: GATE CSE 2008 | Question: 23
+Which of the following statements is true for every planar graph on 
+ vertices?
+gatecse-2008
+ 
+graph-theory
+ 
+normal
+ 
+graph-planarity
+Answer key
+☟
+Graph Planarity: GATE CSE 2011 | Question: 17
+K4 and Q3 are graphs with the following structures.
+Which one of the following statements is 
+TRUE 
+in relation to these graphs?
+gatecse-2011
+ 
+graph-theory
+ 
+graph-planarity
+ 
+normal
+Answer key
+☟
+Graph Planarity: GATE CSE 2012 | Question: 17
+Let 
+ be a simple undirected planar graph on 
+ vertices with 
+ edges. If 
+ is a connected graph, then the
+number of 
+bounded
+ faces in any embedding of 
+ on the plane is equal to
+gatecse-2012
+ 
+graph-theory
+ 
+graph-planarity
+ 
+normal
+Answer key
+☟
+Graph Planarity: GATE CSE 2014 | Set 3 | Question: 52
+Let 
+ denote the minimum degree of a vertex in a graph. For all planar graphs on 
+ vertices with 
+,
+which one of the following is 
+TRUE
+?
+A
+. 
+In any planar embedding, the number of faces is at least 
+
+
+2.8.12
+2.8.13
+2.9
+2.9.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+B
+. 
+In any planar embedding, the number of faces is less than 
+C
+. 
+There is a planar embedding in which the number of faces is less than 
+D
+. 
+There is a planar embedding in which the number of faces is at most 
+gatecse-2014-set3
+ 
+graph-theory
+ 
+graph-planarity
+ 
+normal
+Answer key
+☟
+Graph Planarity: GATE CSE 2015 | Set 1 | Question: 54
+Let G be a connected planar graph with 
+ vertices. If the number of edges on each face is three, then the
+number of edges in G is_______________.
+gatecse-2015-set1
+ 
+graph-theory
+ 
+graph-connectivity
+ 
+normal
+ 
+graph-planarity
+ 
+numerical-answers
+Answer key
+☟
+Graph Planarity: GATE CSE 2021 | Set 1 | Question: 16
+In an undirected connected planar graph 
+, there are eight vertices and ﬁve faces. The number of edges in 
+ is _________.
+gatecse-2021-set1
+ 
+graph-theory
+ 
+graph-planarity
+ 
+numerical-answers
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Jaccard Coefficient 
+(1)
+Jaccard Coefficient: GATE CSE 2026 | Set 2 | Question: 26
+Consider a complete graph 
+ with 
+ vertices ( 
+ ). Note that multiple spanning trees can be
+constructed over 
+. Each of these spanning trees is represented as a set of edges. The Jaccard
+coeﬃcient between any two sets is deﬁned as the ratio of the size of the intersection of the two sets to the size of
+the union of the two sets.
+Which one of the following options gives the lowest possible value for the Jaccard coeﬃcient between any two
+spanning trees of 
+ ?
+gatecse-2026-set2
+ 
+graph-theory
+ 
+jaccard-coefficient
+ 
+two-marks
+Answer key
+☟
+Answer Keys
+2.1.1
+D
+2.1.2
+D
+2.1.3
+X
+2.2.1
+N/A
+2.2.2
+N/A
+2.2.3
+N/A
+2.2.4
+D
+2.2.5
+C
+2.2.6
+C
+2.2.7
+B
+2.2.8
+C
+2.2.9
+D
+2.2.10
+C
+2.2.11
+C
+2.2.12
+16
+2.2.13
+A
+2.3.1
+B;C
+2.4.1
+D
+2.4.2
+C
+2.4.3
+A
+2.4.4
+4
+2.4.5
+3
+2.4.6
+7
+2.4.7
+A;B
+2.4.8
+B;C
+2.4.9
+2
+2.4.10
+C
+2.4.11
+B
+2.5.1
+N/A
+2.5.2
+N/A
+2.5.3
+N/A
+2.5.4
+N/A
+2.5.5
+N/A
+2.5.6
+C;D
+2.5.7
+C
+2.5.8
+N/A
+2.5.9
+N/A
+2.5.10
+B
+2.5.11
+D
+2.5.12
+N/A
+2.5.13
+B
+2.5.14
+C
+2.5.15
+B
+2.5.16
+A
+2.5.17
+B
+2.5.18
+C
+2.5.19
+D
+2.5.20
+A
+2.5.21
+506
+2.5.22
+36
+2.5.23
+C
+2.5.24
+B
+2.5.25
+C;D
+2.5.26
+C
+2.5.27
+A
+2.5.28
+36
+2.5.29
+D
+2.5.30
+A
+2.5.31
+16
+2.5.32
+D
+2.5.33
+B
+2.5.34
+D
+2.5.35
+A
+2.5.36
+B
+2.5.37
+D
+
+
+2.5.38
+C
+2.5.39
+D
+2.5.40
+C
+2.6.1
+B
+2.6.2
+5
+2.6.3
+D
+2.6.4
+A;B;C
+2.7.1
+A
+2.7.2
+34 : 34
+2.8.1
+TBA
+2.8.2
+N/A
+2.8.3
+D
+2.8.4
+N/A
+2.8.5
+C
+2.8.6
+B
+2.8.7
+A
+2.8.8
+C
+2.8.9
+B
+2.8.10
+D
+2.8.11
+A
+2.8.12
+24
+2.8.13
+11 : 11
+2.9.1
+C

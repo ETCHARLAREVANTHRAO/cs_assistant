@@ -1,0 +1,2603 @@
+8
+General Aptitude: Analytical Aptitude
+ 
+(48)
+Logic: deduction and induction, Analogy, Numerical relations and reasoning
+Welcome to the "General Aptitude: Analytical Aptitude" chapter, a crucial component of your GATE Computer Science
+exam preparation. This section is designed to sharpen your logical reasoning, problem-solving abilities, and critical
+thinking skills, which are not only vital for the exam but also fundamental to a successful career in computer science.
+Analytical Aptitude questions typically form a significant portion of the 15 marks allocated to the General Aptitude
+section in GATE, often appearing as Multiple Choice Questions (MCQs), Multiple Select Questions (MSQs), or
+Numerical Answer Type (NAT) questions. Mastering these topics will not only boost your overall score but also enhance
+your ability to approach complex computational problems with a structured and logical mindset.
+Topic-wise Key Concepts
+Age Relation
+Definition and Core Idea:
+ Age relation problems involve determining the current or past/future ages of individuals
+based on given conditions, often expressed as ratios, sums, or differences. The core idea is to translate these verbal
+conditions into algebraic equations.
+Important Formulas and Results:
+1
+. 
+If the current age of a person is 
+ years, then their age 
+ years ago was 
+ years.
+2
+. 
+If the current age of a person is 
+ years, then their age 
+ years hence (in the future) will be 
+ years.
+3
+. 
+If the ratio of ages of two persons A and B is 
+, their ages can be represented as 
+ and 
+ for some
+constant 
+.
+Key Properties and Identities:
+The difference in ages between two people remains constant throughout their lives.
+Ratios of ages change over time, but the underlying age values can be determined by setting up equations.
+Common Pitfalls or Tricky Points:
+Confusing "ago" with "hence" when setting up equations.
+Incorrectly applying ratios (e.g., assuming the constant 
+ in 
+ is the same for different time periods without
+adjustment).
+Making calculation errors in solving linear equations.
+Standard Problem-Solving Techniques or Shortcuts:
+Assign variables (e.g., 
+, 
+) to the current ages of the individuals involved.
+Formulate linear equations based on the given conditions.
+Solve the system of equations. For ratio problems, use a common multiplier.
+Always check if the calculated ages are logically consistent (e.g., no negative ages).
+Analogy
+Definition and Core Idea:
+ Analogy questions test your ability to identify the relationship between a given pair of items
+(words, numbers, letters, or symbols) and then find another pair that shares the exact same relationship. The core idea
+is pattern recognition and logical extension.
+Important Formulas and Results:
+ No mathematical formulas. The "results" are types of relationships:
+1
+. 
+Synonym/Antonym:
+ e.g., GOOD : BAD :: HAPPY : SAD
+2
+. 
+Part-Whole:
+ e.g., FINGER : HAND :: TOE : FOOT
+3
+. 
+Cause-Effect:
+ e.g., FIRE : ASH :: EVENT : MEMORY
+4
+. 
+Worker-Tool:
+ e.g., CARPENTER : SAW :: WRITER : PEN
+5
+. 
+Product-Raw Material:
+ e.g., SHOE : LEATHER :: WINE : GRAPES
+6
+. 
+Quantity-Unit:
+ e.g., LENGTH : METER :: MASS : KILOGRAM
+7
+. 
+Gender:
+ e.g., LION : LIONESS :: NEPHEW : NIECE
+8
+. 
+Study-Topic:
+ e.g., BIOLOGY : LIFE :: GEOLOGY : EARTH
+9
+. 
+Function:
+ e.g., KNIFE : CUT :: ERASER : ERASE
+
+
+10
+. 
+Degree of Intensity:
+ e.g., WARM : HOT :: ANNOY : ENRAGE
+Key Properties and Identities:
+The relationship must be consistent and precise.
+Consider the order of elements in the pair; it often matters.
+Relationships can be direct or indirect, but should be the strongest possible link.
+Common Pitfalls or Tricky Points:
+Choosing an option with a weak or secondary relationship.
+Overthinking and finding obscure connections.
+Not considering all options before making a choice.
+Ignoring the direction of the relationship (e.g., tool-worker vs. worker-tool).
+Standard Problem-Solving Techniques or Shortcuts:
+Clearly identify the relationship between the first pair. Express it as a sentence (e.g., "A is a type of B," "A causes
+B").
+Apply the exact same relationship to the options provided.
+If multiple options seem plausible, look for the most specific and direct relationship.
+Consider different categories of relationships (functional, structural, categorical, etc.).
+Code Words
+Definition and Core Idea:
+ Code word problems involve deciphering a hidden rule used to transform one set of words
+or letters into another. The core idea is to identify the pattern of transformation and apply it to a new word.
+Important Formulas and Results:
+ No mathematical formulas. "Results" are common coding patterns:
+1
+. 
+Letter Shifting:
+ Each letter is shifted by a fixed number of positions in the alphabet (e.g., A becomes C, B
+becomes D).
+2
+. 
+Letter Reversal:
+ The order of letters in the word is reversed.
+3
+. 
+Substitution:
+ Specific letters are replaced by other specific letters or symbols.
+4
+. 
+Position-based Coding:
+ Letters are coded based on their position in the word or alphabet.
+5
+. 
+Mixed Patterns:
+ A combination of the above, e.g., shifting and reversing.
+Key Properties and Identities:
+The coding rule is consistent throughout the given examples.
+The rule can be simple (e.g., +1 shift) or complex (e.g., vowel-consonant specific shifts).
+Common Pitfalls or Tricky Points:
+Missing subtle patterns, especially when multiple rules are combined.
+Assuming a simple rule when a more complex one is in play.
+Not considering the alphabet's cyclical nature (e.g., Z + 1 = A).
+Standard Problem-Solving Techniques or Shortcuts:
+Write down the alphabet and its numerical positions (A=1, B=2, ..., Z=26).
+Compare the original word with its coded form letter by letter.
+Look for common differences in positions, reversals, or direct substitutions.
+Test your identified rule with any other given examples before applying it to the question.
+Coding Decoding
+Definition and Core Idea:
+ Coding-decoding problems are an extension of code words, often involving numbers,
+symbols, or more intricate letter manipulations. The core idea remains to identify the underlying coding rule and apply it
+to decode a message or encode a new one.
+Important Formulas and Results:
+ No specific formulas, but common methods:
+1
+. 
+Alphabet Position Values:
+ Using 
+ and performing arithmetic operations.
+2
+. 
+Opposite Letter Coding:
+ Replacing a letter with its opposite (e.g., A with Z, B with Y).
+3
+. 
+Symbol Substitution:
+ Each letter or digit is replaced by a unique symbol.
+4
+. 
+Matrix/Grid Coding:
+ Letters are coded based on their position in a predefined grid.
+5
+. 
+Mixed Operations:
+ Combining letter shifts with numerical operations or symbol substitutions.
+Key Properties and Identities:
+The coding scheme is logical and consistent.
+Often, the same letter/number will have the same code throughout a problem.
+Common Pitfalls or Tricky Points:
+Overlooking multiple layers of coding (e.g., shift then reverse).
+Miscalculating numerical positions or applying incorrect arithmetic.
+Assuming a simple pattern when a more complex one exists.
+Standard Problem-Solving Techniques or Shortcuts:
+
+
+For letter-to-number codes, always write down the alphabet with its numerical positions.
+Look for common letters in different coded words to deduce their codes.
+Identify if the code is based on position, value, type (vowel/consonant), or a combination.
+Systematically test hypotheses about the coding rule.
+Direction Sense
+Definition and Core Idea:
+ Direction sense problems involve determining the relative position and direction of a person
+or object after a series of movements. The core idea is to visualize or diagram the movements and apply principles of
+geometry.
+Important Formulas and Results:
+1
+. 
+Pythagorean Theorem:
+ For finding the shortest distance between two points when movements form a right-
+angled triangle. If a person moves 
+ units in one perpendicular direction and 
+ units in another, the shortest
+distance 
+ from the starting point is given by 
+.
+2
+. 
+Cardinal Directions:
+ North (N), South (S), East (E), West (W).
+3
+. 
+Intermediate Directions:
+ Northeast (NE), Northwest (NW), Southeast (SE), Southwest (SW).
+Key Properties and Identities:
+A right turn means a 90-degree clockwise rotation. A left turn means a 90-degree anti-clockwise rotation.
+"Facing North" and "moving North" are distinct concepts.
+Shadow problems: In the morning, shadow falls to the West. In the evening, shadow falls to the East. At noon, no
+shadow (or directly below).
+Common Pitfalls or Tricky Points:
+Confusing left/right turns, especially when facing different directions.
+Misinterpreting "from" and "to" in distance calculations.
+Calculation errors in applying the Pythagorean theorem.
+Not distinguishing between "distance travelled" and "shortest distance from start".
+Standard Problem-Solving Techniques or Shortcuts:
+Draw a clear diagram. Use a cross (+) to represent cardinal directions.
+Start from a central point and mark each movement.
+Use coordinates (x, y) to track position, where North is +y, South is -y, East is +x, West is -x.
+For shortest distance, identify if a right-angled triangle is formed.
+Family Relationship
+Definition and Core Idea:
+ Family relationship problems require you to deduce the relationship between two individuals
+based on a series of statements describing their familial connections. The core idea is to construct a mental or physical
+family tree.
+Important Formulas and Results:
+ No mathematical formulas. "Results" are standard family relations:
+1
+. 
+Parent:
+ Father/Mother
+2
+. 
+Sibling:
+ Brother/Sister
+3
+. 
+Spouse:
+ Husband/Wife
+4
+. 
+Child:
+ Son/Daughter
+5
+. 
+Grandparent:
+ Father's/Mother's Father/Mother
+6
+. 
+Grandchild:
+ Son's/Daughter's Son/Daughter
+7
+. 
+Uncle/Aunt:
+ Parent's Brother/Sister
+8
+. 
+Nephew/Niece:
+ Sibling's Son/Daughter
+9
+. 
+Cousin:
+ Uncle's/Aunt's Child
+10
+. 
+In-laws:
+ Relations by marriage (e.g., Father-in-law, Sister-in-law).
+Key Properties and Identities:
+Relationships are reciprocal (e.g., if A is B's father, B is A's child).
+Gender is crucial; do not assume gender unless explicitly stated or implied.
+Common Pitfalls or Tricky Points:
+Confusing genders (e.g., assuming "cousin" implies male or female).
+Misinterpreting complex statements with multiple "of"s (e.g., "my father's only son's wife").
+Making assumptions not explicitly stated in the problem.
+Overlooking the possibility of multiple relationships for a single individual.
+Standard Problem-Solving Techniques or Shortcuts:
+Draw a family tree diagram. Use symbols for gender (e.g., + for male, - for female) and relationships (e.g.,
+horizontal line for siblings, vertical line for parent-child, double horizontal line for marriage).
+Break down complex statements into smaller, manageable parts.
+
+
+Start from a definite relationship and build outwards.
+Work backwards from the person whose relationship is being asked.
+Inequality
+Definition and Core Idea:
+ Inequality problems involve comparing quantities using relational operators like greater than
+(
+), less than (
+), greater than or equal to (
+), less than or equal to (
+), and not equal to (
+). The core idea is to
+deduce valid conclusions from a set of given inequality statements.
+Important Formulas and Results:
+1
+. 
+Transitivity:
+ If 
+ and 
+, then 
+. Similarly for 
+, 
+, 
+.
+2
+. 
+Addition/Subtraction:
+ If 
+, then 
+ and 
+.
+3
+. 
+Multiplication/Division by Positive:
+ If 
+ and 
+, then 
+ and 
+.
+4
+. 
+Multiplication/Division by Negative:
+ If 
+ and 
+, then 
+ and 
+. (
+Note: The inequality sign
+reverses
+).
+5
+. 
+Combining Inequalities:
+If 
+ and 
+, then 
+.
+If 
+ and 
+, no definite conclusion can be drawn about 
+ vs 
+.
+Key Properties and Identities:
+The direction of the inequality sign is crucial.
+An equality sign (
+) can be treated as both 
+ and 
+.
+If there is a break in the chain of comparison (e.g., 
+ and 
+), direct comparison between 
+ and 
+might not be possible without more information.
+Common Pitfalls or Tricky Points:
+Incorrectly reversing the inequality sign when multiplying or dividing by a negative number.
+Assuming a direct relationship between two variables when the chain of comparison is broken.
+Confusing strict inequalities (
+) with non-strict ones (
+).
+Standard Problem-Solving Techniques or Shortcuts:
+Combine the given statements into a single chain of inequalities (e.g., 
+).
+Identify common elements to link different statements.
+For conclusions, trace the path between the two variables in question. If a consistent direction of inequality
+exists, the conclusion is valid.
+If the path involves opposing inequality signs (e.g., 
+), no definite conclusion can be drawn.
+Logical Inference
+Definition and Core Idea:
+ Logical inference involves drawing valid conclusions from a set of given premises
+(statements) using established rules of logic. The core idea is to determine what 
+must
+ be true if the premises are true,
+without introducing external information.
+Important Formulas and Results:
+ No mathematical formulas. "Results" are rules of inference:
+1
+. 
+Modus Ponens:
+ If P then Q. P. Therefore, Q. 
+2
+. 
+Modus Tollens:
+ If P then Q. Not Q. Therefore, Not P. 
+3
+. 
+Hypothetical Syllogism:
+ If P then Q. If Q then R. Therefore, If P then R. 
+4
+. 
+Disjunctive Syllogism:
+ P or Q. Not P. Therefore, Q. 
+5
+. 
+Conjunction:
+ P. Q. Therefore, P and Q. 
+6
+. 
+Simplification:
+ P and Q. Therefore, P. 
+Key Properties and Identities:
+A conclusion is logically valid if it necessarily follows from the premises, regardless of whether the premises
+themselves are true in reality.
+Validity is about the structure of the argument, not the truth of its content.
+Common Pitfalls or Tricky Points:
+Making assumptions not explicitly stated in the premises.
+Confusing correlation with causation.
+Committing logical fallacies (e.g., affirming the consequent, denying the antecedent).
+Drawing conclusions that are merely possible, not necessary.
+Standard Problem-Solving Techniques or Shortcuts:
+Represent statements symbolically (e.g., P for "It is raining," Q for "The ground is wet").
+Use Venn diagrams for categorical propositions (All A are B, Some A are B, No A are B).
+Test each conclusion against the premises to see if it 
+must
+ be true.
+
+
+Eliminate options that introduce new information or are only possibly true.
+Logical Reasoning
+Definition and Core Idea:
+ Logical reasoning is a broad category encompassing various types of puzzles and problems
+that require deductive or inductive thinking to arrive at a solution. It tests your ability to analyze information, identify
+patterns, and draw sound conclusions. The core idea is systematic analysis and deduction.
+Important Formulas and Results:
+ No specific mathematical formulas. "Results" are principles of reasoning:
+1
+. 
+Deductive Reasoning:
+ Moving from general principles to specific conclusions (guaranteed if premises are true).
+2
+. 
+Inductive Reasoning:
+ Moving from specific observations to general conclusions (probabilistic).
+3
+. 
+Abductive Reasoning:
+ Inferring the simplest or most likely explanation for an observation.
+Key Properties and Identities:
+Consistency: The solution must not contradict any given statement.
+Completeness: All conditions must be satisfied.
+Uniqueness: Often, there is only one correct solution (though some problems may have multiple).
+Common Pitfalls or Tricky Points:
+Jumping to conclusions without considering all possibilities.
+Misinterpreting complex statements or conditions.
+Failing to account for all constraints.
+Getting overwhelmed by the amount of information.
+Standard Problem-Solving Techniques or Shortcuts:
+Break down the problem into smaller, manageable parts.
+Use tables, grids, or diagrams to organize information and track deductions.
+Start with the most definite statements or constraints.
+Use elimination: rule out options that contradict any condition.
+Test hypotheses: try a possible solution and see if it fits all conditions.
+Number Relations
+Definition and Core Idea:
+ Number relation problems involve identifying the underlying pattern or relationship between
+numbers in a given sequence, set, or pair. The core idea is to discover the rule that governs the numbers and apply it to
+find missing terms or solve related questions.
+Important Formulas and Results:
+1
+. 
+Arithmetic Progression (AP):
+-th term: 
+, where 
+ is the first term and 
+ is the common difference.
+Sum of 
+ terms: 
+ or 
+.
+2
+. 
+Geometric Progression (GP):
+-th term: 
+, where 
+ is the first term and 
+ is the common ratio.
+Sum of 
+ terms: 
+ (for 
+).
+3
+. 
+Harmonic Progression (HP):
+ A sequence is an HP if the reciprocals of its terms form an AP.
+4
+. 
+Special Number Series:
+Squares: 
+Cubes: 
+Prime Numbers: 
+Fibonacci Sequence: 
+ (e.g., 
+)
+Key Properties and Identities:
+Patterns can involve addition, subtraction, multiplication, division, squares, cubes, prime numbers, or
+combinations.
+Sometimes patterns involve alternating operations or multiple interleaved series.
+Digit sums or specific properties of digits can also form patterns.
+Common Pitfalls or Tricky Points:
+Assuming a simple AP or GP when the pattern is more complex (e.g., double difference series).
+Missing alternating patterns or interleaved series.
+Calculation errors, especially with larger numbers or multiple operations.
+Not considering all types of number properties (primes, squares, cubes).
+Standard Problem-Solving Techniques or Shortcuts:
+Calculate differences between consecutive terms. If not constant, calculate differences of differences (second-
+order differences).
+Calculate ratios between consecutive terms.
+
+
+Check for squares, cubes, or prime numbers.
+Look for alternating patterns or two interleaved series.
+Consider operations on digits (sum of digits, product of digits).
+Test your identified pattern with all given terms before predicting the next.
+Odd One
+Definition and Core Idea:
+ "Odd One Out" problems require you to identify the item (word, number, letter, or figure) that
+does not belong to a group, based on a shared characteristic among the others. The core idea is classification and
+identifying the exception.
+Important Formulas and Results:
+ No mathematical formulas. "Results" are common classification criteria:
+1
+. 
+Category:
+ All items belong to a specific category except one (e.g., fruits, vegetables, animals).
+2
+. 
+Property:
+ All items share a common property except one (e.g., all are prime numbers, all are even).
+3
+. 
+Function:
+ All items serve a similar function except one (e.g., tools for cutting, modes of transport).
+4
+. 
+Structure/Pattern:
+ All items follow a specific structural or sequential pattern except one (e.g., letter series,
+number series).
+5
+. 
+Relationship:
+ All items have a specific relationship with each other except one.
+Key Properties and Identities:
+The shared characteristic must be consistent and evident for the majority of the items.
+The "odd one" will lack this specific characteristic.
+Common Pitfalls or Tricky Points:
+Finding a superficial or weak connection for the "odd one" instead of a strong common property for the rest.
+Not considering all possible patterns or categories.
+Overlooking a more obvious pattern in favor of a complex one.
+Subjectivity: sometimes multiple patterns might exist, but usually one is intended.
+Standard Problem-Solving Techniques or Shortcuts:
+Analyze each item individually to identify its properties.
+Look for a common theme, category, or pattern that applies to at least three (or more, if applicable) of the items.
+The item that does not fit this common theme is the odd one out.
+Consider different types of relationships: semantic, numerical, alphabetical, functional.
+Passage Reading
+Definition and Core Idea:
+ Passage reading (or reading comprehension) problems involve reading a given text and
+answering questions based solely on the information provided in that passage. The core idea is to understand the main
+idea, identify supporting details, and draw logical inferences from the text.
+Important Formulas and Results:
+ No mathematical formulas. "Results" are reading comprehension strategies:
+1
+. 
+Main Idea:
+ The central theme or argument of the passage.
+2
+. 
+Supporting Details:
+ Facts, examples, or explanations that elaborate on the main idea.
+3
+. 
+Inference:
+ A conclusion logically derived from the text, but not explicitly stated.
+4
+. 
+Author's Tone:
+ The author's attitude towards the subject matter (e.g., critical, objective, enthusiastic).
+Key Properties and Identities:
+All answers must be directly supported by the passage.
+Avoid bringing in outside knowledge or personal opinions.
+Distinguish between what is explicitly stated and what can be logically inferred.
+Common Pitfalls or Tricky Points:
+Misinterpreting details or the main idea.
+Making assumptions not supported by the text.
+Falling for distractors that are partially true or true in general but not in the context of the passage.
+Time pressure leading to superficial reading.
+Standard Problem-Solving Techniques or Shortcuts:
+Read the questions first:
+ This helps you know what to look for while reading the passage.
+Skim the passage for the main idea:
+ Read the first and last sentences of each paragraph.
+Read the passage carefully:
+ Pay attention to keywords, transition words, and specific details.
+Locate answers:
+ For specific detail questions, find the relevant sentence(s) in the passage.
+Infer carefully:
+ For inference questions, ensure your conclusion is a necessary consequence of the text.
+Eliminate options:
+ Rule out options that are clearly incorrect, not mentioned, or contradict the passage.
+Round Table Arrangement
+
+Definition and Core Idea:
+ Round table arrangement problems involve arranging people or objects around a circular
+table or in a circular formation based on given conditions. The core idea is to understand relative positioning in a circle
+and apply principles of circular permutations.
+Important Formulas and Results:
+1
+. 
+Circular Permutations (Distinct items):
+ For 
+ distinct items arranged in a circle, the number of arrangements is
+. This is because in a circle, the starting point is arbitrary, so we fix one person's position and arrange
+the remaining 
+ people linearly.
+2
+. 
+Circular Permutations (Symmetric items):
+ If clockwise and anti-clockwise arrangements are considered the
+same (e.g., arranging beads in a necklace), the number of arrangements is 
+.
+Key Properties and Identities:
+In a circular arrangement, "left" and "right" are relative to the person's facing direction.
+"Opposite" means directly across the table.
+Fixing one person's position eliminates rotational symmetry and converts the problem into a linear arrangement
+for the remaining people.
+Common Pitfalls or Tricky Points:
+Confusing left/right turns in a circular setup.
+Misinterpreting "between" (e.g., "A is between B and C" means B-A-C or C-A-B).
+Not fixing a reference point, leading to overcounting arrangements.
+Assuming a specific number of seats when not explicitly stated.
+Standard Problem-Solving Techniques or Shortcuts:
+Draw a circle and mark the number of seats.
+Always start by fixing one person's position (e.g., at the "top" of the circle) to establish a reference.
+Place individuals with definite positions or relationships first (e.g., "A is opposite B").
+Use symbols or abbreviations for people.
+Deduce relative positions step-by-step, eliminating possibilities.
+For "left" and "right", imagine yourself sitting in that person's position.
+Seating Arrangement
+Definition and Core Idea:
+ Seating arrangement problems involve arranging people or objects in a linear row, multiple
+rows, or other geometric shapes (excluding circles, which are covered separately) based on given conditions. The core
+idea is to deduce the exact positions by satisfying all constraints.
+Important Formulas and Results:
+1
+. 
+Linear Permutations:
+ For 
+ distinct items arranged in a line, the number of arrangements is 
+.
+2
+. 
+Adjacent Items:
+ If certain items must sit together, treat them as a single block and arrange the block and other
+items, then arrange items within the block.
+Key Properties and Identities:
+In a linear arrangement, "left" and "right" are absolute (from the perspective of an observer facing the
+arrangement).
+If people are facing each other in two rows, their left/right directions will be opposite.
+Common Pitfalls or Tricky Points:
+Misinterpreting "immediate left/right" versus "left/right" (which can mean anywhere to the left/right).
+Confusing "between" (e.g., "A is between B and C" means B-A-C, not necessarily immediately).
+Incorrectly handling "facing each other" in multi-row arrangements.
+Not considering all possible scenarios before finalizing an arrangement.
+Standard Problem-Solving Techniques or Shortcuts:
+Draw a diagram representing the seating arrangement (e.g., a line for a single row, two parallel lines for two
+rows).
+Start with definite information (e.g., "A is at one end").
+Place individuals with clear relationships first (e.g., "B is immediately to the left of C").
+Use symbols or abbreviations.
+For complex conditions, create multiple possible scenarios and eliminate those that contradict other statements.
+Pay close attention to words like "only," "not," "exactly," which impose strict constraints.
+Sequence Series
+Definition and Core Idea:
+ Sequence and series problems involve identifying the pattern in a given set of numbers or
+letters arranged in a specific order and then finding the missing term, the next term, or a specific term in the sequence.
+The core idea is to discover the rule that generates the sequence.
+
+
+Important Formulas and Results:
+1
+. 
+Arithmetic Progression (AP):
+-th term: 
+Sum of 
+ terms: 
+ or 
+2
+. 
+Geometric Progression (GP):
+-th term: 
+Sum of 
+ terms: 
+ (for 
+)
+3
+. 
+Harmonic Progression (HP):
+ A sequence whose reciprocals form an AP.
+4
+. 
+Fibonacci Sequence:
+ 
+ (starting with 
+).
+5
+. 
+Other Common Patterns:
+Squares: 
+Cubes: 
+Prime numbers: 
+Double difference series (differences between terms form an AP/GP).
+Alternating series (two patterns interleaved).
+Series based on operations on digits (sum of digits, product of digits).
+Key Properties and Identities:
+Patterns can involve arithmetic operations, powers, roots, prime numbers, or combinations.
+Letter series often use alphabetical positions (A=1, B=2, etc.) and apply numerical patterns.
+Sometimes the pattern is a combination of two or more simple patterns.
+Common Pitfalls or Tricky Points:
+Assuming a simple pattern (AP/GP) when a more complex one (e.g., double difference, alternating) is present.
+Calculation errors, especially with larger numbers or multiple steps.
+Not considering all possible types of numerical relationships (powers, primes, etc.).
+In letter series, forgetting the cyclical nature of the alphabet (Z to A).
+Standard Problem-Solving Techniques or Shortcuts:
+Calculate the differences between consecutive terms. If not constant, calculate the differences of these
+differences.
+Calculate the ratios between consecutive terms.
+Check if terms are squares, cubes, or related to prime numbers.
+Look for alternating patterns or two interleaved series.
+For letter series, convert letters to their numerical positions and look for numerical patterns.
+Test your identified pattern with all given terms to ensure consistency.
+Statements Follow
+Definition and Core Idea:
+ "Statements Follow" problems (often syllogisms) present a set of statements (premises) and
+ask you to determine which of the given conclusions logically and necessarily follow from these statements. The core
+idea is to deduce conclusions strictly based on the provided information, without using external knowledge.
+Important Formulas and Results:
+ No mathematical formulas. "Results" are principles of syllogistic reasoning:
+1
+. 
+Categorical Propositions:
+All A are B (Universal Affirmative)
+No A are B (Universal Negative)
+Some A are B (Particular Affirmative)
+Some A are not B (Particular Negative)
+2
+. 
+Rules for Validity:
+ A conclusion is valid if it necessarily follows from the premises.
+3
+. 
+Venn Diagrams:
+ A visual tool to represent categorical propositions and test the validity of conclusions.
+Key Properties and Identities:
+The truth of the premises is assumed for the purpose of testing validity.
+A conclusion is valid if it is impossible for the premises to be true and the conclusion false.
+"Some" implies "at least one" and does not exclude "all."
+Common Pitfalls or Tricky Points:
+Making assumptions based on real-world knowledge that are not stated in the premises.
+Confusing "some" with "all" or "most."
+Drawing conclusions that are merely possible, not necessary.
+Misinterpreting the negation of a statement (e.g., the negation of "All A are B" is "Some A are not B," not "No A
+are B").
+Standard Problem-Solving Techniques or Shortcuts:
+Use Venn Diagrams:
+ Draw overlapping circles for each category mentioned in the statements. Shade or mark
+regions to represent the information.
+
+
+Combine Statements:
+ Look for a common term between two statements to link them.
+Test Each Conclusion:
+ Check if the conclusion is necessarily true based on your diagram or combined
+statements. If there's any possibility for the conclusion to be false while premises are true, it's invalid.
+Avoid External Knowledge:
+ Stick strictly to the information given in the statements.
+Focus on Necessity:
+ The conclusion must 
+necessarily
+ follow, not just possibly.
+Quick Formula Reference
+Age Relation:
+Age 
+ years ago: 
+Age 
+ years hence: 
+Age difference is constant.
+Direction Sense:
+Shortest distance (Pythagorean): 
+Right turn = 90° clockwise; Left turn = 90° anti-clockwise.
+Inequality:
+Transitivity: 
+Multiply/Divide by negative: Reverse inequality sign (
+)
+Logical Inference:
+Modus Ponens: 
+Modus Tollens: 
+Hypothetical Syllogism: 
+Number Relations & Sequence Series:
+AP:
+ 
+, 
+GP:
+ 
+, 
+HP:
+ Reciprocals form an AP.
+Fibonacci:
+ 
+Round Table Arrangement:
+ distinct items: 
+ arrangements
+Symmetric items (e.g., necklace): 
+ arrangements
+Seating Arrangement:
+ distinct items in a line: 
+ arrangements
+Treat adjacent items as a block for permutation calculations.
+General (Analogy, Coding, Odd One, Family, Passage, Statements Follow):
+Focus on pattern recognition, logical deduction, and strict adherence to given information.
+Use diagrams (family tree, Venn diagrams, direction maps) to visualize and organize information.
+Avoid external assumptions.
+Important Tips for GATE
+1
+. 
+Read Carefully and Comprehensively:
+ Many errors in Analytical Aptitude stem from misreading the question or
+statements. Pay close attention to keywords like "only," "all," "some," "not," "immediate," "opposite," and "between."
+2
+. 
+Visualize and Diagram:
+ For topics like Direction Sense, Family Relationship, Seating Arrangement, Round Table
+Arrangement, and Statements Follow, drawing clear diagrams (maps, family trees, tables, Venn diagrams) is
+invaluable. It helps organize information and prevents errors.
+3
+. 
+Break Down Complex Problems:
+ Don't get overwhelmed by lengthy problem descriptions. Break them into
+smaller, manageable statements. Address definite information first, then deduce relative positions or conditions.
+4
+. 
+Avoid External Assumptions:
+ In logical reasoning and inference problems, stick strictly to the information provided
+in the statements. Do not bring in real-world knowledge or personal opinions unless explicitly required (e.g., general
+knowledge analogies).
+5
+. 
+Practice Pattern Recognition:
+ For Number Relations, Sequence Series, Coding-Decoding, and Analogy,
+consistent practice helps you quickly identify common patterns (AP, GP, squares, cubes, prime numbers, letter
+shifts, types of relationships).
+6
+. 
+Time Management:
+ Analytical Aptitude questions can be time-consuming. If a problem seems overly complex or
+you're stuck, mark it and move on. Return to it if time permits. Sometimes, eliminating options can be faster than
+finding the direct answer.
+7
+. 
+Check Your Work:
+ Before finalizing an answer, quickly cross-verify your solution against all given conditions. This
+is especially crucial for arrangement problems where a single misplaced person can invalidate the entire setup.
+8
+. 
+Understand Negations:
+ Be clear about what constitutes a negation of a statement. For instance, the negation of
+"All A are B" is "Some A are not B," not "No A are B." This is vital for logical inference and statements follow
+
+
+8.1
+8.1.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.1.2
+A
+. 
+Abhishek is elder to Anshul
+B
+. 
+Anshul is elder to Abhishek
+C
+. 
+Abhishek and Anshul are of the
+same age
+D
+. 
+No conclusion follows
+8.2
+8.2.1
+A
+. 
+ = Thirst; 
+ = Hunger
+B
+. 
+ = Drink; 
+ = Hunger
+C
+. 
+ = Thirst; 
+ = Satiated
+D
+. 
+ = Wet; 
+ = Critic
+8.3
+8.3.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.3.2
+A
+. 
+zentaga
+B
+. 
+tagafer.
+C
+. 
+tagazen.
+D
+. 
+relffer.
+questions.
+Age Relation 
+(2)
+Age Relation: GATE CSE 2010 | Question: 62
+Hari(H), Gita(G), Irfan(I) and Saira(S) are siblings (i.e., brothers and sisters). All were born on 
+ January.
+The age diﬀerence between any two successive siblings (that is born one after another) is less than three
+years. Given the following facts:
+i
+. 
+Hari's age 
+ Gita's age 
+ Irfan's age 
+ Saira's age
+ii
+. 
+The age diﬀerence between Gita and Saira is one year. However Gita is not the oldest and Saira is not the
+youngest.
+iii
+. 
+There are no twins.
+In what order they were born (oldest first)?
+gatecse-2010
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+normal
+ 
+age-relation
+Answer key
+☟
+Age Relation: GATE2013 CE: GA-10
+Abhishek is elder to Savar. Savar is younger to Anshul. Which of the given conclusions is logically valid and
+is inferred from the above statements?
+gate2013-ce
+ 
+logical-reasoning
+ 
+age-relation
+ 
+easy
+Answer key
+☟
+Analogy 
+(1)
+Analogy: GATE CSE 2026 | Set 2 | GA | Question: 6
+Water : 
+ : Food : 
+Choose the 
+ and 
+ combination from the options below to form a meaningful analogy.
+gatecse-2026-set2
+ 
+analytical-aptitude
+ 
+analogy
+ 
+two-marks
+Answer key
+☟
+Code Words 
+(2)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(5Q)
+Code Words: GATE CSE 2015 | Set 3 | GA | Question: 1
+If 
+ is written as 
+, then 
+should be written as:
+gatecse-2015-set3
+ 
+analytical-aptitude
+ 
+easy
+ 
+logical-reasoning
+ 
+code-words
+ 
+code-language
+Answer key
+☟
+Code Words: GATE CSE 2016 | Set 1 | GA | Question: 04
+If 'relftaga' means carefree, 'otaga' means careful and 'fertaga' means careless, which of the following could
+mean 'aftercare'?
+
+
+8.4
+8.4.1
+A
+. 
+CEADP
+B
+. 
+IDBFC
+C
+. 
+JGIBC
+D
+. 
+IBCEC
+8.5
+8.5.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.5.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.5.3
+A
+. 
+B
+. 
+gatecse-2016-set1
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+normal
+ 
+code-words
+Answer key
+☟
+Coding Decoding 
+(1)
+Coding Decoding: GATE CSE 2025 | Set 2 | GA | Question: 7
+If IMAGE and FIELD are coded as FHBNJ and EMFJG respectively then, which one among the given
+options is the most appropriate code for BEACH?
+ 
+gatecse2025-set2
+ 
+analytical-aptitude
+ 
+coding-decoding
+ 
+two-marks
+Answer key
+☟
+Direction Sense 
+(5)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(14Q)
+Direction Sense: GATE CSE 2015 | Set 2 | GA | Question: 7
+Four branches of a company are located at 
+ and 
+ is north of 
+ at a distance of 
+ is
+south of 
+ at a distance of 
+ is southeast of 
+ by 
+. What is the distance between 
+ and 
+ in 
+?
+gatecse-2015-set2
+ 
+analytical-aptitude
+ 
+normal
+ 
+direction-sense
+Answer key
+☟
+Direction Sense: GATE CSE 2017 | Set 2 | GA | Question: 3
+There are ﬁve buildings called 
+, 
+, 
+, 
+ and 
+ in a row (not necessarily in that order). 
+ is to the West
+of 
+. 
+ is to the East of 
+ and the West of 
+. 
+ is to the West of 
+. Which is the building in the middle?
+gatecse-2017-set2
+ 
+analytical-aptitude
+ 
+direction-sense
+ 
+normal
+Answer key
+☟
+Direction Sense: GATE CSE 2019 | GA | Question: 10
+Three of the ﬁve students are allocated to a hostel put in special requests to the warden, Given the ﬂoor plan
+of the vacant rooms, select the allocation plan that will accommodate all their requests.
+Request by X: Due to pollen allergy, I want to avoid a wing next to the garden.
+Request by Y: I want to live as far from the washrooms as possible, since I am very much sensitive to smell.
+Request by Z: I believe in Vaastu and so I want to stay in South-West wing.
+The shaded rooms are already occupied. WR is washroom
+
+
+C
+. 
+D
+. 
+8.5.4
+8.5.5
+A
+. 
+ 
+B
+. 
+C
+. 
+D
+. 
+8.6
+gatecse-2019
+ 
+general-aptitude
+ 
+analytical-aptitude
+ 
+easy
+ 
+direction-sense
+ 
+two-marks
+Answer key
+☟
+Direction Sense: GATE CSE 2025 | Set 1 | GA | Question: 5
+According to the map shown in the figure, which one of the following statements is correct?
+Note: The figure shown is representative.
+ 
+A
+. 
+The library is located to the northwest of the canteen.
+B
+. 
+The hospital is located to the east of the chemistry lab.
+C
+. 
+The chemistry lab is to the southeast of physics lab.
+D
+. 
+The classrooms and canteen are next to each other.
+gatecse2025-set1
+ 
+analytical-aptitude
+ 
+direction-sense
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Direction Sense: GATE2014 AG: GA-9
+ is 
+ km northeast of 
+. 
+ is 
+ km southeast of 
+. 
+ is 
+ km west of 
+. 
+ is 
+ km south of 
+. 
+ is 
+km east of 
+. What is the distance between 
+ and 
+ in km?
+gate2014-ag
+ 
+analytical-aptitude
+ 
+direction-sense
+ 
+normal
+Answer key
+☟
+Family Relationship 
+(1)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(9Q)
+
+
+8.6.1
+A
+. 
+Both 
+ and 
+ are true.
+B
+. 
+Both 
+ and 
+ are true.
+C
+. 
+Only 
+ is true.
+D
+. 
+Only 
+ is true.
+8.7
+8.7.1
+8.8
+8.8.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.8.2
+Family Relationship: GATE CSE 2025 | Set 1 | GA | Question: 4
+Consider the relationships among 
+, and 
+ :
+ is the brother of 
+.
+ is the daughter of 
+.
+ is the sister of 
+.
+ is the mother of 
+.
+The following statements are made based on the relationships given above.
+1
+. 
+ is the grandmother of 
+.
+2
+. 
+ is the uncle of 
+ and 
+.
+3
+. 
+ has only one son.
+4
+. 
+ has only one daughter.
+Which one of the following options is correct?
+gatecse2025-set1
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+family-relationship
+ 
+one-mark
+Answer key
+☟
+Logical Inference 
+(1)
+Logical Inference: GATE CSE 2025 | Set 2 | GA | Question: 6
+​​​​​
+Based only on the conversation below, identify the logically correct inference:
+"Even if I had known that you were in the hospital, I would not have gone there to see you", Ramya told
+Josephine.
+A
+. 
+Ramya knew that Josephine was in the hospital.
+B
+. 
+Ramya did not know that Josephine was in the hospital.
+C
+. 
+Ramya and Josephine were once close friends; but now, they are not.
+D
+. 
+Josephine was in the hospital due to an injury to her leg.
+gatecse2025-set2
+ 
+analytical-aptitude
+ 
+logical-inference
+ 
+two-marks
+Answer key
+☟
+Logical Reasoning 
+(18)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(15Q)
+ 
+Test 5 
+(3Q)
+Logical Reasoning: GATE CSE 2010 | Question: 61
+If 
+ how much is 
+gatecse-2010
+ 
+analytical-aptitude
+ 
+normal
+ 
+logical-reasoning
+Answer key
+☟
+Logical Reasoning: GATE CSE 2015 | Set 3 | GA | Question: 7
+The head of newly formed government desires to appoint ﬁve of the six selected members 
+and 
+ to portfolios of Home, Power, Defense, Telecom, and Finance. U does not want any portfolio if 
+ gets
+one of the ﬁve. 
+ wants either Home or Finance or no portfolio. 
+ says that if 
+ gets Power or Telecom, then she
+must get the other one. T insists on a portfolio if 
+ gets one.
+Which is the valid distribution of portfolios?
+A
+. 
+-Home, 
+-Power, 
+-Defense, 
+-Telecom, 
+-Finance
+B
+. 
+-Home, 
+-Power, 
+-Defense, 
+-Telecom, 
+-Finance
+
+
+8.8.3
+A
+. 
+The box labeled ‘Apples’
+B
+. 
+The box labeled ‘Apples and
+Oranges’
+C
+. 
+The box labeled ‘Oranges’
+D
+. 
+Cannot be determined
+8.8.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.8.5
+8.8.6
+C
+. 
+-Home, 
+-Power, 
+-Defense, 
+-Telecom, 
+-Finance
+D
+. 
+-Home, 
+-Power, 
+-Defense, 
+-Telecom, 
+-Finance
+gatecse-2015-set3
+ 
+analytical-aptitude
+ 
+normal
+ 
+logical-reasoning
+Answer key
+☟
+Logical Reasoning: GATE CSE 2017 | Set 2 | GA | Question: 7
+There are three boxes. One contains apples, another contains oranges and the last one contains both
+apples and oranges. All three are known to be incorrectly labeled. If you are permitted to open just one box
+and then pull out and inspect only one fruit, which box would you open to determine the contents of all three boxes?
+gatecse-2017-set2
+ 
+analytical-aptitude
+ 
+normal
+ 
+tricky
+ 
+logical-reasoning
+Answer key
+☟
+Logical Reasoning: GATE CSE 2021 | Set 2 | GA | Question: 10
+Six students 
+, with distinct heights, compare their heights and make the following
+observations.
+: 
+ is taller than 
+.
+: 
+ is the shortest of all.
+: 
+ is taller than only one student.
+: 
+ is taller than 
+ but is not the tallest
+The number of students that are taller than 
+ is the same as the number of students shorter than ____________.
+gatecse-2021-set2
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+two-marks
+Answer key
+☟
+Logical Reasoning: GATE CSE 2023 | GA | Question: 4
+A survey for a certain year found that 
+ of pregnant women received medical care at least once before
+giving birth. Of these women, 
+ received medical care from doctors, while 
+ received medical care
+from other healthcare providers.
+Given this information, which one of the following statements can be inferred with
+ certainty
+?
+A
+. 
+More than half of the pregnant women received medical care at least once from a doctor.
+B
+. 
+Less than half of the pregnant women received medical care at least once from a doctor.
+C
+. 
+More than half of the pregnant women received medical care at most once from a doctor.
+D
+. 
+Less than half of the pregnant women received medical care at most once from a doctor.
+gatecse-2023
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+one-mark
+Answer key
+☟
+Logical Reasoning: GATE CSE 2026 | Set 1 | GA | Question: 5
+'When the teacher is in the room, all students stand silently.'
+If the above statement is true, which one of the following statements is 
+not necessarily
+ true?
+A
+. 
+If any student is not standing silently, then the teacher is not in the room.
+B
+. 
+When the teacher is in the room, all students are silent.
+C
+. 
+If all students are standing, then the teacher is in the room.
+D
+. 
+When the teacher is in the room, all students are standing.
+gatecse-2026-set1
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+one-mark
+
+
+8.8.7
+A
+. 
+P is False and Q is False
+B
+. 
+P is False and Q is True
+C
+. 
+P is True and Q is False
+D
+. 
+P is True and Q is True
+8.8.8
+A
+. 
+Third
+B
+. 
+Fourth
+C
+. 
+Fifth
+D
+. 
+Sixth
+8.8.9
+8.8.10
+Answer key
+☟
+Logical Reasoning: GATE CSE 2026 | Set 1 | GA | Question: 6
+Combinatorics deals with problems involving counting. For example, "How many distinct arrangements of 
+distinct objects in 
+ spaces on a circle are possible?" is a typical problem in combinatorics. This kind of
+counting is sometimes used in the modeling of several physical phenomena. Often, in such models, the diﬀerent
+combinatorial possibilities are assigned probability values. Assigning probabilities enables the computation of the
+average values of physical quantities.
+Consider the following statements:
+ Combinatorics is always invoked in the modeling of physical phenomena.
+ Modeling some physical phenomena involves assigning probabilities to combinatorial possibilities in order to
+compute average values of physical quantities.
+Based on the passage above, what can be inferred about statements 
+ and 
+gatecse-2026-set1
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+combinatory
+ 
+two-marks
+Answer key
+☟
+Logical Reasoning: GATE CSE 2026 | Set 1 | GA | Question: 9
+In the 
+ summer Olympics' Javelin throw ﬁnals, Neeraj Chopra exhibited a spectacular performance to
+win the gold medal. The silver medal was won by Jakub Vadlejch and the bronze medal was won by Vitezlav
+Vesely. There were six rounds of throws with each athlete having one throw per round. The best of all the throws of
+each athlete is considered for the medal. Following were the observations about the throws:
+i
+. 
+The ﬁrst and second rounds were dominated by Neeraj Chopra with a gold medal performance in his second
+throw, while the other two athletes did not have any medal winning throws in these rounds.
+ii
+. 
+The throws in the last round by both Jakub Vadlejch and Vitezlav Vesely were fouls and were not considered for
+scoring.
+iii
+. 
+After four rounds, Vitezlav Vesely was in the second position and could not improve upon his best throw in the
+succeeding rounds.
+iv
+. 
+In the fourth round, the throw by Jakub Vadlejch was the best in that round.
+In which round did Vitezlav Vesely have his best throw?
+gatecse-2026-set1
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+two-marks
+Answer key
+☟
+Logical Reasoning: GATE CSE 2026 | Set 2 | GA | Question: 5
+'When it is raining, peacocks dance.'
+Based only on this sentence, which one of the following options is necessarily true?
+A
+. 
+Peacocks dance only when it is raining.
+B
+. 
+When peacocks dance, it is raining.
+C
+. 
+When peacocks are not dancing, it is not raining.
+D
+. 
+When it is not raining, peacocks do not dance.
+gatecse-2026-set2
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+one-mark
+Answer key
+☟
+Logical Reasoning: GATE CSE 2026 | Set 2 | GA | Question: 7
+Two tiles are missing in Panel 
+. Which one of the options in Panel 
+ is the appropriate choice for the
+missing tiles?
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.8.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.8.12
+ 
+gatecse-2026-set2
+ 
+analytical-aptitude
+ 
+two-marks
+ 
+logical-reasoning
+Answer key
+☟
+Logical Reasoning: GATE CSE 2026 | Set 2 | GA | Question: 9
+The figure in Panel 
+ below is a grid of cells with four rows and four columns. The numbers on the top and on
+the left represent the number of cells that are to be shaded in that column and row, respectively. Which one
+of the options shown in Panel 
+ below represents the grid shaded correctly?
+gatecse-2026-set2
+ 
+analytical-aptitude
+ 
+two-marks
+ 
+logical-reasoning
+Answer key
+☟
+Logical Reasoning: GATE DA 2026 | GA | Question: 5
+'If his latest movie had been a commercial success, the actor would have made enough money to sponsor
+his next movie.'
+Based only on the above sentence, which one of the following statements is true?
+A
+. 
+The actor will certainly sponsor his next movie.
+B
+. 
+His latest movie was a commercial success.
+C
+. 
+The actor made enough money from his latest movie.
+D
+. 
+His latest movie was not commercially successful.
+
+
+8.8.13
+A
+. 
+Pavan
+B
+. 
+Rishi
+C
+. 
+Swathi
+D
+. 
+Tanvi
+8.8.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.8.15
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.8.16
+A
+. 
+Mohan
+B
+. 
+Ravi
+C
+. 
+Balu
+D
+. 
+Arun
+8.8.17
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gateda-2026
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+one-mark
+Answer key
+☟
+Logical Reasoning: GATE DA 2026 | GA | Question: 8
+Rishi and Swathi are students of Class 
+. Pavan and Tanvi are students of Class 
+. Rishi and Pavan are
+boys. Swathi and Tanvi are girls. The four students played a total of three games of chess. The games were
+played one after another. A player who lost a game did not participate in any more games. It was observed that:
+I
+. 
+the first game was the only game where two students of the same class played against each other,
+II
+. 
+the students of Class 
+ won more games than the students of Class 
+, and
+III
+. 
+the boys won two games and the girls won one game.
+The student who did not lose any game is 
+.
+gateda-2026
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+two-marks
+Answer key
+☟
+Logical Reasoning: GATE2011 GG: GA-8
+Three sisters 
+ and 
+ received a total of 
+ toys during Christmas. The toys were initially divided
+among them in a certain proportion. Subsequently, 
+ gave some toys to 
+ which doubled the share of 
+.
+Then 
+ in turn gave some of her toys to 
+, which doubled 
+s share. Next, some of 
+s toys were given to 
+,
+which doubled the number of toys that 
+ currently had. As a result of all such exchanges, the three sisters were left
+with equal number of toys. How many toys did 
+ have originally?
+gate2011-gg
+ 
+logical-reasoning
+ 
+analytical-aptitude
+Answer key
+☟
+Logical Reasoning: GATE2011 MN: GA-63
+ and 
+ are waiting in a queue meant for children to enter the zoo. There are 
+ children between 
+ and
+, and 
+ children between 
+ and 
+. If there are 
+ children ahead of 
+ and 
+ children behind 
+, then
+what is the minimum number of children in the queue?
+analytical-aptitude
+ 
+gate2011-mn
+ 
+logical-reasoning
+Answer key
+☟
+Logical Reasoning: GATE2012 AR: GA-8
+Ravi is taller than Arun but shorter than Iqbal. Sam is shorter than Ravi. Mohan is shorter than Arun. Balu is
+taller than Mohan and Sam. The tallest person can be
+gate2012-ar
+ 
+logical-reasoning
+Answer key
+☟
+Logical Reasoning: GATE2012 CY: GA-9
+There are eight bags of rice looking alike, seven of which have equal weight and one is slightly heavier. The
+weighing balance is of unlimited capacity. Using this balance, the minimum number of weighings required to
+identify the heavier bag is
+gate2012-cy
+ 
+analytical-aptitude
+ 
+logical-reasoning
+Answer key
+☟
+
+
+8.8.18
+8.9
+8.9.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.10
+8.10.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.10.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Logical Reasoning: GATE2014 AE: GA-7
+Anuj, Bhola, Chandan, Dilip, Eswar and Faisal live on diﬀerent ﬂoors in a six-storeyed building (the ground
+ﬂoor is numbered 
+, the ﬂoor above it 
+, and so on) Anuj lives on an even-numbered ﬂoor, Bhola does not
+live on an odd numbered ﬂoor. Chandan does not live on any of the ﬂoors below Faisal's ﬂoor. Dilip does not live on
+ﬂoor number 
+. Eswar does not live on a ﬂoor immediately above or immediately below Bhola. Faisal lives three
+floors above Dilip. Which of the following floor-person combinations is correct?
+gate2014-ae
+ 
+logical-reasoning
+ 
+analytical-aptitude
+ 
+descriptive
+Answer key
+☟
+Number Relations 
+(1)
+Number Relations: GATE CSE 2024 | Set 2 | GA | Question: 10
+In the 
+ array shown below, each cell of the first three rows has either a cross 
+ or a number.
+The number in a cell represents the count of the immediate neighboring cells (left, right, top, bottom, diagonals)
+NOT having a cross ( 
+ ). Given that the last row has no crosses 
+, the sum of the four numbers to be ﬁlled in
+the last row is
+gatecse-2024-set2
+ 
+analytical-aptitude
+ 
+number-relations
+ 
+two-marks
+Answer key
+☟
+Odd One 
+(2)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(6Q)
+Odd One: GATE CSE 2016 | Set 2 | GA | Question: 04
+Pick the odd one from the following options.
+gatecse-2016-set2
+ 
+analytical-aptitude
+ 
+odd-one
+ 
+normal
+Answer key
+☟
+Odd One: GATE2014 AE: GA-6
+Find the odd one in the following group: 
+
+
+8.11
+8.11.1
+8.11.2
+8.12
+8.12.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Cannot be determined
+8.13
+8.13.1
+gate2014-ae
+ 
+odd-one
+ 
+analytical-aptitude
+Answer key
+☟
+Passage Reading 
+(2)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(6Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(15Q)
+ 
+Test 5 
+(5Q)
+Passage Reading: GATE CSE 2022 | GA | Question: 7
+In a recently conducted national entrance test, boys constituted 
+ of those who appeared for the test.
+Girls constituted the remaining candidates and they accounted for 
+ of the qualified candidates.
+Which one of the following is the correct logical inference based on the information provided in the above passage?
+A
+. 
+Equal number of boys and girls qualified
+B
+. 
+Equal number of boys and girls appeared for the test
+C
+. 
+The number of boys who appeared for the test is less than the number of girls who appeared
+D
+. 
+The number of boys who qualified the test is less than the number of girls who qualified
+gatecse-2022
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+passage-reading
+ 
+two-marks
+Answer key
+☟
+Passage Reading: GATE CSE 2023 | GA | Question: 6
+The country of Zombieland is in distress since more than 
+ of its working population is suﬀering from
+serious health issues. Studies conducted by competent health experts concluded that a complete lack of
+physical exercise among its working population was one of the leading causes of their health issues. As one of the
+measures to address the problem, the Government of Zombieland has decided to provide monetary incentives to
+those who ride bicycles to work.
+Based only on the information provided above, which one of the following statements can be logically inferred with
+certainty
+?
+A
+. 
+All the working population of Zombieland will henceforth ride bicycles to work.
+B
+. 
+Riding bicycles will ensure that all of the working population of Zombieland is free of health issues.
+C
+. 
+The health experts suggested to the Government of Zombieland to declare riding bicycles as mandatory.
+D
+. 
+The Government of Zombieland believes that riding bicycles is a form of physical exercise.
+gatecse-2023
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+passage-reading
+ 
+two-marks
+Answer key
+☟
+Round Table Arrangement 
+(1)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(9Q)
+Round Table Arrangement: GATE CSE 2017 | Set 1 | GA | Question: 7
+Six people are seated around a circular table. There are at least two men and two women. There are at least
+three right-handed persons. Every woman has a left-handed person to her immediate right. None of the
+women are right-handed. The number of women at the table is
+gatecse-2017-set1
+ 
+analytical-aptitude
+ 
+round-table-arrangement
+Answer key
+☟
+Seating Arrangement 
+(1)
+Seating Arrangement: GATE CSE 2017 | Set 1 | GA | Question: 3
+Rahul, Murali, Srinivas and Arul are seated around a square table. Rahul is sitting to the left of Murali.
+Srinivas is sitting to the right of Arul. Which of the following pairs are seated opposite each other?
+
+
+A
+. 
+Rahul and Murali
+B
+. 
+Srinivas and Arul
+C
+. 
+Srinvas and Murali
+D
+. 
+Srinivas and Rahul
+8.14
+8.14.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.14.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.14.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+8.15
+8.15.1
+A
+. 
+(i). only 
+B
+. 
+(ii) only
+C
+. 
+(i) and (ii) only'
+D
+. 
+neither (i) nor (ii)
+8.15.2
+gatecse-2017-set1
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+seating-arrangement
+Answer key
+☟
+Sequence Series 
+(3)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(1Q)
+Sequence Series: GATE CSE 2020 | GA | Question: 7
+If 
+, 
+, 
+, then 
+ ________
+gatecse-2020
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+sequence-series
+ 
+two-marks
+Answer key
+☟
+Sequence Series: GATE CSE 2024 | Set 2 | GA | Question: 5
+​​​​​
+In the sequence 
+, a possible value of 
+ is
+gatecse-2024-set2
+ 
+analytical-aptitude
+ 
+sequence-series
+ 
+one-mark
+Answer key
+☟
+Sequence Series: GATE2010 MN: GA-7
+Given the sequence 
+ etc
+ that is one 
+ two 
+ three 
+ four 
+five 
+ and so on, the 
+ letter in the sequence will be 
+general-aptitude
+ 
+logical-reasoning
+ 
+gate2010-mn
+ 
+sequence-series
+Answer key
+☟
+Statements Follow 
+(7)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(7Q)
+Statements Follow: GATE CSE 2016 | Set 1 | GA | Question: 08
+Consider the following statements relating to the level of poker play of four players 
+.
+I
+. 
+ always beats 
+II
+. 
+ always beats 
+III
+. 
+ loses to 
+ only sometimes.
+IV
+. 
+ always loses to 
+Which of the following can be logically inferred from the above statements?
+i
+. 
+ is likely to beat all the three other players
+ii
+. 
+ is the absolute worst player in the set
+gatecse-2016-set1
+ 
+analytical-aptitude
+ 
+normal
+ 
+statements-follow
+Answer key
+☟
+Statements Follow: GATE CSE 2016 | Set 2 | GA | Question: 08
+All hill-stations have a lake. Ooty has two lakes.
+Which of the statement(s) below is/are logically valid and can be inferred from the above sentences?
+
+
+A
+. 
+(i) only.
+B
+. 
+(ii) only.
+C
+. 
+Both (i) and (ii)
+D
+. 
+Neither (i) nor (ii)
+8.15.3
+A
+. 
+Only conclusion 
+ is correct
+B
+. 
+Only conclusion 
+ is correct
+C
+. 
+Either conclusion 
+ or 
+ is correct
+D
+. 
+Neither conclusion 
+ nor 
+ is
+correct
+8.15.4
+A
+. 
+Statement 
+ and Statement 
+B
+. 
+Statement 
+ and Statement 
+C
+. 
+Statement 
+ and Statement 
+D
+. 
+Statement 
+ and Statement 
+8.15.5
+8.15.6
+i
+. 
+Ooty is not a hill-station.
+ii
+. 
+No hill-station can have more than one lake.
+gatecse-2016-set2
+ 
+analytical-aptitude
+ 
+easy
+ 
+statements-follow
+Answer key
+☟
+Statements Follow: GATE CSE 2021 | Set 1 | GA | Question: 9
+Given below are two statements 
+ and 
+, and two conclusions 
+ and 
+ All bacteria are microorganisms.
+ All pathogens are microorganisms.
+ Some pathogens are bacteria.
+ All pathogens are not bacteria.
+Based on the above statements and conclusions, which one of the following options is logically 
+?
+gatecse-2021-set1
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+statements-follow
+ 
+two-marks
+Answer key
+☟
+Statements Follow: GATE CSE 2022 | GA | Question: 4
+Given below are four statements.
+Statement 
+ All students are inquisitive.
+Statement 
+ Some students are inquisitive.
+Statement 
+ No student is inquisitive.
+Statement 
+ Some students are not inquisitive.
+From the given four statements, ﬁnd the two statements that 
+ simultaneously, assuming
+that there is at least one student in the class.
+gatecse-2022
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+statements-follow
+ 
+one-mark
+Answer key
+☟
+Statements Follow: GATE DS&AI 2024 | GA | Question: 6
+Thousands of years ago, some people began dairy farming. This coincided with a number of mutations in a
+particular gene that resulted in these people developing the ability to digest dairy milk.
+Based on the given passage, which of the following can be inferred?
+A
+. 
+All human beings can digest dairy milk.
+B
+. 
+No human being can digest dairy milk.
+C
+. 
+Digestion of dairy milk is essential for human beings.
+D
+. 
+In human beings, digestion of dairy milk resulted from a mutated gene.
+ 
+gate-ds-ai-2024
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+statements-follow
+ 
+two-marks
+Answer key
+☟
+Statements Follow: GATE2013 AE: GA-9
+All professors are researchers
+
+
+A
+. 
+All scientists are researchers
+B
+. 
+All professors are scientists
+C
+. 
+Some researchers are scientists
+D
+. 
+No conclusion follows
+8.15.7
+Some scientists are professors
+Which of the given conclusions is logically valid and is inferred from the above arguments?
+gate2013-ae
+ 
+analytical-aptitude
+ 
+logical-reasoning
+ 
+statements-follow
+Answer key
+☟
+Statements Follow: GATE2014 AG: GA-6
+In a group of four children, Som is younger to Riaz. Shiv is elder to Ansu. Ansu is youngest in the group.
+Which of the following statements is/are required to find the eldest child in the group?
+Statements
+    1. Shiv is younger to Riaz.
+    2. Shiv is elder to Som.
+A
+. 
+Statement 
+ by itself determines the eldest child. 
+B
+. 
+Statement 
+ by itself determines the eldest child.
+C
+. 
+Statements 
+ and 
+ are both required to determine the eldest child. 
+D
+. 
+Statements 
+ and 
+ are not sufficient to determine the eldest child.
+gate2014-ag
+ 
+analytical-aptitude
+ 
+normal
+ 
+statements-follow
+Answer key
+☟
+Answer Keys
+8.1.1
+B
+8.1.2
+D
+8.2.1
+A
+8.3.1
+B
+8.3.2
+C
+8.4.1
+B
+8.5.1
+A
+8.5.2
+A
+8.5.3
+D
+8.5.4
+C
+8.5.5
+C
+8.6.1
+A
+8.7.1
+B
+8.8.1
+C
+8.8.2
+B
+8.8.3
+B
+8.8.4
+C
+8.8.5
+A
+8.8.6
+C
+8.8.7
+B
+8.8.8
+A
+8.8.9
+C
+8.8.10
+A
+8.8.11
+B
+8.8.12
+D
+8.8.13
+D
+8.8.14
+C
+8.8.15
+A
+8.8.16
+C
+8.8.17
+A
+8.8.18
+B
+8.9.1
+A
+8.10.1
+D
+8.10.2
+D
+8.11.1
+D
+8.11.2
+D
+8.12.1
+A
+8.13.1
+C
+8.14.1
+C
+8.14.2
+B
+8.14.3
+A
+8.15.1
+D
+8.15.2
+D
+8.15.3
+C;D
+8.15.4
+A
+8.15.5
+D
+8.15.6
+C
+8.15.7
+A

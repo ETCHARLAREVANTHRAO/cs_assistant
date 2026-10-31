@@ -1,0 +1,9785 @@
+1
+CO & Architecture
+ 
+(251)
+Machine instructions
+ and 
+Addressing modes.
+ 
+ALU, data
+‐
+path and control unit.
+ 
+Instruction pipelining.
+ 
+Pipeline
+hazards, 
+Memory hierarchy: cache, main memory and secondary storage;
+ 
+I/O interface
+ 
+(Interrupt
+ and 
+DMA
+mode)
+Welcome to the "Computer Organization & Architecture" chapter of your GATE Computer Science preparation. This
+crucial subject delves into the fundamental design and operational principles of a computer system, from the lowest-
+level hardware components to how instructions are executed and data is managed. Understanding COA is vital for any
+computer scientist as it provides the bedrock knowledge for designing efficient systems, writing optimized code, and
+comprehending the performance implications of software choices. In the GATE CS exam, COA typically carries a
+weightage of 8-12 marks, with questions ranging from conceptual understanding of architectural principles (like CISC
+vs. RISC, control unit types) to numerical problems involving cache memory, pipelining performance, virtual memory,
+and disk access times. Expect a mix of Multiple Choice Questions (MCQs), Multiple Select Questions (MSQs), and
+Numerical Answer Type (NAT) questions, often requiring precise calculations and a deep grasp of underlying
+mechanisms.
+Topic-wise Key Concepts
+Addressing Modes
+Addressing modes define how the effective address of an operand is calculated. They specify where the operand is
+located, whether in a register, memory, or as part of the instruction itself, enabling flexible and efficient memory access.
+Important Formulas & Concepts
+Immediate:
+ Operand is part of the instruction. 
+. No memory access for operand.
+Direct:
+ 
+ (address field in instruction). One memory access to fetch operand.
+Indirect:
+ 
+ (address field points to memory location containing EA). Two memory accesses (one
+for EA, one for operand).
+Register:
+ Operand is in a specified register. 
+. No memory access.
+Register Indirect:
+ 
+ (register contains EA). One memory access to fetch operand.
+Relative (PC-relative):
+ 
+ (offset from Program Counter). Used for branch instructions.
+Indexed:
+ 
+. Used for array access.
+Base-Register:
+ 
+. Used for relocating programs.
+Key Properties & Identities
+Trade-offs exist between instruction length, execution speed, and flexibility.
+Used to access data, implement control flow, and manage memory.
+Common Pitfalls
+Confusing direct and indirect addressing, especially regarding the number of memory accesses.
+Standard Problem-Solving Techniques
+Trace the instruction execution step-by-step to calculate the effective address for given register/memory contents.
+Average Memory Access Time (AMAT)
+AMAT is the average time taken to access memory, considering the presence of a cache and its hit/miss rates. It
+quantifies the performance of the memory hierarchy.
+
+
+Important Formulas & Concepts
+For a single-level cache:
+where 
+ is cache hit time, 
+ is miss rate, and 
+ is the time to fetch data from the next level of
+memory (main memory).
+For a two-level cache (L1, L2):
+where 
+ is L1 hit time, 
+ is L1 miss rate, 
+ is L2 hit time, 
+ is L2 miss rate (local miss rate for
+L2), and 
+ is main memory access time.
+Key Properties & Identities
+Lower AMAT indicates better memory system performance.
+Affected by cache hit rate, miss penalty, and cache access times.
+Common Pitfalls
+Forgetting to add the hit time to the miss penalty when calculating total miss time.
+Incorrectly applying local vs. global miss rates for multi-level caches.
+Standard Problem-Solving Techniques
+Draw the memory hierarchy and clearly identify access times and miss rates for each level.
+Bit Vector
+A bit vector (or bit array) is a data structure that efficiently stores a sequence of bits. Each bit typically represents a
+boolean flag or the presence/absence of an element in a set.
+Important Formulas & Concepts
+Storage: 
+ bits require 
+ bytes of storage.
+Bitwise operations: AND, OR, XOR, NOT, SHIFT for efficient manipulation.
+Key Properties & Identities
+Space-efficient for large sets of boolean flags.
+Fast bitwise operations for checking, setting, or clearing flags.
+Common Pitfalls
+Misinterpreting bit positions or the effect of bitwise operations.
+Standard Problem-Solving Techniques
+Use bit masks to isolate or modify specific bits.
+CISC RISC Architecture
+CISC (Complex Instruction Set Computer) and RISC (Reduced Instruction Set Computer) are two contrasting
+philosophies for designing instruction sets. They represent different approaches to instruction complexity and hardware
+implementation.
+Important Formulas & Concepts
+CISC Characteristics:
+
+
+Many complex instructions, often performing multiple operations (e.g., memory access and arithmetic).
+Variable instruction length.
+Microprogrammed control unit.
+Fewer general-purpose registers, more memory-to-memory operations.
+Complex addressing modes.
+RISC Characteristics:
+Few, simple, fixed-length instructions, typically one operation per instruction.
+Hardwired control unit.
+Many general-purpose registers, load/store architecture (only LOAD/STORE access memory).
+Simple addressing modes.
+Optimized for pipelining.
+Key Properties & Identities
+RISC generally achieves higher CPI (Cycles Per Instruction) but lower clock cycle time due to simpler instructions,
+leading to better performance in many cases.
+CISC aims for fewer instructions per program but higher CPI.
+Common Pitfalls
+Assuming one architecture is universally superior; their suitability depends on the application and compiler
+technology.
+Standard Problem-Solving Techniques
+Compare and contrast features to identify the type of architecture described in a scenario.
+Cache Memory
+Cache memory is a small, fast memory component that stores copies of data from frequently used main memory
+locations. Its purpose is to reduce the average time to access data, exploiting the principle of locality.
+Important Formulas & Concepts
+Address Breakdown:
+ For a memory address of 
+ bits, a cache with 
+ bytes per block, and 
+ cache lines (or
+sets):
+Block Offset bits:
+ 
+Number of Blocks in Main Memory:
+ 
+Number of Cache Lines:
+ 
+Direct Mapping:
+Index bits:
+ 
+Tag bits:
+ 
+Set-Associative Mapping (S-way):
+Number of Sets:
+ 
+Index bits:
+ 
+Tag bits:
+ 
+Fully Associative Mapping:
+No Index bits.
+Tag bits:
+ 
+Any block can go into any cache line.
+Hit Rate (
+):
+ 
+Miss Rate (
+):
+ 
+Key Properties & Identities
+Exploits temporal and spatial locality of reference.
+Mapping techniques (Direct, Set-Associative, Fully Associative) determine where a block can be placed.
+Write policies (Write-Through, Write-Back) determine when data is written to main memory.
+
+
+Replacement policies (LRU, FIFO, LFU, Random) determine which block to evict on a miss.
+Common Pitfalls
+Incorrectly calculating the number of bits for Tag, Index, and Offset.
+Confusing the total cache size with the number of cache lines.
+Standard Problem-Solving Techniques
+Draw the cache structure and trace memory accesses to determine hits/misses and cache contents.
+Conflict Misses
+Conflict misses occur in direct-mapped or set-associative caches when multiple memory blocks map to the same cache
+line or set, and these blocks are actively used, causing them to evict each other even if other cache lines are empty.
+Important Formulas & Concepts
+These are a type of "capacity miss" specifically due to the mapping function.
+Increasing associativity reduces conflict misses.
+Key Properties & Identities
+Occur when the cache is not full but the required block is evicted due to mapping constraints.
+Distinguished from compulsory (first-time access) and capacity (cache too small) misses.
+Common Pitfalls
+Mistaking a conflict miss for a capacity miss or a compulsory miss.
+Standard Problem-Solving Techniques
+Analyze the memory access pattern and the cache mapping scheme to identify if multiple active blocks map to the
+same location.
+Control Unit
+The control unit is the part of the CPU that directs the operation of the processor. It interprets instructions and
+generates control signals to coordinate the activities of other components, such as the ALU, registers, and memory.
+Important Formulas & Concepts
+Hardwired Control:
+ Implemented using combinational logic gates.
+Faster execution.
+Complex to design and modify for large instruction sets.
+Used in RISC processors.
+Microprogrammed Control:
+ Implemented using a sequence of microinstructions stored in a control memory.
+More flexible and easier to design/modify for complex instruction sets.
+Slower execution due to memory access for microinstructions.
+Used in CISC processors.
+Key Properties & Identities
+Determines the sequence of micro-operations for each machine instruction.
+Generates timing and control signals for the entire system.
+Common Pitfalls
+Not understanding the trade-offs between hardwired and microprogrammed control in terms of speed, flexibility, and
+design complexity.
+
+Standard Problem-Solving Techniques
+Relate the control unit type to the characteristics of CISC/RISC architectures.
+DMA (Direct Memory Access)
+DMA is a hardware feature that allows I/O devices to transfer data directly to and from main memory without involving
+the CPU. This significantly reduces CPU overhead for data transfers, improving system performance.
+Important Formulas & Concepts
+DMA controller manages the data transfer.
+Cycle Stealing:
+ DMA controller takes control of the bus for one or more memory cycles to transfer data.
+Burst Mode:
+ DMA controller takes control of the bus and transfers an entire block of data before releasing the bus.
+Key Properties & Identities
+Frees the CPU to perform other tasks during I/O operations.
+Requires a DMA controller chip.
+Common Pitfalls
+Misunderstanding that DMA completely bypasses the CPU; the CPU initiates and configures the DMA transfer.
+Standard Problem-Solving Techniques
+Analyze scenarios to determine when DMA is most beneficial compared to programmed I/O or interrupt-driven I/O.
+DRAM (Dynamic Random Access Memory)
+DRAM is the most common type of main memory used in computers. It stores each bit of data in a separate capacitor
+within an integrated circuit, requiring periodic refreshing to maintain the charge and thus the data.
+Important Formulas & Concepts
+Data stored as charge in capacitors.
+Requires refresh cycles to prevent data loss.
+Key Properties & Identities
+Volatile (data is lost when power is removed).
+Higher density and lower cost per bit compared to SRAM.
+Slower access times than SRAM due to refresh cycles and capacitor charging/discharging.
+Common Pitfalls
+Confusing DRAM characteristics with SRAM (Static RAM), which uses latches and does not require refreshing.
+Standard Problem-Solving Techniques
+Compare and contrast DRAM with SRAM based on cost, speed, density, and power consumption.
+Data Dependency
+A data dependency exists between two instructions when the second instruction requires data produced by the first
+instruction, or when they both access the same memory location, potentially leading to incorrect results if executed out
+of order.
+Important Formulas & Concepts
+
+RAW (Read After Write) / True Dependency:
+ Instruction 
+ tries to read a source before instruction 
+ writes to it. 
+. This is the most common and critical dependency.
+WAR (Write After Read) / Anti-dependency:
+ Instruction 
+ tries to write to a destination before instruction 
+ reads
+from it. 
+. Can be resolved by renaming.
+WAW (Write After Write) / Output Dependency:
+ Instruction 
+ tries to write to a destination before instruction 
+writes to it. 
+. Can be resolved by renaming.
+Key Properties & Identities
+RAW dependencies are true data dependencies and must be preserved.
+WAR and WAW are name dependencies and can be eliminated by register renaming.
+Common Pitfalls
+Incorrectly identifying the type of dependency or missing a dependency.
+Standard Problem-Solving Techniques
+Analyze the read/write sets of instructions to identify dependencies.
+Data Hazards
+Data hazards occur in pipelined processors when an instruction attempts to access data before a preceding instruction
+has made that data available. These hazards can lead to incorrect program execution if not handled.
+Important Formulas & Concepts
+Caused by RAW, WAR, and WAW dependencies.
+Solutions:
+Stalling (Bubbles/NOPs):
+ Insert NOP instructions to delay the dependent instruction.
+Forwarding (Bypassing):
+ Route the result of an instruction directly from an internal pipeline register to the input
+of a subsequent instruction's functional unit, bypassing the register file.
+Compiler Scheduling:
+ Reorder instructions at compile time to avoid hazards.
+Key Properties & Identities
+Increase the CPI (Cycles Per Instruction) of a pipeline, reducing ideal speedup.
+Forwarding is the most common hardware solution to reduce stalls due to RAW hazards.
+Common Pitfalls
+Calculating the number of stalls incorrectly, especially when forwarding is present.
+Not identifying all data dependencies in a given instruction sequence.
+Standard Problem-Solving Techniques
+Draw pipeline diagrams to visualize instruction flow and identify where stalls or forwarding are needed.
+Data Path
+The data path of a CPU consists of the functional units (like the ALU, registers, and multiplexers) and the buses that
+connect them, through which data flows during instruction execution. It performs the actual data processing operations.
+Important Formulas & Concepts
+Key components: Program Counter (PC), Instruction Register (IR), Memory Address Register (MAR), Memory Data
+Register (MDR), General Purpose Registers (GPRs), Arithmetic Logic Unit (ALU).
+Key Properties & Identities
+
+
+The data path is controlled by signals generated by the control unit.
+Its design impacts the clock cycle time and the number of cycles per instruction.
+Common Pitfalls
+Not understanding how data moves between components for different instruction types.
+Standard Problem-Solving Techniques
+Trace the flow of data for a specific instruction (e.g., LOAD, ADD) through the datapath components.
+Direct Mapping
+Direct mapping is a cache organization technique where each block from main memory can only be placed into one
+specific line in the cache. This mapping is determined by a simple modular arithmetic function of the memory block
+address.
+Important Formulas & Concepts
+Cache Line Index:
+ 
+Address Breakdown:
+ A memory address is divided into three fields: Tag, Index, and Block Offset.
+Block Offset bits:
+ 
+Index bits:
+ 
+Tag bits:
+ 
+Key Properties & Identities
+Simplest to implement and fastest for cache lookup.
+Suffers from high conflict misses if frequently accessed blocks map to the same cache line.
+Common Pitfalls
+Incorrectly calculating the number of bits for the Tag, Index, or Block Offset fields.
+Standard Problem-Solving Techniques
+Given memory and cache parameters, determine the address breakdown and trace memory accesses to identify
+hits/misses.
+Dirty Bit
+A dirty bit (or modified bit) is a flag associated with a cache line or a virtual memory page table entry. It indicates
+whether the corresponding data block in the cache/page has been modified since it was loaded from the next lower level
+of memory (main memory/disk).
+Important Formulas & Concepts
+Set to '1' when data in the cache line or page is written to.
+Set to '0' when the data is clean (matches the lower level memory).
+Key Properties & Identities
+Crucial for write-back cache policies: if the dirty bit is set, the block must be written back to main memory upon
+eviction.
+Used in virtual memory page replacement algorithms to avoid unnecessary writes to disk.
+Common Pitfalls
+Misunderstanding its role in write-through caches (where it's not typically needed) versus write-back caches.
+
+
+Standard Problem-Solving Techniques
+Analyze cache write operations and page replacement scenarios to determine when the dirty bit is set or checked.
+Disk
+A disk (hard disk drive) is a non-volatile secondary storage device that stores data magnetically on rotating platters. It is
+characterized by its large capacity and persistence, but significantly slower access times compared to RAM.
+Important Formulas & Concepts
+Disk Access Time:
+Seek Time:
+ Time taken for the read/write head to move to the correct track. (Often given as average or calculated
+based on number of tracks).
+Rotational Latency:
+ Time taken for the desired sector to rotate under the read/write head.
+(where RPM is revolutions per minute).
+Transfer Time:
+ Time taken to transfer the actual data once the head is positioned.
+or 
+.
+Key Properties & Identities
+Non-volatile storage.
+Mechanical components make it orders of magnitude slower than electronic memory.
+Common Pitfalls
+Incorrectly calculating average rotational latency (using 
+ of a full rotation).
+Mixing units (e.g., milliseconds and seconds).
+Standard Problem-Solving Techniques
+Break down the access time calculation into its three components and calculate each separately.
+Hazards
+Hazards are situations in pipelined processors that prevent the next instruction in the instruction stream from executing
+in its designated clock cycle. They reduce the ideal speedup of a pipeline.
+Important Formulas & Concepts
+Structural Hazards:
+ Occur when two instructions require the same hardware resource at the same time (e.g.,
+single memory port for both instruction fetch and data access).
+Data Hazards:
+ Occur when an instruction depends on the result of a previous instruction that has not yet completed
+(RAW, WAR, WAW).
+Control Hazards (Branch Hazards):
+ Occur when the pipeline makes a wrong guess about the next instruction to
+fetch (e.g., after a conditional branch).
+Key Properties & Identities
+All hazards increase the effective CPI (Cycles Per Instruction) of the pipeline.
+
+
+Solutions include stalling, forwarding, and branch prediction.
+Common Pitfalls
+Confusing the different types of hazards or misidentifying the cause of a stall.
+Standard Problem-Solving Techniques
+Analyze the instruction sequence and pipeline stage usage to identify potential conflicts.
+IO Handling
+I/O handling refers to the mechanisms by which a CPU communicates and exchanges data with peripheral input/output
+devices. Efficient I/O handling is crucial for system performance.
+Important Formulas & Concepts
+Programmed I/O (Polling):
+ CPU continuously checks the status of an I/O device.
+High CPU overhead, simple to implement.
+Interrupt-Driven I/O:
+ I/O device signals the CPU via an interrupt when it needs attention.
+Lower CPU overhead than polling, CPU can do other work.
+Requires interrupt service routines (ISRs).
+Direct Memory Access (DMA):
+ I/O device transfers data directly to/from memory without CPU intervention.
+Lowest CPU overhead for large data transfers.
+Requires a DMA controller.
+Key Properties & Identities
+Each method has trade-offs in terms of CPU utilization, response time, and complexity.
+Interrupts allow for asynchronous event handling.
+Common Pitfalls
+Not understanding the CPU's involvement (or lack thereof) in data transfer for each method.
+Standard Problem-Solving Techniques
+Evaluate scenarios to determine the most suitable I/O handling method based on data volume and CPU availability.
+Instruction Execution
+Instruction execution is the process by which a CPU carries out a single machine instruction. In a pipelined processor,
+this process is broken down into several sequential stages, allowing multiple instructions to be processed concurrently.
+Important Formulas & Concepts
+Typical 5-stage pipeline:
+1
+. 
+IF (Instruction Fetch):
+ Fetch instruction from memory.
+2
+. 
+ID (Instruction Decode):
+ Decode instruction, read registers.
+3
+. 
+EX (Execute):
+ Perform ALU operation.
+4
+. 
+MEM (Memory Access):
+ Access data memory (load/store).
+5
+. 
+WB (Write Back):
+ Write result back to register file.
+Key Properties & Identities
+Each stage ideally takes one clock cycle in a pipelined processor.
+The slowest stage determines the clock cycle time of the pipeline.
+Common Pitfalls
+
+Misunderstanding the specific function of each pipeline stage.
+Standard Problem-Solving Techniques
+Trace an instruction through each stage of the pipeline to understand its execution flow.
+Instruction Format
+The instruction format defines the layout of bits within a machine instruction. It specifies how the opcode, operands, and
+addressing mode information are encoded, directly impacting the instruction set's flexibility and the CPU's decoding
+complexity.
+Important Formulas & Concepts
+An instruction typically consists of an 
+opcode
+ (operation code) and one or more 
+operand fields
+.
+Operand fields can specify registers, memory addresses, or immediate values.
+Fixed-length instruction format:
+ All instructions have the same length. Simplifies fetching and decoding, good for
+pipelining (RISC).
+Variable-length instruction format:
+ Instructions can have different lengths. Allows for more complex instructions
+and addressing modes, but complicates fetching and decoding (CISC).
+Key Properties & Identities
+The number of bits for the opcode determines the maximum number of unique operations.
+The number of bits for operand fields determines the number of registers or the addressable memory range.
+Common Pitfalls
+Incorrectly calculating the maximum number of opcodes or addressable memory given a fixed instruction length.
+Standard Problem-Solving Techniques
+Given instruction length and operand requirements, calculate the remaining bits for the opcode or vice-versa.
+Instruction Set Architecture (ISA)
+The ISA is the abstract model of a computer that is visible to a programmer or compiler writer. It defines the set of
+instructions, registers, memory organization, data types, and the I/O model that the hardware supports.
+Important Formulas & Concepts
+Includes the instruction set, register set, memory addressing modes, and interrupt handling mechanisms.
+Forms the interface between software and hardware.
+Key Properties & Identities
+ISA defines 
+what
+ the processor does, while microarchitecture defines 
+how
+ it does it.
+CISC and RISC are two major ISA design philosophies.
+Common Pitfalls
+Confusing ISA (the specification) with microarchitecture (the implementation).
+Standard Problem-Solving Techniques
+Understand that ISA is the contract that allows software to run on different hardware implementations of the same
+ISA.
+Interrupts
+
+An interrupt is a signal to the CPU indicating an event that requires immediate attention, causing the CPU to temporarily
+suspend its current task and execute a special routine (Interrupt Service Routine or ISR) to handle the event.
+Important Formulas & Concepts
+Hardware Interrupts:
+ Generated by I/O devices (e.g., keyboard press, disk completion). Asynchronous.
+Software Interrupts (Exceptions/Traps):
+ Generated by program execution (e.g., division by zero, page fault,
+system call). Synchronous.
+Interrupt Vector Table:
+ A table of addresses for ISRs, indexed by interrupt number.
+Key Properties & Identities
+Enable efficient I/O handling and error management without constant CPU polling.
+Involve saving CPU state, executing ISR, and restoring CPU state.
+Common Pitfalls
+Misunderstanding the sequence of events during interrupt handling (saving context, jumping to ISR, restoring
+context).
+Standard Problem-Solving Techniques
+Trace the flow of control when an interrupt occurs, considering context saving and ISR execution.
+Machine Instruction
+A machine instruction is a command or operation that a CPU can directly understand and execute. It is represented in
+binary code and forms the lowest-level programming language, specific to a particular processor's Instruction Set
+Architecture.
+Important Formulas & Concepts
+Composed of an opcode and zero or more operands.
+Each instruction performs a basic operation (e.g., add, load, store, branch).
+Key Properties & Identities
+Directly executable by the hardware.
+The fundamental unit of computation for the CPU.
+Common Pitfalls
+Confusing machine instructions (binary) with assembly language instructions (mnemonic representation).
+Standard Problem-Solving Techniques
+Understand how an assembly instruction translates into its binary machine code equivalent based on the instruction
+format.
+Memory Interfacing
+Memory interfacing is the process of connecting memory devices (RAM, ROM) to the CPU. It involves designing the
+necessary address decoding logic, connecting data and address buses, and generating control signals to ensure proper
+communication and data transfer.
+Important Formulas & Concepts
+Address Decoding:
+ Logic gates (decoders, AND gates) used to select the correct memory chip based on the
+CPU's address lines.
+Chip Select (CS):
+ A control signal that enables a specific memory chip.
+
+Memory Map:
+ The allocation of address ranges to different memory devices.
+Key Properties & Identities
+Ensures that each memory location has a unique address and that the correct device responds to a CPU request.
+Bus width (data and address) must match between CPU and memory.
+Common Pitfalls
+Incorrectly designing address decoding logic, leading to address conflicts or unused address space.
+Standard Problem-Solving Techniques
+Given CPU address lines and memory chip sizes, determine the address ranges and design the minimal decoding
+logic.
+Microprogramming
+Microprogramming is a technique for implementing the control unit of a CPU by storing a sequence of microinstructions
+in a special control memory. Each machine instruction is executed by a microprogram, which is a sequence of
+microinstructions.
+Important Formulas & Concepts
+Microinstruction:
+ A low-level instruction that controls the individual functional units of the CPU (e.g., enable ALU,
+load register).
+Control Store (CS):
+ Memory where microprograms are stored.
+Key Properties & Identities
+Offers flexibility: easier to design complex instruction sets and modify existing ones.
+Slower than hardwired control due to the overhead of fetching and decoding microinstructions.
+Commonly used in CISC processors.
+Common Pitfalls
+Confusing microinstructions (internal CPU control) with machine instructions (user-level instructions).
+Standard Problem-Solving Techniques
+Understand how a machine instruction is broken down into a sequence of micro-operations controlled by
+microinstructions.
+Pipelining
+Pipelining is a technique that allows multiple instructions to be in different stages of execution simultaneously, improving
+the throughput of a processor. It does not reduce the execution time of a single instruction but increases the rate at
+which instructions complete.
+Important Formulas & Concepts
+Number of stages:
+ 
+Number of instructions:
+ 
+Clock cycle time:
+ 
+ (determined by the slowest stage).
+Execution time for N instructions (non-pipelined):
+ 
+Execution time for N instructions (ideal pipelined):
+ 
+Ideal Speedup (
+) for large N:
+ 
+Throughput (ideal):
+ 
+ instructions per cycle.
+CPI (Cycles Per Instruction):
+
+
+Ideal CPI = 1.
+Actual CPI = 
+.
+Key Properties & Identities
+Increases instruction throughput, not latency.
+Performance is limited by hazards (structural, data, control).
+Common Pitfalls
+Incorrectly calculating execution time when stalls are present.
+Assuming pipelining reduces the execution time of a single instruction.
+Standard Problem-Solving Techniques
+Draw pipeline diagrams to visualize instruction flow, identify hazards, and calculate stalls.
+Runtime Environment
+The runtime environment refers to the state of a program during its execution, encompassing all resources and
+conditions necessary for the program to run. This includes the CPU's registers, memory (stack, heap, code, data
+segments), program counter, and operating system services.
+Important Formulas & Concepts
+Includes CPU state (registers, PC, flags), memory layout (code, data, heap, stack), and OS resources.
+Key Properties & Identities
+Managed by the operating system and supported by the hardware architecture.
+Defines how programs interact with the underlying system.
+Common Pitfalls
+Not understanding the distinction between compile-time and run-time aspects of a program.
+Standard Problem-Solving Techniques
+Understand how memory is organized and utilized by a program during execution (e.g., stack for function calls, heap
+for dynamic allocation).
+Speedup
+Speedup is a measure of how much faster a task executes on an improved system compared to an original system. It
+quantifies the performance gain achieved by optimizations like pipelining, parallel processing, or using faster
+components.
+Important Formulas & Concepts
+General Speedup:
+Amdahl's Law:
+ Calculates the theoretical maximum speedup for a system when only a portion of the task can be
+improved.
+
+
+where 
+ is the proportion of the program that can be enhanced, and 
+ is the speedup of the enhanced part.
+Pipelining Speedup (for large N):
+ 
+ (number of pipeline stages).
+Key Properties & Identities
+Amdahl's Law highlights that the sequential portion of a program limits overall speedup.
+Speedup is a dimensionless quantity.
+Common Pitfalls
+Incorrectly applying Amdahl's Law, especially regarding the value of 
+.
+Forgetting to account for overheads or non-ideal conditions in pipelining.
+Standard Problem-Solving Techniques
+Identify the parallelizable and sequential components of a task when using Amdahl's Law.
+Stall
+A stall (also known as a bubble or NOP) is a delay introduced into a pipeline to resolve a hazard. When a hazard is
+detected, the pipeline is temporarily halted for one or more clock cycles, preventing the dependent instruction from
+proceeding until the hazard is cleared.
+Important Formulas & Concepts
+Stalls increase the CPI (Cycles Per Instruction) of the pipeline.
+Number of stalls depends on the type of hazard and the pipeline's ability to forward data.
+Key Properties & Identities
+Reduces the effective throughput and speedup of the pipeline.
+A common method to ensure correctness in the presence of data and control hazards.
+Common Pitfalls
+Incorrectly calculating the number of stalls required for a given hazard, especially when forwarding is implemented.
+Standard Problem-Solving Techniques
+Draw pipeline diagrams and mark the clock cycles where stalls are inserted to resolve dependencies.
+Virtual Memory
+Virtual memory is a memory management technique that allows a computer to compensate for physical memory
+shortages by temporarily transferring data from RAM to disk storage. It provides the illusion of a larger, contiguous
+memory space to programs.
+Important Formulas & Concepts
+Paging:
+ Divides memory into fixed-size blocks (pages and frames).
+Page Table:
+ Maps virtual page numbers to physical frame numbers.
+TLB (Translation Lookaside Buffer):
+ A small, fast cache for page table entries.
+Effective Access Time (EAT) with TLB:
+where 
+ is TLB access time and 
+ is main memory access time.
+Effective Access Time (EAT) with Page Faults:
+
+
+where 
+ is the page fault rate, 
+ is memory access time, and 
+ is the time to handle a page fault
+(including disk I/O).
+Key Properties & Identities
+Provides memory protection, allows multitasking, and enables programs larger than physical memory.
+Address translation involves converting virtual addresses to physical addresses.
+Common Pitfalls
+Incorrectly calculating EAT, especially when considering both TLB misses and page faults.
+Confusing page table entries with TLB entries.
+Standard Problem-Solving Techniques
+Trace the address translation process (TLB lookup, page table lookup, page fault handling).
+Quick Formula Reference
+Topic
+Formula/Concept
+Average Memory
+Access Time (AMAT)
+Single-level cache: 
+Two-level cache: 
+Cache Memory
+(Address Breakdown)
+Block Offset bits: 
+Direct Mapped Index bits: 
+Set-Associative Index bits: 
+Tag bits: 
+Direct Mapped Index: 
+Disk Access Time
+Pipelining Performance
+Execution time (N instructions, K stages, ideal): 
+Ideal Speedup (large N): 
+Actual CPI: 
+Speedup (Amdahl's
+Law)
+Virtual Memory (EAT)
+With TLB: 
+With Page Faults: 
+Important Tips for GATE
+Master Numerical Problems:
+ A significant portion of COA questions are numerical, especially on Cache Memory
+(AMAT, address breakdown), Pipelining (execution time, speedup, stalls), Disk Access Time, and Virtual Memory
+(EAT). Practice these extensively.
+Address Breakdown is Key:
+ For cache and virtual memory, thoroughly understand how a logical/physical address
+is divided into Tag, Index/Page Number, and Offset. This is fundamental for many problems.
+Pipeline Diagrams:
+ Learn to draw and analyze pipeline diagrams for instruction sequences. This is the best way to
+identify data/control hazards and calculate the number of stalls or benefits of forwarding.
+
+
+1.1
+1.1.1
+A
+. 
+Direct mode
+B
+. 
+Indirect mode
+C
+. 
+Relative mode
+D
+. 
+Indexed mode
+1.1.2
+1.1.3
+1.1.4
+Conceptual Clarity:
+ Don't just memorize definitions. Understand the "why" behind concepts. For example, why
+RISC is better for pipelining, why cache works (locality), or why DMA is used.
+Distinguish Similar Concepts:
+ Be clear on the differences between CISC/RISC, hardwired/microprogrammed
+control, various addressing modes, and different types of hazards (structural, data, control).
+Read Questions Carefully:
+ Pay close attention to units (ns, ms, cycles), specific assumptions (e.g., "no
+forwarding," "average rotational latency"), and what is being asked (e.g., total time vs. speedup).
+Amdahl's Law:
+ This formula frequently appears in questions related to performance improvement. Understand how
+to apply it correctly, especially identifying the parallelizable portion 
+.
+Time Management:
+ Some numerical problems can be lengthy. If you get stuck or find a calculation too complex,
+consider moving on and returning later. Look for shortcuts or approximations if applicable.
+Addressing Modes 
+(19)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(15Q)
+Addressing Modes: GATE CSE 1987 | Question: 1-V
+The most relevant addressing mode to write position-independent codes is:
+gate1987
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+easy
+Answer key
+☟
+Addressing Modes: GATE CSE 1988 | Question: 9iii
+In the program scheme given below indicate the instructions containing any operand needing relocation for
+position independent behaviour. Justify your answer.
+gate1988
+ 
+normal
+ 
+descriptive
+ 
+co-and-architecture
+ 
+addressing-modes
+Answer key
+☟
+Addressing Modes: GATE CSE 1989 | Question: 2-ii
+Match the pairs in the following questions:
+gate1989
+ 
+match-the-following
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+easy
+Answer key
+☟
+Addressing Modes: GATE CSE 1993 | Question: 10
+The instruction format of a CPU is:
+
+
+1.1.5
+A
+. 
+Co – routines
+B
+. 
+Position – independent code
+C
+. 
+Shareable code
+D
+. 
+Interrupt Handlers
+1.1.6
+A
+. 
+Indirect addressing
+B
+. 
+Indexed addressing
+C
+. 
+Base register addressing
+D
+. 
+PC relative addressing
+1.1.7
+A
+. 
+Pointers
+B
+. 
+Arrays
+C
+. 
+Records
+D
+. 
+Recursive procedures with local
+variable
+1.1.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ and 
+ together specify the operand. 
+ speciﬁes a CPU register and 
+ speciﬁes an addressing
+mode. In particular, 
+ specifies that ‘the register 
+ contains the address of the operand, after fetching
+the operand, the contents of 
+ are incremented by 
+'.
+An instruction at memory location 
+ specifies 
+ and the 
+ refers to program counter (PC).
+A
+. 
+What is the address of the operand?
+B
+. 
+Assuming that is a non-jump instruction, what are the contents of PC after the execution of this instruction?
+gate1993
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Addressing Modes: GATE CSE 1996 | Question: 1.16, ISRO2016-42
+Relative mode of addressing is most relevant to writing:
+gate1996
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+easy
+ 
+isro2016
+Answer key
+☟
+Addressing Modes: GATE CSE 1998 | Question: 1.19
+Which of the following addressing modes permits relocation without any change whatsoever in the code?
+gate1998
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+easy
+Answer key
+☟
+Addressing Modes: GATE CSE 1999 | Question: 2.23
+A certain processor supports only the immediate and the direct addressing modes. Which of the following
+programming language features cannot be implemented on this processor?
+gate1999
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+normal
+ 
+multiple-selects
+Answer key
+☟
+Addressing Modes: GATE CSE 2000 | Question: 1.10
+The most appropriate matching for the following pairs
+is
+gatecse-2000
+ 
+co-and-architecture
+ 
+easy
+ 
+addressing-modes
+ 
+match-the-following
+Answer key
+☟
+
+
+1.1.9
+A
+. 
+(X, III), (Y, I), (Z, II)
+B
+. 
+(X, II), (Y, III), (Z, I)
+C
+. 
+(X, III), (Y, II), (Z, I)
+D
+. 
+(X, I), (Y, III), (Z, II)
+1.1.10
+1.1.11
+A
+. 
+I and IV
+B
+. 
+I and II
+C
+. 
+II and III
+D
+. 
+I, II and IV
+1.1.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.1.13
+Addressing Modes: GATE CSE 2001 | Question: 2.9
+Which is the most appropriate match for the items in the first column with the items in the second column:
+gatecse-2001
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+easy
+ 
+match-the-following
+Answer key
+☟
+Addressing Modes: GATE CSE 2002 | Question: 1.24
+In the absolute addressing mode:
+A
+. 
+the operand is inside the instruction
+B
+. 
+the address of the operand in inside the instruction
+C
+. 
+the register containing the address of the operand is specified inside the instruction
+D
+. 
+the location of the operand is implicit
+gatecse-2002
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+easy
+Answer key
+☟
+Addressing Modes: GATE CSE 2004 | Question: 20
+Which of the following addressing modes are suitable for program relocation at run time?
+I
+. 
+Absolute addressing
+II
+. 
+Based addressing
+III
+. 
+Relative addressing
+IV
+. 
+Indirect addressing
+gatecse-2004
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+easy
+Answer key
+☟
+Addressing Modes: GATE CSE 2005 | Question: 65
+Consider a three word machine instruction
+The ﬁrst operand (destination) 
+ uses indexed addressing mode with 
+ as the index register. The second
+operand (source) 
+ uses indirect addressing mode. 
+ and 
+ are memory addresses residing at the second
+and third words, respectively. The ﬁrst word of the instruction speciﬁes the opcode, the index register designation
+and the source and destination addressing modes. During execution of 
+ instruction, the two operands are
+added and stored in the destination (first operand).
+The number of memory cycles needed during the execution cycle of the instruction is:
+gatecse-2005
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+normal
+Answer key
+☟
+Addressing Modes: GATE CSE 2005 | Question: 66
+Match each of the high level language statements given on the left hand side with the most natural
+addressing mode from those listed on the right hand side.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.1.14
+A
+. 
+I only
+B
+. 
+II only
+C
+. 
+III only
+D
+. 
+II and III only
+1.1.15
+A
+. 
+Immediate addressing
+B
+. 
+Register addressing
+C
+. 
+Register Indirect Scaled
+Addressing
+D
+. 
+Base Indexed Addressing
+1.1.16
+1.1.17
+gatecse-2005
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+match-the-following
+ 
+easy
+Answer key
+☟
+Addressing Modes: GATE CSE 2008 | Question: 33, ISRO2009-80
+Which of the following is/are true of the auto-increment addressing mode?
+I
+. 
+It is useful in creating self-relocating code
+II
+. 
+If it is included in an Instruction Set Architecture, then an additional ALU is required for eﬀective address
+calculation
+III
+. 
+The amount of increment depends on the size of the data item accessed
+gatecse-2008
+ 
+addressing-modes
+ 
+co-and-architecture
+ 
+normal
+ 
+isro2009
+Answer key
+☟
+Addressing Modes: GATE CSE 2011 | Question: 21
+Consider a hypothetical processor with an instruction of type 
+, which during execution
+reads a 
+ word from memory and stores it in a 
+ register 
+. The eﬀective address of the
+memory location is obtained by the addition of a constant 
+ and the contents of register 
+. Which of the following
+best reflects the addressing mode implemented by this instruction for the operand in memory?
+gatecse-2011
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+easy
+Answer key
+☟
+Addressing Modes: GATE CSE 2017 | Set 1 | Question: 11
+Consider the 
+  struct defined below:
+struct
+ data 
+{
+    
+int
+ marks 
+[
+100
+];
+    
+char
+ grade
+;
+    
+int
+ cnumber
+;
+};
+struct
+ data student
+;
+The base address of student is available in register 
+. The field student.grade can be accessed efficiently using:
+A
+. 
+Post-increment addressing mode, 
+B
+. 
+Pre-decrement addressing mode, 
+C
+. 
+Register direct addressing mode, 
+D
+. 
+Index addressing mode, 
+, where 
+ is an offset represented in 
+ complement 
+ representation
+gatecse-2017-set1
+ 
+co-and-architecture
+ 
+addressing-modes
+Answer key
+☟
+Addressing Modes: GATE CSE 2026 | Set 1 | Question: 4
+Match each addressing mode in 
+ with a data element or an element of a data structure (in a high-level
+language) in 
+:
+
+
+1.1.18
+1.1.19
+A
+. 
+Memory location 
+ has value 
+B
+. 
+Memory location 
+ has value 
+C
+. 
+Memory location 
+ has value 
+D
+. 
+Memory location 
+ has value 
+1.2
+1.2.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2026-set1
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+one-mark
+Answer key
+☟
+Addressing Modes: GATE IT 2006 | Question: 39, ISRO2009-42
+Which of the following statements about relative addressing mode is FALSE?
+A
+. 
+It enables reduced instruction size
+B
+. 
+It allows indexing of array element with same instruction
+C
+. 
+It enables easy relocation of data
+D
+. 
+It enables faster address calculation than absolute addressing
+gateit-2006
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+normal
+ 
+isro2009
+Answer key
+☟
+Addressing Modes: GATE IT 2006 | Question: 40
+The memory locations 
+ and 
+ have data values 
+ and 
+ respectively before the
+following program is executed.
+Which of the statements below is TRUE after the program is executed ?
+gateit-2006
+ 
+co-and-architecture
+ 
+addressing-modes
+ 
+normal
+Answer key
+☟
+Average Memory Access Time 
+(3)
+Average Memory Access Time: GATE CSE 1992 | Question: 5-a
+The access times of the main memory and the Cache memory, in a computer system, are 
+ n sec and 
+nsec, respectively. It is estimated that 
+ of the main memory request are for read the rest for write. The
+hit ratio for the read access only is 
+ and a write-through policy (where both main and cache memories are
+updated simultaneously) is used. Determine the average time of the main memory (in ns).
+gate1992
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+ 
+numerical-answers
+ 
+average-memory-access-time
+Answer key
+☟
+
+
+1.2.2
+1.2.3
+1.3
+1.3.1
+Average Memory Access Time: GATE CSE 2025 | Set 1 | Question: 43
+A computer has a memory hierarchy consisting of two-level cache 
+ and 
+ and a main memory. If the
+processor needs to access data from memory, it ﬁrst looks into 
+ cache. If the data is not found in 
+cache, it goes to 
+ cache. If it fails to get the data from 
+ cache, it goes to main memory, where the data is
+deﬁnitely available. Hit rates and access times of various memory units are shown in the ﬁgure. The average
+memory access time in nanoseconds 
+ is ________. (rounded off to two decimal places)
+ 
+gatecse2025-set1
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+multilevel-cache
+ 
+average-memory-access-time
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Average Memory Access Time: GATE CSE 2025 | Set 2 | Question: 45
+Given a computing system with two levels of cache (L1 and L2) and a main memory. The ﬁrst level (L1)
+cache access time is 
+ nanosecond (ns) and the "hit rate" for L1 cache is 
+ while the processor is
+accessing the data from L1 cache. Whereas, for the second level (L2) cache, the "hit rate" is 
+ and the "miss
+penalty" for transferring data from L2 cache to L1 cache is 
+ ns . The "miss penalty" for the data to be transferred
+from main memory to L2 cache is 
+ ns .
+Then the average memory access time in this system in nanoseconds is __________ . (rounded oﬀ to one decimal
+place)
+gatecse2025-set2
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+average-memory-access-time
+ 
+multilevel-cache
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Bit Vector 
+(1)
+Bit Vector: GATE CSE 2026 | Set 2 | Question: 43
+To keep track of free blocks in a ﬁle system, one of the two approaches is generally used - using bitmaps
+(bit vectors) or using linked lists. Consider that the linked list approach is used to keep track of free blocks in
+a ﬁle system. Assume that the disk size is 
+ GB , block size is 
+ KB , and block numbers used are 
+-bit long. A
+single pointer of size 
+ bytes is used in each block of the list to point to the next block of the list. The number of
+blocks required to hold the free disk block numbers is 
+. (answer in integer)
+Note: 
+ and 
+gatecse-2026-set2
+ 
+co-and-architecture
+ 
+bit-vector
+ 
+file-system
+ 
+numerical-answers
+ 
+two-marks
+
+
+1.4
+1.4.1
+A
+. 
+has fewer instructions
+B
+. 
+has fewer addressing modes
+C
+. 
+has more registers
+D
+. 
+is easier to implement using hard-
+wired logic
+1.4.2
+A
+. 
+I and II only
+B
+. 
+II and III only
+C
+. 
+I and III only
+D
+. 
+I, II and III
+1.5
+1.5.1
+1.5.2
+Answer key
+☟
+CISC RISC Architecture 
+(2)
+CISC RISC Architecture: GATE CSE 1999 | Question: 2.22
+The main difference(s) between a CISC and a RISC processor is/are that a RISC processor typically
+gate1999
+ 
+co-and-architecture
+ 
+normal
+ 
+cisc-risc-architecture
+ 
+multiple-selects
+Answer key
+☟
+CISC RISC Architecture: GATE CSE 2018 | Question: 5
+Consider the following processor design characteristics:
+I
+. 
+Register-to-register arithmetic operations only
+II
+. 
+Fixed-length instruction format
+III
+. 
+Hardwired control unit
+Which of the characteristics above  are used in the design of a RISC processor?
+gatecse-2018
+ 
+co-and-architecture
+ 
+cisc-risc-architecture
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Cache Memory 
+(69)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(15Q)
+ 
+Test 5 
+(15Q)
+ 
+Test 6 
+(15Q)
+ 
+Test 7 
+(15Q)
+ 
+Test 8 
+(4Q)
+Cache Memory: GATE CSE 1987 | Question: 4b
+What is cache memory? What is rationale of using cache memory?
+gate1987
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+descriptive
+Answer key
+☟
+Cache Memory: GATE CSE 1989 | Question: 6a
+A certain computer system was designed with cache memory of size 
+ Kbytes and main memory size of 
+Kbytes. The cache implementation was fully associative cache with 
+ bytes per block. The CPU memory
+data path was 
+ bits and the memory was 
+way interleaved. Each memory read request presents two 
+bit
+words. A program with the model shown below was run to evaluate the cache design.
+ 
+
+
+1.5.3
+1.5.4
+1.5.5
+A
+. 
+Interrupts
+B
+. 
+DMA
+C
+. 
+Polling
+D
+. 
+Cache Memory
+1.5.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.7
+Answer the following questions:
+i
+. 
+What is the hit ratio?
+ii
+. 
+Suggest a change in the program size of model to improve the hit ratio significantly.
+gate1989
+ 
+descriptive
+ 
+co-and-architecture
+ 
+cache-memory
+Answer key
+☟
+Cache Memory: GATE CSE 1990 | Question: 7a
+A block-set associative cache memory consists of 
+ blocks divided into four block sets. The main memory
+consists of 
+ blocks and each block contains 
+ eight bit words.
+1
+. 
+How many bits are required for addressing the main memory?
+2
+. 
+How many bits are needed to represent the TAG, SET and WORD fields?
+gate1990
+ 
+descriptive
+ 
+co-and-architecture
+ 
+cache-memory
+Answer key
+☟
+Cache Memory: GATE CSE 1993 | Question: 11
+In the three-level memory hierarchy shown in the following table, 
+ denotes the probability that an access
+request will refer to 
+.
+If a miss occurs at level 
+, a page transfer occurs from 
+ to 
+ and the average time required for such a
+page swap is 
+. Calculate the average time 
+ required for a processor to read one word from this memory
+system.
+gate1993
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Cache Memory: GATE CSE 1995 | Question: 1.6
+The principle of locality justifies the use of:
+gate1995
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+easy
+Answer key
+☟
+Cache Memory: GATE CSE 1995 | Question: 2.25
+A computer system has a 
+ word cache organized in block-set-associative manner with 
+ blocks per set, 
+ words per block. The number of bits in the SET and WORD fields of the main memory address format is:
+gate1995
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 1996 | Question: 26
+A computer system has a three-level memory hierarchy, with access time and hit ratios as shown below:
+
+
+1.5.8
+1.5.9
+A
+. 
+ of the cache
+B
+. 
+ of the cache
+C
+. 
+ of the cache
+D
+. 
+ of the cache
+1.5.10
+A
+. 
+exploit the temporal locality of
+reference in a program
+B
+. 
+exploit the spatial locality of
+reference in a program
+C
+. 
+reduce the miss penalty
+D
+. 
+none of the above
+1.5.11
+A
+. 
+What should be the minimum sizes of level 
+ and 
+ memories to achieve an average access time of less than 
+?
+B
+. 
+What is the average access time achieved using the chosen sizes of level 
+ and level 
+ memories?
+gate1996
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 1998 | Question: 18
+For a set-associative Cache organization, the parameters are as follows:
+Calculate the hit ratio for a loop executed 
+ times where the size of the loop is 
+, and 
+ is a non-
+zero integer and 
+.
+Give the value of the hit ratio for 
+.
+gate1998
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+descriptive
+Answer key
+☟
+Cache Memory: GATE CSE 1999 | Question: 1.22
+The main memory of a computer has 
+ blocks while the cache has 
+ blocks. If the cache uses the set
+associative mapping scheme with 
+ blocks per set, then block 
+ of the main memory maps to the set:
+gate1999
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2001 | Question: 1.7, ISRO2008-18
+More than one word are put in one cache block to:
+gatecse-2001
+ 
+co-and-architecture
+ 
+easy
+ 
+cache-memory
+ 
+isro2008
+Answer key
+☟
+Cache Memory: GATE CSE 2001 | Question: 9
+A CPU has 
+ memory address and a 
+ cache memory. The cache is organized as a 
+set associative cache with cache block size of 
+ bytes.
+A
+. 
+What is the number of sets in the cache?
+B
+. 
+What is the size (in bits) of the tag field per cache block?
+
+
+1.5.12
+1.5.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.15
+A
+. 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+ 
+1.5.16
+C
+. 
+What is the number and size of comparators required for tag matching?
+D
+. 
+How many address bits are required to find the byte offset within a cache block?
+E
+. 
+What is the total amount of extra memory (in bytes) required for the tag bits?
+gatecse-2001
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Cache Memory: GATE CSE 2002 | Question: 10
+In a C program, an array is declared as 
+. Each array element is 
+ in size, and the
+starting address of the array is 
+. This program is run on a computer that has a direct mapped
+data cache of size 
+, with block (line) size of 
+.
+A
+. 
+Which elements of the array conflict with element 
+ in the data cache? Justify your answer briefly.
+B
+. 
+If the program accesses the elements of this array one by one in reverse order i.e., starting with the last element
+and ending with the ﬁrst element,  how many data cache misses would occur? Justify your answer brieﬂy.
+Assume that the data cache is initially empty and that no other data or instruction accesses are to be
+considered.
+gatecse-2002
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Cache Memory: GATE CSE 2004 | Question: 65
+Consider a small two-way set-associative cache memory, consisting of four blocks. For choosing the block
+to be replaced, use the least recently used (LRU) scheme. The number of cache misses for the following
+sequence of block addresses is:
+.
+gatecse-2004
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2005 | Question: 67
+Consider a direct mapped cache of size 
+ 
+ with block size 
+ 
+. The 
+ generates 
+ 
+addresses. The number of bits needed for cache indexing and the number of tag bits are respectively,
+gatecse-2005
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+easy
+Answer key
+☟
+Cache Memory: GATE CSE 2006 | Question: 74
+Consider two cache organizations. First one is 
+ set associative with 
+ block size, the
+second is of same size but direct mapped. The size of an address is 
+ in  both cases . A 
+multiplexer has latency of 
+ while a 
+ comparator has latency of  
+. The hit latency of the set
+associative organization is 
+ while that of direct mapped is 
+.
+The value of 
+ is: 
+gatecse-2006
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2006 | Question: 75
+Consider two cache organizations. First one is 
+ 
+ 
+-way set associative with 
+ 
+ block size, the
+second is of same size but direct mapped. The size of an address is 
+ 
+ in  both cases . A 
+-to-
+
+
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+ 
+1.5.17
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.18
+multiplexer has latency of 
+ while a 
+bit comparator has latency of  
+. The hit latency of the set
+associative organization is 
+ while that of direct mapped is 
+.
+The value of 
+ is:  
+gatecse-2006
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2006 | Question: 80
+A CPU has a 
+ direct mapped cache with 
+ byte-block size. Suppose A is two dimensional array of
+size 
+ with elements that occupy 
+-bytes each. Consider the following two C code segments, 
+and 
+.
+P1: 
+for
+ 
+(
+i
+=
+0
+;
+ i
+<
+512
+;
+ i
+++)
+{
+ 
+    
+for
+ 
+(
+j
+=
+0
+;
+ j
+<
+512
+;
+ j
+++)
+    
+{
+ 
+        x 
++=
+A
+[
+i
+]
+ 
+[
+j
+];
+ 
+    
+}
+ 
+}
+P2: 
+for
+ 
+(
+i
+=
+0
+;
+ i
+<
+512
+;
+ i
+++)
+{
+ 
+    
+for
+ 
+(
+j
+=
+0
+;
+ j
+<
+512
+;
+ j
+++)
+    
+{
+ 
+        x 
++=
+A
+[
+j
+]
+ 
+[
+i
+];
+ 
+    
+}
+ 
+}
+ 
+ and 
+ are executed independently with the same initial state, namely, the array 
+ is not in the cache and 
+, 
+, 
+ are in registers.  Let the number of cache misses experienced by 
+ be 
+and that for 
+ be 
+.
+The value of 
+ is:
+gatecse-2006
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2006 | Question: 81
+A 
+CPU
+ has a 
+ 
+ direct mapped cache with 
+ byte-block size. Suppose 
+ is two dimensional array of
+size 
+ with elements that occupy 
+ each. Consider the following two 
+ code segments, 
+ and 
+.
+: 
+for
+ 
+(
+i
+=
+0
+;
+ i
+<
+512
+;
+ i
+++)
+{
+ 
+    
+for
+ 
+(
+j
+=
+0
+;
+ j
+<
+512
+;
+ j
+++)
+    
+{
+ 
+        x 
++=
+A
+[
+i
+]
+ 
+[
+j
+];
+ 
+    
+}
+ 
+}
+P2: 
+for
+ 
+(
+i
+=
+0
+;
+ i
+<
+512
+;
+ i
+++)
+{
+ 
+    
+for
+ 
+(
+j
+=
+0
+;
+ j
+<
+512
+;
+ j
+++)
+    
+{
+ 
+        x 
++=
+A
+[
+j
+]
+ 
+[
+i
+];
+ 
+    
+}
+ 
+}
+ and 
+ are executed independently with the same initial state, namely, the array 
+ is not in the cache and 
+, 
+, 
+
+
+A
+. 
+ 
+B
+. 
+C
+. 
+D
+. 
+ 
+1.5.19
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.20
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.21
+A
+. 
+line 
+ to line 
+B
+. 
+line 
+ to line 
+C
+. 
+line 
+ to line 
+D
+. 
+line 
+ to line 
+1.5.22
+A
+. 
+IV only
+B
+. 
+I and IV only
+C
+. 
+I, II and IV only
+D
+. 
+I, II, III and IV
+ are in registers. Let the number of cache misses experienced by 
+ be 
+ and that for 
+ be 
+.
+The value of the ratio 
+:
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+ 
+gatecse-2006
+Answer key
+☟
+Cache Memory: GATE CSE 2007 | Question: 10
+Consider a 
+-way set associative cache consisting of 
+ lines with a line size of 
+ words. The 
+CPU
+generates a 
+ address of a word in main memory. The number of bits in the TAG, LINE and WORD
+fields are respectively:
+gatecse-2007
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2007 | Question: 80
+Consider a machine with a byte addressable main memory of 
+ bytes. Assume that a direct mapped data
+cache consisting of 
+ lines of 
+ bytes each is used in the system. A 
+ two-dimensional array of
+bytes is stored in the main memory starting from memory location 
+. Assume that the data cache is initially
+empty. The complete array is accessed twice. Assume that the contents of the data cache do not change in
+between the two accesses. 
+How many data misses will occur in total?
+gatecse-2007
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2007 | Question: 81
+Consider a machine with a byte addressable main memory of 
+ bytes. Assume that a direct mapped data
+cache consisting of 
+ lines of 
+ bytes each is used in the system. A 
+ x 
+ two-dimensional array of
+bytes is stored in the main memory starting from memory location 
+. Assume that the data cache is initially
+empty. The complete array is accessed twice. Assume that the contents of the data cache do not change in
+between the two accesses. 
+Which of the following lines of the data cache will be replaced by new blocks in accessing the array for the second
+time?
+gatecse-2007
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2008 | Question: 35
+For inclusion to hold between two cache levels 
+ and 
+ in a multi-level cache hierarchy, which of the
+following are necessary?
+I
+. 
+ must be write-through cache
+II
+. 
+ must be a write-through cache
+III
+. 
+The associativity of 
+ must be greater than that of 
+IV
+. 
+The 
+ cache must be at least as large as the 
+ cache
+gatecse-2008
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+
+
+1.5.23
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.24
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.25
+Answer key
+☟
+Cache Memory: GATE CSE 2008 | Question: 71
+Consider a machine with a 
+-way set associative data cache of size 
+ and block size 
+. The
+cache is managed using 
+ virtual addresses and the page size is 
+. A program to be run on this
+machine begins as follows:
+double
+ ARR
+[
+1024
+][
+1024
+];
+int
+ i
+,
+ j
+;
+/*Initialize array ARR to 0.0 */
+for
+(
+i 
+=
+ 
+0
+;
+ i 
+<
+ 
+1024
+;
+ i
+++)
+    
+for
+(
+j 
+=
+ 
+0
+;
+ j 
+<
+ 
+1024
+;
+ j
+++)
+        ARR
+[
+i
+][
+j
+]
+ 
+=
+ 
+0.0
+;
+The size of double is 
+. Array 
+ is located in memory starting at the beginning of virtual page 
+and stored in row major order. The cache is initially empty and no pre-fetching is done. The only data memory
+references made by the program are those to array 
+.
+The total size of the tags in the cache directory is:
+gatecse-2008
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2008 | Question: 72
+Consider a machine with a 
+-way set associative data cache of size 
+ Kbytes and block size 
+ bytes. The
+cache is managed using 
+ bit virtual addresses and the page size is 
+ Kbytes. A program to be run on this
+machine begins as follows:
+double
+ ARR
+[
+1024
+][
+1024
+];
+int
+ i
+,
+ j
+;
+/*Initialize array ARR to 0.0 */
+for
+(
+i 
+=
+ 
+0
+;
+ i 
+<
+ 
+1024
+;
+ i
+++)
+    
+for
+(
+j 
+=
+ 
+0
+;
+ j 
+<
+ 
+1024
+;
+ j
+++)
+        ARR
+[
+i
+][
+j
+]
+ 
+=
+ 
+0.0
+;
+The size of double is 
+ bytes. Array 
+ is located in memory starting at the beginning of virtual page 
+and stored in row major order. The cache is initially empty and no pre-fetching is done. The only data memory
+references made by the program are those to array 
+.
+Which of the following array elements have the same cache index as 
+?
+gatecse-2008
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2008 | Question: 73
+Consider a machine with a 
+-way set associative data cache of size 
+ Kbytes and block size 
+ bytes. The
+cache is managed using 
+ bit virtual addresses and the page size is 
+ Kbytes. A program to be run on this
+machine begins as follows:
+double
+ ARR
+[
+1024
+][
+1024
+];
+int
+ i
+,
+ j
+;
+/*Initialize array ARR to 0.0 */
+for
+(
+i 
+=
+ 
+0
+;
+ i 
+<
+ 
+1024
+;
+ i
+++)
+    
+for
+(
+j 
+=
+ 
+0
+;
+ j 
+<
+ 
+1024
+;
+ j
+++)
+        ARR
+[
+i
+][
+j
+]
+ 
+=
+ 
+0.0
+;
+The size of double is 
+ bytes. Array 
+ is located in memory starting at the beginning of virtual page 
+and stored in row major order. The cache is initially empty and no pre-fetching is done. The only data memory
+references made by the program are those to array 
+.
+The cache hit ratio for this initialization loop is:
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.26
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.27
+A
+. 
+ nanoseconds
+B
+. 
+ nanoseconds
+C
+. 
+ nanoseconds
+D
+. 
+ nanoseconds
+1.5.28
+A
+. 
+ nanoseconds
+B
+. 
+ nanoseconds
+C
+. 
+ nanoseconds
+D
+. 
+ nanoseconds
+1.5.29
+gatecse-2008
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2009 | Question: 29
+Consider a 
+-way set associative cache (initially empty) with total 
+ cache blocks. The main memory
+consists of 
+ blocks and the request for memory blocks are in the following order:
+Which one of the following memory block will NOT be in cache if LRU replacement policy is used?
+gatecse-2009
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2010 | Question: 48
+A computer system has an 
+ cache, an 
+ cache, and a main memory unit connected as shown below.
+The block size in 
+ cache is 
+ words. The block size in 
+ cache is 
+ words. The memory access times
+are 
+ nanoseconds, 
+ nanoseconds and 
+ nanoseconds for 
+ cache, 
+ cache and the main memory unit
+respectively.
+ 
+When there is a miss in 
+ cache and a hit in 
+ cache, a block is transferred from 
+ cache to 
+ cache. What
+is the time taken for this transfer?
+gatecse-2010
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+ 
+barc2017
+Answer key
+☟
+Cache Memory: GATE CSE 2010 | Question: 49
+A computer system has an 
+ cache, an 
+ cache, and a main memory unit connected as shown below.
+The block size in 
+ cache is 
+ words. The block size in 
+ cache is 
+ words. The memory access times
+are 
+ nanoseconds, 
+ nanoseconds and 
+ nanoseconds for 
+ cache, 
+ cache and the main memory unit
+respectively.
+ 
+When there is a miss in both 
+ cache and 
+ cache, ﬁrst a block is transferred from main memory to 
+ cache,
+and then a block is transferred from 
+ cache to 
+ cache. What is the total time taken for these transfers?
+gatecse-2010
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2011 | Question: 43
+An 
+ direct-mapped write-back cache is organized as multiple blocks, each size of 
+. The
+processor generates 
+ addresses. The cache controller contains the tag information for each cache
+block comprising of the following.
+
+
+A
+. 
+ bits
+B
+. 
+ bits
+C
+. 
+ bits
+D
+. 
+ bits
+1.5.30
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.31
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+ 
+1.5.32
+1.5.33
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ valid bit
+ modified bit
+As many bits as the minimum needed to identify the memory block mapped in the cache.
+What is the total size of memory needed at the cache controller to store meta-data (tags) for the cache?
+gatecse-2011
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2012 | Question: 54
+A computer has a 
+, 4-way set associative, write back data cache with block size of 
+.
+The processor sends 
+ addresses to the cache controller. Each cache tag directory entry contains, in
+addition to address tag, 
+ valid bits, 
+ modified bit and 
+ replacement bit.
+The number of bits in the tag field of an address is
+gatecse-2012
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2012 | Question: 55
+A computer has a 
+-
+, 4-way set associative, write back data cache with block size of 
+ 
+.
+The processor sends 
+ 
+ addresses to the cache controller. Each cache tag directory entry contains, in
+addition to address tag, 
+ valid bits, 
+ modified bit and 
+ replacement bit.
+The size of the cache tag directory is:
+normal
+ 
+gatecse-2012
+ 
+co-and-architecture
+ 
+cache-memory
+Answer key
+☟
+Cache Memory: GATE CSE 2013 | Question: 20
+In a 
+-way set associative cache, the cache is divided into 
+ sets, each of which consists of 
+ lines. The
+lines of a set are placed in sequence one after another. The lines in set 
+ are sequenced before the lines in
+set 
+. The main memory blocks are numbered 0 onwards. The main memory block numbered 
+ must be
+mapped to any one of the cache lines from
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2013
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2014 | Set 1 | Question: 44
+An access sequence of cache block addresses is of length 
+ and contains n unique block addresses. The
+number of unique block addresses between two consecutive accesses to the same block address is
+bounded above by 
+. What is the miss ratio if the access sequence is passed through a cache of associativity 
+ exercising least-recently-used replacement policy?
+gatecse-2014-set1
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+
+
+1.5.34
+1.5.35
+A
+. 
+Width of tag comparator
+B
+. 
+Width of set index decoder
+C
+. 
+Width of way selection multiplexer
+D
+. 
+Width of processor to main
+memory data bus
+1.5.36
+1.5.37
+1.5.38
+1.5.39
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Cache Memory: GATE CSE 2014 | Set 2 | Question: 43
+In designing a computer's cache system, the cache block (or cache line) size is an important parameter.
+Which one of the following statements is correct in this context?
+A
+. 
+A smaller block size implies better spatial locality
+B
+. 
+A smaller block size implies a smaller cache tag and hence lower cache tag overhead
+C
+. 
+A smaller block size implies a larger cache tag and hence lower cache hit time
+D
+. 
+A smaller block size incurs a lower cache miss penalty
+gatecse-2014-set2
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2014 | Set 2 | Question: 44
+If the associativity of a processor cache is doubled while keeping the capacity and block size unchanged,
+which one of the following is guaranteed to be NOT affected?
+gatecse-2014-set2
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2014 | Set 2 | Question: 9
+A 
+-way set-associative cache memory unit with a capacity of 
+ KB is built using a block size of 
+ words.
+The word length is 
+ bits. The size of the physical address space is 
+ GB. The number of bits for the TAG
+field is ____
+gatecse-2014-set2
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2014 | Set 3 | Question: 44
+The memory access time is 
+ nanosecond for a read operation with a hit in cache, 
+ nanoseconds for a read
+operation with a miss in cache, 
+ nanoseconds for a write operation with a hit in cache and 
+ nanoseconds
+for a write operation with a miss in cache. Execution of a sequence of instructions involves 
+ instruction fetch
+operations, 
+ memory operand read operations and 
+ memory operand write operations. The cache hit-ratio is 
+. The average memory access time (in nanoseconds) in executing the sequence of instructions is ______.
+gatecse-2014-set3
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE CSE 2015 | Set 2 | Question: 24
+Assume that for a certain processor, a read request takes 
+ on a cache miss and 
+ on a cache hit. Suppose while running a program, it was observed that 
+ of the
+processor's read requests result in a cache hit. The average read access time in nanoseconds is ______.
+gatecse-2015-set2
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+easy
+ 
+numerical-answers
+Answer key
+☟
+Cache Memory: GATE CSE 2015 | Set 3 | Question: 14
+Consider a machine with a byte addressable main memory of 
+ bytes, block size of 
+ bytes and a direct
+mapped cache having 
+ cache lines. Let the addresses of two consecutive bytes in main memory be 
+ and 
+. What are the tag and cache line addresses ( in hex) for main memory address 
+?
+gatecse-2015-set3
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+
+
+1.5.40
+1.5.41
+1.5.42
+1.5.43
+1.5.44
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+Answer key
+☟
+Cache Memory: GATE CSE 2016 | Set 2 | Question: 32
+The width of the physical address on a machine is 
+ bits. The width of the tag ﬁeld in a 
+ KB 
+-way set
+associative cache is ________ bits.
+gatecse-2016-set2
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Cache Memory: GATE CSE 2016 | Set 2 | Question: 50
+A ﬁle system uses an in-memory cache to cache disk blocks. The miss rate of the cache is shown in the
+ﬁgure. The latency to read a block from the cache is 
+ ms and to read a block from the disk is 
+ ms.
+Assume that the cost of checking whether a block exists in the cache is negligible. Available cache sizes are in
+multiples of 
+ MB.
+The smallest cache size required to ensure an average read latency of less than 
+ ms is _________ MB.
+gatecse-2016-set2
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Cache Memory: GATE CSE 2017 | Set 1 | Question: 25
+Consider a two-level cache hierarchy with 
+ and 
+ caches. An application incurs 
+ memory accesses
+per instruction on average. For this application, the miss rate of 
+ cache is 
+; the 
+ cache experiences,
+on average, 
+ misses per 
+ instructions. The miss rate of 
+ expressed correct to two decimal places is
+________.
+gatecse-2017-set1
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+numerical-answers
+Answer key
+☟
+Cache Memory: GATE CSE 2017 | Set 1 | Question: 54
+A cache memory unit with capacity of 
+ words and block size of 
+ words is to be designed. If it is designed
+as a direct mapped cache, the length of the 
+ ﬁeld is 
+ bits. If the cache unit is now designed as a 
+-
+way set-associative cache, the length of the 
+ field is ____________ bits.
+gatecse-2017-set1
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Cache Memory: GATE CSE 2017 | Set 2 | Question: 29
+In a two-level cache system, the access times of 
+ and 
+ caches are 
+ and 
+ clock cycles, respectively.
+The miss penalty from the 
+ cache to main memory is 
+ clock cycles. The miss rate of 
+ cache is twice
+that of 
+. The average memory access time (AMAT) of this cache system is 
+ cycles. The miss rates of 
+ and 
+ respectively are
+gatecse-2017-set2
+ 
+cache-memory
+ 
+co-and-architecture
+ 
+normal
+Answer key
+☟
+
+
+1.5.45
+1.5.46
+1.5.47
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.48
+A
+. 
+ bits and 
+ bits
+B
+. 
+ bits and 
+ bits
+C
+. 
+ bits and 
+ bits
+D
+. 
+ bits and 
+ bits
+1.5.49
+Cache Memory: GATE CSE 2017 | Set 2 | Question: 45
+The read access times and the hit ratios for different caches in a memory hierarchy are as given below:
+The read access time of main memory in 
+. Assume that the caches use the referred-word-ﬁrst
+read policy and the write-back policy. Assume that all the caches are direct mapped caches. Assume that the dirty
+bit is always 
+ for all the blocks in the caches. In execution of a program, 
+ of memory reads are for instruction
+fetch and 
+ are for memory operand fetch. The average read access time in nanoseconds (up to 
+ decimal
+places) is _________
+gatecse-2017-set2
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+numerical-answers
+Answer key
+☟
+Cache Memory: GATE CSE 2017 | Set 2 | Question: 53
+Consider a machine with a byte addressable main memory of 
+ bytes divided into blocks of size 
+ bytes.
+Assume that a direct mapped cache having 
+ cache lines is used with this machine. The size of the tag
+field in bits is _______
+gatecse-2017-set2
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+numerical-answers
+Answer key
+☟
+Cache Memory: GATE CSE 2018 | Question: 34
+The size of the physical address space of a processor is 
+ bytes. The word length is 
+ bytes. The
+capacity of cache memory is 
+ bytes. The size of each cache block is 
+ words. For a 
+-way set-
+associative cache memory, the length (in number of bits) of the tag field is
+gatecse-2018
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+ 
+two-marks
+Answer key
+☟
+Cache Memory: GATE CSE 2019 | Question: 1
+A certain processor uses a fully associative cache of size 
+ kB, The cache block size is 
+ bytes. Assume
+that the main memory is byte addressable and uses a 
+-bit address. How many bits are required for the
+Tag 
+and the 
+Index 
+fields respectively in the addresses generated by the processor?
+gatecse-2019
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+ 
+one-mark
+Answer key
+☟
+Cache Memory: GATE CSE 2019 | Question: 45
+A certain processor deploys a single-level cache. The cache block size is 
+ words and the word size is 
+bytes. The memory system uses a 
+-MHz clock. To service a cache miss, the memory controller ﬁrst takes 
+ cycle to accept the starting address of the block, it then takes 
+ cycles to fetch all the eight words of the block,
+and ﬁnally transmits the words of the requested block at the rate of 
+ word per cycle. The maximum bandwidth for
+the memory system when the program running on the processor issues a series of read operations is  ______
+ bytes/sec.
+gatecse-2019
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+two-marks
+
+
+1.5.50
+1.5.51
+1.5.52
+1.5.53
+1.5.54
+Answer key
+☟
+Cache Memory: GATE CSE 2020 | Question: 21
+A direct mapped cache memory of 
+ MB has a block size of 
+ bytes. The cache has an access time of 
+ns and a hit rate of 
+. During a cache miss, it takes 
+0 ns to bring the ﬁrst word of a block from the main
+memory, while each subsequent word takes 
+ ns. The word size is 
+ bits. The average memory access time in ns
+(round off to 
+ decimal place) is______.
+gatecse-2020
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+one-mark
+Answer key
+☟
+Cache Memory: GATE CSE 2020 | Question: 30
+A computer system with a word length of 
+ bits has a 
+ MB byte- addressable main memory and a 
+ KB,
+-way set associative cache memory with a block size of 
+ bytes. Consider the following four physical
+addresses represented in hexadecimal notation.
+,
+,
+,
+Which one of the following is TRUE?
+A
+. 
+ and 
+ are mapped to different cache sets.
+B
+. 
+ and 
+ are mapped to the same cache set.
+C
+. 
+ and 
+ are mapped to the same cache set.
+D
+. 
+ and 
+ are mapped to the same cache set.
+gatecse-2020
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+two-marks
+Answer key
+☟
+Cache Memory: GATE CSE 2021 | Set 1 | Question: 22
+Consider a computer system with a byte-addressable primary memory of size 
+ bytes. Assume the
+computer system has a direct-mapped cache of size 
+ (
+ = 
+ bytes), and each cache block is of
+size 
+ bytes.
+The size of the tag field is __________ bits.
+gatecse-2021-set1
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Cache Memory: GATE CSE 2021 | Set 2 | Question: 19
+Consider a set-associative cache of size 
+ bytes
+ with cache block size of 
+ bytes.
+Assume that the cache is byte-addressable and a 
+ -bit address is used for accessing the cache. If the
+width of the tag field is 
+ bits, the associativity of the cache is _________
+gatecse-2021-set2
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+one-mark
+Answer key
+☟
+Cache Memory: GATE CSE 2021 | Set 2 | Question: 27
+Assume a two-level inclusive cache hierarchy, 
+ and 
+, where 
+ is the larger of the two. Consider the
+following statements.
+: Read misses in a write through 
+ cache do not result in writebacks of dirty lines to the 
+: Write allocate policy 
+must
+ 
+be used in conjunction with write through caches and no-write allocate policy is
+used with writeback caches.
+
+
+A
+. 
+ is true and 
+ is false
+B
+. 
+ is false and 
+ is true
+C
+. 
+ is true and 
+ is true
+D
+. 
+ is false and 
+ is false
+1.5.55
+1.5.56
+1.5.57
+1.5.58
+Which of the following statements is correct?
+gatecse-2021-set2
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+two-marks
+Answer key
+☟
+Cache Memory: GATE CSE 2022 | Question: 14
+Let 
+ and 
+ be two set associative cache organizations that use 
+ algorithm for cache block
+replacement. 
+ is a write back cache and 
+ is a write through cache. Which of the following
+statements is/are 
+A
+. 
+Each cache block in 
+ and 
+ has a dirty bit.
+B
+. 
+Every write hit in 
+ leads to a data transfer from cache to main memory.
+C
+. 
+Eviction of a block from 
+ will not lead to data transfer from cache to main memory.
+D
+. 
+A read miss in 
+ will never lead to eviction of a dirty block from 
+gatecse-2022
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Cache Memory: GATE CSE 2022 | Question: 23
+A cache memory that has a hit rate of 
+ has an access latency 
+ and miss penalty 
+ An
+optimization is done on the cache to reduce the miss rate. However, the optimization results in an increase
+of cache access latency to 
+ whereas the miss penalty is not aﬀected. The minimum hit rate 
+(rounded oﬀ to
+two decimal places)
+ needed after the optimization such that it should not increase the average memory access time
+is _______________.
+gatecse-2022
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+one-mark
+Answer key
+☟
+Cache Memory: GATE CSE 2023 | Question: 54
+An 
+-way set associative cache of size 
+ is used in a system with 
+-bit
+address. The address is sub-divided into 
+ and 
+The number of bits in the 
+ is ___________.
+gatecse-2023
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Cache Memory: GATE CSE 2024 | Set 1 | Question: 43
+Consider two set-associative cache memory architectures: 
+, which uses the write back policy, and 
+, which uses the write through policy. Both of them use the 
+ 
+(Least Recently Used)
+ block
+replacement policy. The cache memory is connected to the main memory. Which of the following statements is/are
+TRUE?
+A
+. 
+A read miss in 
+ never evicts a dirty block
+B
+. 
+A read miss in 
+ never triggers a write back operation of a cache block to main memory
+C
+. 
+A write hit in 
+ can modify the value of the dirty bit of a cache block 
+D
+. 
+A write miss in 
+ always writes the victim cache block to main memory before loading the missed block to
+the cache 
+gatecse-2024-set1
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+
+
+1.5.59
+1.5.60
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.61
+A
+. 
+TLB miss, Page table hit, Cache
+hit
+B
+. 
+TLB hit, Page table miss, Cache
+hit
+C
+. 
+TLB miss, Page table miss, Cache
+hit
+D
+. 
+TLB miss, Page table miss, Cache
+miss
+1.5.62
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.63
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Cache Memory: GATE CSE 2024 | Set 1 | Question: 46
+A given program has 
+ load/store instructions. Suppose the ideal 
+ (cycles per instruction) without
+any memory stalls is 
+. The program exhibits 
+ miss rate on instruction cache and 
+ miss rate on data
+cache. The miss penalty is 
+ cycles. The speedup 
+(rounded oﬀ to two decimal places)
+ achieved with a perfect
+cache (i.e., with NO data or instruction cache misses) is __________.
+gatecse-2024-set1
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+two-marks
+Answer key
+☟
+Cache Memory: GATE CSE 2026 | Set 1 | Question: 28
+The size of the physical address space of a processor is 
+ bytes. The capacity of a cache memory unit is 
+ bytes. The cache block size is 
+ bytes. The cache memory unit can be built as a direct mapped cache
+or as a 
+-way set-associative cache, where 
+ and 
+. Let the length of the TAG ﬁeld be 
+ bits
+for the direct mapped cache, and 
+ bits for the set-associative cache.
+Which one of the following options is true?
+gatecse-2026-set1
+ 
+co-and-architecture
+ 
+two-marks
+ 
+cache-memory
+Answer key
+☟
+Cache Memory: GATE CSE 2026 | Set 1 | Question: 44
+Consider a system that has a cache memory unit and a memory management unit (MMU). The address
+input to the cache memory is a physical address. The MMU has a translation lookaside buﬀer (TLB).
+Assume that when a page is evicted from the main memory, the corresponding blocks in the cache are marked as
+invalid.
+For a given memory reference, which of the following sequences of events can NEVER happen?
+gatecse-2026-set1
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+two-marks
+ 
+multiple-selects
+Answer key
+☟
+Cache Memory: GATE IT 2004 | Question: 12, ISRO2016-77
+Consider a system with 
+ level cache. Access times of Level 
+ cache, Level 
+ cache and main memory are 
+ 
+, 
+ 
+, and 
+ 
+ respectively. The hit rates of Level 
+ and Level 
+ caches are 
+ and 
+,
+respectively. What is the average access time of the system ignoring the search time within the cache?
+gateit-2004
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+ 
+isro2016
+Answer key
+☟
+Cache Memory: GATE IT 2004 | Question: 48
+Consider a fully associative cache with 
+ cache blocks (numbered 
+) and the following sequence of
+memory block requests:
+If LRU replacement policy is used, which cache block will have memory block 
+?
+gateit-2004
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+
+
+1.5.64
+A
+. 
+ 
+ 
+ 
+ 
+ 
+B
+. 
+ 
+ 
+ 
+ 
+ 
+ 
+C
+. 
+ 
+ 
+ 
+ 
+ 
+D
+. 
+ 
+ 
+ 
+ 
+ 
+1.5.65
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+ 
+1.5.66
+A
+. 
+ K x 
+-bit, 
+ K x 
+-bit, 
+ K x 
+-bit
+B
+. 
+ K x 
+-bit, 
+ K x 
+-bit, 
+ K x 
+-bit
+C
+. 
+ K x 
+-bit, 
+ x 
+-bit, 
+ K x 
+-bit
+D
+. 
+ K x 
+-bit, 
+ x 
+-bit, 
+ K x 
+-bit
+1.5.67
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.68
+Cache Memory: GATE IT 2005 | Question: 61
+Consider a 
+-way set associative cache memory with 
+ sets and total 
+ cache blocks 
+ and a main
+memory with 
+ blocks 
+. What memory blocks will be present in the cache after the following
+sequence of memory block references if 
+LRU 
+policy is used for cache block replacement. Assuming that initially the
+cache did not have any memory block from the current job?
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+gateit-2005
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE IT 2006 | Question: 42
+A cache line is 
+ bytes. The main memory has latency 
+ 
+ and bandwidth 
+ 
+. The time
+required to fetch the entire cache line from the main memory is:
+gateit-2006
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE IT 2006 | Question: 43
+A computer system has a level-
+ instruction cache (
+-cache), a level-
+ data cache (
+-cache) and a level-
+cache (
+-cache) with the following specifications:
+ 
+The length of the physical address of a word in the main memory is 
+ bits. The capacity of the tag memory in the 
+-cache, 
+-cache and 
+-cache is, respectively,
+gateit-2006
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE IT 2007 | Question: 37
+Consider a Direct Mapped Cache with 8 cache blocks (numbered 
+). If the memory block requests are
+in the following order
+Which of the following memory blocks will not be in the cache at the end of the sequence ?
+gateit-2007
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE IT 2008 | Question: 80
+Consider a computer with a 
+-ways set-associative mapped cache of the following character
+istics: a total of 
+ of main memory, a word size of 
+ byte, a block size of 
+ words and a cache size of 
+.
+The number of bits in the TAG, SET and WORD fields, respectively are:
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.5.69
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.6
+1.6.1
+1.7
+1.7.1
+1.8
+1.8.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gateit-2008
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Cache Memory: GATE IT 2008 | Question: 81
+Consider a computer with a 
+-ways set-associative mapped cache of the following character
+istics: a total of 
+ of main memory, a word size of 
+, a block size of 
+ words and a cache size of 
+.
+While accessing the memory location 
+ by the 
+CPU
+, the contents of the TAG ﬁeld of the corresponding
+cache line is:
+gateit-2008
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+normal
+Answer key
+☟
+Conflict Misses 
+(1)
+Conflict Misses: GATE CSE 2017 | Set 1 | Question: 51
+Consider a 
+-way set associative cache with 
+ blocks and uses 
+ replacement. Initially the cache is
+empty. Conﬂict misses are those misses which occur due to the contention of multiple blocks for the same
+cache set. Compulsory misses occur due to ﬁrst time access to the block. The following sequence of access to
+memory blocks :
+      
+is repeated 
+ times. The number of 
+conflict misses 
+experienced by the cache is _________ .
+gatecse-2017-set1
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+conflict-misses
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Control Unit 
+(1)
+Control Unit: GATE CSE 1987 | Question: 1-vi
+A microprogrammed control unit
+A
+. 
+Is faster than a hard-wired control unit.
+B
+. 
+Facilitates easy implementation of new instruction.
+C
+. 
+Is useful when very small programs are to be run.
+D
+. 
+Usually refers to the control unit of a microprocessor.
+gate1987
+ 
+co-and-architecture
+ 
+control-unit
+ 
+microprogramming
+Answer key
+☟
+DMA 
+(8)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(12Q)
+DMA: GATE CSE 2004 | Question: 68
+A hard disk with a transfer rate of 
+ Mbytes/second is constantly transferring data to memory using DMA.
+The processor runs at 
+ MHz, and takes 
+ and 
+ clock cycles to initiate and complete DMA transfer
+respectively. If the size of the transfer is 
+ Kbytes, what is the percentage of processor time consumed for the
+transfer operation?
+gatecse-2004
+ 
+dma
+ 
+normal
+ 
+co-and-architecture
+Answer key
+☟
+
+
+1.8.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.8.3
+1.8.4
+1.8.5
+A
+. 
+ based 
+ transfer
+B
+. 
+Interrupt driven 
+ transfer
+C
+. 
+Polling based 
+ transfer
+D
+. 
+Programmed 
+ transfer
+1.8.6
+1.8.7
+DMA: GATE CSE 2005 | Question: 70
+Consider a disk drive with the following specifications:
+ surfaces, 
+ tracks/surface, 
+ sectors/track, 
+ KB/sector, rotation speed 
+ rpm. The disk is
+operated in cycle stealing mode whereby whenever one 
+ byte word is ready it is sent to memory; similarly, for
+writing, the disk interface reads a 
+ byte word from the memory in each DMA cycle. Memory cycle time is 
+ nsec.
+The maximum percentage of time that the CPU gets blocked during DMA operation is:
+gatecse-2005
+ 
+co-and-architecture
+ 
+disk
+ 
+normal
+ 
+dma
+Answer key
+☟
+DMA: GATE CSE 2016 | Set 1 | Question: 31
+The size of the data count register of a 
+ controller is 
+. The processor needs to transfer a ﬁle of 
+ kilobytes from disk to main memory. The memory is byte addressable. The minimum number of
+times the 
+ controller needs to get the control of the system bus from the processor to transfer the ﬁle from the
+disk to main memory is _________.
+gatecse-2016-set1
+ 
+co-and-architecture
+ 
+dma
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+DMA: GATE CSE 2021 | Set 2 | Question: 20
+Consider a computer system with 
+ support. The 
+ module is transferring one 
+-bit character in
+one 
+ cycle from a device to memory through 
+cycle stealing
+ at regular intervals. Consider a 
+processor. If 
+ processor cycles are used for 
+, the data transfer rate of the device is __________ bits per
+second.
+gatecse-2021-set2
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+dma
+ 
+one-mark
+Answer key
+☟
+DMA: GATE CSE 2022 | Question: 7
+Which one of the following facilitates transfer of bulk data from hard disk to main memory with the highest
+throughput?
+gatecse-2022
+ 
+co-and-architecture
+ 
+dma
+ 
+one-mark
+Answer key
+☟
+DMA: GATE CSE 2024 | Set 1 | Question: 5
+​​​​
+Which one of the following statements is FALSE?
+A
+. 
+In the cycle stealing mode of DMA, one word of data is transferred between an I/O device and main memory in
+a stolen cycle
+B
+. 
+For bulk data transfer, the burst mode of DMA has a higher throughput than the cycle stealing mode
+C
+. 
+Programmed I/O mechanism has a better CPU utilization than the interrupt driven I/O mechanism
+D
+. 
+The CPU can start executing an interrupt service routine faster with vectored interrupts than with non-vectored
+interrupts 
+gatecse-2024-set1
+ 
+co-and-architecture
+ 
+dma
+ 
+one-mark
+Answer key
+☟
+DMA: GATE CSE 2024 | Set 2 | Question: 1
+Consider a computer with a 
+ processor. Its 
+ controller can transfer 
+ bytes in 
+ cycle from a
+device to main memory through cycle stealing at regular intervals. Which one of the following is the data
+transfer rate 
+(in bits per second)
+ of the 
+ controller if 
+ of the processor cycles are used for 
+?
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.8.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.9
+1.9.1
+A
+. 
+C800 to CFFF
+B
+. 
+CA00 to CAFF
+C
+. 
+C800 to C8FF
+D
+. 
+DA00 to DFFF
+1.10
+1.10.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2024-set2
+ 
+co-and-architecture
+ 
+dma
+ 
+one-mark
+Answer key
+☟
+DMA: GATE IT 2004 | Question: 51
+The storage area of a disk has the innermost diameter of 
+ cm and outermost diameter of 
+ cm. The
+maximum storage density of the disk is 
+ bits/cm. The disk rotates at a speed of 
+ RPM. The main
+memory of a computer has 
+-bit word length and 
+µs cycle time. If cycle stealing is used for data transfer from the
+disk, the percentage of memory cycles stolen for transferring one word is
+gateit-2004
+ 
+co-and-architecture
+ 
+dma
+ 
+normal
+Answer key
+☟
+DRAM 
+(1)
+DRAM: GATE CSE 2019 | Question: 2
+The chip select logic for a certain DRAM chip in a memory system design is shown below. Assume that the
+memory system has 
+ address lines denoted by 
+ to 
+. What is the range of address (in hexadecimal)
+of the memory system that can get enabled by the chip select (CS) signal?
+gatecse-2019
+ 
+co-and-architecture
+ 
+dram
+ 
+memory-interfacing
+ 
+one-mark
+Answer key
+☟
+Data Dependency 
+(4)
+Data Dependency: GATE CSE 2005 | Question: 68
+A 
+ stage pipelined CPU has the following sequence of stages:
+IF – instruction fetch from instruction memory
+RD – Instruction decode and register read
+EX – Execute: ALU operation for data and address computation
+MA – Data memory access – for write access, the register read at RD state is used.
+WB – Register write back
+Consider the following sequence of instructions:
+: 
+ 
+ 
+; 
+: 
+ 
+, 
+; 
+: 
+ 
+, 
+; 
+Let each stage take one clock cycle.
+What is the number of clock cycles taken to complete the above sequence of instructions starting from the fetch of 
+?
+gatecse-2005
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+ 
+data-dependency
+Answer key
+☟
+
+
+1.10.2
+A
+. 
+I and II only
+B
+. 
+I and III only
+C
+. 
+II and III only 
+D
+. 
+I, II and III
+1.10.3
+A
+. 
+Only S1 is true
+B
+. 
+Only S2 is true
+C
+. 
+Only S1 and S3 are true
+D
+. 
+Only S2 and S3 are true
+1.10.4
+A
+. 
+i and iii
+B
+. 
+i and iv
+C
+. 
+ii and iii
+D
+. 
+ii and iv
+1.11
+1.11.1
+Data Dependency: GATE CSE 2008 | Question: 36
+Which of the following are NOT true in a pipelined processor?
+I
+. 
+Bypassing can handle all RAW hazards
+II
+. 
+Register renaming can eliminate all register carried WAR hazards
+III
+. 
+Control hazard penalties can be eliminated by dynamic branch prediction
+gatecse-2008
+ 
+pipelining
+ 
+co-and-architecture
+ 
+normal
+ 
+data-dependency
+Answer key
+☟
+Data Dependency: GATE CSE 2015 | Set 3 | Question: 47
+Consider the following code sequence having ﬁve instructions from 
+. Each of these instructions has
+the following format. 
+OP Ri, Rj, Rk
+Where operation OP is performed on contents of registers Rj and Rk and the result is stored in register Ri.
+: ADD R1, R2, R3
+: MUL R7, R1, R3
+: SUB R4, R1, R5
+: ADD R3, R2, R4
+: MUL R7, R8, R9
+Consider the following three statements.
+S1: There is an anti-dependence between instructions 
+S2: There is an anti-dependence between instructions 
+S3: Within an instruction pipeline an anti-dependence always creates one or more stalls
+Which one of the above statements is/are correct?
+gatecse-2015-set3
+ 
+co-and-architecture
+ 
+pipelining
+ 
+data-dependency
+ 
+normal
+Answer key
+☟
+Data Dependency: GATE IT 2007 | Question: 39
+Data forwarding techniques can be used to speed up the operation in presence of data dependencies.
+Consider the following replacements of LHS with RHS.
+i
+. 
+ 
+ii
+. 
+ 
+iii
+. 
+ 
+iv
+. 
+ 
+In which of the following options, will the result of executing the RHS be the same as executing the LHS irrespective
+of the instructions that follow ?
+gateit-2007
+ 
+data-dependency
+ 
+co-and-architecture
+Answer key
+☟
+Data Hazards 
+(1)
+Data Hazards: GATE CSE 2026 | Set 1 | Question: 6
+Which one of the following dependencies among the register operands of diﬀerent instructions can cause a
+data hazard in a pipelined processor?
+
+
+A
+. 
+Read-after-read
+B
+. 
+Read-after-write
+C
+. 
+Write-after-read
+D
+. 
+Write-after-write
+1.12
+1.12.1
+1.12.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.12.3
+gatecse-2026-set1
+ 
+co-and-architecture
+ 
+data-hazards
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Data Path 
+(7)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(6Q)
+Data Path: GATE CSE 1990 | Question: 8a
+A single bus CPU consists of four general purpose register, namely, 
+ and 
+ (Instruction Register). Assuming suitable
+microinstructions, write a microroutine for the instruction, 
+.
+gate1990
+ 
+descriptive
+ 
+co-and-architecture
+ 
+data-path
+Answer key
+☟
+Data Path: GATE CSE 2001 | Question: 2.13
+Consider the following data path of a simple non-pipelined CPU. The registers 
+, 
+ the 
+and the 
+ are 
+-
+ wide. 
+ and 
+ are 
+-
+ registers. The 
+ is of size 
+ and the 
+ is of size 
+. Each memory operation takes 
+ 
+ clock cycles and uses 
+ (Memory
+Address Register) and 
+ (Memory Date Register). 
+ can be decremented locally.
+The 
+ instruction "
+push r
+" where, 
+ 
+ or 
+ has the specification
+How many 
+ clock cycles are required to execute the "
+push r
+" instruction?
+gatecse-2001
+ 
+co-and-architecture
+ 
+data-path
+ 
+machine-instruction
+ 
+normal
+Answer key
+☟
+Data Path: GATE CSE 2005 | Question: 79
+Consider the following data path of a 
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.12.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+The 
+ the bus and all the registers in the data path are of identical size. All operations including
+incrementation of the 
+ and the 
+ are to be carried out in the 
+ Two clock cycles are needed for
+memory read operation – the ﬁrst one for loading address in the 
+ and the next one for loading data from the
+memory bus into the 
+The instruction 
+ has the register transfer interpretation 
+ The minimum number of
+clock cycles needed for execution cycle of this instruction is:
+gatecse-2005
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+data-path
+ 
+normal
+Answer key
+☟
+Data Path: GATE CSE 2005 | Question: 80
+Consider the following data path of a 
+The 
+ the bus and all the registers in the data path are of identical size. All operations including
+incrementation of the 
+ and the 
+ are to be carried out in the 
+ Two clock cycles are needed for
+memory read operation – the ﬁrst one for loading address in the 
+ and the next one for loading data from the
+memory bus into the 
+The instruction "call Rn, sub” is a two word instruction. Assuming that 
+ is incremented during the fetch cycle of
+the first word of the instruction, its register transfer interpretation is
+;
+;
+The minimum number of 
+CPU 
+clock cycles needed during the execution cycle of this instruction is:
+co-and-architecture
+ 
+normal
+ 
+gatecse-2005
+ 
+data-path
+ 
+machine-instruction
+Answer key
+☟
+
+
+1.12.5
+1.12.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.12.7
+Data Path: GATE CSE 2016 | Set 2 | Question: 30
+Suppose the functions 
+ and 
+ can be computed in 
+ and 
+ nanoseconds by functional units 
+ and 
+,
+respectively. Given two instances of 
+ and two instances of 
+, it is required to implement the
+computation 
+ for 
+. Ignoring all other delays, the minimum time required to complete this
+computation is ____________ nanoseconds.
+gatecse-2016-set2
+ 
+co-and-architecture
+ 
+data-path
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Data Path: GATE CSE 2020 | Question: 4
+Consider the following data path diagram.                  
+Consider an instruction: 
+. The following steps are used to execute it over the given data path.
+Assume that PC is incremented appropriately. The subscripts 
+ and 
+ indicate read and write operations,
+respectively.
+1
+. 
+2
+. 
+3
+. 
+4
+. 
+5
+. 
+Which one of the following is the correct order of execution of the above steps?
+gatecse-2020
+ 
+co-and-architecture
+ 
+data-path
+ 
+one-mark
+Answer key
+☟
+Data Path: GATE CSE 2025 | Set 1 | Question: 17
+A partial data path of a processor is given in the ﬁgure, where 
+ and 
+ are 
+-bit registers. Which
+option(s) is/are CORRECT related to arithmetic operations using the data path as shown?
+ 
+A
+. 
+The data path can implement arithmetic operations involving two registers.
+B
+. 
+The data path can implement arithmetic operations involving one register and one immediate value.
+
+
+1.13
+1.13.1
+1.13.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.13.3
+A
+. 
+ KB and 
+ KB
+B
+. 
+ KB and 
+ KB
+C
+. 
+ KB and 
+ KB
+D
+. 
+ KB and 
+ KB
+1.13.4
+C
+. 
+The data path can implement arithmetic operations involving two immediate values.
+D
+. 
+The data path can only implement arithmetic operations involving one register and one immediate value.
+gatecse2025-set1
+ 
+co-and-architecture
+ 
+data-path
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Direct Mapping 
+(5)
+Direct Mapping: GATE CSE 2022 | Question: 44
+Consider a system with 
+ direct mapped data cache with a block size of 
+ The system has a
+physical address space of 
+ and a word length of 
+ During the execution of a program, four
+data words 
+ and 
+ are accessed in that order 
+ times 
+ Hence, there are 
+accesses to data cache altogether. Assume that the data cache is initially empty and no other data words are
+accessed by the program. The addresses of the ﬁrst bytes of 
+ and 
+ are 
+and 
+ respectively. For the execution of the above program, which of the following statements is/are 
+ with respect to the data cache?
+A
+. 
+Every access to 
+ is a hit.
+B
+. 
+Once  
+ is brought to the cache it is never evicted.
+C
+. 
+At the end of the execution only 
+ and 
+ reside in the cache.
+D
+. 
+Every access to 
+ evicts 
+ from the cache.
+gatecse-2022
+ 
+co-and-architecture
+ 
+direct-mapping
+ 
+multiple-selects
+ 
+two-marks
+ 
+cache-memory
+Answer key
+☟
+Direct Mapping: GATE CSE 2025 | Set 1 | Question: 26
+Consider a memory system with 
+ bytes of main memory and 
+ bytes of cache memory. Assume that
+the processor generates 
+-bit memory address, and the cache block size is 
+ bytes. If the cache uses
+direct mapping, how many bits will be required to store all the 
+ values? [Assume memory is byte addressable, 
+, 
+.]
+gatecse2025-set1
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+direct-mapping
+ 
+easy
+ 
+two-marks
+Answer key
+☟
+Direct Mapping: GATE CSE 2025 | Set 2 | Question: 29
+For a direct-mapped cache, 
+ bits are used for the tag ﬁeld and 
+ bits are used to index into a cache block.
+The size of each cache block is one byte. Assume that there is no other information stored for each cache
+block.
+Which ONE of the following is the CORRECT option for the sizes of the main memory and the cache memory in
+this system (byte addressable), respectively?
+gatecse2025-set2
+ 
+co-and-architecture
+ 
+direct-mapping
+ 
+cache-memory
+ 
+two-marks
+Answer key
+☟
+Direct Mapping: GATE CSE 2026 | Set 2 | Question: 42
+Consider a system with a processor and a 
+ KB direct mapped cache with block size of 
+ bytes. The
+system has a 
+ MB physical memory. Four words 
+, and S are accessed by the processor in the
+same order 
+ times. That is, there are a total of 
+ memory references in the sequence 
+Assume that the cache memory is initially empty. The physical addresses of the words are given below (
+ word 
+ byte).
+
+
+1.13.5
+1.14
+1.14.1
+1.15
+1.15.1
+Which of the following statements is/are true?
+Note: 
+ and 
+A
+. 
+Every access to 
+ results in a cache miss
+B
+. 
+Every access to 
+ results in a cache hit
+C
+. 
+Every access to 
+ results in a cache miss
+D
+. 
+Except the first access to 
+, all subsequent accesses to 
+ result in cache hits
+gatecse-2026-set2
+ 
+co-and-architecture
+ 
+direct-mapping
+ 
+cache-memory
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Direct Mapping: GATE CSE 2026 | Set 2 | Question: 46
+Consider a system with 
+ MB physical memory and a word length of 
+ byte. The system uses a direct
+mapped cache, with block numbers starting from 
+. The word with physical address 
+ is mapped to
+the cache block number 
+. The maximum possible size of the cache (in KB ) for this conﬁguration is 
+.
+(answer in integer)
+Note: 
+ and 
+gatecse-2026-set2
+ 
+co-and-architecture
+ 
+direct-mapping
+ 
+cache-memory
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Disk 
+(1)
+Disk: GATE CSE 2026 | Set 1 | Question: 49
+Consider a hard disk with a rotational speed of 
+ rpm. The time to move the read/write head from a
+track to its adjacent track is 
+ millisecond. Initially, the head is on track 
+. The number of sectors per track is 
+. The sector size is 
+ bytes. It is necessary to transfer data from 
+ randomly located sectors in each of the
+following tracks in the order: 
+ and 
+.
+The total time for the data transfer (in milliseconds) from the hard disk is 
+. (rounded oﬀ to one decimal
+place)
+gatecse-2026-set1
+ 
+numerical-answers
+ 
+operating-system
+ 
+two-marks
+ 
+disk
+Answer key
+☟
+Hazards 
+(1)
+Hazards: GATE CSE 2026 | Set 1 | Question: 50
+The EX stage of a pipelined processor performs the memory read operations for LOAD instructions, and the
+operations for the arithmetic and logic instructions. Let 
+ denote the time taken by the EX stage to
+perform the operation for an instruction. For each instruction type, the values of 
+ and 
+ (the number of
+instructions of that type in a sequence of 
+ instructions for a program P ), are given in the table below.
+The duration of the pipeline clock cycle is 
+ nanosecond. Assume that the latch time for the interstage buﬀers in the
+pipeline is negligible.
+
+
+1.16
+1.16.1
+1.16.2
+1.16.3
+1.16.4
+When program 
+ is executed, the number of clock cycles for which the pipeline is stalled due to structural hazards
+in the EX stage is 
+. (answer in integer)
+gatecse-2026-set1
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+pipelining
+ 
+hazards
+ 
+two-marks
+Answer key
+☟
+IO Handling 
+(8)
+IO Handling: GATE CSE 1987 | Question: 2a
+State whether the following statements are TRUE or FALSE
+In a microprocessor-based system, if a bus (DMA) request and an interrupt request arrive sumultaneously, the
+microprocessor attends first to the bus request.
+gate1987
+ 
+co-and-architecture
+ 
+interrupts
+ 
+io-handling
+ 
+true-false
+Answer key
+☟
+IO Handling: GATE CSE 1987 | Question: 2b
+State whether the following statements are TRUE or FALSE:
+Data transfer between a microprocessor and an I/O device is usually faster in memory-mapped-I/O scheme than in
+I/O-mapped -I/O scheme.
+gate1987
+ 
+co-and-architecture
+ 
+io-handling
+ 
+true-false
+Answer key
+☟
+IO Handling: GATE CSE 1990 | Question: 4-ii
+State whether the following statements are TRUE or FALSE with reason:
+The data transfer between memory and I/O devices using programmed I/O is faster than interrupt-driven I/O.
+gate1990
+ 
+true-false
+ 
+co-and-architecture
+ 
+io-handling
+ 
+interrupts
+Answer key
+☟
+IO Handling: GATE CSE 1996 | Question: 1.24
+For the daisy chain scheme of connecting I/O devices, which of the following statements is true?
+A
+. 
+It gives non-uniform priority to various devices
+B
+. 
+It gives uniform priority to all devices
+C
+. 
+It is only useful for connecting slow devices to a processor device
+D
+. 
+It requires a separate interrupt pin on the processor for each device
+
+
+1.16.5
+1.16.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.16.7
+1.16.8
+gate1996
+ 
+co-and-architecture
+ 
+io-handling
+ 
+normal
+Answer key
+☟
+IO Handling: GATE CSE 1996 | Question: 25
+A hard disk is connected to a 
+ MHz processor through a DMA controller.  Assume that the initial set-up of
+a DMA transfer takes 
+ clock cycles for the processor, and assume that the handling of the interrupt at
+DMA completion requires 
+ clock cycles for the processor. The hard disk has a transfer rate of 
+ Kbytes/sec
+and average block transferred is 
+ K bytes.  What fraction of the processor time is consumed by the disk, if the disk
+is actively transferring 
+ of the time?
+gate1996
+ 
+co-and-architecture
+ 
+io-handling
+ 
+dma
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+IO Handling: GATE CSE 1997 | Question: 2.4
+The correct matching for the following pairs is:
+gate1997
+ 
+co-and-architecture
+ 
+normal
+ 
+io-handling
+ 
+match-the-following
+Answer key
+☟
+IO Handling: GATE CSE 2008 | Question: 64, ISRO2009-13
+Which of the following statements about synchronous and asynchronous I/O is NOT true?
+A
+. 
+An ISR is invoked on completion of I/O in synchronous I/O but not in asynchronous I/O
+B
+. 
+In both synchronous and asynchronous I/O, an ISR (Interrupt Service Routine) is invoked after completion of
+the I/O
+C
+. 
+A process making a synchronous I/O call waits until I/O is complete, but a process making an asynchronous I/O
+call does not wait for completion of the I/O
+D
+. 
+In the case of synchronous I/O, the process waiting for the completion of I/O is woken up by the ISR that is
+invoked after the completion of I/O
+gatecse-2008
+ 
+operating-system
+ 
+io-handling
+ 
+normal
+ 
+isro2009
+Answer key
+☟
+IO Handling: GATE CSE 2011 | Question: 28
+On a non-pipelined sequential processor, a program segment, which is the part of the interrupt service
+routine, is given to transfer 
+ bytes from an I/O device to memory.
+        
+Initialize
+ the address 
+register
+        
+Initialize
+ the count to 
+500
+LOOP
+:
+   
+Load
+ a 
+byte
+ 
+from
+ device              
+        
+Store
+ 
+in
+ memory at address given 
+by
+ address 
+register
+        
+Increment
+ the address 
+register
+        
+Decrement
+ the count
+        
+If
+ count 
+!=
+0
+ go to LOOP
+Assume that each statement in this program is equivalent to a machine instruction which takes one clock cycle to
+execute if it is a non-load/store instruction. The load-store instructions take two clock cycles to execute.
+The designer of the system also has an alternate approach of using the DMA controller to implement the same
+transfer. The DMA controller requires 
+ clock cycles for initialization and other overheads. Each DMA transfer
+cycle takes two clock cycles to transfer one byte of data from the device to the memory.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.17
+1.17.1
+1.17.2
+1.17.3
+A
+. 
+ROM is a Read/Write memory
+B
+. 
+PC points to the last instruction that was executed
+C
+. 
+Stack works on the principle of LIFO
+D
+. 
+All instructions affect the flags
+1.17.4
+A
+. 
+instruction cache
+B
+. 
+instruction register
+C
+. 
+instruction opcode
+D
+. 
+translation look-a-side buffer
+1.17.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+What is the approximate speed up when the DMA controller based design is used in a place of the interrupt driven
+program based input-output?
+gatecse-2011
+ 
+co-and-architecture
+ 
+dma
+ 
+normal
+ 
+io-handling
+Answer key
+☟
+Instruction Execution 
+(7)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(7Q)
+Instruction Execution: GATE CSE 1990 | Question: 4-iii
+State whether the following statements are TRUE or FALSE with reason:
+The flags are affected when conditional CALL or JUMP instructions are executed.
+gate1990
+ 
+true-false
+ 
+co-and-architecture
+ 
+instruction-execution
+Answer key
+☟
+Instruction Execution: GATE CSE 1992 | Question: 01-iv
+Many of the advanced microprocessors prefetch instructions and store it in an instruction buﬀer to speed up
+processing. This speed up is achieved because ________
+gate1992
+ 
+co-and-architecture
+ 
+easy
+ 
+instruction-execution
+ 
+fill-in-the-blanks
+Answer key
+☟
+Instruction Execution: GATE CSE 1995 | Question: 1.2
+Which of the following statements is true?
+gate1995
+ 
+co-and-architecture
+ 
+normal
+ 
+instruction-execution
+Answer key
+☟
+Instruction Execution: GATE CSE 2002 | Question: 1.13
+Which of the following is not a form of memory
+gatecse-2002
+ 
+co-and-architecture
+ 
+easy
+ 
+instruction-execution
+Answer key
+☟
+Instruction Execution: GATE CSE 2006 | Question: 43
+Consider a new instruction named branch-on-bit-set (mnemonic bbs). The instruction “bbs reg, pos, label”
+jumps to label if bit in position pos of register operand reg is one. A register is 
+ -bits wide and the bits are
+numbered 
+ to 
+  bit in position 
+ being the least signiﬁcant. Consider the following emulation of this instruction
+on a processor that does not have bbs implemented.
+Branch to label if temp is non-zero. The variable temp is a temporary register. For correct emulation, the variable
+ mask must be generated by
+gatecse-2006
+ 
+co-and-architecture
+ 
+normal
+ 
+instruction-execution
+Answer key
+☟
+
+
+1.17.6
+1.17.7
+1.18
+1.18.1
+Instruction Execution: GATE CSE 2017 | Set 1 | Question: 49
+Consider a RISC machine where each instruction is exactly 
+ bytes long. Conditional and unconditional
+branch instructions use PC-relative addressing mode with Oﬀset speciﬁed in bytes to the target location of
+the branch instruction. Further the Oﬀset is always with respect to the address of the next instruction in the program
+sequence. Consider the following instruction sequence
+If the target of the branch instruction is 
+ then the decimal value of the Offset is ____________ .
+gatecse-2017-set1
+ 
+co-and-architecture
+ 
+normal
+ 
+numerical-answers
+ 
+instruction-execution
+Answer key
+☟
+Instruction Execution: GATE CSE 2025 | Set 2 | Question: 51
+An application executes 
+ number of instructions in 
+ seconds. There are four types of
+instructions, the details of which are given in the table. The duration of a clock cycle in nanoseconds is
+__________. (rounded off to one decimal place)
+gatecse2025-set2
+ 
+co-and-architecture
+ 
+instruction-execution
+ 
+clock-cycles
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Instruction Format 
+(11)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(10Q)
+Instruction Format: GATE CSE 1988 | Question: 2-ii
+Using an expanding opcode encoding for instructions, is it possible to encode all of the following in an
+instruction format shown in the below figure. Justify your answer.
+gate1988
+ 
+normal
+ 
+co-and-architecture
+ 
+instruction-format
+ 
+descriptive
+Answer key
+☟
+
+
+1.18.2
+1.18.3
+1.18.4
+1.18.5
+1.18.6
+1.18.7
+Instruction Format: GATE CSE 1992 | Question: 01-vi
+In an 
+-bit computer instruction format, the size of address ﬁeld is 
+-bits. The computer uses expanding
+OP code technique and has 
+ two-address instructions and 
+ one-address instructions. The number of
+zero-address instructions it can support is ________
+gate1992
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+instruction-format
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Instruction Format: GATE CSE 1994 | Question: 3.2
+State True or False with one line explanation
+Expanding opcode instruction formats are commonly employed in RISC. (Reduced Instruction Set Computers)
+machines.
+gate1994
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+instruction-format
+ 
+normal
+ 
+true-false
+Answer key
+☟
+Instruction Format: GATE CSE 2014 | Set 1 | Question: 9
+A machine has a 
+ architecture, with 
+ long instructions. It has 
+ registers, each of which is 
+bits long. It needs to support 
+ instructions, which have an immediate operand in addition to two register
+operands. Assuming that the immediate operand is an unsigned integer, the maximum value of the immediate
+operand is ____________
+gatecse-2014-set1
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+instruction-format
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Instruction Format: GATE CSE 2016 | Set 2 | Question: 31
+Consider a processor with 
+ registers and an instruction set of size twelve. Each instruction has ﬁve distinct
+ﬁelds, namely, opcode, two source register identiﬁers, one destination register identiﬁer, and twelve-bit
+immediate value. Each instruction must be stored in memory in a byte-aligned fashion. If a program has 
+instructions, the amount of memory (in bytes) consumed by the program text is _________.
+gatecse-2016-set2
+ 
+instruction-format
+ 
+machine-instruction
+ 
+co-and-architecture
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Instruction Format: GATE CSE 2018 | Question: 51
+A processor has 
+ integer registers 
+ and 
+ ﬂoating point registers 
+ It uses a 
+ instruction format. There are four categories of instructions: 
+ and 
+ category consists of four instructions, each with 
+ integer
+register operands 
+ category consists of eight instructions, each with 
+ ﬂoating point register
+operands 
+ category consists of fourteen instructions, each with one integer register operand and
+one ﬂoating point register operand 
+ category consists of 
+ instructions, each with a ﬂoating
+point register operand 
+The maximum value of 
+ is _________.
+gatecse-2018
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+instruction-format
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Instruction Format: GATE CSE 2020 | Question: 44
+A processor has 
+ registers and uses 
+-bit instruction format. It has two types of instructions: I-type and
+R-type. Each I-type instruction contains an opcode, a register name, and a 
+-bit immediate value. Each R-
+type instruction contains an opcode and two register names. If there are 
+ distinct I-type opcodes, then the
+maximum number of distinct R-type opcodes is _______.
+gatecse-2020
+ 
+co-and-architecture
+ 
+numerical-answers
+ 
+instruction-format
+ 
+machine-instruction
+ 
+two-marks
+Answer key
+☟
+
+
+1.18.8
+1.18.9
+1.18.10
+A
+. 
+ADD Z, X, Y
+B
+. 
+LOAD R
+, X ADD Z, R
+, Y
+C
+. 
+ADD R
+, X, Y STORE Z, R
+D
+. 
+LOAD R
+, X LOAD R
+, Y ADD R
+, R
+, R
+ STORE Z, R
+1.18.11
+Instruction Format: GATE CSE 2024 | Set 2 | Question: 47
+A processor with 
+ general purpose registers uses a 
+-bit instruction format. The instruction format
+consists of an opcode ﬁeld, an addressing mode ﬁeld, two register operand ﬁelds, and a 
+-bit scalar ﬁeld. If
+ addressing modes are to be supported, the maximum number of unique opcodes possible for every addressing
+mode is ___________.
+gatecse-2024-set2
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+instruction-format
+ 
+two-marks
+Answer key
+☟
+Instruction Format: GATE CSE 2024 | Set 2 | Question: 51
+A processor uses a 
+-bit instruction format and supports byte-addressable memory access. The 
+ of the
+processor has 
+ distinct instructions. The instructions are equally divided into two types, namely 
+-type
+and 
+-type, whose formats are shown below.
+R - type Instruction Format:
+I - type Instruction Format:
+In the 
+, 
+ bit is used to distinguish between 
+-type and 
+-type instructions and the remaining bits
+indicate the operation. The processor has 
+ architectural registers, and all register ﬁelds in the instructions are of
+equal size.
+Let 
+ be the number of bits used to encode the 
+ ﬁeld, 
+ be the number of bits used to encode the 
+ ﬁeld, and 
+ be the number of bits used to encode the immediate value/address ﬁeld. The value of 
+ is __________.
+gatecse-2024-set2
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+instruction-format
+ 
+two-marks
+Answer key
+☟
+Instruction Format: GATE CSE 2026 | Set 1 | Question: 5
+Consider a processor 
+ whose instruction set architecture is the load-store architecture. The instruction
+format is such that the first operand of any instruction is the destination operand.
+Which one of the following sequences of instructions corresponds to the high-level language statement 
+?
+Note: X, Y, and Z are memory operands. R
+, R
+, and R
+ are registers.
+gatecse-2026-set1
+ 
+co-and-architecture
+ 
+instruction-format
+ 
+one-mark
+Answer key
+☟
+Instruction Format: GATE CSE 2026 | Set 2 | Question: 34
+Consider a processor that has 
+ general purpose registers and it uses 
+-byte instruction format for all its
+instructions. Variable-sized opcodes are permitted. There are three diﬀerent types of instructions; M-type, R-
+type, and C-type. Each M-type instruction has 
+ register operands and a 
+-bit immediate operand. Each Rtype
+instruction has 
+ register operands. Each C-type instruction has a register operand and a 
+ -bit oﬀset value. If there
+are 
+ unique M-type opcodes and 
+ unique R-type opcodes, which one of the following options gives the maximum
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.19
+1.19.1
+A
+. 
+The size of the cache memory
+B
+. 
+The clock frequency of the
+processor
+C
+. 
+The number of cache memory
+levels
+D
+. 
+The total number of registers
+1.20
+1.20.1
+1.20.2
+1.20.3
+number of unique opcodes possible for C-type instructions?
+gatecse-2026-set2
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+instruction-format
+ 
+two-marks
+Answer key
+☟
+Instruction Set Architecture 
+(1)
+Instruction Set Architecture: GATE CSE 2025 | Set 2 | Question: 18
+​​​​
+Which of the following is/are part of an Instruction Set Architecture of a processor?
+gatecse2025-set2
+ 
+co-and-architecture
+ 
+instruction-set-architecture
+ 
+multiple-selects
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Interrupts 
+(10)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(11Q)
+Interrupts: GATE CSE 1987 | Question: 1-viii
+On receiving an interrupt from a I/O device the CPU:
+A
+. 
+Halts for a predetermined time.
+B
+. 
+Hands over control of address bus and data bus to the interrupting device.
+C
+. 
+Branches off to the interrupt service routine immediately.
+D
+. 
+Branches off to the interrupt service routine after completion of the current instruction.
+gate1987
+ 
+co-and-architecture
+ 
+interrupts
+Answer key
+☟
+Interrupts: GATE CSE 1995 | Question: 1.3
+In a vectored interrupt:
+A
+. 
+The branch address is assigned to a fixed location in memory
+B
+. 
+The interrupting source supplies the branch information to the processor through an interrupt vector
+C
+. 
+The branch address is obtained from a register in the processor
+D
+. 
+None of the above
+gate1995
+ 
+co-and-architecture
+ 
+interrupts
+ 
+normal
+Answer key
+☟
+Interrupts: GATE CSE 1998 | Question: 1.20
+Which of the following is true?
+A
+. 
+Unless enabled, a CPU will not be able to process interrupts.
+B
+. 
+Loop instructions cannot be interrupted till they complete.
+C
+. 
+A processor checks for interrupts before executing a new instruction.
+D
+. 
+Only level triggered interrupts are possible on microprocessors.
+gate1998
+ 
+co-and-architecture
+ 
+interrupts
+ 
+normal
+Answer key
+☟
+
+
+1.20.4
+A
+. 
+ is active
+B
+. 
+HOLD is active
+C
+. 
+READY is inactive
+D
+. 
+None of the above
+1.20.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.20.6
+1.20.7
+A
+. 
+Ⅰ
+ and 
+Ⅱ
+ only
+B
+. 
+Ⅰ
+ and 
+Ⅳ
+ only
+C
+. 
+Ⅰ
+ and 
+Ⅲ
+ only
+D
+. 
+Ⅲ
+ only
+1.20.8
+Interrupts: GATE CSE 2002 | Question: 1.9
+A device employing INTR line for device interrupt puts the CALL instruction on the data bus while:
+gatecse-2002
+ 
+co-and-architecture
+ 
+interrupts
+ 
+normal
+Answer key
+☟
+Interrupts: GATE CSE 2005 | Question: 69
+A device with data transfer rate 
+ KB/sec is connected to a CPU. Data is transferred byte-wise. Let the
+interrupt overhead be 
+sec. The byte transfer time between the device interface register and CPU or
+memory is negligible. What is the minimum performance gain of operating the device under interrupt mode over
+operating it under program-controlled mode?
+gatecse-2005
+ 
+co-and-architecture
+ 
+interrupts
+Answer key
+☟
+Interrupts: GATE CSE 2009 | Question: 8, UGCNET-June2012-III: 58
+A CPU generally handles an interrupt by executing an interrupt service routine:
+A
+. 
+As soon as an interrupt is raised.
+B
+. 
+By checking the interrupt register at the end of fetch cycle.
+C
+. 
+By checking the interrupt register after finishing the execution of the current instruction.
+D
+. 
+By checking the interrupt register at fixed time intervals.
+gatecse-2009
+ 
+co-and-architecture
+ 
+interrupts
+ 
+normal
+ 
+ugcnetcse-june2012-paper3
+Answer key
+☟
+Interrupts: GATE CSE 2020 | Question: 3
+Consider the following statements.
+I
+. 
+Daisy chaining is used to assign priorities in attending interrupts.
+II
+. 
+When a device raises a vectored interrupt, the CPU does polling to identify the source of interrupt.
+III
+. 
+In polling, the CPU periodically checks the status bits to know if any device needs its attention.
+IV
+. 
+During DMA, both the CPU and DMA controller can be bus masters at the same time.
+Which of the above statements is/are TRUE?
+gatecse-2020
+ 
+co-and-architecture
+ 
+interrupts
+ 
+one-mark
+Answer key
+☟
+Interrupts: GATE CSE 2023 | Question: 24
+A keyboard connected to a computer is used at a rate of 
+ keystroke per second. The computer system
+polls the keyboard every 
+ (milli seconds) to check for a keystroke and consumes 
+ (micro
+seconds) for each poll. If it is determined after polling that a key has been pressed, the system consumes an
+additional 
+ to process the keystroke. Let 
+ denote the fraction of a second spent in polling and processing
+a keystroke.
+In an alternative implementation, the system uses interrupts instead of polling. An interrupt is raised for every
+keystroke. It takes a total of 
+ for servicing an interrupt and processing a keystroke. Let 
+ denote the fraction
+of a second spent in servicing the interrupt and processing a keystroke.
+
+
+1.20.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.20.10
+A
+. 
+Both 
+ and 
+ are true
+B
+. 
+Both 
+ and 
+ are false
+C
+. 
+ is true and 
+ is false
+D
+. 
+ is false and 
+ is true
+1.21
+1.21.1
+The ratio 
+ is _____________. (Rounded off to one decimal place)
+gatecse-2023
+ 
+co-and-architecture
+ 
+interrupts
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Interrupts: GATE CSE 2025 | Set 1 | Question: 1
+Suppose a program is running on a non-pipelined single processor computer system. The computer is
+connected to an external device that can interrupt the processor asynchronously. The processor needs to
+execute the interrupt service routine (ISR) to serve this interrupt. The following steps (not necessarily in order) are
+taken by the processor when the interrupt arrives:
+i
+. 
+The processor saves the content of the program counter.
+ii
+. 
+The program counter is loaded with the start address of the ISR.
+iii
+. 
+The processor finishes the present instruction.
+Which ONE of the following is the CORRECT sequence of steps?
+gatecse2025-set1
+ 
+co-and-architecture
+ 
+interrupts
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Interrupts: GATE CSE 2026 | Set 2 | Question: 8
+Consider the following two statements about interrupt handling mechanisms in a CPU.
+: In non-vectored interrupt mechanism, it usually takes more time to start the Interrupt Service Routine (ISR)
+when compared to that in a vectored interrupt mechanism.
+: In daisy-chain interrupt mechanism, the CPU polls all the input devices individually to determine the source of
+the interrupt.
+Which one of the following options is correct with respect to  
+ and  
+gatecse-2026-set2
+ 
+co-and-architecture
+ 
+interrupts
+ 
+one-mark
+Answer key
+☟
+Machine Instruction 
+(21)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(8Q)
+Machine Instruction: GATE CSE 1988 | Question: 9i
+The following program fragment was written in an assembly language for a single address computer with
+one accumulator register:
+LOAD B
+MULT C
+STORE T1
+ADD A
+STORE T2
+MULT T2
+ADD T1
+STORE Z
+Give the arithmetic expression implemented by the fragment.
+gate1988
+ 
+normal
+ 
+descriptive
+ 
+co-and-architecture
+ 
+machine-instruction
+Answer key
+☟
+
+
+1.21.2
+1.21.3
+1.21.4
+Machine Instruction: GATE CSE 1994 | Question: 12
+A
+. 
+Assume that a CPU has only two registers 
+ and 
+ and that only the following instruction is available 
+Using this XOR instruction, ﬁnd an instruction sequence in order to exchange the contents of the registers 
+and 
+B
+. 
+The line p of the circuit shown in figure has stuck at 
+ fault. Determine an input test to detect the fault.
+gate1994
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Machine Instruction: GATE CSE 1999 | Question: 17
+Consider the following program fragment in the assembly language of a certain hypothetical processor. The
+processor has three general purpose registers 
+ and 
+. The meanings of the instructions are shown
+by comments (starting with ;) after the instructions.
+X
+:
+  CMP R1
+,
+ 
+0
+;
+  
+Compare
+ R1 
+and
+ 
+0
+,
+ 
+set
+ flags appropriately 
+in
+ status 
+register
+    JZ  Z
+;
+   
+Jump
+ 
+if
+ zero to target Z
+    MOV R2
+,
+ R1
+;
+ 
+Copy
+ contents 
+of
+ R1 to R2
+    SHR R1
+;
+ 
+Shift
+ right R1 
+by
+ 
+1
+ bit
+    SHL R1
+;
+ 
+Shift
+ left R1 
+by
+ 
+1
+ bit
+    CMP R2
+,
+ R1
+;
+ 
+Compare
+ R2 
+and
+ R1 
+and
+ 
+set
+ flag 
+in
+ status 
+register
+    JZ  Y
+;
+    
+Jump
+ 
+if
+ zero to target Y
+    INC R3
+;
+ 
+Increment
+ R3 
+by
+ 
+1
+;
+Y
+:
+  SHR R1
+;
+ 
+Shift
+ right R1 
+by
+ 
+1
+ bit
+    JMP X
+;
+  
+Jump
+ to target X
+Z
+:...
+A
+. 
+Initially 
+ and 
+ contain the values 
+,
+ and 
+ respectively, what are the ﬁnal values of 
+ and 
+ when
+control reaches Z?
+B
+. 
+In general, if 
+ and 
+ initially contain the values n, 0, and 0 respectively. What is the ﬁnal value of 
+when control reaches 
+?
+gate1999
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Machine Instruction: GATE CSE 2003 | Question: 48
+Consider the following assembly language program for a hypothetical processor 
+ and 
+ are 
+bit
+registers. The meanings of various instructions are shown as comments.
+
+
+A
+. 
+the number of 
+ bits in 
+B
+. 
+the number of 
+ bits in 
+C
+. 
+D
+. 
+1.21.5
+A
+. 
+B
+. 
+ no operation
+C
+. 
+  left rotate 
+ through
+carry flag by one bit
+D
+. 
+If the initial value of register A is A0 the value of register B after the program execution will be
+gatecse-2003
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+normal
+Answer key
+☟
+Machine Instruction: GATE CSE 2003 | Question: 49
+Consider the following assembly language program for a hypothetical processor 
+ and 
+ are 
+ bit
+registers. The meanings of various instructions are shown as comments.
+ 
+MOV B,
+#0
+;
+ 
+MOV C,
+#8
+;
+Z:
+CMP C,
+#0
+;
+compare C with 0
+ 
+JZ X
+;
+jump to X if zero flag is set
+ 
+SUB C, #1
+;
+ 
+RRC A, #1
+;
+right rotate A through carry by one bit. Thus:
+ 
+ 
+;
+If the initial values of A and the carry flag are 
+ and 
+ 
+ 
+;
+ respectively, their values after the execution of this
+ 
+ 
+;
+instruction will be 
+ and 
+ respectively.
+ 
+JC Y
+;
+jump to Y if carry flag is set
+ 
+JMP Z
+;
+jump to Z
+Y:
+ADD B, #1
+;
+ 
+JMP Z
+;
+jump to Z
+X:
+ 
+ 
+ 
+Which of the following instructions when inserted at location 
+ will ensure that the value of the register 
+ after
+program execution is as same as its initial value?
+gatecse-2003
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+normal
+Answer key
+☟
+
+
+1.21.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.21.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.21.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Machine Instruction: GATE CSE 2004 | Question: 63
+Consider the following program segment for a hypothetical CPU having three user registers 
+ and 
+Consider that the memory is byte addressable with size 
+ bits, and the program has been loaded starting from
+memory location 
+ (decimal). If an interrupt occurs while the CPU has been halted after executing the HALT
+instruction, the return address (in decimal) saved in the stack will be
+gatecse-2004
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+normal
+Answer key
+☟
+Machine Instruction: GATE CSE 2004 | Question: 64
+Consider the following program segment for a hypothetical CPU having three user registers 
+ and 
+Let the clock cycles required for various operations be as follows:
+The total number of clock cycles required to execute the program is
+gatecse-2004
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+normal
+Answer key
+☟
+Machine Instruction: GATE CSE 2006 | Question: 09, ISRO2009-35
+A CPU has 
+-
+ instructions. A program starts at address 
+ (in decimal). Which one of the following is a
+legal program counter (all values in decimal)?
+gatecse-2006
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+easy
+ 
+isro2009
+Answer key
+☟
+
+
+1.21.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.21.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.21.11
+Machine Instruction: GATE CSE 2007 | Question: 54
+In a simplified computer the instructions are:
+The computer has only two registers, and OP is either ADD or SUB. Consider the following basic block:
+Assume that all operands are initially in memory. The ﬁnal value of the computation should be in memory. What is
+the minimum number of MOV instructions in the code generated for this basic block?
+gatecse-2007
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+normal
+Answer key
+☟
+Machine Instruction: GATE CSE 2007 | Question: 71
+Consider the following program segment. Here 
+ and 
+ are the general purpose registers.
+Assume that the content of memory location 
+ is 
+ and the content of the register 
+ is 
+. The content of
+each of the memory locations from 
+ to 
+ is 
+. The program is loaded from the memory location 
+.
+All the numbers are in decimal.
+Assume that the memory is word addressable. The number of memory references for accessing the data in
+executing the program completely is
+gatecse-2007
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+interrupts
+ 
+normal
+Answer key
+☟
+Machine Instruction: GATE CSE 2007 | Question: 72
+Consider the following program segment. Here 
+ and 
+ are the general purpose registers.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.21.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.21.13
+Assume that the content of memory location 
+ is 
+ and the content of the register 
+ is 
+. The content of
+each of the memory locations from 
+ to 
+ is 
+. The program is loaded from the memory location 
+.
+All the numbers are in decimal.
+Assume that the memory is word addressable. After the execution of this program, the content of memory location 
+ is:
+gatecse-2007
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+interrupts
+ 
+normal
+Answer key
+☟
+Machine Instruction: GATE CSE 2007 | Question: 73
+Consider the following program segment. Here 
+ and 
+ are the general purpose registers.
+Assume that the content of memory location 
+ is 
+ and the content of the register 
+ is 
+ The content of
+each of the memory locations from 
+ to 
+ is 
+ The program is loaded from the memory location 
+All the numbers are in decimal.
+Assume that the memory is byte addressable and the word size is 
+ bits. If an interrupt occurs during the
+execution  of the instruction “INC R3”, what return address will be pushed on to the stack?
+gatecse-2007
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+interrupts
+ 
+normal
+Answer key
+☟
+Machine Instruction: GATE CSE 2008 | Question: 34
+Which of the following must be true for the RFE (Return From Exception) instruction on a general purpose
+processor?
+I
+. 
+It must be a trap instruction
+II
+. 
+It must be a privileged instruction
+III
+. 
+An exception cannot be allowed to occur during execution of an RFE instruction
+
+
+A
+. 
+I only
+B
+. 
+II only
+C
+. 
+I and II only
+D
+. 
+I, II and III only
+1.21.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.21.15
+1.21.16
+gatecse-2008
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+normal
+Answer key
+☟
+Machine Instruction: GATE CSE 2015 | Set 2 | Question: 42
+Consider a processor with byte-addressable memory. Assume that all registers, including program counter
+(PC) and Program Status Word (PSW), are size of two bytes. A stack in the main memory is implemented
+from memory location 
+ and it grows upward. The stack pointer (SP) points to the top element of the stack.
+The current value of SP is 
+. The CALL instruction is of two words, the ﬁrst word is the op-code and the
+second word is the starting address of the subroutine (one word = 2 bytes). The CALL instruction is implemented
+as follows:
+Store the current value of PC in the stack
+Store the value of PSW register in the stack
+Load the statring address of the subroutine in PC
+The content of PC just before the fetch of a CALL instruction is 
+. After execution of the CALL instruction,
+the value of the stack pointer is:
+gatecse-2015-set2
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+easy
+Answer key
+☟
+Machine Instruction: GATE CSE 2016 | Set 2 | Question: 10
+A processor has 
+ distinct instruction and 
+ general purpose registers. A 
+-bit instruction word has an
+opcode, two registers operands and an immediate operand. The number of bits available for the immediate
+operand field is_______.
+gatecse-2016-set2
+ 
+machine-instruction
+ 
+co-and-architecture
+ 
+easy
+ 
+numerical-answers
+Answer key
+☟
+Machine Instruction: GATE CSE 2021 | Set 1 | Question: 55
+Consider the following instruction sequence where registers 
+ and 
+ are general purpose and 
+ denotes the content at the memory location 
+Assume that the content of the memory location 
+ is 
+, and the content of the register 
+ is 
+. The
+content of each of the memory locations from 
+ to 
+ is 
+. The instruction sequence starts from the
+memory location 
+. All the numbers are in decimal format. Assume that the memory is byte addressable.
+After the execution of the program, the content of memory location 
+ is ____________
+gatecse-2021-set1
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+numerical-answers
+ 
+two-marks
+
+
+1.21.17
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.21.18
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.21.19
+A
+. 
+R1 → R3
+R2 → M[100]
+B
+. 
+M[100] → R2
+R1 → R2
+R1 → R3
+C
+. 
+R1 → M[100]
+R2 → R3
+D
+. 
+R1 → R2
+R1 → R3
+R1 → M[100]
+1.21.20
+Answer key
+☟
+Machine Instruction: GATE CSE 2023 | Question: 31
+Consider the given 
+-code and its corresponding assembly code, with a few operands 
+ being
+unknown. Some useful information as well as the semantics of each unique assembly instruction is
+annotated as inline comments in the code. The memory is byte-addressable.
+//C-code
+ 
+     
+ 
+         
+ 
+ 
+int
+ a
+[
+10
+],
+ b
+[
+10
+],
+ i
+;
+ 
+// int is 32 bit
+ 
+for
+(
+i
+=
+0
+;
+ i
+<
+10
+;
+ i
+++)
+   a
+[
+i
+]
+ 
+=
+ b
+[
+i
+]
+ 
+*
+ 
+8
+;
+ 
+ 
+;
+assembly code 
+(;
+ indicates comments
+)
+ 
+;
+r1
+-
+r5 are 
+32
+-
+bit integer registers
+ 
+;
+initialize r1
+=
+0
+,
+ r2
+=
+10
+    
+ 
+ 
+;
+initialize r3
+,
+ r4 
+with
+ 
+base
+ address 
+of
+ a
+,
+ b
+ 
+ 
+  L01
+:
+ jeq r1
+,
+ r2
+,
+ 
+end
+  
+;
+if
+(
+r1
+==
+r2
+)
+ 
+goto
+ 
+end
+  L02
+:
+ lw
+,
+ r5
+,
+ 
+0
+(
+r4
+)
+    
+;
+r5 
+<-
+ 
+Memory
+[
+r4
++
+0
+]
+  L03
+:
+ shl
+,
+ r5
+,
+ r5
+,
+ U1  
+;
+r5 
+<-
+ r5 
+<<
+ U1
+  L04
+:
+ sw
+,
+ r5
+,
+ 
+0
+(
+r3
+)
+    
+;
+Memory
+[
+r3
++
+0
+]
+ 
+<-
+ r5
+  L05
+:
+ 
+add
+,
+ r3
+,
+ r3
+,
+ U2  
+;
+r3 
+<-
+ r3
++
+U2
+  L06
+:
+ 
+add
+,
+ r4
+,
+ r4
+,
+ U3
+ 
+  L07
+:
+ 
+add
+,
+ r1
+,
+ r1
+,
+ 
+1
+  L08
+:
+ jmp U4           
+;
+goto
+ U4
+  L09
+:
+ 
+end
+ 
+Which one of the following options is a 
+ replacement for operands in the position 
+in the above assembly code?
+gatecse-2023
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+two-marks
+Answer key
+☟
+Machine Instruction: GATE CSE 2025 | Set 1 | Question: 27
+A processor has 
+ general-purpose registers and 
+ distinct instruction types. An instruction is encoded in 
+-bits. What is the maximum number of bits that can be used to store the immediate operand for the given
+instruction?
+, 
+  / /  
+gatecse2025-set1
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+easy
+ 
+two-marks
+Answer key
+☟
+Machine Instruction: GATE IT 2004 | Question: 46
+If we use internal data forwarding to speed up the performance of a CPU (R1, R2 and R3 are registers and
+M[100] is a memory reference), then the sequence of operations
+R1 → M[100]
+M[100] → R2
+M[100] → R3
+can be replaced by
+gateit-2004
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+easy
+Answer key
+☟
+Machine Instruction: GATE IT 2007 | Question: 41
+Following table indicates the latencies of operations between the instruction producing the result and
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.21.21
+A
+. 
+ADD (X)−, (X)
+B
+. 
+ADD (X), (X)−
+C
+. 
+ADD −(X), (X)+
+D
+. 
+ADD −(X), (X)
+1.22
+1.22.1
+1.22.2
+instruction using the result.
+Consider the following code segment:
+ 
+Load
+ R1
+,
+ 
+Loc
+ 
+1
+;
+ 
+Load
+ R1 
+from
+ memory location 
+Loc1
+ 
+Load
+ R2
+,
+ 
+Loc
+ 
+2
+;
+ 
+Load
+ R2 
+from
+ memory location 
+Loc
+ 
+2
+ 
+Add
+ R1
+,
+ R2
+,
+ R1
+;
+ 
+Add
+ R1 
+and
+ R2 
+and
+ save result 
+in
+ R1
+ 
+Dec
+ R2
+;
+         
+Decrement
+ R2
+ 
+Dec
+ R1
+;
+         
+Decrement
+ R1
+ 
+Mpy
+ R1
+,
+ R2
+,
+ R3
+;
+ 
+Multiply
+ R1 
+and
+ R2 
+and
+ save result 
+in
+ R3
+ 
+Store
+ R3
+,
+ 
+Loc
+ 
+3
+;
+ 
+Store
+ R3 
+in
+ memory location 
+Loc
+ 
+3
+What is the number of cycles needed to execute the above code segment assuming each instruction takes one
+cycle to execute?
+gateit-2007
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+normal
+Answer key
+☟
+Machine Instruction: GATE IT 2008 | Question: 38
+Assume that EA = (X)+ is the eﬀective address equal to the contents of location X, with X incremented by
+one word length after the eﬀective address is calculated; EA = −(X) is the eﬀective address equal to the
+contents of location X, with X decremented by one word length before the eﬀective address is calculated; EA = (X)−
+is the eﬀective address equal to the contents of location X, with X decremented by one word length after the
+eﬀective address is calculated. The format of the instruction is (opcode, source, destination), which means
+(destination ← source op destination). Using X as a stack pointer, which of the following instructions can pop the
+top two elements from the stack, perform the addition operation and push the result back to the stack.
+gateit-2008
+ 
+co-and-architecture
+ 
+machine-instruction
+ 
+normal
+Answer key
+☟
+Memory Interfacing 
+(6)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(10Q)
+Memory Interfacing: GATE CSE 1990 | Question: 4-iv
+State whether the following statements are TRUE or FALSE with reason:
+Transferring data in blocks from the main memory to the cache memory enables an interleaved main memory unit
+to operate at its maximum speed.
+gate1990
+ 
+true-false
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+memory-interfacing
+Answer key
+☟
+Memory Interfacing: GATE CSE 1991 | Question: 01,ii
+In interleaved memory organization, consecutive words are stored in consecutive memory modules in
+_______ interleaving, whereas consecutive words are stored within the module in ________ interleaving.
+gate1991
+ 
+co-and-architecture
+ 
+normal
+ 
+memory-interfacing
+ 
+descriptive
+Answer key
+☟
+
+
+1.22.3
+A
+. 
+ ns
+B
+. 
+ ns
+C
+. 
+ ns
+D
+. 
+ ns
+1.22.4
+1.22.5
+1.22.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.23
+Memory Interfacing: GATE CSE 2006 | Question: 41
+A CPU has a cache with block size 
+ bytes. The main memory has 
+ banks, each bank being 
+ bytes wide.
+Consecutive 
+ − byte chunks are mapped on consecutive banks with wrap-around. All the 
+ banks can be
+accessed in parallel, but two accesses to the same bank must be serialized. A cache block access may involve
+multiple iterations of parallel bank accesses depending on the amount of data obtained by accessing all the 
+banks in parallel. Each iteration requires decoding the bank numbers to be accessed in parallel and this takes 
+.The latency of one bank access is 
+ ns. If 
+ and 
+, the latency of retrieving a cache block starting
+at address zero from main memory is:
+gatecse-2006
+ 
+co-and-architecture
+ 
+cache-memory
+ 
+memory-interfacing
+ 
+normal
+Answer key
+☟
+Memory Interfacing: GATE CSE 2016 | Set 1 | Question: 09
+A processor can support a maximum memory of 
+, where the memory is word-addressable (a word
+consists of two bytes). The size of address bus of the processor is at least _________bits.
+gatecse-2016-set1
+ 
+co-and-architecture
+ 
+easy
+ 
+numerical-answers
+ 
+memory-interfacing
+Answer key
+☟
+Memory Interfacing: GATE CSE 2018 | Question: 23
+A 
+ wide main memory unit with a capacity of 
+ is built using 
+ DRAM chips. The
+number of rows of memory cells in the DRAM chip is 
+. The time taken to perform one refresh operation is
+. The refresh period is 
+ The percentage (rounded to the closest integer) of the
+time available for performing the memory read/write operations in the main memory unit is _________.
+gatecse-2018
+ 
+co-and-architecture
+ 
+memory-interfacing
+ 
+normal
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Memory Interfacing: GATE CSE 2023 | Question: 32
+A 
+ kilobyte 
+ byte-addressable memory is realized using four 
+ memory blocks. Two input address
+lines 
+ are connected to the chip select 
+ port of these memory blocks through a decoder
+as shown in the ﬁgure. The remaining ten input address lines from 
+ are connected to the address port of
+these blocks. The chip select 
+ is active high.
+The input memory addresses 
+ in decimal, for the starting locations 
+ of each block
+(indicated as 
+ in the ﬁgure) are among the options given below. Which one of the following options
+is 
+gatecse-2023
+ 
+co-and-architecture
+ 
+memory-interfacing
+ 
+two-marks
+Answer key
+☟
+Microprogramming 
+(12)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(15Q)
+
+
+1.23.1
+1.23.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.23.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+None of the above
+1.23.4
+1.23.5
+Microprogramming: GATE CSE 1987 | Question: 4a
+Find out the width of the control memory of a horizontal microprogrammed control unit, given the following
+specifications:
+ control lines for the processor consisting of ALU and 
+ registers.
+Conditional branching facility by checking 
+ status bits.
+Provision to hold 
+ words in the control memory.
+gate1987
+ 
+co-and-architecture
+ 
+microprogramming
+ 
+descriptive
+Answer key
+☟
+Microprogramming: GATE CSE 1996 | Question: 2.25
+A micro program control unit is required to generate a total of 
+ control signals. Assume that during any
+micro instruction, at most two control signals are active. Minimum number of bits required in the control word
+to generate the required control signals will be:
+gate1996
+ 
+co-and-architecture
+ 
+microprogramming
+ 
+normal
+Answer key
+☟
+Microprogramming: GATE CSE 1997 | Question: 5.3
+A micro instruction is to be designed to specify:
+a
+. 
+none or one of the three micro operations of one kind and
+b
+. 
+none or upto six micro operations of another kind
+The minimum number of bits in the micro-instruction is:
+gate1997
+ 
+co-and-architecture
+ 
+microprogramming
+ 
+normal
+Answer key
+☟
+Microprogramming: GATE CSE 1999 | Question: 2.19
+Arrange the following configuration for CPU in decreasing order of operating speeds:
+Hard wired control, Vertical microprogramming, Horizontal microprogramming.
+A
+. 
+Hard wired control, Vertical microprogramming, Horizontal microprogramming.
+B
+. 
+Hard wired control, Horizontal microprogramming, Vertical microprogramming.
+C
+. 
+Horizontal microprogramming, Vertical microprogramming, Hard wired control.
+D
+. 
+Vertical microprogramming, Horizontal microprogramming, Hard wired control.
+gate1999
+ 
+co-and-architecture
+ 
+microprogramming
+ 
+normal
+Answer key
+☟
+Microprogramming: GATE CSE 2002 | Question: 2.7
+Horizontal microprogramming:
+A
+. 
+does not require use of signal decoders
+B
+. 
+results in larger sized microinstructions than vertical  microprogramming
+C
+. 
+uses one bit for each control signal
+D
+. 
+all of the above
+gatecse-2002
+ 
+co-and-architecture
+ 
+microprogramming
+Answer key
+☟
+
+
+1.23.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.23.7
+A
+. 
+Instruction fetch
+B
+. 
+Operand fetch
+C
+. 
+Conditional branch
+D
+. 
+Initiation of interrupt service
+1.23.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Microprogramming: GATE CSE 2004 | Question: 67
+The microinstructions stored in the control memory of a processor have a width of 
+ bits. Each
+microinstruction is divided into three ﬁelds: a micro-operation ﬁeld of 
+ bits, a next address ﬁeld 
+ and a
+MUX select field 
+ There are 
+ status bits in the input of the MUX.
+How many bits are there in the 
+ and 
+ fields, and what is the size of the control memory in number of words?
+gatecse-2004
+ 
+co-and-architecture
+ 
+microprogramming
+ 
+normal
+Answer key
+☟
+Microprogramming: GATE CSE 2013 | Question: 28
+Consider the following sequence of micro-operations.
+MBR 
+←
+ PC  
+MAR 
+←
+ X  PC 
+←
+ Y  
+Memory
+ 
+←
+ MBR
+Which one of the following is a possible operation performed by this sequence?
+gatecse-2013
+ 
+co-and-architecture
+ 
+microprogramming
+ 
+normal
+Answer key
+☟
+Microprogramming: GATE IT 2004 | Question: 49
+A CPU has only three instructions 
+ and 
+ which use the following signals in time steps 
+:
+ : Ain, Bout, Cin
+         
+ : PCout, Bin
+         
+ : Zout, Ain
+         
+ : Bin, Cout
+         
+ : End
+ : Cin, Bout, Din
+        
+ : Aout, Bin
+        
+ : Zout, Ain
+        
+ : Bin, Cout
+        
+ : End
+ : Din, Aout
+        
+ : Ain, Bout
+        
+ : Zout, Ain
+        
+ : Dout, Ain
+        
+ : End
+Which of the following logic functions will generate the hardwired control for the signal Ain ?
+gateit-2004
+ 
+co-and-architecture
+ 
+microprogramming
+ 
+normal
+
+
+1.23.9
+1.23.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.23.11
+Answer key
+☟
+Microprogramming: GATE IT 2005 | Question: 45
+A hardwired CPU uses 
+ control signals 
+ to 
+, in various time steps 
+ to 
+, to implement 
+instructions 
+ to 
+ as shown below:
+Which of the following pairs of expressions represent the circuit for generating control signals 
+ and 
+respectively?
+ indicates that the control signal should be generated in time step 
+ if the instruction being executed
+is 
+ or 
+A
+. 
+ and
+B
+. 
+ and
+C
+. 
+ and
+D
+. 
+ and
+gateit-2005
+ 
+co-and-architecture
+ 
+microprogramming
+ 
+normal
+Answer key
+☟
+Microprogramming: GATE IT 2005 | Question: 49
+An instruction set of a processor has 
+ signals which can be divided into 
+ groups of mutually exclusive
+signals as follows:
+Group 
+ 
+ 
+ signals, Group 
+ 
+ 
+ signals, Group 
+ 
+ 
+ signals, Group 
+ 
+ 
+ signals, Group 
+ 
+ 
+ signals.
+How many bits of the control words can be saved by using vertical microprogramming over horizontal
+microprogramming?
+gateit-2005
+ 
+co-and-architecture
+ 
+microprogramming
+ 
+normal
+Answer key
+☟
+Microprogramming: GATE IT 2006 | Question: 41
+The data path shown in the ﬁgure computes the number of 
+ in the 
+ input word corresponding to
+an unsigned even integer stored in the shift register.
+The unsigned counter, initially zero, is incremented if the most significant bit of the shift register is 
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.23.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.24
+1.24.1
+ 
+The microprogram for the control is shown in the table below with missing control words for microinstructions 
+The counter width (k)
+, 
+the number of missing microinstructions (n), and the control word for microinstructions 
+ are, respectively,
+gateit-2006
+ 
+co-and-architecture
+ 
+microprogramming
+ 
+normal
+Answer key
+☟
+Microprogramming: GATE IT 2008 | Question: 39
+Consider a CPU where all the instructions require 
+ clock cycles to complete execution. There are 
+instructions in the instruction set. It is found that 
+ control signals are needed to be generated by the
+control unit. While designing the horizontal microprogrammed control unit, single address ﬁeld format is used for
+branch control logic. What is the minimum size of the control word and control address register?
+gateit-2008
+ 
+co-and-architecture
+ 
+microprogramming
+ 
+normal
+Answer key
+☟
+Pipelining 
+(39)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(15Q)
+ 
+Test 5 
+(10Q)
+Pipelining: GATE CSE 1999 | Question: 13
+An instruction pipeline consists of 
+ stages – Fetch 
+, Decode ﬁeld 
+, Execute 
+ and Result Write 
+. The 
+ instructions in a certain instruction sequence need these stages for the diﬀerent number of clock
+cycles as shown by the table below
+
+
+1.24.2
+A
+. 
+T1 ≤ T2
+B
+. 
+T1 ≥ T2
+C
+. 
+T1 < T2
+D
+. 
+T1 and T2 plus the time taken for
+one instruction fetch cycle
+1.24.3
+1.24.4
+1.24.5
+Find the number of clock cycles needed to perform the 
+ instructions.
+gate1999
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Pipelining: GATE CSE 2000 | Question: 1.8
+Comparing the time T1 taken for a single instruction on a pipelined CPU with time T2 taken on a non-
+pipelined but identical CPU, we can say that
+gatecse-2000
+ 
+pipelining
+ 
+co-and-architecture
+ 
+easy
+Answer key
+☟
+Pipelining: GATE CSE 2000 | Question: 12
+An instruction pipeline has ﬁve stages where each stage take 2 nanoseconds and all instruction use all ﬁve
+stages. Branch instructions are not overlapped. i.e., the instruction after the branch is not fetched till the
+branch instruction is completed. Under ideal conditions,
+A
+. 
+Calculate the average instruction execution time assuming that 20% of all instructions executed are branch
+instruction. Ignore the fact that some branch instructions may be conditional.
+B
+. 
+If a branch instruction is a conditional branch instruction, the branch need not be taken. If the branch is not
+taken, the following instructions can be overlapped. When 80% of all branch instructions are conditional
+branch instructions, and 50% of the conditional branch instructions are such that the branch is taken, calculate
+the average instruction execution time.
+gatecse-2000
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Pipelining: GATE CSE 2001 | Question: 12
+Consider a 
+stage pipeline - IF (Instruction Fetch), ID (Instruction Decode and register read), EX
+(Execute), MEM (memory), and WB (Write Back). All (memory or register) reads take place in the second
+phase of a clock cycle and all writes occur in the ﬁrst phase. Consider the execution of the following instruction
+sequence:
+A
+. 
+Show all data dependencies between the four instructions.
+B
+. 
+Identify the data hazards.
+C
+. 
+Can all hazards be avoided by forwarding in this case.
+gatecse-2001
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Pipelining: GATE CSE 2002 | Question: 2.6, ISRO2008-19
+The performance of a pipelined processor suffers if:
+A
+. 
+the pipeline stages have different delays
+B
+. 
+consecutive instructions are dependent on each other
+C
+. 
+the pipeline stages share hardware resources
+D
+. 
+All of the above
+
+
+1.24.6
+A
+. 
+I and II only
+B
+. 
+II and III only
+C
+. 
+III only
+D
+. 
+All the three
+1.24.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.24.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.24.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2002
+ 
+co-and-architecture
+ 
+pipelining
+ 
+easy
+ 
+isro2008
+Answer key
+☟
+Pipelining: GATE CSE 2003 | Question: 10, ISRO-DEC2017-41
+For a pipelined CPU with a single ALU, consider the following situations
+I
+. 
+The 
+ instruction uses the result of the 
+ instruction as an operand
+II
+. 
+The execution of a conditional jump instruction
+III
+. 
+The 
+ and 
+ instructions require the ALU at the same time.
+Which of the above can cause a hazard
+gatecse-2003
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+ 
+isrodec2017
+Answer key
+☟
+Pipelining: GATE CSE 2004 | Question: 69
+A 4-stage pipeline has the stage delays as 
+, 
+, 
+ and 
+ 
+, respectively. Registers
+that are used between the stages have a delay of 
+ 
+ each. Assuming constant clocking rate,
+the total time taken to process 
+ data items on this pipeline will be:
+gatecse-2004
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Pipelining: GATE CSE 2006 | Question: 42
+A CPU has a ﬁve-stage pipeline and runs at 
+ GHz frequency. Instruction fetch happens in the ﬁrst stage of
+the pipeline. A conditional branch instruction computes the target address and evaluates the condition in the
+third stage of the pipeline. The processor stops fetching new instructions following a conditional branch until the
+branch outcome is known. A program executes 
+ instructions out of which 
+ are conditional branches. If each
+instruction takes one cycle to complete on average, the total execution time of the program is: 
+gatecse-2006
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Pipelining: GATE CSE 2007 | Question: 37, ISRO2009-37
+Consider a pipelined processor with the following four stages:
+IF: Instruction Fetch
+ID: Instruction Decode and Operand Fetch
+EX: Execute
+WB: Write Back
+The IF, ID and WB stages take one clock cycle each to complete the operation. The number of clock cycles for the
+EX stage depends on the instruction. The ADD and SUB instructions need 
+ clock cycle and the MUL instruction
+needs 
+ clock cycles in the EX stage. Operand forwarding is used in the pipelined processor. What is the number of
+clock cycles taken to complete the following sequence of instructions?
+
+
+1.24.10
+1.24.11
+A
+. 
+I1
+B
+. 
+I2
+C
+. 
+I3
+D
+. 
+I4
+1.24.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.24.13
+gatecse-2007
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+ 
+isro2009
+Answer key
+☟
+Pipelining: GATE CSE 2008 | Question: 76
+Delayed branching can help in the handling of control hazards
+For all delayed conditional branch instructions, irrespective of whether the condition evaluates to true or
+false,
+A
+. 
+The instruction following the conditional branch instruction in memory is executed
+B
+. 
+The first instruction in the fall through path is executed
+C
+. 
+The first instruction in the taken path is executed
+D
+. 
+The branch takes longer to execute than any other instruction
+gatecse-2008
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Pipelining: GATE CSE 2008 | Question: 77
+Delayed branching can help in the handling of control hazards
+The following code is to run on a pipelined processor with one branch delay slot:
+I1: ADD 
+I2: Sub 
+I3: ADD 
+I4: STORE Memory 
+     BRANCH to Label if 
+Which of the instructions I1, I2, I3 or I4 can legitimately occupy the delay slot without any program modification?
+gatecse-2008
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Pipelining: GATE CSE 2009 | Question: 28
+Consider a 
+ stage pipeline processor. The number of cycles needed by the four instructions 
+in stages 
+ is shown below:
+ 
+What is the number of cycles needed to execute the following loop?
+For (i=1 to 2) {I1; I2; I3; I4;}
+gatecse-2009
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Pipelining: GATE CSE 2010 | Question: 33
+A 
+stage pipelined processor has Instruction Fetch (IF), Instruction Decode (ID), Operand Fetch (OF),
+Perform Operation (PO) and Write Operand (WO) stages. The IF, ID, OF and WO stages take 
+ clock cycle
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.24.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.24.15
+1.24.16
+A
+. 
+ 
+   
+B
+. 
+ 
+ 
+C
+. 
+ 
+D
+. 
+ 
+each for any instruction. The PO stage takes 
+ clock cycle for ADD and SUB instructions, 
+ clock cycles for MUL
+instruction and 
+ clock cycles for DIV instruction respectively. Operand forwarding is used in the pipeline. What is
+the number of clock cycles needed to execute the following sequence of instructions?
+gatecse-2010
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Pipelining: GATE CSE 2011 | Question: 41
+Consider an instruction pipeline with four stages 
+ each with combinational circuit only.
+The pipeline registers are required between each stage and at the end of the last stage. Delays for the
+stages and for the pipeline registers are as given in the figure.
+What is the approximate speed up of the pipeline in steady state under ideal conditions when compared to the
+corresponding non-pipeline implementation?
+gatecse-2011
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Pipelining: GATE CSE 2012 | Question: 20, 
+ISRO2016-23
+Register renaming is done in pipelined processors:
+A
+. 
+as an alternative to register allocation at compile time
+B
+. 
+for efficient access to function parameters and local variables
+C
+. 
+to handle certain kinds of hazards
+D
+. 
+as part of address translation
+gatecse-2012
+ 
+co-and-architecture
+ 
+pipelining
+ 
+easy
+ 
+isro2016
+Answer key
+☟
+Pipelining: GATE CSE 2013 | Question: 45
+Consider an instruction pipeline with five stages without any branch prediction:
+Fetch Instruction (FI), Decode Instruction (DI), Fetch Operand (FO), Execute Instruction (EI) and Write
+Operand (WO). The stage delays for FI, DI, FO, EI and WO are 
+ respectively.
+There are intermediate storage buﬀers after each stage and the delay of each buﬀer is 
+ A program consisting
+of 
+ instructions 
+ is executed in this pipelined processor. Instruction 
+ is the only branch
+instruction and its branch target is 
+ If the branch is taken during the execution of this program, the time (in ns)
+needed to complete the program is
+
+
+1.24.17
+1.24.18
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.24.19
+1.24.20
+gatecse-2013
+ 
+normal
+ 
+co-and-architecture
+ 
+pipelining
+Answer key
+☟
+Pipelining: GATE CSE 2014 | Set 3 | Question: 43
+An instruction pipeline has ﬁve stages, namely, instruction fetch (IF), instruction decode and register fetch
+(ID/RF), instruction execution (EX), memory access (MEM), and register writeback (WB) with stage latencies
+ ns, 
+ ns, 
+ ns, 
+ ns, and 
+ ns, respectively (ns stands for nanoseconds). To gain in terms of frequency, the
+designers have decided to split the ID/RF stage into three stages (ID, RF1, RF2) each of latency 
+ ns. Also,
+the EX stage is split into two stages (EX1, EX2) each of latency 
+ ns. The new design has a total of eight pipeline
+stages. A program has 
+ branch instructions which execute in the EX stage and produce the next instruction
+pointer at the end of the EX stage in the old design and at the end of the EX2 stage in the new design. The IF stage
+stalls after fetching a branch instruction until the next instruction pointer is computed. All instructions other than the
+branch instruction have an average CPI of one in both the designs. The execution times of this program on the old
+and the new design are 
+ and 
+ nanoseconds, respectively. The value of 
+ is __________.
+gatecse-2014-set3
+ 
+co-and-architecture
+ 
+pipelining
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Pipelining: GATE CSE 2014 | Set 3 | Question: 9
+Consider the following processors (ns stands for nanoseconds). Assume that the pipeline registers have
+zero latency. 
+ Four-stage pipeline with stage latencies 
+. 
+ Four-stage pipeline with stage latencies 
+. 
+ Five-stage pipeline with stage latencies 
+. 
+ Five-stage pipeline with stage latencies 
+. 
+Which processor has the highest peak clock frequency?
+gatecse-2014-set3
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Pipelining: GATE CSE 2015 | Set 1 | Question: 38
+Consider a non-pipelined processor with a clock rate of 
+ gigahertz and average cycles per instruction of
+four. The same processor is upgraded to a pipelined processor with ﬁve stages; but due to the internal
+pipeline delay, the clock speed is reduced to 
+ gigahertz. Assume that there are no stalls in the pipeline. The
+speedup achieved in this pipelined processor is_______________.
+gatecse-2015-set1
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Pipelining: GATE CSE 2015 | Set 2 | Question: 44
+Consider the sequence of machine instruction given below:
+In  the above sequence, 
+ to 
+ are general purpose registers. In the instructions shown, the ﬁrst register shows
+the result of the operation performed on the second and the third registers. This sequence of instructions is to be
+executed in a pipelined instruction processor with the following 
+ stages: 
+ Instruction Fetch and Decode 
+, 
+ Operand Fetch 
+, 
+ Perform Operation 
+ and 
+ Write back the result 
+. The 
+, 
+ and 
+ stages take 
+ clock cycle each for any instruction. The 
+ stage takes 
+ clock cycle for ADD and SUB
+instruction, 
+ clock cycles for MUL instruction and 
+ clock cycles for DIV instruction. The pipelined processor uses
+
+
+1.24.21
+1.24.22
+1.24.23
+1.24.24
+operand forwarding from the PO stage to the OF stage. The number of clock cycles taken for the execution of the
+above sequence of instruction is _________.
+gatecse-2015-set2
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Pipelining: GATE CSE 2015 | Set 3 | Question: 51
+Consider the following reservation table for a pipeline having three stages 
+.
+The minimum average latency (MAL) is ______
+gatecse-2015-set3
+ 
+co-and-architecture
+ 
+pipelining
+ 
+difficult
+ 
+numerical-answers
+Answer key
+☟
+Pipelining: GATE CSE 2016 | Set 1 | Question: 32
+The stage delays in a 
+-stage pipeline are 
+ and 
+ picoseconds. The ﬁrst stage (with delay 
+ picoseconds) is replaced with a functionality equivalent design involving two stages with respective
+delays 
+ and 
+ picoseconds. The throughput increase of the pipeline is ___________ percent.
+gatecse-2016-set1
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Pipelining: GATE CSE 2016 | Set 2 | Question: 33
+Consider a 
+ (gigahertz) processor with a three stage pipeline and stage latencies 
+ and 
+ such
+that 
+. If the longest pipeline stage is split into two pipeline stages of equal latency , the
+new frequency is __________ 
+, ignoring delays in the pipeline registers.
+gatecse-2016-set2
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Pipelining: GATE CSE 2017 | Set 1 | Question: 50
+Instruction execution in a processor is divided into 
+ stages, 
+Instruction Fetch 
+(IF), 
+Instruction
+Decode 
+(ID), 
+Operand fetch 
+(OF), 
+Execute 
+(EX), and 
+Write Back 
+(WB). These stages take 
+5, 4, 20, 10 
+and 
+3
+nanoseconds (ns) 
+respectively. A pipelined implementation of the processor requires buﬀering between each pair
+of consecutive stages with a delay of 
+2 ns
+. Two pipelined implementation of the processor are contemplated:
+i
+. 
+a naive pipeline implementation (NP) with 
+ stages and
+ii
+. 
+an eﬃcient pipeline (EP) where the OF stage is divided into stages 
+ and 
+ with execution times of 
+12
+ns 
+and 
+8 ns 
+respectively.
+The speedup (correct to two decimal places) achieved by EP over NP in executing 
+ independent instructions with
+no hazards is _________ .
+gatecse-2017-set1
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+
+
+1.24.25
+1.24.26
+1.24.27
+1.24.28
+Pipelining: GATE CSE 2018 | Question: 50
+The instruction pipeline of a RISC processor has the following stages: Instruction Fetch 
+, Instruction
+Decode 
+, Operand Fetch 
+, Perform Operation 
+ and Writeback 
+, The 
+, 
+, 
+and 
+ stages take 
+ clock cycle each for every instruction. Consider a sequence of 
+ instructions. In the 
+stage, 
+ instructions take 
+ clock cycles each, 
+ instructions take 
+ clock cycles each, and the remaining 
+instructions take 
+ clock cycle each. Assume that there are no data hazards and no control hazards.
+The number of clock cycles required for completion of execution of the sequence of instruction is _____.
+gatecse-2018
+ 
+co-and-architecture
+ 
+pipelining
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Pipelining: GATE CSE 2020 | Question: 43
+Consider a non-pipelined processor operating at 
+ GHz. It takes 
+ clock cycles to complete an instruction.
+You are going to make a 
+- stage pipeline out of this processor. Overheads associated with pipelining force
+you to operate the pipelined processor at 
+ GHz. In a given program, assume that 
+ are memory instructions, 
+ are ALU instructions and the rest are branch instructions. 
+ of the memory instructions cause stalls of 
+clock cycles each due to cache misses and 
+ of the branch instructions cause stalls of 
+ cycles each. Assume
+that there are no stalls associated with the execution of ALU instructions. For this program, the speedup achieved
+by the pipelined processor over the non-pipelined processor (round off to 
+ decimal places) is_____________.
+gatecse-2020
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+pipelining
+ 
+two-marks
+Answer key
+☟
+Pipelining: GATE CSE 2021 | Set 1 | Question: 53
+A ﬁve-stage pipeline has stage delays of 
+ and 
+ nanoseconds. The registers that are
+used between the pipeline stages have a delay of 
+ nanoseconds each.
+The total time to execute 
+ independent instructions on this pipeline, assuming there are no pipeline stalls, is
+_______ nanoseconds.
+gatecse-2021-set1
+ 
+co-and-architecture
+ 
+pipelining
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Pipelining: GATE CSE 2021 | Set 2 | Question: 53
+Consider a pipelined processor with 
+ stages, 
+, 
+, 
+, 
+, and 
+. Each stage of the pipeline, except the 
+ stage, takes one cycle. Assume that the 
+ stage merely decodes the instruction and the register read is
+performed in the 
+ stage. The 
+ stage takes one cycle for 
+ instruction and two cycles for 
+ instruction.
+Ignore pipeline register latencies.
+Consider the following sequence of 
+ instructions:
+Assume that every 
+ instruction is data-dependent on the 
+ instruction just before it and every 
+instruction (except the ﬁrst 
+) is data-dependent on the 
+ instruction just before it. The 
+ deﬁned as
+follows.
+The 
+ achieved in executing the given instruction sequence on the pipelined processor (rounded to 
+decimal places) is _____________
+gatecse-2021-set2
+ 
+co-and-architecture
+ 
+pipelining
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+
+
+1.24.29
+1.24.30
+1.24.31
+1.24.32
+Pipelining: GATE CSE 2023 | Question: 23
+Consider a 
+-stage pipelined processor having a delay of 
+ (nanoseconds), 
+, and 
+ for the
+ﬁrst, second, and the third stages, respectively. Assume that there is no other delay and the processor does
+not suffer from any pipeline hazards. Also assume that one instruction is fetched every cycle.
+The total execution time for executing 
+ instructions on this processor is _____________ 
+gatecse-2023
+ 
+co-and-architecture
+ 
+pipelining
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Pipelining: GATE CSE 2024 | Set 1 | Question: 20
+Consider a 
+-stage pipelined processor with Instruction Fetch (IF), Instruction Decode (ID), Execute (EX),
+Memory Access (MEM), and Register Writeback (WB) stages. Which of the following statements about
+forwarding 
+is/are CORRECT?
+A
+. 
+In a pipelined execution, forwarding means the result from a source stage of an earlier instruction is passed on
+to the destination stage of a later instruction
+B
+. 
+In forwarding, data from the output of the MEM stage can be passed on to the input of the EX stage of the next
+instruction
+C
+. 
+Forwarding cannot prevent all pipeline stalls
+D
+. 
+Forwarding does not require any extra hardware to retrieve the data from the pipeline stages 
+gatecse-2024-set1
+ 
+multiple-selects
+ 
+co-and-architecture
+ 
+pipelining
+ 
+one-mark
+Answer key
+☟
+Pipelining: GATE CSE 2024 | Set 2 | Question: 21
+​​​​​
+An instruction format has the following structure:
+Instruction Number: 
+Opcode destination reg, source reg-
+, source reg-
+ 
+Consider the following sequence of instructions to be executed in a pipelined processor:
+Which of the following statements is/are TRUE?
+A
+. 
+There is a RAW dependency on 
+ between 
+ and 
+B
+. 
+There is a WAR dependency on 
+ between 
+ and 
+C
+. 
+There is a RAW dependency on 
+ between 
+ and 
+D
+. 
+There is a WAW dependency on 
+ between 
+ and 
+gatecse-2024-set2
+ 
+co-and-architecture
+ 
+multiple-selects
+ 
+pipelining
+ 
+one-mark
+Answer key
+☟
+Pipelining: GATE CSE 2024 | Set 2 | Question: 48
+A non-pipelined instruction execution unit operating at 
+ takes an average of 
+ cycles to execute an
+instruction of a program 
+. The unit is then redesigned to operate on a 
+ -stage pipeline at 
+. Assume
+that the ideal throughput of the pipelined unit is 
+ instruction per cycle. In the execution of program 
+, 
+instructions incur an average of 
+ cycles stall due to data hazards and 
+ instructions incur an average of 
+cycles stall due to control hazards. The speedup (rounded oﬀ to one decimal place) obtained by the pipelined
+design over the non-pipelined design is ____________.
+gatecse-2024-set2
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+pipelining
+ 
+two-marks
+Answer key
+☟
+
+
+1.24.33
+1.24.34
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.24.35
+A
+. 
+ nsec
+B
+. 
+ nsec
+C
+. 
+ nsec
+D
+. 
+ nsec
+1.24.36
+Pipelining: GATE CSE 2025 | Set 2 | Question: 46
+A 
+-stage instruction pipeline has stage delays of 
+, and 
+, respectively, in
+nanoseconds. The delay of an inter-stage latch is 
+ nanoseconds. Assume that there are no pipeline stalls
+due to branches and other hazards. The time taken to process 
+ instructions in microseconds is __________.
+(rounded off to two decimal places)
+gatecse2025-set2
+ 
+co-and-architecture
+ 
+pipelining
+ 
+numerical-answers
+ 
+easy
+ 
+two-marks
+Answer key
+☟
+Pipelining: GATE IT 2004 | Question: 47
+Consider a pipeline processor with 
+ stages 
+ to 
+. We want to execute the following loop:
+for
+ 
+(
+i 
+=
+ 
+1
+;
+ i 
+<
+ 
+=
+ 
+1000
+;
+ i
+++)
+ 
+    
+{
+I1
+,
+ I2
+,
+ I3
+,
+ I4
+}
+ 
+where the time taken (in ns) by instructions 
+ to 
+ for stages 
+ to 
+ are given below:
+The output of  
+ for 
+ will be available after
+gateit-2004
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Pipelining: GATE IT 2005 | Question: 44
+We have two designs 
+ and 
+ for a synchronous pipeline processor. 
+ has 
+ pipeline stages with
+execution times of 
+ nsec, 
+ nsec, 
+ nsec, 
+ nsec and 
+ nsec while the design 
+ has 
+ pipeline stages
+each with 
+ nsec execution time How much time can be saved using design 
+ over design 
+ for executing 
+instructions?
+gateit-2005
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Pipelining: GATE IT 2006 | Question: 78
+A pipelined processor uses a 
+stage instruction pipeline with the following stages: Instruction fetch (IF),
+Instruction decode (ID), Execute (EX) and Writeback (WB). The arithmetic operations as well as the load
+and store operations are carried out in the EX stage. The sequence of instructions corresponding to the statement 
+ is given below. The values of variables 
+ and 
+ are available in the
+registers 
+ and 
+ respectively, before the execution of the instruction sequence.
+The number of Read-After-Write (RAW) dependencies, Write-After-Read( WAR) dependencies, and Write-After-
+Write (WAW) dependencies in the sequence of instructions are, respectively,
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.24.37
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.24.38
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.24.39
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.25
+1.25.1
+gateit-2006
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Pipelining: GATE IT 2006 | Question: 79
+A pipelined processor uses a 4-stage instruction pipeline with the following stages: Instruction fetch (IF),
+Instruction decode (ID), Execute (EX) and Writeback (WB). The arithmetic operations as well as the load
+and store operations are carried out in the EX stage. The sequence of instructions corresponding to the statement 
+ is given below. The values of variables 
+ and 
+ are available in the
+registers 
+ and 
+ respectively, before the execution of the instruction sequence.
+The IF, ID and WB stages take 1 clock cycle each. The EX stage takes 
+ clock cycle each for the ADD, SUB and
+STORE operations, and 
+ clock cycles each for MUL and DIV operations. Operand forwarding from the EX stage to
+the ID stage is used. The number of clock cycles required to complete the sequence of instructions is
+gateit-2006
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Pipelining: GATE IT 2007 | Question: 6, ISRO2011-25
+A processor takes 
+ cycles to complete an instruction I. The corresponding pipelined processor uses 
+stages with the execution times of 
+ and 
+ cycles respectively. What is the asymptotic speedup
+assuming that a very large number of instructions are to be executed?
+gateit-2007
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+ 
+isro2011
+Answer key
+☟
+Pipelining: GATE IT 2008 | Question: 40
+A non pipelined single cycle processor operating at 
+ is converted into a synchro
+nous pipelined
+processor with ﬁve stages requiring 
+ and 
+, respectively. The
+delay of the latches is 
+. The speedup of the pipeline processor for a large number of instructions is:
+gateit-2008
+ 
+co-and-architecture
+ 
+pipelining
+ 
+normal
+Answer key
+☟
+Runtime Environment 
+(2)
+Runtime Environment: GATE CSE 2001 | Question: 1.10, UGCNET-Dec2012-III: 36
+Suppose a processor does not have any stack pointer registers, which of the following statements is true?
+A
+. 
+It cannot have subroutine call instruction
+B
+. 
+It cannot have nested subroutines call
+C
+. 
+Interrupts are not possible
+D
+. 
+All subroutine calls and interrupts are possible
+gatecse-2001
+ 
+co-and-architecture
+ 
+normal
+ 
+ugcnetcse-dec2012-paper3
+ 
+runtime-environment
+
+
+1.25.2
+A
+. 
+ only
+B
+. 
+ only
+C
+. 
+ only
+D
+. 
+ and 
+1.26
+1.26.1
+1.26.2
+1.26.3
+1.26.4
+Answer key
+☟
+Runtime Environment: GATE CSE 2008 | Question: 37, ISRO2009-38
+The use of multiple register windows with overlap causes a reduction in the number of memory accesses for:
+I
+. 
+Function locals and parameters
+II
+. 
+Register saves and restores
+III
+. 
+Instruction fetches
+gatecse-2008
+ 
+co-and-architecture
+ 
+normal
+ 
+isro2009
+ 
+runtime-environment
+Answer key
+☟
+Speedup 
+(6)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(11Q)
+Speedup: GATE CSE 2014 | Set 1 | Question: 43
+Consider a 
+-stage instruction pipeline, where all stages are perfectly balanced. Assume that there is no
+cycle-time overhead of pipelining. When an application is executing on this 
+-stage pipeline, the speedup
+achieved with respect to non-pipelined execution if 
+% of the instructions incur 
+ pipeline stall cycles is
+____________
+gatecse-2014-set1
+ 
+co-and-architecture
+ 
+pipelining
+ 
+numerical-answers
+ 
+normal
+ 
+speedup
+Answer key
+☟
+Speedup: GATE CSE 2014 | Set 1 | Question: 55
+Consider two processors 
+ and 
+ executing the same instruction set. Assume that under identical
+conditions, for the same input, a program running on 
+ takes 
+ less time but incurs 
+ more CPI
+(clock cycles per instruction) as compared to the program running on 
+. If the clock frequency of 
+ is 
+,
+then the clock frequency of 
+ (in GHz) is ______.
+gatecse-2014-set1
+ 
+co-and-architecture
+ 
+numerical-answers
+ 
+normal
+ 
+speedup
+Answer key
+☟
+Speedup: GATE CSE 2024 | Set 1 | Question: 45
+The baseline execution time of a program on a 
+ single core machine is 
+ nanoseconds ( 
+. The
+code corresponding to 
+ of the execution time can be fully parallelized. The overhead for using an
+additional core is 
+ when running on a multicore system. Assume that all cores in the multicore system run
+their share of the parallelized code for an equal amount of time.
+The number of cores that minimize the execution time of the program is __________.
+gatecse-2024-set1
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+speedup
+ 
+two-marks
+Answer key
+☟
+Speedup: GATE CSE 2026 | Set 2 | Question: 47
+A non-pipelined instruction execution unit that operates at 
+ GHz clock takes an average of 
+ clock cycles
+to complete the execution of an instruction. To improve the performance, the system was pipelined with a
+goal of achieving an average throughput of one instruction per clock cycle. However, it could operate only at 
+GHz due to pipeline overheads. While executing a program in the pipelined design, 
+ of instructions
+encountered a stall of 
+ cycles due to pipeline hazards. The speed-up obtained by the pipelined design over the
+non-pipelined one for this program is 
+ (rounded off to two decimal places)
+Note: 
+gatecse-2026-set2
+ 
+co-and-architecture
+ 
+pipelining
+ 
+speedup
+ 
+numerical-answers
+ 
+two-marks
+
+
+1.26.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.26.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.27
+1.27.1
+1.28
+1.28.1
+A
+. 
+the length of MAR
+B
+. 
+the available secondary storage
+C
+. 
+the available main memory
+D
+. 
+all of the above
+E
+. 
+none of the above
+1.28.2
+Answer key
+☟
+Speedup: GATE IT 2004 | Question: 50
+In an enhancement of a design of a CPU, the speed of a ﬂoating point unit has been increased by 
+ and
+the speed of a ﬁxed point unit has been increased by 
+. What is the overall speedup achieved if the ratio
+of the number of ﬂoating point operations to the number of ﬁxed point operations is 
+ and the ﬂoating point
+operation used to take twice the time taken by the fixed point operation in the original design?
+gateit-2004
+ 
+normal
+ 
+co-and-architecture
+ 
+speedup
+Answer key
+☟
+Speedup: GATE IT 2007 | Question: 36
+The ﬂoating point unit of a processor using a design 
+ takes 
+ cycles compared to 
+ cycles taken by the
+ﬁxed point unit. There are two more design suggestions 
+ and 
+. 
+ uses 
+ more cycles for ﬁxed
+point unit but 
+ less cycles for ﬂoating point unit as compared to design 
+. 
+ uses 
+ less cycles for ﬁxed
+point unit but 
+ more cycles for ﬂoating point unit as compared to design 
+. For a given program which has 
+ ﬁxed point operations and 
+ ﬂoating point operations, which of the following ordering reﬂects the relative
+performances of three designs?
+(
+ denotes that 
+ is faster than 
+)
+gateit-2007
+ 
+co-and-architecture
+ 
+normal
+ 
+speedup
+Answer key
+☟
+Stall 
+(1)
+Stall: GATE CSE 2022 | Question: 51
+A processor 
+ operating at 
+ has a standard 
+stage 
+ instruction pipeline having a base 
+ of one without any pipeline hazards. For a given program 
+ that has 
+branch instructions, control hazards incur 
+ cycles stall for every branch. A new version of the processor 
+operating at same clock frequency has an additional branch predictor unit 
+ that completely eliminates stalls
+for correctly predicted branches. There is neither any savings nor any additional stalls for wrong predictions. There
+are no structural hazards and data hazards for 
+ and 
+ If the 
+ has a prediction accuracy of 
+ the
+speed up 
+ obtained by 
+ over 
+ in executing 
+ is _______________.
+gatecse-2022
+ 
+numerical-answers
+ 
+co-and-architecture
+ 
+pipelining
+ 
+stall
+ 
+two-marks
+Answer key
+☟
+Virtual Memory 
+(3)
+Virtual Memory: GATE CSE 1991 | Question: 03,iii
+The total size of address space in a virtual memory system is limited by:
+gate1991
+ 
+co-and-architecture
+ 
+virtual-memory
+ 
+normal
+ 
+multiple-selects
+Answer key
+☟
+Virtual Memory: GATE CSE 2004 | Question: 47
+Consider a system with a two-level paging scheme in which a regular memory access takes 
+ 
+, and servicing a page fault takes 
+ 
+. An average instruction takes 
+nanoseconds of CPU time, and two memory accesses. The TLB hit ratio is 
+%, and the page fault rate is one in
+every 
+ instructions. What is the effective average instruction execution time?
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+1.28.3
+gatecse-2004
+ 
+co-and-architecture
+ 
+virtual-memory
+ 
+normal
+Answer key
+☟
+Virtual Memory: GATE CSE 2008 | Question: 38
+In an instruction execution pipeline, the earliest that the data TLB (Translation Lookaside Buﬀer) can be
+accessed is:
+A
+. 
+before effective address calculation has started
+B
+. 
+during effective address calculation
+C
+. 
+after effective address calculation has completed
+D
+. 
+after data cache lookup has completed
+gatecse-2008
+ 
+co-and-architecture
+ 
+virtual-memory
+ 
+normal
+Answer key
+☟
+Answer Keys
+1.1.1
+C
+1.1.2
+N/A
+1.1.3
+N/A
+1.1.4
+N/A
+1.1.5
+B
+1.1.6
+D
+1.1.7
+A;B;C;D
+1.1.8
+C
+1.1.9
+A
+1.1.10
+B
+1.1.11
+C
+1.1.12
+B
+1.1.13
+C
+1.1.14
+C
+1.1.15
+D
+1.1.16
+D
+1.1.17
+B
+1.1.18
+D
+1.1.19
+D
+1.2.1
+180
+1.2.2
+11.83:11.87
+1.2.3
+4:4
+1.3.1
+16417
+1.4.1
+A;B;C;D
+1.4.2
+D
+1.5.1
+N/A
+1.5.2
+N/A
+1.5.3
+22
+1.5.4
+N/A
+1.5.5
+D
+1.5.6
+D
+1.5.7
+61.25
+1.5.8
+N/A
+1.5.9
+B
+1.5.10
+B
+1.5.11
+N/A
+1.5.12
+N/A
+1.5.13
+C
+1.5.14
+A
+1.5.15
+A
+1.5.16
+D
+1.5.17
+C
+1.5.18
+B
+1.5.19
+D
+1.5.20
+C
+1.5.21
+A
+1.5.22
+A
+1.5.23
+D
+1.5.24
+B
+1.5.25
+C
+1.5.26
+D
+1.5.27
+C
+1.5.28
+C
+1.5.29
+D
+1.5.30
+C
+1.5.31
+A
+1.5.32
+A
+1.5.33
+A
+1.5.34
+D
+1.5.35
+D
+1.5.36
+20
+1.5.37
+1.68
+1.5.38
+14
+1.5.39
+A
+1.5.40
+24
+1.5.41
+30
+1.5.42
+0.05
+1.5.43
+14
+1.5.44
+A
+1.5.45
+4.7 : 4.8
+1.5.46
+18
+1.5.47
+B
+1.5.48
+D
+1.5.49
+160
+1.5.50
+13.3:13.3;13.5:13.5
+1.5.51
+B
+1.5.52
+17 : 17
+1.5.53
+2 : 2
+1.5.54
+A
+1.5.55
+A;B;D
+1.5.56
+0.85
+1.5.57
+19
+1.5.58
+B;C
+1.5.59
+3
+1.5.60
+A
+1.5.61
+B;C
+1.5.62
+C
+1.5.63
+B
+1.5.64
+C
+1.5.65
+C
+1.5.66
+A
+1.5.67
+B
+1.5.68
+D
+1.5.69
+A
+1.6.1
+76
+1.7.1
+B
+1.8.1
+D
+1.8.2
+B
+1.8.3
+456
+1.8.4
+80000 : 80000
+1.8.5
+A
+1.8.6
+C
+1.8.7
+C
+1.8.8
+C
+1.9.1
+A
+1.10.1
+A
+1.10.2
+B
+1.10.3
+B
+1.10.4
+B
+1.11.1
+B
+1.12.1
+N/A
+1.12.2
+D
+1.12.3
+B
+1.12.4
+B
+1.12.5
+28
+1.12.6
+C
+1.12.7
+A;B;C
+1.13.1
+A;B;D
+1.13.2
+A
+1.13.3
+A
+1.13.4
+A;B
+1.13.5
+128
+1.14.1
+77.3 : 77.3
+1.15.1
+95 : 95
+1.16.1
+True
+
+
+1.16.2
+True
+1.16.3
+False
+1.16.4
+A
+1.16.5
+1.4 : 1.5
+1.16.6
+B
+1.16.7
+B
+1.16.8
+A
+1.17.1
+False
+1.17.2
+N/A
+1.17.3
+C
+1.17.4
+C
+1.17.5
+A
+1.17.6
+-16.0
+1.17.7
+3.0:3.0
+1.18.1
+N/A
+1.18.2
+256
+1.18.3
+True
+1.18.4
+16383
+1.18.5
+500
+1.18.6
+32
+1.18.7
+14
+1.18.8
+32
+1.18.9
+34
+1.18.10
+D
+1.18.11
+B
+1.19.1
+D
+1.20.1
+D
+1.20.2
+B
+1.20.3
+A
+1.20.4
+A
+1.20.5
+B
+1.20.6
+C
+1.20.7
+C
+1.20.8
+10.2
+1.20.9
+A
+1.20.10
+C
+1.21.1
+N/A
+1.21.2
+N/A
+1.21.3
+N/A
+1.21.4
+B
+1.21.5
+A
+1.21.6
+D
+1.21.7
+B
+1.21.8
+C
+1.21.9
+B
+1.21.10
+D
+1.21.11
+A
+1.21.12
+C
+1.21.13
+D
+1.21.14
+D
+1.21.15
+16
+1.21.16
+50 : 50
+1.21.17
+B
+1.21.18
+B
+1.21.19
+D
+1.21.20
+C
+1.21.21
+A
+1.22.1
+TBA
+1.22.2
+N/A
+1.22.3
+D
+1.22.4
+31
+1.22.5
+59 : 60
+1.22.6
+C
+1.23.1
+N/A
+1.23.2
+C
+1.23.3
+C
+1.23.4
+B
+1.23.5
+D
+1.23.6
+A
+1.23.7
+D
+1.23.8
+A
+1.23.9
+D
+1.23.10
+B
+1.23.11
+D
+1.23.12
+D
+1.24.1
+15
+1.24.2
+B
+1.24.3
+N/A
+1.24.4
+N/A
+1.24.5
+D
+1.24.6
+D
+1.24.7
+C
+1.24.8
+C
+1.24.9
+B
+1.24.10
+A
+1.24.11
+D
+1.24.12
+B
+1.24.13
+B
+1.24.14
+B
+1.24.15
+C
+1.24.16
+B
+1.24.17
+1.50 :
+1.60
+1.24.18
+C
+1.24.19
+3.2
+1.24.20
+13
+1.24.21
+3
+1.24.22
+33.0 :
+34.0
+1.24.23
+4
+1.24.24
+1.50 :
+1.51
+1.24.25
+219
+1.24.26
+2.15:2.18
+1.24.27
+17160 :
+17160
+1.24.28
+1.87 : 1.88
+1.24.29
+2040
+1.24.30
+A;B;C
+1.24.31
+A
+1.24.32
+3
+1.24.33
+260.20:261.20
+1.24.34
+C
+1.24.35
+B
+1.24.36
+C
+1.24.37
+B
+1.24.38
+B
+1.24.39
+C
+1.25.1
+X
+1.25.2
+A
+1.26.1
+4
+1.26.2
+1.6
+1.26.3
+3
+1.26.4
+2.30:2.40
+1.26.5
+A
+1.26.6
+B
+1.27.1
+1.42:1.45
+1.28.1
+A;B
+1.28.2
+D
+1.28.3
+C

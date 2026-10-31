@@ -1,0 +1,10380 @@
+6
+Theory of Computation
+ 
+(293)
+Regular expressions
+ and 
+finite automata,
+ 
+Context-free grammars
+ and 
+push-down automata,
+ 
+Regular
+ and
+context-free languages,
+ Pumping lemma, 
+Turing machines
+ and 
+undecidability.
+Welcome to the "Theory of Computation" chapter, a cornerstone of Computer Science that delves into the fundamental
+capabilities and limitations of computational models. This subject is crucial for the GATE CS exam as it builds a strong
+theoretical foundation for understanding algorithms, programming languages, and system design. It typically carries a
+weightage of 8-12 marks, with questions ranging from conceptual understanding of language classes and machine
+models to problem-solving involving the design of automata, grammar conversions, and decidability proofs. Expect a
+mix of Multiple Choice Questions (MCQs), Multiple Select Questions (MSQs), and Numerical Answer Type (NAT)
+questions, often requiring a deep grasp of definitions, properties, and theorems.
+Topic-wise Key Concepts
+Finite Automata (FA)
+Finite Automata are the simplest computational models, used to recognize regular languages. They have a finite
+number of states and transitions based on input symbols, without any auxiliary memory. They are fundamental for
+lexical analysis in compilers and designing simple control systems.
+Definition:
+ A Deterministic Finite Automaton (DFA) is formally defined as a 5-tuple 
+, where:
+1
+. 
+ is a finite set of states.
+2
+. 
+ is a finite set of input symbols (alphabet).
+3
+. 
+ is the transition function.
+4
+. 
+ is the initial state.
+5
+. 
+ is the set of final (accepting) states.
+Key Properties:
+Every NFA has an equivalent DFA.
+DFA and NFA recognize the same class of languages (Regular Languages).
+DFA can be minimized to a unique (up to isomorphism) minimal state DFA.
+Common Pitfalls:
+ Incorrectly handling epsilon transitions in NFA to DFA conversion; confusing acceptance criteria
+for NFA/DFA.
+Problem-Solving Techniques:
+Subset Construction:
+ For converting NFA to DFA.
+Table Filling Algorithm / Myhill-Nerode Theorem:
+ For DFA minimization.
+State Elimination Method / Arden's Theorem:
+ For converting FA to Regular Expression.
+Finite State Machines (FSM)
+Finite State Machines are mathematical models of computation used to design systems that can be in one of a finite
+number of states. While often used interchangeably with FA, FSMs typically include an output function, making them
+suitable for modeling sequential circuits and control logic.
+Definition:
+Mealy Machine:
+ 
+, where 
+ is the output alphabet, and 
+ is the output
+function. Output depends on current state and input.
+Moore Machine:
+ 
+, where 
+ is the output function. Output depends only on
+the current state.
+Key Properties:
+Any Mealy machine can be converted to an equivalent Moore machine, and vice-versa.
+Moore machine output is delayed by one clock cycle compared to Mealy.
+Common Pitfalls:
+ Incorrectly converting between Mealy and Moore machines, especially handling initial state
+outputs.
+Problem-Solving Techniques:
+ State diagram construction, state table analysis, conversion algorithms between
+
+
+Mealy and Moore.
+Regular Expression (RE)
+Regular Expressions are a powerful notation for describing regular languages. They provide a concise way to specify
+patterns of strings, widely used in text processing, search engines, and lexical analysis.
+Definition:
+ A Regular Expression is built using basic symbols and three operations:
+Union:
+ 
+ (or 
+) represents strings in 
+ or 
+.
+Concatenation:
+ 
+ represents strings formed by concatenating a string from 
+ with one from 
+.
+Kleene Star:
+ 
+ represents zero or more concatenations of strings from 
+, including the empty string 
+.
+Key Identities:
+Common Pitfalls:
+ Operator precedence (Kleene star > concatenation > union); incorrect application of identities.
+Problem-Solving Techniques:
+Arden's Theorem:
+ For solving equations of the form 
+ to get 
+.
+State Elimination Method:
+ For converting FA to RE.
+Regular Grammar (RG)
+Regular Grammars are a type of formal grammar that generates exactly the class of regular languages. They are
+restricted in their production rules, making them less powerful than Context-Free Grammars but simpler to parse.
+Definition:
+ A grammar 
+ is regular if all its production rules are of one of the following forms:
+Right-linear:
+ 
+ or 
+ or 
+, where 
+ (non-terminals), 
+ (terminal).
+Left-linear:
+ 
+ or 
+ or 
+, where 
+, 
+.
+Key Properties:
+A grammar cannot be both right-linear and left-linear simultaneously (unless it generates a finite language).
+Regular Grammars, Regular Expressions, and Finite Automata are all equivalent in terms of language
+recognition power.
+Common Pitfalls:
+ Mixing right-linear and left-linear rules in the same grammar; incorrectly converting between FA
+and RG.
+Problem-Solving Techniques:
+ Constructing an FA from a RG, and vice-versa, by mapping non-terminals to states
+and productions to transitions.
+Regular Language (RL)
+Regular Languages are the simplest class of languages in the Chomsky Hierarchy, recognized by Finite Automata,
+described by Regular Expressions, or generated by Regular Grammars. They represent patterns that can be matched
+without requiring memory beyond the current state.
+Definition:
+ A language is regular if and only if it can be recognized by a Finite Automaton.
+Key Properties (Closure Properties):
+ Regular languages are closed under:
+Union (
+)
+Intersection (
+)
+Complement (
+)
+Concatenation (
+)
+Kleene Star (
+)
+Reversal (
+)
+Homomorphism, Inverse Homomorphism
+Common Pitfalls:
+ Misidentifying non-regular languages as regular; incorrectly applying closure properties.
+Problem-Solving Techniques:
+Pumping Lemma for Regular Languages:
+ The primary tool to prove a language is NOT regular.
+Myhill-Nerode Theorem:
+ Can be used to prove regularity or non-regularity, and for DFA minimization.
+
+
+Non Determinism
+Non-determinism in automata allows for multiple possible transitions from a given state on a given input symbol, or
+transitions on an empty string (epsilon transitions). It often simplifies the design of automata, though it doesn't increase
+their computational power for regular languages.
+Definition:
+ A Non-deterministic Finite Automaton (NFA) is a 5-tuple 
+, where 
+ is the transition function, mapping to a set of states.
+Key Properties:
+Every NFA has an equivalent DFA (recognizes the same language).
+An NFA can be exponentially more concise than its equivalent DFA (e.g., an NFA with 
+ states might require up
+to 
+ states in the equivalent DFA).
+Non-determinism is crucial for Pushdown Automata (NPDA is more powerful than DPDA).
+Common Pitfalls:
+ Incorrectly handling epsilon closures; missing possible paths in non-deterministic transitions.
+Problem-Solving Techniques:
+Subset Construction Algorithm:
+ The standard method to convert an NFA (with or without epsilon transitions)
+to an equivalent DFA.
+Understanding how to trace paths in an NFA to determine language acceptance.
+Number of States
+The "number of states" refers to the cardinality of the set of states 
+ in an automaton. This concept is critical for
+understanding the complexity and minimality of machine models, particularly for finite automata.
+Key Properties:
+For an NFA with 
+ states, the equivalent DFA can have up to 
+ states.
+A minimal DFA for a given regular language is unique (up to isomorphism) and has the fewest possible states.
+The number of states in a minimal DFA is equal to the number of equivalence classes of the Myhill-Nerode
+relation.
+Common Pitfalls:
+ Failing to identify redundant or unreachable states, which leads to non-minimal DFAs.
+Problem-Solving Techniques:
+DFA Minimization Algorithms:
+ Partitioning states into distinguishable/indistinguishable sets.
+Myhill-Nerode Theorem:
+ Using equivalence classes of strings to determine the minimum number of states.
+Minimal State Automata
+A Minimal State Automaton (specifically, a Minimal DFA) is a Deterministic Finite Automaton that recognizes a given
+regular language using the smallest possible number of states. It is unique for any given regular language and is crucial
+for efficient implementation.
+Definition:
+ A DFA 
+ is minimal if there is no other DFA 
+ such that 
+ and 
+.
+Key Properties:
+Every regular language has a unique minimal DFA (up to isomorphism).
+All states in a minimal DFA must be reachable from the start state and must be distinguishable from each other.
+Common Pitfalls:
+ Incorrectly merging distinguishable states; not removing unreachable states before minimization.
+Problem-Solving Techniques:
+Table Filling Algorithm (or Partitioning Algorithm):
+1
+. 
+Initialize a table of all pairs of states 
+. Mark all pairs 
+ where 
+ and 
+ (or vice versa) as
+distinguishable.
+2
+. 
+Iteratively mark 
+ as distinguishable if for some input symbol 
+, 
+ is already marked
+distinguishable.
+3
+. 
+Repeat until no new pairs can be marked. All unmarked pairs are indistinguishable and can be merged.
+Myhill-Nerode Theorem:
+ States that a language 
+ is regular if and only if the number of equivalence classes of
+the Myhill-Nerode relation 
+ is finite. The number of states in the minimal DFA is equal to the number of these
+equivalence classes.
+Pumping Lemma (for Regular Languages)
+The Pumping Lemma for Regular Languages is a fundamental theorem used to prove that a language is NOT regular.
+It states that all sufficiently long strings in a regular language can be "pumped" (i.e., a middle section of the string can
+be repeated any number of times) and the resulting string will still be in the language.
+
+
+Theorem:
+ If 
+ is a regular language, then there exists some integer 
+ (the pumping length) such that for any
+string 
+ with 
+, 
+ can be divided into three parts 
+ satisfying the conditions:
+1
+. 
+ (the middle part cannot be empty).
+2
+. 
+ (the pumpable part must occur within the first 
+ symbols).
+3
+. 
+For all 
+, the string 
+.
+Key Properties:
+It is a necessary condition for regularity, not a sufficient one. It can only be used to prove non-regularity.
+The proof strategy is usually by contradiction (an "adversary game").
+Common Pitfalls:
+Trying to prove regularity using the Pumping Lemma (it's impossible).
+Incorrectly choosing the string 
+ or the partition 
+ to break the lemma.
+Forgetting the condition 
+ or 
+.
+Problem-Solving Techniques:
+1
+. 
+Assume 
+ is regular and let 
+ be the pumping length.
+2
+. 
+Choose a "hard" string 
+ such that 
+, typically one that grows with 
+ (e.g., 
+).
+3
+. 
+Consider all possible ways to divide 
+ into 
+ satisfying 
+ and 
+.
+4
+. 
+For each division, find an 
+ such that 
+. This contradicts the lemma, proving 
+ is not regular.
+Closure Property
+Closure properties describe whether a class of languages remains within that class after applying certain operations.
+Understanding these properties is vital for classifying languages and proving relationships between language classes.
+Definition:
+ A class of languages 
+ is closed under an operation 
+ if, for any language 
+, the result of 
+ (or 
+) is also in 
+.
+Key Properties (to memorize):
+Operation
+Regular
+Languages
+Context-Free
+Languages
+Recursive
+Languages
+Recursively Enumerable
+Languages
+Union
+Yes
+Yes
+Yes
+Yes
+Intersection
+Yes
+No
+Yes
+Yes
+Complement
+Yes
+No
+Yes
+No
+Concatenation
+Yes
+Yes
+Yes
+Yes
+Kleene Star
+Yes
+Yes
+Yes
+Yes
+Reversal
+Yes
+Yes
+Yes
+Yes
+Homomorphism
+Yes
+Yes
+Yes
+Yes
+Inverse
+Homomorphism
+Yes
+Yes
+Yes
+Yes
+Common Pitfalls:
+ Confusing closure properties between different language classes, especially for intersection and
+complement.
+Problem-Solving Techniques:
+ Use closure properties to deduce the class of a new language based on known
+languages and operations. For non-closure, use counterexamples.
+Context Free Grammar (CFG)
+Context-Free Grammars are more powerful than regular grammars and are used to describe Context-Free Languages.
+They are fundamental to defining the syntax of programming languages and parsing. Productions allow a non-terminal
+to be replaced by a string of terminals and non-terminals, regardless of its context.
+Definition:
+ A CFG is a 4-tuple 
+, where:
+1
+. 
+ is a finite set of non-terminal symbols.
+2
+. 
+ is a finite set of terminal symbols.
+3
+. 
+ is a finite set of production rules of the form 
+, where 
+ and 
+.
+4
+. 
+ is the start symbol.
+Key Forms:
+Chomsky Normal Form (CNF):
+ All productions are of the form 
+ or 
+, where 
+ and 
+. 
+-productions are allowed only for the start symbol if it doesn't appear on the RHS.
+Greibach Normal Form (GNF):
+ All productions are of the form 
+, where 
+, 
+, and 
+.
+Common Pitfalls:
+ Detecting ambiguity (a string having more than one leftmost/rightmost derivation or parse tree);
+incorrect conversion to CNF/GNF.
+
+
+Problem-Solving Techniques:
+Simplification of CFG:
+ Removing useless symbols, 
+-productions, and unit productions.
+Conversion to CNF/GNF:
+ Systematic procedures involving variable substitution and rule modification.
+Derivation trees, leftmost/rightmost derivations.
+Context Free Language (CFL)
+Context-Free Languages are recognized by Pushdown Automata and generated by Context-Free Grammars. They can
+describe languages with nested structures, such as balanced parentheses or properly nested HTML tags, which regular
+languages cannot handle.
+Definition:
+ A language is Context-Free if and only if it can be generated by a Context-Free Grammar.
+Key Properties:
+Closure Properties:
+ Closed under union, concatenation, Kleene star, reversal, homomorphism, inverse
+homomorphism.
+Non-Closure Properties:
+ NOT closed under intersection, complement.
+Deterministic CFLs (DCFLs) are a proper subset of CFLs and are closed under complement.
+Common Pitfalls:
+ Misidentifying non-CFLs as CFLs; incorrectly applying closure properties.
+Problem-Solving Techniques:
+Pumping Lemma for CFLs:
+ The primary tool to prove a language is NOT context-free.
+Designing CFGs or PDAs for given languages.
+Pushdown Automata (PDA)
+Pushdown Automata are an extension of Finite Automata with an additional stack memory. This stack allows PDAs to
+recognize Context-Free Languages, which require memory to handle nested structures, unlike regular languages.
+Definition:
+ A Pushdown Automaton is formally defined as a 7-tuple 
+, where:
+1
+. 
+ is a finite set of states.
+2
+. 
+ is the input alphabet.
+3
+. 
+ is the stack alphabet.
+4
+. 
+ is the transition function.
+5
+. 
+ is the initial state.
+6
+. 
+ is the initial stack symbol.
+7
+. 
+ is the set of final states.
+Key Properties:
+Non-deterministic PDAs (NPDAs) are more powerful than Deterministic PDAs (DPDAs). NPDAs recognize all
+CFLs, while DPDAs recognize only DCFLs (a proper subset of CFLs).
+PDAs can accept languages either by final state or by empty stack. These two modes are equivalent for NPDAs.
+Common Pitfalls:
+ Incorrectly handling stack operations (push/pop); confusing acceptance criteria; designing a
+DPDA when an NPDA is required.
+Problem-Solving Techniques:
+Designing PDAs for given CFLs, focusing on how the stack is used to remember context.
+Converting CFG to PDA and vice-versa.
+Dpda (Deterministic Pushdown Automata)
+A Deterministic Pushdown Automaton (DPDA) is a PDA where for any given state, input symbol (or epsilon), and stack
+top, there is at most one possible transition. DPDAs recognize Deterministic Context-Free Languages (DCFLs), which
+are a proper subset of CFLs.
+Definition:
+ A PDA is deterministic if its transition function 
+ satisfies:
+1
+. 
+For any 
+, 
+.
+2
+. 
+If 
+, then 
+ for all 
+. (No conflict between epsilon and input transitions).
+Key Properties:
+DPDAs recognize DCFLs. All regular languages are DCFLs.
+DCFLs are closed under complement (unlike general CFLs).
+Not all CFLs are DCFLs (e.g., 
+ is a CFL but not a DCFL).
+Common Pitfalls:
+ Failing to ensure determinism in all transition cases; confusing DCFLs with general CFLs.
+Problem-Solving Techniques:
+ Designing DPDAs requires careful consideration to avoid non-deterministic choices.
+Often involves lookahead or specific stack symbol usage.
+
+
+Pumping Lemma (for CFLs)
+The Pumping Lemma for Context-Free Languages is a more generalized version of the Pumping Lemma for Regular
+Languages. It's used to prove that certain languages are NOT context-free, by showing that sufficiently long strings in a
+CFL can be "pumped" in a specific way.
+Theorem:
+ If 
+ is a Context-Free Language, then there exists some integer 
+ (the pumping length) such that for
+any string 
+ with 
+, 
+ can be divided into five parts 
+ satisfying the conditions:
+1
+. 
+ (at least one of 
+ or 
+ must be non-empty).
+2
+. 
+ (the pumpable parts must occur relatively close to each other).
+3
+. 
+For all 
+, the string 
+.
+Key Properties:
+It is a necessary condition for context-freeness, not a sufficient one. It can only be used to prove non-context-
+freeness.
+The proof strategy is by contradiction (an "adversary game"), similar to the regular pumping lemma.
+Common Pitfalls:
+Trying to prove context-freeness using the Pumping Lemma.
+Incorrectly choosing the string 
+ or the partition 
+.
+Forgetting the conditions 
+ or 
+.
+Problem-Solving Techniques:
+1
+. 
+Assume 
+ is CFL and let 
+ be the pumping length.
+2
+. 
+Choose a "hard" string 
+ such that 
+, typically one that involves three dependent counts (e.g., 
+).
+3
+. 
+Consider all possible ways to divide 
+ into 
+ satisfying 
+ and 
+.
+4
+. 
+For each division, find an 
+ such that 
+. This contradicts the lemma, proving 
+ is not CFL.
+Turing Machine (TM)
+The Turing Machine is the most powerful and widely accepted model of computation, capable of simulating any
+algorithm. It consists of a finite control unit, a read/write head, and an infinite tape. It forms the basis of the Church-
+Turing Thesis, which states that any effectively computable function can be computed by a Turing Machine.
+Definition:
+ A Turing Machine is formally defined as a 7-tuple 
+, where:
+1
+. 
+ is a finite set of states.
+2
+. 
+ is the input alphabet (not containing 
+).
+3
+. 
+ is the tape alphabet (
+, and 
+).
+4
+. 
+ is the transition function (L for left, R for right).
+5
+. 
+ is the initial state.
+6
+. 
+ is the blank symbol.
+7
+. 
+ is the set of final (halting) states.
+Key Properties:
+Turing Machines can recognize Recursively Enumerable Languages.
+Variations of TMs (multi-tape, multi-head, non-deterministic) have equivalent computational power to the basic
+TM.
+The Halting Problem for Turing Machines is undecidable.
+Common Pitfalls:
+ Designing complex TMs; understanding the implications of the halting problem; confusing
+decidability with recognizability.
+Problem-Solving Techniques:
+Designing TMs for various languages (e.g., 
+, palindrome recognition).
+Understanding the Church-Turing Thesis and its implications for computability.
+Recursive and Recursively Enumerable Languages
+These two classes of languages represent the limits of what Turing Machines can compute. They are central to the
+study of computability and decidability.
+Definition:
+Recursively Enumerable Language (RE / Recognizable):
+ A language 
+ is RE if there exists a Turing Machine
+ that halts and accepts every string 
+, but may either halt and reject or loop indefinitely for strings 
+.
+
+
+Recursive Language (Decidable):
+ A language 
+ is Recursive if there exists a Turing Machine 
+ that halts on
+all inputs. For 
+, 
+ accepts; for 
+, 
+ rejects.
+Key Properties:
+Every Recursive Language is also Recursively Enumerable.
+A language 
+ is Recursive if and only if both 
+ and its complement 
+ are Recursively Enumerable.
+RE languages are closed under union, intersection, concatenation, Kleene star, homomorphism, inverse
+homomorphism. They are NOT closed under complement.
+Recursive languages are closed under union, intersection, complement, concatenation, Kleene star,
+homomorphism, inverse homomorphism.
+Common Pitfalls:
+ Confusing the definitions of "halts on all inputs" (decidable) vs. "halts and accepts"
+(recognizable); misinterpreting closure properties.
+Problem-Solving Techniques:
+ Using closure properties to classify languages; applying reduction to prove
+undecidability/non-recognizability.
+Decidability
+Decidability refers to whether an algorithm (a Turing Machine that always halts) exists to solve a given problem. A
+problem is decidable if there's an algorithm that can always give a "yes" or "no" answer in finite time for any instance of
+the problem.
+Definition:
+ A problem is decidable if the language representing all "yes" instances of the problem is a Recursive
+Language.
+Key Properties (Examples of Decidable/Undecidable Problems):
+Decidable:
+Membership problem for Regular Languages (Is 
+?).
+Emptiness problem for Regular Languages (Is 
+?).
+Equivalence problem for Regular Languages (Is 
+?).
+Membership problem for CFLs (Is 
+?).
+Emptiness problem for CFLs (Is 
+?).
+Undecidable:
+Halting Problem for TMs (Does TM 
+ halt on input 
+?).
+Equivalence problem for CFLs (Is 
+?).
+Ambiguity problem for CFGs (Is CFG 
+ ambiguous?).
+Membership problem for RE languages (Is 
+? - this is RE, but not Recursive).
+Emptiness problem for TMs (Is 
+?).
+Post Correspondence Problem (PCP).
+Common Pitfalls:
+ Assuming all problems are decidable; misremembering the decidability status of common
+problems.
+Problem-Solving Techniques:
+Reduction:
+ The primary method to prove a problem is undecidable.
+Understanding Rice's Theorem (all non-trivial properties of RE languages are undecidable).
+Reduction
+Reduction is a powerful technique used to prove the undecidability of problems. If problem A can be "reduced" to
+problem B, it means that an algorithm for solving B could be used to solve A. Therefore, if A is known to be
+undecidable, B must also be undecidable.
+Definition:
+ A problem 
+ is reducible to problem 
+ (denoted 
+ for many-one reduction) if there exists a
+computable function 
+ that transforms every instance 
+ of problem 
+ into an instance 
+ of problem 
+ such that 
+ is a "yes" instance of 
+ if and only if 
+ is a "yes" instance of 
+.
+Key Properties:
+If 
+ and 
+ is undecidable, then 
+ is undecidable.
+If 
+ and 
+ is decidable, then 
+ is decidable.
+If 
+ and 
+ is non-RE, then 
+ is non-RE.
+If 
+ and 
+ is RE, then 
+ is RE.
+Common Pitfalls:
+ Reducing in the wrong direction (e.g., trying to reduce an undecidable problem to a decidable
+one); constructing an incorrect transformation function 
+.
+Problem-Solving Techniques:
+Identify a known undecidable problem (e.g., Halting Problem, Emptiness Problem for TMs) to reduce FROM.
+
+
+Construct a transformation function 
+ that takes an instance of the known undecidable problem and converts it
+into an instance of the target problem.
+Prove that this transformation preserves the "yes/no" answer.
+Countable Uncountable Set
+These concepts from set theory are crucial for understanding the limits of computation, particularly why there exist
+languages that are not recursively enumerable. It relates to the cardinality of sets.
+Definition:
+Countable Set:
+ A set is countable if it is finite or if its elements can be put into a one-to-one correspondence with
+the set of natural numbers 
+ (i.e., it can be enumerated). Examples: integers 
+, rational numbers 
+, set of all
+finite strings 
+.
+Uncountable Set:
+ A set is uncountable if it is infinite but cannot be put into a one-to-one correspondence with 
+.
+Examples: real numbers 
+, power set of 
+, set of all languages over 
+.
+Key Properties:
+The set of all Turing Machines is countable.
+The set of all possible languages over any alphabet 
+ is uncountable.
+Since there are more languages than Turing Machines, there must exist languages that cannot be recognized by
+any Turing Machine (i.e., non-RE languages).
+Common Pitfalls:
+ Confusing finite sets with infinite countable sets; misapplying diagonalization.
+Problem-Solving Techniques:
+Diagonalization Argument:
+ A standard technique to prove a set is uncountable (e.g., Cantor's diagonalization
+for real numbers).
+Understanding the implications for computability theory.
+Identify Class Language
+This topic refers to the ability to correctly classify a given language within the Chomsky Hierarchy, which organizes
+formal languages by their generative power and the type of automaton that recognizes them.
+Chomsky Hierarchy (from least to most powerful):
+1
+. 
+Type 3: Regular Languages (RL):
+ Recognized by Finite Automata (FA). Generated by Regular Grammars
+(RG).
+2
+. 
+Type 2: Context-Free Languages (CFL):
+ Recognized by Pushdown Automata (PDA). Generated by Context-
+Free Grammars (CFG). (Deterministic CFLs (DCFLs) are a proper subset of CFLs, recognized by DPDAs).
+3
+. 
+Type 1: Context-Sensitive Languages (CSL):
+ Recognized by Linear Bounded Automata (LBA). Generated by
+Context-Sensitive Grammars (CSG). (Less common in GATE).
+4
+. 
+Type 0: Recursively Enumerable Languages (RE):
+ Recognized by Turing Machines (TM). Generated by
+Unrestricted Grammars. (Recursive Languages are a proper subset of RE languages, recognized by TMs that
+always halt).
+Relationships:
+ 
+.
+Common Pitfalls:
+ Incorrectly applying pumping lemmas; misjudging the memory requirements of a language;
+confusing closure properties.
+Problem-Solving Techniques:
+Pumping Lemma:
+ First attempt to prove non-regularity or non-context-freeness.
+Closure Properties:
+ Use them to combine or transform languages and deduce their class.
+Machine Models:
+ Try to design the simplest machine (FA, PDA, TM) that can recognize the language.
+Grammar Rules:
+ Analyze the structure of production rules if a grammar is given.
+Medium (Computational Models)
+In the context of Theory of Computation, "Medium" refers to the abstract computational models or machines used to
+define and study computation. These models, such as Finite Automata, Pushdown Automata, and Turing Machines,
+represent different levels of computational power and memory capabilities.
+Definition:
+ Computational models are abstract machines that define the capabilities and limitations of algorithms.
+Each model specifies a set of operations and memory structures it can use.
+Key Models and Their Power:
+Finite Automata (FA):
+ No auxiliary memory. Recognizes Regular Languages. Simplest model.
+Pushdown Automata (PDA):
+ Finite control + a stack (LIFO memory). Recognizes Context-Free Languages.
+More powerful than FA.
+
+
+Turing Machine (TM):
+ Finite control + an infinite tape (random access memory). Recognizes Recursively
+Enumerable Languages. Most powerful model, equivalent to any real-world computer.
+Key Properties:
+The hierarchy of computational power (FA < PDA < TM) directly corresponds to the Chomsky Hierarchy of
+languages.
+Each model defines the class of languages it can recognize (its "computational power").
+Common Pitfalls:
+ Confusing the memory capabilities of different models; overestimating or underestimating the
+power of a specific model.
+Problem-Solving Techniques:
+Analyze the memory requirements of a language to determine the minimum computational model needed to
+recognize it.
+Understand how each model's memory structure (or lack thereof) limits its ability to recognize certain patterns
+(e.g., FA cannot count arbitrary numbers of symbols).
+Quick Formula Reference
+DFA:
+ 
+NFA:
+ 
+, where 
+Regular Expression Operations:
+ Union 
+, Concatenation 
+, Kleene Star 
+Arden's Theorem:
+ If 
+, then 
+.
+Regular Grammar (Right-linear):
+ 
+ or 
+ or 
+Pumping Lemma for Regular Languages:
+ For 
+ with 
+: 
+, 
+, 
+.
+Context-Free Grammar (CFG):
+ 
+, with productions 
+.
+Chomsky Normal Form (CNF):
+ 
+ or 
+.
+Greibach Normal Form (GNF):
+ 
+.
+Pushdown Automata (PDA):
+ 
+, with transitions 
+.
+Pumping Lemma for Context-Free Languages:
+ For 
+ with 
+: 
+, 
+, 
+.
+Turing Machine (TM):
+ 
+, with transitions 
+.
+Chomsky Hierarchy:
+ 
+.
+Closure Properties (Summary):
+Operation
+RL
+CFL
+Recursive
+RE
+Union
+Y
+Y
+Y
+Y
+Intersection
+Y
+N
+Y
+Y
+Complement
+Y
+N
+Y
+N
+Concatenation
+Y
+Y
+Y
+Y
+Kleene Star
+Y
+Y
+Y
+Y
+Reversal
+Y
+Y
+Y
+Y
+Important Tips for GATE
+1
+. 
+Master the Chomsky Hierarchy:
+ Understand the relationships between language classes (Regular, CFL,
+Recursive, RE) and their corresponding machine models (FA, PDA, TM). This is fundamental for classifying
+languages and solving many conceptual questions.
+2
+. 
+Memorize Closure Properties:
+ Create a table and commit to memory which language classes are closed under
+which operations (union, intersection, complement, concatenation, Kleene star, reversal). This is a frequent source
+of direct questions.
+3
+. 
+Practice Pumping Lemma Proofs:
+ The Pumping Lemma for both Regular and Context-Free Languages is a
+crucial tool. Practice choosing the "hard" string and demonstrating the contradiction for various non-regular/non-
+CFLs. Remember, it only proves non-membership.
+4
+. 
+Understand NFA to DFA Conversion and Minimization:
+ Be proficient in subset construction for NFA to DFA
+conversion and the table-filling algorithm for DFA minimization. These are common problem-solving tasks.
+5
+. 
+Distinguish Decidability vs. Recognizability:
+ Clearly understand the difference between Recursive (decidable)
+and Recursively Enumerable (recognizable) languages, especially regarding the halting behavior of Turing
+Machines. Know the decidability status of common problems (Halting Problem, Emptiness for TMs, Equivalence for
+CFLs, etc.).
+6
+. 
+Focus on Design Principles:
+ While complex designs are rare, understand the core principles of designing simple
+FAs, PDAs, and TMs for basic languages. Pay attention to how memory (or lack thereof) is utilized.
+7
+. 
+Pay Attention to Formal Definitions:
+ GATE questions often test your understanding of the precise formal
+
+
+6.1
+6.1.1
+A
+. 
+Union
+B
+. 
+Intersection
+C
+. 
+Concatenation
+D
+. 
+Complementation
+6.1.2
+6.1.3
+6.1.4
+A
+. 
+ and 
+ only    
+B
+. 
+ and 
+ only    
+C
+. 
+ only    
+D
+. 
+ only
+6.1.5
+definitions of automata, grammars, and languages. Small details like epsilon transitions, initial stack symbols, or
+blank tape symbols can be critical.
+8
+. 
+Time Management for Tricky Questions:
+ Some ToC problems, especially those involving complex reductions or
+intricate Pumping Lemma applications, can be time-consuming. Practice identifying these quickly and decide
+whether to attempt them or mark for review.
+Closure Property 
+(10)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(12Q)
+Closure Property: GATE CSE 1989 | Question: 3-ii
+Context-free languages and regular languages are both closed under the operation (s) of :
+gate1989
+ 
+easy
+ 
+theory-of-computation
+ 
+closure-property
+ 
+multiple-selects
+Answer key
+☟
+Closure Property: GATE CSE 1992 | Question: 16
+Which of the following three statements are true? Prove your answer.
+i
+. 
+The union of two recursive languages is recursive.
+ii
+. 
+The language 
+ is not regular.
+iii
+. 
+Regular languages are closed under infinite union.
+gate1992
+ 
+theory-of-computation
+ 
+normal
+ 
+closure-property
+ 
+proof
+ 
+descriptive
+Answer key
+☟
+Closure Property: GATE CSE 2002 | Question: 2.14
+Which of the following is true?
+A
+. 
+The complement of a recursive language is recursive
+B
+. 
+The complement of a recursively enumerable language is recursively enumerable
+C
+. 
+The complement of a recursive language is either recursive or recursively enumerable
+D
+. 
+The complement of a context-free language is context-free
+gatecse-2002
+ 
+theory-of-computation
+ 
+easy
+ 
+closure-property
+Answer key
+☟
+Closure Property: GATE CSE 2013 | Question: 17
+Which of the following statements is/are 
+FALSE
+?
+1
+. 
+For every non-deterministic Turing machine, there exists an equivalent deterministic Turing machine.
+2
+. 
+Turing recognizable languages are closed under union and complementation.
+3
+. 
+Turing decidable languages are closed under intersection and complementation.
+4
+. 
+Turing recognizable languages are closed under union and intersection.
+gatecse-2013
+ 
+theory-of-computation
+ 
+normal
+ 
+closure-property
+Answer key
+☟
+Closure Property: GATE CSE 2016 | Set 2 | Question: 18
+Consider the following types of languages: 
+: Regular, 
+: Context-free, 
+: Recursive, 
+: Recursively
+enumerable. Which of the following is/are 
+TRUE ?
+I
+. 
+ is recursively enumerable.
+
+
+A
+. 
+I only.
+B
+. 
+I and III only.
+C
+. 
+I and IV only.
+D
+. 
+I, II and III only.
+6.1.6
+A
+. 
+I, II and IV only
+B
+. 
+I and III only
+C
+. 
+II and IV only
+D
+. 
+I only
+6.1.7
+A
+. 
+closed under complementation
+B
+. 
+closed under intersection
+C
+. 
+a subset of the set of all recursive
+languages
+D
+. 
+an uncountable set
+6.1.8
+A
+. 
+(i) - (a), (ii) - (b), and (iii) - (c)
+B
+. 
+(i) - (b), (ii) - (a), and (iii) - (c)
+C
+. 
+(i) - (b), (ii) - (c), and (iii) - (a)
+D
+. 
+(i) - (a), (ii) - (c), and (iii) - (b)
+6.1.9
+A
+. 
+ is regular
+B
+. 
+ is regular
+C
+. 
+ is context-free
+D
+. 
+ is context-free
+II
+. 
+ is recursive.
+III
+. 
+ is context-free.
+IV
+. 
+ is context-free.
+gatecse-2016-set2
+ 
+theory-of-computation
+ 
+regular-language
+ 
+context-free-language
+ 
+closure-property
+ 
+normal
+Answer key
+☟
+Closure Property: GATE CSE 2017 | Set 2 | Question: 04
+Let 
+ be any two context-free languages and 
+ be any regular language. Then which of the following
+is/are CORRECT?
+I
+. 
+ is context-free
+II
+. 
+ is context-free
+III
+. 
+ is context-free
+IV
+. 
+ is context-free
+gatecse-2017-set2
+ 
+theory-of-computation
+ 
+closure-property
+Answer key
+☟
+Closure Property: GATE CSE 2018 | Question: 7
+The set of all recursively enumerable languages is:
+gatecse-2018
+ 
+theory-of-computation
+ 
+closure-property
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Closure Property: GATE CSE 2025 | Set 2 | Question: 20
+Consider the two lists List I and List II given below:
+For matching of items in List I with those in List II, which of the following option(s) is/are CORRECT?
+gatecse2025-set2
+ 
+theory-of-computation
+ 
+closure-property
+ 
+match-the-following
+ 
+multiple-selects
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Closure Property: GATE CSE 2026 | Set 1 | Question: 41
+Let 
+ and 
+ be two languages over a finite alphabet, such that 
+ and 
+ are regular languages.
+Which of the following statements is/are always true?
+gatecse-2026-set1
+ 
+theory-of-computation
+ 
+closure-property
+ 
+two-marks
+ 
+multiple-selects
+
+
+6.1.10
+A
+. 
+always regular
+B
+. 
+never regular
+C
+. 
+always a deterministic context-free
+language
+D
+. 
+always a context-free language
+6.2
+6.2.1
+6.2.2
+6.3
+6.3.1
+Answer key
+☟
+Closure Property: GATE IT 2006 | Question: 32
+Let 
+ be a context-free language and 
+ a regular language. Then the language 
+ is
+gateit-2006
+ 
+theory-of-computation
+ 
+closure-property
+ 
+easy
+Answer key
+☟
+Context Free Grammar 
+(2)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(11Q)
+ 
+Weekly Quiz 10 
+(10Q)
+ 
+Weekly Quiz 4 
+(10Q)
+Context Free Grammar: GATE CSE 2025 | Set 1 | Question: 9
+Consider the following context-free grammar 
+, where 
+, and 
+ are the variables (non-terminals), 
+ and 
+ are the terminal symbols, 
+ is the start variable, and the rules of 
+ are described as:
+Which ONE of the languages 
+ is accepted by 
+ ?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse2025-set1
+ 
+theory-of-computation
+ 
+context-free-grammar
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Context Free Grammar: GATE CSE 2026 | Set 1 | Question: 15
+Consider the following grammar where 
+ is the start symbol, and 
+ and 
+ are terminal symbols.
+Which of the following statements is/are true?
+A
+. 
+The grammar is ambiguous
+B
+. 
+The string 
+ has two distinct derivations in this grammar
+C
+. 
+The string 
+ has only one rightmost derivation
+D
+. 
+The language generated by the grammar is undecidable
+gatecse-2026-set1
+ 
+theory-of-computation
+ 
+context-free-grammar
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Context Free Language 
+(35)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(14Q)
+Context Free Language: GATE CSE 1987 | Question: 2k
+State whether the following statements are TRUE or FALSE:
+
+
+6.3.2
+A
+. 
+closed under union
+B
+. 
+closed under complementation
+C
+. 
+closed under intersection
+D
+. 
+closed under Kleene closure
+ 
+6.3.3
+A
+. 
+I only
+B
+. 
+I and II
+C
+. 
+II and III
+D
+. 
+II only
+6.3.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.5
+6.3.6
+A
+. 
+Union, intersection
+B
+. 
+Union, Kleene closure
+C
+. 
+Intersection, complement
+D
+. 
+Complement, Kleene closure
+The intersection of two CFL's is also a CFL.
+gate1987
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+true-false
+Answer key
+☟
+Context Free Language: GATE CSE 1992 | Question: 02,xix
+Context-free languages are:
+gate1992
+ 
+context-free-language
+ 
+theory-of-computation
+ 
+normal
+ 
+multiple-selects
+Answer key
+☟
+Context Free Language: GATE CSE 1995 | Question: 2.20
+Which of the following deﬁnitions below generate the same language as 
+, where 
+?
+I
+. 
+II
+. 
+)
+III
+. 
+gate1995
+ 
+theory-of-computation
+ 
+easy
+ 
+context-free-language
+Answer key
+☟
+Context Free Language: GATE CSE 1996 | Question: 2.8
+If 
+ and 
+ are context free languages and 
+ a regular set, one of the languages below is not necessarily
+a context free language. Which one?
+gate1996
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+easy
+Answer key
+☟
+Context Free Language: GATE CSE 1996 | Question: 2.9
+Deﬁne a context free languages 
+, 
+ for some 
+ in 
+ ( in other
+words, 
+ is the set of prefixes of 
+)
+Let 
+Then 
+ is:
+A
+. 
+the set of all binary strings with unequal number of 
+’s and 
+’s
+B
+. 
+the set of all binary strings including null string
+C
+. 
+the set of all binary strings with exactly one more 
+ than the number of 
+’s or one more 
+ than the number of 
+’s
+D
+. 
+None of the above
+gate1996
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE CSE 1999 | Question: 1.5
+Context-free languages are closed under:
+
+
+6.3.7
+6.3.8
+6.3.9
+6.3.10
+6.3.11
+gate1999
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+easy
+Answer key
+☟
+Context Free Language: GATE CSE 1999 | Question: 7
+Show that the language
+is not context free. 
+ is not 
+ or 
+.
+gate1999
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+ 
+proof
+Answer key
+☟
+Context Free Language: GATE CSE 2000 | Question: 7
+A
+. 
+Construct as minimal ﬁnite state machine that accepts the language, over 
+, of all strings that contain
+neither the substring 
+ nor the substring 
+.
+B
+. 
+Consider the grammar
+where 
+, 
+ are non-terminal symbols with 
+ being the start symbol; 
+ are terminal symbols and 
+ is the
+empty string. This grammar generates strings of the form 
+ for some 
+, where 
+ and 
+ satisfy some
+condition. What is the condition on the values of 
+ and 
+?
+gatecse-2000
+ 
+theory-of-computation
+ 
+descriptive
+ 
+regular-language
+ 
+context-free-language
+Answer key
+☟
+Context Free Language: GATE CSE 2001 | Question: 1.5
+Which of the following statements is true?
+A
+. 
+If a language is context free it can always be accepted by a deterministic push-down automaton
+B
+. 
+The union of two context free languages is context free
+C
+. 
+The intersection of two context free languages is a context free
+D
+. 
+The complement of a context free language is a context free
+gatecse-2001
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+easy
+Answer key
+☟
+Context Free Language: GATE CSE 2003 | Question: 51
+Let 
+ be a context free grammar where the rule set R is 
+Which of the following statements is true?
+A
+. 
+ is not ambiguous
+B
+. 
+There exist 
+ such that 
+C
+. 
+There is a deterministic pushdown automaton that accepts 
+D
+. 
+We can find a deterministic finite state automaton that accepts 
+gatecse-2003
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE CSE 2005 | Question: 57
+Consider the languages:
+
+
+A
+. 
+ is a deterministic CFL
+B
+. 
+ is a deterministic CFL
+C
+. 
+ is a CFL, but not a deterministic CFL
+D
+. 
+ is a deterministic CFL
+6.3.12
+A
+. 
+ 
+only
+B
+. 
+ only
+C
+. 
+ and 
+D
+. 
+ and 
+6.3.13
+A
+. 
+all palindromes
+B
+. 
+all odd length palindromes
+C
+. 
+strings that begin and end with the
+same symbol
+D
+. 
+all even length palindromes
+6.3.14
+A
+. 
+ and 
+ only
+B
+. 
+ and 
+ only
+C
+. 
+ and 
+ only
+D
+. 
+ only
+6.3.15
+, where 
+ is a special symbol
+Which one of the following is TRUE?
+gatecse-2005
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+easy
+Answer key
+☟
+Context Free Language: GATE CSE 2006 | Question: 19
+Let
+,
+ and
+.  
+Which of these languages are NOT context free? 
+gatecse-2006
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE CSE 2009 | Question: 12, ISRO2016-37
+The language generated by the above grammar over the alphabet 
+ is the set of:
+gatecse-2009
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+easy
+ 
+isro2016
+Answer key
+☟
+Context Free Language: GATE CSE 2015 | Set 3 | Question: 32
+Which of the following languages are context-free?
+gatecse-2015-set3
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE CSE 2016 | Set 1 | Question: 16
+Which of the following languages is generated by the given grammar?
+A
+. 
+B
+. 
+C
+. 
+
+
+6.3.16
+6.3.17
+6.3.18
+6.3.19
+D
+. 
+gatecse-2016-set1
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE CSE 2016 | Set 1 | Question: 42
+Consider the following context-free grammars;
+Which one of the following pairs of languages is generated by 
+ and 
+ ,respectively?
+A
+. 
+ 
+ and 
+ 
+B
+. 
+ 
+ and 
+C
+. 
+ 
+ and 
+D
+. 
+ 
+ and 
+gatecse-2016-set1
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE CSE 2016 | Set 2 | Question: 43
+Consider the following languages:
+Which one of the following is TRUE?
+A
+. 
+Both 
+ and 
+ are context-free.
+B
+. 
+ is context-free while 
+ is not context-free.
+C
+. 
+ is context-free while 
+ is not context-free.
+D
+. 
+Neither 
+ nor 
+ is context-free.
+gatecse-2016-set2
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE CSE 2017 | Set 1 | Question: 10
+Consider the following context-free grammar over the alphabet 
+ with 
+ as the start symbol:
+Which one of the following represents the language generated by the above grammar?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2017-set1
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE CSE 2017 | Set 1 | Question: 34
+If 
+ is a grammar with productions
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.20
+A
+. 
+I only
+B
+. 
+II only
+C
+. 
+I and II
+D
+. 
+Neither I nor II
+6.3.21
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.22
+6.3.23
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.24
+where 
+ is the start variable, then which one of the following strings is not generated by 
+?
+gatecse-2017-set1
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE CSE 2017 | Set 1 | Question: 38
+Consider the following languages over the alphabet 
+. Let 
+ and 
+.
+Which of the following are context-free languages?
+I
+. 
+II
+. 
+gatecse-2017-set1
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE CSE 2017 | Set 2 | Question: 16
+Identify the language generated by the following grammar, where 
+ is the start variable.
+gatecse-2017-set2
+ 
+theory-of-computation
+ 
+context-free-language
+Answer key
+☟
+Context Free Language: GATE CSE 2019 | Question: 31
+Which one of the following languages over 
+ is NOT context-free?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2019
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+two-marks
+Answer key
+☟
+Context Free Language: GATE CSE 2021 | Set 1 | Question: 1
+Suppose that 
+ is a regular language and 
+ is a context-free language. Which one of the following
+languages is 
+ necessarily context-free?
+gatecse-2021-set1
+ 
+context-free-language
+ 
+theory-of-computation
+ 
+one-mark
+Answer key
+☟
+Context Free Language: GATE CSE 2021 | Set 2 | Question: 41
+For a string 
+, we define 
+ to be the reverse of 
+. For example, if 
+ then 
+.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.25
+6.3.26
+6.3.27
+Which of the following languages is/are context-free?
+gatecse-2021-set2
+ 
+multiple-selects
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+two-marks
+Answer key
+☟
+Context Free Language: GATE CSE 2022 | Question: 38
+Consider the following languages:
+Which of the following statements is/are 
+A
+. 
+ is not context-free but 
+ and 
+ are deterministic context-free.
+B
+. 
+Neither 
+ nor 
+ is context-free.
+C
+. 
+ and 
+ all are context-free.
+D
+. 
+Neither 
+ nor its complement is context-free.
+gatecse-2022
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Context Free Language: GATE CSE 2023 | Question: 29
+Consider the context-free grammar 
+ below
+where 
+ and 
+ are non-terminals, and 
+ and 
+ are terminal symbols. The starting non-terminal is 
+.
+Which one of the following statements is 
+A
+. 
+The language generated by 
+ is 
+B
+. 
+The language generated by 
+ is 
+C
+. 
+The language generated by 
+ is 
+D
+. 
+The language generated by 
+ is not a regular language
+gatecse-2023
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+two-marks
+Answer key
+☟
+Context Free Language: GATE CSE 2025 | Set 1 | Question: 35
+Consider the following two languages over the alphabet 
+, where 
+ and 
+ are natural numbers.
+Which ONE of the following statements is CORRECT?
+A
+. 
+Both 
+ and 
+ are context-free languages.
+B
+. 
+ is a context-free language but 
+ is not a context-free language.
+C
+. 
+ is not a context-free language but 
+ is a context-free language.
+D
+. 
+Neither 
+ nor 
+ are context-free languages.
+gatecse2025-set1
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+two-marks
+
+
+6.3.28
+6.3.29
+A
+. 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+6.3.30
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.31
+Answer key
+☟
+Context Free Language: GATE CSE 2026 | Set 1 | Question: 42
+Consider the following context-free grammar 
+.
+In the above grammar, 
+ is the start symbol, 
+ and 
+ are terminal symbols, and 
+ and 
+ are non-terminal
+symbols.
+Let 
+ be the language generated by the grammar 
+. For a string 
+, let 
+ be the number of 
+ 's in 
+ and 
+ be the number of 
+ 's in 
+.
+Which of the following statements is/are true?
+A
+. 
+There is a string 
+ such that 
+B
+. 
+For every string 
+C
+. 
+There is a string 
+ such that 
+D
+. 
+For every string 
+gatecse-2026-set1
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+two-marks
+ 
+multiple-selects
+Answer key
+☟
+Context Free Language: GATE CSE 2026 | Set 2 | Question: 38
+Let 
+ and let 
+.
+Which of the following constraints ensure(s) that the language 
+ is context-free?
+gatecse-2026-set2
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Context Free Language: GATE IT 2006 | Question: 34
+In the context-free grammar below, 
+ is the start symbol, 
+ and 
+ are terminals, and 
+ denotes the empty
+string.
+The grammar generates the language
+gateit-2006
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE IT 2006 | Question: 4
+In the context-free grammar below, 
+ is the start symbol, 
+ and 
+ are terminals, and 
+ denotes the empty
+string.
+Which of the following strings is NOT generated by the grammar?
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.32
+6.3.33
+A
+. 
+i, ii and iii
+B
+. 
+ii, v and vi
+C
+. 
+ii, iii and iv
+D
+. 
+i, iii and iv
+6.3.34
+gateit-2006
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+easy
+Answer key
+☟
+Context Free Language: GATE IT 2007 | Question: 46
+The two grammars given below generate a language over the alphabet 
+Which one of the following choices describes the properties satisfied by the strings in these languages?
+A
+. 
+ : No 
+ appears before any 
+ : Every 
+ is followed by at least one 
+B
+. 
+ : No 
+ appears before any 
+ : No 
+ appears before any 
+C
+. 
+ : No 
+ appears after any 
+ : Every 
+ is followed by at least one 
+D
+. 
+ : No 
+ appears after any 
+ : Every 
+ is followed by at least one 
+gateit-2007
+ 
+theory-of-computation
+ 
+normal
+ 
+context-free-language
+Answer key
+☟
+Context Free Language: GATE IT 2007 | Question: 48
+Consider the grammar given below:
+Consider the following strings.
+i
+. 
+ii
+. 
+iii
+. 
+iv
+. 
+v
+. 
+vi
+. 
+Which of the above strings are generated by the grammar ?
+gateit-2007
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE IT 2007 | Question: 49
+Consider the following grammars. Names representing terminals have been specified in capital letters.
+Which one of the following statements is true?
+A
+. 
+ is context-free but not regular and 
+ is regular
+B
+. 
+ is context-free but not regular and 
+ is regular
+\begin{array}{|llll|}\hline G1 :  &  \text{stmnt} & \rightarrow & \text{WHILE (expr) stmnt} \\%\hline  \text{}  &  \text{stmnt} & \rightarrow & \text{OTHER} \\%\hline  \text{}  &  \text{expr} & \rightarrow & \text{ID} \\\hline  G2 :  &  \text{stmnt} & \rightarrow & \text{WHILE (expr) stmnt} \\%\hline \text{}  &  \text{stmnt} & \rightarrow & \text{OTHER} \\%\hline \text{}  &  \text{expr} & \rightarrow & \text{expr} + \text{expr} \\%\hline \text{}  &  \text{expr} & \rightarrow & \text{expr} * \text{expr} \\%\hline \text{}  &  \text{expr} & \rightarrow & \text{ID} \\\hline  \end{array}
+
+
+6.3.35
+6.4
+6.4.1
+6.4.2
+6.4.3
+C
+. 
+Both 
+ and 
+ are regular
+D
+. 
+Both 
+ and 
+ are context-free but neither of them is regular
+gateit-2007
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Context Free Language: GATE IT 2008 | Question: 34
+Consider a CFG with the following productions.
+ is the start symbol, 
+ and 
+ are non-terminals and 0 and 1 are the terminals. The language generated by this
+grammar is:
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+The set of all strings over 
+ containing at least two 
+'s
+gateit-2008
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Countable Uncountable Set 
+(3)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(9Q)
+Countable Uncountable Set: GATE CSE 1997 | Question: 3.4
+Given 
+, which one of the following sets is not countable?
+A
+. 
+Set of all strings over 
+B
+. 
+Set of all languages over 
+C
+. 
+Set of all regular languages over 
+D
+. 
+Set of all languages over 
+ accepted by Turing machines
+gate1997
+ 
+theory-of-computation
+ 
+normal
+ 
+countable-uncountable-set
+Answer key
+☟
+Countable Uncountable Set: GATE CSE 2014 | Set 3 | Question: 16
+Let 
+ be a ﬁnite non-empty alphabet and let 
+ be the power set of 
+. Which one of the following
+is 
+TRUE
+? 
+A
+. 
+Both 
+ and 
+ are countable
+B
+. 
+ is countable and 
+ is uncountable
+C
+. 
+ is uncountable and 
+ is countable
+D
+. 
+Both 
+ and 
+ are uncountable
+gatecse-2014-set3
+ 
+theory-of-computation
+ 
+normal
+ 
+countable-uncountable-set
+Answer key
+☟
+Countable Uncountable Set: GATE CSE 2019 | Question: 34
+Consider the following sets:
+S1: Set of all recursively enumerable languages over the alphabet 
+
+
+A
+. 
+S1 and S2
+B
+. 
+S3 and S4
+C
+. 
+S2 and S3
+D
+. 
+S1 and S4
+6.5
+6.5.1
+6.5.2
+6.5.3
+6.5.4
+6.5.5
+S2: Set of all syntactically valid C programs
+S3: Set of all languages over the alphabet 
+S4: Set of all non-regular languages over the alphabet 
+Which of the above sets are uncountable?
+gatecse-2019
+ 
+theory-of-computation
+ 
+countable-uncountable-set
+ 
+two-marks
+Answer key
+☟
+Decidability 
+(30)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(8Q)
+ 
+Weekly Quiz 6 
+(10Q)
+Decidability: GATE CSE 1987 | Question: 2l
+State whether the following statement are TRUE or FALSE.
+ is recursive if both 
+ and its complement are accepted by Turing machines.
+gate1987
+ 
+theory-of-computation
+ 
+turing-machine
+ 
+decidability
+ 
+true-false
+Answer key
+☟
+Decidability: GATE CSE 1987 | Question: 2m
+State whether the following statements are TRUE or FALSE:
+The problem as to whether a Turing machine 
+ accepts input 
+ is undecidable.
+gate1987
+ 
+theory-of-computation
+ 
+turing-machine
+ 
+decidability
+ 
+true-false
+Answer key
+☟
+Decidability: GATE CSE 1988 | Question: 2viii
+State the halting problem of the Turing machine.
+gate1988
+ 
+theory-of-computation
+ 
+descriptive
+ 
+decidability
+ 
+turing-machine
+Answer key
+☟
+Decidability: GATE CSE 1989 | Question: 3-iii
+Which of the following problems are undecidable?
+A
+. 
+Membership problem in context-free languages.
+B
+. 
+Whether a given context-free language is regular.
+C
+. 
+Whether a finite state automation halts on all inputs.
+D
+. 
+Membership problem for type 
+ languages.
+gate1989
+ 
+normal
+ 
+theory-of-computation
+ 
+decidability
+ 
+multiple-selects
+Answer key
+☟
+Decidability: GATE CSE 1990 | Question: 3-vii
+It is undecidable whether:
+A
+. 
+An arbitrary Turing machine halts after 
+ steps.
+B
+. 
+A Turing machine prints a specific letter.
+C
+. 
+A Turing machine computes the products of two numbers
+D
+. 
+None of the above.
+gate1990
+ 
+normal
+ 
+theory-of-computation
+ 
+decidability
+ 
+multiple-selects
+
+
+6.5.6
+6.5.7
+6.5.8
+6.5.9
+6.5.10
+Answer key
+☟
+Decidability: GATE CSE 1995 | Question: 11
+Let 
+ be a language over 
+ i.e., 
+. Suppose 
+ satisfies the two conditions given below.
+i
+. 
+ is in NP and
+ii
+. 
+For every 
+, there is exactly one string of length 
+ that belongs to 
+.
+      Let 
+ be the complement of 
+ over 
+. Show that 
+ is also in NP.
+gate1995
+ 
+theory-of-computation
+ 
+normal
+ 
+decidability
+ 
+proof
+ 
+descriptive
+Answer key
+☟
+Decidability: GATE CSE 1996 | Question: 1.9
+Which of the following statements is false?
+A
+. 
+The Halting Problem of Turing machines is undecidable
+B
+. 
+Determining whether a context-free grammar is ambiguous is undecidable
+C
+. 
+Given two arbitrary context-free grammars 
+ and 
+ it is undecidable whether 
+D
+. 
+Given two regular grammars 
+ and 
+ it is undecidable whether 
+gate1996
+ 
+theory-of-computation
+ 
+decidability
+ 
+easy
+Answer key
+☟
+Decidability: GATE CSE 1997 | Question: 6.5
+Which one of the following is not decidable?
+A
+. 
+Given a Turing machine 
+, a string 
+ and an integer 
+, 
+ accepts 
+ within 
+ steps
+B
+. 
+Equivalence of two given Turing machines
+C
+. 
+Language accepted by a given finite state machine is not empty
+D
+. 
+Language generated by a context free grammar is non-empty
+gate1997
+ 
+theory-of-computation
+ 
+decidability
+ 
+easy
+Answer key
+☟
+Decidability: GATE CSE 1999 | Question: 10
+Suppose we have a function HALTS which when applied to any arbitrary function 
+ and its arguments will
+say TRUE if function 
+ terminates for those arguments and FALSE otherwise. Example: Given the following
+function definition.
+FACTORIAL (N) = IF (N=0) THEN 1 ELSE N*FACTORIAL (N-1)
+Then HALTS (FACTORIAL, 4) = TRUE and HALTS (FACTORIAL, -5) = FALSE
+Let us define the function FUNNY (f) = IF HALTS (f) THEN not (f) ELSE TRUE
+a
+. 
+Show that FUNNY terminates for all functions 
+.
+b
+. 
+use (a) to prove (by contradiction) that it is not possible to have a function like HALTS which for arbitrary
+functions and inputs says whether it will terminate on that input or not.
+gate1999
+ 
+theory-of-computation
+ 
+descriptive
+ 
+decidability
+Answer key
+☟
+Decidability: GATE CSE 2000 | Question: 2.9
+Consider the following decision problems:
+ Does a given finite state machine accept a given string?
+
+
+A
+. 
+Both
+ and 
+ are decidable
+B
+. 
+Neither 
+ nor 
+ is
+decidable
+C
+. 
+Only 
+ is decidable
+D
+. 
+Only 
+ is decidable
+6.5.11
+A
+. 
+ is decidable
+B
+. 
+ is undecidable but partially
+decidable
+C
+. 
+ is undecidable and not even
+ partially decidable
+D
+. 
+ is not a decision problem
+6.5.12
+6.5.13
+6.5.14
+ Does a given context free grammar generate an infinite number of strings?
+Which of the following statements is true?
+gatecse-2000
+ 
+theory-of-computation
+ 
+decidability
+ 
+normal
+Answer key
+☟
+Decidability: GATE CSE 2001 | Question: 2.7
+Consider the following problem 
+.
+Given a Turing machine 
+ over the input alphabet 
+, any state 
+ of 
+ and a word 
+, does the computation
+of 
+ on 
+ visit the state of 
+?
+Which of the following statements about 
+ is correct?
+gatecse-2001
+ 
+theory-of-computation
+ 
+decidability
+ 
+normal
+Answer key
+☟
+Decidability: GATE CSE 2001 | Question: 7
+Let a decision problem 
+ be defined as follows:
+: Given a Turing machine 
+ over 
+ and any word 
+, does 
+ loop forever on 
+?
+You may assume that the halting problem of Turing machine is undecidable but partially decidable.
+A
+. 
+Show that 
+ is undecidable
+B
+. 
+Show that 
+ is not even partially decidable
+gatecse-2001
+ 
+theory-of-computation
+ 
+decidability
+ 
+turing-machine
+ 
+easy
+ 
+descriptive
+Answer key
+☟
+Decidability: GATE CSE 2002 | Question: 14
+The aim of the following question is to prove that the language 
+ 
+ 
+, is
+undecidable. This is to be done by reducing from the language 
+ 
+ 
+, which is known to be
+undecidable. In parts (a) and (b) describe the 
+ main steps in the construction of 
+. In part (c) describe the key
+property which relates the behaviour of 
+ on its input w to the behaviour of 
+ on 
+.
+A
+. 
+On input 
+, what is the first step that 
+ must make?
+B
+. 
+On input 
+, based on the outcome of the first step, what is the second step 
+ must make?
+C
+. 
+What key property relates the behaviour of 
+ on 
+ to the behaviour of 
+ on 
+?
+gatecse-2002
+ 
+theory-of-computation
+ 
+decidability
+ 
+normal
+ 
+turing-machine
+ 
+descriptive
+ 
+difficult
+Answer key
+☟
+Decidability: GATE CSE 2003 | Question: 52
+Consider two languages 
+ and 
+ each on the alphabet 
+. Let 
+ be a polynomial time
+computable bijection such that 
+ iﬀ 
+. Further, let 
+ be also polynomial time
+computable.
+Which of the following 
+CANNOT
+ be true?
+
+
+A
+. 
+ 
+ and 
+ is finite
+B
+. 
+ 
+ and 
+ 
+C
+. 
+ is undecidable and 
+ is
+decidable
+D
+. 
+ is recursively enumerable and 
+ is recursive
+6.5.15
+A
+. 
+ does not halt on any string in 
+B
+. 
+ does not halt on any string in 
+C
+. 
+ halts on all strings ending in a 
+D
+. 
+ halts on all strings ending in a 
+6.5.16
+A
+. 
+Membership problem for CFGs
+B
+. 
+Ambiguity problem for CFGs
+C
+. 
+Finiteness problem for FSAs
+D
+. 
+Equivalence problem for FSAs
+6.5.17
+A
+. 
+I and II
+B
+. 
+I and IV
+C
+. 
+II and III
+D
+. 
+II and IV
+6.5.18
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2003
+ 
+theory-of-computation
+ 
+difficult
+ 
+decidability
+Answer key
+☟
+Decidability: GATE CSE 2003 | Question: 53
+A single tape Turing Machine 
+ has two states 
+ and 
+, of which 
+ is the starting state. The tape
+alphabet of 
+ is 
+ and its input alphabet is 
+. The symbol 
+ is the blank symbol used to
+indicate end of an input string. The transition function of 
+ is described in the following table.
+The table is interpreted as illustrated below.
+The entry 
+ in row 
+ and column 
+ signiﬁes that if 
+ is in state 
+ and reads 
+ on the current page
+square, then it writes 
+ on the same tape square, moves its tape head one position to the right and transitions to
+state 
+.
+Which of the following statements is true about 
+?
+gatecse-2003
+ 
+theory-of-computation
+ 
+decidability
+ 
+normal
+Answer key
+☟
+Decidability: GATE CSE 2007 | Question: 6
+Which of the following problems is undecidable?
+gatecse-2007
+ 
+theory-of-computation
+ 
+decidability
+ 
+normal
+Answer key
+☟
+Decidability: GATE CSE 2008 | Question: 10
+Which of the following are decidable?
+I
+. 
+Whether the intersection of two regular languages is infinite
+II
+. 
+Whether a given context-free language is regular
+III
+. 
+Whether two push-down automata accept the same language
+IV
+. 
+Whether a given grammar is context-free
+gatecse-2008
+ 
+theory-of-computation
+ 
+decidability
+ 
+easy
+Answer key
+☟
+Decidability: GATE CSE 2012 | Question: 24
+Which of the following problems are decidable?
+1
+. 
+Does a given program ever produce an output?
+2
+. 
+If 
+ is a context-free language, then, is 
+ also context-free?
+3
+. 
+If 
+ is a regular language, then, is 
+ also regular?
+4
+. 
+If 
+ is a recursive language, then, is 
+ also recursive?
+
+
+6.5.19
+A
+. 
+ only      
+B
+. 
+ and 
+ only      
+C
+. 
+ and 
+ only      
+D
+. 
+ and 
+ only
+6.5.20
+6.5.21
+A
+. 
+Only II
+B
+. 
+Only III
+C
+. 
+Only I and II
+D
+. 
+Only I and III
+6.5.22
+A
+. 
+II only
+B
+. 
+III only
+C
+. 
+I and IV only
+D
+. 
+I only
+6.5.23
+gatecse-2012
+ 
+theory-of-computation
+ 
+decidability
+ 
+normal
+Answer key
+☟
+Decidability: GATE CSE 2013 | Question: 41
+Which of the following is/are undecidable?
+1
+. 
+ is a CFG. Is 
+?
+2
+. 
+ is a CFG. Is 
+?
+3
+. 
+ is a Turing machine. Is 
+ regular?
+4
+. 
+ is a DFA and 
+ is an NFA. Is 
+?
+gatecse-2013
+ 
+theory-of-computation
+ 
+decidability
+ 
+normal
+Answer key
+☟
+Decidability: GATE CSE 2014 | Set 3 | Question: 35
+Which one of the following problems is undecidable?
+A
+. 
+Deciding if a given context-free grammar is ambiguous.
+B
+. 
+Deciding if a given string is generated by a given context-free grammar.
+C
+. 
+Deciding if the language generated by a given context-free grammar is empty.
+D
+. 
+Deciding if the language generated by a given context-free grammar is finite.
+gatecse-2014-set3
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+decidability
+ 
+normal
+Answer key
+☟
+Decidability: GATE CSE 2015 | Set 2 | Question: 21
+Consider the following statements.
+I
+. 
+The complement of every Turing decidable language is Turing decidable
+II
+. 
+There exists some language which is in NP but is not Turing decidable
+III
+. 
+If L is a language in NP, L is Turing decidable
+Which of the above statements is/are true?
+gatecse-2015-set2
+ 
+theory-of-computation
+ 
+decidability
+ 
+easy
+Answer key
+☟
+Decidability: GATE CSE 2015 | Set 3 | Question: 53
+Language 
+ is polynomial time reducible to language 
+. Language 
+ is polynomial time reducible to
+language 
+, which in turn polynomial time reducible to language 
+. Which of the following is/are true?
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+gatecse-2015-set3
+ 
+theory-of-computation
+ 
+decidability
+ 
+normal
+Answer key
+☟
+Decidability: GATE CSE 2016 | Set 1 | Question: 17
+Which of the following decision problems are undecidable?
+
+
+A
+. 
+I and IV only
+B
+. 
+II and III only 
+C
+. 
+III and IV only
+D
+. 
+II and IV only
+6.5.24
+6.5.25
+A
+. 
+I and IV only
+B
+. 
+II and III only
+C
+. 
+II, III and IV only
+D
+. 
+III and IV only
+6.5.26
+A
+. 
+Only I and II are undecidable
+B
+. 
+Only II is undecidable
+C
+. 
+Only II and IV are undecidable
+D
+. 
+Only I, II and III are undecidable
+I
+. 
+Given NFAs 
+ and 
+ , is 
+II
+. 
+Given a CFG 
+ and a string  
+, does  
+} ?
+III
+. 
+Given CFGs  
+ and 
+, is 
+?
+IV
+. 
+Given a TM 
+, is 
+ ?
+gatecse-2016-set1
+ 
+theory-of-computation
+ 
+decidability
+ 
+easy
+Answer key
+☟
+Decidability: GATE CSE 2017 | Set 1 | Question: 39
+Let 
+ and 
+ be ﬁnite alphabets and let 
+ be a symbol outside both 
+ and 
+. Let 
+ be a total function from 
+ to 
+. We say 
+ is 
+computable 
+if there exists a Turing machine 
+ which given an input 
+, always
+halts with 
+ on its tape. Let 
+ denote the language 
+. Which of the following statements is
+true:
+A
+. 
+ is computable if and only if 
+ is recursive.
+B
+. 
+ is computable if and only if 
+ is recursively enumerable.
+C
+. 
+If 
+ is computable then 
+ is recursive, but not conversely.
+D
+. 
+If 
+ is computable then 
+ is recursively enumerable, but not conversely.
+gatecse-2017-set1
+ 
+theory-of-computation
+ 
+decidability
+ 
+difficult
+ 
+difficult
+Answer key
+☟
+Decidability: GATE CSE 2017 | Set 2 | Question: 41
+Let 
+ be the language represented by regular expression 
+. Let 
+ be the language generated by a
+context free grammar 
+. Let 
+ be the language accepted by a Turing machine 
+. Which of the
+following decision problems are undecidable?
+I
+. 
+Given a regular expression 
+ and a string 
+, is 
+?
+II
+. 
+Given a context-free grammar 
+, is 
+III
+. 
+Given a context-free grammar 
+, is 
+ for some alphabet 
+?
+IV
+. 
+Given a Turing machine 
+ and a string 
+, is 
+?
+gatecse-2017-set2
+ 
+theory-of-computation
+ 
+decidability
+Answer key
+☟
+Decidability: GATE CSE 2018 | Question: 36
+Consider the following problems. 
+ denotes the language generated by a grammar 
+. L(M) denotes the
+language accepted by a machine 
+.
+I
+. 
+For an unrestricted grammar 
+ and a string 
+, whether 
+II
+. 
+Given a Turing machine 
+, whether 
+ is regular
+III
+. 
+Given two grammar
+ and 
+, whether 
+IV
+. 
+Given an NFA 
+, whether there is a deterministic PDA 
+ such that 
+ and 
+ accept the same language
+Which one of the following statement is correct?
+gatecse-2018
+ 
+theory-of-computation
+ 
+decidability
+ 
+easy
+ 
+two-marks
+Answer key
+☟
+
+
+6.5.27
+A
+. 
+, 
+, and 
+ only
+B
+. 
+ and 
+ only
+C
+. 
+ and 
+ only
+D
+. 
+, 
+, and 
+ only
+6.5.28
+A
+. 
+Only 
+ is true
+B
+. 
+Only 
+ is true
+C
+. 
+Both 
+ and 
+ are true
+D
+. 
+Neither 
+ nor 
+ is true
+6.5.29
+6.5.30
+A
+. 
+Is 
+B
+. 
+Is 
+ ?
+C
+. 
+Is 
+D
+. 
+Is 
+ ?
+6.6
+6.6.1
+Decidability: GATE CSE 2020 | Question: 26
+Which of the following languages are undecidable? Note that 
+ indicates encoding of the Turing machine
+M.
+gatecse-2020
+ 
+theory-of-computation
+ 
+decidability
+ 
+two-marks
+Answer key
+☟
+Decidability: GATE CSE 2021 | Set 2 | Question: 36
+​​​​​​
+Consider the following two statements about regular languages:
+: Every infinite regular language contains an undecidable language as a subset.
+: Every finite language is regular.
+Which one of the following choices is correct?
+gatecse-2021-set2
+ 
+theory-of-computation
+ 
+regular-language
+ 
+decidability
+ 
+two-marks
+Answer key
+☟
+Decidability: GATE CSE 2022 | Question: 36
+Which of the following is/are undecidable?
+A
+. 
+Given two Turing machines 
+ and 
+ decide if 
+B
+. 
+Given a Turing machine 
+ decide if 
+ is regular.
+C
+. 
+Given a Turing machine 
+ decide if 
+ accepts all strings.
+D
+. 
+Given a Turing machine 
+ decide if 
+ takes more than 
+ steps on every string.
+gatecse-2022
+ 
+theory-of-computation
+ 
+turing-machine
+ 
+decidability
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Decidability: GATE CSE 2025 | Set 2 | Question: 15
+​​​​
+Let 
+ be Context Free Grammars (CFGs) and 
+ be a regular expression. For a grammar 
+, let 
+denote the language generated by 
+.
+Which ONE among the following questions is decidable?
+gatecse2025-set2
+ 
+theory-of-computation
+ 
+decidability
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Dpda 
+(1)
+Dpda: GATE CSE 2025 | Set 2 | Question: 14
+​​​​
+Which ONE of the following languages is accepted by a deteministic pushdown automaton?
+A
+. 
+Any regular language
+B
+. 
+Any context-free language
+C
+. 
+Any language accepted by a non-deterministic pushdown automaton
+
+
+6.7
+6.7.1
+6.7.2
+6.7.3
+6.7.4
+D
+. 
+Any decidable language
+ 
+gatecse2025-set2
+ 
+theory-of-computation
+ 
+dpda
+ 
+one-mark
+ 
+easy
+Answer key
+☟
+Finite Automata 
+(43)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(8Q)
+ 
+Weekly Quiz 1 
+(15Q)
+Finite Automata: GATE CSE 1988 | Question: 15
+Consider the DFA  
+ and NFA  
+  as deﬁned below. Let the language accepted by machine 
+ be 
+.
+What language machine 
+ accepts, if
+i
+. 
+ii
+. 
+iii
+. 
+iv
+. 
+Where,
+for all 
+ and 
+gate1988
+ 
+descriptive
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+difficult
+Answer key
+☟
+Finite Automata: GATE CSE 1991 | Question: 17,b
+Let 
+ be the language of all binary strings in which the third symbol from the right is a 
+. Give a non-
+deterministic ﬁnite automaton that recognizes 
+. How many states does the minimized equivalent
+deterministic finite automaton have? Justify your answer briefly?
+gate1991
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Finite Automata: GATE CSE 1993 | Question: 27
+Draw the state transition of a deterministic ﬁnite state automaton which accepts all strings from the alphabet 
+, such that no string has 
+ consecutive occurrences of the letter 
+.
+gate1993
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+easy
+ 
+descriptive
+Answer key
+☟
+Finite Automata: GATE CSE 1996 | Question: 12
+Given below are the transition diagrams for two ﬁnite state machines 
+ and 
+ recognizing languages 
+and 
+ respectively.
+
+
+6.7.5
+6.7.6
+6.7.7
+6.7.8
+A
+. 
+Display the transition diagram for a machine that recognizes 
+, obtained from transition diagrams for 
+and 
+ by adding only 
+ transitions and no new states.
+B
+. 
+Modify the transition diagram obtained in part (a) obtain a transition diagram for a machine that recognizes 
+ by adding only 
+ transitions and no new states.
+(Final states are enclosed in double circles).
+gate1996
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Finite Automata: GATE CSE 1997 | Question: 21
+Given that 
+ is a language accepted by a ﬁnite state machine, show that 
+ and 
+ are also accepted by
+some finite state machines, where
+gate1997
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+proof
+Answer key
+☟
+Finite Automata: GATE CSE 1998 | Question: 1.10
+Which of the following set can be recognized by a Deterministic Finite state Automaton?
+A
+. 
+The numbers 
+ written in binary
+B
+. 
+The numbers 
+  written in unary
+C
+. 
+The set of binary string in which the number of zeros is the same as the number of ones.
+D
+. 
+The set 
+gate1998
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE CSE 2001 | Question: 5
+Construct DFA's for the following languages:
+A
+. 
+B
+. 
+gatecse-2001
+ 
+theory-of-computation
+ 
+easy
+ 
+descriptive
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE CSE 2002 | Question: 2.5
+The ﬁnite state machine described by the following state diagram with 
+ as starting state, where an arc label
+is 
+ and 
+ stands for 
+-bit input and 
+ stands for 
+-bit output
+
+
+6.7.9
+6.7.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+A
+. 
+outputs the sum of the present and the previous bits of the input
+B
+. 
+outputs 
+ whenever the input sequence contains 
+C
+. 
+outputs 
+ whenever the input sequence contains 
+D
+. 
+none of the above
+gatecse-2002
+ 
+theory-of-computation
+ 
+normal
+ 
+finite-automata
+Answer key
+☟
+Finite Automata: GATE CSE 2002 | Question: 21
+We require a four state automaton to recognize the regular expression 
+A
+. 
+Give an NFA for this purpose
+B
+. 
+Give a DFA for this purpose
+gatecse-2002
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Finite Automata: GATE CSE 2003 | Question: 50
+Consider the following deterministic finite state automaton 
+.
+Let 
+ denote the set of seven bit binary strings in which the ﬁrst, the fourth, and the last bits are 
+. The number of
+strings in 
+ that are accepted by 
+ is
+gatecse-2003
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE CSE 2003 | Question: 55
+Consider the NFA 
+ shown below.
+Let the language accepted by 
+ be 
+. 
+Let 
+ 
+be the language accepted by the NFA 
+ obtained by changing the
+accepting state of 
+ to a non-accepting state and by changing the non-accepting states of 
+ to accepting states.
+Which of the following statements is true?
+gatecse-2003
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+
+
+6.7.12
+A
+. 
+divisible by 
+ and 
+B
+. 
+odd and even
+C
+. 
+even and odd
+D
+. 
+divisible by 
+ and 
+6.7.13
+6.7.14
+Answer key
+☟
+Finite Automata: GATE CSE 2004 | Question: 86
+The following ﬁnite state machine accepts all those binary strings in which the number of 
+’s and 
+’s are
+respectively:
+     
+gatecse-2004
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+easy
+Answer key
+☟
+Finite Automata: GATE CSE 2005 | Question: 53
+Consider the machine 
+:
+The language recognized by 
+ is:
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2005
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE CSE 2005 | Question: 63
+The following diagram represents a ﬁnite state machine which takes as input a binary number from the least
+significant bit.
+     
+Which of the following is TRUE?
+A
+. 
+It computes 
+’s complement of the input number
+
+
+6.7.15
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.16
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.17
+P
+B
+. 
+It computes 
+’s complement of the input number
+C
+. 
+It increments the input number
+D
+. 
+it decrements the input number
+gatecse-2005
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+easy
+Answer key
+☟
+Finite Automata: GATE CSE 2007 | Question: 74
+Consider the following Finite State Automaton:
+The language accepted by this automaton is given by the regular expression
+gatecse-2007
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE CSE 2008 | Question: 49
+Given below are two finite state automata ( 
+ indicates the start state and 
+ indicates a final state)
+Which of the following represents the product automaton 
+?
+gatecse-2008
+ 
+normal
+ 
+theory-of-computation
+ 
+finite-automata
+Answer key
+☟
+Finite Automata: GATE CSE 2008 | Question: 52
+Match the following NFAs with the regular expressions they correspond to:
+Q
+
+
+R
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.18
+A
+. 
+begin either with 
+ or 
+.
+B
+. 
+end with 
+.
+C
+. 
+end with 
+.
+D
+. 
+contain the substring 
+.
+6.7.19
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.20
+S
+ 
+1
+. 
+2
+. 
+3
+. 
+4
+. 
+gatecse-2008
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE CSE 2009 | Question: 41
+The above DFA accepts the set of all strings over 
+ that 
+gatecse-2009
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+easy
+Answer key
+☟
+Finite Automata: GATE CSE 2012 | Question: 12
+What is the complement of the language accepted by the NFA shown below?
+Assume 
+ and 
+ is the empty string.
+gatecse-2012
+ 
+finite-automata
+ 
+easy
+ 
+theory-of-computation
+Answer key
+☟
+Finite Automata: GATE CSE 2012 | Question: 46
+Consider the set of strings on 
+ in which, 
+every substring of 
+ symbols
+ has at most 
+two
+ zeros. For
+example, 
+ and 
+ are in the language, but 
+ is not. All strings of length less than 
+ are
+also in the language. A partially completed DFA that accepts this language is shown below.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.21
+A
+. 
+1 and 3 only
+B
+. 
+2 and 4 only
+C
+. 
+2 and 3 only
+D
+. 
+3 and 4 only
+6.7.22
+The missing arcs in the DFA are:
+gatecse-2012
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE CSE 2013 | Question: 33
+Consider the DFA 
+ given below.
+ 
+Which of the following are 
+FALSE
+?
+1
+. 
+Complement of 
+ is context-free.
+2
+. 
+3
+. 
+For the language accepted by 
+ is the minimal DFA.
+4
+. 
+ accepts all strings over 
+ of length at least 
+.
+gatecse-2013
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE CSE 2014 | Set 1 | Question: 16
+Consider the finite automaton in the following figure:
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.23
+A
+. 
+Only
+ I 
+is true
+B
+. 
+Only 
+II
+ is true
+C
+. 
+Both
+ I 
+and 
+II
+ are true
+D
+. 
+Both 
+I
+ and 
+II
+ are false
+6.7.24
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.25
+A
+. 
+B
+. 
+ 
+What is the set of reachable states for the input string 
+?
+gatecse-2014-set1
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+easy
+Answer key
+☟
+Finite Automata: GATE CSE 2016 | Set 2 | Question: 42
+Consider the following two statements:
+I
+. 
+If all states of an 
+NFA 
+are accepting states then the language accepted by the 
+NFA
+ is 
+.
+II
+. 
+There exists a regular language 
+ such that for all languages 
+, 
+ is regular.
+Which one of the following is 
+CORRECT
+?
+gatecse-2016-set2
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE CSE 2017 | Set 2 | Question: 39
+Let 
+ denote the transition function and 
+ denote the extended transition function of the 
+-NFA whose
+transition table is given below:
+Then 
+ is
+gatecse-2017-set2
+ 
+theory-of-computation
+ 
+finite-automata
+Answer key
+☟
+Finite Automata: GATE CSE 2021 | Set 1 | Question: 38
+Consider the following language:
+Which one of the following deterministic finite automata accepts 
+
+
+C
+. 
+D
+. 
+6.7.26
+6.7.27
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.28
+gatecse-2021-set1
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+two-marks
+Answer key
+☟
+Finite Automata: GATE CSE 2021 | Set 2 | Question: 17
+Consider the following deterministic finite automaton 
+The number of strings of length 
+ accepted by the above automaton is  ___________
+gatecse-2021-set2
+ 
+numerical-answers
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+one-mark
+Answer key
+☟
+Finite Automata: GATE CSE 2021 | Set 2 | Question: 28
+Suppose we want to design a synchronous circuit that processes a string of 
+’s and 
+’s. Given a string, it
+produces another string by replacing the ﬁrst 
+ in any subsequence of consecutive 
+’s by a 
+. Consider the
+following example.
+A 
+Mealy Machine
+ is a state machine where both the next state and the output are functions of the present state and
+the current input.
+The above mentioned circuit can be designed as a two-state Mealy machine. The states in the Mealy machine can
+be represented using Boolean values 
+ and 
+. We denote the current state, the next state, the next incoming bit,
+and the output bit of the Mealy machine by the variables 
+ and 
+ respectively.
+Assume the initial state of the Mealy machine is 
+.
+What are the Boolean expressions corresponding to 
+ and 
+ in terms of 
+ and 
+?
+gatecse-2021-set2
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+two-marks
+Answer key
+☟
+Finite Automata: GATE CSE 2024 | Set 1 | Question: 40
+Consider the 
+ -state 
+. 
+ accepting the language 
+ shown below. For any string 
+ let 
+ be the number of 
+ in 
+ and 
+ be the number of 1 's in 
+.
+
+
+6.7.29
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.30
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Which of the following statements is/are FALSE?
+A
+. 
+States 
+ and 
+ are distinguishable in 
+B
+. 
+States 
+ and 
+ are distinguishable in 
+C
+. 
+States 
+ and 
+ are distinguishable in 
+D
+. 
+Any string 
+ with 
+ is in 
+ 
+gatecse-2024-set1
+ 
+multiple-selects
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+two-marks
+Answer key
+☟
+Finite Automata: GATE CSE 2024 | Set 2 | Question: 12
+Which one of the following regular expressions is equivalent to the language accepted by the 
+ given
+below?
+gatecse-2024-set2
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+one-mark
+Answer key
+☟
+Finite Automata: GATE CSE 2024 | Set 2 | Question: 31
+​​
+Let 
+ be the 
+-state 
+ with 
+-transitions shown in the diagram below.
+Which one of the following regular expressions represents the language accepted by 
+?
+
+
+6.7.31
+6.7.32
+6.7.33
+gatecse-2024-set2
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+two-marks
+Answer key
+☟
+Finite Automata: GATE CSE 2025 | Set 1 | Question: 40
+Consider the following deterministic ﬁnite automaton (DFA) deﬁned over the alphabet, 
+. Identify
+which of the following language(s) is/are accepted by the given DFA.
+A
+. 
+The set of all strings containing an even number of 
+ 's.
+B
+. 
+The set of all strings containing the pattern 
+.
+C
+. 
+The set of all strings ending with the pattern 
+.
+D
+. 
+The set of all strings not containing the pattern 
+.
+gatecse2025-set1
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+multiple-selects
+ 
+easy
+ 
+two-marks
+Answer key
+☟
+Finite Automata: GATE CSE 2026 | Set 2 | Question: 37
+Consider the following two finite automata 
+ and 
+.
+Which of the following statements is/are true?
+A
+. 
+B
+. 
+ is a proper subset of 
+C
+. 
+D
+. 
+ consists of all strings in 
+ whose length is divisible by 
+gatecse-2026-set2
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Finite Automata: GATE IT 2004 | Question: 41
+Let 
+ be a finite state automaton, where
+A grammar to generate the language accepted by 
+ can be speciﬁed as 
+ where 
+,
+and 
+Which one of the following set of rules will make 
+ ?
+A
+. 
+
+
+6.7.34
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+None of the above
+6.7.35
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.36
+B
+. 
+C
+. 
+D
+. 
+gateit-2004
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE IT 2005 | Question: 37
+Consider the non-deterministic finite automaton (NFA) shown in the figure.
+State 
+ is the starting state of the automaton. Let the language accepted by the NFA with 
+ as the only accepting
+state be 
+. Similarly, let the language accepted by the NFA with 
+ as the only accepting state be 
+. Which of
+the following statements about 
+ and 
+ is TRUE?
+gateit-2005
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE IT 2005 | Question: 39
+Consider the regular grammar:
+where 
+ is the starting symbol, the set of terminals is 
+ and the set of non-terminals is 
+.
+We wish to construct a deterministic ﬁnite automaton (DFA) to recognize the same language. What is the minimum
+number of states required for the DFA?
+gateit-2005
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE IT 2006 | Question: 3
+In the automaton below, 
+ is the start state and 
+ is the only final state.
+
+
+A
+. 
+The automaton accepts 
+ and 
+but not 
+B
+. 
+The automaton accepts each of 
+ and 
+C
+. 
+The automaton rejects each of 
+ and 
+D
+. 
+The automaton accepts 
+ but
+rejects 
+ and 
+6.7.37
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.38
+Consider the strings 
+. Which of the following statements is true?
+gateit-2006
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+easy
+Answer key
+☟
+Finite Automata: GATE IT 2006 | Question: 37
+For a state machine with the following state diagram the expression for the next state 
+ in terms of the
+current state 
+ and the input variables 
+ 
+and 
+ is
+gateit-2006
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE IT 2007 | Question: 47
+Consider the following DFA in which 
+ is the start state and 
+, 
+ are the final states.
+What language does this 
+ recognize?
+A
+. 
+All strings of 
+ and 
+B
+. 
+All strings of 
+ and 
+ which have either even number of 
+ and even number of 
+ or odd number of 
+ and odd
+number of 
+C
+. 
+All strings of 
+ and 
+ which have equal number of 
+ and 
+D
+. 
+All strings of 
+ and 
+ with either even number of 
+ and odd number of 
+ or odd number of 
+ and even number
+of 
+gateit-2007
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+
+
+6.7.39
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.40
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Finite Automata: GATE IT 2007 | Question: 50
+Consider the following finite automata 
+ and 
+ over the alphabet 
+.
+ 
+The start states are indicated by
+a double arrow and ﬁnal states are indicated by a double circle. Let the languages recognized by them be
+denoted by 
+ and 
+ respectively.
+The automation which recognizes the language 
+ is :
+gateit-2007
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE IT 2007 | Question: 71
+Consider the regular expression 
+Which of the following non-deterministic ﬁnite automata recognizes the language deﬁned by the regular
+expression 
+? Edges labeled 
+ denote transitions on the empty string.
+
+
+6.7.41
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.7.42
+6.7.43
+gateit-2007
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE IT 2007 | Question: 72
+Consider the regular expression 
+Which deterministic finite automaton accepts the language represented by the regular expression 
+?
+gateit-2007
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE IT 2008 | Question: 32
+If the ﬁnal states and non-ﬁnal states in the DFA below are interchanged, then which of the following
+languages over the alphabet 
+ will be accepted by the new DFA?
+A
+. 
+Set of all strings that do not end with 
+B
+. 
+Set of all strings that begin with either an 
+ or 
+C
+. 
+Set of all strings that do not contain the substring 
+,
+D
+. 
+The set described by the regular expression 
+gateit-2008
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite Automata: GATE IT 2008 | Question: 36
+Consider the following two finite automata. 
+ accepts 
+ and 
+ accepts 
+.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.8
+6.8.1
+6.9
+6.9.1
+A
+. 
+Regular language.
+B
+. 
+Context-free language.
+C
+. 
+Context-senstive language.
+D
+. 
+None of the above.
+6.9.2
+ 
+Which one of the following is TRUE?
+gateit-2008
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+Answer key
+☟
+Finite State Machines 
+(1)
+Finite State Machines: GATE CSE 2025 | Set 1 | Question: 49
+Consider a ﬁnite state machine (FSM) with one input 
+ and one output 
+, represented by the given state
+transition table. The minimum number of states required to realize this FSM is _______. (Answer in
+integer).                                                                                                           
+gatecse2025-set1
+ 
+theory-of-computation
+ 
+finite-state-machines
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Identify Class Language 
+(31)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(13Q)
+ 
+Weekly Quiz 8 
+(10Q)
+Identify Class Language: GATE CSE 1987 | Question: 1-xiii
+FORTRAN is a:
+gate1987
+ 
+theory-of-computation
+ 
+identify-class-language
+Answer key
+☟
+Identify Class Language: GATE CSE 1988 | Question: 2ix
+What is the type of the language 
+, where 
+gate1988
+ 
+normal
+ 
+descriptive
+ 
+theory-of-computation
+ 
+identify-class-language
+Answer key
+☟
+
+
+6.9.3
+6.9.4
+6.9.5
+A
+. 
+ is not context free
+B
+. 
+ is context free
+C
+. 
+ is context free
+D
+. 
+ is regular
+6.9.6
+A
+. 
+B
+. 
+ is regular but not 
+C
+. 
+ is context free but not regular
+D
+. 
+ is not context free
+6.9.7
+A
+. 
+Context free
+B
+. 
+Regular
+C
+. 
+Deterministic Context free
+D
+. 
+Recursive
+Identify Class Language: GATE CSE 1991 | Question: 17,a
+Show that the Turing machines, which have a read only input tape and constant size work tape, recognize
+precisely the class of regular languages.
+gate1991
+ 
+theory-of-computation
+ 
+descriptive
+ 
+identify-class-language
+ 
+proof
+Answer key
+☟
+Identify Class Language: GATE CSE 1994 | Question: 19
+A
+. 
+Given a set:
+(Note: 
+-
+ is a maximal block of 
+ successive 
+'s)
+Which of the following statements is true with respect to 
+? No reason to be given for the answer. 
+i
+. 
+ is regular
+ii
+. 
+ is recursively enumerable
+iii
+. 
+ is not recursively enumerable
+iv
+. 
+ is recursive
+B
+. 
+Given that a language 
+ is regular and that the language 
+ is regular, is the language 
+ always
+regular? Prove your answer.
+gate1994
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Identify Class Language: GATE CSE 1999 | Question: 2.4
+If 
+ is context free language and 
+ is a regular language which of the following is/are false?
+gate1999
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+normal
+ 
+multiple-selects
+Answer key
+☟
+Identify Class Language: GATE CSE 2000 | Question: 1.5
+Let 
+ denote the languages generated by the grammar 
+.
+Which of the following is TRUE?
+gatecse-2000
+ 
+theory-of-computation
+ 
+easy
+ 
+identify-class-language
+Answer key
+☟
+Identify Class Language: GATE CSE 2002 | Question: 1.7
+The language accepted by a Pushdown Automaton in which the stack is limited to 
+ items is best
+described as
+gatecse-2002
+ 
+theory-of-computation
+ 
+easy
+ 
+identify-class-language
+Answer key
+☟
+
+
+6.9.8
+A
+. 
+regular
+B
+. 
+context-free but not regular
+C
+. 
+context-sensitive but not context free
+D
+. 
+type-0 but not context sensitive
+6.9.9
+6.9.10
+A
+. 
+ is recursively enumerable, but
+not recursive
+B
+. 
+ is recursive, but not context-free
+C
+. 
+ is context-free, but not regular
+D
+. 
+ is regular
+6.9.11
+6.9.12
+A
+. 
+not recursive
+B
+. 
+is recursive and is a deterministic CFL
+C
+. 
+is a regular language
+D
+. 
+is not a deterministic CFL but a CFL
+Identify Class Language: GATE CSE 2004 | Question: 87
+The language 
+ is
+gatecse-2004
+ 
+theory-of-computation
+ 
+normal
+ 
+identify-class-language
+Answer key
+☟
+Identify Class Language: GATE CSE 2005 | Question: 55
+Consider the languages:
+  and 
+Which one of the following statements is FALSE?
+A
+. 
+ is a context-free language
+B
+. 
+ is a context-free language
+C
+. 
+ are context-free languages
+D
+. 
+ is a context sensitive language
+gatecse-2005
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+normal
+Answer key
+☟
+Identify Class Language: GATE CSE 2006 | Question: 30
+For 
+ let 
+ denote the decimal value of 
+e.g. 
+ Let
+Which one of the following statements is true?
+gatecse-2006
+ 
+theory-of-computation
+ 
+normal
+ 
+identify-class-language
+Answer key
+☟
+Identify Class Language: GATE CSE 2006 | Question: 33
+Let 
+ be a regular language, 
+ be a deterministic context-free language and 
+ a  recursively
+enumerable, but not recursive, language. Which one of the following statements is false?
+A
+. 
+  is a deterministic CFL
+B
+. 
+  is recursive
+C
+. 
+  is context free
+D
+. 
+  is recursively enumerable
+gatecse-2006
+ 
+theory-of-computation
+ 
+normal
+ 
+identify-class-language
+Answer key
+☟
+Identify Class Language: GATE CSE 2007 | Question: 30
+The language 
+ over the alphabet 
+ is:
+gatecse-2007
+ 
+theory-of-computation
+ 
+normal
+ 
+identify-class-language
+Answer key
+☟
+
+
+6.9.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.9.14
+6.9.15
+A
+. 
+Not recursive 
+B
+. 
+Regular
+C
+. 
+Context free but not regular
+D
+. 
+Recursively enumerable but not
+context free.
+6.9.16
+A
+. 
+Only 
+ is context free.
+B
+. 
+Only 
+ and 
+ are context free.
+C
+. 
+Only 
+ and 
+ are context free.
+D
+. 
+All are context free
+Identify Class Language: GATE CSE 2008 | Question: 51
+Match the following:
+gatecse-2008
+ 
+normal
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+match-the-following
+Answer key
+☟
+Identify Class Language: GATE CSE 2008 | Question: 9
+Which of the following is true for the language
+A
+. 
+It is not accepted by a Turing Machine
+B
+. 
+It is regular but not context-free
+C
+. 
+It is context-free but not regular
+D
+. 
+It is neither regular nor context-free, but accepted by a Turing machine
+gatecse-2008
+ 
+theory-of-computation
+ 
+easy
+ 
+identify-class-language
+Answer key
+☟
+Identify Class Language: GATE CSE 2009 | Question: 40
+Let 
+, where 
+ and 
+ are languages as defined below:
+Then 
+ is
+gatecse-2009
+ 
+theory-of-computation
+ 
+easy
+ 
+identify-class-language
+Answer key
+☟
+Identify Class Language: GATE CSE 2010 | Question: 40
+Consider the languages
+gatecse-2010
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+identify-class-language
+ 
+normal
+Answer key
+☟
+
+
+6.9.17
+6.9.18
+A
+. 
+ is context-free.
+B
+. 
+ is context-free.
+C
+. 
+Complement of 
+ is recursive.
+D
+. 
+Complement of 
+ is context-free
+but not regular.
+6.9.19
+A
+. 
+None of the languages
+B
+. 
+Only 
+C
+. 
+Only 
+ and 
+D
+. 
+All the three languages
+6.9.20
+A
+. 
+Finite
+B
+. 
+Not finite but regular
+C
+. 
+Context-Free but not regular
+D
+. 
+Recursive but not context-free
+Identify Class Language: GATE CSE 2011 | Question: 26
+Consider the languages 
+ as given below.
+ 
+Which of the following statements is 
+NOT TRUE
+?
+A
+. 
+Push Down Automata (PDA) can be used to recognize 
+ and 
+B
+. 
+ is a regular language
+C
+. 
+All the three languages are context free
+D
+. 
+Turing machines can be used to recognize all the languages
+gatecse-2011
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+normal
+Answer key
+☟
+Identify Class Language: GATE CSE 2013 | Question: 32
+Consider the following languages.
+Which one of the following statements is 
+FALSE
+?
+gatecse-2013
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+normal
+Answer key
+☟
+Identify Class Language: GATE CSE 2014 | Set 3 | Question: 36
+Consider the following languages over the alphabet 
+Here, 
+ is the reverse of the string 
+. Which of these languages are deterministic Context-free languages?
+gatecse-2014-set3
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+context-free-language
+ 
+normal
+Answer key
+☟
+Identify Class Language: GATE CSE 2017 | Set 1 | Question: 37
+Consider the context-free grammars over the alphabet 
+ given below. 
+ and 
+ are non-terminals.
+The language 
+ is
+gatecse-2017-set1
+ 
+theory-of-computation
+ 
+context-free-language
+ 
+identify-class-language
+ 
+normal
+Answer key
+☟
+
+
+6.9.21
+A
+. 
+I, II and IV only
+B
+. 
+II and III only
+C
+. 
+I and IV only
+D
+. 
+III and IV only
+6.9.22
+A
+. 
+I and IV only
+B
+. 
+I and II only
+C
+. 
+II and III only
+D
+. 
+II and IV only
+6.9.23
+A
+. 
+Ⅰ
+ only
+B
+. 
+Ⅱ
+ only 
+C
+. 
+Ⅰ
+ and 
+Ⅲ
+ only
+D
+. 
+Ⅲ
+ only
+6.9.24
+Identify Class Language: GATE CSE 2017 | Set 2 | Question: 40
+Consider the following languages.
+Which of the following are CORRECT?
+I
+. 
+ is context free but not regular
+II
+. 
+ is not context free
+III
+. 
+ is not context free but recursive
+IV
+. 
+ is deterministic context free
+gatecse-2017-set2
+ 
+theory-of-computation
+ 
+identify-class-language
+Answer key
+☟
+Identify Class Language: GATE CSE 2018 | Question: 35
+Consider the following languages:
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+Which of the above languages are context-free?
+gatecse-2018
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+context-free-language
+ 
+normal
+ 
+two-marks
+Answer key
+☟
+Identify Class Language: GATE CSE 2020 | Question: 10
+Consider the language 
+ and the following statements.
+I
+. 
+ is deterministic context-free.
+II
+. 
+ is context-free but not deterministic context-free.
+III
+. 
+ is not 
+ for any 
+.
+ Which of the above statements is/are TRUE?
+gatecse-2020
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+one-mark
+Answer key
+☟
+Identify Class Language: GATE CSE 2020 | Question: 32
+Consider the following languages.
+Which one of the following is TRUE?
+A
+. 
+ is regular and 
+ is context- free.
+B
+. 
+ context- free but not regular and 
+ is context-free.
+
+
+6.9.25
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.9.26
+6.9.27
+A
+. 
+ and 
+ are regular.
+B
+. 
+ and 
+ are context-free.
+C
+. 
+ is regular and 
+ is context-
+free.
+D
+. 
+ and 
+ are context-free but not
+regular.
+6.9.28
+6.9.29
+C
+. 
+Neither 
+ nor 
+ is context- free.
+D
+. 
+ context- free but  
+ is not context-free.
+gatecse-2020
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+two-marks
+Answer key
+☟
+Identify Class Language: GATE CSE 2021 | Set 2 | Question: 12
+Let 
+ be a regular language and 
+ be a context-free language. Which of the following languages is/are
+context-free?
+gatecse-2021-set2
+ 
+multiple-selects
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+one-mark
+Answer key
+☟
+Identify Class Language: GATE CSE 2022 | Question: 13
+Which of the following statements is/are 
+A
+. 
+Every subset of a recursively enumerable language is recursive.
+B
+. 
+If a language 
+ and its complement 
+ are both recursively enumerable, then 
+ must be recursive.
+C
+. 
+Complement of a context-free language must be recursive.
+D
+. 
+If 
+ and 
+ are regular, then 
+ must be deterministic context-free.
+gatecse-2022
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+recursive-and-recursively-enumerable-languages
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Identify Class Language: GATE CSE 2022 | Question: 37
+Consider the following languages:
+Note that 
+ is the reversal of the string 
+ Which of the following is/are 
+gatecse-2022
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+context-free-language
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Identify Class Language: GATE CSE 2023 | Question: 14
+Which of the following statements is/are 
+A
+. 
+The intersection of two regular languages is regular.
+B
+. 
+The intersection of two context-free languages is context-free.
+C
+. 
+The intersection of two recursive languages is recursive.
+D
+. 
+The intersection of two recursively enumerable languages is recursively enumerable.
+gatecse-2023
+ 
+theory-of-computation
+ 
+identify-class-language
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Identify Class Language: GATE IT 2005 | Question: 4
+Let 
+ be a regular language and 
+ be a context-free language, both over the alphabet 
+. Let 
+ and 
+denote the complements of 
+ and 
+ respectively. Which of the following statements about the language 
+ is TRUE?
+
+
+B
+. 
+It is necessarily context-free.
+A
+. 
+It is necessarily regular but not
+necessarily context-free.
+C
+. 
+It is necessarily non-regular.
+D
+. 
+None of the above
+6.9.30
+A
+. 
+regular
+B
+. 
+context-free but not regular
+C
+. 
+context-free but its complement is
+not context-free
+D
+. 
+not context-free
+6.9.31
+6.10
+6.10.1
+6.11
+6.11.1
+gateit-2005
+ 
+theory-of-computation
+ 
+normal
+ 
+identify-class-language
+Answer key
+☟
+Identify Class Language: GATE IT 2005 | Question: 6
+The language 
+ is
+gateit-2005
+ 
+theory-of-computation
+ 
+easy
+ 
+identify-class-language
+Answer key
+☟
+Identify Class Language: GATE IT 2008 | Question: 33
+Consider the following languages.
+Which of the following is true?
+A
+. 
+ is not a CFL but 
+ is
+B
+. 
+ and 
+ is non-regular
+C
+. 
+ is not a CFL but 
+ is
+D
+. 
+There is a 
+-state PDA that accepts 
+, but there is no DPDA that accepts 
+.
+gateit-2008
+ 
+theory-of-computation
+ 
+normal
+ 
+identify-class-language
+Answer key
+☟
+Medium 
+(1)
+Medium: GATE CSE 2006 | Question: 29
+If 
+ is a string over 
+  then let 
+ denote the number of 
+’s in 
+ and 
+ the number of 
+’s in 
+.
+Which one of the following languages is not regular?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2006
+ 
+theory-of-computation
+ 
+medium
+ 
+regular-language
+Answer key
+☟
+Minimal State Automata 
+(25)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+Minimal State Automata: GATE CSE 1987 | Question: 2j
+State whether the following statements are TRUE or FALSE:
+A minimal DFA that is equivalent to an NDFA with 
+ nodes has always 
+ states.
+gate1987
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+minimal-state-automata
+Answer key
+☟
+
+
+6.11.2
+6.11.3
+6.11.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.11.5
+6.11.6
+A
+. 
+ states
+B
+. 
+ states
+C
+. 
+ states
+D
+. 
+None of the above
+Minimal State Automata: GATE CSE 1997 | Question: 20
+Construct a ﬁnite state machine with minimum number of states, accepting all strings over 
+ such that
+the number of 
+'s is divisible by two and the number of 
+'s is divisible by three.
+gate1997
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+minimal-state-automata
+ 
+descriptive
+Answer key
+☟
+Minimal State Automata: GATE CSE 1997 | Question: 70
+Following is a state table for time finite state machine.
+A
+. 
+Find the equivalence partition on the states of the machine.
+B
+. 
+Give the state table for the minimal machine. (Use appropriate names for the equivalent states. For example if
+states 
+ and 
+ are equivalent then use 
+ as the name for the equivalent state in the minimal machine).
+gate1997
+ 
+theory-of-computation
+ 
+minimal-state-automata
+ 
+descriptive
+Answer key
+☟
+Minimal State Automata: GATE CSE 1998 | Question: 2.5
+Let 
+ be the set of all binary strings whose last two symbols are the same. The number of states in the
+minimal state deterministic finite state automaton accepting 
+ is 
+gate1998
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 1998 | Question: 4
+Design a deterministic ﬁnite state automaton (using minimum number of states) that recognizes the following
+language:
+  interpreted as binary number (ignoring the leading zeros) is divisible by five 
+gate1998
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+minimal-state-automata
+ 
+descriptive
+Answer key
+☟
+Minimal State Automata: GATE CSE 1999 | Question: 1.4
+Consider the regular expression 
+ times. The minimum state ﬁnite automaton that
+recognizes the language represented by this regular expression contains
+gate1999
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+easy
+ 
+minimal-state-automata
+Answer key
+☟
+
+
+6.11.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.11.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.11.9
+A
+. 
+ states
+B
+. 
+ states
+C
+. 
+ states
+D
+. 
+ states
+6.11.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.11.11
+A
+. 
+ states
+B
+. 
+ states
+C
+. 
+ states
+D
+. 
+ states
+6.11.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Minimal State Automata: GATE CSE 2001 | Question: 1.6
+Given an arbitrary non-deterministic ﬁnite automaton (NFA) with 
+ states, the maximum number of states in
+an equivalent minimized DFA at least
+gatecse-2001
+ 
+finite-automata
+ 
+theory-of-computation
+ 
+easy
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2001 | Question: 2.5
+Consider a DFA over 
+ accepting all strings which have number of a's divisible by 
+ and number
+of 
+'s divisible by 
+. What is the minimum number of states that the DFA will have?
+gatecse-2001
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2002 | Question: 2.13
+The smallest finite automaton which accepts the language 
+ length of 
+ is divisible by 
+ has
+gatecse-2002
+ 
+theory-of-computation
+ 
+normal
+ 
+finite-automata
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2006 | Question: 34
+Consider the regular language 
+ The minimum number of  states in any DFA
+accepting this languages is:
+gatecse-2006
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2007 | Question: 29
+A minimum state deterministic finite automaton accepting the language
+ number of 
+s and 
+s in 
+ are divisible by 
+ and 
+, respectively 
+   has
+gatecse-2007
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2007 | Question: 75
+Consider the following Finite State Automaton:
+The minimum state automaton equivalent to the above FSA has the following number of states:
+
+
+6.11.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.11.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.11.15
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+normal
+ 
+gatecse-2007
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2010 | Question: 41
+Let 
+ be any string of length 
+ in 
+. Let 
+ be the set of all substrings of 
+. What is the minimum
+number of states in non-deterministic finite automation that accepts 
+?
+gatecse-2010
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2011 | Question: 42
+Definition of a language 
+ with alphabet 
+ is given as following.
+What is the minimum number of states needed in a DFA to recognize 
+?
+gatecse-2011
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2011 | Question: 45
+A deterministic finite automaton (
+) 
+ with alphabet 
+ is given below.
+Which of the following finite state machines is a valid minimal 
+ which accepts the same languages as 
+?
+
+
+6.11.16
+6.11.17
+6.11.18
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.11.19
+6.11.20
+6.11.21
+gatecse-2011
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+easy
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2015 | Set 1 | Question: 52
+Consider the DFAs 
+ and 
+ given above. The number of states in a minimal DFA that accept the language 
+ is_____________.
+gatecse-2015-set1
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+easy
+ 
+numerical-answers
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2015 | Set 2 | Question: 53
+The number of states in the minimal deterministic ﬁnite automaton corresponding to the regular expression 
+ is _____.
+gatecse-2015-set2
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+numerical-answers
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2015 | Set 3 | Question: 18
+Let 
+ be the language represented by the regular expression 
+ where 
+. What is the
+minimum number of states in a DFA that recognizes 
+ (complement of 
+)?
+gatecse-2015-set3
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2016 | Set 2 | Question: 16
+The number of states in the minimum sized DFA that accepts the language deﬁned by the regular
+expression.
+is ________.
+gatecse-2016-set2
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+numerical-answers
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2017 | Set 1 | Question: 22
+Consider the language 
+ given by the regular expression 
+ over the alphabet 
+. The
+smallest number of states needed in a deterministic ﬁnite-state automaton (DFA) accepting 
+ is
+___________ .
+gatecse-2017-set1
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+numerical-answers
+ 
+minimal-state-automata
+Answer key
+☟
+Minimal State Automata: GATE CSE 2017 | Set 2 | Question: 25
+The minimum possible number of states of a deterministic ﬁnite automaton that accepts the regular
+language 
+ = {
+ | 
+ 
+ 
+ , 
+} is ______________ .
+theory-of-computation
+ 
+gatecse-2017-set2
+ 
+finite-automata
+ 
+numerical-answers
+ 
+minimal-state-automata
+Answer key
+☟
+
+
+6.11.22
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.11.23
+6.11.24
+6.11.25
+A
+. 
+B
+. 
+C
+. 
+ has one accept state
+D
+. 
+6.12
+6.12.1
+Minimal State Automata: GATE CSE 2018 | Question: 6
+Let 
+ be an NFA with 
+ states. Let 
+ be the number of states of a minimal DFA which is equivalent to 
+.
+Which one of the following is necessarily true?
+gatecse-2018
+ 
+theory-of-computation
+ 
+minimal-state-automata
+ 
+normal
+ 
+one-mark
+Answer key
+☟
+Minimal State Automata: GATE CSE 2019 | Question: 48
+Let 
+ be the set of all bijections from 
+ to 
+, where 
+ denotes the identity function, i.e. 
+. Let 
+ denote composition on functions. For a string 
+, let 
+. Consider the language 
+. The minimum number of states in
+any DFA accepting 
+ is _______
+gatecse-2019
+ 
+numerical-answers
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+minimal-state-automata
+ 
+difficult
+ 
+two-marks
+Answer key
+☟
+Minimal State Automata: GATE CSE 2023 | Question: 53
+Consider the language 
+ over the alphabet 
+, given below:
+The minimum number of states in a Deterministic Finite-State Automaton 
+ for 
+ is ____________.
+gatecse-2023
+ 
+theory-of-computation
+ 
+minimal-state-automata
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Minimal State Automata: GATE IT 2008 | Question: 6
+Let 
+ be an NFA with 
+ states and let 
+ be the minimized DFA with m states recogniz
+ing the same
+language. Which of the following in NECESSARILY true?
+gateit-2008
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+normal
+ 
+minimal-state-automata
+Answer key
+☟
+Non Determinism 
+(6)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(6Q)
+Non Determinism: GATE CSE 1992 | Question: 02,xx
+In which of the cases stated below is the following statement true?
+"For every non-deterministic machine 
+ there exists an equivalent deterministic machine 
+ recognizing
+the same language".      
+A
+. 
+ is non-deterministic finite automaton.
+B
+. 
+ is non-deterministic PDA.
+C
+. 
+ is a non-deterministic Turing machine.
+D
+. 
+For no machines 
+ and 
+,  the above statement true.
+gate1992
+ 
+theory-of-computation
+ 
+easy
+ 
+non-determinism
+ 
+multiple-selects
+Answer key
+☟
+
+
+6.12.2
+6.12.3
+6.12.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.12.5
+6.12.6
+Non Determinism: GATE CSE 1994 | Question: 1.16
+Which of the following conversions is not possible (algorithmically)?
+A
+. 
+Regular grammar to context free grammar
+B
+. 
+Non-deterministic FSA to deterministic FSA
+C
+. 
+Non-deterministic PDA to deterministic PDA
+D
+. 
+Non-deterministic Turing machine to deterministic Turing machine
+gate1994
+ 
+theory-of-computation
+ 
+easy
+ 
+non-determinism
+Answer key
+☟
+Non Determinism: GATE CSE 1998 | Question: 1.11
+Regarding the power of recognition of languages, which of the following statements is false?
+A
+. 
+The non-deterministic finite-state automata are equivalent to deterministic finite-state automata.
+B
+. 
+Non-deterministic Push-down automata are equivalent to deterministic Push-down automata.
+C
+. 
+Non-deterministic Turing machines are equivalent to deterministic Turing machines.
+D
+. 
+Multi-tape Turing machines are available are equivalent to Single-tape Turing machines.
+gate1998
+ 
+theory-of-computation
+ 
+easy
+ 
+non-determinism
+Answer key
+☟
+Non Determinism: GATE CSE 2005 | Question: 54
+Let 
+ and 
+ denote the classes of languages accepted by non-deterministic ﬁnite automata and non-
+deterministic push-down automata, respectively. Let 
+ and 
+ denote the classes of languages accepted
+by deterministic ﬁnite automata and deterministic push-down automata respectively. Which one of the following is
+TRUE?
+gatecse-2005
+ 
+theory-of-computation
+ 
+easy
+ 
+non-determinism
+Answer key
+☟
+Non Determinism: GATE CSE 2011 | Question: 8
+Which of the following pairs have 
+DIFFERENT 
+expressive power?
+A
+. 
+Deterministic finite automata (DFA) and Non-deterministic finite automata (NFA)
+B
+. 
+Deterministic push down automata (DPDA) and Non-deterministic push down automata (NPDA)
+C
+. 
+Deterministic single tape Turing machine and Non-deterministic single tape Turing machine
+D
+. 
+Single tape Turing machine and multi-tape Turing machine
+gatecse-2011
+ 
+theory-of-computation
+ 
+easy
+ 
+non-determinism
+Answer key
+☟
+Non Determinism: GATE IT 2004 | Question: 9
+Which one of the following statements is FALSE?
+A
+. 
+There exist context-free languages such that all the context-free grammars generating them are ambiguous
+B
+. 
+An unambiguous context-free grammar always has a unique parse tree for each string of the language
+generated by it
+C
+. 
+Both deterministic and non-deterministic pushdown automata always accept the same set of languages
+D
+. 
+A finite set of string from some alphabet is always a regular language
+gateit-2004
+ 
+theory-of-computation
+ 
+easy
+ 
+non-determinism
+
+
+6.13
+6.13.1
+6.13.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.14
+6.14.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.14.2
+6.15
+6.15.1
+Answer key
+☟
+Number of States 
+(2)
+Number of States: GATE CSE 2025 | Set 2 | Question: 50
+Let 
+. For 
+, let 
+ be the product of symbols in 
+ modulo 7. We take 
+, where 
+ is the null string.
+For example, 
+.
+Define 
+.
+The number of states in a minimum state DFA for 
+ is __________ . (Answer in integer)
+gatecse2025-set2
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+number-of-states
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Number of States: GATE CSE 2026 | Set 1 | Question: 16
+Let 
+ be a nondeterministic finite automaton (NFA) with 
+ states over a finite alphabet.
+Which of the following options CANNOT be the number of states in the minimal deterministic ﬁnite automaton
+(DFA) that is equivalent to 
+ ?
+gatecse-2026-set1
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+number-of-states
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Pumping Lemma 
+(2)
+Pumping Lemma: GATE CSE 2019 | Question: 15
+For 
+, let us consider the regular language 
+. Which
+one of the following can be a pumping length (the constant guaranteed by the pumping lemma) for 
+ ?
+gatecse-2019
+ 
+theory-of-computation
+ 
+pumping-lemma
+ 
+one-mark
+Answer key
+☟
+Pumping Lemma: GATE IT 2005 | Question: 40
+A language 
+ satisﬁes the Pumping Lemma for regular languages, and also the Pumping Lemma for
+context-free languages. Which of the following statements about 
+ is TRUE?
+A
+. 
+ is necessarily a regular language.
+B
+. 
+ is necessarily a context-free language, but not necessarily a regular language.
+C
+. 
+ is necessarily a non-regular language.
+D
+. 
+None of the above
+gateit-2005
+ 
+theory-of-computation
+ 
+pumping-lemma
+ 
+easy
+Answer key
+☟
+Pushdown Automata 
+(15)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(4Q)
+Pushdown Automata: GATE CSE 1996 | Question: 13
+Let 
+ be a pushdown automaton accepting by empty stack for
+the language which is the set of all nonempty even palindromes over the set 
+. Below is an incomplete
+
+
+6.15.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.15.3
+6.15.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+None
+speciﬁcation of the transitions 
+. Complete the speciﬁcation. The top of the stack is assumed to be at the right end
+of the string representing stack contents.
+1
+. 
+ 
+2
+. 
+ 
+3
+. 
+ 
+4
+. 
+ 
+5
+. 
+ 
+6
+. 
+ 
+7
+. 
+ 
+8
+. 
+ 
+9
+. 
+ 
+10
+. 
+ 
+11
+. 
+ 
+gate1996
+ 
+theory-of-computation
+ 
+pushdown-automata
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Pushdown Automata: GATE CSE 1997 | Question: 6.6
+Which of the following languages over 
+ is accepted by a deterministic pushdown automata?
+Note: 
+ is the string obtained by reversing 
+.
+gate1997
+ 
+theory-of-computation
+ 
+pushdown-automata
+ 
+easy
+Answer key
+☟
+Pushdown Automata: GATE CSE 1998 | Question: 13
+Let 
+ be a Pushdown automation where 
+ is given by
+ 
+a
+. 
+What is the language accepted by this PDA by empty stack?
+b
+. 
+Describe informally the working of the PDA
+gate1998
+ 
+theory-of-computation
+ 
+pushdown-automata
+ 
+descriptive
+Answer key
+☟
+Pushdown Automata: GATE CSE 1999 | Question: 1.6
+Let 
+ be the set of all languages accepted by a PDA by ﬁnal state and 
+ the set of all languages
+accepted by empty stack. Which of the following is true?
+normal
+ 
+theory-of-computation
+ 
+gate1999
+ 
+pushdown-automata
+Answer key
+☟
+
+
+6.15.5
+6.15.6
+6.15.7
+6.15.8
+Pushdown Automata: GATE CSE 2000 | Question: 8
+A push down automation (pda) is given in the following extended notation of finite state diagram:
+The nodes denote the states while the edges denote the moves of the pda. The edge labels are of the form 
+, 
+where 
+ is the input symbol read and 
+ are the stack contents before and after the move. For example the edge
+labeled 
+ denotes the move from state 
+ to 
+ in which the input symbol 
+ is read and pushed to the stack.
+A
+. 
+Introduce two edges with appropriate labels in the above diagram so that the resulting pda accepts the
+language 
+, by empty stack.
+B
+. 
+Describe a non-deterministic pda with three states in the above notation that accept the language 
+ by empty stack
+gatecse-2000
+ 
+theory-of-computation
+ 
+descriptive
+ 
+pushdown-automata
+Answer key
+☟
+Pushdown Automata: GATE CSE 2001 | Question: 6
+Give a deterministic PDA for the language 
+ over the alphabet 
+. Specify
+the acceptance state.
+gatecse-2001
+ 
+theory-of-computation
+ 
+normal
+ 
+pushdown-automata
+ 
+descriptive
+Answer key
+☟
+Pushdown Automata: GATE CSE 2009 | Question: 16, ISRO2017-12
+Which one of the following is FALSE?
+A
+. 
+There is a unique minimal DFA for every regular language
+B
+. 
+Every NFA can be converted to an equivalent PDA.
+C
+. 
+Complement of every context-free language is recursive.
+D
+. 
+Every nondeterministic PDA can be converted to an equivalent deterministic PDA.
+gatecse-2009
+ 
+theory-of-computation
+ 
+easy
+ 
+isro2017
+ 
+pushdown-automata
+Answer key
+☟
+Pushdown Automata: GATE CSE 2015 | Set 1 | Question: 51
+Consider the NPDA 
+, where (as per usual convention) 
+ is the set of states, 
+ is the input alphabet, 
+ is the stack alphabet, 
+ is the
+state transition function 
+ is the initial state, 
+ is the initial stack symbol, and 
+ is the set of accepting states. The
+state transition is as follows:
+Which one of the following sequences must follow the string 
+ so that the overall string is accepted by the
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.15.9
+6.15.10
+6.15.11
+automaton?
+gatecse-2015-set1
+ 
+theory-of-computation
+ 
+pushdown-automata
+ 
+normal
+Answer key
+☟
+Pushdown Automata: GATE CSE 2016 | Set 1 | Question: 43
+Consider the transition diagram of a PDA given below with input alphabet 
+ and stack alphabet 
+. 
+ is the initial stack symbol. Let 
+ denote the language accepted by the PDA
+Which one of the following is 
+TRUE
+? 
+A
+. 
+ and is not accepted by any finite automata 
+B
+. 
+ and is not accepted by any deterministic PDA 
+C
+. 
+ is not accepted by any Turing machine that halts on every input 
+D
+. 
+ and is deterministic context-free
+gatecse-2016-set1
+ 
+theory-of-computation
+ 
+pushdown-automata
+ 
+normal
+Answer key
+☟
+Pushdown Automata: GATE CSE 2021 | Set 1 | Question: 51
+In a  pushdown automaton 
+, a transition of the form,
+where 
+, 
+, and 
+, represents
+Consider the following pushdown automaton over the input alphabet 
+ and stack alphabet 
+.
+The number of strings of length 
+ accepted by the above pushdown automaton is ___________
+gatecse-2021-set1
+ 
+theory-of-computation
+ 
+pushdown-automata
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Pushdown Automata: GATE CSE 2023 | Question: 30
+Consider the pushdown automaton 
+ below, which runs on the input alphabet 
+, has stack
+alphabet 
+, and has three states 
+, with 
+ being the start state. A transition from state 
+ to
+state 
+, labelled 
+, where 
+ is an input symbol or 
+ is a stack symbol, and 
+ is a string of stack symbols,
+represents the fact that in state 
+, the 
+ can read 
+ from the input, with 
+ on the top of its stack, pop 
+ from
+the stack, push in the string 
+ on the stack, and go to state 
+. In the initial conﬁguration, the stack has only the
+symbol 
+ in it. The 
+ accepts by empty stack.
+
+
+6.15.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.15.13
+6.15.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Which one of the following options correctly describes the language accepted by 
+A
+. 
+ and 
+B
+. 
+C
+. 
+ and 
+D
+. 
+gatecse-2023
+ 
+theory-of-computation
+ 
+pushdown-automata
+ 
+two-marks
+Answer key
+☟
+Pushdown Automata: GATE IT 2004 | Question: 40
+Let 
+ be a pushdown automaton, where
+ and
+.
+Which one of the following strings is not a member of 
+?
+gateit-2004
+ 
+theory-of-computation
+ 
+pushdown-automata
+ 
+normal
+Answer key
+☟
+Pushdown Automata: GATE IT 2005 | Question: 38
+Let 
+ be a non-deterministic push-down automaton (NPDA) with exactly one state, 
+, and exactly one
+symbol, 
+, in its stack alphabet. State 
+ is both the starting as well as the accepting state of the PDA. The
+stack is initialized with one 
+ before the start of the operation of the PDA. Let the input alphabet of the PDA be 
+.
+Let 
+ be the language accepted by the PDA by reading a string and reaching its accepting state. Let 
+ be
+the language accepted by the PDA by reading a string and emptying its stack.
+Which of the following statements is TRUE?
+A
+. 
+ is necessarily 
+ but 
+ is not necessarily 
+.
+B
+. 
+ is necessarily 
+ but 
+ is not necessarily 
+.
+C
+. 
+Both 
+ and 
+ are necessarily 
+.
+D
+. 
+Neither 
+ nor 
+ are necessarily 
+gateit-2005
+ 
+theory-of-computation
+ 
+pushdown-automata
+ 
+normal
+Answer key
+☟
+Pushdown Automata: GATE IT 2006 | Question: 31
+Which of the following languages is accepted by a non-deterministic pushdown automaton (PDA) but NOT
+by a deterministic PDA?
+Г
+Г
+
+
+6.15.15
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.16
+6.16.1
+A
+. 
+A proper superset of context free
+languages.
+B
+. 
+Always recognizable by pushdown
+automata.
+C
+. 
+Also called type 
+ languages.
+D
+. 
+Recognizable by Turing machines.
+6.16.2
+gateit-2006
+ 
+theory-of-computation
+ 
+pushdown-automata
+ 
+normal
+Answer key
+☟
+Pushdown Automata: GATE IT 2006 | Question: 33
+Consider the pushdown automaton (PDA) below which runs over the input alphabet 
+. It has the
+stack alphabet 
+ where 
+ is the bottom-of-stack marker. The set of states of the PDA is 
+where 
+ is the start state and 
+ is the ﬁnal state. The PDA accepts by ﬁnal state. The transitions of the PDA given
+below are depicted in a standard manner. For example, the transition 
+ means that if the PDA
+is in state 
+ and the symbol on the top of the stack is 
+, then it can read b from the input and move to state 
+ after
+popping the top of stack and pushing the symbols 
+ and 
+ (in that order) on the stack.
+The language accepted by the PDA is
+gateit-2006
+ 
+theory-of-computation
+ 
+pushdown-automata
+ 
+normal
+Answer key
+☟
+Recursive and Recursively Enumerable Languages 
+(16)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(11Q)
+Recursive and Recursively Enumerable Languages: GATE CSE 1990 | Question: 3-vi
+Recursive languages are:
+gate1990
+ 
+normal
+ 
+theory-of-computation
+ 
+turing-machine
+ 
+recursive-and-recursively-enumerable-languages
+ 
+multiple-selects
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2003 | Question: 13
+Nobody knows yet if 
+. Consider the language 
+ defined as follows.
+Which of the following statements is true?
+A
+. 
+ is recursive
+B
+. 
+ is recursively enumerable but not recursive
+C
+. 
+ is not recursively enumerable
+D
+. 
+Whether 
+ is recursively enumerable or not will be known after we find out if 
+gatecse-2003
+ 
+theory-of-computation
+ 
+normal
+ 
+recursive-and-recursively-enumerable-languages
+Answer key
+☟
+
+
+6.16.3
+6.16.4
+6.16.5
+A
+. 
+Both 
+ and 
+ are true
+B
+. 
+ is true but 
+ is not necessarily true
+C
+. 
+ is true but 
+ is not necessarily true
+D
+. 
+Neither is necessarily true
+6.16.6
+Recursive and Recursively Enumerable Languages: GATE CSE 2003 | Question: 15
+If the strings of a language 
+ can be eﬀectively enumerated in lexicographic (i.e., alphabetic) order, which of
+the following statements is true?
+A
+. 
+ is necessarily finite
+B
+. 
+ is regular but not necessarily finite
+C
+. 
+ is context free but not necessarily regular
+D
+. 
+ is recursive but not necessarily context-free
+theory-of-computation
+ 
+gatecse-2003
+ 
+normal
+ 
+recursive-and-recursively-enumerable-languages
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2003 | Question: 54
+Define languages 
+ and 
+ as follows :
+Here 
+ is a triplet, whose first component 
+ is an encoding of a Turing
+Machine, second component 
+ is a string, and third component 
+  is a bit.
+Let 
+. Which of the following is true?
+A
+. 
+ is recursively enumerable, but 
+ is not
+B
+. 
+ is recursively enumerable, but 
+ is not
+C
+. 
+Both 
+ and 
+ are recursive  
+D
+. 
+Neither 
+ nor 
+ is recursively enumerable
+theory-of-computation
+ 
+recursive-and-recursively-enumerable-languages
+ 
+gatecse-2003
+ 
+difficult
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2004 | Question: 89
+ is a recursively enumerable language over 
+. An algorithm 
+ eﬀectively enumerates its words as 
+ Deﬁne another language 
+ over 
+ as 
+. Here # is
+new symbol. Consider the following assertions.
+ is recursive implies 
+ is recursive
+ is recursive implies 
+ is recursive
+Which of the following statements is true?
+gatecse-2004
+ 
+theory-of-computation
+ 
+recursive-and-recursively-enumerable-languages
+ 
+difficult
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2005 | Question: 56
+Let 
+ be a recursive language, and let 
+ be a recursively enumerable but not a recursive language.
+Which one of the following is TRUE?
+A
+. 
+' is recursive and 
+' is recursively enumerable
+B
+. 
+' is recursive and 
+' is not recursively enumerable
+C
+. 
+' and 
+' are recursively enumerable
+D
+. 
+' is recursively enumerable and 
+' is recursive
+gatecse-2005
+ 
+theory-of-computation
+ 
+recursive-and-recursively-enumerable-languages
+ 
+easy
+
+
+6.16.7
+A
+. 
+regular
+B
+. 
+context-free
+C
+. 
+context-sensitive
+D
+. 
+recursive
+6.16.8
+6.16.9
+6.16.10
+6.16.11
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2008 | Question: 13, 
+ISRO2016-36
+If 
+ and 
+ are recursively enumerable then 
+ is
+gatecse-2008
+ 
+theory-of-computation
+ 
+easy
+ 
+isro2016
+ 
+recursive-and-recursively-enumerable-languages
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2008 | Question: 48
+Which of the following statements is false?
+A
+. 
+Every NFA can be converted to an equivalent DFA
+B
+. 
+Every non-deterministic Turing machine can be converted to an equivalent deterministic Turing machine
+C
+. 
+Every regular language is also a context-free language
+D
+. 
+Every subset of a recursively enumerable set is recursive
+gatecse-2008
+ 
+theory-of-computation
+ 
+easy
+ 
+recursive-and-recursively-enumerable-languages
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2010 | Question: 17
+Let 
+ be the recursive language. Let 
+ and 
+ be languages that are recursively enumerable but not
+recursive. Which of the following statements is not necessarily true?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2010
+ 
+theory-of-computation
+ 
+recursive-and-recursively-enumerable-languages
+ 
+decidability
+ 
+normal
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2014 | Set 1 | Question: 35
+Let 
+ be a language and 
+ be its complement. Which one of the following is 
+NOT 
+a viable possibility?
+A
+. 
+Neither 
+ nor  
+ is recursively enumerable 
+. 
+B
+. 
+One of 
+ and 
+ is r.e. but not recursive; the other is not r.e.
+C
+. 
+Both 
+ and 
+ are r.e. but not recursive.
+D
+. 
+Both 
+ and 
+ are recursive.
+gatecse-2014-set1
+ 
+theory-of-computation
+ 
+easy
+ 
+recursive-and-recursively-enumerable-languages
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2014 | Set 2 | Question: 16
+Let 
+ denotes that language 
+ is mapping reducible (also known as many-to-one reducible) to
+language 
+. Which one of the following is FALSE?
+A
+. 
+If 
+ and 
+ is recursive then 
+ is recursive.
+B
+. 
+If 
+ and 
+ is undecidable then 
+ is undecidable.
+C
+. 
+If 
+ and 
+ is recursively enumerable then 
+ is recursively enumerable.
+D
+. 
+If 
+ and 
+ is not recursively enumerable then 
+ is not recursively enumerable.
+
+
+6.16.12
+A
+. 
+decidable and recursively
+enumerable
+B
+. 
+undecidable but recursively
+enumerable
+C
+. 
+undecidable and not recursively
+enumerable
+D
+. 
+decidable but not recursively
+enumerable
+6.16.13
+A
+. 
+I only
+B
+. 
+III only
+C
+. 
+III and IV only
+D
+. 
+I and IV only
+6.16.14
+6.16.15
+gatecse-2014-set2
+ 
+theory-of-computation
+ 
+recursive-and-recursively-enumerable-languages
+ 
+normal
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2014 | Set 2 | Question: 35
+Let 
+ be the encoding of a Turing machine as a string over 
+. Let
+Then 
+ is:
+gatecse-2014-set2
+ 
+theory-of-computation
+ 
+recursive-and-recursively-enumerable-languages
+ 
+normal
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2015 | Set 1 | Question: 3
+For any two languages 
+ and 
+ such that 
+ is context-free and 
+ is recursively enumerable but not
+recursive, which of the following is/are necessarily true?
+I
+. 
+ ( Complement of 
+) is recursive
+II
+. 
+ ( Complement of 
+) is recursive
+III
+. 
+ is context-free
+IV
+. 
+ ∪ 
+ is recursively enumerable
+gatecse-2015-set1
+ 
+theory-of-computation
+ 
+recursive-and-recursively-enumerable-languages
+ 
+normal
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2016 | Set 2 | Question: 44
+Consider the following languages.
+,
+ and
+,
+where for each Turing machine 
+ denotes a specific encoding of 
+. Which one of the following is TRUE?
+A
+. 
+ is recursive and 
+ are not recursive
+B
+. 
+ is recursive and 
+ are not recursive
+C
+. 
+ are recursive and 
+ is not recursive
+D
+. 
+ are recursive
+gatecse-2016-set2
+ 
+theory-of-computation
+ 
+recursive-and-recursively-enumerable-languages
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2021 | Set 1 | Question: 12
+Let 
+ denote an encoding of an automaton 
+. Suppose that 
+. Which of the following
+languages is/are 
+ recursive?
+A
+. 
+ is a 
+ such that 
+B
+. 
+ is a 
+ such that 
+C
+. 
+ is a 
+ such that 
+D
+. 
+ is a 
+ such that 
+
+
+6.16.16
+A
+. 
+Both 
+ and 
+ are decidable
+B
+. 
+ is decidable  and 
+ is
+undecidable
+C
+. 
+ is undecidable  and 
+ is
+decidable
+D
+. 
+Both 
+ and 
+ are undecidable
+6.17
+6.17.1
+6.17.2
+6.18
+6.18.1
+gatecse-2021-set1
+ 
+multiple-selects
+ 
+theory-of-computation
+ 
+recursive-and-recursively-enumerable-languages
+ 
+one-mark
+Answer key
+☟
+Recursive and Recursively Enumerable Languages: GATE CSE 2021 | Set 1 | Question: 39
+For a Turing machine 
+, 
+ denotes an encoding of 
+. Consider the following two languages.
+Which one of the following options is correct?
+gatecse-2021-set1
+ 
+theory-of-computation
+ 
+recursive-and-recursively-enumerable-languages
+ 
+decidability
+ 
+easy
+ 
+two-marks
+Answer key
+☟
+Reduction 
+(2)
+Reduction: GATE CSE 2005 | Question: 45
+Consider three decision problems 
+, 
+ and 
+. It is known that 
+ is decidable and 
+ is undecidable.
+Which one of the following is TRUE?
+A
+. 
+ is decidable if 
+ is reducible to 
+B
+. 
+ is undecidable if 
+ is reducible to 
+C
+. 
+ is undecidable if 
+ is reducible to 
+D
+. 
+ is decidable if 
+ is reducible to 
+'s complement
+gatecse-2005
+ 
+theory-of-computation
+ 
+decidability
+ 
+normal
+ 
+reduction
+Answer key
+☟
+Reduction: GATE CSE 2016 | Set 1 | Question: 44
+Let 
+ be a recursive language and 
+ be a recursively enumerable but not recursive language. Let 
+  and 
+ be two languages such that 
+ reduces to 
+, and 
+ reduces to 
+ (reduction means the standard many-
+one reduction). Which one of the following statements is TRUE?
+A
+. 
+ can be recursively enumerable and 
+ is recursive.
+B
+. 
+ can be recursive and 
+ is recursively enumerable.
+C
+. 
+ is not recursively enumerable and 
+ is recursive.
+D
+. 
+ is not recursively enumerable and 
+ is not recursive. 
+gatecse-2016-set1
+ 
+theory-of-computation
+ 
+easy
+ 
+recursive-and-recursively-enumerable-languages
+ 
+reduction
+Answer key
+☟
+Regular Expression 
+(29)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(7Q)
+Regular Expression: GATE CSE 1987 | Question: 10d
+Give a regular expression over the alphabet 
+ to denote the set of proper non-null substrings of the
+string 
+.
+gate1987
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+descriptive
+Answer key
+☟
+
+
+6.18.2
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+E
+. 
+None of the above
+6.18.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.18.4
+6.18.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.18.6
+A
+. 
+(i) and (ii)
+B
+. 
+(ii) and (iii)
+C
+. 
+(i) and (iii)
+D
+. 
+(iii) and (iv)
+6.18.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Regular Expression: GATE CSE 1991 | Question: 03,xiii
+Let 
+ be three regular expressions. Which one of the following is true?
+gate1991
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+normal
+ 
+multiple-selects
+Answer key
+☟
+Regular Expression: GATE CSE 1992 | Question: 02,xvii
+Which of the following regular expression identities is/are TRUE?
+gate1992
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+easy
+Answer key
+☟
+Regular Expression: GATE CSE 1994 | Question: 2.10
+The regular expression for the language recognized by the finite state automaton of figure is ________
+gate1994
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+regular-expression
+ 
+easy
+ 
+fill-in-the-blanks
+Answer key
+☟
+Regular Expression: GATE CSE 1995 | Question: 1.9 , ISRO2017-13
+In some programming language, an identiﬁer is permitted to be a letter followed by any number of letters or
+digits. If 
+ and 
+ denote the sets of letters and digits respectively, which of the following expressions
+defines an identifier?
+gate1995
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+easy
+ 
+isro2017
+Answer key
+☟
+Regular Expression: GATE CSE 1996 | Question: 1.8
+Which two of the following four regular expressions are equivalent? (
+ is the empty string).
+i
+. 
+ii
+. 
+iii
+. 
+iv
+. 
+gate1996
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+easy
+Answer key
+☟
+Regular Expression: GATE CSE 1997 | Question: 6.4
+Which one of the following regular expressions over 
+ denotes the set of all strings not containing 
+as substring?
+
+
+6.18.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.18.9
+A
+. 
+B
+. 
+C
+. 
+ and 
+ are incomparable
+D
+. 
+6.18.10
+6.18.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.18.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+None of the above
+6.18.13
+gate1997
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+normal
+Answer key
+☟
+Regular Expression: GATE CSE 1998 | Question: 1.12
+The string 
+ does not belong to the set represented by
+gate1998
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+easy
+ 
+multiple-selects
+Answer key
+☟
+Regular Expression: GATE CSE 1998 | Question: 1.9
+If the regular set 
+ is represented by 
+ and the regular set 
+ is represented by 
+, which of the following is true?
+gate1998
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+normal
+Answer key
+☟
+Regular Expression: GATE CSE 1998 | Question: 3b
+Give a regular expression for the set of binary strings where every 
+ is immediately followed by exactly 
+ 
+'s
+and preceded by at least 
+ 
+’s  (
+ is a fixed integer)
+gate1998
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+easy
+ 
+descriptive
+Answer key
+☟
+Regular Expression: GATE CSE 2000 | Question: 1.4
+Let 
+ and 
+ be languages over 
+ represented by the regular expressions 
+ and 
+, respectively. Which of the following is true?
+gatecse-2000
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+easy
+Answer key
+☟
+Regular Expression: GATE CSE 2003 | Question: 14
+The regular expression 
+ denotes the same set as
+gatecse-2003
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+easy
+Answer key
+☟
+Regular Expression: GATE CSE 2009 | Question: 15
+Which one of the following languages over the alphabet 
+ is described by the regular expression: 
+?
+A
+. 
+The set of all strings containing the substring 
+B
+. 
+The set of all strings containing at most two 
+'s
+C
+. 
+The set of all strings containing at least two 
+'s
+D
+. 
+The set of all strings that begin and end with either 
+ or 
+gatecse-2009
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+easy
+Answer key
+☟
+
+
+6.18.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.18.15
+A
+. 
+I and II only
+B
+. 
+I and III only
+C
+. 
+II and III only
+D
+. 
+I, II and III
+6.18.16
+6.18.17
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.18.18
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.18.19
+Regular Expression: GATE CSE 2010 | Question: 39
+Let 
+. i.e., 
+ is the set of all the bit strings with even
+numbers of 
+s. Which one of the regular expressions below represents 
+?
+gatecse-2010
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+normal
+Answer key
+☟
+Regular Expression: GATE CSE 2014 | Set 1 | Question: 36
+Which of the regular expressions given below represent the following DFA?
+I
+. 
+II
+. 
+III
+. 
+gatecse-2014-set1
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+finite-automata
+ 
+easy
+Answer key
+☟
+Regular Expression: GATE CSE 2014 | Set 3 | Question: 15
+The length of the shortest string NOT in the language (over 
+ of the following regular expression
+is _______.
+gatecse-2014-set3
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+numerical-answers
+ 
+easy
+Answer key
+☟
+Regular Expression: GATE CSE 2016 | Set 1 | Question: 18
+Which one of the following regular expressions represents the language: 
+the set of all binary strings having
+two consecutive 
+'s and two consecutive 
+'s
+?
+gatecse-2016-set1
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+normal
+Answer key
+☟
+Regular Expression: GATE CSE 2020 | Question: 7
+Which one of the following regular expressions represents the set of all binary strings with an odd number of 
+s?
+gatecse-2020
+ 
+regular-expression
+ 
+normal
+ 
+theory-of-computation
+ 
+one-mark
+Answer key
+☟
+Regular Expression: GATE CSE 2021 | Set 2 | Question: 47
+Which of the following regular expressions represent(s) the set of all binary numbers that are divisible by
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.18.20
+6.18.21
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.18.22
+three? Assume that the string 
+ is divisible by three.
+gatecse-2021-set2
+ 
+multiple-selects
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+two-marks
+Answer key
+☟
+Regular Expression: GATE CSE 2022 | Question: 2
+Which one of the following regular expressions correctly represents the language of the ﬁnite automaton
+given below?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2022
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+regular-expression
+ 
+one-mark
+Answer key
+☟
+Regular Expression: GATE CSE 2023 | Question: 4
+Consider the Deterministic Finite-state Automaton (
+) 
+ shown below. The 
+ runs on the alphabet 
+, and has the set of states 
+, with 
+ being the start state and 
+ being the only final state.
+Which one of the following regular expressions correctly describes the language accepted by 
+ 
+gatecse-2023
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+one-mark
+Answer key
+☟
+Regular Expression: GATE CSE 2023 | Question: 9
+Consider the following deﬁnition of a lexical token 
+ for an identiﬁer in a programming language, using
+extended regular expressions:
+Which one of the following Non-deterministic Finite-state Automata with 
+-transitions accepts the set of valid
+identifiers? (A double-circle denotes a final state)
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.18.23
+6.18.24
+6.18.25
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.18.26
+6.18.27
+gatecse-2023
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+one-mark
+Answer key
+☟
+Regular Expression: GATE CSE 2024 | Set 1 | Question: 51
+Consider the following two regular expressions over the alphabet 
+ :
+The total number of strings of length less than or equal to 
+, which are neither in 
+ nor in 
+, is ________.
+gatecse-2024-set1
+ 
+numerical-answers
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+two-marks
+Answer key
+☟
+Regular Expression: GATE CSE 2024 | Set 2 | Question: 52
+Let 
+ be the language represented by the regular expression 
+ and 
+, where 
+ denotes the length of string 
+. The number of strings in 
+which are also in 
+ is _________.
+gatecse-2024-set2
+ 
+numerical-answers
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+two-marks
+Answer key
+☟
+Regular Expression: GATE IT 2004 | Question: 7
+Which one of the following regular expressions is NOT equivalent to the regular expression 
+?
+gateit-2004
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+normal
+Answer key
+☟
+Regular Expression: GATE IT 2005 | Question: 5
+Which of the following statements is TRUE about the regular expression 
+?
+A
+. 
+It represents a finite set of finite strings.
+B
+. 
+It represents an infinite set of finite strings.
+C
+. 
+It represents a finite set of infinite strings.
+D
+. 
+It represents an infinite set of infinite strings.
+gateit-2005
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+easy
+Answer key
+☟
+Regular Expression: GATE IT 2006 | Question: 5
+Which regular expression best describes the language accepted by the non-deterministic automaton below?
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.18.28
+6.18.29
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.19
+6.19.1
+6.19.2
+gateit-2006
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+normal
+Answer key
+☟
+Regular Expression: GATE IT 2007 | Question: 73
+Consider the regular expression 
+Which one of the regular expressions given below deﬁnes the same language as deﬁned by the regular
+expression 
+ ?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gateit-2007
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+normal
+Answer key
+☟
+Regular Expression: GATE IT 2008 | Question: 5
+Which of the following regular expressions describes the language over
+ consisting of strings that
+contain exactly two 
+'s?
+gateit-2008
+ 
+theory-of-computation
+ 
+regular-expression
+ 
+easy
+Answer key
+☟
+Regular Grammar 
+(3)
+Regular Grammar: GATE CSE 1990 | Question: 15a
+Is the language generated by the grammar 
+ regular? If so, give a regular expression for it, else prove
+otherwise
+G:    
+gate1990
+ 
+descriptive
+ 
+theory-of-computation
+ 
+regular-language
+ 
+regular-grammar
+Answer key
+☟
+Regular Grammar: GATE CSE 2015 | Set 2 | Question: 35
+Consider the alphabet 
+, the null/empty string 
+ and the set of strings 
+generated by the corresponding non-terminals of a regular grammar. 
+ are related as
+follows.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.19.3
+6.20
+6.20.1
+6.20.2
+6.20.3
+A
+. 
+ is not regular.
+B
+. 
+ is regular.
+C
+. 
+ is regular.
+D
+. 
+ is not regular.
+6.20.4
+A
+. 
+It could be undecidable
+B
+. 
+It is Turing-machine recognizable
+C
+. 
+It is a context-sensitive language.
+D
+. 
+It is a regular language.
+E
+. 
+None of the above,
+Which one of the following choices precisely represents the strings in 
+?
+gatecse-2015-set2
+ 
+theory-of-computation
+ 
+regular-grammar
+ 
+normal
+Answer key
+☟
+Regular Grammar: GATE IT 2006 | Question: 29
+Consider the regular grammar below
+ 
+The Myhill-Nerode equivalence classes for the language generated by the grammar are
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gateit-2006
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-grammar
+Answer key
+☟
+Regular Language 
+(35)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(7Q)
+Regular Language: GATE CSE 1987 | Question: 2h
+State whether the following statements are TRUE or FALSE:
+Regularity is preserved under the operation of string reversal.
+gate1987
+ 
+theory-of-computation
+ 
+regular-language
+ 
+true-false
+Answer key
+☟
+Regular Language: GATE CSE 1987 | Question: 2i
+State whether the following statements are TRUE or FALSE:
+All subsets of regular sets are regular.
+gate1987
+ 
+theory-of-computation
+ 
+regular-language
+ 
+true-false
+Answer key
+☟
+Regular Language: GATE CSE 1990 | Question: 3-viii
+Let 
+ and 
+ be regular sets defined over the alphabet 
+ Then:
+gate1990
+ 
+normal
+ 
+theory-of-computation
+ 
+regular-language
+ 
+multiple-selects
+Answer key
+☟
+Regular Language: GATE CSE 1991 | Question: 03,xiv
+Which of the following is the strongest correct statement about a ﬁnite language over some ﬁnite alphabet 
+gate1991
+ 
+theory-of-computation
+ 
+easy
+ 
+regular-language
+ 
+multiple-selects
+
+
+6.20.5
+A
+. 
+regular, regular
+B
+. 
+not regular, regular
+C
+. 
+regular, not regular
+D
+. 
+not regular, not regular
+6.20.6
+6.20.7
+6.20.8
+6.20.9
+Answer key
+☟
+Regular Language: GATE CSE 1995 | Question: 2.24
+Let 
+ and 
+ then the languages 
+ and 
+ are respectively
+gate1995
+ 
+theory-of-computation
+ 
+easy
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 1996 | Question: 1.10
+Let 
+ where 
+. Which of the following is true?
+a
+. 
+ is regular
+b
+. 
+ is regular
+c
+. 
+ is regular
+d
+. 
+ is regular
+gate1996
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 1998 | Question: 2.6
+Which of the following statements is false?
+a
+. 
+Every finite subset of a non-regular set is regular
+b
+. 
+Every subset of a regular set is regular
+c
+. 
+Every finite subset of a regular set is regular
+d
+. 
+The intersection of two regular sets is regular
+gate1998
+ 
+theory-of-computation
+ 
+easy
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 1999 | Question: 6
+A
+. 
+Given that 
+ is regular and 
+ is regular, does it follow that 
+ is necessarily regular? Justify your answer.
+B
+. 
+Given two finite automata 
+, outline an algorithm to decide if 
+. (note: strict subset)
+gate1999
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-language
+ 
+descriptive
+Answer key
+☟
+Regular Language: GATE CSE 2000 | Question: 2.8
+What can be said about a regular language 
+ over 
+ whose minimal ﬁnite state automaton has two
+states?
+A
+. 
+ must be 
+B
+. 
+ must be 
+C
+. 
+ must be 
+D
+. 
+Either 
+ must be 
+, or 
+ must be 
+gatecse-2000
+ 
+theory-of-computation
+ 
+easy
+ 
+regular-language
+Answer key
+☟
+
+
+6.20.10
+A
+. 
+Only 
+ is correct
+B
+. 
+Only 
+ is correct
+C
+. 
+Both 
+ and 
+ are correct
+D
+. 
+None of 
+ and 
+ is correct
+6.20.11
+A
+. 
+Only 
+ and 
+B
+. 
+Only 
+ and 
+C
+. 
+Only 
+ and 
+D
+. 
+Only 
+6.20.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.20.13
+6.20.14
+Regular Language: GATE CSE 2001 | Question: 1.4
+Consider the following two statements:
+ is a regular language
+ is a regular language
+Which of the following statement is correct?
+gatecse-2001
+ 
+theory-of-computation
+ 
+easy
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 2001 | Question: 2.6
+Consider the following languages:
+Which of the languages are regular?
+gatecse-2001
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 2007 | Question: 31
+Which of the following languages is regular?
+gatecse-2007
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 2007 | Question: 7
+Which of the following is TRUE?
+A
+. 
+Every subset of a regular set is regular
+B
+. 
+Every finite subset of a non-regular set is regular
+C
+. 
+The union of two non-regular sets is not regular
+D
+. 
+Infinite union of finite sets is regular
+gatecse-2007
+ 
+theory-of-computation
+ 
+easy
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 2008 | Question: 53
+Which of the following are regular sets?
+I
+. 
+II
+. 
+III
+. 
+
+
+A
+. 
+I and IV only
+B
+. 
+I and III only
+C
+. 
+I only
+D
+. 
+IV only
+6.20.15
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.20.16
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.20.17
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.20.18
+6.20.19
+A
+. 
+Only I
+B
+. 
+Only II
+C
+. 
+Both I and II
+D
+. 
+Neither I nor II
+IV
+. 
+gatecse-2008
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 2011 | Question: 24
+Let 
+ be a regular language and 
+ be a context-free language such that 
+. (For example, let 
+ be
+the language represented by the regular expression 
+ and 
+ be 
+. Then which of the
+following is 
+ALWAYS
+ regular?
+gatecse-2011
+ 
+theory-of-computation
+ 
+easy
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 2012 | Question: 25
+Given the language 
+, which of the following strings are in 
+?
+1
+. 
+2
+. 
+3
+. 
+4
+. 
+gatecse-2012
+ 
+theory-of-computation
+ 
+easy
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 2013 | Question: 8
+Consider the languages 
+ and 
+. Which one of the following represents 
+ ?
+gatecse-2013
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 2014 | Set 1 | Question: 15
+Which one of the following is 
+TRUE
+?
+A
+. 
+The language 
+ is regular.
+B
+. 
+The language 
+ is regular.
+C
+. 
+The language 
+= 
+ is regular.
+D
+. 
+The language 
+ is regular.
+gatecse-2014-set1
+ 
+theory-of-computation
+ 
+regular-language
+ 
+normal
+Answer key
+☟
+Regular Language: GATE CSE 2014 | Set 2 | Question: 15
+If 
+  and 
+ , consider 
+I
+. 
+ is a regular language
+II
+. 
+Which one of the following is CORRECT?
+
+
+6.20.20
+A
+. 
+ is regular but not 
+B
+. 
+ is regular but not 
+C
+. 
+Both 
+ and 
+ are regular
+D
+. 
+Neither 
+ nor 
+ are regular
+6.20.21
+A
+. 
+ and 
+ only
+B
+. 
+ only
+C
+. 
+ and 
+ only
+D
+. 
+ only
+6.20.22
+A
+. 
+Both 
+ and 
+ are true.
+B
+. 
+ is true and 
+ is false.
+C
+. 
+ is false and 
+ is true.
+D
+. 
+Both 
+ and 
+ are false.
+6.20.23
+gatecse-2014-set2
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 2014 | Set 2 | Question: 36
+Let 
+ 
+ 
+ 
+. Let 
+ 
+ 
+ 
+. Which one of the
+following is TRUE?
+gatecse-2014-set2
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 2015 | Set 2 | Question: 51
+Which of the following is/are regular languages?
+gatecse-2015-set2
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 2016 | Set 2 | Question: 17
+Language 
+ is defined by the grammar: 
+Language 
+ is defined by the grammar: 
+Consider the following statements:
+P: 
+ is regular
+Q: 
+ is regular
+Which one of the following is 
+TRUE
+?
+gatecse-2016-set2
+ 
+theory-of-computation
+ 
+easy
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE CSE 2018 | Question: 52
+Given a language 
+, define 
+ as follows:
+The order of a language 
+ is deﬁned as the smallest 
+ such that 
+. Consider the language 
+over
+alphabet 
+ accepted by the following automaton.
+The order of 
+ is ________.
+gatecse-2018
+ 
+theory-of-computation
+ 
+numerical-answers
+ 
+regular-language
+ 
+two-marks
+
+
+6.20.24
+6.20.25
+6.20.26
+A
+. 
+Ⅰ
+ only
+B
+. 
+Ⅱ
+ only
+C
+. 
+Both 
+Ⅰ
+ and  
+Ⅱ
+D
+. 
+Neither 
+Ⅰ
+ nor  
+Ⅱ
+6.20.27
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.20.28
+A
+. 
+ if and only if 
+B
+. 
+ is not regular
+C
+. 
+ is not regular 
+D
+. 
+ is regular
+Answer key
+☟
+Regular Language: GATE CSE 2019 | Question: 7
+If 
+ is a regular language over 
+, which one of the following languages is NOT regular?
+A
+. 
+B
+. 
+C
+. 
+such that
+D
+. 
+such that
+gatecse-2019
+ 
+theory-of-computation
+ 
+regular-language
+ 
+one-mark
+Answer key
+☟
+Regular Language: GATE CSE 2020 | Question: 51
+Consider the following language.
+number of 
+’s in 
+ divisible by 
+ but not divisible by 
+The minimum number of states in DFA that accepts 
+ is _________
+gatecse-2020
+ 
+numerical-answers
+ 
+theory-of-computation
+ 
+regular-language
+ 
+two-marks
+Answer key
+☟
+Regular Language: GATE CSE 2020 | Question: 8
+Consider the following statements.
+I
+. 
+If 
+ is regular, then both   
+ and 
+ must be regular.
+II
+. 
+The class of regular languages is closed under infinite union.
+Which of the above statements is/are TRUE?
+gatecse-2020
+ 
+theory-of-computation
+ 
+regular-language
+ 
+one-mark
+Answer key
+☟
+Regular Language: GATE CSE 2021 | Set 2 | Question: 9
+Let 
+ be an arbitrary regular language accepted by a minimal 
+ with 
+ states. Which one of
+the following languages must necessarily be accepted by a minimal 
+ with 
+ states?
+gatecse-2021-set2
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+regular-language
+ 
+one-mark
+Answer key
+☟
+Regular Language: GATE CSE 2024 | Set 1 | Question: 13
+​
+Let 
+ be two regular languages and 
+ a language which is not regular.
+Which of the following statements is/are always TRUE?
+gatecse-2024-set1
+ 
+multiple-selects
+ 
+theory-of-computation
+ 
+regular-language
+ 
+one-mark
+Answer key
+☟
+
+
+6.20.29
+6.20.30
+6.20.31
+6.20.32
+Regular Language: GATE CSE 2025 | Set 1 | Question: 18
+A regular language 
+ is accepted by a non-deterministic ﬁnite automaton (NFA) with 
+ states. Which of the
+following statement(s) is/are FALSE?
+A
+. 
+ may have an accepting NFA with 
+ states.
+B
+. 
+ may have an accepting DFA with 
+ states.
+C
+. 
+There exists a DFA with 
+ states that accepts 
+.
+D
+. 
+Every DFA that accepts 
+ has 
+ states.
+gatecse2025-set1
+ 
+theory-of-computation
+ 
+finite-automata
+ 
+regular-language
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Regular Language: GATE CSE 2025 | Set 1 | Question: 34
+Consider the following two languages over the alphabet 
+:
+Which ONE of the following statements is CORRECT?
+A
+. 
+Both 
+ and 
+ are regular languages.
+B
+. 
+ is a regular language but 
+ is not a regular language.
+C
+. 
+ is not a regular language but 
+ is a regular language.
+D
+. 
+Neither 
+ nor 
+ is a regular language.
+gatecse2025-set1
+ 
+theory-of-computation
+ 
+regular-language
+ 
+two-marks
+Answer key
+☟
+Regular Language: GATE CSE 2025 | Set 2 | Question: 42
+Let 
+. For 
+, and 
+, let 
+ denote the number of  occurrences of 
+ in 
+. 
+Which one or more of the following option(s) define(s) regular language(s)?
+ 
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+, and 
+D
+. 
+, and 
+ 
+gatecse2025-set2
+ 
+theory-of-computation
+ 
+regular-language
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Regular Language: GATE IT 2006 | Question: 30
+Which of the following statements about regular languages is NOT true ?
+A
+. 
+Every language has a regular superset
+B
+. 
+Every language has a regular subset
+C
+. 
+Every subset of a regular language is regular
+D
+. 
+Every subset of a finite language is regular
+gateit-2006
+ 
+theory-of-computation
+ 
+easy
+ 
+regular-language
+Answer key
+☟
+
+
+6.20.33
+A
+. 
+Both I and IV
+B
+. 
+Only I
+C
+. 
+Only IV
+D
+. 
+Both II and III
+6.20.34
+a
+. 
+Both I and IV
+b
+. 
+Only I
+c
+. 
+Only IV
+d
+. 
+Both II and III
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.20.35
+A
+. 
+ and 
+ only
+B
+. 
+ and 
+ only
+C
+. 
+ only
+D
+. 
+ only
+6.21
+6.21.1
+Regular Language: GATE IT 2006 | Question: 80
+Let 
+ be a regular language. Consider the constructions on 
+ below:
+I
+. 
+repeat 
+II
+. 
+prefix 
+III
+. 
+suffix 
+IV
+. 
+half 
+Which of the constructions could lead to a non-regular language?
+gateit-2006
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE IT 2006 | Question: 81
+Let 
+ be a regular language. Consider the constructions on 
+ below:
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+Which of the constructions could lead to a non-regular language?
+Which choice of 
+ is best suited to support your answer above?
+gateit-2006
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-language
+Answer key
+☟
+Regular Language: GATE IT 2008 | Question: 35
+Which of the following languages is (are) non-regular?
+ reads the same forward and backward
+ contains an even number of 0's and an even number of 1's
+gateit-2008
+ 
+theory-of-computation
+ 
+normal
+ 
+regular-language
+Answer key
+☟
+Turing Machine 
+(1)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(13Q)
+Turing Machine: GATE CSE 2026 | Set 2 | Question: 3
+Which one of the following statements is equivalent to the following assertion?
+Turing machine 
+ decides the language 
+A
+. 
+Turing machine 
+ halts on all input strings in 
+B
+. 
+Turing machine 
+ accepts all input strings in 
+C
+. 
+Turing machine 
+ rejects all input strings in 
+D
+. 
+Turing machine 
+ accepts all input strings in 
+ and rejects all input strings in 
+
+
+gatecse-2026-set2
+ 
+theory-of-computation
+ 
+turing-machine
+ 
+one-mark
+Answer key
+☟
+Answer Keys
+6.1.1
+A;C
+6.1.2
+A;B
+6.1.3
+A
+6.1.4
+C
+6.1.5
+D
+6.1.6
+B
+6.1.7
+B
+6.1.8
+B;C
+6.1.9
+C
+6.1.10
+D
+6.2.1
+A
+6.2.2
+A;B;C
+6.3.1
+False
+6.3.2
+A;D
+6.3.3
+A
+6.3.4
+B
+6.3.5
+B
+6.3.6
+B
+6.3.7
+N/A
+6.3.8
+N/A
+6.3.9
+B
+6.3.10
+C
+6.3.11
+B
+6.3.12
+D
+6.3.13
+B
+6.3.14
+B
+6.3.15
+D
+6.3.16
+D
+6.3.17
+B
+6.3.18
+B
+6.3.19
+D
+6.3.20
+A
+6.3.21
+C
+6.3.22
+C
+6.3.23
+C
+6.3.24
+B;C;D
+6.3.25
+B;C;D
+6.3.26
+B
+6.3.27
+C
+6.3.28
+B;D
+6.3.29
+A;C;D
+6.3.30
+B
+6.3.31
+B
+6.3.32
+A
+6.3.33
+C
+6.3.34
+D
+6.3.35
+B
+6.4.1
+B
+6.4.2
+C
+6.4.3
+B
+6.5.1
+True
+6.5.2
+True
+6.5.3
+N/A
+6.5.4
+B;D
+6.5.5
+B;C
+6.5.6
+N/A
+6.5.7
+D
+6.5.8
+B
+6.5.9
+N/A
+6.5.10
+A
+6.5.11
+B
+6.5.12
+N/A
+6.5.13
+N/A
+6.5.14
+C
+6.5.15
+A
+6.5.16
+B
+6.5.17
+B
+6.5.18
+D
+6.5.19
+D
+6.5.20
+A
+6.5.21
+D
+6.5.22
+C
+6.5.23
+C
+6.5.24
+A
+6.5.25
+D
+6.5.26
+D
+6.5.27
+A
+6.5.28
+C
+6.5.29
+A;B;C
+6.5.30
+D
+6.6.1
+A
+6.7.1
+N/A
+6.7.2
+N/A
+6.7.3
+N/A
+6.7.4
+N/A
+6.7.5
+N/A
+6.7.6
+A
+6.7.7
+N/A
+6.7.8
+A
+6.7.9
+N/A
+6.7.10
+C
+6.7.11
+B
+6.7.12
+A
+6.7.13
+X
+6.7.14
+B
+6.7.15
+C
+6.7.16
+A
+6.7.17
+C
+6.7.18
+C
+6.7.19
+B
+6.7.20
+D
+6.7.21
+D
+6.7.22
+A
+6.7.23
+B
+6.7.24
+C
+6.7.25
+D
+6.7.26
+256 : 256
+6.7.27
+B
+6.7.28
+B;C
+6.7.29
+A
+6.7.30
+B
+6.7.31
+C
+6.7.32
+C;D
+6.7.33
+B
+6.7.34
+A
+6.7.35
+B
+6.7.36
+D
+6.7.37
+A
+6.7.38
+D
+6.7.39
+A
+6.7.40
+A
+6.7.41
+A
+6.7.42
+A
+6.7.43
+X
+6.8.1
+5:5
+6.9.1
+C
+6.9.2
+N/A
+6.9.3
+N/A
+6.9.4
+N/A
+6.9.5
+A;C
+6.9.6
+B
+6.9.7
+B
+6.9.8
+B
+6.9.9
+A
+6.9.10
+D
+6.9.11
+B
+6.9.12
+B
+6.9.13
+C
+6.9.14
+D
+6.9.15
+C
+6.9.16
+D
+6.9.17
+C
+6.9.18
+D
+6.9.19
+C
+6.9.20
+B
+6.9.21
+D
+6.9.22
+B
+6.9.23
+C
+6.9.24
+A
+6.9.25
+B;C;D
+6.9.26
+B;C;D
+6.9.27
+A;B;C
+6.9.28
+A;C;D
+6.9.29
+D
+6.9.30
+A
+6.9.31
+B
+6.10.1
+C
+6.11.1
+0
+6.11.2
+N/A
+6.11.3
+N/A
+6.11.4
+B
+6.11.5
+N/A
+6.11.6
+B
+6.11.7
+B
+6.11.8
+D
+6.11.9
+B
+6.11.10
+D
+6.11.11
+A
+6.11.12
+B
+6.11.13
+C
+6.11.14
+B
+6.11.15
+A
+6.11.16
+1
+6.11.17
+3
+6.11.18
+B
+6.11.19
+2
+6.11.20
+4
+6.11.21
+8
+6.11.22
+D
+6.11.23
+120
+
+6.11.24
+4
+6.11.25
+A
+6.12.1
+A;C
+6.12.2
+C
+6.12.3
+B
+6.12.4
+D
+6.12.5
+B
+6.12.6
+C
+6.13.1
+6:6
+6.13.2
+B;D
+6.14.1
+D
+6.14.2
+D
+6.15.1
+N/A
+6.15.2
+A
+6.15.3
+N/A
+6.15.4
+A
+6.15.5
+N/A
+6.15.6
+N/A
+6.15.7
+D
+6.15.8
+B
+6.15.9
+D
+6.15.10
+50 : 50
+6.15.11
+A
+6.15.12
+B
+6.15.13
+D
+6.15.14
+B
+6.15.15
+C
+6.16.1
+A;D
+6.16.2
+A
+6.16.3
+D
+6.16.4
+D
+6.16.5
+A
+6.16.6
+B
+6.16.7
+D
+6.16.8
+D
+6.16.9
+B
+6.16.10
+C
+6.16.11
+D
+6.16.12
+B
+6.16.13
+D
+6.16.14
+C
+6.16.15
+D
+6.16.16
+A
+6.17.1
+C
+6.17.2
+C
+6.18.1
+N/A
+6.18.2
+A;C
+6.18.3
+A
+6.18.4
+N/A
+6.18.5
+C
+6.18.6
+C
+6.18.7
+D
+6.18.8
+C;D
+6.18.9
+D
+6.18.10
+N/A
+6.18.11
+C
+6.18.12
+A
+6.18.13
+C
+6.18.14
+B
+6.18.15
+B
+6.18.16
+3
+6.18.17
+B
+6.18.18
+X
+6.18.19
+A;B;C
+6.18.20
+D
+6.18.21
+C
+6.18.22
+C
+6.18.23
+44
+6.18.24
+15
+6.18.25
+C
+6.18.26
+B
+6.18.27
+A
+6.18.28
+C
+6.18.29
+C
+6.19.1
+N/A
+6.19.2
+C
+6.19.3
+A
+6.20.1
+True
+6.20.2
+False
+6.20.3
+B;C
+6.20.4
+D
+6.20.5
+C
+6.20.6
+D
+6.20.7
+B
+6.20.8
+N/A
+6.20.9
+X
+6.20.10
+A
+6.20.11
+D
+6.20.12
+C
+6.20.13
+B
+6.20.14
+A
+6.20.15
+C
+6.20.16
+C
+6.20.17
+A
+6.20.18
+C
+6.20.19
+A
+6.20.20
+A
+6.20.21
+A
+6.20.22
+C
+6.20.23
+2
+6.20.24
+B
+6.20.25
+6
+6.20.26
+D
+6.20.27
+C
+6.20.28
+C;D
+6.20.29
+D
+6.20.30
+C
+6.20.31
+A;C
+6.20.32
+C
+6.20.33
+B
+6.20.34
+A
+6.20.35
+D
+6.21.1
+D

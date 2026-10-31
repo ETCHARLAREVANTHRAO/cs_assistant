@@ -1,0 +1,10605 @@
+3
+Programming and DS: Data Structures
+ 
+(238)
+Webpage
+Stacks,
+ 
+Queues,
+ 
+Linked lists,
+ 
+Trees,
+ 
+Binary search trees,
+ 
+Binary heaps,
+ Graphs.
+Welcome to the "Programming and Data Structures: Data Structures" chapter, a cornerstone of the GATE Computer
+Science syllabus. This subject is fundamental to understanding how data is organized, stored, and manipulated
+efficiently, which is crucial for designing optimal algorithms and software systems. For GATE CS, Data Structures
+typically carries a significant weightage, often contributing 8-12 marks, sometimes more, through a mix of Multiple
+Choice Questions (MCQs) and Numerical Answer Type (NAT) questions. Questions frequently test your understanding
+of core concepts, time and space complexity analysis of operations, properties of various data structures, and their
+applications in problem-solving. Expect problems involving tracing operations on specific data structures like AVL trees
+or heaps, analyzing the complexity of given code snippets, or determining the output of tree traversals.
+Topic-wise Key Concepts
+AVL Tree
+An AVL tree is a self-balancing Binary Search Tree (BST) where the difference between the heights of the left and right
+subtrees for any node is at most 1. This strict balance ensures that the tree remains relatively balanced, preventing
+worst-case scenarios of skewed BSTs.
+Balance Factor:
+ For any node 
+, 
+. In an AVL tree, 
+.
+Rotations:
+ When an insertion or deletion causes a node to become unbalanced (balance factor becomes 
+),
+rotations are performed to restore balance. There are four types of rotations:
+1
+. 
+LL Rotation (Left-Left):
+ Occurs when an insertion into the left subtree of the left child causes imbalance. A
+single right rotation is performed.
+2
+. 
+RR Rotation (Right-Right):
+ Occurs when an insertion into the right subtree of the right child causes imbalance.
+A single left rotation is performed.
+3
+. 
+LR Rotation (Left-Right):
+ Occurs when an insertion into the right subtree of the left child causes imbalance. A
+left rotation on the child, followed by a right rotation on the parent.
+4
+. 
+RL Rotation (Right-Left):
+ Occurs when an insertion into the left subtree of the right child causes imbalance. A
+right rotation on the child, followed by a left rotation on the parent.
+Height of an AVL Tree:
+ For an AVL tree with 
+ nodes, its height 
+ is always 
+. Specifically, 
+.
+Time Complexity:
+ Insertion, deletion, and search operations all take 
+ time in the worst case due to the
+balanced nature.
+Common Pitfalls:
+ Incorrectly identifying the type of rotation needed, especially for LR and RL cases. Forgetting to
+update heights and balance factors after rotations. Tracing rotations correctly requires careful step-by-step analysis.
+Problem-Solving Techniques:
+ Practice tracing insertions/deletions and the subsequent rotations on small example
+AVL trees. Understand the pivot node and the child involved in the imbalance.
+Abstract Data Type (ADT)
+An Abstract Data Type (ADT) is a mathematical model for data types, defining the data stored and the operations that
+can be performed on it, without specifying how these operations are implemented. It focuses on "what" an operation
+does rather than "how" it does it.
+Key Properties:
+Abstraction:
+ Hides the internal implementation details from the user.
+Encapsulation:
+ Bundles data and methods that operate on the data into a single unit.
+Examples:
+ Stack, Queue, List, Priority Queue, Map, Set are all ADTs. A data structure (e.g., array, linked list) is a
+
+
+concrete implementation of an ADT.
+Common Pitfalls:
+ Confusing an ADT with a data structure. An ADT is a logical concept, while a data structure is a
+physical implementation.
+Problem-Solving Techniques:
+ Identify the core operations and their logical behavior when asked to define or
+recognize an ADT.
+Array
+An array is a collection of elements of the same data type, stored in contiguous memory locations. Elements are
+accessed using an integer index.
+Address Calculation (1D Array):
+ For an array 
+ starting at 
+, with elements of size 
+, and lower
+bound 
+:
+If 
+, then 
+.
+Address Calculation (2D Array - Row-Major Order):
+ For an array 
+ (R rows, C columns), starting at 
+, with element size 
+, and lower bounds 
+:
+If 
+, then 
+.
+Address Calculation (2D Array - Column-Major Order):
+ For an array 
+, starting at 
+, with
+element size 
+, and lower bounds 
+:
+If 
+, then 
+.
+Time Complexity:
+Accessing an element: 
+Insertion/Deletion at end: 
+ (if space available)
+Insertion/Deletion at beginning/middle: 
+ (requires shifting elements)
+Common Pitfalls:
+ Off-by-one errors in index calculations, especially with non-zero lower bounds. Confusing row-major
+with column-major order.
+Problem-Solving Techniques:
+ Carefully apply the address calculation formulas. Understand the memory layout for
+multi-dimensional arrays.
+Binary Heap
+A binary heap is a complete binary tree that satisfies the heap property: for a min-heap, every parent node's value is
+less than or equal to its children's values; for a max-heap, every parent node's value is greater than or equal to its
+children's values. Heaps are typically implemented using an array.
+Array Representation (0-indexed):
+Parent of node at index 
+: 
+Left child of node at index 
+: 
+Right child of node at index 
+: 
+Heap Properties:
+Completeness:
+ All levels are completely filled except possibly the last level, which is filled from left to right.
+Heap Property:
+ (Min-heap or Max-heap)
+Time Complexity:
+Insert: 
+ (heapify-up)
+Delete-min/max (extract-root): 
+ (heapify-down)
+Build Heap from an array of 
+ elements: 
+Search: 
+ (Heaps are not designed for efficient search of arbitrary elements)
+Common Pitfalls:
+ Violating the completeness property. Incorrectly applying heapify-up or heapify-down logic.
+Confusing min-heap and max-heap properties.
+
+
+Problem-Solving Techniques:
+ Trace heap operations (insert, delete) step-by-step. For building a heap, start from the
+last non-leaf node and perform heapify-down upwards.
+Binary Search Tree (BST)
+A Binary Search Tree (BST) is a binary tree where for every node, all values in its left subtree are less than the node's
+value, and all values in its right subtree are greater than the node's value. Duplicate values are typically not allowed or
+handled specifically (e.g., placed in the right subtree).
+BST Properties:
+Left subtree values 
+ Root value
+Right subtree values 
+ Root value
+Both left and right subtrees are also BSTs.
+Inorder traversal of a BST yields elements in sorted order.
+Time Complexity (Average Case):
+Search, Insertion, Deletion: 
+Time Complexity (Worst Case - Skewed Tree):
+Search, Insertion, Deletion: 
+ (occurs when elements are inserted in sorted or reverse-sorted order, leading
+to a linked list-like structure)
+Deletion Cases:
+1
+. 
+Node to be deleted is a leaf: Simply remove it.
+2
+. 
+Node has one child: Replace the node with its child.
+3
+. 
+Node has two children: Replace the node's value with its inorder predecessor (largest in left subtree) or inorder
+successor (smallest in right subtree), then delete the predecessor/successor node (which will have 0 or 1 child).
+Common Pitfalls:
+ Forgetting the worst-case 
+ complexity for skewed trees. Incorrectly handling deletion of nodes
+with two children. Not understanding that inorder traversal is key to sorted output.
+Problem-Solving Techniques:
+ Practice constructing BSTs and performing deletions. Understand the recursive nature
+of BST operations.
+Binary Tree
+A binary tree is a tree data structure in which each node has at most two children, referred to as the left child and the
+right child.
+Key Properties:
+Full Binary Tree:
+ Every node has either 0 or 2 children.
+Complete Binary Tree:
+ All levels are completely filled except possibly the last level, which is filled from left to
+right.
+Perfect Binary Tree:
+ All internal nodes have two children, and all leaf nodes are at the same level. (A perfect
+binary tree is always full and complete).
+Skewed Binary Tree:
+ All nodes have only one child (either left or right), resembling a linked list.
+Formulas:
+Maximum number of nodes at level 
+ (root at level 0): 
+Maximum number of nodes in a binary tree of height 
+ (max levels 
+): 
+Minimum height of a binary tree with 
+ nodes: 
+ or 
+ (for complete binary tree)
+Number of leaf nodes 
+ and internal nodes 
+ in a full binary tree: 
+Common Pitfalls:
+ Confusing the definitions of full, complete, and perfect binary trees. Miscalculating height or number
+of nodes.
+Problem-Solving Techniques:
+ Draw examples to visualize properties. Apply formulas carefully based on the definition
+of the tree type.
+Data Structures
+Data structures are specialized formats for organizing and storing data in a computer so that it can be accessed and
+modified efficiently. They provide a means to manage large amounts of data effectively for various applications.
+Classification:
+Primitive vs. Non-Primitive:
+ Primitive (int, char, float), Non-Primitive (Arrays, Linked Lists, Trees, Graphs).
+Linear vs. Non-Linear:
+ Linear (Arrays, Linked Lists, Stacks, Queues), Non-Linear (Trees, Graphs).
+
+
+Static vs. Dynamic:
+ Static (fixed size at compile time, e.g., arrays), Dynamic (size can change at runtime, e.g.,
+linked lists).
+Importance:
+ Choosing the right data structure is critical for optimal algorithm performance (time and space
+complexity).
+Common Pitfalls:
+ Not understanding the trade-offs between different data structures (e.g., array vs. linked list for
+insertion/deletion).
+Problem-Solving Techniques:
+ Analyze problem requirements (e.g., frequent insertions, fast searches, memory
+constraints) to select the most appropriate data structure.
+Hashing
+Hashing is a technique used to map keys to array indices (hash table slots) for efficient data storage and retrieval. A
+hash function 
+ computes an index for a given key 
+.
+Hash Functions:
+Division Method:
+ 
+, where 
+ is the size of the hash table (often a prime number not close
+to a power of 2).
+Multiplication Method:
+ 
+, where 
+ is a constant 
+ (e.g., 
+).
+Mid-Square Method:
+ Square the key, then extract some middle digits.
+Folding Method:
+ Divide the key into parts, then combine them (e.g., add them).
+Collision Resolution Techniques:
+ When two different keys map to the same index.
+Chaining:
+ Each hash table slot points to a linked list of all keys that hash to that slot.
+Average case for search/insert/delete: 
+, where 
+ is the load factor.
+Worst case: 
+ if all keys hash to the same slot.
+Open Addressing:
+ All elements are stored directly in the hash table. When a collision occurs, probe for an
+alternative empty slot.
+Linear Probing:
+ 
+, where 
+. Suffers from primary clustering.
+Quadratic Probing:
+ 
+. Reduces primary clustering but can suffer
+from secondary clustering.
+Double Hashing:
+ 
+. Uses two hash functions to generate probe
+sequences, reducing clustering.
+Load Factor (
+):
+ 
+, where 
+ is the number of elements and 
+ is the table size.
+For chaining: 
+ can be greater than 1.
+For open addressing: 
+.
+Common Pitfalls:
+ Choosing a non-prime table size for division method. Incorrectly applying probing sequences.
+Understanding the difference between primary and secondary clustering.
+Problem-Solving Techniques:
+ Trace insertions and searches with given hash functions and collision resolution
+strategies. Calculate load factor and analyze performance implications.
+Infix, Prefix, Postfix Notations
+These are different ways to write arithmetic expressions, differing in the position of operators relative to their operands.
+Infix Notation:
+ Operator is between operands (e.g., 
+). This is the human-readable form.
+Prefix Notation (Polish Notation):
+ Operator precedes its operands (e.g., 
+).
+Postfix Notation (Reverse Polish Notation):
+ Operator follows its operands (e.g., 
+).
+Properties:
+ Prefix and Postfix notations do not require parentheses to define operator precedence or associativity,
+making them unambiguous for computer evaluation.
+Conversion Rules:
+Infix to Postfix/Prefix:
+ Typically uses a stack. Operators are pushed onto the stack based on precedence and
+associativity. Operands are directly appended to the output.
+Evaluation of Postfix/Prefix:
+ Also uses a stack. For postfix, operands are pushed; when an operator is
+encountered, pop two operands, perform the operation, and push the result. For prefix, scan from right to left.
+Common Pitfalls:
+ Incorrectly handling operator precedence and associativity during conversions. Mistakes in stack
+operations (push/pop order).
+Problem-Solving Techniques:
+ Practice conversions using the stack-based algorithms. Remember operator
+
+
+precedence (e.g., 
+) and associativity (most are left-associative, exponentiation is right-associative).
+Linked List
+A linked list is a linear data structure where elements are not stored in contiguous memory locations. Instead, each
+element (node) contains data and a pointer (or link) to the next node in the sequence.
+Types of Linked Lists:
+Singly Linked List:
+ Each node points to the next node. Traversal is unidirectional.
+Doubly Linked List:
+ Each node has pointers to both the next and previous nodes. Traversal is bidirectional.
+Circular Linked List:
+ The last node points back to the first node (or head). Can be singly or doubly circular.
+Time Complexity:
+Insertion/Deletion at beginning: 
+Insertion/Deletion at end: 
+ for singly linked list (requires traversal), 
+ if tail pointer is maintained. 
+for doubly linked list if tail pointer is maintained.
+Insertion/Deletion at specific position: 
+ (requires traversal to find position)
+Search: 
+Advantages:
+ Dynamic size, efficient insertions/deletions at specific points (if pointer to previous node is available).
+Disadvantages:
+ More memory overhead (for pointers), no random access (
+ for access).
+Common Pitfalls:
+ Null pointer exceptions when traversing or manipulating the list. Incorrectly updating pointers during
+insertion/deletion, leading to lost nodes or broken links. Handling edge cases like empty list or single-node list.
+Problem-Solving Techniques:
+ Draw diagrams to visualize pointer changes. Pay close attention to the order of pointer
+updates. Always check for null pointers.
+Priority Queue
+A Priority Queue is an Abstract Data Type (ADT) that functions like a queue but with an additional concept of "priority."
+Elements are retrieved based on their priority, not necessarily their insertion order. The element with the highest (or
+lowest) priority is always dequeued first.
+Core Operations:
+Insert (enqueue):
+ Adds an element with a given priority.
+Extract-Min/Max (dequeue):
+ Removes and returns the element with the highest (or lowest) priority.
+Peek:
+ Returns the highest (or lowest) priority element without removing it.
+Implementations:
+Binary Heap:
+ Most efficient implementation, providing 
+ for insert and extract-min/max.
+Unsorted Array/Linked List: 
+ insert, 
+ extract-min/max.
+Sorted Array/Linked List: 
+ insert, 
+ extract-min/max.
+Common Pitfalls:
+ Confusing a priority queue with a regular queue. Not understanding that the underlying data
+structure (e.g., heap) determines the complexity.
+Problem-Solving Techniques:
+ When a problem requires always processing the "most important" item next, a priority
+queue (implemented with a heap) is often the solution.
+Queue
+A Queue is a linear Abstract Data Type (ADT) that follows the First-In, First-Out (FIFO) principle. Elements are added at
+one end (rear/tail) and removed from the other end (front/head).
+Core Operations:
+Enqueue:
+ Adds an element to the rear of the queue.
+Dequeue:
+ Removes and returns the element from the front of the queue.
+Front/Peek:
+ Returns the element at the front without removing it.
+IsEmpty, IsFull:
+ Checks the state of the queue.
+Implementations:
+Array-based:
+ Can lead to "queue full" even if space is available (linear array). Circular array implementation
+solves this.
+Linked List-based:
+ More dynamic, no fixed size issues.
+Time Complexity (Array or Linked List):
+ All core operations (enqueue, dequeue, front) are 
+.
+
+
+Common Pitfalls:
+ Underflow (dequeuing from an empty queue) and Overflow (enqueuing into a full array-based
+queue). Incorrectly managing front and rear pointers in array implementations, especially circular queues.
+Problem-Solving Techniques:
+ Trace operations carefully. Understand how front and rear pointers move. For circular
+queues, remember the modulus operator for index calculations: 
+.
+Stack
+A Stack is a linear Abstract Data Type (ADT) that follows the Last-In, First-Out (LIFO) principle. Elements are added
+and removed only from one end, called the "top."
+Core Operations:
+Push:
+ Adds an element to the top of the stack.
+Pop:
+ Removes and returns the element from the top of the stack.
+Peek/Top:
+ Returns the element at the top without removing it.
+IsEmpty, IsFull:
+ Checks the state of the stack.
+Implementations:
+Array-based:
+ Uses a fixed-size array and a top pointer/index.
+Linked List-based:
+ Each node points to the next, with the head of the list being the top of the stack.
+Time Complexity (Array or Linked List):
+ All core operations (push, pop, peek) are 
+.
+Applications:
+ Function call stack, expression evaluation (infix to postfix/prefix conversion), undo/redo functionality,
+backtracking algorithms.
+Common Pitfalls:
+ Underflow (popping from an empty stack) and Overflow (pushing into a full array-based stack).
+Incorrectly managing the top pointer/index.
+Problem-Solving Techniques:
+ Trace stack operations. Recognize problems that naturally fit the LIFO principle (e.g.,
+reversing a sequence, checking parenthesis balance).
+Time Complexity
+Time complexity measures the amount of time an algorithm takes to run as a function of the input size (
+). It's typically
+expressed using asymptotic notations to describe the growth rate for large 
+.
+Asymptotic Notations:
+Big-O Notation (
+):
+ Upper bound. 
+ if there exist positive constants 
+ and 
+ such that 
+ for all 
+. Describes the worst-case time.
+Big-Omega Notation (
+):
+ Lower bound. 
+ if there exist positive constants 
+ and 
+ such that 
+ for all 
+. Describes the best-case time.
+Big-Theta Notation (
+):
+ Tight bound. 
+ if there exist positive constants 
+ and 
+ such that 
+ for all 
+. Describes average-case time or when best and worst cases
+are the same.
+Little-o Notation (
+):
+ Strict upper bound. 
+ if 
+.
+Little-omega Notation (
+):
+ Strict lower bound. 
+ if 
+.
+Common Growth Rates (from fastest to slowest):
+Master Theorem for Recurrence Relations:
+ For recurrences of the form 
+, where 
+ are constants, and 
+ is an asymptotically positive function:
+1
+. 
+If 
+ for some constant 
+, then 
+.
+2
+. 
+If 
+, then 
+.
+3
+. 
+If 
+ for some constant 
+, AND if 
+ for some constant 
+ and all
+sufficiently large 
+, then 
+.
+Common Pitfalls:
+ Ignoring constant factors or lower-order terms (which are dropped in asymptotic analysis). Confusing
+best, worst, and average case complexities. Incorrectly applying Master Theorem conditions.
+Problem-Solving Techniques:
+ Analyze loops (number of iterations). For recursive functions, set up recurrence
+relations and solve them (often using Master Theorem or substitution method). Identify the dominant term in a sum of
+complexities.
+
+
+Tree
+A tree is a non-linear, hierarchical data structure consisting of nodes connected by edges. It is a connected acyclic
+graph, meaning there are no cycles and all nodes are reachable from the root.
+Key Terminology:
+Root:
+ The topmost node of the tree.
+Parent:
+ A node that has one or more child nodes.
+Child:
+ A node directly connected to another node when moving away from the root.
+Sibling:
+ Nodes that share the same parent.
+Leaf Node (External Node):
+ A node with no children.
+Internal Node:
+ A node with at least one child.
+Ancestors:
+ All nodes on the path from the root to a node.
+Descendants:
+ All nodes in the subtree rooted at a node.
+Depth:
+ The length of the path from the root to a node (root is at depth 0).
+Height:
+ The length of the longest path from a node to a leaf. The height of the tree is the height of its root.
+Degree of a Node:
+ Number of children it has.
+Degree of a Tree:
+ Maximum degree of any node in the tree.
+Properties:
+A tree with 
+ nodes has exactly 
+ edges.
+There is a unique path between any two nodes in a tree.
+Common Pitfalls:
+ Confusing tree terminology (e.g., depth vs. height, parent vs. child). Forgetting the 
+ edges
+property.
+Problem-Solving Techniques:
+ Draw trees to visualize concepts. Understand recursive definitions for tree operations.
+Tree Traversal
+Tree traversal refers to the process of visiting each node in a tree exactly once in a systematic way. There are two main
+categories: Depth-First Search (DFS) and Breadth-First Search (BFS).
+Depth-First Search (DFS) Traversal:
+ Uses a stack (implicitly via recursion) to explore as far as possible along
+each branch before backtracking.
+Inorder Traversal (Left, Root, Right):
+ Visits the left subtree, then the root, then the right subtree. For BSTs, this
+yields sorted elements.
+Preorder Traversal (Root, Left, Right):
+ Visits the root, then the left subtree, then the right subtree. Useful for
+creating a copy of the tree.
+Postorder Traversal (Left, Right, Root):
+ Visits the left subtree, then the right subtree, then the root. Useful for
+deleting a tree (deletes children before parent).
+Breadth-First Search (BFS) Traversal (Level Order Traversal):
+ Visits nodes level by level, from left to right. Uses
+a queue.
+Starts at the root, then visits all nodes at depth 1, then all nodes at depth 2, and so on.
+Common Pitfalls:
+ Incorrectly applying the order of visits for DFS traversals. Difficulty in reconstructing a tree from given
+traversals (e.g., Inorder + Preorder can reconstruct a unique BST).
+Problem-Solving Techniques:
+ Practice tracing all four traversal types on various trees. Remember the specific order
+for each. For tree reconstruction, use one traversal (e.g., Preorder) to find the root, then use another (e.g., Inorder) to
+partition the remaining elements into left and right subtrees.
+Uniform Hashing
+Uniform Hashing is an idealized assumption used in the analysis of hashing algorithms. It states that each key is
+equally likely to hash to any slot in the hash table, independently of where other keys hash.
+Key Property:
+ If we have 
+ keys and 
+ slots, the probability that a key hashes to any particular slot is 
+.
+Implications:
+Minimizes collisions in theory.
+Leads to the best possible average-case performance for hash tables.
+Under simple uniform hashing, the expected length of a chain in chaining is 
+.
+Under uniform hashing, the expected number of probes for unsuccessful search in open addressing is 
+.
+
+
+Common Pitfalls:
+ Assuming uniform hashing holds true in practice. Real-world hash functions are rarely perfectly
+uniform, leading to deviations from theoretical performance.
+Problem-Solving Techniques:
+ Understand that uniform hashing is a theoretical model for analyzing the average-case
+performance of hashing. Use its properties to calculate expected values related to collisions or probes.
+Quick Formula Reference
+Topic
+Formula/Concept
+AVL Tree
+Balance Factor: 
+Height: 
+Array (1D)
+Array (2D - Row-Major)
+Array (2D - Column-Major)
+Binary Heap (0-indexed)
+Parent of 
+: 
+Left child of 
+: 
+Right child of 
+: 
+Binary Tree
+Max nodes at level 
+: 
+Max nodes in height 
+ tree: 
+Min height for 
+ nodes: 
+ (complete tree)
+Full Binary Tree: 
+Hashing (Division)
+Hashing (Multiplication)
+Hashing (Linear Probing)
+Hashing (Quadratic Probing)
+Hashing (Double Hashing)
+Hashing (Load Factor)
+Time Complexity (Big-O)
+ if 
+ for 
+Time Complexity (Big-Omega)
+ if 
+ for 
+Time Complexity (Big-Theta)
+ for 
+Master Theorem (Case 1)
+If 
+, then 
+Master Theorem (Case 2)
+If 
+, then 
+Master Theorem (Case 3)
+If 
+ and 
+, then 
+Tree (General)
+ nodes, 
+ edges
+Important Tips for GATE
+Master Time & Space Complexity:
+ This is arguably the most crucial aspect. Be able to analyze the complexity of
+operations on all data structures and for given code snippets. Understand best, worst, and average cases. Practice
+applying the Master Theorem rigorously.
+Understand ADT vs. Data Structure:
+ Clearly differentiate between the abstract concept (ADT) and its concrete
+implementation (data structure). For example, a Stack is an ADT, while an array-based stack or linked-list based
+stack are data structures implementing the Stack ADT.
+Visualize Operations:
+ For tree-based structures (AVL, BST, Heap) and linked lists, always draw diagrams and
+trace operations step-by-step. This helps catch errors in pointer manipulation, rotations, or heapify processes.
+Practice Tree Traversals:
+ Be proficient in Inorder, Preorder, Postorder, and Level-order traversals. Understand
+their applications and how to reconstruct a tree from given traversals (e.g., Preorder + Inorder).
+Hashing Concepts are Key:
+ Pay close attention to different hash functions, collision resolution techniques
+(chaining, linear probing, quadratic probing, double hashing), and their impact on performance (load factor,
+clustering). Be ready to trace insertions and searches.
+Know Standard Implementations:
+ Understand how basic ADTs like Stack and Queue are implemented using
+arrays and linked lists, including edge cases like underflow/overflow and circular array logic.
+Identify Common Pitfalls:
+ Be aware of typical mistakes like off-by-one errors in array indexing, null pointer
+exceptions in linked lists, incorrect balance factor calculations in AVL trees, or misinterpreting operator precedence
+in expression conversions.
+Practice Problem-Solving:
+ Data structures questions are often application-oriented. Practice a wide variety of
+problems to recognize when to use a particular data structure and how to apply its operations to solve the problem
+
+
+3.1
+3.1.1
+3.1.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.1.3
+3.1.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+efficiently.
+AVL Tree 
+(6)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(12Q)
+AVL Tree: GATE CSE 1988 | Question: 7ii
+Mark the balance factor of each node on the tree given in the below ﬁgure and state whether it is height-
+balanced.
+gate1988
+ 
+data-structures
+ 
+normal
+ 
+descriptive
+ 
+avl-tree
+Answer key
+☟
+AVL Tree: GATE CSE 1996 | Question: 1.14
+In the balanced binary tree in the below ﬁgure, how many nodes will become unbalanced when a node is
+inserted as a child of the node “g”?
+gate1996
+ 
+data-structures
+ 
+binary-tree
+ 
+avl-tree
+ 
+normal
+Answer key
+☟
+AVL Tree: GATE CSE 1998 | Question: 21
+A
+. 
+Derive a recurrence relation for the size of the smallest AVL tree with height 
+.
+B
+. 
+What is the size of the smallest AVL tree with height 
+?
+gate1998
+ 
+data-structures
+ 
+avl-tree
+ 
+descriptive
+ 
+numerical-answers
+Answer key
+☟
+AVL Tree: GATE CSE 2009 | Question: 37,ISRO-DEC2017-55
+What is the maximum height of any AVL-tree with 
+ nodes? Assume that the height of a tree with a single
+node is 
+.
+gatecse-2009
+ 
+data-structures
+ 
+binary-search-tree
+ 
+normal
+ 
+isrodec2017
+ 
+avl-tree
+Answer key
+☟
+
+
+3.1.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.1.6
+3.2
+3.2.1
+3.3
+3.3.1
+AVL Tree: GATE CSE 2020 | Question: 6
+What is the worst case time complexity of inserting 
+ elements into an AVL-tree with 
+ elements initially?
+gatecse-2020
+ 
+binary-tree
+ 
+avl-tree
+ 
+one-mark
+Answer key
+☟
+AVL Tree: GATE IT 2008 | Question: 12
+Which of the following is TRUE?
+A
+. 
+The cost of searching an AVL tree is 
+ but that of a binary search tree is 
+B
+. 
+The cost of searching an AVL tree is 
+ but that of a complete binary tree is 
+C
+. 
+The cost of searching a binary search tree is 
+ but that of an AVL tree is 
+D
+. 
+The cost of searching an AVL tree is 
+ but that of a binary search tree is 
+gateit-2008
+ 
+data-structures
+ 
+binary-search-tree
+ 
+easy
+ 
+avl-tree
+Answer key
+☟
+Abstract Data Type 
+(1)
+Abstract Data Type: GATE CSE 2005 | Question: 2
+An Abstract Data Type (ADT) is:
+A
+. 
+same as an abstract class
+B
+. 
+a data type that cannot be instantiated
+C
+. 
+a data type for which only the operations defined on it can be used, but none else
+D
+. 
+all of the above
+gatecse-2005
+ 
+data-structures
+ 
+normal
+ 
+abstract-data-type
+Answer key
+☟
+Array 
+(13)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(9Q)
+Array: GATE CSE 1993 | Question: 12
+The following Pascal program segments ﬁnds the largest number in a two-dimensional integer array 
+ using a single loop. Fill up the boxes to complete the program and write against 
+ in your answer book Assume that max is a variable to store the largest value and 
+ are the
+indices to the array.
+begin
+    max
+:=|
+A
+|,
+ i
+:=
+0
+,
+ j
+:=
+0
+;
+    
+while
+ 
+|
+B
+|
+ 
+do
+    
+begin
+        
+if
+ A
+[
+i
+,
+ j
+]>
+max 
+then
+ max
+:=
+A
+[
+i
+,
+ j
+];
+        
+if
+ 
+|
+C
+|
+ 
+then
+ j
+:=
+j
++
+1
+;
+        
+else
+ 
+begin
+            j
+:=
+0
+;
+            i
+:=|
+D
+|
+        
+end
+    
+end
+end
+gate1993
+ 
+data-structures
+ 
+array
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+
+
+3.3.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.3.3
+3.3.4
+3.3.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Array: GATE CSE 1994 | Question: 1.11
+In a compact single dimensional array representation for lower triangular matrices (i.e all the elements above
+the diagonal are zero) of size 
+, non-zero elements, (i.e elements of lower triangle) of each row are
+stored one after another, starting from the ﬁrst row, the index of the 
+ element of the lower triangular matrix in
+this new representation is:
+gate1994
+ 
+data-structures
+ 
+array
+ 
+normal
+Answer key
+☟
+Array: GATE CSE 1994 | Question: 25
+An array 
+ contains 
+ integers in non-decreasing order, 
+. Describe, using
+Pascal like pseudo code, a linear time algorithm to ﬁnd 
+ such that 
+ given integer 
+, if
+such 
+ exist.
+gate1994
+ 
+data-structures
+ 
+array
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Array: GATE CSE 1997 | Question: 17
+An array 
+ contains 
+ positive integers in the locations 
+. The following program
+fragment prints the length of a shortest sequence of consecutive elements of 
+, 
+such that the sum of their values is 
+, a given positive number. It prints ‘
+’ if no such sequence exists.
+Complete the program by ﬁlling in the boxes. In each case use the simplest possible expression. Write only the line
+number and the contents of the box. 
+begin
+i
+:=
+1
+;
+j
+:=
+1
+;
+sum 
+:=
+ 
+◻
+min
+:=
+n
+;
+ finish
+:=
+false
+;
+while
+ 
+not
+ finish 
+do
+    
+if
+ 
+◻
+ 
+then
+        
+if
+ j
+=
+n 
+then
+ finish
+:=
+true
+        
+else
+        
+begin
+            j
+:=
+j
++
+1
+;
+            sum
+:=
+ 
+◻
+        
+end
+    
+else
+    
+begin
+        
+if
+(
+j
+-
+i
+)
+ 
+<
+ min 
+then
+ min
+:=
+j
+-
+i
+;
+        sum
+:=
+sum 
+–
+A
+[
+i
+];
+        i
+:=
+i
++
+1
+;
+    
+end
+    writeln 
+(
+min 
++
+1
+);
+end
+.
+gate1997
+ 
+data-structures
+ 
+array
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Array: GATE CSE 1998 | Question: 2.14
+Let 
+ be a two dimensional array declared as follows:
+A
+:
+ array 
+[
+1
+ 
+….
+ 
+10
+]
+ 
+[
+1
+ 
+…..
+ 
+15
+]
+ 
+of
+ integer
+;
+Assuming that each integer takes one memory location, the array is stored in row-major order and the ﬁrst element
+of the array is stored at location 
+, what is the address of the element 
+?
+gate1998
+ 
+data-structures
+ 
+array
+ 
+easy
+Answer key
+☟
+
+
+3.3.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.3.7
+3.3.8
+A
+. 
+An array of 
+ numbers
+B
+. 
+An array of 
+ numbers
+C
+. 
+An array of 
+ numbers
+D
+. 
+A dynamically allocated array of 
+ numbers
+3.3.9
+Array: GATE CSE 2000 | Question: 1.2
+An 
+ array 
+ is defined as follows:
+ for all 
+The sum of the elements of the array 
+ is
+gatecse-2000
+ 
+data-structures
+ 
+array
+ 
+easy
+Answer key
+☟
+Array: GATE CSE 2000 | Question: 15
+Suppose you are given arrays 
+  and 
+ both uninitialized, that is, each location may
+contain an arbitrary value), and a variable count, initialized to 
+. Consider the following procedures 
+ and 
+:
+set
+(
+i
+)
+ 
+{
+ 
+    count 
+=
+ count 
++
+ 
+1
+;
+ 
+    q
+[
+count
+]
+ 
+=
+ i
+;
+ 
+    p
+[
+i
+]
+ 
+=
+ count
+;
+ 
+}
+ 
+is_set
+(
+i
+)
+ 
+{
+    
+if
+ 
+(
+p
+[
+i
+]
+ 
+≤
+ 
+0
+ 
+or
+ p
+[
+i
+]
+ 
+>
+ count
+)
+        
+return
+ 
+false
+;
+ 
+    
+if
+ 
+(
+q
+[
+p
+[
+i
+]]
+ 
+≠
+ i
+)
+        
+return
+ 
+false
+;
+    
+return
+ 
+true
+;
+}
+A
+. 
+Suppose we make the following sequence of calls: 
+; 
+; 
+; 
+After these sequence of calls, what is the value of count, and what do 
+ and 
+contain?
+B
+. 
+Complete the following statement "The ﬁrst count elements of __________contain values i such that set
+(_________________) has been called".
+C
+. 
+Show that if 
+ has not been called for some 
+, then regardless of what 
+ contains, 
+ will return
+false.
+gatecse-2000
+ 
+data-structures
+ 
+array
+ 
+easy
+ 
+descriptive
+Answer key
+☟
+Array: GATE CSE 2005 | Question: 5
+A program 
+ reads in 
+ integers in the range 
+ representing the scores of 
+ students. It
+then prints the frequency of each score above 
+. What would be the best way for 
+ to store the
+frequencies?
+gatecse-2005
+ 
+data-structures
+ 
+array
+ 
+easy
+Answer key
+☟
+Array: GATE CSE 2013 | Question: 50
+The procedure given below is required to ﬁnd and replace certain characters inside an input character string
+supplied in array 
+. The characters to be replaced are supplied in array 
+, while their respective
+replacement characters are supplied in array 
+. Array 
+ has a ﬁxed length of ﬁve characters, while arrays 
+and 
+ contain three characters each. However, the procedure is flawed.
+void
+ find_and_replace 
+(
+char
+ 
+*
+A
+,
+ 
+char
+ 
+*
+oldc
+,
+ 
+char
+ 
+*
+newc
+)
+ 
+{
+    
+for
+ 
+(
+int
+ i
+=
+0
+;
+ i
+<
+5
+;
+ i
+++)
+        
+for
+ 
+(
+int
+ j
+=
+0
+;
+ j
+<
+3
+;
+ j
+++)
+            
+if
+ 
+(
+A
+[
+i
+]
+ 
+==
+ oldc
+[
+j
+])
+                A
+[
+i
+]
+ 
+=
+ newc
+[
+j
+];
+
+
+A
+. 
+Only one
+B
+. 
+Only two
+C
+. 
+Only three
+D
+. 
+All four
+3.3.10
+A
+. 
+None
+B
+. 
+ only
+C
+. 
+ and 
+ only
+D
+. 
+ only
+3.3.11
+}
+ 
+The procedure is tested with the following four test cases.
+1
+. 
+   
+2
+. 
+3
+. 
+    
+4
+. 
+The tester now tests the program on all input strings of length ﬁve consisting of characters ‘
+’, ‘
+’, ‘
+’, ‘
+’ and ‘
+’ with
+duplicates allowed. If the tester carries out this testing with the four test cases given above, how many test cases
+will be able to capture the flaw?
+gatecse-2013
+ 
+data-structures
+ 
+array
+ 
+normal
+Answer key
+☟
+Array: GATE CSE 2013 | Question: 51
+The procedure given below is required to ﬁnd and replace certain characters inside an input character string
+supplied in array 
+. The characters to be replaced are supplied in array 
+, while their respective
+replacement characters are supplied in array 
+. Array 
+ has a ﬁxed length of ﬁve characters, while arrays 
+and 
+ contain three characters each. However, the procedure is flawed.
+void
+ find_and_replace 
+(
+char
+ 
+*
+A
+,
+ 
+char
+ 
+*
+oldc
+,
+ 
+char
+ 
+*
+newc
+)
+ 
+{
+    
+for
+ 
+(
+int
+ i
+=
+0
+;
+ i
+<
+5
+;
+ i
+++)
+        
+for
+ 
+(
+int
+ j
+=
+0
+;
+ j
+<
+3
+;
+ j
+++)
+            
+if
+ 
+(
+A
+[
+i
+]
+ 
+==
+ oldc
+[
+j
+])
+                A
+[
+i
+]
+ 
+=
+ newc
+[
+j
+];
+}
+The procedure is tested with the following four test cases.
+1
+. 
+     
+2
+. 
+3
+. 
+     
+4
+. 
+If array 
+ is made to hold the string “
+”, which of the above four test cases will be successful in exposing the
+flaw in this procedure?
+gatecse-2013
+ 
+data-structures
+ 
+array
+ 
+normal
+Answer key
+☟
+Array: GATE CSE 2014 | Set 3 | Question: 42
+Consider the C function given below. Assume that the array 
+ contains 
+ elements, sorted in
+ascending order.
+int
+ 
+ProcessArray
+(
+int
+ 
+*
+listA
+,
+ 
+int
+ x
+,
+ 
+int
+ n
+)
+   
+{
+     
+        
+int
+ i
+,
+ j
+,
+ k
+;
+     
+        i 
+=
+ 
+0
+;
+     j 
+=
+ n
+-
+1
+;
+     
+         
+do
+ 
+{
+ 
+               k 
+=
+ 
+(
+i
++
+j
+)/
+2
+;
+         
+               
+if
+ 
+(
+x 
+<=
+ listA
+[
+k
+])
+ j 
+=
+ k
+-
+1
+;
+         
+               
+if
+ 
+(
+listA
+[
+k
+]
+ 
+<=
+ x
+)
+ i 
+=
+ k
++
+1
+;
+ 
+             
+}
+        
+while
+ 
+(
+i 
+<=
+ j
+);
+     
+        
+if
+ 
+(
+listA
+[
+k
+]
+ 
+==
+ x
+)
+ 
+return
+(
+k
+);
+     
+        
+else
+   
+return
+ 
+-
+1
+;
+   
+}
+     
+Which one of the following statements about the function 
+ is 
+CORRECT
+?
+
+
+3.3.12
+3.3.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4
+3.4.1
+3.4.2
+A
+. 
+It will run into an infinite loop when 
+ is not in 
+.
+B
+. 
+It is an implementation of binary search.
+C
+. 
+It will always find the maximum element in 
+.
+D
+. 
+It will return −
+ even when 
+ is present in 
+.
+gatecse-2014-set3
+ 
+data-structures
+ 
+array
+ 
+easy
+Answer key
+☟
+Array: GATE CSE 2015 | Set 2 | Question: 31
+A Young tableau is a 
+ array of integers increasing from left to right and from top to bottom. Any unﬁlled
+entries are marked with 
+, and hence there cannot be any entry to the right of, or below a 
+. The following
+Young tableau consists of unique entries.
+When an element is removed from a Young tableau, other elements should be moved into its place so that the
+resulting table is still a Young tableau (unﬁlled entries may be ﬁlled with a 
+). The minimum number of entries
+(other than 
+) to be shifted, to remove 
+ from the given Young tableau is _____.
+gatecse-2015-set2
+ 
+databases
+ 
+array
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Array: GATE CSE 2021 | Set 1 | Question: 2
+Let 
+ be an array containing 
+ integers. Let 
+ be the lowest upper bound on the number of comparisons of
+the array elements, required to ﬁnd the minimum and maximum values in an arbitrary array of 
+ elements.
+Which one of the following choices is correct?
+gatecse-2021-set1
+ 
+data-structures
+ 
+array
+ 
+one-mark
+Answer key
+☟
+Binary Heap 
+(30)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(2Q)
+Binary Heap: GATE CSE 1990 | Question: 2-viii
+Match the pairs in the following questions:
+gate1990
+ 
+match-the-following
+ 
+data-structures
+ 
+binary-heap
+Answer key
+☟
+Binary Heap: GATE CSE 1996 | Question: 2.11
+The minimum number of interchanges needed to convert the array into a max-heap is
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.3
+3.4.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.6
+A
+. 
+ 
+B
+. 
+C
+. 
+D
+. 
+gate1996
+ 
+data-structures
+ 
+binary-heap
+ 
+easy
+Answer key
+☟
+Binary Heap: GATE CSE 1999 | Question: 12
+A
+. 
+In binary tree, a full node is defined to be a node with 
+ children. Use induction on the height of the binary tree to
+prove that the number of full nodes plus one is equal to the number of leaves.
+B
+. 
+Draw the min-heap that results from insertion of the following elements in order into an initially empty min-heap: 
+. Show the result after the deletion of the root of this heap.
+gate1999
+ 
+data-structures
+ 
+binary-heap
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Binary Heap: GATE CSE 2001 | Question: 1.15
+Consider any array representation of an 
+ element binary heap where the elements are stored from index 
+to index 
+ of the array. For the element stored at index 
+ of the array 
+, the index of the parent is
+gatecse-2001
+ 
+data-structures
+ 
+binary-heap
+ 
+easy
+Answer key
+☟
+Binary Heap: GATE CSE 2003 | Question: 23
+In a min-heap with 
+ elements with the smallest element at the root, the 
+ smallest element can be found
+in time
+gatecse-2003
+ 
+data-structures
+ 
+binary-heap
+Answer key
+☟
+Binary Heap: GATE CSE 2004 | Question: 37
+The elements 
+ are inserted one by one in the given order into a maxHeap. The
+resultant maxHeap is
+gatecse-2004
+ 
+data-structures
+ 
+binary-heap
+ 
+easy
+Answer key
+☟
+
+
+3.4.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.8
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+ 
+3.4.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ 
+3.4.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Binary Heap: GATE CSE 2005 | Question: 34
+A priority queue is implemented as a Max-Heap. Initially, it has 
+ elements. The level-order traversal of the
+heap is: 
+. Two new elements 
+ and 
+ are inserted into the heap in that order. The level-order
+traversal of the heap after the insertion of the elements is: 
+gatecse-2005
+ 
+data-structures
+ 
+binary-heap
+ 
+normal
+Answer key
+☟
+Binary Heap: GATE CSE 2006 | Question: 10
+In a binary max heap containing 
+ numbers, the smallest element can be found in time 
+gatecse-2006
+ 
+data-structures
+ 
+binary-heap
+ 
+easy
+Answer key
+☟
+Binary Heap: GATE CSE 2006 | Question: 76
+Statement for Linked Answer Questions 76 & 77:
+A 
+-ary max heap is like a binary max heap, but instead of 
+ children, nodes have 
+ children. A 
+-ary heap can be
+represented by an array as follows: The root is stored in the ﬁrst location, 
+, nodes in the next level, from left to
+right, is stored from 
+ to 
+. The nodes from the second level of the tree from left to right are stored from 
+location onward. An item 
+ can be inserted into a 
+-ary heap containing 
+ items by placing 
+ in the location 
+and pushing it up the tree to satisfy the heap property.
+Which one of the following is a valid sequence of elements in an array representing 
+-ary max heap?
+gatecse-2006
+ 
+data-structures
+ 
+binary-heap
+ 
+normal
+Answer key
+☟
+Binary Heap: GATE CSE 2006 | Question: 77
+Statement for Linked Answer Questions 76 & 77:
+A 
+-ary max heap is like a binary max heap, but instead of 
+ children, nodes have 
+ children. A 
+-ary heap can be
+represented by an array as follows: The root is stored in the ﬁrst location, 
+, nodes in the next level, from left to
+right, is stored from 
+ to 
+. The nodes from the second level of the tree from left to right are stored from 
+location onward. An item 
+ can be inserted into a 
+-ary heap containing 
+ items by placing 
+ in the location 
+and pushing it up the tree to satisfy the heap property.
+76. Which one of the following is a valid sequence of elements in an array representing 
+ary max heap?
+77. Suppose the elements 
+ and 
+ are inserted, in that order, into the valid 
+-ary max heap found in the
+previous question, Q.76. Which one of the following is the sequence of items in the array representing the resultant
+heap?
+gatecse-2006
+ 
+data-structures
+ 
+binary-heap
+ 
+normal
+Answer key
+☟
+
+
+3.4.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.12
+A
+. 
+    
+B
+. 
+C
+. 
+D
+. 
+3.4.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.14
+A
+. 
+       
+B
+. 
+C
+. 
+  
+D
+. 
+3.4.15
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Binary Heap: GATE CSE 2007 | Question: 47
+Consider the process of inserting an element into a 
+, where the 
+ is represented by an
+array. Suppose we perform a binary search on the path from the new leaf to the root to ﬁnd the position for
+the newly inserted element, the number of comparisons performed is:
+gatecse-2007
+ 
+data-structures
+ 
+binary-heap
+ 
+normal
+Answer key
+☟
+Binary Heap: GATE CSE 2009 | Question: 59
+Consider a binary max-heap implemented using an array.
+Which one of the following array represents a binary max-heap?
+gatecse-2009
+ 
+data-structures
+ 
+binary-heap
+ 
+easy
+Answer key
+☟
+Binary Heap: GATE CSE 2009 | Question: 60
+Consider a binary max-heap implemented using an array.
+What is the content of the array after two delete operations on 
+gatecse-2009
+ 
+data-structures
+ 
+binary-heap
+ 
+normal
+Answer key
+☟
+Binary Heap: GATE CSE 2011 | Question: 23
+A max-heap is a heap where the value of each parent is greater than or equal to the value of its children.
+Which of the following is a max-heap?
+gatecse-2011
+ 
+data-structures
+ 
+binary-heap
+ 
+easy
+Answer key
+☟
+Binary Heap: GATE CSE 2014 | Set 2 | Question: 12
+A priority queue is implemented as a Max-Heap. Initially, it has 
+ elements. The level-order traversal of the
+heap is: 
+. Two new elements 
+ and 
+ are inserted into the heap in that order. The level-order
+traversal of the heap after the insertion of the elements is: 
+gatecse-2014-set2
+ 
+data-structures
+ 
+binary-heap
+ 
+normal
+Answer key
+☟
+
+
+3.4.16
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.17
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.18
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.19
+A
+. 
+ 
+ 
+B
+. 
+ 
+ but not 
+ 
+C
+. 
+ 
+ but not 
+ 
+D
+. 
+ 
+ but not 
+3.4.20
+3.4.21
+Binary Heap: GATE CSE 2015 | Set 1 | Question: 32
+Consider a max heap, represented by the array: 
+.
+Now consider that a value 
+ is inserted into this heap. After insertion, the new heap is
+gatecse-2015-set1
+ 
+data-structures
+ 
+binary-heap
+ 
+easy
+Answer key
+☟
+Binary Heap: GATE CSE 2015 | Set 2 | Question: 17
+Consider a complete binary tree where the left and right subtrees of the root are max-heaps. The lower
+bound for the number of operations to convert the tree to a heap is
+gatecse-2015-set2
+ 
+data-structures
+ 
+binary-heap
+ 
+normal
+Answer key
+☟
+Binary Heap: GATE CSE 2015 | Set 3 | Question: 19
+Consider the following array of elements.
+The minimum number of interchanges needed to convert it into a max-heap is
+gatecse-2015-set3
+ 
+data-structures
+ 
+binary-heap
+ 
+easy
+Answer key
+☟
+Binary Heap: GATE CSE 2016 | Set 1 | Question: 37
+An operator delete
+ for a binary heap data structure is to be designed to delete the item in the 
+-th  node.
+Assume that the heap is implemented in an array and 
+ refers to the 
+-th index of the array. If the heap tree
+has depth 
+ (number of edges on the path from the root to the farthest leaf ), then what is the time complexity to re-
+fix the heap efficiently after the removal of the element?
+gatecse-2016-set1
+ 
+data-structures
+ 
+binary-heap
+ 
+normal
+Answer key
+☟
+Binary Heap: GATE CSE 2016 | Set 2 | Question: 34
+A complete binary min-heap is made by including each integer in 
+ exactly once. The depth of a
+node in the heap is the length of the path from the root of the heap to that node. Thus, the root is at depth 
+.
+The maximum depth at which integer 
+ can appear is _________.
+gatecse-2016-set2
+ 
+data-structures
+ 
+binary-heap
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Binary Heap: GATE CSE 2018 | Question: 46
+The number of possible min-heaps containing each value from 
+ exactly once is _______
+gatecse-2018
+ 
+binary-heap
+ 
+numerical-answers
+ 
+combinatory
+ 
+two-marks
+Answer key
+☟
+
+
+3.4.22
+A
+. 
+I, II and III
+B
+. 
+I, II and IV
+C
+. 
+I, III and IV
+D
+. 
+II, III and IV
+3.4.23
+3.4.24
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.25
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.26
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ 
+3.4.27
+Binary Heap: GATE CSE 2019 | Question: 40
+Consider the following statements:
+I
+. 
+The smallest element in a max-heap is always at a leaf node
+II
+. 
+The second largest element in a max-heap is always a child of a root node
+III
+. 
+A max-heap can be constructed from a binary search tree in 
+ time
+IV
+. 
+A binary search tree can be constructed from a max-heap in 
+ time
+Which of the above statements are TRUE?
+gatecse-2019
+ 
+data-structures
+ 
+binary-heap
+ 
+two-marks
+Answer key
+☟
+Binary Heap: GATE CSE 2020 | Question: 47
+Consider the array representation of a binary min-heap containing 
+ elements. The minimum number of
+comparisons required to find the maximum in the heap is ___________.
+gatecse-2020
+ 
+numerical-answers
+ 
+binary-heap
+ 
+two-marks
+Answer key
+☟
+Binary Heap: GATE CSE 2021 | Set 2 | Question: 2
+​​​​​
+Let 
+ be a binary min-heap consisting of 
+ elements implemented as an array. What is the worst case time
+complexity of an optimal algorithm to find the maximum element in 
+?
+gatecse-2021-set2
+ 
+data-structures
+ 
+binary-heap
+ 
+time-complexity
+ 
+one-mark
+Answer key
+☟
+Binary Heap: GATE CSE 2023 | Question: 2
+Which one of the following sequences when stored in an array at locations 
+ forms a max-
+heap?
+gatecse-2023
+ 
+data-structures
+ 
+binary-heap
+ 
+one-mark
+Answer key
+☟
+Binary Heap: GATE CSE 2024 | Set 1 | Question: 33
+Consider a binary min-heap containing 
+ distinct elements. Let 
+ be the index (in the underlying array) of
+the maximum element stored in the heap. The number of possible values of 
+ is
+gatecse-2024-set1
+ 
+data-structures
+ 
+binary-heap
+ 
+two-marks
+Answer key
+☟
+Binary Heap: GATE CSE 2025 | Set 1 | Question: 25
+The height of any rooted tree is deﬁned as the maximum number of edges in the path from the root node to
+any leaf node.
+Suppose a Min-Heap 
+ stores 
+ keys. The height of 
+ is ___________. (Answer in integer)
+gatecse2025-set1
+ 
+data-structures
+ 
+binary-heap
+ 
+numerical-answers
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+
+
+3.4.28
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.29
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.4.30
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5
+3.5.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.2
+Binary Heap: GATE IT 2004 | Question: 53
+An array of integers of size 
+ can be converted into a heap by adjusting the heaps rooted at each internal
+node of the complete binary tree starting at the node 
+, and doing this adjustment up to the root
+node (root node is at index 
+) in the order 
+, 
+, ....., 
+. The time required to construct a heap
+in this manner is
+gateit-2004
+ 
+data-structures
+ 
+binary-heap
+ 
+normal
+Answer key
+☟
+Binary Heap: GATE IT 2006 | Question: 44
+Which of the following sequences of array elements forms a heap?
+gateit-2006
+ 
+data-structures
+ 
+binary-heap
+ 
+easy
+Answer key
+☟
+Binary Heap: GATE IT 2006 | Question: 72
+An array 
+ of 
+ distinct integers is interpreted as a complete binary tree. The index of the ﬁrst element of
+the array is 
+. If only the root node does not satisfy the heap property, the algorithm to convert the complete
+binary tree into a heap has the best asymptotic time complexity of
+gateit-2006
+ 
+data-structures
+ 
+binary-heap
+ 
+easy
+Answer key
+☟
+Binary Search Tree 
+(36)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(15Q)
+Binary Search Tree: GATE CSE 1996 | Question: 2.14
+A binary search tree is generated by inserting in order the following integers:
+The number of nodes in the left subtree and right subtree of the root respectively is
+gate1996
+ 
+data-structures
+ 
+binary-search-tree
+ 
+easy
+Answer key
+☟
+Binary Search Tree: GATE CSE 1996 | Question: 4
+A binary search tree is used to locate the number 
+. Which of the following probe sequences are possible
+and which are not? Explain.
+gate1996
+ 
+data-structures
+ 
+binary-search-tree
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+
+
+3.5.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.4
+3.5.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Binary Search Tree: GATE CSE 1997 | Question: 4.5
+A binary search tree contains the value 
+. The tree is traversed in pre-order and the values
+are printed out. Which of the following sequences is a valid output?
+gate1997
+ 
+data-structures
+ 
+binary-search-tree
+ 
+normal
+Answer key
+☟
+Binary Search Tree: GATE CSE 2001 | Question: 14
+A
+. 
+Insert the following keys one by one into a binary search tree in the order specified.
+Show the final binary search tree after the insertions.
+B
+. 
+Draw the binary search tree after deleting 
+ from it.
+C
+. 
+Complete the statements 
+, 
+ and 
+ in the following function so that the function computes the depth of a
+binary tree rooted at 
+.
+typedef
+ 
+struct
+ tnode
+{
+    
+int
+ key
+;
+    
+struct
+ tnode 
+*
+left
+,
+ 
+*
+right
+;
+}
+ 
+*
+Tree
+;
+int
+ depth 
+(
+Tree
+ t
+)
+{
+    
+int
+ x
+,
+ y
+;
+    
+if
+ 
+(
+t 
+==
+ NULL
+)
+ 
+return
+ 
+0
+;
+    x 
+=
+ depth 
+(
+t 
+->
+ left
+);
+S1
+:
+     ___________
+;
+S2
+:
+     
+if
+ 
+(
+x 
+>
+ y
+)
+ 
+return
+ __________
+;
+S3
+:
+     
+else
+ 
+return
+ _______
+;
+}
+gatecse-2001
+ 
+data-structures
+ 
+binary-search-tree
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Binary Search Tree: GATE CSE 2003 | Question: 19, ISRO2009-24
+Suppose the numbers 
+ are inserted in that order into an initially empty binary search
+tree. The binary search tree uses the usual ordering on natural numbers. What is the in-order traversal
+sequence of the resultant tree?
+gatecse-2003
+ 
+binary-search-tree
+ 
+easy
+ 
+isro2009
+Answer key
+☟
+Binary Search Tree: GATE CSE 2003 | Question: 6
+Let 
+ be the number of different binary search trees on 
+ distinct elements.
+Then 
+, where 
+ is 
+gatecse-2003
+ 
+normal
+ 
+binary-search-tree
+Answer key
+☟
+
+
+3.5.7
+3.5.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.10
+Binary Search Tree: GATE CSE 2003 | Question: 63, ISRO2009-25
+A data structure is required for storing a set of integers such that each of the following operations can be
+done in 
+ time, where 
+ is the number of elements in the set.
+I
+. 
+Deletion of the smallest element
+II
+. 
+Insertion of an element if it is not already present in the set
+Which of the following data structures can be used for this purpose?
+A
+. 
+A heap can be used but not a balanced binary search tree
+B
+. 
+A balanced binary search tree can be used but not a heap
+C
+. 
+Both balanced binary search tree and heap can be used
+D
+. 
+Neither balanced search tree nor heap can be used
+gatecse-2003
+ 
+data-structures
+ 
+easy
+ 
+isro2009
+ 
+binary-search-tree
+Answer key
+☟
+Binary Search Tree: GATE CSE 2004 | Question: 4, ISRO2009-26
+The following numbers are inserted into an empty binary search tree in the given order: 
+. What is the height of the binary search tree (the height is the maximum distance of a
+leaf node from the root)?
+gatecse-2004
+ 
+data-structures
+ 
+binary-search-tree
+ 
+easy
+ 
+isro2009
+Answer key
+☟
+Binary Search Tree: GATE CSE 2004 | Question: 85
+A program takes as input a balanced binary search tree with 
+ leaf nodes and computes the value of a
+function 
+ for each node 
+. If the cost of computing 
+ is: 
+Then the worst-case time complexity of the program is?
+gatecse-2004
+ 
+binary-search-tree
+ 
+normal
+ 
+data-structures
+Answer key
+☟
+Binary Search Tree: GATE CSE 2005 | Question: 33
+Postorder traversal of a given binary search tree, 
+ produces the following sequence of keys
+Which one of the following sequences of keys can be the result of an in-order traversal of the tree 
+?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2005
+ 
+data-structures
+ 
+binary-search-tree
+ 
+easy
+Answer key
+☟
+
+
+3.5.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.12
+3.5.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.15
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.16
+Binary Search Tree: GATE CSE 2005 | Question: 35
+How many distinct binary search trees can be created out of 
+ distinct keys?
+gatecse-2005
+ 
+data-structures
+ 
+binary-search-tree
+ 
+counting
+ 
+normal
+Answer key
+☟
+Binary Search Tree: GATE CSE 2008 | Question: 46
+You are given the postorder traversal, 
+,  of a binary search tree on the 
+ elements 
+. You have
+to determine the unique binary search tree that has 
+ as its postorder traversal. What is the time complexity
+of the most efficient algorithm for doing this?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+None of the above, as the tree cannot be uniquely determined
+gatecse-2008
+ 
+data-structures
+ 
+binary-search-tree
+ 
+normal
+Answer key
+☟
+Binary Search Tree: GATE CSE 2012 | Question: 5
+The worst case running time to search for an element in a balanced binary search tree with 
+ elements is
+gatecse-2012
+ 
+data-structures
+ 
+normal
+ 
+binary-search-tree
+Answer key
+☟
+Binary Search Tree: GATE CSE 2013 | Question: 43
+The preorder traversal sequence of a binary search tree is 
+. Which one of
+the following is the postorder traversal sequence of the same tree?
+gatecse-2013
+ 
+data-structures
+ 
+binary-search-tree
+ 
+normal
+Answer key
+☟
+Binary Search Tree: GATE CSE 2013 | Question: 7
+Which one of the following is the tightest upper bound that represents the time complexity of inserting an
+object into a binary search tree of 
+ nodes?
+gatecse-2013
+ 
+data-structures
+ 
+easy
+ 
+binary-search-tree
+Answer key
+☟
+Binary Search Tree: GATE CSE 2014 | Set 3 | Question: 39
+Suppose we have a balanced binary search tree 
+ holding 
+ numbers. We are given two numbers 
+ and 
+and wish to sum up all the numbers in 
+ that lie between 
+ and 
+. Suppose there are 
+ such numbers in 
+. If the tightest upper bound on the time to compute the sum is 
+, the value of 
+ is ______.
+gatecse-2014-set3
+ 
+data-structures
+ 
+binary-search-tree
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+
+
+3.5.17
+A
+. 
+I and IV only
+B
+. 
+II and III only
+C
+. 
+II and IV only
+D
+. 
+II only
+3.5.18
+3.5.19
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.20
+3.5.21
+A
+. 
+ and 
+ respectively.
+B
+. 
+ and 
+ respectively.
+C
+. 
+ and 
+ respectively.
+D
+. 
+ and 
+ respectively.
+3.5.22
+Binary Search Tree: GATE CSE 2015 | Set 1 | Question: 10
+Which of the following is/are correct in order traversal sequence(s) of binary search tree(s)?
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+gatecse-2015-set1
+ 
+data-structures
+ 
+binary-search-tree
+ 
+easy
+Answer key
+☟
+Binary Search Tree: GATE CSE 2015 | Set 1 | Question: 23
+What are the worst-case complexities of insertion and deletion of a key in a binary search tree?
+A
+. 
+ for both insertion and deletion
+B
+. 
+ for both insertion and deletion
+C
+. 
+ for insertion and 
+ for deletion
+D
+. 
+ for insertion and 
+ for deletion
+gatecse-2015-set1
+ 
+data-structures
+ 
+binary-search-tree
+ 
+easy
+Answer key
+☟
+Binary Search Tree: GATE CSE 2015 | Set 3 | Question: 13
+While inserting the elements 
+ in an empty binary search tree (BST) in the sequence
+shown, the element in the lowest level is
+gatecse-2015-set3
+ 
+data-structures
+ 
+binary-search-tree
+ 
+easy
+Answer key
+☟
+Binary Search Tree: GATE CSE 2016 | Set 2 | Question: 40
+The number of ways in which the numbers 
+ can be inserted in an empty binary search tree,
+such that the resulting tree has height 
+, is _________.
+Note: The height of a tree with a single node is 
+.
+gatecse-2016-set2
+ 
+data-structures
+ 
+binary-search-tree
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Binary Search Tree: GATE CSE 2017 | Set 1 | Question: 6
+Let 
+ be a binary search tree with 
+ nodes. The minimum and maximum possible heights of 
+ are:
+Note: The height of a tree with a single node is 
+.
+gatecse-2017-set1
+ 
+data-structures
+ 
+binary-search-tree
+ 
+easy
+Answer key
+☟
+Binary Search Tree: GATE CSE 2017 | Set 2 | Question: 36
+The pre-order traversal of a binary search tree is given by 
+. Then the
+post-order traversal of this tree is
+A
+. 
+B
+. 
+
+
+3.5.23
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.24
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.25
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.26
+3.5.27
+C
+. 
+D
+. 
+gatecse-2017-set2
+ 
+data-structures
+ 
+binary-search-tree
+Answer key
+☟
+Binary Search Tree: GATE CSE 2020 | Question: 41
+In a balanced binary search tree with 
+ elements, what is the worst case time complexity of reporting all
+elements in range 
+? Assume that the number of reported elements is 
+.
+gatecse-2020
+ 
+data-structures
+ 
+binary-search-tree
+ 
+two-marks
+Answer key
+☟
+Binary Search Tree: GATE CSE 2020 | Question: 5
+The preorder traversal of a binary search tree is 
+. Which one of the following
+is the postorder traversal of the tree?
+gatecse-2020
+ 
+binary-search-tree
+ 
+one-mark
+Answer key
+☟
+Binary Search Tree: GATE CSE 2021 | Set 1 | Question: 10
+A binary search tree 
+ contains 
+ distinct elements. What is the time complexity of picking an element in 
+that is smaller than the maximum element in 
+?
+gatecse-2021-set1
+ 
+data-structures
+ 
+binary-search-tree
+ 
+time-complexity
+ 
+one-mark
+Answer key
+☟
+Binary Search Tree: GATE CSE 2022 | Question: 18
+Suppose a binary search tree with 
+ distinct elements is also a complete binary tree. The tree is stored
+using the array representation of binary heap trees. Assuming that the array indices start with 
+ the 
+largest element of the tree is stored at index ______________ .
+gatecse-2022
+ 
+numerical-answers
+ 
+data-structures
+ 
+binary-search-tree
+ 
+one-mark
+Answer key
+☟
+Binary Search Tree: GATE CSE 2024 | Set 2 | Question: 29
+You are given a set 
+ of distinct integers. A binary search tree 
+ is created by inserting all elements of 
+one by one, starting with an empty tree. The tree 
+ follows the convention that, at each node, all values
+stored in the left subtree of the node are smaller than the value stored at the node. You are not aware of the
+sequence in which these values were inserted into 
+, and you do not have access to 
+.
+Which one of the following statements is TRUE?
+A
+. 
+Inorder traversal of 
+ can be determined from 
+B
+. 
+Root node of 
+ can be determined from 
+C
+. 
+Preorder traversal of 
+ can be determined from 
+D
+. 
+Postorder traversal of 
+ can be determined from 
+gatecse-2024-set2
+ 
+binary-search-tree
+ 
+two-marks
+Answer key
+☟
+
+
+3.5.28
+3.5.29
+3.5.30
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.31
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.32
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.5.33
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Binary Search Tree: GATE CSE 2025 | Set 1 | Question: 16
+Which of the following statement(s) is/are TRUE for any binary search tree (BST) having 
+ distinct integers?
+A
+. 
+The maximum length of a path from the root node to any other node is 
+.
+B
+. 
+An inorder traversal will always produce a sorted sequence of elements.
+C
+. 
+Finding an element takes 
+ time in the worst case.
+D
+. 
+Every BST is also a Min-Heap.
+gatecse2025-set1
+ 
+data-structures
+ 
+binary-search-tree
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Binary Search Tree: GATE CSE 2025 | Set 2 | Question: 25
+Suppose the values 
+ are inserted in that order into an initially empty binary
+search tree. Let 
+ be the resulting binary search tree. The number of edges in the path from the node
+containing 
+ to the root node of 
+ is _________. (Answer in integer)
+gatecse2025-set2
+ 
+data-structures
+ 
+binary-search-tree
+ 
+numerical-answers
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Binary Search Tree: GATE IT 2005 | Question: 12
+The numbers 
+ are inserted in a binary search tree in some order. In the resulting tree, the right
+subtree of the root contains 
+ nodes. The first number to be inserted in the tree must be
+gateit-2005
+ 
+data-structures
+ 
+normal
+ 
+binary-search-tree
+Answer key
+☟
+Binary Search Tree: GATE IT 2005 | Question: 55
+A binary search tree contains the numbers 
+ When the tree is traversed in pre-order and
+the values in each node printed out, the sequence of values obtained is 
+ If the tree is
+traversed in post-order, the sequence obtained would be
+gateit-2005
+ 
+data-structures
+ 
+binary-search-tree
+ 
+normal
+Answer key
+☟
+Binary Search Tree: GATE IT 2006 | Question: 45
+Suppose that we have numbers between 
+ and 
+ in a binary search tree and want to search for the
+number 
+. Which of the following sequences CANNOT be the sequence of nodes examined?
+gateit-2006
+ 
+data-structures
+ 
+binary-search-tree
+ 
+normal
+Answer key
+☟
+Binary Search Tree: GATE IT 2007 | Question: 29
+When searching for the key value 
+ in a binary search tree, nodes containing the key values 
+ are traversed, not necessarily in the order given. How many diﬀerent orders are
+possible in which these key values can occur on the search path from the root to the node containing the value 
+?
+gateit-2007
+ 
+data-structures
+ 
+binary-search-tree
+ 
+normal
+Answer key
+☟
+
+
+3.5.34
+A
+. 
+II and III only
+B
+. 
+I and III only
+C
+. 
+III and IV only
+D
+. 
+III only
+3.5.35
+3.5.36
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6
+3.6.1
+3.6.2
+Binary Search Tree: GATE IT 2008 | Question: 71
+A Binary Search Tree (BST) stores values in the range 
+ to 
+. Consider the following sequence of keys.
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+Suppose the BST has been unsuccessfully searched for key 
+. Which all of the above sequences list nodes in
+the order in which we could have encountered them in the search?
+gateit-2008
+ 
+data-structures
+ 
+binary-search-tree
+ 
+normal
+Answer key
+☟
+Binary Search Tree: GATE IT 2008 | Question: 72
+A Binary Search Tree (BST) stores values in the range 
+ to 
+. Consider the following sequence of keys.
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+Which of the following statements is TRUE?
+A
+. 
+I, II and IV are inorder sequences of three different BSTs
+B
+. 
+I is a preorder sequence of some BST with 
+ as the root
+C
+. 
+II is an inorder sequence of some BST where 
+ is the root and 
+ is a leaf
+D
+. 
+IV is a postorder sequence of some BST with 
+ as the root
+gateit-2008
+ 
+data-structures
+ 
+binary-search-tree
+ 
+easy
+Answer key
+☟
+Binary Search Tree: GATE IT 2008 | Question: 73
+How many distinct BSTs can be constructed with 
+ distinct keys?
+gateit-2008
+ 
+data-structures
+ 
+binary-search-tree
+ 
+normal
+Answer key
+☟
+Binary Tree 
+(53)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(6Q)
+Binary Tree: GATE CSE 1987 | Question: 2c
+State whether the following statements are TRUE or FALSE:
+It is possible to construct a binary tree uniquely whose pre-order and post-order traversals are given?
+gate1987
+ 
+binary-tree
+ 
+data-structures
+ 
+normal
+ 
+true-false
+Answer key
+☟
+Binary Tree: GATE CSE 1987 | Question: 2g
+State whether the following statements are TRUE or FALSE:
+If the number of leaves in a tree is not a power of 
+ then the tree is not a binary tree.
+
+
+3.6.3
+3.6.4
+3.6.5
+3.6.6
+3.6.7
+gate1987
+ 
+data-structures
+ 
+binary-tree
+ 
+true-false
+Answer key
+☟
+Binary Tree: GATE CSE 1987 | Question: 7b
+Construct a binary tree whose preorder traversal is
+and inorder traversal is
+gate1987
+ 
+data-structures
+ 
+binary-tree
+ 
+descriptive
+Answer key
+☟
+Binary Tree: GATE CSE 1988 | Question: 7i
+Define the height of a binary tree or subtree and also define a height-balanced (AVL) tree.
+gate1988
+ 
+normal
+ 
+descriptive
+ 
+data-structures
+ 
+binary-tree
+Answer key
+☟
+Binary Tree: GATE CSE 1988 | Question: 7iii
+Consider the tree given in the below ﬁgure, insert 
+ and show the new balance factors that would arise if
+the tree is not rebalanced. Finally, carry out the required rebalancing of the tree and show the new tree with
+the balance factors on each mode.
+gate1988
+ 
+normal
+ 
+descriptive
+ 
+data-structures
+ 
+binary-tree
+Answer key
+☟
+Binary Tree: GATE CSE 1989 | Question: 3-ixa
+Which one of the following statements (s) is/are FALSE?
+A
+. 
+Overlaying is used to run a program, which is longer than the address space of the computer.
+B
+. 
+Optimal binary search tree construction can be performed efficiently by using dynamic programming.
+C
+. 
+Depth first search cannot be used to find connected components of a graph.
+D
+. 
+Given the prefix and postfix walls over a binary tree, the binary tree can be uniquely constructed.
+normal
+ 
+gate1989
+ 
+binary-tree
+ 
+multiple-selects
+Answer key
+☟
+Binary Tree: GATE CSE 1990 | Question: 3-iv
+The total external path length, 
+ of a binary tree with 
+ external nodes is, 
+, where 
+ is
+the path length of external node 
+),
+
+
+A
+. 
+ always.
+B
+. 
+ always.
+C
+. 
+Equal to 
+ always.
+D
+. 
+ for some special trees.
+3.6.8
+3.6.9
+3.6.10
+3.6.11
+gate1990
+ 
+normal
+ 
+data-structures
+ 
+binary-tree
+ 
+multiple-selects
+Answer key
+☟
+Binary Tree: GATE CSE 1991 | Question: 01,viii
+The weighted external path length of the binary tree in figure is ______
+gate1991
+ 
+binary-tree
+ 
+data-structures
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Binary Tree: GATE CSE 1991 | Question: 1,ix
+If the binary tree in figure is traversed in inorder, then the order in which the nodes will be visited is ______
+gate1991
+ 
+binary-tree
+ 
+easy
+ 
+data-structures
+ 
+descriptive
+Answer key
+☟
+Binary Tree: GATE CSE 1991 | Question: 14,a
+Consider the binary tree in the figure below:
+What structure is represented by the binary tree?
+gate1991
+ 
+data-structures
+ 
+binary-tree
+ 
+time-complexity
+ 
+easy
+ 
+descriptive
+Answer key
+☟
+Binary Tree: GATE CSE 1991 | Question: 14,b
+Consider the binary tree in the figure below:
+
+
+3.6.12
+3.6.13
+3.6.14
+3.6.15
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.16
+Give different steps for deleting the node with key 
+ so that the structure is preserved.
+gate1991
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Binary Tree: GATE CSE 1991 | Question: 14,c
+Consider the binary tree in the figure below:
+Outline a procedure in Pseudo-code to delete an arbitrary node from such a binary tree with 
+ nodes that preserves
+the structures. What is the worst-case time complexity of your procedure?
+gate1991
+ 
+normal
+ 
+data-structures
+ 
+binary-tree
+ 
+time-complexity
+ 
+descriptive
+Answer key
+☟
+Binary Tree: GATE CSE 1993 | Question: 16
+Prove by the principal of mathematical induction that for any binary tree, in which every non-leaf node has 
+-
+descendants, the number of leaves in the tree is one more than the number of non-leaf nodes.
+gate1993
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Binary Tree: GATE CSE 1994 | Question: 8
+A rooted tree with 
+ nodes has its nodes numbered 
+ to 
+ in pre-order. When the tree is traversed in post-
+order, the nodes are visited in the order 
+.
+Reconstruct the original tree from this information, that is, ﬁnd the parent of each node, and show the tree
+diagrammatically.
+gate1994
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Binary Tree: GATE CSE 1995 | Question: 1.17
+A binary tree 
+ has 
+ leaf nodes. The number of nodes of degree 
+ in 
+ is
+gate1995
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE CSE 1995 | Question: 6
+What is the number of binary trees with 
+ nodes which when traversed in post-order give the sequence 
+ Draw all these binary trees.
+
+
+3.6.17
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.18
+3.6.19
+3.6.20
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.21
+A
+. 
+LASTIN = LASTPOST
+B
+. 
+LASTIN = LASTPRE
+gate1995
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Binary Tree: GATE CSE 1996 | Question: 1.15
+Which of the following sequences denotes the post order traversal sequence of the below tree?
+gate1996
+ 
+data-structures
+ 
+binary-tree
+ 
+easy
+Answer key
+☟
+Binary Tree: GATE CSE 1997 | Question: 16
+A size-balanced binary tree is a binary tree in which for every node the diﬀerence between the number of
+nodes in the left and right subtree is at most 
+. The distance of a node from the root is the length of the path
+from the root to the node. The height of a binary tree is the maximum distance of a leaf node from the root.
+A
+. 
+Prove, by using induction on h, that a size-balance binary tree of height 
+ contains at least 
+ nodes.
+B
+. 
+In a size-balanced binary tree of height 
+, how many nodes are at distance 
+ from the root? Write only
+the answer without any explanations.
+gate1997
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+ 
+descriptive
+ 
+proof
+Answer key
+☟
+Binary Tree: GATE CSE 1998 | Question: 20
+Draw the binary tree with node labels 
+ for which the inorder and postorder traversals
+result in the following sequences:
+Inorder: 
+Postorder: 
+gate1998
+ 
+data-structures
+ 
+binary-tree
+ 
+descriptive
+Answer key
+☟
+Binary Tree: GATE CSE 2000 | Question: 1.14
+Consider the following nested representation of binary trees: 
+ indicates 
+ and 
+ are the left and
+right subtrees, respectively, of node 
+. Note that 
+ and 
+ may be 
+, or further nested. Which of the
+following represents a valid binary tree?
+gatecse-2000
+ 
+data-structures
+ 
+binary-tree
+ 
+easy
+Answer key
+☟
+Binary Tree: GATE CSE 2000 | Question: 2.16
+Let LASTPOST, LASTIN and LASTPRE denote the last vertex visited `in a postorder, inorder and preorder
+traversal respectively, of a complete binary tree. Which of the following is always true?
+
+
+C
+. 
+LASTPRE = LASTPOST
+D
+. 
+None of the above
+3.6.22
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.23
+3.6.24
+A
+. 
+I only
+B
+. 
+II, III
+C
+. 
+III only
+D
+. 
+IV only
+3.6.25
+A
+. 
+The number of leaf nodes in the
+tree
+B
+. 
+The number of nodes in the tree
+C
+. 
+The number of internal nodes in
+D
+. 
+The height of the tree
+gatecse-2000
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE CSE 2002 | Question: 2.12
+A weight-balanced tree is a binary tree in which for each node, the number of nodes in the left sub tree is at
+least half and at most twice the number of nodes in the right sub tree. The maximum possible height
+(number of nodes on the path from the root to the furthest leaf) of such a tree on n nodes is best described by
+which of the following?
+gatecse-2002
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE CSE 2002 | Question: 6
+Draw all binary trees having exactly three nodes labeled 
+ and 
+ on which preorder traversal gives the
+sequence 
+.
+gatecse-2002
+ 
+data-structures
+ 
+binary-tree
+ 
+easy
+ 
+descriptive
+Answer key
+☟
+Binary Tree: GATE CSE 2004 | Question: 35
+Consider the label sequences obtained by the following pairs of traversals on a labeled binary tree. Which of
+these pairs identify a tree uniquely?
+I
+. 
+preorder and postorder
+II
+. 
+inorder and postorder
+III
+. 
+preorder and inorder
+IV
+. 
+level order and postorder
+gatecse-2004
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE CSE 2004 | Question: 43
+Consider the following C program segment
+struct
+ 
+CellNode
+{
+    
+struct
+ 
+CellNode
+ 
+*
+leftChild
+    
+int
+ element
+;
+    
+struct
+ 
+CellNode
+ 
+*
+rightChild
+;
+    
+};
+int
+ 
+Dosomething
+ 
+(
+struct
+ 
+CellNode
+ 
+*
+ptr
+)
+{
+    
+int
+ 
+value
+ 
+=
+ 
+0
+;
+    
+if
+(
+ptr 
+!=
+ NULL
+)
+    
+{
+ 
+        
+if
+ 
+(
+ptr 
+->
+ leftChild 
+!=
+ NULL
+)
+            
+value
+ 
+=
+ 
+1
+ 
++
+ 
+DoSomething
+ 
+(
+ptr 
+->
+ leftChild
+);
+        
+if
+ 
+(
+ptr 
+->
+ rightChild 
+!=
+ NULL
+)
+            
+value
+ 
+=
+ max
+(
+value
+,
+ 
+1
+ 
++
+ 
+Dosomething
+ 
+(
+ptr 
+->
+ rightChild
+));
+    
+}
+    
+return
+(
+value
+);
+}
+The value returned by the function 
+ when a pointer to the root of a non-empty tree is passed as
+argument is
+
+
+the tree
+3.6.26
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.27
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.28
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.29
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.30
+gatecse-2004
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE CSE 2006 | Question: 13
+A scheme for storing binary trees in an array 
+ is as follows. Indexing of 
+ starts at 
+ instead of 
+. the root
+is stored at 
+. For a node stored at 
+, the left child, if any, is stored in 
+ and the right child, if any,
+in 
+. To be able to store any binary tree on n vertices the minimum size of 
+ should be
+gatecse-2006
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE CSE 2007 | Question: 12
+The height of a binary tree is the maximum number of edges in any root to leaf path. The maximum number
+of nodes in a binary tree of height 
+ is:
+gatecse-2007
+ 
+data-structures
+ 
+binary-tree
+ 
+easy
+Answer key
+☟
+Binary Tree: GATE CSE 2007 | Question: 13
+The maximum number of binary trees that can be formed with three unlabeled nodes is:
+gatecse-2007
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE CSE 2007 | Question: 39, UGCNET-June2015-II: 22
+The inorder and preorder traversal of a binary tree are
+ and 
+, respectively
+The postorder traversal of the binary tree is:
+gatecse-2007
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+ 
+ugcnetcse-june2015-paper2
+Answer key
+☟
+Binary Tree: GATE CSE 2007 | Question: 46
+Consider the following C program segment where 
+ represents a node in a binary tree:
+struct
+ 
+CellNode
+ 
+{
+    
+struct
+ 
+CellNode
+ 
+*
+leftChild
+;
+    
+int
+ element
+;
+    
+struct
+ 
+CellNode
+ 
+*
+rightChild
+;
+};
+int
+ 
+Getvalue
+ 
+(
+struct
+ 
+CellNode
+ 
+*
+ptr
+)
+ 
+{
+    
+int
+ 
+value
+ 
+=
+ 
+0
+;
+    
+if
+ 
+(
+ptr 
+!=
+ NULL
+)
+ 
+{
+        
+if
+ 
+((
+ptr
+->
+leftChild 
+==
+ NULL
+)
+ 
+&&
+            
+(
+ptr
+->
+rightChild 
+==
+ NULL
+))
+            
+value
+ 
+=
+ 
+1
+;
+        
+else
+            
+value
+ 
+=
+ 
+value
+ 
++
+ 
+GetValue
+(
+ptr
+->
+leftChild
+)
+                      
++
+ 
+GetValue
+(
+ptr
+->
+rightChild
+);
+    
+}
+    
+return
+(
+value
+);
+}
+
+
+A
+. 
+the number of nodes in the tree
+B
+. 
+the number of internal nodes in the tree
+C
+. 
+the number of leaf nodes in the tree
+D
+. 
+the height of the tree
+3.6.31
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.32
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.33
+3.6.34
+The value returned by 
+ when a pointer to the root of a binary tree is passed as its argument is:
+gatecse-2007
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE CSE 2010 | Question: 10
+In a  binary tree with 
+ nodes, every node has an odd number of descendants. Every node is considered to
+be its own descendant. What is the number of nodes in the tree that have exactly one child?
+gatecse-2010
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE CSE 2011 | Question: 29
+We are given a set of 
+ distinct elements and an unlabeled binary tree with 
+ nodes. In how many ways can
+we populate the tree with the given set so that it becomes a binary search tree?
+gatecse-2011
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE CSE 2012 | Question: 47
+The height of a tree is deﬁned as the number of edges on the longest path in the tree. The function shown in
+the pseudo-code below is invoked as height (root) to compute the height of a binary tree rooted at the tree
+pointer root.
+int
+ height
+(
+treeptr n
+)
+{
+ 
+if
+(
+n 
+==
+ NULL
+)
+ 
+return
+ 
+-
+1
+;
+  
+if
+(
+n 
+->
+ left 
+==
+ NULL
+)
+     
+if
+(
+n 
+->
+ right 
+==
+ NULL
+)
+ 
+return
+ 
+0
+;
+     
+else
+ 
+return
+ B1
+;
+ 
+// Box 1
+  
+  
+else
+{
+h1 
+=
+ height
+(
+n 
+->
+ left
+);
+       
+if
+(
+n 
+->
+ right 
+==
+ NULL
+)
+ 
+return
+ 
+(
+1
++
+h1
+);
+       
+else
+{
+h2 
+=
+ height
+(
+n 
+->
+ right
+);
+            
+return
+ B2
+;
+ 
+// Box 2
+            
+}
+       
+}
+}
+The appropriate expressions for the two boxes 
+B1
+ and 
+B2
+ are:
+A
+. 
+B1
+: 
+; 
+B2
+: 
+B
+. 
+B1
+: 
+ ; 
+B2
+: 
+C
+. 
+B1
+: 
+ ; 
+B2
+: 
+D
+. 
+B1
+: 
+ ; 
+B2
+: 
+gatecse-2012
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE CSE 2014 | Set 1 | Question: 12
+Consider a rooted n node binary tree represented using pointers. The best upper bound on the time required
+to determine the number of subtrees having exactly 
+ nodes is 
+. Then the value of 
+ is
+__________.
+gatecse-2014-set1
+ 
+data-structures
+ 
+binary-tree
+ 
+numerical-answers
+ 
+normal
+
+
+3.6.35
+A
+. 
+ and 
+, respectively
+B
+. 
+ and 
+, respectively
+C
+. 
+ and 
+, respectively
+D
+. 
+ and 
+, respectively
+3.6.36
+3.6.37
+3.6.38
+3.6.39
+3.6.40
+Answer key
+☟
+Binary Tree: GATE CSE 2015 | Set 1 | Question: 25
+The height of a tree is the length of the longest root-to-leaf path in it. The maximum and minimum number of
+nodes in a binary tree of height 
+ are
+gatecse-2015-set1
+ 
+data-structures
+ 
+binary-tree
+ 
+easy
+Answer key
+☟
+Binary Tree: GATE CSE 2015 | Set 2 | Question: 10
+A binary tree T has 
+ leaves. The number of nodes in T having two children is ______.
+gatecse-2015-set2
+ 
+data-structures
+ 
+binary-tree
+ 
+easy
+ 
+numerical-answers
+Answer key
+☟
+Binary Tree: GATE CSE 2015 | Set 3 | Question: 25
+Consider a binary tree T that has 
+ leaf nodes. Then the number of nodes in T that have exactly two
+children are ______.
+gatecse-2015-set3
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Binary Tree: GATE CSE 2016 | Set 2 | Question: 36
+Consider the following New-order strategy for traversing a binary tree:
+Visit the root;
+Visit the right subtree using New-order;
+Visit the left subtree using New-order;
+The New-order traversal of the expression tree corresponding to the reverse polish expression
+3
+ 
+4
+ 
+*
+ 
+5
+ 
+-
+ 
+2
+ 
+^
+ 
+6
+ 
+7
+ 
+*
+ 
+1
+ 
++
+ 
+-
+ 
+is given by:
+A
+. 
+B
+. 
+ 
+C
+. 
+D
+. 
+ 
+gatecse-2016-set2
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE CSE 2018 | Question: 20
+The postorder traversal of a binary tree is 
+. The inorder traversal of the same tree is 
+. The height of a tree is the length of the longest path from the root to any leaf. The
+height of the binary tree above is _____
+gatecse-2018
+ 
+data-structures
+ 
+binary-tree
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Binary Tree: GATE CSE 2019 | Question: 46
+Let 
+ be a full binary tree with 
+ leaves. (A full binary tree has every level full.) Suppose two leaves 
+ and 
+of 
+ are chosen uniformly and independently at random. The expected value of the distance between 
+ and 
+ in 
+ (ie., the number of edges in the unique path between 
+ and 
+) is (rounded oﬀ to 
+ decimal places)
+_________.
+
+
+3.6.41
+3.6.42
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.43
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.44
+gatecse-2019
+ 
+numerical-answers
+ 
+data-structures
+ 
+binary-tree
+ 
+two-marks
+Answer key
+☟
+Binary Tree: GATE CSE 2021 | Set 2 | Question: 16
+Consider a complete binary tree with 
+ nodes. Let 
+ denote the set of ﬁrst 
+ elements obtained by
+performing Breadth-First Search 
+ starting from the root. Let 
+ denote the set of ﬁrst 
+ elements
+obtained by performing Depth-First Search 
+ starting from the root.
+The value of 
+ is _____________
+gatecse-2021-set2
+ 
+numerical-answers
+ 
+data-structures
+ 
+binary-tree
+ 
+one-mark
+Answer key
+☟
+Binary Tree: GATE CSE 2023 | Question: 37
+Consider the 
+ function 
+ and the binary tree shown.
+typedef
+ 
+struct
+ node 
+{
+    
+int
+ val
+;
+    
+struct
+ node 
+*
+left
+,
+ 
+*
+right
+;
+}
+ node
+;
+ 
+int
+ foo
+(
+node 
+*
+p
+)
+ 
+{
+    
+int
+ retval
+;
+    
+if
+ 
+(
+p 
+==
+ NULL
+)
+        
+return
+ 
+0
+;
+    
+else
+ 
+{
+        retval 
+=
+ p
+->
+val 
++
+ foo
+(
+p
+->
+left
+)
+ 
++
+ foo
+(
+p
+->
+right
+);
+        printf
+(
+"%d "
+,
+ retval
+);
+        
+return
+ retval
+;
+    
+}
+}
+When 
+ is called with a pointer to the root node of the given binary tree, what will it print?
+gatecse-2023
+ 
+data-structures
+ 
+binary-tree
+ 
+two-marks
+Answer key
+☟
+Binary Tree: GATE CSE 2025 | Set 2 | Question: 3
+Consider a binary tree 
+ in which every node has either zero or two children. Let 
+ be the number of
+nodes in 
+.
+Which ONE of the following is the number of nodes in 
+ that have exactly two children?
+ 
+gatecse2025-set2
+ 
+data-structures
+ 
+binary-tree
+ 
+one-mark
+Answer key
+☟
+Binary Tree: GATE DS&AI 2024 | Question: 18
+​​​​​​
+Consider the following tree traversals on a full binary tree:
+i
+. 
+Preorder
+ii
+. 
+Inorder
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.45
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.46
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.47
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.48
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+iii
+. 
+Postorder
+Which of the following traversal options is/are sufficient to uniquely reconstruct the full binary tree?
+ 
+gate-ds-ai-2024
+ 
+data-structures
+ 
+binary-tree
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Binary Tree: GATE DS&AI 2024 | Question: 42
+​​​​​
+Let 
+, and 
+ represent height, number of internal nodes, number of leaf nodes, and the total number
+of nodes respectively in a rooted binary tree.
+Which of the following statements is/are always TRUE?
+ 
+gate-ds-ai-2024
+ 
+data-structures
+ 
+binary-tree
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Binary Tree: GATE IT 2004 | Question: 54
+Which one of the following binary trees has its inorder and preorder traversals as 
+  and 
+,
+respectively?
+gateit-2004
+ 
+binary-tree
+ 
+easy
+ 
+data-structures
+Answer key
+☟
+Binary Tree: GATE IT 2005 | Question: 50
+In a binary tree, for every node the diﬀerence between the number of nodes in the left and right subtrees is
+at most 
+. If the height of the tree is 
+, then the minimum number of nodes in the tree is
+gateit-2005
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE IT 2006 | Question: 71
+An array 
+ of 
+ distinct integers is interpreted as a complete binary tree. The index of the ﬁrst element of
+the array is 
+. The index of the parent of element 
+, is?
+gateit-2006
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+
+
+3.6.49
+A
+. 
+ 
+B
+. 
+C
+. 
+ 
+D
+. 
+3.6.50
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.6.51
+3.6.52
+A
+. 
+  
+B
+. 
+C
+. 
+D
+. 
+3.6.53
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Binary Tree: GATE IT 2006 | Question: 73
+An array 
+ of n distinct integers is interpreted as a complete binary tree. The index of the first element of the
+array is 
+. If the root node is at level 
+, the level of element 
+, 
+, is
+gateit-2006
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE IT 2006 | Question: 9
+In a binary tree, the number of internal nodes of degree 
+ is 
+, and the number of internal nodes of degree 
+is 
+. The number of leaf nodes in the binary tree is
+gateit-2006
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE IT 2008 | Question: 46
+The following three are known to be the preorder, inorder and postorder sequences of a binary tree. But it is
+not known which is which.
+I
+. 
+II
+. 
+III
+. 
+Pick the true statement from the following.
+A
+. 
+I and II are preorder and inorder sequences, respectively
+B
+. 
+I and III are preorder and postorder sequences, respectively
+C
+. 
+II is the inorder sequence, but nothing more can be said about the other two sequences
+D
+. 
+II and III are the preorder and inorder sequences, respectively
+gateit-2008
+ 
+data-structures
+ 
+normal
+ 
+binary-tree
+Answer key
+☟
+Binary Tree: GATE IT 2008 | Question: 76
+A binary tree with 
+ nodes has 
+, 
+ and 
+ nodes of degree one, two and three respec
+tively. The
+degree of a node is defined as the number of its neighbours.
+ can be expressed as
+gateit-2008
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Binary Tree: GATE IT 2008 | Question: 77
+A binary tree with 
+ nodes has 
+, 
+ and 
+ nodes of degree one, two and three respec
+tively. The
+degree of a node is defined as the number of its neighbours.
+Starting with the above tree, while there remains a node 
+ of degree two in the tree, add an edge between the two
+neighbours of 
+ and then remove 
+ from the tree. How many edges will remain at the end of the process?
+gateit-2008
+ 
+data-structures
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+
+
+3.7
+3.7.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.7.2
+3.7.3
+3.7.4
+Data Structures 
+(4)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(6Q)
+Data Structures: GATE CSE 1997 | Question: 6.2
+Let 
+ be the graph with 
+ vertices numbered 
+ to 
+.  Two vertices 
+ and 
+ are adjacent  if 
+ or 
+. The number of connected components in 
+ is
+gate1997
+ 
+data-structures
+ 
+normal
+ 
+graph-theory
+Answer key
+☟
+Data Structures: GATE CSE 2014 | Set 1 | Question: 3
+Let 
+ be a directed graph where 
+ is the set of vertices and 
+ the set of edges. Then which one
+of the following graphs has the same strongly connected components as 
+ ?
+A
+. 
+ = 
+ where 
+B
+. 
+ = 
+ where 
+C
+. 
+ = 
+ where 
+ there is a path of length 
+ from 
+ to 
+ in 
+D
+. 
+ = 
+ where 
+ is the set of vertices in 
+ which are not isolated
+gatecse-2014-set1
+ 
+data-structures
+ 
+graph-theory
+ 
+ambiguous
+Answer key
+☟
+Data Structures: GATE CSE 2016 | Set 1 | Question: 38
+Consider the weighted undirected graph with 
+ vertices, where the weight of edge 
+ is given by the
+entry 
+ in the matrix 
+.
+ W=
+The largest possible integer value of 
+, for which at least one shortest path between some pair of vertices will
+contain the edge with weight 
+ is ___________.
+gatecse-2016-set1
+ 
+data-structures
+ 
+graph-theory
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Data Structures: GATE DS&AI 2024 | Question: 6
+​​​​​​
+Match the items in 
+Column 
+ with the items in 
+Column 
+ in the following table:
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gate-ds-ai-2024
+ 
+data-structures
+ 
+match-the-following
+ 
+one-mark
+
+
+3.8
+3.8.1
+A
+. 
+Worst case complexity of search operations is less
+B
+. 
+Space used is less
+C
+. 
+Deletion is easier
+D
+. 
+None of the above
+3.8.2
+3.8.3
+3.8.4
+A
+. 
+I only
+B
+. 
+II only
+C
+. 
+I and II only
+D
+. 
+III or IV
+Answer key
+☟
+Hashing 
+(15)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(14Q)
+Hashing: GATE CSE 1996 | Question: 1.13
+An advantage of chained hash table (external hashing) over the open addressing scheme is
+gate1996
+ 
+data-structures
+ 
+hashing
+ 
+normal
+Answer key
+☟
+Hashing: GATE CSE 1996 | Question: 15
+Insert the characters of the string 
+ into a hash table of size 
+.
+Use the hash function
+and linear probing to resolve collisions.
+A
+. 
+Which insertions cause collisions?
+B
+. 
+Display the final hash table.
+gate1996
+ 
+data-structures
+ 
+hashing
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Hashing: GATE CSE 1997 | Question: 12
+Consider a hash table with 
+ buckets, where external (overﬂow) chaining is used to resolve collisions. The
+hash function is such that the probability that a key value is hashed to a particular bucket is 
+. The hash
+table is initially empty and 
+ distinct values are inserted in the table.
+A
+. 
+What is the probability that bucket number 
+ is empty after the 
+ insertion?
+B
+. 
+What is the probability that no collision has occurred in any of the 
+ insertions?
+C
+. 
+What is the probability that the first collision occurs at the 
+ insertion?
+gate1997
+ 
+data-structures
+ 
+hashing
+ 
+probability
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Hashing: GATE CSE 2004 | Question: 7
+Given the following input 
+ and the hash function 
+ mod
+, which of the following statements are true?
+I
+. 
+ hash to the same value
+II
+. 
+ hash to the same value
+III
+. 
+All elements hash to the same value
+IV
+. 
+Each element hashes to a different value
+gatecse-2004
+ 
+data-structures
+ 
+hashing
+ 
+easy
+Answer key
+☟
+
+
+3.8.5
+A
+. 
+, −, −, −, −, −, 
+B
+. 
+, −, −, −, 
+C
+. 
+, −, −, −, −, −, 
+D
+. 
+, −, −, −,
+3.8.6
+A
+. 
+ 
+B
+. 
+C
+. 
+D
+. 
+3.8.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Hashing: GATE CSE 2007 | Question: 40
+Consider a hash table of size seven, with starting index zero, and a hash function 
+.
+Assuming the hash table is initially empty, which of the following is the contents of the table when the
+sequence 
+ is inserted into the table using closed hashing? Note that − denotes an empty location in the
+table.
+gatecse-2007
+ 
+data-structures
+ 
+hashing
+ 
+easy
+Answer key
+☟
+Hashing: GATE CSE 2009 | Question: 36
+The keys 
+ and 
+ are inserted into an initially empty hash table of length 
+ using
+open addressing with hash function 
+ and linear probing. What is the resultant hash
+table?
+gatecse-2009
+ 
+data-structures
+ 
+hashing
+ 
+normal
+Answer key
+☟
+Hashing: GATE CSE 2010 | Question: 52
+A hash table of length 
+ uses open addressing with hash function 
+, and linear probing.
+After inserting 
+ values into an empty hash table, the table is shown as below
+Which one of the following choices gives a possible order in which the key values could have been inserted in the
+table?
+gatecse-2010
+ 
+data-structures
+ 
+hashing
+ 
+normal
+Answer key
+☟
+
+
+3.8.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.8.9
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+3.8.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.8.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.8.12
+Hashing: GATE CSE 2010 | Question: 53
+A hash table of length 
+ uses open addressing with hash function 
+, and linear
+probing. After inserting 
+ values into an empty hash table, the table is shown as below
+How many diﬀerent insertion sequences of the key values using the same hash function and linear probing will
+result in the hash table shown above?
+data-structures
+ 
+hashing
+ 
+normal
+ 
+gatecse-2010
+Answer key
+☟
+Hashing: GATE CSE 2014 | Set 1 | Question: 40
+Consider a hash table with 
+ slots. The hash function is 
+. The collisions are resolved by
+chaining. The following 
+ keys are inserted in the order: 
+. The maximum,
+minimum, and average chain lengths in the hash table, respectively, are
+gatecse-2014-set1
+ 
+data-structures
+ 
+hashing
+ 
+normal
+Answer key
+☟
+Hashing: GATE CSE 2014 | Set 3 | Question: 40
+Consider a hash table with 
+ slots. Collisions are resolved using chaining. Assuming simple uniform
+hashing, what is the probability that the first 
+ slots are unfilled after the first 
+ insertions?
+gatecse-2014-set3
+ 
+data-structures
+ 
+hashing
+ 
+probability
+ 
+normal
+Answer key
+☟
+Hashing: GATE CSE 2015 | Set 2 | Question: 33
+Which one of the following hash functions  on integers will distribute keys most uniformly over 
+ buckets
+numbered 
+ to 
+ for 
+ ranging from 
+ to 
+?
+gatecse-2015-set2
+ 
+data-structures
+ 
+hashing
+ 
+normal
+Answer key
+☟
+Hashing: GATE CSE 2015 | Set 3 | Question: 17
+Given that hash table 
+ with 
+ slots that stores 
+ elements, the load factor 
+ for 
+ is _________.
+gatecse-2015-set3
+ 
+data-structures
+ 
+hashing
+ 
+easy
+ 
+numerical-answers
+
+
+3.8.13
+A
+. 
+I only
+B
+. 
+II and III only
+C
+. 
+I and III only
+D
+. 
+II only
+3.8.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.8.15
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.9
+3.9.1
+A
+. 
+An operator stack
+B
+. 
+An operand stack
+C
+. 
+An operand stack and an operator
+stack
+D
+. 
+A parse tree
+3.9.2
+3.9.3
+Answer key
+☟
+Hashing: GATE IT 2006 | Question: 20
+Which of the following statement(s) is TRUE?
+I
+. 
+A hash function takes a message of arbitrary length and generates a fixed length code.
+II
+. 
+A hash function takes a message of fixed length and generates a code of variable length.
+III
+. 
+A hash function may give the same hash value for distinct messages.
+gateit-2006
+ 
+data-structures
+ 
+hashing
+ 
+normal
+Answer key
+☟
+Hashing: GATE IT 2007 | Question: 28
+Consider a hash function that distributes keys uniformly. The hash table size is 
+. After hashing of how
+many keys will the probability that any new key hashed collides with an existing one exceed 
+.
+gateit-2007
+ 
+data-structures
+ 
+hashing
+ 
+probability
+ 
+normal
+Answer key
+☟
+Hashing: GATE IT 2008 | Question: 48
+Consider a hash table of size 
+ that uses open addressing with linear probing. Let 
+ be
+the hash function used. A sequence of records with keys
+is inserted into an initially empty hash table, the bins of which are indexed from zero to ten. What is the index of the
+bin into which the last record is inserted?
+gateit-2008
+ 
+data-structures
+ 
+hashing
+ 
+normal
+Answer key
+☟
+Infix Prefix 
+(4)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(6Q)
+Infix Prefix: GATE CSE 1997 | Question: 1.7
+Which of the following is essential for converting an infix expression to the postfix form efficiently?
+gate1997
+ 
+normal
+ 
+infix-prefix
+ 
+stack
+ 
+data-structures
+Answer key
+☟
+Infix Prefix: GATE CSE 1998 | Question: 19b
+Compute the post fix equivalent of the following expression 
+gate1998
+ 
+stack
+ 
+infix-prefix
+ 
+descriptive
+Answer key
+☟
+Infix Prefix: GATE CSE 2004 | Question: 38, ISRO2009-27
+Assume that the operators 
+ are left associative and 
+ is right associative. The order of precedence
+(from highest to lowest) is 
+. The postﬁx expression corresponding to the inﬁx expression 
+ is
+
+
+3.9.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.10
+3.10.1
+A
+. 
+One pointer.
+B
+. 
+Two pointers.
+C
+. 
+Multiple pointers.
+D
+. 
+No pointer.
+3.10.2
+3.10.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2004
+ 
+stack
+ 
+isro2009
+ 
+infix-prefix
+Answer key
+☟
+Infix Prefix: GATE CSE 2007 | Question: 38, ISRO2016-27
+The following postfix expression with single digit operands is evaluated using a stack:
+Note that 
+ is the exponentiation operator. The top two elements of the stack after the first 
+ is evaluated are
+gatecse-2007
+ 
+data-structures
+ 
+stack
+ 
+normal
+ 
+infix-prefix
+ 
+isro2016
+Answer key
+☟
+Linked List 
+(24)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(3Q)
+Linked List: GATE CSE 1987 | Question: 1-xv
+In a circular linked list organization, insertion of a record involves modification of
+gate1987
+ 
+data-structures
+ 
+linked-list
+Answer key
+☟
+Linked List: GATE CSE 1987 | Question: 6a
+A list of 
+ elements is commonly written as a sequence of 
+ elements enclosed in a pair of square brackets.
+For example. 
+ is a list of three elements and 
+ is a nil list. Five functions are defined below:
+ returns the first element of its argument list 
+;
+ returns the list obtained by removing the first element of the argument list 
+;
+ returns a list 
+ such that 
+ and 
+.
+ if 
+ then 
+                            else 
+;
+ if 
+ then 
+                        else 
+, 
+What do the following compute?
+a
+. 
+b
+. 
+gate1987
+ 
+data-structures
+ 
+linked-list
+ 
+descriptive
+Answer key
+☟
+Linked List: GATE CSE 1993 | Question: 13
+Consider a singly linked list having 
+ nodes. The data items 
+ are stored in these 
+ nodes. Let 
+ be a pointer to the 
+ node 
+ in which 
+ is stored. A new data item 
+ stored in node with
+address 
+ is to be inserted. Give an algorithm to insert 
+ into the list to obtain a list having items 
+
+
+3.10.4
+A
+. 
+Insertion sort
+B
+. 
+Binary search
+C
+. 
+Radix sort
+D
+. 
+Polynomial manipulation
+3.10.5
+A
+. 
+I and II
+B
+. 
+II and III
+C
+. 
+I and IV
+D
+. 
+I and III
+3.10.6
+A
+. 
+Singly linked list
+B
+. 
+Doubly linked list
+C
+. 
+Circular doubly linked list
+D
+. 
+Array implementation of list
+3.10.7
+ in order without using the header.
+gate1993
+ 
+data-structures
+ 
+linked-list
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Linked List: GATE CSE 1994 | Question: 1.17, UGCNET-Sep2013-II: 32
+Linked lists are not suitable data structures for which one of the following problems?
+gate1994
+ 
+data-structures
+ 
+linked-list
+ 
+normal
+ 
+ugcnetsep2013ii
+Answer key
+☟
+Linked List: GATE CSE 1995 | Question: 2.22
+Which of the following statements is true?
+I
+. 
+As the number of entries in a hash table increases, the number of collisions increases.
+II
+. 
+Recursive programs are efficient
+III
+. 
+The worst case complexity for Quicksort is 
+IV
+. 
+Binary search using a linear linked list is efficient
+gate1995
+ 
+data-structures
+ 
+linked-list
+ 
+hashing
+Answer key
+☟
+Linked List: GATE CSE 1997 | Question: 1.4
+The concatenation of two lists is to be performed on 
+ time. Which of the following implementations of a
+list should be used?
+gate1997
+ 
+data-structures
+ 
+linked-list
+ 
+easy
+Answer key
+☟
+Linked List: GATE CSE 1997 | Question: 18
+Consider the following piece of  'C' code fragment that removes duplicates from an ordered list of integers.
+Node
+ 
+*
+remove
+-
+duplicates 
+(
+Node
+*
+ head
+,
+ 
+int
+ 
+*
+j
+)
+{
+ 
+    
+Node
+ 
+*
+t1
+,
+ 
+*
+t2
+;
+ 
+*
+j
+=
+0
+;
+ 
+    t1 
+=
+ head
+;
+ 
+    
+if
+ 
+(
+t1
+!
+ 
+=
+ NULL
+)
+ 
+        t2 
+=
+ t1 
+->
+next
+;
+ 
+    
+else
+ 
+return
+ head
+;
+    
+*
+j 
+=
+ 
+1
+;
+ 
+    
+if
+(
+t2 
+==
+ NULL
+)
+ 
+return
+ head
+;
+ 
+    
+while
+ 
+(
+t2 
+!=
+ NULL
+)
+ 
+    
+{
+ 
+        
+if
+ 
+(
+t1
+.
+val 
+!=
+ t2
+.
+val
+)
+ 
+---------------->
+ 
+(
+S1
+)
+ 
+        
+{
+ 
+            
+(*
+j
+)++;
+ 
+            t1 
+->
+ 
+next
+ 
+=
+ t2
+;
+ 
+            t1 
+=
+ t2
+;
+ 
+----->
+ 
+(
+S2
+)
+ 
+        
+}
+            t2 
+=
+ t2 
+->
+next
+;
+ 
+    
+}
+    t1 
+->
+ 
+next
+ 
+=
+ NULL
+;
+ 
+    
+return
+ head
+;
+ 
+}
+Assume the list contains 
+ elements (
+) in the following questions.
+
+
+3.10.8
+3.10.9
+3.10.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.10.11
+a
+. 
+How many times is the comparison in statement 
+ made?
+b
+. 
+What is the minimum and the maximum number of times statements marked 
+ get executed?
+c
+. 
+What is the significance of the value in the integer pointed to by 
+ when the function completes?
+gate1997
+ 
+data-structures
+ 
+linked-list
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Linked List: GATE CSE 1998 | Question: 19a
+Let 
+ be a pointer as shown in the figure in a single linked list.                     
+                                            
+What do the following assignment statements achieve?
+q
+:=
+ p 
+->
+ 
+next
+p 
+->
+ 
+next
+:=
+ q 
+->
+ 
+next
+q 
+->
+ 
+next
+:=(
+q 
+->
+ 
+next
+)
+ 
+->
+ 
+next
+(
+p 
+->
+ 
+next
+)
+ 
+->
+ 
+next
+:=
+ q
+gate1998
+ 
+data-structures
+ 
+linked-list
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Linked List: GATE CSE 1999 | Question: 11b
+Write a constant time algorithm to insert a node with data 
+ just before the node with address 
+ of a singly
+linked list.
+gate1999
+ 
+data-structures
+ 
+linked-list
+ 
+descriptive
+Answer key
+☟
+Linked List: GATE CSE 2002 | Question: 1.5
+In the worst case, the number of comparisons needed to search a single linked list of length 
+ for a given
+element is
+gatecse-2002
+ 
+easy
+ 
+data-structures
+ 
+linked-list
+Answer key
+☟
+Linked List: GATE CSE 2003 | Question: 90
+Consider the function 
+ defined below.
+struct
+ item 
+{
+        
+int
+ data
+;
+        
+struct
+ item 
+*
+ 
+next
+;
+};
+int
+ f
+(
+struct
+ item 
+*
+p
+)
+ 
+{
+    
+return
+ 
+((
+p 
+==
+ NULL
+)
+ 
+||
+ 
+(
+p
+->
+next
+ 
+==
+ NULL
+)||
+ 
+        
+((
+p
+->
+data 
+<=
+ p 
+->
+next
+ 
+->
+ data
+)
+ 
+&&
+        f
+(
+p
+->
+next
+)));
+}
+For a given linked list 
+, the function 
+ returns 
+ if and only if
+A
+. 
+the list is empty or has exactly one element
+B
+. 
+the elements in the list are sorted in non-decreasing order of data value
+C
+. 
+the elements in the list are sorted in non-increasing order of data value
+D
+. 
+not all elements in the list have the same data value
+gatecse-2003
+ 
+data-structures
+ 
+linked-list
+ 
+normal
+
+
+3.10.12
+A
+. 
+rear node
+B
+. 
+front node
+C
+. 
+not possible with a single pointer
+D
+. 
+node next to front
+3.10.13
+A
+. 
+ only
+B
+. 
+C
+. 
+D
+. 
+3.10.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.10.15
+Answer key
+☟
+Linked List: GATE CSE 2004 | Question: 36
+A circularly linked list is used to represent a Queue. A single variable 
+ is used to access the Queue. To
+which node should 
+ point such that both the operations 
+ and 
+ can be performed in
+constant time?
+gatecse-2004
+ 
+data-structures
+ 
+linked-list
+ 
+normal
+Answer key
+☟
+Linked List: GATE CSE 2004 | Question: 40
+Suppose each set is represented as a linked list with elements in arbitrary order. Which of the operations
+among 
+ will be the slowest?
+gatecse-2004
+ 
+data-structures
+ 
+linked-list
+ 
+normal
+Answer key
+☟
+Linked List: GATE CSE 2008 | Question: 62
+The following C function takes a single-linked list of integers as a parameter and rearranges the elements of
+the list. The function is called with the list containing the integers 
+ in the given order. What
+will be the contents of the list after function completes execution?
+struct
+ node 
+{
+    
+int
+ 
+value
+;
+    
+struct
+ node 
+*
+next
+;
+};
+void
+ rearrange
+(
+struct
+ node 
+*
+list
+)
+ 
+{
+    
+struct
+ node 
+*
+p
+,
+ 
+*
+q
+;
+    
+int
+ temp
+;
+    
+if
+ 
+(!
+list 
+||
+ 
+!
+list 
+->
+ 
+next
+)
+ 
+return
+;
+    p 
+=
+ list
+;
+ q 
+=
+ list 
+->
+ 
+next
+;
+    
+while
+(
+q
+)
+ 
+{
+        temp 
+=
+ p 
+->
+ 
+value
+;
+ p
+->
+value
+ 
+=
+  q 
+->
+ 
+value
+;
+        q
+->
+value
+ 
+=
+ temp
+;
+ p 
+=
+ q 
+->
+next
+;
+        q 
+=
+ p
+?
+ p 
+->
+next
+ 
+:
+ 
+0
+;
+    
+}
+   
+}
+gatecse-2008
+ 
+data-structures
+ 
+linked-list
+ 
+normal
+Answer key
+☟
+Linked List: GATE CSE 2010 | Question: 36
+The following C function takes a singly-linked list as input argument. It modiﬁes the list by moving the last
+element to the front of the list and returns the modified list. Some part of the code is left blank.
+typedef
+ 
+struct
+ node 
+{
+    
+int
+ 
+value
+;
+    
+struct
+ node 
+*
+next
+;
+}
+ 
+Node
+;
+    
+Node
+ 
+*
+move_to
+-
+front
+(
+Node
+ 
+*
+head
+)
+ 
+
+
+3.10.16
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.10.17
+{
+    
+Node
+ 
+*
+p
+,
+ 
+*
+q
+;
+    
+if
+ 
+((
+head 
+==
+ NULL
+)
+ 
+||
+ 
+(
+head 
+->
+ 
+next
+ 
+==
+ NULL
+))
+        
+return
+ head
+;
+    q 
+=
+ NULL
+;
+ 
+    p 
+=
+ head
+;
+    
+while
+ 
+(
+p
+->
+next
+ 
+!=
+ NULL
+)
+    
+{
+        q
+=
+p
+;
+        p
+=
+p
+->
+next
+;
+    
+}
+    _______________ 
+    
+    
+return
+ head
+;
+  
+    
+}
+    
+Choose the correct alternative to replace the blank line.
+A
+. 
+;
+B
+. 
+;
+C
+. 
+;
+D
+. 
+;
+gatecse-2010
+ 
+data-structures
+ 
+linked-list
+ 
+normal
+Answer key
+☟
+Linked List: GATE CSE 2016 | Set 2 | Question: 15
+ items are stored in a sorted doubly linked list. For a 
+delete
+ operation, a pointer is provided to the record to
+be deleted. For a 
+decrease-key
+ operation, a pointer is provided to the record on which the operation is to be
+performed.
+An algorithm performs the following operations on the list in this order: 
+ 
+delete
+, 
+ 
+insert
+, 
+find
+, and 
+ 
+decrease-key
+. What is the time complexity of all these operations put together?
+gatecse-2016-set2
+ 
+data-structures
+ 
+linked-list
+ 
+time-complexity
+ 
+normal
+ 
+algorithms
+Answer key
+☟
+Linked List: GATE CSE 2017 | Set 1 | Question: 08
+Consider the C code fragment given below.
+typedef
+ 
+struct
+ node 
+{
+    
+int
+ data
+;
+    node
+*
+ 
+next
+;
+}
+ node
+;
+void
+ 
+join
+(
+node
+*
+ m
+,
+ node
+*
+ n
+)
+ 
+{
+    node
+*
+ p 
+=
+ n
+;
+    
+while
+(
+p
+->
+next
+ 
+!=
+ NULL
+)
+ 
+{
+        p 
+=
+ p
+->
+next
+;
+    
+}
+    p
+->
+next
+ 
+=
+ m
+;
+}
+Assuming that m and n point to valid NULL-terminated linked lists, invocation of join will
+A
+. 
+append list m to the end of list n for all inputs.
+B
+. 
+either cause a null pointer dereference or append list m to the end of list n.
+C
+. 
+cause a null pointer dereference for all inputs.
+D
+. 
+append list n to the end of list m for all inputs.
+gatecse-2017-set1
+ 
+data-structures
+ 
+linked-list
+ 
+normal
+Answer key
+☟
+
+
+3.10.18
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.10.19
+3.10.20
+A
+. 
+ is 
+ and 
+ is 
+B
+. 
+Both 
+ and 
+ are 
+C
+. 
+Both 
+ and 
+ are 
+D
+. 
+ is 
+ and 
+ is 
+3.10.21
+Linked List: GATE CSE 2020 | Question: 16
+What is the worst case time complexity of inserting 
+ elements into an empty linked list, if the linked list
+needs to be maintained in sorted order?
+gatecse-2020
+ 
+linked-list
+ 
+one-mark
+Answer key
+☟
+Linked List: GATE CSE 2022 | Question: 5
+Consider the problem of reversing a singly linked list. To take an example, given the linked list below,
+the reversed linked list should look like
+Which one of the following statements is 
+ about the time complexity of algorithms that solve the above
+problem in 
+ space?
+A
+. 
+The best algorithm for the problem takes 
+ time in the worst case.
+B
+. 
+The best algorithm for the problem takes 
+ time in the worst case.
+C
+. 
+The best algorithm for the problem takes 
+ time in the worst case.
+D
+. 
+It is not possible to reverse a singly linked list in 
+ space.
+gatecse-2022
+ 
+data-structures
+ 
+linked-list
+ 
+one-mark
+Answer key
+☟
+Linked List: GATE CSE 2023 | Question: 3
+Let 
+ be a function that deletes a node in a singly-linked list given a pointer to the node and a pointer
+to the head of the list. Similarly, let 
+ be another function that deletes a node in a doubly-linked list
+given a pointer to the node and a pointer to the head of the list.
+Let 
+ denote the number of nodes in each of the linked lists. Which one of the following choices is 
+ about
+the worst-case time complexity of 
+ and 
+gatecse-2023
+ 
+data-structures
+ 
+linked-list
+ 
+one-mark
+Answer key
+☟
+Linked List: GATE CSE 2025 | Set 1 | Question: 52
+Let 
+ be a datatype for an implementation of linked list defined as follows:
+typedef
+ 
+struct
+ list 
+{
+int
+ data
+;
+struct
+ list 
+*
+next
+;
+}
+ LIST
+;
+Suppose a program has created two linked lists, 
+ and 
+, whose contents are given in the ﬁgure below (code for
+creating 
+ and 
+ is not provided here). 
+ contains 
+ nodes, and 
+ contains 
+ nodes.
+Consider the following C program segment that modiﬁes the list 
+. The number of nodes that will be there in 
+after the execution of the code segment is __________. (Answer in integer)
+
+
+3.10.22
+3.10.23
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+int
+ find 
+(
+int
+ query
+,
+ LIST 
+*
+list
+)
+ 
+{
+while
+ 
+(
+list 
+!=
+ NULL
+)
+ 
+{
+if
+(
+list
+->
+data 
+==
+ query
+)
+ 
+return
+ 
+1
+ 
+;
+list 
+=
+ list
+->
+next
+;
+}
+return
+ 
+0
+ 
+;
+}
+int
+ main 
+(){
+...
+ 
+...
+ 
+...
+ptr1
+=
+L1
+;
+ ptr2
+=
+L2
+;
+while
+ 
+(
+ptr1
+->
+next
+ 
+!=
+ NULL
+){
+query 
+=
+ ptr1
+->
+next
+->
+data
+;
+if
+ 
+(
+find 
+(
+query
+,
+ L2
+))
+ptr1
+->
+next
+ 
+=
+ ptr1
+->
+next
+->
+next
+;
+else
+ ptr1 
+=
+ ptr1
+->
+next
+;
+}
+...
+ 
+....
+ 
+...
+return
+ 
+0
+;
+}
+gatecse2025-set1
+ 
+data-structures
+ 
+linked-list
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Linked List: GATE CSE 2026 | Set 1 | Question: 29
+Consider the following code snippet in C language that computes the number of nodes in a non-empty singly
+linked list pointed to by the pointer variable head.
+struct
+ node
+{
+    
+int
+ elt
+;
+    
+struct
+ node 
+*
+next
+;
+};
+int
+ getListSize 
+(
+struct
+ node 
+*
+head
+)
+{
+    
+if
+(
+ 
+E1
+ 
+)
+ 
+return
+ 
+1
+;
+    
+return
+ 
+E2
+;
+}
+Which one of the following options gives the correct replacements for the expressions 
+ and 
+A
+. 
+E1
+:
+ head 
+==
+ NULL
+E2
+:
+ 
+1
+ 
++
+ getListSize
+(
+head
+)
+B
+. 
+E1
+:
+ head
+->
+next
+ 
+==
+ NULL
+E2
+:
+ 
+1
+ 
++
+ getListSize
+(
+head
+->
+next
+)
+C
+. 
+E1
+:
+ head 
+==
+ NULL
+E2
+:
+ 
+1
+ 
++
+ getListSize
+(
+head
+->
+next
+)
+D
+. 
+E1
+:
+ head
+->
+next
+ 
+==
+ NULL
+E2
+:
+ 
+1
+ 
++
+ getListSize
+(
+head
+)
+gatecse-2026-set1
+ 
+data-structures
+ 
+two-marks
+ 
+linked-list
+Answer key
+☟
+Linked List: GATE IT 2004 | Question: 13
+Let 
+ be a singly linked list. Let 
+ be the pointer to an intermediate node 
+ in the list. What is the worst-
+case time complexity of the best-known algorithm to delete the node 
+ from the list ?
+gateit-2004
+ 
+data-structures
+ 
+linked-list
+ 
+normal
+ 
+ambiguous
+Answer key
+☟
+
+
+3.10.24
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.11
+3.11.1
+A
+. 
+non-increasing order
+B
+. 
+non-decreasing order
+C
+. 
+strictly increasing order
+D
+. 
+strictly decreasing order
+3.11.2
+3.12
+Linked List: GATE IT 2005 | Question: 54
+The following C function takes a singly-linked list of integers as a parameter and rearranges the elements of
+the list. The list is represented as pointer to a structure. The function is called with the list containing the
+integers 
+ in the given order. What will be the contents of the list after the function completes
+execution?
+struct
+ node 
+{
+int
+ 
+value
+;
+ 
+struct
+ node 
+*
+next
+;);
+void
+ rearrange 
+(
+struct
+ node 
+*
+list
+)
+ 
+{
+    
+struct
+ node 
+*
+p
+,
+ 
+*
+q
+;
+    
+int
+ temp
+;
+    
+if
+ 
+(!
+list 
+||
+ 
+!
+list 
+->
+ 
+next
+)
+ 
+return
+;
+    p 
+=
+ list
+;
+ q 
+=
+ list 
+->
+ 
+next
+;
+    
+while
+ 
+(
+q
+)
+ 
+{
+        temp 
+=
+ p 
+->
+ 
+value
+;
+        p 
+->
+ 
+value
+ 
+=
+ q 
+->
+ 
+value
+;
+        q 
+->
+ 
+value
+ 
+=
+ temp
+;
+        p 
+=
+ q 
+->
+ 
+next
+;
+        q 
+=
+ p 
+?
+ p 
+->
+ 
+next
+ 
+:
+ 
+0
+;
+      
+}
+}
+gateit-2005
+ 
+data-structures
+ 
+linked-list
+ 
+normal
+Answer key
+☟
+Priority Queue 
+(2)
+Priority Queue: GATE CSE 1997 | Question: 4.7
+A priority queue 
+ is used to implement a stack that stores characters. PUSH (C) is implemented as
+INSERT 
+ where 
+ is an appropriate integer key chosen by the implementation. POP is
+implemented as DELETEMIN
+. For a sequence of operations, the keys chosen are in
+gate1997
+ 
+data-structures
+ 
+stack
+ 
+normal
+ 
+priority-queue
+Answer key
+☟
+Priority Queue: GATE CSE 2023 | Question: 36
+Let 
+ be a priority queue for maintaining a set of elements. Suppose 
+ is implemented using a max-heap
+data structure. The operation 
+ extracts and deletes the maximum element from 
+.
+The operation 
+ inserts a new element 
+ in 
+. The properties of a max-heap are preserved at
+the end of each of these operations.
+When 
+ contains 
+ elements, which one of the following statements about the worst case running time of these
+two operations is 
+A
+. 
+Both 
+ and 
+ run in 
+.
+B
+. 
+Both 
+ and 
+ run in 
+.
+C
+. 
+ runs in 
+ whereas 
+ runs in 
+.
+D
+. 
+ runs in 
+ whereas 
+ runs in 
+.
+gatecse-2023
+ 
+data-structures
+ 
+priority-queue
+ 
+time-complexity
+ 
+binary-heap
+ 
+two-marks
+Answer key
+☟
+Queue 
+(15)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(6Q)
+
+
+3.12.1
+3.12.2
+3.12.3
+A
+. 
+ and 
+ are true
+B
+. 
+ and 
+ are true
+C
+. 
+ and 
+ are true
+D
+. 
+ and 
+ are true
+3.12.4
+A
+. 
+One
+B
+. 
+Two
+C
+. 
+Three
+D
+. 
+Four
+3.12.5
+Queue: GATE CSE 1992 | Question: 09
+Suggest a data structure for representing a subset 
+ of integers from 
+ to 
+. Following operations on the set
+ are to be performed in constant time (independent of cardinality of 
+).
+Give pictorial examples of your data structure. Give routines for these operations in an English like language. You
+may assume that the data structure has been suitable initialized. Clearly state your assumptions regarding
+initialization.
+gate1992
+ 
+data-structures
+ 
+normal
+ 
+descriptive
+ 
+queue
+Answer key
+☟
+Queue: GATE CSE 1994 | Question: 26
+A queue 
+ containing 
+ items and an empty stack 
+ are given. It is required to transfer all the items from
+the queue to the stack, so that the item at the front of queue is on the TOP of the stack, and the order of all
+other items are preserved. Show how this can be done in 
+ time using only a constant amount of additional
+storage. Note that the only operations which can be performed on the queue and stack are Delete, Insert, Push and
+Pop. Do not assume any implementation of the queue or stack.
+gate1994
+ 
+data-structures
+ 
+queue
+ 
+stack
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Queue: GATE CSE 1996 | Question: 1.12
+Consider the following statements:
+i
+. 
+First-in-first out types of computations are efficiently supported by STACKS.
+ii
+. 
+Implementing LISTS on linked lists is more eﬃcient than implementing LISTS on an array for almost all the
+basic LIST operations.
+iii
+. 
+Implementing QUEUES on a circular array is more eﬃcient than implementing QUEUES on a linear array with
+two indices.
+iv
+. 
+Last-in-first-out type of computations are efficiently supported by QUEUES.
+gate1996
+ 
+data-structures
+ 
+easy
+ 
+queue
+ 
+stack
+ 
+linked-list
+Answer key
+☟
+Queue: GATE CSE 2001 | Question: 2.16
+What is the minimum number of stacks of size 
+ required to implement a queue of size 
+?
+gatecse-2001
+ 
+data-structures
+ 
+easy
+ 
+stack
+ 
+queue
+Answer key
+☟
+Queue: GATE CSE 2006 | Question: 49
+An implementation of a queue 
+, using two stacks 
+ and 
+, is given below: 
+void
+ insert 
+(
+Q
+,
+ x
+)
+ 
+{
+ 
+    push 
+(
+S1
+,
+ x
+);
+ 
+}
+ 
+void
+ 
+delete
+ 
+(
+Q
+)
+ 
+{
+ 
+    
+if
+ 
+(
+stack
+-
+empty
+(
+S2
+))
+ 
+then
+ 
+
+
+3.12.6
+3.12.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.12.8
+        
+if
+ 
+(
+stack
+-
+empty
+(
+S1
+))
+ 
+then
+ 
+{
+ 
+            
+print
+(“
+Q 
+is
+ empty
+”);
+ 
+            
+return
+;
+ 
+        
+}
+ 
+        
+else
+ 
+while
+ 
+(!(
+stack
+-
+empty
+(
+S1
+))){
+ 
+            x
+=
+pop
+(
+S1
+);
+ 
+            push
+(
+S2
+,
+x
+);
+ 
+        
+}
+ 
+    x
+=
+pop
+(
+S2
+);
+}
+Let 
+ 
+insert
+ and 
+ 
+delete
+ operations be performed in an arbitrary order on an empty queue 
+. Let 
+ and 
+  be the number of 
+push
+ and 
+pop
+ operations  performed respectively in the process. Which one of the following is
+true for all 
+ and 
+?
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+gatecse-2006
+ 
+data-structures
+ 
+queue
+ 
+stack
+ 
+normal
+Answer key
+☟
+Queue: GATE CSE 2012 | Question: 35
+Suppose a circular queue of capacity 
+ elements is implemented with an array of 
+ elements.
+Assume that the insertion and deletion operations are carried out using 
+ and 
+ as array index
+variables, respectively. Initially, 
+. The conditions to detect queue full and queue empty are:
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2012
+ 
+data-structures
+ 
+queue
+ 
+normal
+Answer key
+☟
+Queue: GATE CSE 2013 | Question: 44
+Consider the following operation along with Enqueue and Dequeue operations on queues, where 
+ is a
+global parameter.
+MultiDequeue
+(
+Q
+){
+    m 
+=
+ k
+    
+while
+ 
+(
+Q 
+is
+ 
+not
+ empty
+)
+ 
+and
+ 
+(
+m 
+>
+ 
+0
+)
+ 
+{
+        
+Dequeue
+(
+Q
+)
+        m 
+=
+ m 
+–
+ 
+1
+    
+}
+}
+What is the worst case time complexity of a sequence of 
+ queue operations on an initially empty
+queue?
+gatecse-2013
+ 
+data-structures
+ 
+algorithms
+ 
+normal
+ 
+queue
+Answer key
+☟
+Queue: GATE CSE 2016 | Set 1 | Question: 10
+A queue is implemented using an array such that ENQUEUE and DEQUEUE operations are performed
+eﬃciently. Which one of the following statements is 
+CORRECT
+ (
+ refers to the number of items in the
+
+
+3.12.9
+3.12.10
+A
+. 
+(I) only.
+B
+. 
+(II) only.
+C
+. 
+Both (I) and (II).
+D
+. 
+Neither (I) nor (II).
+3.12.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+queue) ?
+A
+. 
+Both operations can be performed in 
+ time.
+B
+. 
+At most one operation can be performed in 
+ time but the worst case time for the operation will be 
+.
+C
+. 
+The worst case time complexity for both operations will be 
+.
+D
+. 
+Worst case time complexity for both operations will be 
+gatecse-2016-set1
+ 
+data-structures
+ 
+queue
+ 
+normal
+Answer key
+☟
+Queue: GATE CSE 2016 | Set 1 | Question: 41
+Let 
+ denote a queue containing sixteen numbers and 
+ be an empty stack. 
+ returns the element
+at the head of the queue 
+ without removing it from 
+. Similarly 
+ returns the element at the top of 
+without removing it from 
+. Consider the algorithm given below.
+while
+ Q 
+is
+ 
+not
+ 
+Empty
+ 
+do
+ 
+  
+if
+ S 
+is
+ 
+Empty
+ OR 
+Top
+(
+S
+)
+ 
+≤
+ 
+Head
+ 
+(
+Q
+)
+ 
+then
+ 
+     x
+:=
+ 
+Dequeue
+ 
+(
+Q
+);
+ 
+     
+Push
+ 
+(
+S
+,
+ x
+);
+ 
+  
+else
+  
+     x
+:=
+ 
+Pop
+(
+S
+);
+ 
+     
+Enqueue
+ 
+(
+Q
+,
+ x
+);
+  
+end
+ 
+end
+The maximum possible number of iterations of the 
+while
+ loop in the algorithm is _______.
+gatecse-2016-set1
+ 
+data-structures
+ 
+queue
+ 
+difficult
+ 
+numerical-answers
+Answer key
+☟
+Queue: GATE CSE 2017 | Set 2 | Question: 13
+A circular queue has been implemented using a singly linked list where each node consists of a value and a
+single pointer pointing to the next node. We maintain exactly two external pointers FRONT and REAR
+pointing to the front node and the rear node of the queue, respectively. Which of the following statements is/are
+CORRECT for such a circular queue, so that insertion and deletion operations can be performed in 
+ time?
+I
+. 
+Next pointer of front node points to the rear node.
+II
+. 
+Next pointer of rear node points to the front node.
+gatecse-2017-set2
+ 
+data-structures
+ 
+queue
+Answer key
+☟
+Queue: GATE CSE 2018 | Question: 3
+A queue is implemented using a non-circular singly linked list. The queue has a head pointer and a tail
+pointer, as shown in the ﬁgure. Let 
+ denote the number of nodes in the queue. Let 'enqueue' be
+implemented by inserting a new node at the head, and 'dequeue' be implemented by deletion of a node from the
+tail.
+Which one of the following is the time complexity of the most time-eﬃcient implementation of 'enqueue' and
+'dequeue, respectively, for this data structure?
+gatecse-2018
+ 
+algorithms
+ 
+data-structures
+ 
+queue
+ 
+normal
+ 
+linked-list
+ 
+one-mark
+
+
+3.12.12
+3.12.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.12.14
+Answer key
+☟
+Queue: GATE CSE 2022 | Question: 52
+Consider the queues 
+ containing four elements and 
+ containing none (shown as the 
+ in the
+ﬁgure). The only operations allowed on these two queues are 
+ and 
+The minimum number of 
+ operations on 
+ required to place the elements of 
+ in 
+ in reverse order
+(shown as the 
+ in the figure) without using any additional storage is________________.
+ 
+gatecse-2022
+ 
+numerical-answers
+ 
+data-structures
+ 
+queue
+ 
+two-marks
+Answer key
+☟
+Queue: GATE CSE 2026 | Set 2 | Question: 40
+Consider a stack 
+ and a queue 
+. Both of them are initially empty and have the capacity to store ten
+elements each. The elements 
+, and 
+ arrive one by one, in that order. When an element arrives, it
+is assigned either to 
+ (pushed on 
+ ) or to 
+ (enqueued to 
+ ). Once all the ﬁve elements are stored, the output
+is generated in two steps. First, stack S is emptied by popping all elements. Then queue 
+ is emptied by
+dequeueing all elements. The output obtained by following this process is 
+.
+Given the output, the objective is to predict whether an element was assigned to 
+ or 
+.
+Which of the following options is/are possible valid assignment(s) of the elements?
+Note: In the options, the notation 
+ denotes that element 
+ was assigned to 
+ and 
+ denotes that element 
+was assigned to 
+.
+gatecse-2026-set2
+ 
+data-structures
+ 
+stack
+ 
+queue
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Queue: GATE DS&AI 2024 | Question: 22
+The fundamental operations in a double-ended queue 
+ are: 
+insertFirst (e) - Insert a new element 
+ at the beginning of 
+. 
+insertLast (e) - Insert a new element 
+ at the end of D. 
+removeFirst () - Remove and return the first element of 
+. 
+removeLast () - Remove and return the last element of 
+.
+In an empty double-ended queue, the following operations are performed: 
+insertFirst (10)
+insertLast (32)
+a
+ 
+ removeFirst ()
+insertLast (28)
+insertLast (17)
+a
+ 
+ removeFirst ()
+ removeLast ()
+The value of 
+ is 
+.
+
+
+3.12.15
+3.13
+3.13.1
+3.13.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ 
+gate-ds-ai-2024
+ 
+numerical-answers
+ 
+data-structures
+ 
+queue
+ 
+one-mark
+Answer key
+☟
+Queue: GATE IT 2007 | Question: 30
+Suppose you are given an implementation of a queue of integers. The operations that can be performed on
+the queue are:
+i
+. 
+ — returns true if the queue is empty, false otherwise.
+ii
+. 
+ — deletes the element at the front of the queue and returns its value.
+iii
+. 
+ — inserts the integer i at the rear of the queue.
+Consider the following function:
+void
+ f 
+(
+queue Q
+)
+ 
+{
+int
+ i 
+;
+if
+ 
+(!
+isEmpty
+(
+Q
+))
+ 
+{
+   i 
+=
+ 
+delete
+(
+Q
+);
+   f
+(
+Q
+);
+   insert
+(
+Q
+,
+ i
+);
+  
+}
+}
+What operation is performed by the above function 
+ ?
+A
+. 
+Leaves the queue 
+ unchanged
+B
+. 
+Reverses the order of the elements in the queue 
+C
+. 
+Deletes the element at the front of the queue 
+ and inserts it at the rear keeping the other elements in the same
+order
+D
+. 
+Empties the queue 
+gateit-2007
+ 
+data-structures
+ 
+queue
+ 
+normal
+Answer key
+☟
+Stack 
+(19)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(10Q)
+Stack: GATE CSE 1989 | Question: 4-ii
+Compute the postfix equivalent of the following infix arithmetic expression
+where 
+ represents exponentiation. Assume normal operator precedences.
+gate1989
+ 
+descriptive
+ 
+data-structures
+ 
+stack
+Answer key
+☟
+Stack: GATE CSE 1991 | Question: 03,vii
+The following sequence of operations is performed on a stack:
+The sequence of values popped out is
+gate1991
+ 
+data-structures
+ 
+stack
+ 
+easy
+Answer key
+☟
+
+
+3.13.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.13.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.13.5
+3.13.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.13.7
+A
+. 
+ and 
+B
+. 
+C
+. 
+ or 
+D
+. 
+Stack: GATE CSE 1994 | Question: 1.14
+Which of the following permutations can be obtained in the output (in the same order) using a stack
+assuming that the input is the sequence 
+ in that order?
+gate1994
+ 
+data-structures
+ 
+stack
+ 
+normal
+Answer key
+☟
+Stack: GATE CSE 1995 | Question: 2.21
+The postfix expression for the infix expression 
+ is:
+gate1995
+ 
+data-structures
+ 
+stack
+ 
+easy
+Answer key
+☟
+Stack: GATE CSE 2000 | Question: 13
+Suppose a stack implementation supports, in addition to PUSH and POP, an operation REVERSE, which
+reverses the order of the elements on the stack.
+A
+. 
+To implement a queue using the above stack implementation, show how to implement ENQUEUE using a single
+operation and DEQUEUE using a sequence of 
+ operations.
+B
+. 
+The following post ﬁx expression, containing single digit operands and arithmetic operators 
+ and 
+, is
+evaluated using a stack. 
+Show the contents of the stack
+i
+. 
+After evaluating 
+ii
+. 
+After evaluating 
+iii
+. 
+At the end of evaluation
+gatecse-2000
+ 
+data-structures
+ 
+stack
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Stack: GATE CSE 2003 | Question: 64
+Let 
+S 
+be a stack of size 
+. Starting with the empty stack, suppose we push the ﬁrst 
+n
+ natural numbers in
+sequence, and then perform 
+ 
+pop operations. Assume that Push and Pop operations take 
+ seconds
+each, and 
+ seconds elapse between the end of one such stack operation and the start of the next operation. For 
+, deﬁne the stack-life of 
+ 
+as the time elapsed from the end of 
+ to the start of the pop operation
+that removes 
+ 
+from 
+S
+. The average stack-life of an element of this stack is
+gatecse-2003
+ 
+data-structures
+ 
+stack
+ 
+normal
+Answer key
+☟
+Stack: GATE CSE 2004 | Question: 3
+A single array 
+ is used to implement two stacks. The two stacks grow from opposite
+ends of the array. Variables 
+ and 
+ 
+ point to the location of the topmost element in
+each of the stacks. If the space is to be used efficiently, the condition for 
+ is
+gatecse-2004
+ 
+data-structures
+ 
+stack
+ 
+easy
+Answer key
+☟
+
+
+3.13.8
+A
+. 
+queue
+B
+. 
+stack
+C
+. 
+tree
+D
+. 
+list
+3.13.9
+3.13.10
+3.13.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.13.12
+Stack: GATE CSE 2004 | Question: 5
+The best data structure to check whether an arithmetic expression has balanced parentheses is a
+gatecse-2004
+ 
+data-structures
+ 
+easy
+ 
+stack
+Answer key
+☟
+Stack: GATE CSE 2014 | Set 2 | Question: 41
+Suppose a stack implementation supports an instruction 
+, which reverses the order of elements
+on the stack, in addition to the 
+ and 
+ instructions. Which one of the following statements is 
+ (
+with respect to this modified stack
+)?
+A
+. 
+A queue cannot be implemented using this stack.
+B
+. 
+A queue can be implemented where 
+ takes a single instruction and 
+ takes a sequence
+of two instructions.
+C
+. 
+A queue can be implemented where 
+ takes a sequence of three instructions and 
+takes a single instruction.
+D
+. 
+A queue can be implemented where both 
+ and 
+ take a single instruction each.
+gatecse-2014-set2
+ 
+data-structures
+ 
+stack
+ 
+easy
+Answer key
+☟
+Stack: GATE CSE 2015 | Set 2 | Question: 38
+Consider the C program below
+#include
+ 
+<stdio.h>
+int
+ 
+*
+A
+,
+ stkTop
+;
+int
+ stkFunc 
+(
+int
+ opcode
+,
+ 
+int
+ val
+)
+{
+    
+static
+ 
+int
+ size
+=
+0
+,
+ stkTop
+=
+0
+;
+    
+switch
+ 
+(
+opcode
+)
+ 
+{
+        
+case
+ 
+-
+1
+:
+ size 
+=
+ val
+;
+ 
+break
+;
+        
+case
+ 
+0
+:
+ 
+if
+ 
+(
+stkTop 
+<
+ size 
+)
+ A
+[
+stkTop
+++]=
+val
+;
+ 
+break
+;
+        
+default
+:
+ 
+if
+ 
+(
+stkTop
+)
+ 
+return
+ A
+[--
+stkTop
+];
+    
+}
+    
+return
+ 
+-
+1
+;
+}
+int
+ main
+()
+{
+    
+int
+ B
+[
+20
+];
+ A
+=
+B
+;
+ stkTop 
+=
+ 
+-
+1
+;
+    stkFunc 
+(-
+1
+,
+ 
+10
+);
+    stkFunc 
+(
+0
+,
+ 
+5
+);
+    stkFunc 
+(
+0
+,
+ 
+10
+);
+    printf 
+(
+"%d\n"
+,
+ stkFunc
+(
+1
+,
+ 
+0
+)+
+ stkFunc
+(
+1
+,
+ 
+0
+));
+}
+The value printed by the above program is ________.
+gatecse-2015-set2
+ 
+data-structures
+ 
+stack
+ 
+easy
+ 
+numerical-answers
+Answer key
+☟
+Stack: GATE CSE 2015 | Set 3 | Question: 12
+The result evaluating the postfix expression 
+ is 
+gatecse-2015-set3
+ 
+data-structures
+ 
+stack
+ 
+easy
+Answer key
+☟
+Stack: GATE CSE 2021 | Set 1 | Question: 21
+Consider the following sequence of operations on an empty stack.
+
+
+3.13.13
+3.13.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Consider the following sequence of operations on an empty queue.
+The value of 
+ is ___________.
+gatecse-2021-set1
+ 
+data-structures
+ 
+stack
+ 
+easy
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Stack: GATE CSE 2023 | Question: 49
+Consider a sequence 
+ of elements 
+, and 
+. The following
+operations are performed on a stack 
+ and a queue 
+ both of which are initially empty.
+I
+. 
+ the elements of 
+ from 
+ to 
+ in that order into 
+.
+II
+. 
+ the elements of 
+ from 
+ to 
+ in that order into 
+.
+III
+. 
+ an element from 
+.
+IV
+. 
+ an element from 
+.
+V
+. 
+ an element from 
+.
+VI
+. 
+ an element from 
+.
+VII
+. 
+ an element from 
+ and push the same element into 
+.
+VIII
+. 
+Repeat operation 
+ three times.
+IX
+. 
+ an element from 
+.
+X
+. 
+ an element from 
+.
+The top element of 
+ after executing the above operations is ______________.
+gatecse-2023
+ 
+data-structures
+ 
+stack
+ 
+numerical-answers
+ 
+two-marks
+ 
+easy
+Answer key
+☟
+Stack: GATE CSE 2024 | Set 2 | Question: 38
+​​​​​
+Let 
+ and 
+ be two stacks. 
+ has capacity of 
+ elements. 
+ has capacity of 
+ elements. 
+ already has 
+ elements: 
+, and 
+, whereas 
+ is empty, as shown below.
+Only the following three operations are available:
+PushToS2:
+ Pop the top element from S1 and push it on S2.
+PushToS1:
+ Pop the top element from S2 and push it on S1.
+GenerateOutput
+: Pop the top element from S1 and output it to the user.
+Note that the pop operation is not allowed on an empty stack and the push operation is not allowed on a full stack.
+Which of the following output sequences can be generated by using the above operations?
+gatecse-2024-set2
+ 
+data-structures
+ 
+stack
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+
+
+3.13.15
+3.13.16
+3.13.17
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.13.18
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Stack: GATE CSE 2025 | Set 2 | Question: 35
+Consider a stack data structure into which we can PUSH and POP records. Assume that each record
+pushed in the stack has a positive integer key and that all keys are distinct.
+We wish to augment the stack data structure with an 
+ time MIN operation that returns a pointer to the record
+with smallest key present in the stack
+1
+. 
+without deleting the corresponding record, and
+2
+. 
+without increasing the complexities of the standard stack operations.
+Which one or more of the following approach(es) can achieve it?
+A
+. 
+Keep with every record in the stack, a pointer to the record with the smallest key below it.
+B
+. 
+Keep a pointer to the record with the smallest key in the stack.
+C
+. 
+Keep an auxiliary array in which the key values of the records in the stack are maintained in sorted order.
+D
+. 
+Keep a Min-Heap in which the key values of the records in the stack are maintained.
+gatecse2025-set2
+ 
+data-structures
+ 
+stack
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Stack: GATE DA 2025 | Question: 54
+Consider the following pseudocode.
+Create
+ empty stack S
+Set
+ x
+=
+0
+,
+ flag
+=
+0
+,
+ sum
+=
+0
+Push
+ x onto S
+while
+ 
+(
+S 
+is
+ 
+not
+ empty
+){
+   
+if
+ 
+(
+flag equals 
+0
+){
+     
+Set
+ x 
+=
+ x
++
+1
+     
+Push
+ x onto S
+}
+   
+if
+ 
+(
+x equals 
+8
+):
+     
+Set
+ flag
+=
+1
+   
+if
+ 
+(
+flag equals 
+1
+){
+     x 
+=
+ 
+Pop
+(
+S
+)
+     
+if
+ 
+(
+x 
+is
+ odd
+):
+       
+Pop
+ 
+(
+S
+)
+     
+Set
+ sum 
+=
+ sum 
++
+ x
+}
+}
+Output
+ sum
+The value of 
+ output by a program executing the above pseudocode is __________ (Answer in integer)
+gateda-2025
+ 
+data-structures
+ 
+stack
+ 
+output
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Stack: GATE IT 2004 | Question: 52
+A program attempts to generate as many permutations as possible of the string, '
+' by pushing the
+characters 
+ in the same order onto a stack, but it may pop oﬀ the top character at any time. Which
+one of the following strings CANNOT be generated using this program?
+gateit-2004
+ 
+data-structures
+ 
+normal
+ 
+stack
+Answer key
+☟
+Stack: GATE IT 2005 | Question: 13
+A function 
+ deﬁned on stacks of integers satisﬁes the following properties. 
+ and 
+ for all stacks 
+ and integers 
+. 
+If a stack 
+ contains the integers 
+ in order from bottom to top, what is 
+?
+
+
+3.13.19
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.14
+3.14.1
+3.15
+3.15.1
+gateit-2005
+ 
+data-structures
+ 
+stack
+ 
+normal
+Answer key
+☟
+Stack: GATE IT 2007 | Question: 32
+Consider the following C program: 
+  
+#include
+ 
+<stdio.h>
+           
+#define
+ EOF 
+-
+1
+           
+void
+ push 
+(
+int
+);
+ 
+/* push the argument on the stack */
+           
+int
+ pop  
+(
+void
+);
+ 
+/* pop the top of the stack */
+           
+void
+ flagError 
+();
+           
+int
+ main 
+()
+          
+{
+         
+int
+ c
+,
+ m
+,
+ n
+,
+ r
+;
+                     
+while
+ 
+((
+c 
+=
+ getchar 
+())
+ 
+!=
+ EOF
+)
+                    
+{
+ 
+if
+  
+(
+isdigit 
+(
+c
+)
+ 
+)
+                               push 
+(
+c
+);
+                     
+else
+ 
+if
+ 
+((
+c 
+==
+ 
+'+'
+)
+ 
+||
+ 
+(
+c 
+==
+ 
+'*'
+))
+                    
+{
+          m 
+=
+ pop 
+();
+                                n 
+=
+ pop 
+();
+                                r 
+=
+ 
+(
+c 
+==
+ 
+'+'
+)
+ 
+?
+ n 
++
+ m 
+:
+ n
+*
+m
+;
+                                push 
+(
+r
+);
+                      
+}
+                      
+else
+ 
+if
+ 
+(
+c 
+!=
+ 
+' '
+)
+                               flagError 
+();
+             
+}
+              printf
+(
+"% c"
+,
+ pop 
+());
+}
+What is the output of the program for the following input?
+gateit-2007
+ 
+stack
+ 
+normal
+Answer key
+☟
+Time Complexity 
+(1)
+Time Complexity: GATE CSE 2025 | Set 2 | Question: 28
+A meld operation on two instances of a data structure combines them into one single instance of the same
+data structure. Consider the following data structures:
+P. Unsorted doubly linked list with pointers to the head node and tail node of the list.
+Q. Min-heap implemented using an array.
+R. Binary Search Tree.
+Which ONE of the following options gives the worst-case time complexities for meld operation on instances of size 
+ of these data structures?
+A
+. 
+B
+. 
+: 
+C
+. 
+: 
+D
+. 
+: 
+gatecse2025-set2
+ 
+data-structures
+ 
+time-complexity
+ 
+two-marks
+Answer key
+☟
+Tree 
+(13)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(3Q)
+Tree: GATE CSE 1990 | Question: 13a
+Consider the height-balanced tree 
+ with values stored at only the leaf nodes, shown in Fig
+
+
+3.15.2
+3.15.3
+3.15.4
+(i) Show how to merge to the tree, 
+ elements from tree 
+ shown in Fig
+ using node D of tree 
+.
+(ii) What is the time complexity of a merge operation of balanced trees 
+ and 
+ where 
+ and 
+ are of height 
+ and 
+ respectively, assuming that rotation schemes are given. Give reasons.
+gate1990
+ 
+data-structures
+ 
+tree
+ 
+descriptive
+Answer key
+☟
+Tree: GATE CSE 1992 | Question: 02,vii
+A 
+ tree is such that
+a
+. 
+All internal nodes have either 
+ or 
+ children
+b
+. 
+All paths from root to the leaves have the same length
+The number of internal nodes of a 
+ tree having 
+ leaves could be
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gate1992
+ 
+tree
+ 
+data-structures
+ 
+normal
+ 
+multiple-selects
+Answer key
+☟
+Tree: GATE CSE 1994 | Question: 5
+A 
+ tree is a tree in which every internal node has exactly three children. Use induction to prove that
+the number of leaves in a 
+ tree with 
+ internal nodes is 
+.
+gate1994
+ 
+data-structures
+ 
+tree
+ 
+proof
+ 
+descriptive
+Answer key
+☟
+Tree: GATE CSE 1998 | Question: 1.24
+Which of the following statements is false?
+A
+. 
+ A tree with a 
+ nodes has 
+ edges
+B
+. 
+ A labeled rooted binary tree can be uniquely constructed given its postorder and preorder traversal results.
+C
+. 
+ A complete binary tree with 
+ internal nodes has 
+ leaves.
+D
+. 
+ The maximum number of nodes in a binary tree of height h is 
+gate1998
+ 
+data-structures
+ 
+tree
+ 
+multiple-selects
+ 
+normal
+
+
+3.15.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.15.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.15.7
+A
+. 
+preorder traversal
+B
+. 
+in-order traversal
+C
+. 
+depth first search
+D
+. 
+breadth first search
+3.15.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.15.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.15.10
+Answer key
+☟
+Tree: GATE CSE 1998 | Question: 2.11
+A complete 
+-ary tree is one in which every node has 
+ or 
+ sons. If 
+ is the number of internal nodes of a
+complete 
+-ary tree, the number of leaves in it is given by
+gate1998
+ 
+data-structures
+ 
+tree
+ 
+normal
+Answer key
+☟
+Tree: GATE CSE 2002 | Question: 2.9
+The number of leaf nodes in a rooted tree of n nodes, with each node having 
+ or 
+ children is:
+gatecse-2002
+ 
+data-structures
+ 
+tree
+ 
+normal
+Answer key
+☟
+Tree: GATE CSE 2004 | Question: 6
+Level order traversal of a rooted tree can be done by starting from the root and performing
+gatecse-2004
+ 
+data-structures
+ 
+tree
+ 
+easy
+Answer key
+☟
+Tree: GATE CSE 2005 | Question: 36
+In a complete 
+-ary tree, every internal node has exactly 
+ children. The number of leaves in such a tree
+with 
+ internal node is:
+gatecse-2005
+ 
+data-structures
+ 
+tree
+ 
+normal
+Answer key
+☟
+Tree: GATE CSE 2007 | Question: 43
+A complete 
+ tree is a tree in which each node has 
+ children or no children. Let 
+ be the number of
+internal nodes and 
+ be the number of leaves in a complete 
+ tree. If 
+ and 
+, what is
+the value of 
+?
+gatecse-2007
+ 
+data-structures
+ 
+tree
+ 
+normal
+Answer key
+☟
+Tree: GATE CSE 2014 | Set 3 | Question: 12
+Consider the following rooted tree with the vertex labeled 
+ as the root:
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.15.11
+A
+. 
+number of internal nodes in the
+tree.
+B
+. 
+height of the tree.
+C
+. 
+number of nodes without a right
+sibling in the tree.
+D
+. 
+number of leaf nodes in the tree
+3.15.12
+3.15.13
+The order in which the nodes are visited during an in-order traversal of the tree is
+gatecse-2014-set3
+ 
+data-structures
+ 
+tree
+ 
+easy
+Answer key
+☟
+Tree: GATE CSE 2014 | Set 3 | Question: 41
+Consider the pseudocode given below. The function 
+ takes as argument a pointer to the
+root of an arbitrary tree represented by the 
+ representation. Each node of
+the tree is of type 
+.
+typedef
+ 
+struct
+ treeNode
+*
+ treeptr
+;
+ 
+struct
+ treeNode 
+{
+ 
+    treeptr leftMostChild
+,
+ rightSibling
+;
+ 
+};
+ 
+int
+ 
+DoSomething
+ 
+(
+treeptr tree
+)
+ 
+{
+ 
+    
+int
+ 
+value
+=
+0
+;
+ 
+    
+if
+ 
+(
+tree 
+!=
+ NULL
+)
+ 
+{
+ 
+        
+if
+ 
+(
+tree
+->
+leftMostChild 
+==
+ NULL
+)
+ 
+            
+value
+ 
+=
+ 
+1
+;
+ 
+        
+else
+ 
+        
+value
+ 
+=
+ 
+DoSomething
+(
+tree
+->
+leftMostChild
+);
+ 
+        
+value
+ 
+=
+ 
+value
+ 
++
+ 
+DoSomething
+(
+tree
+->
+rightSibling
+);
+ 
+    
+}
+ 
+    
+return
+(
+value
+);
+ 
+}
+ 
+When the pointer to the root of a tree is passed as the argument to 
+, the value returned by the
+function corresponds to the 
+gatecse-2014-set3
+ 
+data-structures
+ 
+tree
+ 
+normal
+Answer key
+☟
+Tree: GATE CSE 2017 | Set 1 | Question: 20
+Let 
+ be a tree with 
+ vertices. The sum of the degrees of all the vertices in 
+ is ________
+gatecse-2017-set1
+ 
+data-structures
+ 
+tree
+ 
+easy
+ 
+numerical-answers
+Answer key
+☟
+Tree: GATE CSE 2021 | Set 1 | Question: 41
+An 
+ 
+ in a connected graph is a vertex such that removing the vertex and its incident
+edges disconnects the graph into two or more connected components.
+Let 
+ be a 
+ tree obtained by doing 
+ in a connected undirected graph 
+.
+Which of the following options is/are correct?
+A
+. 
+Root of 
+ can never be an articulation point in 
+.
+B
+. 
+Root of 
+ is an articulation point in 
+ if and only if it has 
+ or more children.
+C
+. 
+A leaf of 
+ can be an articulation point in 
+.
+D
+. 
+If 
+ is an articulation point in 
+ such that 
+ is an ancestor of 
+ in 
+ and 
+ is a descendent of 
+ in 
+, then all
+paths from 
+ to 
+ in 
+ must pass through 
+.
+gatecse-2021-set1
+ 
+multiple-selects
+ 
+data-structures
+ 
+tree
+ 
+two-marks
+Answer key
+☟
+
+
+3.16
+3.16.1
+3.17
+3.17.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Tree Traversal 
+(1)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(5Q)
+Tree Traversal: GATE CSE 2026 | Set 2 | Question: 2
+The set 
+ represents various traversals over binary tree. The set 
+ represents the order of visiting nodes
+during a traversal.
+Which one of the following is the correct match from 
+ to 
+ ?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2026-set2
+ 
+data-structures
+ 
+tree-traversal
+ 
+one-mark
+Answer key
+☟
+Uniform Hashing 
+(1)
+Uniform Hashing: GATE DS&AI 2024 | Question: 11
+Consider performing uniform hashing on an open address hash table with load factor 
+, where 
+elements are stored in the table with 
+ slots. The expected number of probes in an unsuccessful search is
+at most 
+.
+Inserting an element in this hash table requires at most probes,
+ on average.
+gate-ds-ai-2024
+ 
+data-structures
+ 
+hashing
+ 
+uniform-hashing
+ 
+one-mark
+Answer key
+☟
+Answer Keys
+3.1.1
+N/A
+3.1.2
+B
+3.1.3
+N/A
+3.1.4
+B
+3.1.5
+C
+3.1.6
+A
+3.2.1
+C
+3.3.1
+N/A
+3.3.2
+C
+3.3.3
+N/A
+3.3.4
+N/A
+3.3.5
+A
+3.3.6
+A
+3.3.7
+N/A
+3.3.8
+A
+3.3.9
+B
+3.3.10
+C
+3.3.11
+B
+3.3.12
+5
+3.3.13
+C
+3.4.1
+N/A
+3.4.2
+C
+3.4.3
+N/A
+3.4.4
+B
+3.4.5
+D
+3.4.6
+A
+3.4.7
+D
+3.4.8
+A
+3.4.9
+D
+3.4.10
+A
+3.4.11
+B
+3.4.12
+C
+3.4.13
+D
+3.4.14
+B
+3.4.15
+A
+3.4.16
+B
+3.4.17
+A
+3.4.18
+D
+3.4.19
+B
+3.4.20
+8
+3.4.21
+80
+3.4.22
+A
+3.4.23
+511
+3.4.24
+C
+3.4.25
+B
+3.4.26
+A
+3.4.27
+5:5
+3.4.28
+B
+3.4.29
+C
+3.4.30
+B
+3.5.1
+B
+3.5.2
+N/A
+3.5.3
+D
+3.5.4
+N/A
+3.5.5
+C
+3.5.6
+B
+3.5.7
+B
+3.5.8
+B
+3.5.9
+B
+3.5.10
+A
+
+
+3.5.11
+B
+3.5.12
+B
+3.5.13
+C
+3.5.14
+D
+3.5.15
+C
+3.5.16
+110
+3.5.17
+A
+3.5.18
+B
+3.5.19
+B
+3.5.20
+64
+3.5.21
+B
+3.5.22
+B
+3.5.23
+B
+3.5.24
+B
+3.5.25
+D
+3.5.26
+509
+3.5.27
+A
+3.5.28
+A;B
+3.5.29
+4:4
+3.5.30
+C
+3.5.31
+D
+3.5.32
+C
+3.5.33
+A
+3.5.34
+D
+3.5.35
+C
+3.5.36
+B
+3.6.1
+False
+3.6.2
+False
+3.6.3
+N/A
+3.6.4
+N/A
+3.6.5
+N/A
+3.6.6
+A;C;D
+3.6.7
+B
+3.6.8
+144
+3.6.9
+N/A
+3.6.10
+N/A
+3.6.11
+N/A
+3.6.12
+N/A
+3.6.13
+N/A
+3.6.14
+N/A
+3.6.15
+B
+3.6.16
+N/A
+3.6.17
+C
+3.6.18
+N/A
+3.6.19
+N/A
+3.6.20
+C
+3.6.21
+D
+3.6.22
+D
+3.6.23
+N/A
+3.6.24
+B
+3.6.25
+D
+3.6.26
+D
+3.6.27
+C
+3.6.28
+B
+3.6.29
+A
+3.6.30
+C
+3.6.31
+A
+3.6.32
+B
+3.6.33
+A
+3.6.34
+1
+3.6.35
+A
+3.6.36
+19
+3.6.37
+199
+3.6.38
+C
+3.6.39
+4
+3.6.40
+4.25
+3.6.41
+1 : 1
+3.6.42
+C
+3.6.43
+B
+3.6.44
+A;B;C
+3.6.45
+A;B;C
+3.6.46
+D
+3.6.47
+B
+3.6.48
+D
+3.6.49
+C
+3.6.50
+B
+3.6.51
+D
+3.6.52
+B
+3.6.53
+A
+3.7.1
+B
+3.7.2
+B
+3.7.3
+12
+3.7.4
+A
+3.8.1
+C
+3.8.2
+N/A
+3.8.3
+N/A
+3.8.4
+C
+3.8.5
+B
+3.8.6
+C
+3.8.7
+C
+3.8.8
+C
+3.8.9
+A
+3.8.10
+A
+3.8.11
+B
+3.8.12
+80
+3.8.13
+C
+3.8.14
+B
+3.8.15
+D
+3.9.1
+A
+3.9.2
+N/A
+3.9.3
+A
+3.9.4
+A
+3.10.1
+B
+3.10.2
+N/A
+3.10.3
+N/A
+3.10.4
+B
+3.10.5
+D
+3.10.6
+C
+3.10.7
+N/A
+3.10.8
+N/A
+3.10.9
+N/A
+3.10.10
+D
+3.10.11
+B
+3.10.12
+A
+3.10.13
+D
+3.10.14
+B
+3.10.15
+D
+3.10.16
+C
+3.10.17
+B
+3.10.18
+C
+3.10.19
+A
+3.10.20
+D
+3.10.21
+5:5
+3.10.22
+B
+3.10.23
+A
+3.10.24
+B
+3.11.1
+D
+3.11.2
+B
+3.12.1
+N/A
+3.12.2
+N/A
+3.12.3
+A
+3.12.4
+B
+3.12.5
+A
+3.12.6
+A
+3.12.7
+A
+3.12.8
+A
+3.12.9
+256
+3.12.10
+B
+3.12.11
+B
+3.12.12
+0
+3.12.13
+A;B
+3.12.14
+17
+3.12.15
+B
+3.13.1
+N/A
+3.13.2
+B
+3.13.3
+B
+3.13.4
+B
+3.13.5
+N/A
+3.13.6
+C
+3.13.7
+D
+3.13.8
+B
+3.13.9
+C
+3.13.10
+15
+3.13.11
+C
+3.13.12
+86 : 86
+3.13.13
+8
+3.13.14
+B;C;D
+3.13.15
+A
+3.13.16
+24:24
+3.13.17
+D
+3.13.18
+C
+3.13.19
+B
+3.14.1
+A
+3.15.1
+N/A
+3.15.2
+A;D
+3.15.3
+N/A
+3.15.4
+B;C
+3.15.5
+A
+3.15.6
+D
+3.15.7
+D
+3.15.8
+C
+3.15.9
+C
+3.15.10
+A
+3.15.11
+D
+3.15.12
+18
+3.15.13
+B
+3.16.1
+A
+3.17.1
+B

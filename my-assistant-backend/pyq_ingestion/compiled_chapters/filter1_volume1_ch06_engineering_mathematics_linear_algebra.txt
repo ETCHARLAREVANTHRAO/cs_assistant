@@ -1,0 +1,4485 @@
+6
+Engineering Mathematics: Linear Algebra
+ 
+(112)
+Syllabus:
+ 
+Matrices, determinants,
+ 
+System of linear equations,
+ 
+Eigenvalues and eigenvectors,
+ 
+LU
+decomposition.
+Welcome to the "Engineering Mathematics: Linear Algebra" chapter of your GATE Computer Science preparation. This
+section serves as a comprehensive, exam-focused reference to help you master the fundamental concepts and
+problem-solving techniques essential for success.
+Subject Overview
+Linear Algebra is the branch of mathematics concerning vector spaces and linear mappings between such spaces. It is
+a cornerstone of modern computing, underpinning areas like machine learning (e.g., PCA, SVMs, neural networks),
+computer graphics, data science, algorithm design, and optimization. For GATE CS, Linear Algebra typically contributes
+a significant portion of the Engineering Mathematics section, often carrying 3-5 marks out of the total 8-10 marks
+allocated to mathematics. Questions can range from direct computational problems (e.g., finding determinants,
+eigenvalues, ranks) to conceptual understanding (e.g., properties of vector spaces, subspaces, consistency of systems
+of equations) and application-based scenarios. Proficiency in this subject is not just about scoring marks but also about
+building a strong mathematical foundation for advanced computer science topics.
+Topic-wise Key Concepts
+Cartesian Coordinates
+Cartesian coordinates provide a way to uniquely specify the position of a point in a space using numerical values. In 2D,
+a point is defined by its distance from two perpendicular axes (x, y), and in 3D, by its distance from three mutually
+perpendicular axes (x, y, z).
+Definition:
+ A system that uses an ordered set of numbers (coordinates) to specify the location of a point in a space.
+For a 2D plane, it's 
+; for 3D space, it's 
+.
+Distance Formula (2D):
+ The distance between two points 
+ and 
+ is given by:
+Distance Formula (3D):
+ The distance between two points 
+ and 
+ is given by:
+Midpoint Formula (2D):
+ The midpoint 
+ of a line segment connecting 
+ and 
+ is:
+Properties:
+Allows geometric problems to be translated into algebraic ones.
+Forms the basis for vector representation and operations.
+Common Pitfalls:
+Confusing x and y coordinates, especially when dealing with transformations.
+Incorrectly applying distance or midpoint formulas.
+Problem-Solving Techniques:
+Visualize the points and vectors in the coordinate system.
+Break down complex geometric problems into simpler algebraic calculations.
+Determinant
+
+
+The determinant is a scalar value that can be computed from the elements of a square matrix. It provides crucial
+information about the matrix, such as its invertibility and the volume scaling factor of the linear transformation it
+represents.
+Definition:
+ A scalar value associated with a square matrix 
+, denoted as 
+ or 
+.
+Formulas:
+1
+. 
+For a 
+ matrix:
+ 
+If 
+, then 
+.
+2
+. 
+For a 
+ matrix (Sarrus' Rule):
+ 
+If 
+, then 
+. 
+This can also be written as 
+.
+3
+. 
+General 
+ matrix (Laplace Expansion/Cofactor Expansion):
+ 
+ (along row 
+)
+or 
+ (along column 
+) 
+where 
+ is the minor (determinant of the submatrix obtained
+by deleting row 
+ and column 
+).
+Properties:
+ for an 
+ matrix 
+ and scalar 
+.
+If a matrix has a row or column of zeros, its determinant is 0.
+If a matrix has two identical rows or columns, its determinant is 0.
+If a matrix is triangular (upper or lower), its determinant is the product of its diagonal elements.
+Swapping two rows/columns changes the sign of the determinant.
+Adding a multiple of one row/column to another row/column does not change the determinant.
+A square matrix 
+ is invertible if and only if 
+.
+Common Pitfalls:
+Sign errors in cofactor expansion.
+Incorrectly applying properties, especially for scalar multiplication 
+.
+Assuming 
+ (which is generally false).
+Problem-Solving Techniques:
+For larger matrices, use row/column operations to create zeros and simplify the calculation before applying
+cofactor expansion (e.g., make it triangular).
+Exploit properties (e.g., identical rows/columns, triangular form) to quickly find the determinant.
+Choose the row or column with the most zeros for cofactor expansion.
+Eigen Value
+Eigenvalues are special scalar values associated with a square matrix that characterize its fundamental properties.
+When a linear transformation is applied to an eigenvector, the eigenvector's direction remains unchanged, only its
+magnitude is scaled by the corresponding eigenvalue.
+Definition:
+ For a square matrix 
+, a scalar 
+ is an eigenvalue if there exists a non-zero vector 
+ (eigenvector) such
+that 
+.
+Formulas/Theorems:
+1
+. 
+Characteristic Equation:
+ To find eigenvalues, solve the equation 
+, where 
+ is the identity
+matrix of the same dimension as 
+.
+2
+. 
+Cayley-Hamilton Theorem:
+ Every square matrix satisfies its own characteristic equation. If 
+ is the characteristic polynomial, then 
+. This is useful for finding powers of a
+matrix or its inverse.
+3
+. 
+Sum of Eigenvalues:
+ The sum of the eigenvalues of a matrix 
+ is equal to its trace (sum of diagonal elements):
+.
+4
+. 
+Product of Eigenvalues:
+ The product of the eigenvalues of a matrix 
+ is equal to its determinant: 
+.
+Properties:
+If 
+ is an eigenvalue of 
+, then 
+ is an eigenvalue of 
+.
+If 
+ is an eigenvalue of 
+, then 
+ is an eigenvalue of 
+ (if 
+ is invertible).
+
+
+If 
+ is an eigenvalue of 
+, then 
+ is an eigenvalue of 
+.
+The eigenvalues of a symmetric matrix are always real.
+Eigenvectors corresponding to distinct eigenvalues are linearly independent.
+For a real symmetric matrix, eigenvectors corresponding to distinct eigenvalues are orthogonal.
+The eigenvalues of a triangular matrix (upper or lower) are its diagonal entries.
+A matrix 
+ is singular (non-invertible) if and only if 0 is an eigenvalue of 
+.
+Common Pitfalls:
+Algebraic errors when solving the characteristic equation.
+Forgetting to check for non-zero eigenvectors.
+Confusing algebraic and geometric multiplicity.
+Problem-Solving Techniques:
+Always start by setting up the characteristic equation 
+.
+For 
+ matrices, use 
+.
+Use the sum and product of eigenvalues properties to verify your calculated eigenvalues or to find a missing
+eigenvalue.
+For eigenvectors, substitute each eigenvalue back into 
+ and solve the resulting system of
+equations.
+Gaussian Elimination
+Gaussian elimination is an algorithm used to solve systems of linear equations, find the rank of a matrix, compute the
+inverse of a matrix, and calculate determinants. It transforms a matrix into row echelon form using elementary row
+operations.
+Definition:
+ A systematic procedure to transform a matrix into row echelon form (or reduced row echelon form) using
+elementary row operations.
+Elementary Row Operations:
+1
+. 
+Swapping two rows (
+).
+2
+. 
+Multiplying a row by a non-zero scalar (
+).
+3
+. 
+Adding a multiple of one row to another row (
+).
+Row Echelon Form (REF):
+ A matrix is in REF if:
+All non-zero rows are above any rows of all zeros.
+The leading entry (pivot) of each non-zero row is in a column to the right of the leading entry of the row above it.
+All entries in a column below a leading entry are zeros.
+Reduced Row Echelon Form (RREF):
+ A matrix is in RREF if it is in REF and:
+The leading entry in each non-zero row is 1 (called a leading 1).
+Each column containing a leading 1 has zeros everywhere else.
+Applications:
+Solving systems of linear equations.
+Finding the rank of a matrix.
+Computing the inverse of a matrix (by augmenting 
+ and reducing to 
+).
+Calculating determinants (by keeping track of row operations).
+Common Pitfalls:
+Arithmetic errors during row operations.
+Forgetting to apply operations to the augmented part of the matrix when solving systems or finding inverses.
+Incorrectly identifying pivot elements.
+Problem-Solving Techniques:
+Always aim to create zeros below the pivot elements first.
+Work column by column from left to right.
+Use fractions carefully; sometimes it's better to multiply a row to avoid fractions temporarily.
+For solving systems, use back-substitution after reaching REF.
+LU Decomposition
+LU decomposition factors a square matrix 
+ into the product of a lower triangular matrix 
+ and an upper triangular
+matrix 
+. This factorization is particularly useful for efficiently solving multiple systems of linear equations with the same
+coefficient matrix, as it simplifies the process into two triangular systems.
+Definition:
+ A factorization of a square matrix 
+ into the product of a lower triangular matrix 
+ (with 1s on the
+diagonal) and an upper triangular matrix 
+, such that 
+.
+Process:
+
+
+1
+. 
+Use Gaussian elimination to transform 
+ into an upper triangular matrix 
+.
+2
+. 
+The lower triangular matrix 
+ is constructed using the multipliers used in the Gaussian elimination process. If 
+ was used, then 
+. The diagonal elements of 
+ are 1s.
+3
+. 
+If row swaps are needed, a permutation matrix 
+ is introduced, such that 
+.
+Solving 
+ using LU Decomposition:
+1
+. 
+Substitute 
+: 
+.
+2
+. 
+Let 
+.
+3
+. 
+Solve 
+ for 
+ using forward substitution (since 
+ is lower triangular).
+4
+. 
+Solve 
+ for 
+ using backward substitution (since 
+ is upper triangular).
+Properties:
+Not all matrices have an LU decomposition without pivoting (row swaps).
+If 
+ is non-singular and all its leading principal minors are non-zero, then 
+ has a unique LU decomposition.
+Common Pitfalls:
+Incorrectly forming 
+ from the multipliers.
+Errors in forward or backward substitution.
+Forgetting the permutation matrix 
+ if row swaps are involved.
+Problem-Solving Techniques:
+Carefully track the multipliers used in Gaussian elimination to construct 
+.
+Practice forward and backward substitution for efficiency.
+Recognize when pivoting is necessary (e.g., if a pivot element becomes zero).
+Matrix
+A matrix is a rectangular array of numbers, symbols, or expressions arranged in rows and columns. Matrices are
+fundamental to linear algebra, representing linear transformations, systems of equations, and data structures.
+Definition:
+ A rectangular array of numbers (or functions) arranged in 
+ rows and 
+ columns. Denoted as 
+.
+Types of Matrices:
+Square Matrix:
+ 
+.
+Row Matrix:
+ 
+.
+Column Matrix (Vector):
+ 
+.
+Identity Matrix (
+):
+ Square matrix with 1s on the main diagonal and 0s elsewhere. 
+.
+Zero Matrix (
+):
+ All elements are 0. 
+.
+Diagonal Matrix:
+ Square matrix where all non-diagonal elements are 0.
+Scalar Matrix:
+ A diagonal matrix where all diagonal elements are equal.
+Symmetric Matrix:
+ 
+.
+Skew-Symmetric Matrix:
+ 
+. Diagonal elements are 0.
+Orthogonal Matrix:
+ 
+, which implies 
+. Determinant is 
+.
+Invertible/Non-singular Matrix:
+ A square matrix 
+ for which there exists a matrix 
+ such that 
+. 
+.
+Singular Matrix:
+ A square matrix 
+ for which 
+. It does not have an inverse.
+Operations:
+1
+. 
+Addition/Subtraction:
+ Element-wise, only for matrices of the same dimensions. 
+.
+2
+. 
+Scalar Multiplication:
+ Multiply each element by the scalar. 
+.
+3
+. 
+Matrix Multiplication:
+ 
+. Requires number of columns of 
+ to equal number of rows of 
+. Resulting matrix has dimensions 
+ if 
+ is 
+ and 
+ is 
+.
+4
+. 
+Transpose (
+):
+ Rows become columns and columns become rows. 
+.
+5
+. 
+Inverse (
+):
+ For a 
+ matrix 
+, 
+. 
+For general 
+, 
+, where 
+ is the adjugate matrix (transpose of the cofactor matrix).
+Properties:
+Matrix addition is commutative: 
+.
+Matrix multiplication is associative: 
+.
+Matrix multiplication is generally NOT commutative: 
+.
+.
+.
+.
+
+
+.
+.
+Common Pitfalls:
+Incorrect dimensions for addition or multiplication.
+Assuming commutativity for matrix multiplication.
+Errors in calculating inverses, especially for larger matrices.
+Problem-Solving Techniques:
+Always check dimensions before performing operations.
+For matrix multiplication, visualize the dot products of rows and columns.
+For inverses, use the adjugate formula for 
+ and Gaussian elimination for larger matrices.
+Multiplicity
+Multiplicity refers to how many times an eigenvalue appears as a root of the characteristic polynomial (algebraic
+multiplicity) and the dimension of its corresponding eigenspace (geometric multiplicity). These concepts are crucial for
+understanding diagonalizability of a matrix.
+Definition:
+Algebraic Multiplicity (AM):
+ The number of times an eigenvalue 
+ appears as a root of the characteristic
+polynomial 
+.
+Geometric Multiplicity (GM):
+ The dimension of the eigenspace corresponding to 
+, which is the number of
+linearly independent eigenvectors associated with 
+. It is given by 
+, where 
+ is the dimension
+of the matrix.
+Properties/Theorems:
+For any eigenvalue 
+, 
+.
+A matrix 
+ is diagonalizable if and only if for every eigenvalue 
+, 
+.
+If all eigenvalues are distinct, then 
+ for all 
+, and the matrix is diagonalizable.
+Common Pitfalls:
+Confusing AM and GM.
+Incorrectly calculating the rank of 
+.
+Assuming diagonalizability based only on AM without checking GM.
+Problem-Solving Techniques:
+First, find all eigenvalues and their algebraic multiplicities by solving 
+.
+For each eigenvalue, calculate the rank of 
+ to find its geometric multiplicity.
+Compare AM and GM for each eigenvalue to determine diagonalizability.
+Orthonormality
+Orthonormality describes a set of vectors that are mutually orthogonal (perpendicular) and each has a unit length
+(normalized). Orthonormal bases simplify many calculations in linear algebra, particularly in projections and coordinate
+transformations.
+Definition:
+Orthogonal Vectors:
+ Two vectors 
+ and 
+ are orthogonal if their dot product is zero: 
+.
+Normalized Vector:
+ A vector 
+ is normalized if its length (magnitude) is 1: 
+.
+Orthonormal Set:
+ A set of vectors 
+ is orthonormal if they are mutually orthogonal and each
+vector is normalized. That is, 
+ (Kronecker delta), where 
+ if 
+ and 
+ if 
+.
+Gram-Schmidt Orthonormalization Process:
+ A procedure to transform a set of linearly independent vectors 
+ into an orthonormal set 
+.
+1
+. 
+2
+. 
+3
+. 
+4
+. 
+Continue for all vectors.
+5
+. 
+Normalize each 
+: 
+.
+Properties:
+An orthonormal set of vectors is always linearly independent.
+If 
+ is an orthogonal matrix (columns form an orthonormal set), then 
+, and 
+.
+For an orthogonal matrix 
+, 
+ (preserves length).
+For an orthogonal matrix 
+, 
+ (preserves dot product and angle).
+
+
+Common Pitfalls:
+Arithmetic errors in Gram-Schmidt, especially with projections.
+Forgetting to normalize vectors after making them orthogonal.
+Confusing orthogonal with orthonormal.
+Problem-Solving Techniques:
+Systematically apply the Gram-Schmidt process, calculating one orthogonal vector at a time.
+Double-check dot products to ensure orthogonality.
+Always normalize the final set of orthogonal vectors.
+Rank of Matrix
+The rank of a matrix is a fundamental property that measures the "linear independence" present in its rows and
+columns. It indicates the dimension of the vector space spanned by its rows or columns, and is crucial for
+understanding the solvability of linear systems.
+Definition:
+ The maximum number of linearly independent row vectors (row rank) or column vectors (column rank) in
+a matrix. The row rank is always equal to the column rank.
+Calculation Methods:
+1
+. 
+Using Row Echelon Form:
+ The rank of a matrix is the number of non-zero rows in its row echelon form.
+2
+. 
+Using Determinants (Minors):
+ The rank of a matrix 
+ is the largest integer 
+ such that there exists an 
+submatrix of 
+ with a non-zero determinant.
+Properties/Theorems:
+For an 
+ matrix 
+, 
+.
+ if and only if 
+ is a zero matrix.
+.
+.
+Rank-Nullity Theorem:
+ For an 
+ matrix 
+, 
+, where 
+ is the
+dimension of the null space (kernel) of 
+.
+A square matrix 
+ of size 
+ is invertible if and only if 
+.
+For a system 
+:
+Consistent if 
+.
+Unique solution if 
+ (number of variables).
+Infinitely many solutions if 
+.
+Inconsistent if 
+.
+Common Pitfalls:
+Errors in Gaussian elimination leading to incorrect row echelon form.
+Misinterpreting the number of non-zero rows.
+Not considering the augmented matrix for system consistency.
+Problem-Solving Techniques:
+The most reliable method is to reduce the matrix to row echelon form using Gaussian elimination and count the
+number of non-zero rows.
+For smaller matrices, checking determinants of submatrices can be faster.
+Use the Rank-Nullity Theorem to find nullity if rank is known, or vice versa.
+Singular Value Decomposition (SVD)
+Singular Value Decomposition is a powerful matrix factorization technique that decomposes any 
+ matrix 
+ into
+three matrices: 
+, 
+, and 
+. It generalizes the concept of eigenvalues and eigenvectors to non-square matrices and
+has broad applications in data compression, noise reduction, and recommender systems.
+Definition:
+ Any 
+ matrix 
+ can be factored as 
+, where:
+ is an 
+ orthogonal matrix whose columns are the left singular vectors of 
+.
+ is an 
+ diagonal matrix with non-negative real numbers on the diagonal, called singular values (
+),
+arranged in decreasing order. The non-zero singular values are 
+, where 
+.
+ is an 
+ orthogonal matrix whose columns are the right singular vectors of 
+. 
+ is its transpose.
+Relationship to Eigenvalues:
+The singular values 
+ of 
+ are the square roots of the eigenvalues of 
+ (or 
+).
+The columns of 
+ are the eigenvectors of 
+.
+The columns of 
+ are the eigenvectors of 
+.
+
+
+Properties/Applications:
+SVD exists for any matrix (square or rectangular).
+The number of non-zero singular values is equal to the rank of the matrix.
+Low-rank approximation: By keeping only the largest singular values and corresponding singular vectors, SVD
+can approximate a matrix with fewer components, useful for data compression.
+Pseudo-inverse: The SVD can be used to compute the Moore-Penrose pseudo-inverse of a matrix.
+Principal Component Analysis (PCA): SVD is closely related to PCA, where singular vectors correspond to
+principal components.
+Common Pitfalls:
+Confusing singular values with eigenvalues.
+Incorrectly calculating eigenvectors for 
+ or 
+.
+Not arranging singular values in decreasing order.
+Problem-Solving Techniques:
+Calculate 
+ (or 
+).
+Find the eigenvalues of 
+. The square roots of these eigenvalues are the singular values 
+.
+Find the eigenvectors of 
+. These form the columns of 
+.
+Find the eigenvectors of 
+. These form the columns of 
+.
+Alternatively, 
+.
+Statistics
+While a broad field, within the context of linear algebra for GATE CS, statistics primarily involves concepts like mean,
+variance, covariance, and their matrix representations. These are crucial for understanding data analysis techniques
+like PCA, which heavily rely on linear algebra.
+Definition (Linear Algebra Context):
+ Focuses on the mathematical tools (vectors, matrices) used to analyze and
+model data, particularly in multivariate statistics.
+Key Concepts:
+1
+. 
+Mean:
+ For a vector 
+, the mean is 
+.
+2
+. 
+Variance:
+ A measure of how spread out the data is. For a vector 
+, 
+.
+3
+. 
+Covariance:
+ A measure of how two variables change together. For two vectors 
+ and 
+, 
+.
+4
+. 
+Covariance Matrix:
+ For a dataset with 
+ variables and 
+ observations, the covariance matrix 
+ is a 
+symmetric matrix where 
+ and 
+.
+where 
+ is the data matrix with columns centered (mean subtracted).
+5
+. 
+Principal Component Analysis (PCA):
+ A dimensionality reduction technique that uses the eigenvectors of the
+covariance matrix (or SVD of the data matrix) to find orthogonal directions (principal components) of maximum
+variance in the data.
+Properties:
+Covariance matrix is always symmetric and positive semi-definite.
+Eigenvalues of the covariance matrix represent the variance along the principal components.
+Eigenvectors of the covariance matrix are the principal components.
+Common Pitfalls:
+Confusing variance with standard deviation.
+Incorrectly calculating covariance or covariance matrix.
+Not centering data before calculating covariance matrix for PCA.
+Problem-Solving Techniques:
+Understand the definitions of mean, variance, and covariance.
+For PCA, compute the covariance matrix, then find its eigenvalues and eigenvectors.
+Relate SVD to PCA: SVD of the centered data matrix directly gives principal components and singular values
+related to variance.
+Subspace
+A subspace is a subset of a vector space that itself satisfies the properties of a vector space. It must contain the zero
+vector, be closed under vector addition, and closed under scalar multiplication. Subspaces are fundamental building
+
+
+blocks for understanding the structure of vector spaces.
+Definition:
+ A subset 
+ of a vector space 
+ is a subspace of 
+ if 
+ is itself a vector space under the operations
+defined on 
+.
+Conditions for a Subspace:
+ A non-empty subset 
+ of a vector space 
+ is a subspace if and only if:
+1
+. 
+The zero vector of 
+ is in 
+ (
+).
+2
+. 
+ is closed under vector addition: If 
+, then 
+.
+3
+. 
+ is closed under scalar multiplication: If 
+ and 
+ is any scalar, then 
+.
+Important Subspaces Associated with a Matrix 
+:
+Column Space (
+):
+ The span of the column vectors of 
+. It is a subspace of 
+ (if 
+ is 
+). 
+.
+Row Space (
+):
+ The span of the row vectors of 
+. It is a subspace of 
+. 
+.
+Null Space (
+ or 
+):
+ The set of all vectors 
+ such that 
+. It is a subspace of 
+. 
+.
+Left Null Space (
+):
+ The set of all vectors 
+ such that 
+. It is a subspace of 
+.
+Properties:
+The intersection of two subspaces is always a subspace.
+The union of two subspaces is generally not a subspace.
+The sum of two subspaces 
+ is a subspace.
+Common Pitfalls:
+Forgetting to check all three conditions for a subspace (especially the zero vector).
+Confusing the column space with the null space.
+Assuming the union of subspaces is a subspace.
+Problem-Solving Techniques:
+To check if a set is a subspace, verify the three conditions.
+To find a basis for the column space, identify the pivot columns of the original matrix after reducing to REF.
+To find a basis for the null space, solve 
+ and express the solution in terms of free variables.
+To find a basis for the row space, use the non-zero rows of the REF of the matrix.
+System of Equations
+A system of linear equations is a collection of one or more linear equations involving the same set of variables. Linear
+algebra provides powerful tools to determine the existence and nature of solutions (unique, infinite, or no solution) for
+such systems.
+Definition:
+ A set of equations of the form 
+, ..., 
+. This can
+be written in matrix form as 
+, where 
+ is the coefficient matrix, 
+ is the vector of variables, and 
+ is the
+constant vector.
+Types of Systems:
+Homogeneous System:
+ 
+. Always consistent (has at least the trivial solution 
+).
+Non-homogeneous System:
+ 
+ where 
+.
+Consistency and Number of Solutions (using Rank):
+1
+. 
+Consistent System:
+ A system has at least one solution if 
+.
+Unique Solution:
+ If 
+ (number of variables).
+Infinitely Many Solutions:
+ If 
+. The number of free variables is 
+.
+2
+. 
+Inconsistent System:
+ A system has no solution if 
+.
+Solution Methods:
+Gaussian Elimination/Row Reduction:
+ Transform the augmented matrix 
+ into row echelon form to solve
+by back-substitution.
+Matrix Inverse Method:
+ If 
+ is square and invertible, 
+. (Only for unique solutions).
+Cramer's Rule:
+ For a square system with a unique solution, 
+, where 
+ is the matrix formed by
+replacing the 
+-th column of 
+ with 
+. (Computationally expensive for larger systems).
+Properties of Homogeneous Systems:
+Always has the trivial solution 
+.
+Has non-trivial solutions if and only if 
+ (for square 
+) or 
+.
+The set of all solutions forms the null space of 
+.
+Common Pitfalls:
+Arithmetic errors during row operations.
+Incorrectly determining consistency or number of solutions.
+
+
+Applying Cramer's rule or inverse method when not applicable (e.g., non-square matrix, singular matrix).
+Problem-Solving Techniques:
+Always form the augmented matrix 
+.
+Use Gaussian elimination to reduce the augmented matrix to row echelon form.
+Analyze the rank of 
+ and 
+ to determine consistency and number of solutions.
+For homogeneous systems, look for non-trivial solutions if 
+ or 
+.
+Vector Space
+A vector space is a fundamental algebraic structure consisting of a set of vectors, along with two operations: vector
+addition and scalar multiplication, which satisfy a set of ten axioms. It provides a generalized framework for working
+with vectors beyond simple geometric arrows.
+Definition:
+ A non-empty set 
+ of objects, called vectors, on which two operations are defined: vector addition
+(denoted by 
+) and scalar multiplication (denoted by juxtaposition), subject to ten axioms. The scalars are typically
+real numbers (
+) or complex numbers (
+).
+Axioms of a Vector Space:
+ For all 
+ and all scalars 
+:
+1
+. 
+ (Closure under addition)
+2
+. 
+ (Commutativity of addition)
+3
+. 
+ (Associativity of addition)
+4
+. 
+There exists a zero vector 
+ such that 
+ (Additive identity)
+5
+. 
+For each 
+, there exists an additive inverse 
+ such that 
+ (Additive inverse)
+6
+. 
+ (Closure under scalar multiplication)
+7
+. 
+ (Distributivity of scalar over vector addition)
+8
+. 
+ (Distributivity of scalar over scalar addition)
+9
+. 
+ (Associativity of scalar multiplication)
+10
+. 
+ (Multiplicative identity)
+Key Concepts:
+Span:
+ The set of all possible linear combinations of a set of vectors 
+. Denoted as 
+. It is always a subspace.
+Linear Independence:
+ A set of vectors 
+ is linearly independent if the only solution to 
+ is 
+.
+Basis:
+ A set of vectors in a vector space 
+ that is linearly independent and spans 
+. The number of vectors in
+a basis is unique and is called the dimension of the vector space.
+Dimension:
+ The number of vectors in any basis for a vector space 
+, denoted as 
+.
+Examples of Vector Spaces:
+ (n-dimensional real coordinate space)
+The set of all 
+ matrices.
+The set of all polynomials of degree at most 
+.
+The set of all continuous functions on an interval.
+Common Pitfalls:
+Forgetting to check all axioms when verifying if a set is a vector space.
+Confusing a vector space with a subspace.
+Incorrectly determining linear independence or a basis.
+Problem-Solving Techniques:
+To check if a set is a vector space, verify all ten axioms.
+To check linear independence, set up the equation 
+ and solve the resulting system of
+linear equations.
+To find a basis, identify a linearly independent set that spans the space. For 
+, this often involves finding pivot
+columns of a matrix formed by the vectors.
+Quick Formula Reference
+Determinant:
+: 
+ for 
+Properties: 
+, 
+, 
+, 
+Invertible iff 
+Matrix Operations:
+Matrix Multiplication: 
+
+
+Inverse 
+: 
+General Inverse: 
+Transpose Properties: 
+, 
+Inverse Properties: 
+, 
+Eigenvalues & Eigenvectors:
+Characteristic Equation: 
+Sum of Eigenvalues: 
+Product of Eigenvalues: 
+Cayley-Hamilton Theorem: 
+ where 
+ is the characteristic polynomial.
+Algebraic Multiplicity (AM): Number of times 
+ is a root.
+Geometric Multiplicity (GM): 
+Diagonalizable if 
+ for all 
+.
+Rank of Matrix:
+Number of non-zero rows in REF.
+ for 
+ matrix.
+Rank-Nullity Theorem: 
+ (number of columns).
+System 
+ consistent if 
+.
+Unique solution if 
+.
+Infinite solutions if 
+.
+No solution if 
+.
+LU Decomposition:
+ (or 
+ with permutation matrix 
+)
+Solve 
+ by 
+ (forward substitution) then 
+ (backward substitution).
+Orthonormality:
+Orthogonal: 
+Normalized: 
+Orthonormal: 
+Orthogonal Matrix 
+: 
+.
+Singular Value Decomposition (SVD):
+Singular values 
+ are 
+.
+Columns of 
+ are eigenvectors of 
+.
+Columns of 
+ are eigenvectors of 
+.
+Subspace Conditions:
+Contains zero vector.
+Closed under addition.
+Closed under scalar multiplication.
+Important Tips for GATE
+1
+. 
+Master the Basics:
+ Ensure a strong understanding of fundamental definitions (e.g., matrix types, vector space
+axioms, linear independence). Many conceptual questions test these directly.
+2
+. 
+Practice Gaussian Elimination:
+ This is a core algorithm. Practice it diligently for solving systems, finding rank, and
+computing inverses. Accuracy and speed are crucial here.
+3
+. 
+Understand Eigenvalue/Eigenvector Properties:
+ Don't just memorize formulas. Understand *why* the sum of
+eigenvalues equals the trace and the product equals the determinant. These properties are often used as shortcuts
+or for verification.
+4
+. 
+Pay Attention to Matrix Dimensions:
+ Always check if matrix operations (addition, multiplication) are valid based on
+dimensions. This prevents common errors, especially in matrix multiplication.
+5
+. 
+Rank-Nullity Theorem is Your Friend:
+ This theorem is incredibly useful for quickly finding the nullity if the rank is
+known, or vice versa, and for analyzing the nature of solutions to linear systems.
+6
+. 
+Beware of Calculation Errors:
+ Linear algebra problems often involve extensive calculations. Use the virtual
+calculator carefully and double-check intermediate steps. Simple arithmetic mistakes are a common reason for
+losing marks.
+7
+. 
+Distinguish Between Similar Concepts:
+ Clearly differentiate between algebraic and geometric multiplicity,
+orthogonal and orthonormal vectors, and the various matrix subspaces (column space, null space, row space).
+8
+. 
+Practice Previous Year Questions:
+ Solve as many GATE previous year questions as possible. This will familiarize
+
+
+6.1
+6.1.1
+6.2
+6.2.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.2.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.2.3
+you with the typical question patterns, difficulty levels, and time constraints. Focus on understanding the solution
+approach rather than just getting the answer.
+Cartesian Coordinates 
+(1)
+Cartesian Coordinates: GATE IT 2007 | Question: 80
+Let 
+ be 
+ points in the 
+plane such that no three of them are collinear. For every pair of
+points 
+ and 
+, let 
+ be the line passing through them. Let 
+ be the line with the steepest gradient
+amongst all 
+ lines.
+Which one of the following properties should necessarily be satisfied ?
+A
+. 
+ and 
+ are adjacent to each other with respect to their 
+-coordinate
+B
+. 
+Either 
+ or 
+ has the largest or the smallest 
+-coordinate among all the points
+C
+. 
+The difference between 
+-coordinates 
+ and 
+ is minimum
+D
+. 
+None of the above
+gateit-2007
+ 
+linear-algebra
+ 
+cartesian-coordinates
+Answer key
+☟
+Determinant 
+(12)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(4Q)
+Determinant: GATE CSE 1997 | Question: 1.3
+The determinant of the matrix 
+gate1997
+ 
+linear-algebra
+ 
+normal
+ 
+determinant
+Answer key
+☟
+Determinant: GATE CSE 2000 | Question: 1.3
+The determinant of the matrix
+gatecse-2000
+ 
+linear-algebra
+ 
+easy
+ 
+determinant
+Answer key
+☟
+Determinant: GATE CSE 2013 | Question: 3
+Which one of the following does NOT equal
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.2.4
+6.2.5
+A
+. 
+I implies II; II does not imply I
+B
+. 
+II implies I; I does not imply II
+C
+. 
+I does not imply II; II does not
+imply I
+D
+. 
+I and II are equivalent statements
+6.2.6
+gatecse-2013
+ 
+linear-algebra
+ 
+normal
+ 
+determinant
+Answer key
+☟
+Determinant: GATE CSE 2014 | Set 2 | Question: 4
+If the matrix 
+ is such that
+then the determinant of 
+ is equal to ______.
+gatecse-2014-set2
+ 
+linear-algebra
+ 
+numerical-answers
+ 
+easy
+ 
+determinant
+Answer key
+☟
+Determinant: GATE CSE 2019 | Question: 9
+Let 
+ be a square matrix. Consider the following two statements on 
+.
+I
+. 
+ is invertible
+II
+. 
+Determinant of 
+ is non-zero
+Which one of the following is TRUE?
+gatecse-2019
+ 
+engineering-mathematics
+ 
+linear-algebra
+ 
+determinant
+ 
+one-mark
+Answer key
+☟
+Determinant: GATE CSE 2023 | Question: 8
+Let
+and
+Let 
+ and 
+ denote the determinants of the matrices 
+ and 
+ respectively.
+Which one of the options given below is 
+A
+. 
+
+
+6.2.7
+6.2.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.2.9
+6.2.10
+6.2.11
+B
+. 
+C
+. 
+D
+. 
+gatecse-2023
+ 
+linear-algebra
+ 
+determinant
+ 
+one-mark
+ 
+easy
+Answer key
+☟
+Determinant: GATE CSE 2024 | Set 2 | Question: 37
+Let 
+ be an 
+ matrix over the set of all real numbers 
+. Let 
+ be a matrix obtained from 
+ by
+swapping two rows. Which of the following statements is/are TRUE?
+A
+. 
+The determinant of 
+ is the negative of the determinant of 
+B
+. 
+If 
+ is invertible, then 
+ is also invertible
+C
+. 
+If 
+ is symmetric, then 
+ is also symmetric
+D
+. 
+If the trace of 
+ is zero, then the trace of 
+ is also zero
+gatecse-2024-set2
+ 
+linear-algebra
+ 
+multiple-selects
+ 
+matrix
+ 
+determinant
+ 
+two-marks
+Answer key
+☟
+Determinant: GATE CSE 2025 | Set 2 | Question: 4
+Let 
+, 
+, and 
+ be non-singular matrices of order 
+ satisfying the equations 
+, 
+ and 
+. 
+Which ONE of the following is the value of the deteminant of 
+?
+gatecse2025-set2
+ 
+linear-algebra
+ 
+determinant
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Determinant: GATE CSE 2026 | Set 2 | Question: 52
+The determinant of a 
+ matrix 
+ is 
+. The value of the determinant of 
+ is 
+. (answer in integer)
+gatecse-2026-set2
+ 
+linear-algebra
+ 
+determinant
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Determinant: GATE DS&AI 2024 | Question: 25
+Consider the 
+ matrix 
+.
+The determinant of 
+ is 
+.
+gate-ds-ai-2024
+ 
+numerical-answers
+ 
+matrix
+ 
+determinant
+ 
+linear-algebra
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Determinant: GATE IT 2004 | Question: 32
+Let 
+ be an 
+ matrix of the following form.
+
+
+6.2.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3
+6.3.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+What is the value of the determinant of 
+?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gateit-2004
+ 
+linear-algebra
+ 
+matrix
+ 
+normal
+ 
+determinant
+Answer key
+☟
+Determinant: GATE IT 2005 | Question: 3
+The determinant of the matrix given below is
+gateit-2005
+ 
+linear-algebra
+ 
+normal
+ 
+determinant
+Answer key
+☟
+Eigen Value 
+(33)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(13Q)
+Eigen Value: GATE CSE 1993 | Question: 01.1
+The eigen vector 
+ of the matrix
+is (are)
+gate1993
+ 
+eigen-value
+ 
+linear-algebra
+ 
+easy
+ 
+multiple-selects
+Answer key
+☟
+
+
+6.3.2
+6.3.3
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+6.3.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.5
+A
+. 
+one
+B
+. 
+two
+C
+. 
+three
+D
+. 
+four
+6.3.6
+A
+. 
+, 
+B
+. 
+, 
+C
+. 
+, 
+D
+. 
+, 
+Eigen Value: GATE CSE 2002 | Question: 5a
+Obtain the eigen values of the matrix
+gatecse-2002
+ 
+linear-algebra
+ 
+eigen-value
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Eigen Value: GATE CSE 2005 | Question: 49
+What are the eigenvalues of the following 
+ matrix?
+gatecse-2005
+ 
+linear-algebra
+ 
+eigen-value
+ 
+easy
+Answer key
+☟
+Eigen Value: GATE CSE 2007 | Question: 25
+Let A be a 
+ matrix with eigen values -5,-2,1,4. Which of the following is an eigen value of  the matrix
+, where 
+ is the 
+ identity matrix?
+gatecse-2007
+ 
+eigen-value
+ 
+linear-algebra
+ 
+difficult
+Answer key
+☟
+Eigen Value: GATE CSE 2008 | Question: 28
+How many of the following matrices have an eigenvalue 1?
+ and 
+gatecse-2008
+ 
+eigen-value
+ 
+linear-algebra
+ 
+easy
+Answer key
+☟
+Eigen Value: GATE CSE 2010 | Question: 29
+Consider the following matrix
+If the eigenvalues of A are 
+ and 
+, then
+gatecse-2010
+ 
+linear-algebra
+ 
+eigen-value
+ 
+easy
+Answer key
+☟
+
+
+6.3.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.8
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+6.3.9
+6.3.10
+6.3.11
+Eigen Value: GATE CSE 2011 | Question: 40
+Consider the matrix as given below.
+Which one of the following options provides the 
+CORRECT 
+values of the eigenvalues of the matrix?
+gatecse-2011
+ 
+linear-algebra
+ 
+eigen-value
+ 
+easy
+Answer key
+☟
+Eigen Value: GATE CSE 2012 | Question: 11
+Let A be the 
+ matrix with elements 
+ and 
+ . Then the eigenvalues of
+the matrix 
+ are
+ 
+gatecse-2012
+ 
+linear-algebra
+ 
+eigen-value
+ 
+easy
+Answer key
+☟
+Eigen Value: GATE CSE 2014 | Set 1 | Question: 5
+The value of the dot product of the eigenvectors corresponding to any pair of diﬀerent eigenvalues of a 
+ symmetric positive definite matrix is ___________
+gatecse-2014-set1
+ 
+linear-algebra
+ 
+eigen-value
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Eigen Value: GATE CSE 2014 | Set 2 | Question: 47
+The product of the non-zero eigenvalues of the matrix is ____
+gatecse-2014-set2
+ 
+linear-algebra
+ 
+eigen-value
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Eigen Value: GATE CSE 2014 | Set 3 | Question: 4
+Which one of the following statements is TRUE about every 
+ matrix with only real eigenvalues?
+A
+. 
+If the trace of the matrix is positive and the determinant of the matrix is negative, at least one of its eigenvalues
+is negative.
+B
+. 
+If the trace of the matrix is positive, all its eigenvalues are positive.
+C
+. 
+If the determinant of the matrix is positive, all its eigenvalues are positive.
+D
+. 
+If the product of the trace and determinant of the matrix is positive, all its eigenvalues are positive.
+gatecse-2014-set3
+ 
+linear-algebra
+ 
+eigen-value
+ 
+normal
+Answer key
+☟
+
+
+6.3.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.13
+6.3.14
+6.3.15
+6.3.16
+6.3.17
+A
+. 
+Both I and II
+B
+. 
+I only
+C
+. 
+II only
+D
+. 
+Neither I nor II
+Eigen Value: GATE CSE 2015 | Set 1 | Question: 36
+Consider the following 
+ matrix 
+ where two elements are unknown and are marked by 
+ and 
+. The
+eigenvalues of this matrix are 
+ and 
+ What are the  values of 
+ and 
+?
+gatecse-2015-set1
+ 
+linear-algebra
+ 
+eigen-value
+ 
+easy
+Answer key
+☟
+Eigen Value: GATE CSE 2015 | Set 2 | Question: 5
+The larger of the two eigenvalues of the matrix 
+ is _______.
+gatecse-2015-set2
+ 
+linear-algebra
+ 
+eigen-value
+ 
+easy
+ 
+numerical-answers
+Answer key
+☟
+Eigen Value: GATE CSE 2015 | Set 3 | Question: 15
+In the given matrix 
+ , one of the eigenvalues is 
+ The eigenvectors corresponding to the
+eigenvalue 
+ are
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2015-set3
+ 
+linear-algebra
+ 
+eigen-value
+ 
+normal
+Answer key
+☟
+Eigen Value: GATE CSE 2016 | Set 1 | Question: 05
+Two eigenvalues of a 
+ real matrix 
+ are 
+ and 
+. The determinant of 
+ is _______
+gatecse-2016-set1
+ 
+linear-algebra
+ 
+eigen-value
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Eigen Value: GATE CSE 2016 | Set 2 | Question: 06
+Suppose that the eigenvalues of matrix 
+ are 
+. The determinant of 
+ is _________.
+gatecse-2016-set2
+ 
+linear-algebra
+ 
+eigen-value
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Eigen Value: GATE CSE 2017 | Set 1 | Question: 31
+Let 
+ be 
+ real valued square symmetric matrix of rank 
+ with 
+ Consider the
+following statements.
+I
+. 
+One eigenvalue must be in 
+II
+. 
+The eigenvalue with the largest magnitude must be strictly greater than 
+Which of the above statements about eigenvalues of 
+ is/are necessarily CORRECT?
+
+
+6.3.18
+6.3.19
+6.3.20
+A
+. 
+Only I and III are necessarily true
+B
+. 
+Only II is necessarily true
+C
+. 
+Only I and II are necessarily true
+D
+. 
+Only II and III are necessarily true
+6.3.21
+6.3.22
+gatecse-2017-set1
+ 
+linear-algebra
+ 
+eigen-value
+ 
+normal
+Answer key
+☟
+Eigen Value: GATE CSE 2017 | Set 2 | Question: 52
+If the characteristic polynomial of a  
+  matrix 
+ over 
+ (the set of real numbers) is 
+, and one eigenvalue of 
+ is 
+ then the largest among the absolute values
+of the eigenvalues of 
+ is _______
+gatecse-2017-set2
+ 
+engineering-mathematics
+ 
+linear-algebra
+ 
+numerical-answers
+ 
+eigen-value
+Answer key
+☟
+Eigen Value: GATE CSE 2018 | Question: 17
+Consider a matrix 
+ where 
+. Note that 
+ denotes the transpose of 
+. The
+largest eigenvalue of 
+ is ____
+gatecse-2018
+ 
+linear-algebra
+ 
+eigen-value
+ 
+normal
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Eigen Value: GATE CSE 2018 | Question: 26
+Consider a matrix P whose only eigenvectors are the multiples of 
+.
+Consider the following statements.
+I
+. 
+P does not have an inverse
+II
+. 
+P has a repeated eigenvalue
+III
+. 
+P cannot be diagonalized
+Which one of the following options is correct?
+gatecse-2018
+ 
+linear-algebra
+ 
+matrix
+ 
+eigen-value
+ 
+normal
+ 
+two-marks
+Answer key
+☟
+Eigen Value: GATE CSE 2019 | Question: 44
+Consider the following matrix:
+The absolute value of the product of Eigen values of 
+ is _______
+gatecse-2019
+ 
+numerical-answers
+ 
+engineering-mathematics
+ 
+linear-algebra
+ 
+eigen-value
+ 
+two-marks
+Answer key
+☟
+Eigen Value: GATE CSE 2021 | Set 1 | Question: 52
+Consider the following matrix.
+
+
+6.3.23
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.24
+6.3.25
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ 
+6.3.26
+The largest eigenvalue of the above matrix is __________.
+gatecse-2021-set1
+ 
+linear-algebra
+ 
+matrix
+ 
+eigen-value
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Eigen Value: GATE CSE 2022 | Question: 43
+​​​​​
+Which of the following is/are the eigenvector(s) for the matrix given below?
+gatecse-2022
+ 
+linear-algebra
+ 
+eigen-value
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Eigen Value: GATE CSE 2023 | Question: 20
+Let 
+ be the adjacency matrix of the graph with vertices 
+Let 
+, and 
+ be the five eigenvalues of 
+. Note that these eigenvalues need not be distinct.
+The value of 
+____________
+gatecse-2023
+ 
+linear-algebra
+ 
+eigen-value
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Eigen Value: GATE CSE 2024 | Set 1 | Question: 2
+The product of all eigenvalues of the matrix 
+ is
+gatecse-2024-set1
+ 
+linear-algebra
+ 
+eigen-value
+ 
+one-mark
+Answer key
+☟
+Eigen Value: GATE CSE 2025 | Set 1 | Question: 31
+Let 
+ be a 
+ matrix as given.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.27
+A
+. 
+Rank of 
+ is 
+B
+. 
+ is invertible
+C
+. 
+ is an eigenvalue of 
+D
+. 
+ has a negative eigenvalue
+6.3.28
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.29
+6.3.30
+What are the eigenvalues of the matrix 
+ ?
+gatecse2025-set1
+ 
+linear-algebra
+ 
+matrix
+ 
+eigen-value
+ 
+easy
+ 
+two-marks
+Answer key
+☟
+Eigen Value: GATE DA 2025 | Question: 18
+Let 
+, where 
+ is the 
+ identity matrix and 
+. Which of the following
+options is/are correct?
+gateda-2025
+ 
+linear-algebra
+ 
+matrix
+ 
+eigen-value
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Eigen Value: GATE DA 2026 | Question: 36
+Let 
+ be the eigenvalues of the matrix 
+, where 
+ is in radians.
+Which one of the following options lists all the possible values of 
+ satisfying 
+?
+gateda-2026
+ 
+linear-algebra
+ 
+matrix
+ 
+eigen-value
+ 
+two-marks
+Answer key
+☟
+Eigen Value: GATE DA 2026 | Question: 55
+Let 
+ be a matrix, where 
+ and 
+ is the identity matrix of
+order 
+.
+The value of 
+, where 
+, is 
+. (Answer in 
+integer
+)
+gateda-2026
+ 
+linear-algebra
+ 
+eigen-value
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Eigen Value: GATE DS&AI 2024 | Question: 3
+​​​​
+Consider the matrix 
+.
+Which ONE of the following statements is TRUE?
+A
+. 
+The eigenvalues of 
+ are non-negative and real.
+B
+. 
+The eigenvalues of 
+ are complex conjugate pairs.
+C
+. 
+One eigenvalue of 
+ is positive and real, and another eigenvalue of 
+ is zero.
+D
+. 
+One eigenvalue of 
+ is non-negative and real, and another eigenvalue of 
+ 
+is negative and real.
+gate-ds-ai-2024
+ 
+eigen-value
+ 
+linear-algebra
+ 
+one-mark
+Answer key
+☟
+
+
+6.3.31
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ 
+6.3.32
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.3.33
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.4
+6.4.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.5
+6.5.1
+Eigen Value: GATE Data Science and Artificial Intelligence 
+2024 | Sample Paper | Question: 17
+For matrix 
+, one of the eigenvalues is 
+. Then, the other eigenvalue is
+gateda-sample-paper-2024
+ 
+linear-algebra
+ 
+eigen-value
+ 
+easy
+Answer key
+☟
+Eigen Value: GATE IT 2006 | Question: 26
+What are the eigenvalues of the matrix 
+ given below
+                              
+gateit-2006
+ 
+linear-algebra
+ 
+eigen-value
+ 
+normal
+Answer key
+☟
+Eigen Value: GATE IT 2007 | Question: 2
+Let 
+ be the matrix 
+. What is the maximum value of 
+ where the maximum is taken over all 
+that are the unit eigenvectors of 
+gateit-2007
+ 
+linear-algebra
+ 
+eigen-value
+ 
+normal
+Answer key
+☟
+Gaussian Elimination 
+(1)
+Gaussian Elimination: GATE DA 2025 | Question: 2
+The number of additions and multiplications involved in performing Gaussian elimination on any 
+ upper
+triangular matrix is of the order
+gateda-2025
+ 
+linear-algebra
+ 
+matrix
+ 
+gaussian-elimination
+ 
+one-mark
+Answer key
+☟
+Lu Decomposition 
+(3)
+Lu Decomposition: GATE CSE 2015 | Set 1 | Question: 1
+8
+In the LU decomposition of the matrix 
+, if the diagonal elements of 
+ are both 
+, then the lower
+diagonal entry 
+ of 
+ is_________________.
+gatecse-2015-set1
+ 
+linear-algebra
+ 
+lu-decomposition
+ 
+numerical-answers
+Answer key
+☟
+
+
+6.5.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.5.3
+6.6
+6.6.1
+A
+. 
+The rows are linearly independent
+B
+. 
+The columns are linearly
+independent
+C
+. 
+The row are linearly dependent
+D
+. 
+None of the above
+6.6.2
+Lu Decomposition: GATE CSE 2022 | Question: 35
+Consider solving the following system of simultaneous equations using 
+ decomposition.
+where 
+ and 
+ are denoted as
+Which one of the following is the correct combination of values for 
+ and 
+gatecse-2022
+ 
+linear-algebra
+ 
+lu-decomposition
+ 
+matrix
+ 
+system-of-equations
+ 
+two-marks
+Answer key
+☟
+Lu Decomposition: GATE CSE 2025 | Set 2 | Question: 34
+Consider a system of linear equations 
+ where 
+ and 
+. Suppose 
+ has an LU
+decomposition, 
+, where
+Which of the following statement(s) is/are TRUE?
+A
+. 
+The system 
+ can be solved by first solving 
+ and then 
+.
+B
+. 
+If 
+ is invertible, then both 
+ and 
+ are invertible.
+C
+. 
+If 
+ is singular, then at least one of the diagonal elements of 
+ is zero.
+D
+. 
+If 
+ is symmetric, then both 
+ and 
+ are symmetric.
+gatecse2025-set2
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+matrix
+ 
+lu-decomposition
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Matrix 
+(24)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+Matrix: GATE CSE 1987 | Question: 1-xxiii
+A square matrix is singular whenever 
+gate1987
+ 
+linear-algebra
+ 
+matrix
+Answer key
+☟
+Matrix: GATE CSE 1988 | Question: 16i
+Assume that the matrix 
+ given below, has factorization of the form 
+, where 
+ is lower-triangular
+with all diagonal elements equal to 
+ is upper-triangular, and 
+ is a permutation matrix. For
+
+
+6.6.3
+6.6.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.6.5
+6.6.6
+6.6.7
+A
+. 
+if 
+ an integer
+B
+. 
+always
+C
+. 
+never
+D
+. 
+if 
+Compute 
+ and 
+ using Gaussian elimination with partial pivoting.
+gate1988
+ 
+normal
+ 
+descriptive
+ 
+linear-algebra
+ 
+matrix
+Answer key
+☟
+Matrix: GATE CSE 1993 | Question: 02.7
+If 
+ the matrix 
+, calculated by the use of Cayley-Hamilton theorem or
+otherwise, is _______
+gate1993
+ 
+linear-algebra
+ 
+normal
+ 
+matrix
+ 
+fill-in-the-blanks
+Answer key
+☟
+Matrix: GATE CSE 1994 | Question: 1.2
+Let 
+ and 
+ be real symmetric matrices of size 
+. Then which one of the following is true?
+gate1994
+ 
+linear-algebra
+ 
+normal
+ 
+matrix
+Answer key
+☟
+Matrix: GATE CSE 1994 | Question: 3.12
+Find the inverse of the matrix 
+gate1994
+ 
+linear-algebra
+ 
+matrix
+ 
+easy
+ 
+descriptive
+Answer key
+☟
+Matrix: GATE CSE 1996 | Question: 10
+Let 
+ be two matrices such that 
+. Let 
+ and 
+. Express the elements of 
+ in terms of the elements of 
+.
+gate1996
+ 
+linear-algebra
+ 
+matrix
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Matrix: GATE CSE 1996 | Question: 2.6
+The matrices 
+ and 
+ commute under multiplication
+gate1996
+ 
+linear-algebra
+ 
+normal
+ 
+matrix
+
+
+6.6.8
+A
+. 
+Row is the same as its second row
+B
+. 
+Row is the same as the second
+row of 
+C
+. 
+Column is the same as the second
+column of 
+D
+. 
+Row is all zero
+6.6.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.6.10
+A
+. 
+ and 
+ both are true
+B
+. 
+ is true, 
+ is false
+C
+. 
+ is false, 
+ is true
+D
+. 
+ and 
+ both are false
+6.6.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.6.12
+A
+. 
+   
+B
+. 
+   
+C
+. 
+   
+D
+. 
+   Does not necessarily exist
+Answer key
+☟
+Matrix: GATE CSE 1997 | Question: 4.2
+Let 
+ be an 
+-rowed square matrix and 
+ be the matrix obtained by interchanging the ﬁrst and
+second rows of the 
+-rowed Identity matrix. Then 
+ is such that its first
+gate1997
+ 
+linear-algebra
+ 
+easy
+ 
+matrix
+Answer key
+☟
+Matrix: GATE CSE 1998 | Question: 2.2
+Consider the following determinant 
+Which of the following is a factor of 
+?
+gate1998
+ 
+linear-algebra
+ 
+matrix
+ 
+normal
+Answer key
+☟
+Matrix: GATE CSE 2001 | Question: 1.1
+Consider the following statements:
+S1: The sum of two singular 
+ matrices may be non-singular
+S2: The sum of two 
+ non-singular matrices may be singular
+Which one of the following statements is correct?
+gatecse-2001
+ 
+linear-algebra
+ 
+normal
+ 
+matrix
+Answer key
+☟
+Matrix: GATE CSE 2004 | Question: 26
+The number of diﬀerent 
+ symmetric matrices with each element being either 0 or 1 is: (Note: 
+ is same as 
+)
+gatecse-2004
+ 
+linear-algebra
+ 
+normal
+ 
+matrix
+Answer key
+☟
+Matrix: GATE CSE 2004 | Question: 27
+Let 
+ be 
+ matrices, each with non-zero determinant. If 
+, then 
+ is
+gatecse-2004
+ 
+linear-algebra
+ 
+normal
+ 
+matrix
+Answer key
+☟
+
+
+6.6.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.6.14
+6.6.15
+6.6.16
+6.6.17
+A
+. 
+B
+. 
+Matrix: GATE CSE 2004 | Question: 76
+In an 
+ matrix all non-zero entries are covered in 
+ rows and 
+ columns. Then the maximum number
+of non-zero entries, such that no two are on the same row or column, is
+gatecse-2004
+ 
+linear-algebra
+ 
+normal
+ 
+matrix
+Answer key
+☟
+Matrix: GATE CSE 2006 | Question: 23
+ is an 
+ real matrix. 
+ is an 
+ real vector. Suppose there are two 
+ vectors, 
+ and 
+ such
+that, 
+ and 
+. Which one of the following statements is false?
+A
+. 
+   Determinant of 
+ is zero.  
+B
+. 
+   There are an infinite number of solutions to 
+C
+. 
+   There is an 
+ such that 
+D
+. 
+   
+ must have two identical rows
+gatecse-2006
+ 
+linear-algebra
+ 
+normal
+ 
+matrix
+Answer key
+☟
+Matrix: GATE CSE 2015 | Set 2 | Question: 27
+Perform the following operations on the matrix 
+i
+. 
+Add the third row to the second row
+ii
+. 
+Subtract the third column from the first column.
+The determinant of the resultant matrix is _____.
+gatecse-2015-set2
+ 
+linear-algebra
+ 
+matrix
+ 
+easy
+ 
+numerical-answers
+Answer key
+☟
+Matrix: GATE CSE 2022 | Question: 10
+Consider the following two statements with respect to the matrices 
+ and 
+Statement 
+Statement 
+where 
+ represents the trace of a matrix. Which one of the following holds?
+A
+. 
+Statement 
+ is correct and Statement 
+ is wrong.
+B
+. 
+Statement 
+ is wrong and Statement 
+ is correct.
+C
+. 
+Both Statement 
+ and Statement 
+ are correct.
+D
+. 
+Both Statement 
+ and Statement 
+ are wrong.
+gatecse-2022
+ 
+linear-algebra
+ 
+matrix
+ 
+one-mark
+Answer key
+☟
+Matrix: GATE CSE 2025 | Set 2 | Question: 1
+​​​​
+If 
+, then which ONE of the following is 
+ ?
+
+
+C
+. 
+D
+. 
+6.6.18
+6.6.19
+A
+. 
+ is invertible
+B
+. 
+Determinant of 
+ is 
+C
+. 
+The sum of the diagonal elements
+of 
+ is 
+D
+. 
+ and 
+ have the same rank
+6.6.20
+A
+. 
+ must be orthogonal
+B
+. 
+, where 
+ denotes the
+identity matrix, is the only solution
+C
+. 
+The eigenvalues of 
+ are either 
+ or 
+D
+. 
+ has full rank
+6.6.21
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.6.22
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ is a projection matrix
+gatecse2025-set2
+ 
+linear-algebra
+ 
+matrix
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Matrix: GATE CSE 2026 | Set 1 | Question: 10
+Let 
+. Consider an 
+ matrix 
+ with its elements from 
+. Let the vector 
+be in the null space of 
+.
+Which of the following options is/are always correct?
+A
+. 
+Determinant of 
+ is 
+B
+. 
+Determinant of 
+ is 
+C
+. 
+Rank of 
+ is 
+D
+. 
+There are at least two non-zero vectors in the null space of 
+gatecse-2026-set1
+ 
+linear-algebra
+ 
+matrix
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Matrix: GATE DA 2025 | Question: 27
+​​
+Let 
+ be such that 
+. Which one of the following statements is ALWAYS correct?
+gateda-2025
+ 
+linear-algebra
+ 
+matrix
+ 
+two-marks
+Answer key
+☟
+Matrix: GATE DA 2025 | Question: 42
+An 
+ matrix 
+ with real entries satisﬁes the property: 
+, for all 
+, where 
+denotes the Euclidean norm. Which of the following statements is/are ALWAYS correct?
+gateda-2025
+ 
+linear-algebra
+ 
+matrix
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Matrix: GATE DA 2026 | Question: 11
+Let 
+ be a 
+ matrix, where 
+, and 
+.
+Which of the following options is equal to 
+ ?
+gateda-2026
+ 
+linear-algebra
+ 
+matrix
+ 
+one-mark
+Answer key
+☟
+Matrix: GATE DA 2026 | Question: 42
+Let 
+ be a matrix, where 
+ and 
+ is the identity matrix of
+order 
+.
+Which of the following options is/are correct?
+
+
+6.6.23
+A
+. 
+ 
+B
+. 
+C
+. 
+D
+. 
+6.6.24
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+6.7
+6.7.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.8
+6.8.1
+6.8.2
+A
+. 
+Singular values of 
+ are also its
+eigenvalues
+B
+. 
+Singular values of 
+ are either 
+or 
+gateda-2026
+ 
+linear-algebra
+ 
+matrix
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Matrix: GATE IT 2004 | Question: 36
+If matrix 
+  and 
+ (
+ is the identity matrix and 
+ is the zero
+matrix), then the inverse of 
+ is
+gateit-2004
+ 
+linear-algebra
+ 
+matrix
+ 
+normal
+Answer key
+☟
+Matrix: GATE IT 2008 | Question: 29
+If 
+ is a square matrix with a zero determinant, which of the following assertion (s) is (are) correct?
+S1:
+ Each row of 
+ can be represented as a linear combination of the other rows
+S2:
+ Each column of 
+ can be represented as a linear combination of the other columns
+S3:
+ 
+ has a nontrivial solution
+S4:
+ 
+ has an inverse
+gateit-2008
+ 
+linear-algebra
+ 
+normal
+ 
+matrix
+Answer key
+☟
+Multiplicity 
+(1)
+Multiplicity: GATE CSE 2026 | Set 1 | Question: 3
+For 
+, the maximum multiplicity of any eigenvalue of an 
+ matrix with elements from 
+ is
+gatecse-2026-set1
+ 
+eigen-value
+ 
+multiplicity
+ 
+linear-algebra
+ 
+one-mark
+Answer key
+☟
+Orthonormality 
+(2)
+Orthonormality: GATE DA 2025 | Question: 15
+Which of the following statements is/are correct?
+A
+. 
+ has a unique set of orthonormal basis vectors
+B
+. 
+ does not have a unique set of orthonormal basis vectors
+C
+. 
+Linearly independent vectors in 
+ are orthonormal
+D
+. 
+Orthonormal vectors 
+ are linearly independent
+gateda-2025
+ 
+linear-algebra
+ 
+vector-space
+ 
+orthonormality
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Orthonormality: GATE DA 2025 | Question: 40
+Let 
+ be a system of orthonormal vectors in 
+. Consider the matrix 
+. Which of the following statements is/are correct?
+
+
+C
+. 
+Determinant of 
+ is 
+D
+. 
+ is invertible
+6.9
+6.9.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.9.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Depends on the value of 
+6.9.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.9.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gateda-2025
+ 
+linear-algebra
+ 
+orthonormality
+ 
+vector-space
+ 
+matrix
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Rank of Matrix 
+(7)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(6Q)
+Rank of Matrix: GATE CSE 1994 | Question: 1.9
+The rank of matrix 
+ is:
+gate1994
+ 
+linear-algebra
+ 
+matrix
+ 
+rank-of-matrix
+ 
+easy
+Answer key
+☟
+Rank of Matrix: GATE CSE 1995 | Question: 1.24
+The rank of the following 
+ matrix, where 
+ is a real number is
+gate1995
+ 
+linear-algebra
+ 
+matrix
+ 
+normal
+ 
+rank-of-matrix
+Answer key
+☟
+Rank of Matrix: GATE CSE 1998 | Question: 2.1
+The rank of the matrix given below is:
+gate1998
+ 
+linear-algebra
+ 
+matrix
+ 
+normal
+ 
+rank-of-matrix
+Answer key
+☟
+Rank of Matrix: GATE CSE 2002 | Question: 1.1
+The rank of the matrix 
+ is
+gatecse-2002
+ 
+linear-algebra
+ 
+easy
+ 
+rank-of-matrix
+Answer key
+☟
+
+
+6.9.5
+6.9.6
+A
+. 
+I and II only
+B
+. 
+I and IV only
+C
+. 
+II and III only
+D
+. 
+III and IV only
+6.9.7
+6.10
+6.10.1
+6.11
+6.11.1
+Rank of Matrix: GATE CSE 2017 | Set 2 | Question: 22
+Let 
+  and 
+ be two matrices.
+Then the rank of 
+ is ___________ .
+gatecse-2017-set2
+ 
+linear-algebra
+ 
+rank-of-matrix
+ 
+numerical-answers
+Answer key
+☟
+Rank of Matrix: GATE CSE 2020 | Question: 27
+Let 
+ and 
+ be two 
+ matrices over real numbers. Let rank(
+) and 
+ denote the rank and
+determinant of a matrix 
+, respectively. Consider the following statements.
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+Which of the above statements are TRUE?
+gatecse-2020
+ 
+linear-algebra
+ 
+matrix
+ 
+two-marks
+ 
+rank-of-matrix
+Answer key
+☟
+Rank of Matrix: GATE CSE 2021 | Set 2 | Question: 24
+Suppose that 
+ is a 
+ matrix such that every solution of the equation 
+ is a scalar multiple of 
+. The rank of 
+ is __________
+gatecse-2021-set2
+ 
+numerical-answers
+ 
+linear-algebra
+ 
+matrix
+ 
+rank-of-matrix
+ 
+one-mark
+Answer key
+☟
+Singular Value Decomposition 
+(1)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(5Q)
+Singular Value Decomposition: GATE DS&AI 2024 | Question: 51
+Let 
+, and let 
+ be the singular values of the matrix 
+ (where 
+ is the
+transpose of 
+ ). The value of 
+ is 
+gate-ds-ai-2024
+ 
+linear-algebra
+ 
+singular-value-decomposition
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Statistics 
+(2)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(12Q)
+Statistics: GATE 2023 Stats Exam Q. 13
+Consider the following statements.
+    (I) Let 
+ and 
+ be two 
+ real matrices. If 
+ is invertible, then 
+.
+
+
+A
+. 
+& Only (I)
+B
+. 
+& Only (II)
+C
+. 
+& Both (I) and (II)
+D
+. 
+& Neither (I) nor (II)
+6.11.2
+6.12
+6.12.1
+6.13
+    
+    (II) Let 
+ be an 
+ real matrix. If 
+ has a solution for every 
+, then 
+ also has a
+solution for every 
+.
+Which of the above statements is/are true?
+gate-preparation
+ 
+linear-algebra
+ 
+statistics
+Answer key
+☟
+Statistics: GATE STATISTICS 2021 Q.13
+ 
+ Let 
+ be the 
+ real matrix having eigenvalues 
+ and 
+, with corresponding eigenvectors 
+ and 
+, respectively. If 
+, then 
+ equals ___ (round off to 2 decimal places).
+ 
+statistics
+ 
+linear-algebra
+ 
+gate-preparation
+Answer key
+☟
+Subspace 
+(1)
+Subspace: GATE DS&AI 2024 | Question: 37
+Select all choices that are subspaces of 
+.
+Note: 
+ denotes the set of real numbers.
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+ 
+gate-ds-ai-2024
+ 
+linear-algebra
+ 
+vector-space
+ 
+subspace
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+System of Equations 
+(17)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(7Q)
+
+
+6.13.1
+6.13.2
+A
+. 
+has unique solution
+B
+. 
+has no solution
+C
+. 
+has finite number of solutions
+D
+. 
+has infinite number of solutions
+6.13.3
+6.13.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.13.5
+A
+. 
+infinitely many
+B
+. 
+two distinct solutions
+System of Equations: GATE CSE 1996 | Question: 1.7
+Let 
+ be a system of linear equations where 
+ is an 
+ matrix and 
+ is a 
+ column vector
+and 
+ is an 
+ column vector of unknowns. Which of the following is false?
+A
+. 
+The system has a solution if and only if, both 
+ and the augmented matrix 
+ have the same rank.
+B
+. 
+If 
+ and 
+ is the zero vector, then the system has infinitely many solutions.
+C
+. 
+If 
+ and 
+ is a non-zero vector, then the system has a unique solution.
+D
+. 
+The system will have only a trivial solution when 
+, 
+ is the zero vector and 
+.
+gate1996
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+normal
+Answer key
+☟
+System of Equations: GATE CSE 1998 | Question: 1.2
+Consider the following set of equations
+This set
+gate1998
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+easy
+Answer key
+☟
+System of Equations: GATE CSE 1998 | Question: 9
+Derive the expressions for the number of operations required to solve a system of linear equations in 
+unknowns using the Gaussian Elimination Method. Assume that one operation refers to a multiplication
+followed by an addition.
+gate1998
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+descriptive
+Answer key
+☟
+System of Equations: GATE CSE 2003 | Question: 41
+Consider the following system of linear equations
+Notice that the second and the third columns of the coeﬃcient matrix are linearly dependent. For how many values
+of 
+, does this system of equations have infinitely many solutions?
+gatecse-2003
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+normal
+Answer key
+☟
+System of Equations: GATE CSE 2004 | Question: 71
+How many solutions does the following system of linear equations have?
+
+
+C
+. 
+unique
+D
+. 
+none
+6.13.6
+A
+. 
+no solution
+B
+. 
+a unique solution
+C
+. 
+more than one but a ﬁnite number
+of solutions
+D
+. 
+an infinite number of solutions
+6.13.7
+A
+. 
+B
+. 
+either 
+ or 
+C
+. 
+one of 
+, or 
+D
+. 
+any real number
+6.13.8
+6.13.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2004
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+normal
+Answer key
+☟
+System of Equations: GATE CSE 2005 | Question: 48
+Consider the following system of linear equations :
+The system of equations has
+gatecse-2005
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+normal
+Answer key
+☟
+System of Equations: GATE CSE 2008 | Question: 3
+The following system of equations
+has a unique solution. The only possible value(s) for 
+ is/are
+gatecse-2008
+ 
+easy
+ 
+linear-algebra
+ 
+system-of-equations
+Answer key
+☟
+System of Equations: GATE CSE 2014 | Set 1 | Question: 4
+Consider the following system of equations:  
+The number of solutions for this system is ______________
+gatecse-2014-set1
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+System of Equations: GATE CSE 2015 | Set 3 | Question: 33
+If the following system has non-trivial solution, 
+,
+then which one of the following options is TRUE?
+gatecse-2015-set3
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+normal
+
+
+6.13.10
+A
+. 
+ and 
+ are true.
+B
+. 
+Only 
+ and 
+ are true.
+C
+. 
+Only 
+ is true.
+D
+. 
+None of them is true.
+6.13.11
+6.13.12
+6.13.13
+Answer key
+☟
+System of Equations: GATE CSE 2016 | Set 2 | Question: 04
+Consider the systems, each consisting of 
+ linear equations in 
+ variables.
+I
+. 
+If 
+, then all such systems have a solution.
+II
+. 
+If 
+, then none of these systems has a solution.
+III
+. 
+If 
+, then there exists a system which has a solution.
+Which one of the following is 
+CORRECT
+?
+gatecse-2016-set2
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+normal
+Answer key
+☟
+System of Equations: GATE CSE 2017 | Set 1 | Question: 3
+Let 
+ be scalars, not all zero, such that 
+ = 0 where 
+ are column vectors in 
+.
+Consider the set of linear equations
+where 
+ and 
+. The set of equations has
+A
+. 
+a unique solution at 
+ where 
+ denotes a 
+-dimensional vector of all 1.
+B
+. 
+no solution
+C
+. 
+infinitely many solutions
+D
+. 
+finitely many solutions
+gatecse-2017-set1
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+normal
+Answer key
+☟
+System of Equations: GATE CSE 2024 | Set 1 | Question: 39
+​​
+Let 
+ be any 
+ matrix, where 
+. Which of the following statements is/are TRUE about the system
+of linear equations 
+?
+A
+. 
+There exist at least 
+ linearly independent solutions to this system
+B
+. 
+There exist 
+ linearly independent vectors such that every solution is a linear combination of these vectors
+C
+. 
+There exists a non-zero solution in which at least 
+ variables are 
+D
+. 
+There exists a solution in which at least 
+ variables are non-zero
+gatecse-2024-set1
+ 
+multiple-selects
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+two-marks
+Answer key
+☟
+System of Equations: GATE CSE 2025 | Set 1 | Question: 13
+Consider the given system of linear equations for variables 
+ and 
+, where 
+ is a real-valued constant.
+Which of the following option(s) is/are CORRECT?
+A
+. 
+There is exactly one value of 
+ for which the above system of equations has no solution.
+B
+. 
+There exist an infinite number of values of 
+ for which the system of equations has no solution.
+C
+. 
+There exists exactly one value of 
+ for which the system of equations has exactly one solution.
+D
+. 
+There exists exactly one value of 
+ for which the system of equations has an infinite number of solutions.
+gatecse2025-set1
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+multiple-selects
+ 
+one-mark
+
+
+6.13.14
+6.13.15
+6.13.16
+6.13.17
+A
+. 
+, 
+, 
+B
+. 
+, 
+, 
+C
+. 
+, 
+, 
+D
+. 
+, 
+, 
+Answer key
+☟
+System of Equations: GATE CSE 2026 | Set 2 | Question: 21
+Consider the system of linear equations given below.
+Suppose the values of 
+ and 
+ are chosen such that the system of linear equations produce multiple solutions.
+Then the product of 
+ and 
+ is 
+. (answer in integer)
+gatecse-2026-set2
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+System of Equations: GATE DA 2025 | Question: 3
+The sum of the elements in each row of 
+ is 1. If 
+, which one of the following
+statements is correct (for 
+ )?
+A
+. 
+The equation 
+ has no solution
+B
+. 
+The equation 
+ has exactly two solutions
+C
+. 
+The equation 
+ has infinitely many solutions
+D
+. 
+The equation 
+ has a unique solution
+gateda-2025
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+one-mark
+Answer key
+☟
+System of Equations: GATE DS&AI 2024 | Question: 38
+​​​​​​
+Which of the following statements is/are TRUE?
+Note: 
+ denotes the set of real numbers.
+A
+. 
+There exist 
+, and 
+ such that 
+ has a unique solution and 
+ has
+infinite solutions.
+B
+. 
+There exist 
+, and 
+ such that 
+ has no solutions and 
+ has inﬁnite
+solutions.
+C
+. 
+There exist 
+, and 
+ such that 
+ has a unique solution and 
+ has
+infinite solutions.
+D
+. 
+There exist 
+, and 
+ such that 
+ has a unique solution and 
+ has no
+solutions.
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+gate-ds-ai-2024
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+System of Equations: GATE IT 2004 | Question: 6
+What values of x, y and z satisfy the following system of linear equations?
+gateit-2004
+ 
+linear-algebra
+ 
+system-of-equations
+ 
+easy
+Answer key
+☟
+
+
+6.14
+6.14.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.14.2
+6.14.3
+6.14.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.14.5
+A
+. 
+ is invertible
+B
+. 
+ is a singular value of 
+C
+. 
+Determinant of 
+ is 
+D
+. 
+ for some non-zero 
+Vector Space 
+(7)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(5Q)
+Vector Space: GATE CSE 1995 | Question: 2.13
+A unit vector perpendicular to both the vectors 
+ and 
+ is:
+gate1995
+ 
+linear-algebra
+ 
+normal
+ 
+vector-space
+Answer key
+☟
+Vector Space: GATE CSE 2007 | Question: 27
+Consider the set of (column) vectors defined by
+.Which of the following is TRUE?
+A
+. 
+ is a basis for the subspace 
+.
+B
+. 
+ is a linearly independent set, but it does not span 
+ and therefore is not a basis of 
+.
+C
+. 
+ is not a subspace of 
+.
+D
+. 
+None of the above
+gatecse-2007
+ 
+linear-algebra
+ 
+normal
+ 
+vector-space
+Answer key
+☟
+Vector Space: GATE CSE 2014 | Set 3 | Question: 5
+If 
+ and 
+ are 
+-dimensional subspaces of a 
+-dimensional vector space 
+, then the smallest possible
+dimension of 
+ is _____.
+gatecse-2014-set3
+ 
+linear-algebra
+ 
+vector-space
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Vector Space: GATE CSE 2017 | Set 1 | Question: 30
+Let 
+ and 
+ be two vectors in 
+ whose Euclidean norms satisfy 
+. What is the value of 
+ such
+that 
+ bisects the angle between 
+ and 
+?
+gatecse-2017-set1
+ 
+linear-algebra
+ 
+normal
+ 
+vector-space
+Answer key
+☟
+Vector Space: GATE DA 2025 | Question: 28
+Let 
+ be a set of linearly independent vectors in 
+. Let the 
+-th element of matrix 
+ be given by 
+. Which one of the following statements is correct?
+gateda-2025
+ 
+linear-algebra
+ 
+vector-space
+ 
+matrix
+ 
+two-marks
+Answer key
+☟
+
+
+6.14.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+6.14.7
+Vector Space: GATE DA 2026 | Question: 12
+Consider a set 
+. Let 
+ be another set which is a subspace
+of 
+ with dimension two.
+Which of the following gives the area of 
+ ?
+gateda-2026
+ 
+linear-algebra
+ 
+vector-space
+ 
+one-mark
+Answer key
+☟
+Vector Space: GATE DS&AI 2024 | Question: 39
+​​​​​
+Let 
+ be the set of real numbers, 
+ be a subspace of 
+ and 
+ be the matrix corresponding to the
+projection on to the subspace 
+.
+Which of the following statements is/are TRUE?
+A
+. 
+If 
+ is a 
+-dimensional subspace of 
+, then the null space of 
+ is a 
+-dimensional subspace.
+B
+. 
+If 
+ is a 
+-dimensional subspace of 
+, then the null space of 
+ is a 
+-dimensional subspace.
+C
+. 
+D
+. 
+ 
+gate-ds-ai-2024
+ 
+linear-algebra
+ 
+vector-space
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Answer Keys
+6.1.1
+A
+6.2.1
+B
+6.2.2
+A
+6.2.3
+A
+6.2.4
+0
+6.2.5
+D
+6.2.6
+B
+6.2.7
+A;B
+6.2.8
+A
+6.2.9
+48:48
+6.2.10
+0
+6.2.11
+D
+6.2.12
+A
+6.3.1
+B;D
+6.3.2
+N/A
+6.3.3
+B
+6.3.4
+C
+6.3.5
+A
+6.3.6
+D
+6.3.7
+A
+6.3.8
+D
+6.3.9
+0
+6.3.10
+6
+6.3.11
+A
+6.3.12
+D
+6.3.13
+6
+6.3.14
+B
+6.3.15
+15
+6.3.16
+0.125
+6.3.17
+B
+6.3.18
+5
+6.3.19
+3
+6.3.20
+D
+6.3.21
+12
+6.3.22
+3 : 3
+6.3.23
+A;C;D
+6.3.24
+2
+6.3.25
+B
+6.3.26
+D
+6.3.27
+A;B
+6.3.28
+C
+6.3.29
+1:1
+6.3.30
+B
+6.3.31
+B
+6.3.32
+A
+6.3.33
+B
+6.4.1
+B
+6.5.1
+5
+6.5.2
+D
+6.5.3
+A;B;C
+6.6.1
+C
+6.6.2
+N/A
+6.6.3
+N/A
+6.6.4
+D
+6.6.5
+N/A
+6.6.6
+N/A
+6.6.7
+A
+6.6.8
+C
+6.6.9
+B
+6.6.10
+A
+6.6.11
+C
+6.6.12
+B
+6.6.13
+D
+6.6.14
+D
+6.6.15
+0
+6.6.16
+C
+6.6.17
+C
+6.6.18
+B;D
+6.6.19
+D
+6.6.20
+A;D
+6.6.21
+B
+6.6.22
+A;D
+6.6.23
+B
+6.6.24
+D
+6.7.1
+A
+6.8.1
+B;D
+6.8.2
+A;B
+6.9.1
+C
+6.9.2
+A
+6.9.3
+A
+6.9.4
+C
+6.9.5
+2
+6.9.6
+C
+6.9.7
+4 : 4
+6.10.1
+55
+6.11.1
+TBA
+6.11.2
+TBA
+6.12.1
+A;C
+6.13.1
+C
+6.13.2
+B
+6.13.3
+N/A
+6.13.4
+B
+6.13.5
+C
+6.13.6
+B
+6.13.7
+X
+
+
+6.13.8
+1
+6.13.9
+C
+6.13.10
+C
+6.13.11
+C
+6.13.12
+A
+6.13.13
+A;D
+6.13.14
+24:24
+6.13.15
+C
+6.13.16
+B;D
+6.13.17
+C
+6.14.1
+A
+6.14.2
+A
+6.14.3
+2
+6.14.4
+A
+6.14.5
+A
+6.14.6
+A
+6.14.7
+B;C;D

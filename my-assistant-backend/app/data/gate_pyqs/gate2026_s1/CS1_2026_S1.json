@@ -1,0 +1,1994 @@
+[
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q1",
+    "question_type": "MCQ",
+    "section": "GA",
+    "subject": "General Aptitude",
+    "chapter": "Verbal Ability",
+    "question": "The antonym of the word protagonist is ________.",
+    "image_url": null,
+    "options": {
+      "A": "agnostic",
+      "B": "antagonist",
+      "C": "arsonist",
+      "D": "anarchist"
+    },
+    "correct_answer": "B",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Verbal Ability - Vocabulary",
+    "difficulty": "Easy",
+    "explanation": "A protagonist is the leading/central character who drives the story, typically sympathetic to the reader. Its direct opposite is the antagonist, the character who opposes the protagonist.",
+    "solution_steps": [
+      "Protagonist means the main/central character of a story.",
+      "The word that means the opposite of a central, driving character is antagonist, the character who works against the protagonist.",
+      "'agnostic' relates to belief/knowledge, 'arsonist' relates to setting fires, and 'anarchist' relates to opposing government - none is an antonym of protagonist.",
+      "Hence the answer is (B) antagonist."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q2",
+    "question_type": "MCQ",
+    "section": "GA",
+    "subject": "General Aptitude",
+    "chapter": "Spatial Reasoning",
+    "question": "The figure shows two 4-tile patterns.\n\nEither one or both of the patterns can be used any number of times and in any orientation to construct a new pattern. Which one of the options below cannot be constructed by using only these two 4-tile patterns assuming there are no overlaps among them?",
+    "image_url": "images/Q2_figure.png",
+    "options": {
+      "A": "images/Q2_optA.png",
+      "B": "images/Q2_optB.png",
+      "C": "images/Q2_optC.png",
+      "D": "images/Q2_optD.png"
+    },
+    "correct_answer": "C",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Spatial Reasoning - Tiling/Pattern Construction",
+    "difficulty": "Medium",
+    "explanation": "The two given tiles have 4 unit cells each (a 2x2 square block and a 1x4 straight strip), so any figure built from n copies of these tiles (in any rotation, no overlap) must have area divisible by 4. Among the options, three grids have an area that is a multiple of 4 and can be tiled by combinations of the 2x2 square and 1x4 strip; one grid's area/shape cannot be exactly partitioned into these two tile shapes without leftover or overlap.",
+    "solution_steps": [
+      "Each tile covers exactly 4 unit cells, so a valid construction must have total area that is a multiple of 4, and more importantly must be exactly partitionable into 2x2 blocks and 1x4 strips (in any rotation) with no gaps or overlaps.",
+      "Check each option's grid dimensions and shape for whether it can be fully partitioned using only 2x2 squares and 1x4/4x1 strips.",
+      "Options A, B, and D can be decomposed into a combination of 2x2 squares and 1x4 strips exactly.",
+      "Option C's grid (5 columns x 3 rows arrangement) cannot be exactly tiled by only 2x2 squares and 1x4 strips without leftover cells - a parity/coloring argument on the 5-wide row shows no valid partition exists.",
+      "Hence the answer is (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q3",
+    "question_type": "MCQ",
+    "section": "GA",
+    "subject": "General Aptitude",
+    "chapter": "Quantitative Aptitude",
+    "question": "Consider a knock-out women's badminton singles tournament where there are no ties. The loser in each game is eliminated from the tournament. Every player plays until she is defeated or remains the last undefeated player. The last undefeated player is declared the winner of the tournament. If there are 64 players in the beginning of the tournament, how many games should be played in total to declare the winner of the tournament?",
+    "image_url": null,
+    "options": {
+      "A": "127",
+      "B": "64",
+      "C": "63",
+      "D": "32"
+    },
+    "correct_answer": "C",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Quantitative Aptitude - Basic Counting",
+    "difficulty": "Easy",
+    "explanation": "In a single-elimination (knock-out) tournament, exactly one player is eliminated per game, and the tournament ends when only the winner remains, i.e., when 63 of the 64 players have been eliminated.",
+    "solution_steps": [
+      "In a knock-out tournament every game eliminates exactly one player (the loser).",
+      "To go from 64 players down to 1 champion, 63 players must be eliminated.",
+      "Since each game eliminates exactly one player, exactly 63 games must be played.",
+      "Hence the answer is (C) 63."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q4",
+    "question_type": "MCQ",
+    "section": "GA",
+    "subject": "General Aptitude",
+    "chapter": "Quantitative Aptitude",
+    "question": "A student needs to enroll for a minimum of 60 credits. A student cannot enroll for more than 70 credits. The credits are divided amongst project and three distinct sets of courses namely, core courses, specialization courses, and elective courses. It is compulsory for a student to enroll for exactly 15 credits of core courses and exactly 20 credits of project. In addition, a student has to enroll for a minimum of 10 credits of specialization courses. The maximum credits of elective courses that a student can enroll for is ______",
+    "image_url": null,
+    "options": {
+      "A": "10",
+      "B": "15",
+      "C": "20",
+      "D": "25"
+    },
+    "correct_answer": "D",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Quantitative Aptitude - Linear Constraints",
+    "difficulty": "Easy",
+    "explanation": "Total credits must be at most 70. Core (15) and project (20) are fixed at exactly 35 credits combined. Specialization needs at least 10 credits. To maximize elective credits, minimize specialization to its lower bound of 10, leaving 70 - 15 - 20 - 10 = 25 for electives.",
+    "solution_steps": [
+      "Maximum total credits allowed = 70.",
+      "Fixed compulsory credits = core (15) + project (20) = 35.",
+      "Specialization courses need a minimum of 10 credits; to leave the maximum room for electives, take specialization at its minimum, i.e., 10.",
+      "Remaining credits for electives = 70 - 35 - 10 = 25.",
+      "Hence the answer is (D) 25."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q5",
+    "question_type": "MCQ",
+    "section": "GA",
+    "subject": "General Aptitude",
+    "chapter": "Logical Reasoning",
+    "question": "'When the teacher is in the room, all students stand silently.'\nIf the above statement is true, which one of the following statements is not necessarily true?",
+    "image_url": null,
+    "options": {
+      "A": "If any student is not standing silently, then the teacher is not in the room.",
+      "B": "When the teacher is in the room, all students are silent.",
+      "C": "If all students are standing, then the teacher is in the room.",
+      "D": "When the teacher is in the room, all students are standing."
+    },
+    "correct_answer": "C",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Logical Reasoning - Statement Implication",
+    "difficulty": "Medium",
+    "explanation": "The statement 'teacher in room => all students stand silently' means standing silently is necessary whenever the teacher is present, but it does not by itself guarantee that the teacher is present just because all students happen to be standing (silence/standing could occur for other reasons too). So option C, which asserts the converse, is not necessarily true.",
+    "solution_steps": [
+      "Let T = 'teacher is in the room' and S = 'all students stand silently'. The given statement is T => S.",
+      "Option A is the contrapositive of T=>S (not-S => not-T), which is always true given T=>S.",
+      "Option B and D restate parts of S (standing, being silent) as consequences of T, which follow directly from T=>S.",
+      "Option C claims S => T (the converse), which is not logically implied by T=>S - students could be standing for reasons other than the teacher's presence.",
+      "Hence the statement that is NOT necessarily true is (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q6",
+    "question_type": "MCQ",
+    "section": "GA",
+    "subject": "General Aptitude",
+    "chapter": "Reading Comprehension",
+    "question": "Combinatorics deals with problems involving counting. For example, \"How many distinct arrangements of N distinct objects in M spaces on a circle are possible?\" is a typical problem in combinatorics. This kind of counting is sometimes used in the modeling of several physical phenomena. Often, in such models, the different combinatorial possibilities are assigned probability values. Assigning probabilities enables the computation of the average values of physical quantities.\nConsider the following statements:\nP: Combinatorics is always invoked in the modeling of physical phenomena.\nQ: Modeling some physical phenomena involves assigning probabilities to combinatorial possibilities in order to compute average values of physical quantities.\nBased on the passage above, what can be inferred about statements P and Q?",
+    "image_url": null,
+    "options": {
+      "A": "P is False and Q is False",
+      "B": "P is False and Q is True",
+      "C": "P is True and Q is False",
+      "D": "P is True and Q is True"
+    },
+    "correct_answer": "B",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Reading Comprehension - Inference",
+    "difficulty": "Medium",
+    "explanation": "The passage states combinatorics is 'sometimes used' (not always) in modeling physical phenomena, so P (always invoked) is false. The passage explicitly describes assigning probabilities to combinatorial possibilities to compute averages for some physical phenomena, matching Q exactly, so Q is true.",
+    "solution_steps": [
+      "The passage says combinatorial counting 'is sometimes used' in modeling physical phenomena - this contradicts P's claim of 'always', so P is False.",
+      "The passage explicitly describes assigning probabilities to combinatorial possibilities to compute average values for some physical models, which is exactly what Q states, so Q is True.",
+      "Hence the correct inference is (B) P is False and Q is True."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q7",
+    "question_type": "MCQ",
+    "section": "GA",
+    "subject": "General Aptitude",
+    "chapter": "Spatial Reasoning",
+    "question": "In Panel I of the figure below, the front view and top view of a structure are shown. Which one of the 3D structures shown in Panel II possesses the views shown in Panel I?",
+    "image_url": "images/Q7_figure.png",
+    "options": {
+      "A": "(i)",
+      "B": "(ii)",
+      "C": "(iii)",
+      "D": "(iv)"
+    },
+    "correct_answer": "D",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Spatial Reasoning - Orthographic/3D Views",
+    "difficulty": "Medium",
+    "explanation": "Matching the given front view (an L/step-shape of 2 rows) and top view (mirrored step-shape) to the four isometric solids in Panel II, only structure (iv) has the block arrangement whose front projection and top projection simultaneously reproduce both given 2D views.",
+    "solution_steps": [
+      "Read off the block heights and footprint implied by the given Front View and Top View in Panel I.",
+      "For each 3D structure (i)-(iv) in Panel II, mentally project it onto the front plane and the top plane.",
+      "Structures (i), (ii), (iii) each mismatch either the front view's step profile or the top view's footprint when projected.",
+      "Structure (iv) reproduces both the given front view and top view exactly.",
+      "Hence the answer is (D) (iv)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q8",
+    "question_type": "MCQ",
+    "section": "GA",
+    "subject": "General Aptitude",
+    "chapter": "Quantitative Aptitude",
+    "question": "For positive real numbers S and K, the function H_K(S) is defined as:\nH_K(S) = max(S-K, 0). The max function is defined as:\nmax(a, b) = a, when a > b;  b, when a <= b\nThe graph below shows the plot of a function N(S) versus S.\nN(S) can be expressed as _____.",
+    "image_url": "images/Q8_figure.png",
+    "options": {
+      "A": "H_10(S) - H_20(S)",
+      "B": "H_10(S) - 2*H_20(S)",
+      "C": "-H_10(S) + H_20(S)",
+      "D": "H_15(S) - H_20(S)"
+    },
+    "correct_answer": "A",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Quantitative Aptitude - Piecewise Function Graph Reading",
+    "difficulty": "Medium",
+    "explanation": "The plotted N(S) is 0 for S<=10, rises linearly with slope 1 from S=10 to S=20 reaching value 10, then stays flat at 10 for S>20. H_10(S) alone gives a ramp starting at S=10 that keeps rising forever (slope 1, no upper flattening). Subtracting H_20(S) (a ramp starting at S=20) cancels the slope beyond S=20, producing exactly this rise-then-flatten shape, so N(S) = H_10(S) - H_20(S).",
+    "solution_steps": [
+      "From the graph: N(S)=0 for S<=10; N(S)=S-10 for 10<=S<=20; N(S)=10 (constant) for S>=20.",
+      "H_10(S) = max(S-10,0), which equals 0 for S<=10 and (S-10) for S>10, continuing to rise without bound.",
+      "H_20(S) = max(S-20,0), which is 0 up to S=20 and (S-20) beyond.",
+      "For S>20: H_10(S)-H_20(S) = (S-10)-(S-20) = 10, matching the flat part of the graph.",
+      "For 10<=S<=20: H_10(S)-H_20(S) = (S-10)-0 = S-10, matching the ramp.",
+      "For S<=10: both terms are 0, matching N(S)=0.",
+      "Hence N(S) = H_10(S) - H_20(S), option (A)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q9",
+    "question_type": "MCQ",
+    "section": "GA",
+    "subject": "General Aptitude",
+    "chapter": "Logical Reasoning",
+    "question": "In the 2020 summer Olympics' Javelin throw finals, Neeraj Chopra exhibited a spectacular performance to win the gold medal. The silver medal was won by Jakub Vadlejch and the bronze medal was won by Vitezlav Vesely. There were six rounds of throws with each athlete having one throw per round. The best of all the throws of each athlete is considered for the medal. Following were the observations about the throws:\ni. The first and second rounds were dominated by Neeraj Chopra with a gold medal performance in his second throw, while the other two athletes did not have any medal winning throws in these rounds.\nii. The throws in the last round by both Jakub Vadlejch and Vitezlav Vesely were fouls and were not considered for scoring.\niii. After four rounds, Vitezlav Vesely was in the second position and could not improve upon his best throw in the succeeding rounds.\niv. In the fourth round, the throw by Jakub Vadlejch was the best in that round.\nIn which round did Vitezlav Vesely have his best throw?",
+    "image_url": null,
+    "options": {
+      "A": "Third",
+      "B": "Fourth",
+      "C": "Fifth",
+      "D": "Sixth"
+    },
+    "correct_answer": "A",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Logical Reasoning - Puzzle/Deduction",
+    "difficulty": "Hard",
+    "explanation": "Combining the four clues: Neeraj's gold-medal throw was in round 2 (rounds 1-2 dominated by him, no medal throws by others there). Vesely was in second place after 4 rounds and never improved after, meaning his best throw occurred in round 3 or 4; but clue (iv) says round 4's best throw belonged to Vadlejch, so Vesely's best throw (to keep him in second after round 4, above Vadlejch's non-medal rounds 1-2) must be round 3.",
+    "solution_steps": [
+      "From clue (i): rounds 1-2 are dominated by Neeraj, with his gold-medal (best) throw in round 2; Vadlejch and Vesely have no medal-contending throws in rounds 1-2.",
+      "From clue (iii): after 4 rounds Vesely is second and does not improve afterward, so his best throw happened by round 4, and specifically not in rounds 1-2 (per clue i), so it is round 3 or 4.",
+      "From clue (iv): in round 4 the best throw among the three athletes belongs to Vadlejch, not Vesely, so Vesely's best throw is not round 4.",
+      "Therefore Vesely's best throw must have occurred in round 3.",
+      "Hence the answer is (A) Third."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q10",
+    "question_type": "MCQ",
+    "section": "GA",
+    "subject": "General Aptitude",
+    "chapter": "Probability",
+    "question": "An unbiased six-faced dice whose faces are marked with numbers 1, 2, 3, 4, 5, and 6 is rolled twice in succession and the number on the top face is recorded each time. The probability that the number appearing in the second roll is an integer multiple of the number appearing in the first roll is __________",
+    "image_url": null,
+    "options": {
+      "A": "1/6",
+      "B": "5/18",
+      "C": "7/18",
+      "D": "5/6"
+    },
+    "correct_answer": "C",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Probability - Discrete Sample Space",
+    "difficulty": "Medium",
+    "explanation": "Over 36 equally likely (first, second) roll outcomes, count pairs where the second roll is a multiple of the first: for first=1 all 6 seconds work, first=2 gives {2,4,6} (3), first=3 gives {3,6} (2), first=4 gives {4} (1), first=5 gives {5} (1), first=6 gives {6} (1). Total = 6+3+2+1+1+1 = 14, giving probability 14/36 = 7/18.",
+    "solution_steps": [
+      "There are 6x6=36 equally likely outcomes for two dice rolls.",
+      "For first roll = 1: second roll can be any of 1-6 (multiples of 1) -> 6 outcomes.",
+      "For first roll = 2: second roll in {2,4,6} -> 3 outcomes.",
+      "For first roll = 3: second roll in {3,6} -> 2 outcomes.",
+      "For first roll = 4: second roll in {4} -> 1 outcome.",
+      "For first roll = 5: second roll in {5} -> 1 outcome.",
+      "For first roll = 6: second roll in {6} -> 1 outcome.",
+      "Total favorable outcomes = 6+3+2+1+1+1 = 14; probability = 14/36 = 7/18.",
+      "Hence the answer is (C) 7/18."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q11",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Engineering Mathematics",
+    "chapter": "Probability",
+    "question": "An urn contains one red ball and one blue ball. At each step, a ball is picked uniformly at random from the urn, and this ball together with another ball of the same color is put back in the urn. The probability that there are equal number of red and blue balls after two steps is",
+    "image_url": null,
+    "options": {
+      "A": "1/4",
+      "B": "1/3",
+      "C": "1/2",
+      "D": "2/3"
+    },
+    "correct_answer": "B",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Probability - Markov/Sequential Random Process",
+    "difficulty": "Medium",
+    "explanation": "Starting from 1 red, 1 blue, each step doubles one color's count by adding a matching ball. After two steps the urn has 4 balls; equal red/blue (2 each) happens only via a 'red-then-blue' or 'blue-then-red' sequence of picks, each occurring with probability 1/2 x 1/3 = 1/6, summing to 1/3.",
+    "solution_steps": [
+      "Initial state: 1 red, 1 blue. Step 1: pick red (prob 1/2) giving state (2R,1B), or pick blue (prob 1/2) giving state (1R,2B).",
+      "From (2R,1B): step 2 pick red (prob 2/3) -> (3R,1B); pick blue (prob 1/3) -> (2R,2B).",
+      "From (1R,2B): step 2 pick red (prob 1/3) -> (2R,2B); pick blue (prob 2/3) -> (1R,3B).",
+      "Equal counts (2R,2B) after two steps occur via path red-then-blue: (1/2)(1/3)=1/6, or blue-then-red: (1/2)(1/3)=1/6.",
+      "Total probability = 1/6 + 1/6 = 1/3.",
+      "Hence the answer is (B) 1/3."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q12",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Engineering Mathematics",
+    "chapter": "Combinatorics",
+    "question": "Consider 4 x 4 matrices with their elements from {0, 1}. The number of such matrices with even number of 1s in every row and every column is",
+    "image_url": null,
+    "options": {
+      "A": "512",
+      "B": "1025",
+      "C": "1023",
+      "D": "255"
+    },
+    "correct_answer": "A",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Combinatorics - Counting Matrices with Parity Constraints",
+    "difficulty": "Medium",
+    "explanation": "For an n x n 0/1 matrix, freely choosing the top-left (n-1)x(n-1) submatrix determines the last entry of every row and column uniquely (to fix parity), and it can be shown the resulting last row/column parities are automatically consistent. This gives 2^((n-1)^2) valid matrices; for n=4 this is 2^9 = 512.",
+    "solution_steps": [
+      "Freely choose all entries in the top-left (n-1) x (n-1) = 3x3 submatrix: 2^9 = 512 ways.",
+      "For each of the first 3 rows, the 4th (last) column entry is forced to make that row's sum even.",
+      "For each of the first 3 columns, the 4th (last) row entry is forced to make that column's sum even.",
+      "The single remaining bottom-right entry is then forced by either its row or column parity requirement, and both requirements agree (a standard parity-consistency fact), so no contradiction arises.",
+      "Hence total count = 2^(3x3) = 2^9 = 512, option (A)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q13",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Engineering Mathematics",
+    "chapter": "Linear Algebra",
+    "question": "For n > 1, the maximum multiplicity of any eigenvalue of an n x n matrix with elements from R (real numbers) is",
+    "image_url": null,
+    "options": {
+      "A": "n",
+      "B": "n-1",
+      "C": "1",
+      "D": "n+1"
+    },
+    "correct_answer": "A",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Linear Algebra - Eigenvalues",
+    "difficulty": "Easy",
+    "explanation": "The characteristic polynomial of an n x n matrix has degree n, so an eigenvalue's multiplicity (as a root of that polynomial) can be at most n. This maximum is achieved, e.g., by the scalar matrix cI, whose only eigenvalue c has multiplicity n.",
+    "solution_steps": [
+      "The characteristic polynomial det(A - lambda*I) has degree exactly n, so it has at most n roots counted with multiplicity.",
+      "Hence no eigenvalue can have algebraic multiplicity exceeding n.",
+      "The bound n is achievable: for A = c*I (identity scaled by c), every one of the n roots of the characteristic polynomial equals c, giving multiplicity n.",
+      "Hence the maximum possible multiplicity is n, option (A)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q14",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Computer Organization and Architecture",
+    "chapter": "Computer Organization and Architecture",
+    "question": "Match each addressing mode in List I with a data element or an element of a data structure (in a high-level language) in List II:\nList I:\nP. Immediate\nQ. Indirect\nR. Base with index\nS. Base with offset/displacement\nList II:\n1. Element of an array\n2. Pointer\n3. Element of a record\n4. Constant",
+    "image_url": null,
+    "options": {
+      "A": "P-4, Q-3, R-1, S-2",
+      "B": "P-4, Q-2, R-1, S-3",
+      "C": "P-1, Q-4, R-3, S-2",
+      "D": "P-2, Q-3, R-1, S-4"
+    },
+    "correct_answer": "B",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Computer Organization - Addressing Modes",
+    "difficulty": "Easy",
+    "explanation": "Immediate addressing directly encodes a constant value in the instruction. Indirect addressing uses a memory location holding a pointer/address. Base-with-index addressing (base register + index register) is the natural mode for accessing array elements. Base-with-offset/displacement addressing (base register + fixed offset) is the natural mode for accessing a field/element of a record/struct.",
+    "solution_steps": [
+      "P. Immediate directly supplies a value in the instruction, matching '4. Constant'.",
+      "Q. Indirect addressing fetches the address from a register/location, matching '2. Pointer'.",
+      "R. Base with index is used to step through consecutive elements, matching '1. Element of an array'.",
+      "S. Base with offset/displacement accesses a fixed-offset field within a structure, matching '3. Element of a record'.",
+      "This gives P-4, Q-2, R-1, S-3, which is option (B)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q15",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Computer Organization and Architecture",
+    "chapter": "Computer Organization and Architecture",
+    "question": "Consider a processor P whose instruction set architecture is the load-store architecture. The instruction format is such that the first operand of any instruction is the destination operand.\nWhich one of the following sequences of instructions corresponds to the high-level language statement Z = X + Y ?\nNote: X, Y, and Z are memory operands. R0, R1, and R2 are registers.",
+    "image_url": null,
+    "options": {
+      "A": "ADD Z, X, Y",
+      "B": "LOAD R0, X\nADD Z, R0, Y",
+      "C": "ADD R0, X, Y\nSTORE Z, R0",
+      "D": "LOAD R0, X\nLOAD R1, Y\nADD R2, R0, R1\nSTORE Z, R2"
+    },
+    "correct_answer": "D",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Computer Organization - Load-Store Architecture / Instruction Sequencing",
+    "difficulty": "Medium",
+    "explanation": "In a pure load-store architecture, ALU instructions can only operate on registers, not directly on memory operands; memory operands must first be loaded into registers, the operation performed in registers, and the result stored back to memory.",
+    "solution_steps": [
+      "X and Y are memory operands, so a load-store architecture cannot use them directly as ALU operands (rules out options A and C, which use memory operands in ADD).",
+      "Both X and Y must first be loaded into registers: LOAD R0,X and LOAD R1,Y.",
+      "The addition is then performed on registers: ADD R2,R0,R1.",
+      "The result in R2 must be stored to memory location Z: STORE Z,R2.",
+      "This exact sequence matches option (D)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q16",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Computer Organization and Architecture",
+    "chapter": "Computer Organization and Architecture",
+    "question": "Which one of the following dependencies among the register operands of different instructions can cause a data hazard in a pipelined processor?",
+    "image_url": null,
+    "options": {
+      "A": "Read-after-read",
+      "B": "Read-after-write",
+      "C": "Write-after-read",
+      "D": "Write-after-write"
+    },
+    "correct_answer": "B",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Computer Organization - Pipeline Hazards",
+    "difficulty": "Medium",
+    "explanation": "A data hazard in a pipeline arises from a true data dependency, where a later instruction reads a value that an earlier instruction has not yet finished writing - i.e., a read-after-write (RAW) dependency. Read-after-read causes no hazard, and write-after-read/write-after-write are hazards only relevant to out-of-order or superscalar pipelines with reordering, not the basic in-order pipeline data hazard.",
+    "solution_steps": [
+      "Read-after-read (RAR) involves no writes at all, so it creates no hazard.",
+      "Read-after-write (RAW) means an instruction must read a register value before a preceding instruction has written it back - this is the classic data hazard in an in-order pipeline.",
+      "Write-after-read (WAR) and write-after-write (WAW) are anti-/output-dependencies that only matter when instructions can complete out of order, not in a simple in-order pipeline.",
+      "Hence the dependency causing a data hazard here is (B) Read-after-write."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q17",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Algorithms",
+    "chapter": "Recurrence Relations / Master Theorem",
+    "question": "Consider the following recurrence relations:\nFor all n > 1,\nT1(n) = 4*T1(n/2) + T2(n)\nT2(n) = 5*T2(n/4) + Theta(log2 n)\nAssume that for all n <= 1, T1(n) = 1 and T2(n) = 1.\nWhich one of the following options is correct?",
+    "image_url": null,
+    "options": {
+      "A": "T1(n) = Theta(n^2)",
+      "B": "T1(n) = Theta(n^2 * log2 n)",
+      "C": "T1(n) = Theta(n^(log4 5))",
+      "D": "T1(n) = Theta(n^(log4 5) * log2 n)"
+    },
+    "correct_answer": "A",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Algorithms - Recurrence Relations / Master Theorem",
+    "difficulty": "Hard",
+    "explanation": "First solve T2(n) = 5T2(n/4) + Theta(log n): by the Master theorem, since log n grows slower than n^(log4 5), this is case 1, giving T2(n) = Theta(n^(log4 5)). Substituting into T1(n) = 4T1(n/2) + T2(n) = 4T1(n/2) + Theta(n^(log4 5)): here log2 4 = 2, and log4 5 ~ 1.16 < 2, so this is again Master theorem case 1, giving T1(n) = Theta(n^2).",
+    "solution_steps": [
+      "Solve T2(n) = 5T2(n/4) + Theta(log2 n) using the Master theorem: a=5, b=4, so n^(log_b a) = n^(log4 5) (approx n^1.16).",
+      "Since the extra term Theta(log n) grows polynomially slower than n^(log4 5), this is Master theorem Case 1: T2(n) = Theta(n^(log4 5)).",
+      "Now solve T1(n) = 4T1(n/2) + T2(n), i.e., f(n) = Theta(n^(log4 5)): here a=4, b=2, so n^(log_b a) = n^2.",
+      "Since log4 5 (~1.16) < 2, f(n) = O(n^(2-eps)) for some eps>0, so this is again Master theorem Case 1.",
+      "Therefore T1(n) = Theta(n^2), which is option (A)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q18",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Computer Networks",
+    "chapter": "TCP Connection Management",
+    "question": "With respect to a TCP connection between a client and a server, which one of the following statements is true?",
+    "image_url": null,
+    "options": {
+      "A": "The client and server use a two-way handshake mechanism before the start of data transmission",
+      "B": "The server cannot initiate closing of the connection before the client initiates closing of the connection",
+      "C": "The TCP connection is half-duplex",
+      "D": "The client and server can initiate closing of the connection at the same time"
+    },
+    "correct_answer": "D",
+    "marks": 1,
+    "negative_marking": 0.33,
+    "topic": "Computer Networks - TCP Connection Management",
+    "difficulty": "Medium",
+    "explanation": "TCP connection establishment uses a three-way (not two-way) handshake, ruling out A. TCP is full-duplex, ruling out C. Either the client or the server may initiate connection termination independently, ruling out B; moreover, TCP explicitly supports a simultaneous close where both ends initiate closing at the same time, which is stated in D.",
+    "solution_steps": [
+      "TCP connections are established using a three-way handshake (SYN, SYN-ACK, ACK), not a two-way handshake, so option A is false.",
+      "TCP is a full-duplex protocol, allowing data to flow in both directions simultaneously, so option C (half-duplex) is false.",
+      "TCP allows either the client or the server to initiate connection closing independently, so option B (only client can initiate first) is false.",
+      "TCP's connection termination state machine explicitly supports a 'simultaneous close', where both sides send FIN at the same time, matching option D.",
+      "Hence the answer is (D)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q19",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Computer Networks",
+    "chapter": "HTTP",
+    "question": "Which of the following statements is/are true with respect to the interaction of a web browser with a web server using HTTP 1.1?",
+    "image_url": null,
+    "options": {
+      "A": "HTTP 1.1 facilitates downloading multiple objects of the same webpage over the same TCP connection, if the objects are stored in the same server",
+      "B": "HTTP 1.1 facilitates downloading multiple objects of the same webpage over the same TCP connection, even if they are stored in different servers",
+      "C": "HTTP 1.1 facilitates sending a request for downloading one object without waiting for a previously requested object to be downloaded completely",
+      "D": "HTTP 1.1 facilitates downloading multiple webpages on the same server to be downloaded over a single TCP connection"
+    },
+    "correct_answer": [
+      "A",
+      "C",
+      "D"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Computer Networks - HTTP",
+    "difficulty": "Medium",
+    "explanation": "HTTP 1.1's persistent connections let a client reuse one TCP connection to fetch multiple objects from the same server (A true), and pipelining lets it send a new request before the previous response has fully arrived (C true); a single persistent connection can also be reused across multiple pages hosted on the same server (D true). However a single TCP connection is always between the client and exactly one server, so it cannot be used to fetch objects stored on a different server (B false).",
+    "solution_steps": [
+      "HTTP 1.1 persistent connections allow multiple objects from the same server to be fetched over one TCP connection - supports (A).",
+      "A single TCP connection is tied to one specific server (identified by IP/port), so it cannot serve objects from a different server - (B) is false.",
+      "HTTP 1.1 pipelining allows sending a subsequent request before the prior response finishes downloading - supports (C).",
+      "Since a persistent connection is not tied to a single page, multiple webpages from the same server can also be downloaded over it - supports (D).",
+      "Hence the true statements are (A), (C), (D)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q20",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Engineering Mathematics",
+    "chapter": "Linear Algebra",
+    "question": "Let n > 1. Consider an n x n matrix M with its elements from R (real numbers). Let the vector (0, 1, 0, 0, ..., 0) in R^n be in the null space of M.\nWhich of the following options is/are always correct?",
+    "image_url": null,
+    "options": {
+      "A": "Determinant of M is 1",
+      "B": "Determinant of M is 0",
+      "C": "Rank of M is 1",
+      "D": "There are at least two non-zero vectors in the null space of M"
+    },
+    "correct_answer": [
+      "B",
+      "D"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Linear Algebra - Null Space and Determinants",
+    "difficulty": "Medium",
+    "explanation": "The vector (0,1,0,...,0) being in the null space of M means M times this vector is 0, which picks out exactly the 2nd column of M - so the second column of M must be the zero vector. A matrix with an all-zero column is singular, forcing determinant 0 (B). Since the null space is a subspace containing a nonzero vector, it automatically contains infinitely many nonzero vectors (e.g. any nonzero scalar multiple), so D is trivially always true. A is false since determinant is forced to 0, not 1. C is false since the column being zero only guarantees rank <= n-1, not exactly 1.",
+    "solution_steps": [
+      "M * (0,1,0,...,0)^T equals the 2nd column of M (since multiplying by a standard basis vector picks out the corresponding column).",
+      "This being the zero vector means the 2nd column of M is entirely zero.",
+      "A matrix with a zero column is singular, so det(M) = 0 always - this makes (B) always true and (A) always false.",
+      "A zero column only forces rank(M) <= n-1; it does not force rank to be exactly 1, so (C) is not always true.",
+      "The null space is a linear subspace and already contains the nonzero vector (0,1,0,...,0); any nonzero scalar multiple of it is a distinct nonzero vector also in the null space, so the null space always contains at least two (indeed infinitely many) nonzero vectors - (D) is always true.",
+      "Hence the always-correct options are (B) and (D)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q21",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Digital Logic",
+    "chapter": "Boolean Algebra / XOR Identities",
+    "question": "Consider the following Boolean expression of a function F:\nF(P, Q) = (~P + Q) XOR (~P.Q)\n(here ~X denotes the complement/NOT of X, '+' is OR, '.' is AND, XOR is exclusive-OR)\nWhich of the following expressions is/are equivalent to F ?",
+    "image_url": null,
+    "options": {
+      "A": "~(P XOR Q)",
+      "B": "P XOR Q",
+      "C": "~P XOR Q",
+      "D": "~P XOR ~Q"
+    },
+    "correct_answer": [
+      "A",
+      "C"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Digital Logic - Boolean Algebra / XOR Identities",
+    "difficulty": "Medium",
+    "explanation": "Evaluating F(P,Q) = (~P+Q) XOR (~P.Q) over all 4 input combinations gives the truth table 1,0,0,1 for (P,Q) = (0,0),(0,1),(1,0),(1,1), which is exactly the XNOR function (P == Q), i.e. NOT(P XOR Q). Using the identity NOT(P XOR Q) = (~P) XOR Q, both option A and option C represent the same XNOR function and are therefore equivalent to F.",
+    "solution_steps": [
+      "Build the truth table of F(P,Q) = (~P+Q) XOR (~P.Q) for all 4 combinations of P,Q.",
+      "(P,Q)=(0,0): ~P=1, ~P+Q=1, ~P.Q=0, F=1 XOR 0=1. (0,1): ~P+Q=1, ~P.Q=1, F=1 XOR 1=0. (1,0): ~P+Q=0, ~P.Q=0, F=0. (1,1): ~P+Q=1, ~P.Q=0, F=1.",
+      "The resulting truth table (1,0,0,1) is exactly the XNOR of P and Q, i.e. NOT(P XOR Q).",
+      "Option A, ~(P XOR Q), is literally NOT(P XOR Q), matching F exactly.",
+      "Option C, ~P XOR Q, is algebraically identical to NOT(P XOR Q) by the standard XOR identity ~A XOR B = ~(A XOR B); verifying its truth table (1,0,0,1) confirms the match.",
+      "Options B and D do not match this truth table.",
+      "Hence the equivalent expressions are (A) and (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q22",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Computer Organization and Architecture",
+    "chapter": "Computer Organization and Architecture",
+    "question": "Consider the 8-bit signed integers X, Y and Z represented using the sign-magnitude form. The binary representations of X and Y are as follows:\nX: 10110100   Y: 01001100\nWhich of the following operations to compute Z result(s) in an arithmetic overflow?",
+    "image_url": null,
+    "options": {
+      "A": "Z = X + Y",
+      "B": "Z = X - Y",
+      "C": "Z = -X + Y",
+      "D": "Z = -X - Y"
+    },
+    "correct_answer": [
+      "B",
+      "C"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Computer Organization - Sign-Magnitude Arithmetic Overflow",
+    "difficulty": "Medium",
+    "explanation": "Decoding sign-magnitude: X = 10110100 has sign 1 and magnitude 0110100 = 52, so X = -52; Y = 01001100 has sign 0 and magnitude 1001100 = 76, so Y = +76. An 8-bit sign-magnitude number (1 sign bit + 7 magnitude bits) can represent magnitudes only up to 127. Z=X+Y=-52+76=24 (safe); Z=X-Y=-52-76=-128 (magnitude 128 exceeds 127, overflow); Z=-X+Y=52+76=128 (magnitude exceeds 127, overflow); Z=-X-Y=52-76=-24 (safe).",
+    "solution_steps": [
+      "Decode X = 10110100: sign bit 1 (negative), magnitude bits 0110100 = 52, so X = -52.",
+      "Decode Y = 01001100: sign bit 0 (positive), magnitude bits 1001100 = 76, so Y = +76.",
+      "An 8-bit sign-magnitude representation can hold magnitudes from 0 to 127 (7 magnitude bits); any result whose magnitude exceeds 127 overflows.",
+      "Z = X+Y = -52+76 = 24: magnitude 24 <= 127, no overflow (A safe).",
+      "Z = X-Y = -52-76 = -128: magnitude 128 > 127, overflow (B overflow).",
+      "Z = -X+Y = 52+76 = 128: magnitude 128 > 127, overflow (C overflow).",
+      "Z = -X-Y = 52-76 = -24: magnitude 24 <= 127, no overflow (D safe).",
+      "Hence overflow occurs for (B) and (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q23",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Programming and Data Structures",
+    "chapter": "Data Structures",
+    "question": "Let n be an odd number greater than 100. Consider a binary minheap with n elements stored in an array P whose index starts from 1.\nWhich of the following indices of P do/does NOT correspond to any leaf node of the minheap?",
+    "image_url": null,
+    "options": {
+      "A": "(n+1)/2",
+      "B": "(n-1)/2",
+      "C": "(n-3)/2",
+      "D": "n"
+    },
+    "correct_answer": [
+      "B",
+      "C"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Data Structures - Binary Heaps",
+    "difficulty": "Medium",
+    "explanation": "In a 1-indexed array binary heap of n elements, index i is a leaf iff it has no children, i.e. 2i > n, which for odd n simplifies to i >= (n+1)/2. So leaf indices are exactly (n+1)/2, (n+1)/2+1, ..., n. Both (n-1)/2 and (n-3)/2 are strictly less than (n+1)/2 (they are the two indices immediately before the first leaf), so they are internal nodes, not leaves, while (n+1)/2 itself and n are leaves.",
+    "solution_steps": [
+      "Index i in a 1-indexed binary heap array has children at 2i and 2i+1; i is a leaf exactly when 2i > n, i.e. i > n/2.",
+      "Since n is odd, the smallest integer i satisfying i > n/2 is i = (n+1)/2; thus leaves are precisely indices (n+1)/2 through n.",
+      "Option A, (n+1)/2, is the first leaf index - it DOES correspond to a leaf, so it is not an answer.",
+      "Option D, n, is the last index and lies within the leaf range - it DOES correspond to a leaf, so it is not an answer.",
+      "Option B, (n-1)/2 = (n+1)/2 - 1, is one less than the first leaf index, so it is an internal node - it does NOT correspond to a leaf.",
+      "Option C, (n-3)/2 = (n+1)/2 - 2, is also below the first leaf index, so it is an internal node - it does NOT correspond to a leaf.",
+      "Hence the indices that never correspond to a leaf are (B) and (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q24",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Programming and Data Structures",
+    "chapter": "Data Structures",
+    "question": "Consider a hash table P[0, 1, ..., 10] that is initially empty. The hash table is maintained using open addressing with linear probing. The hash function used is h(x) = (x+7) mod 11.\nConsider the following sequence of insertions performed on P:\n1, 13, 22, 15, 11, 24\nWhich of the following positions in the hash table is/are empty after these insertions are performed?",
+    "image_url": null,
+    "options": {
+      "A": "0",
+      "B": "10",
+      "C": "2",
+      "D": "1"
+    },
+    "correct_answer": [
+      "C"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Data Structures - Hashing with Linear Probing",
+    "difficulty": "Medium",
+    "explanation": "Simulating h(x)=(x+7) mod 11 with linear probing for the insertion sequence 1,13,22,15,11,24 fills slots 8,9,7,0,10,1 respectively (with 11 and 24 probing past collisions), leaving slots 2,3,4,5,6 empty; among the given options only slot 2 is empty.",
+    "solution_steps": [
+      "h(1)=(1+7) mod 11=8 -> slot 8 (empty) gets 1.",
+      "h(13)=(13+7) mod 11=20 mod 11=9 -> slot 9 (empty) gets 13.",
+      "h(22)=(22+7) mod 11=29 mod 11=7 -> slot 7 (empty) gets 22.",
+      "h(15)=(15+7) mod 11=22 mod 11=0 -> slot 0 (empty) gets 15.",
+      "h(11)=(11+7) mod 11=18 mod 11=7 -> slot 7 occupied, probe 8 (occupied), 9 (occupied), 10 (empty) -> 11 goes to slot 10.",
+      "h(24)=(24+7) mod 11=31 mod 11=9 -> slot 9 occupied, probe 10 (occupied), 0 (occupied), 1 (empty) -> 24 goes to slot 1.",
+      "Occupied slots: 0,1,7,8,9,10. Empty slots: 2,3,4,5,6.",
+      "Among the options, only slot 2 (option C) is empty; slots 0, 10, 1 (options A, B, D) are all occupied.",
+      "Hence the answer is (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q25",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Theory of Computation",
+    "chapter": "Context-Free Grammars and Ambiguity",
+    "question": "Consider the following grammar where S is the start symbol, and a and b are terminal symbols.\nS -> aSbS | bS | epsilon\nWhich of the following statements is/are true?",
+    "image_url": null,
+    "options": {
+      "A": "The grammar is ambiguous",
+      "B": "The string abb has two distinct derivations in this grammar",
+      "C": "The string abab has only one rightmost derivation",
+      "D": "The language generated by the grammar is undecidable"
+    },
+    "correct_answer": [
+      "A",
+      "B",
+      "C"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Theory of Computation - Context-Free Grammars and Ambiguity",
+    "difficulty": "Hard",
+    "explanation": "Every nonempty string derivable from S must contain at least one literal 'b' (both productions aSbS and bS hard-code a 'b'), so S can never derive a lone 'a'. For 'abb', splitting after the forced leading 'a' shows two distinct ways to divide the remaining 'bb' between the two S non-terminals of aSbS (S1=epsilon,S2='b' vs S1='b',S2=epsilon), giving two distinct parse trees and proving both ambiguity (A) and the specific two-derivation claim (B). For 'abab', the same case analysis has only one consistent split (S1=epsilon, S2='ab'), since the alternative splits require S to derive a 'b'-free string, which is impossible - so (C) holds. The language itself is a simple, decidable context-free language, so (D) is false.",
+    "solution_steps": [
+      "Note that every production (aSbS, bS) that yields a nonempty string contains a literal 'b', so any nonempty string derivable from S must contain at least one 'b'; in particular S cannot derive the lone string 'a'.",
+      "For 'abb': after the forced initial 'a' (since the string starts with 'a', the top rule must be aSbS), we need S1 + 'b' + S2 = 'bb'. Splitting as (S1=epsilon, S2='b') or (S1='b', S2=epsilon) both work, since S can derive both epsilon and 'b' - giving two distinct derivations. This proves (B), and directly demonstrates the grammar is ambiguous, proving (A).",
+      "For 'abab': after the forced initial 'a', we need S1 + 'b' + S2 = 'bab' with |S1|+|S2|=2. Checking splits (|S1|,|S2|) = (0,2): requires S2='ab' (S can derive 'ab'; valid). (1,1): requires the literal 'b' to align with the middle character of 'bab', which is 'a' - contradiction, invalid. (2,0): requires S1='ba', which needs S to derive 'a' internally - impossible since S can't derive a b-free string. So only one valid split exists, giving a unique derivation and confirming (C).",
+      "The language generated is a simple context-free language recognizable by a standard CFG parser in polynomial time, so it is decidable, making (D) false.",
+      "Hence the true statements are (A), (B), (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q26",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Theory of Computation",
+    "chapter": "NFA to DFA Conversion (Subset Construction)",
+    "question": "Let M be a nondeterministic finite automaton (NFA) with 6 states over a finite alphabet.\nWhich of the following options CANNOT be the number of states in the minimal deterministic finite automaton (DFA) that is equivalent to M ?",
+    "image_url": null,
+    "options": {
+      "A": "32",
+      "B": "65",
+      "C": "1",
+      "D": "128"
+    },
+    "correct_answer": [
+      "B",
+      "D"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Theory of Computation - NFA to DFA Conversion (Subset Construction)",
+    "difficulty": "Medium",
+    "explanation": "By the subset construction, the minimal DFA equivalent to an NFA with k states has at most 2^k reachable/distinguishable states, so with k=6 the minimal DFA can have at most 2^6=64 states. Values within [1,64] such as 1 and 32 are achievable (e.g., a trivial NFA gives a 1-state minimal DFA, and other constructions can yield 32), but 65 and 128 both exceed the theoretical maximum of 64 and can never occur.",
+    "solution_steps": [
+      "The subset construction shows a DFA equivalent to a k-state NFA needs at most 2^k states, so for k=6, at most 2^6=64 states.",
+      "A value can be the size of the minimal DFA only if it is between 1 and 64 (and is actually achievable, which small values and many intermediate values like 32 are).",
+      "Option A (32) and Option C (1) both lie within [1,64] and are realizable minimal-DFA sizes.",
+      "Option B (65) and Option D (128) both exceed the maximum possible value of 64, so they can never be the size of the minimal DFA.",
+      "Hence the options that CANNOT be the answer are (B) and (D)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q27",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Compiler Design",
+    "chapter": "Compiler Design",
+    "question": "Consider the following C statements:\nchar *str1 = \"Hello;    /* Statement S1 */\nchar *str2 = \"Hello;\";  /* Statement S2 */\nint *str3 = \"Hello\";    /* Statement S3 */\nWhich of the following options is/are correct?",
+    "image_url": null,
+    "options": {
+      "A": "S1 and S2 have syntactic errors",
+      "B": "S2 has a lexical error and S3 has a syntactic error",
+      "C": "S1 has a lexical error and S3 has a semantic error",
+      "D": "S1 has a syntactic error and S3 has a semantic error"
+    },
+    "correct_answer": [
+      "C"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Compilers - Lexical, Syntactic, and Semantic Errors in C",
+    "difficulty": "Medium",
+    "explanation": "S1's string literal \"Hello (missing the closing quote) is unterminated, which is caught at the lexical-analysis stage (a lexical error), not a syntax error. S2's literal \"Hello;\" is a perfectly well-formed string constant (the semicolon is just character data inside the quotes), so S2 has no error at all. S3 assigns a char* string literal to an int* pointer, which is syntactically valid but a type mismatch - a semantic error. This matches exactly option C: 'S1 has a lexical error and S3 has a semantic error'.",
+    "solution_steps": [
+      "S1: char *str1 = \"Hello;  has an unterminated string literal (no closing quote) - this is detected by the lexer, i.e., a lexical error.",
+      "S2: char *str2 = \"Hello;\"; has a properly closed string literal \"Hello;\" - the semicolon is just data inside the string, so this statement is completely valid, with no error.",
+      "S3: int *str3 = \"Hello\"; is syntactically well-formed (a valid assignment expression) but assigns an incompatible type (char* literal to int*), which is a semantic/type error, not a syntax error.",
+      "Option A is wrong because S2 has no error. Option B is wrong because S2 has no error and S3's error is semantic, not syntactic. Option D mislabels S1's error as syntactic instead of lexical.",
+      "Only option C correctly identifies S1's lexical error and S3's semantic error.",
+      "Hence the answer is (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q28",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Compiler Design",
+    "chapter": "Compiler Design",
+    "question": "Which of the following statements is/are true?",
+    "image_url": null,
+    "options": {
+      "A": "LL(1) parser uses backtracking",
+      "B": "For a grammar to be LL(1), it must be left-recursive",
+      "C": "For a grammar to be LL(1), it must be left-factored",
+      "D": "The LL(1) parsers are more powerful than the SLR parsers"
+    },
+    "correct_answer": [
+      "C"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Compilers - LL(1) Parsing",
+    "difficulty": "Medium",
+    "explanation": "LL(1) parsers are predictive, table-driven parsers that decide the next production using only one lookahead token and never backtrack, so (A) is false. Left recursion actually breaks LL(1) parsing (a grammar must be free of left recursion to be LL(1)), so (B) is false, not required. Left-factoring is required to remove common prefixes among alternative productions so the parser can choose deterministically with one lookahead symbol, so (C) is true. LR-family parsers (including SLR) accept a strictly larger class of grammars than LL(1), so LL(1) is not more powerful than SLR, making (D) false.",
+    "solution_steps": [
+      "LL(1) parsing is a top-down, predictive parsing technique that uses exactly one lookahead symbol and does not backtrack - so (A) is false.",
+      "Left recursion in a grammar causes infinite predictive loops and is explicitly disallowed for LL(1) grammars (it must be eliminated, not required) - so (B) is false.",
+      "Left factoring removes common prefixes among a nonterminal's alternative productions so the parser can pick the right production using only the next input symbol - this is indeed required for LL(1), so (C) is true.",
+      "SLR(1) (and LR parsers generally) can handle a strictly larger class of grammars than LL(1) (e.g., grammars with certain left factors that don't need left-factoring), so LL(1) is not more powerful than SLR - (D) is false.",
+      "Hence the only true statement is (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q29",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Operating Systems",
+    "chapter": "Deadlocks",
+    "question": "With respect to deadlocks in an operating system, which of the following statements is/are FALSE?",
+    "image_url": null,
+    "options": {
+      "A": "Banker's algorithm is used to prevent deadlocks",
+      "B": "Deadlock formation can be prevented by ensuring that the hold and wait condition is not allowed",
+      "C": "An assignment edge in a resource allocation graph is marked from a process to a resource",
+      "D": "A safe state guarantees that all processes can finish without formation of a deadlock"
+    },
+    "correct_answer": [
+      "A",
+      "C"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Operating Systems - Deadlocks",
+    "difficulty": "Medium",
+    "explanation": "Banker's algorithm is a deadlock-avoidance technique (it checks requests at runtime to stay in a safe state), not a deadlock-prevention technique (which eliminates one of the four necessary conditions structurally) - so labeling it as used 'to prevent deadlocks' is FALSE under the standard classification. Eliminating the hold-and-wait condition is indeed a classic deadlock-prevention technique, so that statement is TRUE (not in the false set). In a resource-allocation graph, an assignment edge goes from a resource to the process holding it (not process-to-resource, which is a request edge), so that statement is FALSE. A safe state, by definition, guarantees all processes can finish without deadlock, so that statement is TRUE (not in the false set).",
+    "solution_steps": [
+      "Banker's algorithm evaluates whether granting a resource request keeps the system in a 'safe state', which is deadlock avoidance, not prevention; calling it a deadlock-prevention technique is a mischaracterization, so option A is FALSE.",
+      "Deadlock prevention works by structurally eliminating one of the four Coffman conditions; disallowing hold-and-wait is a standard, correct example of deadlock prevention, so option B is TRUE (correctly stated, hence not one of the false options).",
+      "In a resource-allocation graph, an assignment edge is directed from a resource node to the process holding it, while a request edge goes from a process to a resource; the statement reverses this, so option C is FALSE.",
+      "By definition, a system in a safe state can always order process execution to avoid deadlock, so option D is TRUE (not a false option).",
+      "Hence the FALSE statements are (A) and (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q30",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Databases",
+    "chapter": "Functional Dependency Theory (Armstrong's Axioms)",
+    "question": "Let P, Q, R and S be the attributes of a relation in a relational schema. Let X -> Y indicate functional dependency in the context of a relational database, where X, Y are subsets of {P, Q, R, S}.\nWhich of the following options is/are always true?",
+    "image_url": null,
+    "options": {
+      "A": "If ( {P,Q} -> {R} and {P} -> {R} ), then {Q} -> {R}",
+      "B": "If {P,Q} -> {R}, then ( {P} -> {R} or {Q} -> {R} )",
+      "C": "If ( {P} -> {R} and {Q} -> {S} ), then {P,Q} -> {R,S}",
+      "D": "If {P} -> {R}, then {P,Q} -> {R}"
+    },
+    "correct_answer": [
+      "C",
+      "D"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Databases - Functional Dependency Theory (Armstrong's Axioms)",
+    "difficulty": "Medium",
+    "explanation": "Options A and B attempt invalid decompositions of a composite determinant, which Armstrong's axioms do not support in general (composite FDs need not split into single-attribute FDs). Option C follows directly from applying the augmentation rule to each FD and then the union rule: {P}->{R} augmented with Q gives {P,Q}->{R}, similarly {Q}->{S} augmented with P gives {P,Q}->{S}, and unioning gives {P,Q}->{R,S}. Option D is a direct instance of the augmentation rule.",
+    "solution_steps": [
+      "Armstrong's axioms (reflexivity, augmentation, transitivity) do not permit deriving {Q}->{R} merely from {P,Q}->{R} and {P}->{R} in general - option A is not always true.",
+      "Similarly, a composite FD {P,Q}->{R} need not decompose into {P}->{R} or {Q}->{R} - option B is not always true.",
+      "Augmentation rule: from {P}->{R}, adding Q to both sides gives {P,Q}->{R,Q}... more directly, from {P}->{R} and {Q}->{S}, augmenting each with the other's LHS and applying the union rule yields {P,Q}->{R,S} - this is a standard, always-true FD-algebra result, confirming option C.",
+      "Augmentation rule directly gives: if {P}->{R}, then {P,Q}->{R} for any Q - confirming option D.",
+      "Hence the always-true options are (C) and (D)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q31",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Databases",
+    "chapter": "Normalization and Dependency Preservation",
+    "question": "In the context of relational database normalization, which of the following statements is/are true?",
+    "image_url": null,
+    "options": {
+      "A": "It is always possible to obtain a dependency-preserving 3NF decomposition of a relation",
+      "B": "It is always possible to obtain a dependency-preserving 1NF decomposition of a relation",
+      "C": "It is not always possible to obtain a dependency-preserving BCNF decomposition of a relation",
+      "D": "It is not always possible to obtain a dependency-preserving 2NF decomposition of a relation"
+    },
+    "correct_answer": [
+      "A",
+      "B",
+      "C"
+    ],
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Databases - Normalization and Dependency Preservation",
+    "difficulty": "Hard",
+    "explanation": "The standard 3NF synthesis algorithm always produces a lossless-join AND dependency-preserving decomposition, so (A) is true. A relation already in (or being decomposed to) 1NF trivially satisfies dependency preservation since 1NF imposes no dependency-elimination requirement beyond atomicity, so (B) is true. It is a classical, well-known result that BCNF decomposition can fail to preserve all functional dependencies (a standard textbook counterexample exists), so (C) - 'not always possible' - is true. In contrast, 2NF is a weaker normal form than 3NF, and dependency-preserving 2NF decompositions are always achievable (similar to 3NF's guarantee), so (D)'s claim that it is 'not always possible' is false.",
+    "solution_steps": [
+      "The 3NF synthesis algorithm (from a minimal cover of FDs) is a classical database theory result guaranteed to produce a decomposition that is both lossless and dependency-preserving - so (A) is true.",
+      "1NF only requires atomic attribute values; no functional dependency needs to be 'lost' to reach 1NF, so a dependency-preserving 1NF decomposition (even the trivial one) always exists - so (B) is true.",
+      "It is a well-established theorem that BCNF decomposition can force the loss of some functional dependency (a standard example schema demonstrates this) - so (C), stating it is not always possible, is true.",
+      "2NF is a weaker requirement than 3NF/BCNF, and dependency-preserving 2NF decompositions can always be constructed - so (D)'s claim that this is not always possible is false.",
+      "Hence the true statements are (A), (B), (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q32",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Engineering Mathematics",
+    "chapter": "Calculus",
+    "question": "Consider the function f: R->R defined as follows:\nf(x) = c1*e^x - c2*log_e(1/x),  if x > 0\nf(x) = 3,  otherwise\nwhere c1, c2 are real numbers.\nIf f is continuous at x = 0, then c1 + c2 = _________. (answer in integer)",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "3",
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Calculus - Continuity of Piecewise Functions",
+    "difficulty": "Medium",
+    "explanation": "As x -> 0+, e^x -> 1 so c1*e^x -> c1 (finite), but log_e(1/x) -> +infinity, so the c2 term diverges unless c2 = 0. Forcing c2 = 0 makes the right-hand limit equal c1, which must match f(0) = 3, giving c1 = 3 and hence c1 + c2 = 3.",
+    "solution_steps": [
+      "For continuity at x=0, the right-hand limit of f(x) as x->0+ must equal f(0)=3.",
+      "As x->0+, e^x -> 1, so c1*e^x -> c1 (a finite value).",
+      "As x->0+, 1/x -> +infinity, so log_e(1/x) -> +infinity; hence c2*log_e(1/x) diverges to +/-infinity unless c2=0.",
+      "For the overall limit to be finite (and equal to 3), we must have c2=0, leaving the limit equal to c1.",
+      "Setting c1 = f(0) = 3 gives c1=3, c2=0, so c1+c2 = 3."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q33",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Programming and Data Structures",
+    "chapter": "Data Structures",
+    "question": "The height of a binary tree is the number of edges in the longest path from the root to a leaf in the tree. The maximum possible height of a full binary tree with 23 nodes is _________. (answer in integer)",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "11",
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Data Structures - Binary Trees (Full Binary Tree Height)",
+    "difficulty": "Medium",
+    "explanation": "In a full binary tree (every node has 0 or 2 children), a tree with n nodes has n=2I+1 where I is the number of internal nodes; for n=23, I=11. The height is maximized by making the tree as skewed as possible: a chain of internal nodes, each contributing one leaf and continuing to the next internal node, with the final internal node terminating in two leaves - this uses all 11 internal nodes along a single path, giving maximum height 11.",
+    "solution_steps": [
+      "In a full binary tree, every node has either 0 or 2 children, so if there are I internal nodes there are exactly I+1 leaves, and total nodes n = I + (I+1) = 2I+1.",
+      "For n=23: 2I+1=23 => I=11 internal nodes (and 12 leaves).",
+      "To maximize height, arrange the tree as a skewed chain: each internal node (except the last) has one leaf child and one child continuing the chain downward; the last internal node has two leaf children.",
+      "This chain uses all 11 internal nodes along one path from the root, and the longest root-to-leaf path has exactly 11 edges.",
+      "Hence the maximum possible height is 11."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q34",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Programming and Data Structures",
+    "chapter": "Programming in C",
+    "question": "Consider the following program in C:\n#include <stdio.h>\n\nvoid func(int i, int j) {\n  if(i < j) {\n    int i = 0;\n    while (i < 10) {\n      j += 2;\n      i++;\n    }\n  }\n  printf(\"%d\", i);\n}\nint main() {\n  int i = 9, j = 10;\n  func(i, j);\n  return 0;\n}\nThe output of the program is _________. (answer in integer)\nNote: Assume that the program compiles and runs successfully.",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "9",
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Programming in C - Variable Scope and Shadowing",
+    "difficulty": "Medium",
+    "explanation": "func(9,10) is called with parameters i=9, j=10. Since i<j (9<10), the inner block executes, but it declares a NEW local variable 'int i = 0' that shadows the parameter i only within that block. The while loop runs 10 times incrementing this inner i and the (unshadowed) parameter j, but never touches the outer parameter i. Once the block ends, the inner i goes out of scope, and the printf (outside the if-block) refers to the original parameter i, which was never modified and remains 9.",
+    "solution_steps": [
+      "func is called with i=9, j=10 (call by value; main's own i,j are unaffected).",
+      "Since i(9) < j(10), the if-block executes, declaring a new block-scoped variable 'int i = 0' that shadows the parameter i only inside this block.",
+      "The while loop runs while the inner i < 10, executing 10 times, each time doing j += 2 (this j is the outer parameter, not shadowed) and incrementing the inner i.",
+      "After the loop, the inner i equals 10 and j has increased by 20, but these changes to the inner i are irrelevant once the block ends since it goes out of scope; the outer parameter i was never touched.",
+      "The printf(\"%d\", i) executes after the if-block has closed, so 'i' here refers to the outer parameter i, which is still 9.",
+      "Hence the program prints 9."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q35",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Operating Systems",
+    "chapter": "Deadlock Avoidance (Resource Allocation)",
+    "question": "Consider a system consisting of k instances of a resource R, being shared by 5 processes. Assume that each process requires a maximum of two instances of resource R and a process can request or release only one instance at a time. Further, a process can request the second instance of the resource only after acquiring the first instance.\nThe minimum value of k for the system to be deadlock-free is ________. (answer in integer)",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "6",
+    "marks": 1,
+    "negative_marking": 0,
+    "topic": "Operating Systems - Deadlock Avoidance (Resource Allocation)",
+    "difficulty": "Medium",
+    "explanation": "A classic deadlock-avoidance sufficient condition for n processes each needing at most m instances of a single resource type is k >= n*(m-1) + 1: this guarantees that even in the worst case where every process holds (m-1) instances, at least one instance remains free to let some process complete and release its resources, preventing deadlock. With n=5 processes and m=2 instances needed per process, k >= 5*(2-1)+1 = 6.",
+    "solution_steps": [
+      "In the worst case, all 5 processes could simultaneously hold their first instance (m-1 = 1 instance each) and be blocked waiting for their second instance - this uses 5*(2-1)=5 instances and deadlocks if no instance remains free.",
+      "Providing one additional instance beyond this worst case (k = n*(m-1)+1) guarantees at least one process can always obtain its second instance, finish, and release both instances, breaking any potential deadlock.",
+      "Substituting n=5, m=2: k >= 5*(2-1)+1 = 5+1 = 6.",
+      "Hence the minimum value of k for the system to be deadlock-free is 6."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q36",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Computer Organization and Architecture",
+    "chapter": "Computer Organization and Architecture",
+    "question": "Consider the real valued variables X, Y and Z represented using the IEEE 754 single-precision floating-point format. The binary representations of X and Y in hexadecimal notation are as follows:\nX: 35C00000    Y: 34A00000\nLet Z = X + Y.\nWhich one of the following is the binary representation of Z, in hexadecimal notation?",
+    "image_url": null,
+    "options": {
+      "A": "35C80000",
+      "B": "35CC0000",
+      "C": "35E80000",
+      "D": "35EC0000"
+    },
+    "correct_answer": "C",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Computer Organization - IEEE 754 Floating Point Arithmetic",
+    "difficulty": "Hard",
+    "explanation": "Decoding X=0x35C00000 gives value 1.5 x 2^-20, and Y=0x34A00000 gives 1.25 x 2^-22 = 0.3125 x 2^-20. Adding at the common exponent -20 gives (1.5+0.3125) x 2^-20 = 1.8125 x 2^-20, which is already normalized (mantissa in [1,2)). Re-encoding 1.8125 (fraction 0.8125 = 0.1101 in binary) with exponent field 107 (=-20+127) produces the hexadecimal pattern 35E80000.",
+    "solution_steps": [
+      "Decode X = 35C00000(hex) = 0 01101011 10000000000000000000000(binary): sign=0, exponent field=107 (actual exponent=107-127=-20), mantissa=1.1(binary)=1.5. So X = 1.5 x 2^-20.",
+      "Decode Y = 34A00000(hex) = 0 01101001 01000000000000000000000(binary): sign=0, exponent field=105 (actual exponent=-22), mantissa=1.01(binary)=1.25. So Y = 1.25 x 2^-22.",
+      "Align Y to X's exponent: 1.25 x 2^-22 = (1.25/4) x 2^-20 = 0.3125 x 2^-20.",
+      "Add: (1.5 + 0.3125) x 2^-20 = 1.8125 x 2^-20, already normalized (mantissa in [1,2)).",
+      "Convert 0.8125 to binary: 0.8125 = 0.1101(binary), so mantissa bits = 11010000000000000000000, exponent field stays 107 (01101011).",
+      "Assembling sign=0, exponent=01101011, mantissa=11010000000000000000000 gives the hex value 35E80000, option (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q37",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Digital Logic",
+    "chapter": "Sequential Circuit Design (D Flip-Flop Excitation)",
+    "question": "Consider a 2-bit saturating up/down counter that performs the saturating up count when the input P is 0, and the saturating down count when P is 1. The Next State table of the counter is as shown. The counter is built as a synchronous sequential circuit using D flip-flops.\n\nNext State table (Input P, Current State Q1 Q0 -> Next State Q1+ Q0+):\nP=0, Q1=0, Q0=0 -> Q1+=0, Q0+=1\nP=0, Q1=0, Q0=1 -> Q1+=1, Q0+=0\nP=0, Q1=1, Q0=0 -> Q1+=1, Q0+=1\nP=0, Q1=1, Q0=1 -> Q1+=1, Q0+=1\nP=1, Q1=0, Q0=0 -> Q1+=0, Q0+=0\nP=1, Q1=0, Q0=1 -> Q1+=0, Q0+=0\nP=1, Q1=1, Q0=0 -> Q1+=0, Q0+=1\nP=1, Q1=1, Q0=1 -> Q1+=1, Q0+=0\n\n(~X denotes the complement/NOT of X)\nWhich one of the following options corresponds to the expressions for the inputs of the D flip-flops, D1 and D0?",
+    "image_url": null,
+    "options": {
+      "A": "D1 = P.Q1 + ~P.Q0 + Q1.Q0        D0 = P.Q0 + ~P.Q1 + Q1.~Q0",
+      "B": "D1 = ~P.Q1 + ~P.Q0 + Q1.Q0       D0 = ~P.~Q0 + ~P.Q1 + Q1.~Q0",
+      "C": "D1 = ~P.~Q1 + ~P.Q0 + Q1.Q0      D0 = ~P.Q0 + ~P.Q1 + Q1.~Q0",
+      "D": "D1 = P.~Q1 + ~P.Q0 + Q1.Q0       D0 = P.~Q0 + ~P.Q1 + Q1.~Q0"
+    },
+    "correct_answer": "B",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Digital Logic - Sequential Circuit Design (D Flip-Flop Excitation)",
+    "difficulty": "Hard",
+    "explanation": "Since D flip-flops directly latch their D input as the next state, D1=Q1+ and D0=Q0+ can be read straight off the given table. Grouping the table rows where Q1+=1 gives the minimal sum-of-products D1 = ~P.Q1 + ~P.Q0 + Q1.Q0, and grouping the rows where Q0+=1 gives D0 = ~P.~Q0 + ~P.Q1 + Q1.~Q0, which matches option B exactly.",
+    "solution_steps": [
+      "Since Q1(t+1)=D1 and Q0(t+1)=D0 for D flip-flops, treat the Next State columns Q1+, Q0+ directly as the required Boolean functions D1(P,Q1,Q0) and D0(P,Q1,Q0).",
+      "From the table, Q1+=1 for the input rows (P,Q1,Q0) = (0,0,1), (0,1,0), (0,1,1), (1,1,1); K-map grouping of these four rows gives D1 = ~P.Q0 + ~P.Q1 + Q1.Q0.",
+      "From the table, Q0+=1 for the rows (0,0,0), (0,1,0), (0,1,1), (1,1,0); K-map grouping gives D0 = ~P.~Q0 + ~P.Q1 + Q1.~Q0.",
+      "These derived expressions for D1 and D0 exactly match option (B)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q38",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Computer Organization and Architecture",
+    "chapter": "Computer Organization and Architecture",
+    "question": "The size of the physical address space of a processor is 2^32 bytes. The capacity of a cache memory unit is 2^23 bytes. The cache block size is 128 bytes. The cache memory unit can be built as a direct mapped cache or as a K-way set-associative cache, where K = 2^L and L is in {1, 2, 3}. Let the length of the TAG field be M bits for the direct mapped cache, and N bits for the set-associative cache.\nWhich one of the following options is true?",
+    "image_url": null,
+    "options": {
+      "A": "N = M + L",
+      "B": "N = M - L",
+      "C": "N = M + K",
+      "D": "N = M - K"
+    },
+    "correct_answer": "A",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Computer Organization - Cache Memory Addressing",
+    "difficulty": "Hard",
+    "explanation": "With a 128-byte (2^7) block and 2^23-byte cache, there are 2^16 cache blocks total. A direct-mapped cache uses all 2^16 as lines, needing 16 index bits, leaving TAG M = 32-16-7 = 9 bits. A K=2^L-way set-associative cache groups lines into sets of K, giving 2^16/2^L = 2^(16-L) sets, needing (16-L) index bits, leaving TAG N = 32-(16-L)-7 = 9+L = M+L.",
+    "solution_steps": [
+      "Number of blocks that fit in the cache = cache size / block size = 2^23 / 2^7 = 2^16.",
+      "Direct-mapped cache: number of lines = 2^16, so index field needs 16 bits; offset field needs 7 bits (128-byte block); TAG field M = 32 - 16 - 7 = 9 bits.",
+      "K-way set-associative cache (K=2^L): number of sets = 2^16 / 2^L = 2^(16-L), so index field needs (16-L) bits; TAG field N = 32 - (16-L) - 7 = 9 + L.",
+      "Since M = 9, this gives N = M + L.",
+      "Hence the answer is (A)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q39",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Programming and Data Structures",
+    "chapter": "Data Structures",
+    "question": "Consider the following code snippet in C language that computes the number of nodes in a non-empty singly linked list pointed to by the pointer variable head.\nstruct node{\n  int elt;\n  struct node *next;\n};\nint getListSize (struct node *head)\n{\n  if( E1 ) return 1;\n  return E2;\n}\nWhich one of the following options gives the correct replacements for the expressions E1 and E2?",
+    "image_url": null,
+    "options": {
+      "A": "E1: head == NULL\nE2: 1 + getListSize(head)",
+      "B": "E1: head->next == NULL\nE2: 1 + getListSize(head->next)",
+      "C": "E1: head == NULL\nE2: 1 + getListSize(head->next)",
+      "D": "E1: head->next == NULL\nE2: 1 + getListSize(head)"
+    },
+    "correct_answer": "B",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Data Structures - Recursive Linked List Traversal",
+    "difficulty": "Medium",
+    "explanation": "getListSize should count nodes and must stop recursing exactly when it reaches the last node (so it never dereferences a NULL next pointer, since the list is guaranteed non-empty and the base case must count the final node once). The base case checks head->next==NULL (last node) and returns 1 for it; otherwise it adds 1 for the current node and recurses on head->next.",
+    "solution_steps": [
+      "Since the list is guaranteed non-empty, the cleanest base case is detecting the last node directly via head->next==NULL, avoiding ever calling the function with a NULL head.",
+      "E1 = head->next == NULL correctly identifies the last node, at which point the function should return 1 (counting just that node).",
+      "E2 should count the current node (1) plus the size of the rest of the list starting from head->next, i.e. E2 = 1 + getListSize(head->next).",
+      "This combination is exactly option (B); option A/C would eventually call getListSize(NULL) and dereference it, and option D never advances past the same head, causing infinite recursion.",
+      "Hence the answer is (B)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q40",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Programming and Data Structures",
+    "chapter": "Data Structures",
+    "question": "Let P be the set of all integers from 1 to 15. Consider any order of insertion of the elements of P into a binary search tree that creates a complete binary tree.\nWhich one of the following elements can NEVER be the third element that is inserted?",
+    "image_url": null,
+    "options": {
+      "A": "4",
+      "B": "2",
+      "C": "10",
+      "D": "5"
+    },
+    "correct_answer": "D",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Data Structures - BST Construction Order / Complete Binary Trees",
+    "difficulty": "Hard",
+    "explanation": "Inserting 1..15 to form a complete binary tree forces a unique shape: root=8, its children 4 and 12, grandchildren 2,6,10,14, and leaves 1,3,5,7,9,11,13,15. A node can only be inserted after its parent already exists in the tree, so the first element is always the root (8), the second must be a depth-1 node (4 or 12), and the third can be the other depth-1 node or a depth-2 child of whichever depth-1 node came second - meaning only nodes at depth <=2 (i.e. 4,12,2,6,10,14) can ever be third. Leaves like 5 are at depth 3 and therefore can never be inserted earlier than 4th.",
+    "solution_steps": [
+      "The values 1-15 inserted to form a complete/perfect BST must produce the unique shape with root=8; left subtree rooted at 4 (children 2,6), right subtree rooted at 12 (children 10,14); leaves are 1,3,5,7,9,11,13,15.",
+      "In any valid insertion order producing this shape, a node can only be inserted once its parent is already present in the tree (otherwise it would not land in its designated position).",
+      "The first inserted element must be the root, 8 (no other node can be first).",
+      "The second inserted element must be a depth-1 node (4 or 12), since deeper nodes' parents aren't yet present.",
+      "The third inserted element can be: the other depth-1 node, or a depth-2 child of whichever depth-1 node was inserted second (e.g. 2 or 6 if 4 was second). So depth-3 leaves can never be third, since their grandparent (a depth-1 node) must be placed before their parent (a depth-2 node), which must be placed before them - needing at least 3 prior insertions.",
+      "Among the options, 4(depth1), 2(depth2), 10(depth2) can all appear third under some valid order, but 5 is a depth-3 leaf and can never appear earlier than 4th.",
+      "Hence the answer is (D) 5."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q41",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Algorithms",
+    "chapter": "Length-Bounded Shortest Paths",
+    "question": "Let G(V,E) be an undirected, edge-weighted graph with integer weights. The weight of a path is the sum of the weights of the edges in that path. The length of a path is the number of edges in that path.\nLet s be a vertex in V. For every u in V and for every k >= 0, let dk(u) denote the weight of a shortest path (in terms of weight) from s to u of length at most k. If there is no path from s to u of length at most k, then dk(u) = infinity.\nConsider the statements:\nS1: For every k >= 0 and u in V, dk+1(u) <= dk(u).\nS2: For every (u,v) in E, if (u,v) is part of a shortest path (in terms of weight) from s to v, then for every k >= 0, dk(u) <= dk(v).\nWhich one of the following options is correct?",
+    "image_url": null,
+    "options": {
+      "A": "Only S1 is true",
+      "B": "Only S2 is true",
+      "C": "Both S1 and S2 are true",
+      "D": "Neither S1 nor S2 is true"
+    },
+    "correct_answer": "A",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Algorithms - Length-Bounded Shortest Paths",
+    "difficulty": "Hard",
+    "explanation": "S1 is always true: allowing one more edge (budget k+1) only enlarges the set of eligible paths (any path usable with budget k is still usable with budget k+1), so the minimum achievable weight cannot increase. S2 is false in general: even if edge (u,v) lies on some length-unconstrained shortest path to v, under a length restriction k there can exist an alternative path to v (not through u) that is better within that length budget, so dk(u) <= dk(v) need not hold for every k.",
+    "solution_steps": [
+      "S1: any path from s to u using at most k edges is also a path using at most k+1 edges, so the set of candidate paths only grows as k increases; hence the minimum weight over this larger set can only be less than or equal to the minimum over the smaller set, i.e. dk+1(u) <= dk(u) always holds.",
+      "S2: (u,v) being part of an (unconstrained) shortest path to v does not guarantee that, under every length budget k, the best length-<=k path to u is still no worse than the best length-<=k path to v - length restrictions can make a different, u-avoiding route better for v at some k, breaking the inequality.",
+      "Since S1 is always true and S2 can fail, the correct conclusion is that only S1 is true.",
+      "Hence the answer is (A)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q42",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Compiler Design",
+    "chapter": "Compiler Design",
+    "question": "Consider the control flow graph shown in the figure.\nWhich one of the following options correctly lists the set of redundant expressions (common subexpressions) in the basic blocks B4 and B5?\nNote: All the variables are integers.",
+    "image_url": "images/Q42_figure.png",
+    "options": {
+      "A": "B4: { b+i }\nB5: { c+m }",
+      "B": "B4: { g*k }\nB5: { c+m }",
+      "C": "B4: { g*k, b+i }\nB5: { }",
+      "D": "B4: { g*k }\nB5: { }"
+    },
+    "correct_answer": "D",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Compilers - Common Subexpression Elimination / Data Flow Analysis",
+    "difficulty": "Hard",
+    "explanation": "g*k is computed on both incoming paths to B4 (in B2 as part of 'a=g*k' and in B3 as 't=g*k') with no intervening redefinition of g or k, so B4's 'x=g*k' is redundant on every path - it is a valid common subexpression. B4's 'y=b+i' is not redundant because on the B1-B3-B4 path, b is redefined in B3 (b=c+m) after B1's a=b+i, so the earlier b+i value doesn't apply along that path. In B5, 'z=c+m' was computed earlier only along the B1-B3-B4-B5 path (inside B3), not along B1-B2-B4-B5, so it is not available on every path and is not a valid redundant expression.",
+    "solution_steps": [
+      "A common subexpression at a point is redundant only if it was already computed with the same (unmodified) operands along every path reaching that point.",
+      "In B4, x=g*k: both B2 (a=g*k) and B3 (t=g*k) compute g*k on the two paths into B4, and neither g nor k is redefined afterward, so g*k is redundant in B4.",
+      "In B4, y=b+i: B1 computes b+i, but along the B1->B3->B4 path, B3 redefines b (b=c+m) before reaching B4, so the value of b+i is stale on that path - not a valid redundant expression.",
+      "In B5, z=c+m: c+m is computed in B3, but B3 lies only on one of the two paths into B4 (and hence into B5); the B1->B2->B4->B5 path never computes c+m, so it is not available on all paths into B5.",
+      "Therefore B4 has the redundant set {g*k} and B5 has the empty set {}, matching option (D)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q43",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Databases",
+    "chapter": "Relational Calculus to Relational Algebra Translation",
+    "question": "Consider a relational database schema with two relations R(P,Q) and S(X,Y). Let E = { <u> | there exist v, w such that <u,v> in R and <v,w> in S } be a tuple relational calculus expression.\nWhich one of the following relational algebraic expressions is equivalent to E ?",
+    "image_url": null,
+    "options": {
+      "A": "Proj_P( R join(R.P=S.X) S )",
+      "B": "Proj_P( S join(S.X=R.Q) R )",
+      "C": "Proj_P( R join(R.P=S.Y) S )",
+      "D": "Proj_P( S join(S.Y=R.Q) R )"
+    },
+    "correct_answer": "B",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Databases - Relational Calculus to Relational Algebra Translation",
+    "difficulty": "Hard",
+    "explanation": "The tuple relational calculus expression says u qualifies if there exist v, w such that (u,v) is a tuple of R (so u=R.P, v=R.Q) and (v,w) is a tuple of S (so v=S.X, w=S.Y) - i.e. the join condition linking R and S is R.Q = S.X, and the answer is the projection of P over this join, which corresponds to Proj_P(S join_{S.X=R.Q} R).",
+    "solution_steps": [
+      "Since R has schema (P,Q), a tuple <u,v> in R means u is the P-value and v is the Q-value of that R-tuple.",
+      "Since S has schema (X,Y), a tuple <v,w> in S means v is the X-value and w is the Y-value of that S-tuple.",
+      "The existential quantifiers require the SAME v to serve as R's Q-value and S's X-value, i.e. the join condition is R.Q = S.X.",
+      "The answer set collects just u, i.e. R's P attribute, from tuples satisfying this join - giving Proj_P(R join_{R.Q=S.X} S), which is the same join (order of operands doesn't change the result) as Proj_P(S join_{S.X=R.Q} R).",
+      "This matches option (B); the other options use the wrong join attributes (R.P or S.Y instead of R.Q and S.X)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q44",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Computer Networks",
+    "chapter": "TCP Slow Start",
+    "question": "A TCP sender successfully establishes a connection with a TCP receiver and starts the transmission of segments. The TCP congestion control mechanism's slow-start threshold is set to 10000 segments. Assume that the round-trip time is fixed at 1 millisecond. Assume that the sender always has data to send, the segments are numbered from 1, and no segment is lost. Let t denote the time (in milliseconds) at which the transmission of segment number 2000 starts.\nWhich one of the following options is correct?",
+    "image_url": null,
+    "options": {
+      "A": "9 <= t < 10",
+      "B": "10 <= t < 11",
+      "C": "11 <= t < 12",
+      "D": "12 <= t < 13"
+    },
+    "correct_answer": "B",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Computer Networks - TCP Slow Start",
+    "difficulty": "Hard",
+    "explanation": "Since the slow-start threshold (10000 segments) is far above segment 2000, the connection remains in slow start throughout, where the congestion window doubles every RTT: 1,2,4,8,16,32,64,128,256,512,1024,... segments per round. Cumulative segments sent after 10 full RTTs (rounds of size 1..512) total 1023 segments; the 11th round (starting at t=10ms, sending segments 1024 through 2047) is when segment 2000 is transmitted, so t falls in [10,11).",
+    "solution_steps": [
+      "In slow start, the congestion window (segments sent per RTT) doubles each round: round1=1, round2=2, round3=4, ..., round r = 2^(r-1) segments.",
+      "Cumulative segments sent through round r = 2^r - 1. After round 10, cumulative = 2^10-1 = 1023 segments (segments 1 through 1023).",
+      "Round 11 sends segments 1024 through 2047 (2^11-1=2047), which includes segment number 2000.",
+      "Round 11 begins after 10 full RTTs have elapsed, i.e. at t = 10 x 1ms = 10ms.",
+      "Since segment 2000 is transmitted as part of round 11's batch (starting at t=10ms), t falls in the range 10 <= t < 11.",
+      "Hence the answer is (B)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q45",
+    "question_type": "MCQ",
+    "section": "CS-1",
+    "subject": "Computer Networks",
+    "chapter": "Sliding Window Protocol Utilization",
+    "question": "Consider the implementation of sliding window protocol over a lossless link, with a window size of W frames, where each frame is of size 1000 bits (including header). The bandwidth of the link is 100 kbps (1k = 10^3) and the one-way propagation delay is 100 milliseconds. Assume that processing times at the sender and receiver are zero and the transmission time of acknowledgements is also zero. Which one of the following options gives the minimum size of W (in number of frames) required to achieve 100% link utilization?",
+    "image_url": null,
+    "options": {
+      "A": "10",
+      "B": "21",
+      "C": "20",
+      "D": "11"
+    },
+    "correct_answer": "B",
+    "marks": 2,
+    "negative_marking": 0.66,
+    "topic": "Computer Networks - Sliding Window Protocol Utilization",
+    "difficulty": "Medium",
+    "explanation": "Transmission time per frame Tt = 1000 bits / 100 kbps = 10ms; one-way propagation delay Tp = 100ms. For 100% link utilization, the sender must be able to keep transmitting continuously until the first acknowledgement returns, which takes Tt + 2*Tp; this requires W*Tt >= Tt + 2*Tp, i.e. W >= 1 + 2*Tp/Tt = 1 + 200/10 = 21.",
+    "solution_steps": [
+      "Frame transmission time Tt = 1000 bits / 100,000 bits/sec = 0.01 s = 10 ms.",
+      "Round-trip time for the first acknowledgement to return after starting transmission = Tt + 2*Tp = 10 + 200 = 210 ms.",
+      "For 100% utilization, the sender must have enough frames in its window to keep transmitting for this entire 210 ms without stalling, i.e. W*Tt >= Tt + 2*Tp.",
+      "Solving: W >= (Tt + 2*Tp)/Tt = 1 + 2*Tp/Tt = 1 + 2*100/10 = 1 + 20 = 21.",
+      "The minimum integer window size satisfying this is W = 21.",
+      "Hence the answer is (B)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q46",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Engineering Mathematics",
+    "chapter": "Calculus",
+    "question": "Let f: R->R be defined as follows:\nf(x) = (|x|/2 - x) * (x - |x|/2)\nWhich of the following statements is/are true?",
+    "image_url": null,
+    "options": {
+      "A": "f has a local maximum",
+      "B": "f has a local minimum",
+      "C": "f' is continuous over R",
+      "D": "f' is not differentiable over R"
+    },
+    "correct_answer": [
+      "A",
+      "C",
+      "D"
+    ],
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Calculus - Piecewise Function Analysis and Differentiability",
+    "difficulty": "Hard",
+    "explanation": "Simplifying piecewise, f(x) = -x^2/4 for x>=0 and f(x) = -9x^2/4 for x<0; both pieces are non-positive parabolas meeting at f(0)=0, so f has a global (hence local) maximum at x=0 and no local minimum anywhere. The derivative f'(x) = -x/2 for x>=0 and -9x/2 for x<0 is continuous at 0 (both approach 0), but has a corner there (different one-sided slopes -1/2 vs -9/2), so f' itself is not differentiable at x=0.",
+    "solution_steps": [
+      "For x>=0, |x|=x, so f(x) = (x/2 - x)(x - x/2) = (-x/2)(x/2) = -x^2/4.",
+      "For x<0, |x|=-x, so f(x) = (-x/2 - x)(x + x/2) = (-3x/2)(3x/2) = -9x^2/4.",
+      "Both pieces equal 0 at x=0 and are negative elsewhere, so f(x) <= 0 = f(0) everywhere: x=0 is a local (and global) maximum, so (A) is true; since f decreases without bound in both directions and never turns back up, there is no local minimum, so (B) is false.",
+      "f'(x) = -x/2 for x>0 and -9x/2 for x<0; both one-sided limits at x=0 equal 0, so f' is continuous at x=0 (and clearly continuous elsewhere), making (C) true.",
+      "The left-hand derivative of f' at 0 (slope of -9x/2, giving -9/2) differs from the right-hand derivative (slope of -x/2, giving -1/2), so f' has a corner at x=0 and is not differentiable there, making (D) true.",
+      "Hence the true statements are (A), (C), (D)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q47",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Engineering Mathematics",
+    "chapter": "Graph Theory",
+    "question": "Let G(V,E) be a simple, undirected graph. A vertex cover of G is a subset V' of V such that for every (u,v) in E, u is in V' or v is in V'. Let the size of the smallest vertex cover in G be k. Let S be any vertex cover of size k.\nFor a vertex v in V, which of the following constraints will always ensure that v is in S ?",
+    "image_url": null,
+    "options": {
+      "A": "The degree of v is at least k+1",
+      "B": "The vertex v is on a path of length k+1",
+      "C": "The vertex v is on a cycle of length k+1",
+      "D": "The vertex v is a part of a clique of size k"
+    },
+    "correct_answer": [
+      "A"
+    ],
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Graph Theory - Vertex Cover",
+    "difficulty": "Hard",
+    "explanation": "If a vertex v has degree at least k+1 but is excluded from a size-k vertex cover, then every one of its (at least k+1) neighbors must individually be included in the cover to cover v's edges - but that alone already needs more than k vertices, contradicting the cover having size k. So any vertex with degree >= k+1 must be in every minimum vertex cover. Being on a long path or cycle, or being part of a clique of size k, does not force a specific vertex to be chosen, since alternative covers avoiding that vertex typically exist.",
+    "solution_steps": [
+      "Suppose v has degree >= k+1 and v is NOT in a vertex cover S of size k. Then every edge incident to v must be covered by its other endpoint, forcing all of v's >=k+1 neighbors into S.",
+      "But that already requires at least k+1 vertices in S just for v's neighbors, exceeding the assumed size k - a contradiction.",
+      "Therefore any vertex with degree >= k+1 must belong to S, confirming option (A).",
+      "Being on a path or cycle of length k+1, or being part of a k-clique, does not similarly force inclusion - alternative minimum covers can be built that exclude v while still achieving size k (covers of paths/cycles/cliques have flexibility in which vertices are chosen), so options (B), (C), (D) do not guarantee v in S.",
+      "Hence the answer is (A)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q48",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Digital Logic",
+    "chapter": "Boolean Function Minimization (K-map)",
+    "question": "Consider a Boolean function F with the following minterm expression:\nF(P,Q,R,S) = sum of minterms m(1, 2, 3, 4, 5, 7, 10, 12, 13, 14)\n(~X denotes the complement/NOT of X)\nWhich of the following options is/are the minimal sum-of-products expression(s) of F ?",
+    "image_url": null,
+    "options": {
+      "A": "~P.S + Q.~R + ~P.~Q.R + ~Q.R.~S",
+      "B": "~P.S + Q.~R + ~P.~Q.R + P.R.~S",
+      "C": "~P.S + Q.~R + P.Q.~S + P.R.~S",
+      "D": "~P.S + Q.~R + P.Q.~S + ~Q.R.~S"
+    },
+    "correct_answer": [
+      "B",
+      "D"
+    ],
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Digital Logic - Boolean Function Minimization (K-map)",
+    "difficulty": "Hard",
+    "explanation": "K-map grouping of minterms {1,2,3,4,5,7,10,12,13,14} gives two essential prime implicants covering most minterms: ~P.S (covers 1,3,5,7) and Q.~R (covers 4,5,12,13). The remaining uncovered minterms {2,10,14} cannot be covered by any single prime implicant, so exactly two more terms are needed, chosen from {~P.~Q.R (covers 2,3), ~Q.R.~S (covers 2,10), P.R.~S (covers 10,14), P.Q.~S (covers 12,14)} such that {2,10,14} are all covered. The valid minimal pairs are {~P.~Q.R, P.R.~S} and {~Q.R.~S, P.Q.~S} - matching options B and D respectively - while option A's pair leaves minterm 14 uncovered and option C's pair leaves minterm 2 uncovered.",
+    "solution_steps": [
+      "Plot the 10 minterms on a 4-variable K-map and group: {1,3,5,7} (all have P=0,S=1) combine into the prime implicant ~P.S; {4,5,12,13} (all have Q=1,R=0) combine into Q.~R. Together these are forced (essential) and cover {1,3,4,5,7,12,13}.",
+      "The minterms {2,10,14} remain uncovered, and checking all adjacencies shows no single group covers all three - two more terms are required, drawn from the valid pairs {2,3}&{10,14}, or {2,10}&{12,14}.",
+      "Option A uses {2,3} and {2,10} as its extra terms - together these only cover {2,3,10}, missing minterm 14 - so option A is NOT a valid cover of F.",
+      "Option B uses {2,3} (~P.~Q.R) and {10,14} (P.R.~S) - together with the essential terms this covers all 10 minterms exactly - a valid minimal SOP.",
+      "Option C uses {12,14} and {10,14} - together these cover {10,12,14} but miss minterm 2 - so option C is NOT a valid cover.",
+      "Option D uses {12,14} (P.Q.~S) and {2,10} (~Q.R.~S) - together with the essential terms this covers all 10 minterms exactly - a valid minimal SOP.",
+      "Hence the valid minimal SOP expressions are (B) and (D)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q49",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Engineering Mathematics",
+    "chapter": "Graph Theory",
+    "question": "Let G(V,E) be a simple, undirected, edge-weighted graph with unique edge weights.\nWhich of the following statements about the minimum spanning trees (MST) of G is/are true?",
+    "image_url": null,
+    "options": {
+      "A": "In every cycle C of G, the edge with the largest weight in C is not in any MST",
+      "B": "In every cycle C of G, the edge with the smallest weight in C is in every MST",
+      "C": "For every vertex v in V, the edge with the largest weight incident on v is not in any MST",
+      "D": "For every vertex v in V, the edge with the smallest weight incident on v is in every MST"
+    },
+    "correct_answer": [
+      "A",
+      "D"
+    ],
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Graph Theory - Minimum Spanning Tree Properties",
+    "difficulty": "Hard",
+    "explanation": "With unique edge weights, the cycle property guarantees the maximum-weight edge of any cycle is never in any MST (A true), and the cut property guarantees the minimum-weight edge crossing any cut is in every MST; applying the cut property to the trivial cut ({v}, rest of graph) shows the minimum-weight edge incident to any single vertex v must be in every MST (D true). However, the minimum-weight edge of a cycle is not generally forced into every MST (a cycle is not a cut, so the cut property doesn't apply there) - B is false; similarly, the maximum-weight edge incident to a vertex need not be excluded from every MST if it happens to be a critical bridge - C is false.",
+    "solution_steps": [
+      "Cycle property (unique weights): in any cycle, the single maximum-weight edge can always be safely excluded and is never part of any MST - this confirms (A).",
+      "Cut property (unique weights): across any cut of the graph, the single minimum-weight crossing edge must be in every MST. Applying this to the specific cut separating a single vertex v from the rest of the graph, the minimum-weight edge incident to v is exactly the minimum-weight edge of that cut, so it must be in every MST - this confirms (D).",
+      "A cycle is not a cut, so there is no guarantee that a cycle's minimum-weight edge is forced into the MST; counterexamples exist where it is redundant given the rest of the graph's structure - (B) is false.",
+      "A vertex's maximum-weight incident edge can still be a critical bridge (the only connection to the rest of the graph for that vertex), forcing it into every MST despite being locally maximum - (C) is false.",
+      "Hence the true statements are (A) and (D)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q50",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Algorithms",
+    "chapter": "DFS Timestamps and the Parenthesis Theorem",
+    "question": "Consider the following pseudocode for depth-first search (DFS) algorithm which takes a directed graph G(V,E) as input, where d[v] and f[v] are the discovery time and finishing time, respectively, of the vertex v in V.\nDFS(G):\n  unmark all v in V\n  t <- 0\n  for each v in V\n    if v is unmarked\n      t <- Explore(G, v, t)\n    end if\n  end for\nExplore(G, v, t):\n  mark v\n  t <- t+1\n  d[v] <- t\n  for each (v,w) in E\n    if w is unmarked\n      t <- Explore(G, w, t)\n    end if\n  end for\n  t <- t+1\n  f[v] <- t\n  return t\nSuppose that the input directed graph G(V,E) is a directed acyclic graph (DAG).\nFor an edge (u,v) in E, which of the following options will NEVER be correct?",
+    "image_url": null,
+    "options": {
+      "A": "d[u] < d[v] < f[v] < f[u]",
+      "B": "d[v] < d[u] < f[u] < f[v]",
+      "C": "d[v] < f[v] < d[u] < f[u]",
+      "D": "d[u] < d[v] < f[u] < f[v]"
+    },
+    "correct_answer": [
+      "B",
+      "D"
+    ],
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Algorithms - DFS Timestamps and the Parenthesis Theorem",
+    "difficulty": "Hard",
+    "explanation": "By the DFS parenthesis theorem, for any two vertices the discovery/finish intervals [d,f] are either completely nested (one entirely inside the other) or completely disjoint - they can never partially overlap. For an edge (u,v) in a DAG, if v is discovered while u is still active it becomes a descendant with its interval nested inside u's (giving d[u]<d[v]<f[v]<f[u]), and if v was already finished before u started, the intervals are disjoint with v's entirely before u's (giving d[v]<f[v]<d[u]<f[u]). The patterns in options B and D both describe partially overlapping (non-nested, non-disjoint) intervals, which the parenthesis theorem forbids outright, regardless of the specific edge.",
+    "solution_steps": [
+      "The parenthesis theorem states that for any two DFS intervals [d[x],f[x]] and [d[y],f[y]], they are either nested or disjoint - partial overlap is impossible.",
+      "Option A (d[u]<d[v]<f[v]<f[u]) describes v's interval fully nested inside u's - this happens when v is discovered as a descendant of u while u is still active (a tree/forward edge situation), which is achievable for an edge (u,v).",
+      "Option C (d[v]<f[v]<d[u]<f[u]) describes v's interval entirely before u's (disjoint) - this happens when v was already fully explored in an earlier DFS branch before u was even discovered (a valid cross-edge situation in a DAG, since there are no back edges).",
+      "Option B (d[v]<d[u]<f[u]<f[v]) has u's interval starting after v's start but finishing before v's finish while v is still open - this is a partial overlap (not nested, not disjoint), which the parenthesis theorem forbids; it can never occur for any pair of vertices.",
+      "Option D (d[u]<d[v]<f[u]<f[v]) similarly has v's interval starting inside u's but ending after u's finishes - also a forbidden partial overlap.",
+      "Hence the options that will NEVER be correct are (B) and (D)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q51",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Theory of Computation",
+    "chapter": "Closure Properties of Language Classes",
+    "question": "Let L1 and L2 be two languages over a finite alphabet, such that L1 intersect L2 and L2 are regular languages.\nWhich of the following statements is/are always true?",
+    "image_url": null,
+    "options": {
+      "A": "L1 is regular",
+      "B": "L1 union L2 is regular",
+      "C": "L2 is context-free",
+      "D": "L1 is context-free"
+    },
+    "correct_answer": [
+      "C"
+    ],
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Theory of Computation - Closure Properties of Language Classes",
+    "difficulty": "Medium",
+    "explanation": "Since L2 is given to be regular, and every regular language is by definition also context-free (regular languages are a strict subset of context-free languages), statement C is trivially always true regardless of what L1 is. However, knowing only that L1 intersect L2 is regular places no real restriction on L1 itself (e.g., L1 could be an undecidable language whose intersection with a suitably chosen regular L2 happens to be finite, hence regular) - so L1 need not be regular, context-free, and L1 union L2 need not be regular either.",
+    "solution_steps": [
+      "L2 is given to be regular; since the class of regular languages is a subset of the class of context-free languages, L2 is automatically context-free - this makes option (C) always true, independent of L1.",
+      "To test the other options, construct L1 to be an arbitrarily non-regular (even non-context-free) language, and choose L2 such that L1 intersect L2 is still regular (e.g., L2 restricts attention to a sparse/simple set of strings where L1's complexity doesn't matter, or L2 chosen so the intersection is finite) - this satisfies the given hypothesis while L1 remains non-regular and non-context-free, refuting options (A) and (D).",
+      "In such a construction, L1 union L2 also inherits L1's non-regular complexity, refuting option (B).",
+      "Hence the only statement that is always true is (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q52",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Theory of Computation",
+    "chapter": "Context-Free Grammar Derivation Analysis",
+    "question": "Consider the following context-free grammar G.\nS -> abaABAbba\nA -> aaBBAb | bBabaa\nB -> aBb | ab\nIn the above grammar, S is the start symbol, a and b are terminal symbols, and A and B are non-terminal symbols.\nLet L(G) be the language generated by the grammar G. For a string s in L(G), let n1(s) be the number of a's in s and n2(s) be the number of b's in s.\nWhich of the following statements is/are true?",
+    "image_url": null,
+    "options": {
+      "A": "There is a string s in L(G) such that n1(s) < n2(s)",
+      "B": "For every string s in L(G), n1(s) >= n2(s)",
+      "C": "There is a string s in L(G) such that n1(s) > 2*n2(s)",
+      "D": "For every string s in L(G), n1(s) <= 2*n2(s)"
+    },
+    "correct_answer": [
+      "B",
+      "D"
+    ],
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Theory of Computation - Context-Free Grammar Derivation Analysis",
+    "difficulty": "Hard",
+    "explanation": "Every string derivable from B has exactly equal numbers of a's and b's (by induction on B -> aBb | ab, since the base case is balanced and the recursive rule adds one a and one b together). Every string derivable from A therefore has strictly more a's than b's (by a similar induction on A's two rules, each of which adds a fixed excess of a's over b's plus balanced B-padding), with the ratio of a-count to b-count always staying strictly below 4/3. Since S embeds two A's and one B around a fixed, balanced set of literal terminals, every string in L(G) ends up with n1(s) strictly greater than n2(s) (so n1>=n2 always holds, and n1<n2 never happens) while the overall a-to-b ratio never reaches or exceeds 2 (so n1<=2n2 always holds, and n1>2n2 never happens).",
+    "solution_steps": [
+      "B -> aBb | ab: the base case 'ab' has equal a's and b's (1 each), and the recursive case adds one a and one b together, so by induction every B-derived string has n1=n2 exactly.",
+      "A -> aaBBAb | bBabaa: tracking the fixed literal terminals plus balanced B-substrings plus a recursively nested A shows every A-derived string has strictly more a's than b's, with the excess growing slowly enough that the ratio n1/n2 for any A-string stays strictly between 1 and 4/3.",
+      "S -> abaABAbba contributes an equal 3 a's and 3 b's of its own, plus two A-substrings (each with more a's than b's) and one B-substring (balanced) - so every full string in L(G) has n1(s) > n2(s) strictly, meaning there is no string with n1(s) < n2(s), confirming (B) is always true and (A) is always false.",
+      "Because B-padding only adds balanced pairs (diluting any excess ratio toward 1) and the A-substrings' own excess ratio never reaches 4/3, the overall ratio n1(s)/n2(s) for the full string stays strictly below 4/3, which is comfortably below 2 - so n1(s) <= 2*n2(s) always holds, confirming (D) is always true and (C) (which would need ratio > 2) is always false.",
+      "Hence the true statements are (B) and (D)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q53",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Compiler Design",
+    "chapter": "Compiler Design",
+    "question": "Consider the following two syntax-directed definitions SDD1 and SDD2 for type declarations.\nD is the start symbol, and int, float and id are the three terminals. The non-terminal V1 is the same as V and the non-terminal D1 is the same as D. Here, the subscript is used to differentiate the grammar symbols on the two sides of a production. The function put updates the symbol table with the type information for an identifier.\nLet P and Q be the languages specified by grammars G1 and G2, respectively.\n\nSDD1 (Grammar G1 -> Semantic Rules):\nD -> T V   :  D.type = T.type ; V.type = T.type\nT -> int   :  T.type = int\nT -> float :  T.type = float\nV -> V1 id :  V1.type = V.type ; put(id.entry, V.type)\nV -> id    :  put(id.entry, V.type)\n\nSDD2 (Grammar G2 -> Semantic Rules):\nD -> D1 id :  D.type = D1.type ; put(id.entry, D1.type)\nD -> T id  :  D.type = T.type ; put(id.entry, T.type)\nT -> int   :  T.type = int\nT -> float :  T.type = float\n\nWhich of the following statements is/are true?",
+    "image_url": null,
+    "options": {
+      "A": "The languages P and Q are the same",
+      "B": "SDD2 is S-attributed and contains only synthesized attributes",
+      "C": "SDD1 is L-attributed and contains only inherited attributes",
+      "D": "The specifications of SDD1 and SDD2 are such that the same entries get added to the symbol table"
+    },
+    "correct_answer": [
+      "A",
+      "B",
+      "D"
+    ],
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Compilers - Syntax-Directed Definitions and Attribute Grammars",
+    "difficulty": "Hard",
+    "explanation": "SDD1's V->V1 id rule computes V1.type by copying it down from V.type before using it - an inherited attribute flow (parent passes type down to child), so SDD1 is L-attributed with only inherited attributes among its non-terminal-to-non-terminal attribute flows. SDD2's D->D1 id rule instead computes D.type by copying it up from D1.type (child's attribute feeds the parent) - a synthesized attribute flow, so SDD2 is S-attributed with only synthesized attributes. Both SDDs ultimately call put(id.entry, type) once per identifier with the same declared type for each id in a declaration, so despite their different attribute-flow directions, both grammars insert identical entries into the symbol table, and both G1 and G2 generate the same language (a type keyword followed by one or more identifiers).",
+    "solution_steps": [
+      "In SDD1, the rule V -> V1 id sets V1.type = V.type before recursing - this passes the type DOWN from the parent V to the child V1, which is an inherited attribute; SDD1 has no rule that computes a parent's attribute purely from children (its type flows top-down from T), so SDD1 is L-attributed with only inherited attributes - confirming (C).",
+      "In SDD2, the rule D -> D1 id sets D.type = D1.type - this passes the type UP from the child D1 to the parent D, a synthesized attribute; all of SDD2's attributes are computed bottom-up this way, so SDD2 is S-attributed with only synthesized attributes - confirming (B).",
+      "Both grammars G1 (T (id)+) and G2 (T (id)+) generate the same set of strings - a type keyword followed by one or more identifiers - so P and Q are the same language, confirming (A).",
+      "Both SDDs call put(id.entry, type) exactly once per identifier occurrence, always with the type declared by the leading int/float keyword, so identical (identifier, type) entries are added to the symbol table by both SDDs, confirming (D).",
+      "Hence all four statements (A), (B), (C), (D) are true."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q54",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Computer Organization and Architecture",
+    "chapter": "Computer Organization and Architecture",
+    "question": "Consider a system that has a cache memory unit and a memory management unit (MMU). The address input to the cache memory is a physical address. The MMU has a translation lookaside buffer (TLB). Assume that when a page is evicted from the main memory, the corresponding blocks in the cache are marked as invalid.\nFor a given memory reference, which of the following sequences of events can NEVER happen?",
+    "image_url": null,
+    "options": {
+      "A": "TLB miss, Page table hit, Cache hit",
+      "B": "TLB hit, Page table miss, Cache hit",
+      "C": "TLB miss, Page table miss, Cache hit",
+      "D": "TLB miss, Page table miss, Cache miss"
+    },
+    "correct_answer": [
+      "B",
+      "C"
+    ],
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Computer Organization - TLB, Paging, and Cache Interaction",
+    "difficulty": "Hard",
+    "explanation": "Since the cache is addressed by physical address, a cache hit requires the physical address to already be known, which in turn requires the page table lookup (or TLB) to have already succeeded - so a cache hit can never coexist with a page-table miss (which represents 'page not currently mapped to a frame', hence no valid physical address exists to look up in the cache). A TLB miss with a page-table hit is perfectly normal (TLB just didn't have this entry cached, but the page table did) and can still hit in the cache if that block was cached earlier. A TLB hit with a page-table miss is contradictory in the given setup (the TLB caches valid translations from the page table, and the problem states cache entries are invalidated on eviction, keeping things consistent) but the truly impossible combination given a physical-address-indexed cache is having any kind of page-table miss (TLB hit or miss) together with a cache hit.",
+    "solution_steps": [
+      "The cache in this system is addressed using the physical address, so looking anything up in the cache requires a valid physical address to already be available.",
+      "A page-table miss means the requested page is not currently mapped to any physical frame, so no valid physical address exists yet for this reference - hence the cache cannot possibly be probed successfully, ruling out a cache hit whenever there is a page-table miss.",
+      "Option A (TLB miss, page table hit, cache hit) is consistent: the TLB simply didn't have the entry cached, but the page table provides the physical address, which may already be cached - achievable.",
+      "Option D (TLB miss, page table miss, cache miss) is consistent: nothing is cached anywhere and the page isn't even mapped - a plain cold access, achievable.",
+      "Option B (TLB hit, page table miss, cache hit) is contradictory: a TLB hit already supplies a valid physical address (implying the page IS mapped), which conflicts with a simultaneous page-table miss - and even setting that aside, a cache hit still cannot follow a page-table miss.",
+      "Option C (TLB miss, page table miss, cache hit) is impossible because the page-table miss means no valid physical address exists to have looked up in the cache.",
+      "Hence the sequences that can NEVER happen are (B) and (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q55",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Engineering Mathematics",
+    "chapter": "Graph Theory",
+    "question": "An undirected, unweighted, simple graph G(V,E) is said to be 2-colorable if there exists a function c: V -> {0,1} such that for every (u,v) in E, c(u) != c(v).\nWhich of the following statements about 2-colorable graphs is/are true?",
+    "image_url": null,
+    "options": {
+      "A": "If G is 2-colorable, then G may contain cycles of odd length",
+      "B": "If G is 2-colorable, then G may contain cycles of even length",
+      "C": "An optimal algorithm for testing whether G is 2-colorable runs in time Theta(|V|+|E|), if G is represented as an adjacency list",
+      "D": "An optimal algorithm for testing whether G is 2-colorable runs in time Theta(|E|*log|V|), if G is represented as an adjacency list"
+    },
+    "correct_answer": [
+      "B",
+      "C"
+    ],
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Graph Theory - Bipartite Graphs (2-Colorability)",
+    "difficulty": "Medium",
+    "explanation": "2-colorability is exactly graph bipartiteness, and a classical theorem states a graph is bipartite if and only if it contains no odd-length cycle; bipartite graphs can, however, freely contain even-length cycles. The standard optimal algorithm for bipartiteness testing is a single BFS/DFS traversal that 2-colors vertices as it goes, running in Theta(|V|+|E|) time on an adjacency-list representation - not the slower Theta(|E|log|V|).",
+    "solution_steps": [
+      "A graph is 2-colorable if and only if it is bipartite, and bipartite graphs can never contain a cycle of odd length (odd cycles always require 3 colors) - so option (A) is false.",
+      "Bipartite graphs can freely contain cycles of even length (e.g., any even cycle is 2-colorable by alternating colors) - so option (B) is true.",
+      "Testing bipartiteness via a single BFS or DFS pass, coloring each vertex the opposite color of its parent and checking for conflicting edges, visits each vertex and edge once, giving optimal Theta(|V|+|E|) time on an adjacency list - so option (C) is true.",
+      "Theta(|E|log|V|) is not the optimal complexity for this problem (it is unnecessarily slower than the linear-time BFS/DFS approach), so option (D) is false.",
+      "Hence the true statements are (B) and (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q56",
+    "question_type": "MSQ",
+    "section": "CS-1",
+    "subject": "Computer Networks",
+    "chapter": "CIDR Supernetting and Subnetting",
+    "question": "An ISP having an address block 202.16.0.0/15 assigns a block of 6000 IP addresses to a client, using the classless internet domain routing (CIDR) super-netting approach. Which of the following address blocks can be assigned by the ISP?",
+    "image_url": null,
+    "options": {
+      "A": "202.16.0.0/19",
+      "B": "202.17.64.0/19",
+      "C": "202.16.32.0/19",
+      "D": "202.17.24.0/19"
+    },
+    "correct_answer": [
+      "A",
+      "B",
+      "C"
+    ],
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Computer Networks - CIDR Supernetting and Subnetting",
+    "difficulty": "Medium",
+    "explanation": "A /19 block holds 2^(32-19)=2^13=8192 addresses, comfortably covering the requested 6000 addresses (a /20 would only give 4096, too small), so any /19 block that lies fully within the ISP's 202.16.0.0/15 range (202.16.0.0 - 202.17.255.255) and starts at a valid /19-aligned boundary (a multiple of 8192, i.e. a multiple of 32 in the third octet) is assignable. Checking each option's third octet against this alignment and range shows three of them qualify and one does not.",
+    "solution_steps": [
+      "A /19 block size is 2^(32-19) = 8192 addresses, which is enough to cover the requested 6000-address block (the next smaller size, /20 = 4096, would be insufficient).",
+      "For a /19 subnet, the third octet must be a multiple of 32 (since 8192 addresses = 32 full /24-equivalent blocks in address-count terms, meaning the boundary must align every 32 in the third octet, i.e. values like 0,32,64,96,...).",
+      "The parent block 202.16.0.0/15 spans addresses 202.16.0.0 through 202.17.255.255, so any valid assigned /19 must have its first two octets within {202.16, 202.17}.",
+      "202.16.0.0/19: third octet 0 (multiple of 32), within range - valid.",
+      "202.17.64.0/19: third octet 64 (multiple of 32), within range - valid.",
+      "202.16.32.0/19: third octet 32 (multiple of 32), within range - valid.",
+      "202.17.24.0/19: third octet 24 is NOT a multiple of 32, so this is not a valid /19-aligned boundary - invalid.",
+      "Hence the assignable address blocks are (A), (B), (C)."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q57",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Engineering Mathematics",
+    "chapter": "Graph Theory",
+    "question": "Let G be an undirected graph, which is a path on 8 vertices. The number of matchings in G is ______. (answer in integer)",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "34",
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Graph Theory - Counting Matchings in a Path Graph",
+    "difficulty": "Medium",
+    "explanation": "The number of matchings (including the empty matching) in a path graph with n vertices follows the recurrence M(n)=M(n-1)+M(n-2): either the last edge is unused (M(n-1) ways for the remaining path) or it is used (removing its two endpoints leaves M(n-2) ways). With M(1)=1, M(2)=2, this generates the sequence 1,2,3,5,8,13,21,34 for n=1..8, giving 34 for a path on 8 vertices.",
+    "solution_steps": [
+      "Let M(n) be the number of matchings (any subset of pairwise non-adjacent edges, including the empty set) in a path with n vertices (n-1 edges).",
+      "Consider the last edge of the path: either it is excluded from the matching, leaving M(n-1) matchings on the remaining path of n-1 vertices, or it is included, which removes both its endpoints from consideration, leaving M(n-2) matchings on the remaining path of n-2 vertices.",
+      "This gives the recurrence M(n) = M(n-1) + M(n-2), with base cases M(1)=1 (only the empty matching) and M(2)=2 (empty, or the single edge).",
+      "Computing forward: M(3)=3, M(4)=5, M(5)=8, M(6)=13, M(7)=21, M(8)=34.",
+      "Hence the number of matchings in a path on 8 vertices is 34."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q58",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Engineering Mathematics",
+    "chapter": "Probability",
+    "question": "Let X be a random variable which takes values in the set {1,2,3,4,5,6,7,8}. Further, Pr(X=1) = Pr(X=2) = Pr(X=5) = Pr(X=7) = 1/6 and Pr(X=3) = Pr(X=4) = Pr(X=6) = Pr(X=8) = 1/12.\nThe expected value of X, denoted by E[X], is equal to ___________. (rounded off to two decimal places)",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "4.24 to 4.26",
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Probability - Expected Value of a Discrete Random Variable",
+    "difficulty": "Easy",
+    "explanation": "E[X] is the probability-weighted sum of all values: grouping the four equal-probability-1/6 values (1,2,5,7) and the four equal-probability-1/12 values (3,4,6,8) gives E[X] = (1+2+5+7)/6 + (3+4+6+8)/12 = 15/6 + 21/12 = 2.5 + 1.75 = 4.25.",
+    "solution_steps": [
+      "E[X] = sum of x*Pr(X=x) over all values.",
+      "Values 1,2,5,7 each have probability 1/6, contributing (1+2+5+7)*(1/6) = 15/6 = 2.5.",
+      "Values 3,4,6,8 each have probability 1/12, contributing (3+4+6+8)*(1/12) = 21/12 = 1.75.",
+      "E[X] = 2.5 + 1.75 = 4.25."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q59",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Computer Organization and Architecture",
+    "chapter": "Computer Organization and Architecture",
+    "question": "Consider a hard disk with a rotational speed of 15000 rpm. The time to move the read/write head from a track to its adjacent track is 1 millisecond. Initially, the head is on track 0. The number of sectors per track is 400. The sector size is 1024 bytes. It is necessary to transfer data from 10 randomly located sectors in each of the following tracks in the order: 5, 12 and 7.\nThe total time for the data transfer (in milliseconds) from the hard disk is _________. (rounded off to one decimal place)",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "77.3",
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Computer Organization - Hard Disk Access Time Calculation",
+    "difficulty": "Hard",
+    "explanation": "One full rotation takes 60000ms/15000 = 4ms, so each of the 400 sectors takes 4/400 = 0.01ms to transfer. Seek time moving 0->5->12->7 tracks costs (5+7+5)x1ms = 17ms. For each track, since the 10 sectors requested are randomly located, each individual sector access is modeled as incurring its own average rotational latency of half a rotation (4/2=2ms) plus its 0.01ms transfer, i.e. 2.01ms per sector; with 10 sectors per track across 3 tracks, that is 10x2.01x3 = 60.3ms. Adding the seek time gives 17+60.3 = 77.3ms.",
+    "solution_steps": [
+      "Rotation time = 60,000 ms / 15,000 rpm = 4 ms per revolution; per-sector transfer time = 4 ms / 400 sectors = 0.01 ms.",
+      "Seek time: track 0 -> 5 (5 ms) -> 12 (7 ms) -> 7 (5 ms), total = 5+7+5 = 17 ms.",
+      "For each of the 10 randomly located sectors accessed on a track, model the access as needing the average rotational latency (half a revolution = 4/2 = 2 ms) plus the 0.01 ms sector transfer, i.e. 2.01 ms per sector access.",
+      "Per track: 10 sectors x 2.01 ms = 20.1 ms. Across all 3 tracks (5, 12, 7): 3 x 20.1 ms = 60.3 ms.",
+      "Total time = seek time + data transfer time = 17 + 60.3 = 77.3 ms."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q60",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Computer Organization and Architecture",
+    "chapter": "Computer Organization and Architecture",
+    "question": "The EX stage of a pipelined processor performs the memory read operations for LOAD instructions, and the operations for the arithmetic and logic instructions. Let tEX denote the time taken by the EX stage to perform the operation for an instruction. For each instruction type, the values of tEX and M (the number of instructions of that type in a sequence of 100 instructions for a program P), are given in the table below. The duration of the pipeline clock cycle is 1 nanosecond. Assume that the latch time for the interstage buffers in the pipeline is negligible.\n\nInstruction : tEX (ns) : M\nLOAD : 1.8 : 15\nIMUL : 1.5 : 10\nIDIV : 2.5 : 5\nFADD : 1.7 : 10\nFSUB : 1.7 : 5\nFMUL : 2.8 : 15\nFDIV : 3.2 : 5\nAll other instructions : Less than 1.0 : 35\n\nWhen program P is executed, the number of clock cycles for which the pipeline is stalled due to structural hazards in the EX stage is ______. (answer in integer)",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "95",
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Computer Organization - Pipeline Structural Hazards",
+    "difficulty": "Hard",
+    "explanation": "Since the pipeline clock cycle is 1 ns, any instruction whose tEX exceeds 1 ns occupies the EX stage for ceil(tEX) clock cycles instead of 1, causing (ceil(tEX)-1) stall cycles for every such instruction. Summing (ceil(tEX)-1)*M over all instruction types gives the total structural-hazard stalls: LOAD(1x15)+IMUL(1x10)+IDIV(2x5)+FADD(1x10)+FSUB(1x5)+FMUL(2x15)+FDIV(3x5)+other(0x35) = 15+10+10+10+5+30+15+0 = 95.",
+    "solution_steps": [
+      "Each instruction needs ceil(tEX) full clock cycles (1 ns each) to complete the EX stage; any cycles beyond the first stall the pipeline due to the EX stage being occupied (a structural hazard).",
+      "LOAD: tEX=1.8 -> needs 2 cycles -> 1 stall cycle each x 15 instructions = 15.",
+      "IMUL: tEX=1.5 -> needs 2 cycles -> 1 stall each x 10 = 10.",
+      "IDIV: tEX=2.5 -> needs 3 cycles -> 2 stalls each x 5 = 10.",
+      "FADD: tEX=1.7 -> needs 2 cycles -> 1 stall each x 10 = 10.",
+      "FSUB: tEX=1.7 -> needs 2 cycles -> 1 stall each x 5 = 5.",
+      "FMUL: tEX=2.8 -> needs 3 cycles -> 2 stalls each x 15 = 30.",
+      "FDIV: tEX=3.2 -> needs 4 cycles -> 3 stalls each x 5 = 15.",
+      "All other instructions: tEX<1.0 -> needs only 1 cycle -> 0 stalls x 35 = 0.",
+      "Total stall cycles = 15+10+10+10+5+30+15+0 = 95."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q61",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Programming and Data Structures",
+    "chapter": "Programming in C",
+    "question": "Consider the recursive functions represented by the following code segment:\nint bar(int n){\n  if (n == 1) return 0;\n  else return 1 + bar(n/2);\n}\nint foo(int n){\n  if (n == 1) return 1;\n  else return 1 + foo(bar(n));\n}\nThe smallest positive integer n for which foo(n) returns 5 is ______. (answer in integer)\nNote: Ignore syntax errors (if any) in the function.",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "65536",
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Programming - Recursive Function Analysis (Iterated Logarithm)",
+    "difficulty": "Hard",
+    "explanation": "bar(n) computes floor(log2(n)) (the number of times n can be halved via integer division before reaching 1), and foo(n) counts how many times bar must be applied, starting from n, before reaching 1 - so foo(n)=5 requires exactly 4 applications of bar to reduce n to 1. Working backward and choosing the smallest possible value at each stage (since bar is non-decreasing in n) - target bar(m)=1 needs m>=2, bar(m)=2 needs m>=4, bar(m)=4 needs m>=16, bar(m)=16 needs m>=2^16 - gives the smallest starting value n=65536.",
+    "solution_steps": [
+      "bar(n) repeatedly integer-halves n and counts steps to reach 1, so bar(n) = floor(log2(n)).",
+      "foo(n) = 1 + foo(bar(n)) with foo(1)=1, so foo(n) equals 1 plus the number of times bar must be iteratively applied to n to first reach 1; foo(n)=5 means bar must be applied exactly 4 times to reach 1.",
+      "Since bar(m)=1 for the smallest m=2, we want bar^3(n)=2 (choosing the smallest valid target to minimize n).",
+      "Since bar(m)=2 for the smallest m=4, we want bar^2(n)=4.",
+      "Since bar(m)=4 for the smallest m=16, we want bar(n)=16.",
+      "Since bar(m)=16 for the smallest m=2^16=65536, the smallest n with bar(n)=16 is n=65536.",
+      "Hence the smallest positive integer n for which foo(n) returns 5 is 65536."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q62",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Programming and Data Structures",
+    "chapter": "Data Structures",
+    "question": "The following sequence corresponds to the preorder traversal of a binary search tree T:\n50, 25, 13, 40, 30, 47, 75, 60, 70, 80, 77\nThe position of the element 60 in the postorder traversal of T is ______. (answer in integer)\nNote: The position begins with 1.",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "7",
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Data Structures - Binary Search Tree Traversal Conversion",
+    "difficulty": "Hard",
+    "explanation": "Reconstructing the BST from the preorder sequence (each new value goes left if smaller than the current root, right if larger, following standard BST rules) gives root 50, with left subtree rooted at 25 (children 13 and 40, where 40 has children 30 and 47) and right subtree rooted at 75 (children 60, which has right-child 70, and 80, which has left-child 77). Computing the postorder traversal (left, right, root at every node) of this reconstructed tree places 60 at the 7th position.",
+    "solution_steps": [
+      "Reconstruct the BST from the preorder sequence 50,25,13,40,30,47,75,60,70,80,77 using standard BST insertion order rules: root=50; left subtree (values<50) built from 25,13,40,30,47; right subtree (values>50) built from 75,60,70,80,77.",
+      "Left subtree: root=25, left child=13 (leaf), right child=40 with left child 30 and right child 47.",
+      "Right subtree: root=75, left child=60 with a right child 70 (no left child), right child=80 with a left child 77 (no right child).",
+      "Postorder (left, right, root) of the left subtree (rooted at 25): 13, 30, 47, 40, 25.",
+      "Postorder of the right subtree (rooted at 75): 70, 60, 77, 80, 75.",
+      "Full postorder = [13,30,47,40,25] + [70,60,77,80,75] + [50] = 13,30,47,40,25,70,60,77,80,75,50.",
+      "Counting positions from 1, the element 60 appears at position 7."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q63",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Operating Systems",
+    "chapter": "fork() Process Creation and Control Flow",
+    "question": "Consider the following program snippet. Assume that the program compiles and runs successfully. Further, assume that the fork() system call is always successful in creating a process.\nint main () {\n   int i;\n   for (i = 0; i < 3; i++){\n      if (fork() == 0){\n        continue;\n      }\n      break;\n   }\n   printf(\"Hello!\");\n   return 0;\n}\nThe total number of times that the printf statement gets executed is ________. (answer in integer)",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "4",
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Operating Systems - fork() Process Creation and Control Flow",
+    "difficulty": "Hard",
+    "explanation": "Each child process created by fork() takes the 'continue' branch and keeps looping (potentially forking again at the next iteration), while the parent (or the process that just created a child) always takes the 'break' branch and exits the loop immediately. This produces a chain of exactly one fork per loop iteration - the original process forks once (i=0) then breaks; its child continues to i=1, forks once more, then breaks; that grandchild continues to i=2, forks once more, then breaks; and the final generation's child continues to i=3, where the loop condition fails naturally and it also proceeds to printf. This yields exactly 4 processes total, each executing printf once.",
+    "solution_steps": [
+      "At i=0, the original process (P0) calls fork(), creating child C1; in P0, fork() returns C1's nonzero pid, so P0 takes the else-branch and breaks immediately, then executes printf.",
+      "In C1, fork() returned 0, so C1 takes 'continue', advancing the loop to i=1, where it calls fork() again, creating child C2; in C1, this fork() call returns C2's nonzero pid, so C1 breaks and executes printf.",
+      "In C2, fork() returned 0, so C2 continues to i=2, calls fork() again creating child C3; in C2, this returns nonzero, so C2 breaks and executes printf.",
+      "In C3, fork() returned 0, so C3 continues to i=3; now the loop condition i<3 is false, so the loop exits naturally (without needing a break), and C3 proceeds to printf.",
+      "In total, 4 distinct processes (P0, C1, C2, C3) each reach and execute the printf statement exactly once.",
+      "Hence printf executes 4 times in total."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q64",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Operating Systems",
+    "chapter": "FCFS CPU Scheduling",
+    "question": "Consider a CPU that has to execute two types of processes. The first type, Actuators (A), requires a CPU burst of 6 seconds. The second type, Controllers (C), requires a CPU burst of 8 seconds. A new process of type A arrives at time t = 10, 20, 30, 40, and 50 (in seconds). Similarly, a new process of type C arrives at time t = 11, 22, 33, 44, and 55 (in seconds). The CPU scheduling policy is First Come First Serve (FCFS). The first process of type A starts running at t = 10 seconds. The average waiting time (in seconds) for the 10 processes is ___________. (rounded off to one decimal place)",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "9.5",
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Operating Systems - FCFS CPU Scheduling",
+    "difficulty": "Hard",
+    "explanation": "Ordering all 10 processes by arrival time (A@10, C@11, A@20, C@22, A@30, C@33, A@40, C@44, A@50, C@55) and simulating FCFS execution (each process runs for its full burst once the CPU becomes free, back-to-back with no idle gaps after the first process starts) gives individual waiting times of 0,5,4,8,8,11,12,14,16,17, which sum to 95; dividing by 10 processes gives an average waiting time of 9.5 seconds.",
+    "solution_steps": [
+      "List all 10 arrivals in time order: A(10), C(11), A(20), C(22), A(30), C(33), A(40), C(44), A(50), C(55), with A needing 6s and C needing 8s of CPU time, and FCFS meaning they run strictly in this arrival order back-to-back once the CPU is busy.",
+      "Simulate completion times: A(10) runs 10-16; C(11) waits then runs 16-24; A(20) waits then runs 24-30; C(22) waits then runs 30-38; A(30) waits then runs 38-44; C(33) waits then runs 44-52; A(40) waits then runs 52-58; C(44) waits then runs 58-66; A(50) waits then runs 66-72; C(55) waits then runs 72-80.",
+      "Waiting time for each process = (time it starts running) - (its arrival time): 0, 5, 4, 8, 8, 11, 12, 14, 16, 17 respectively.",
+      "Sum of waiting times = 0+5+4+8+8+11+12+14+16+17 = 95.",
+      "Average waiting time = 95 / 10 = 9.5 seconds."
+    ]
+  },
+  {
+    "year": 2026,
+    "shift": 1,
+    "question_id": "GATECSE2026S1Q65",
+    "question_type": "NAT",
+    "section": "CS-1",
+    "subject": "Databases",
+    "chapter": "Counting Superkeys from Candidate Keys",
+    "question": "Consider a relational database schema with a relation R(A,B,C,D). If {A,B} and {A,C} are the only two candidate keys of the relation R, then the number of superkeys of relation R is ______. (answer in integer)",
+    "image_url": null,
+    "options": null,
+    "correct_answer": "6",
+    "marks": 2,
+    "negative_marking": 0,
+    "topic": "Databases - Counting Superkeys from Candidate Keys",
+    "difficulty": "Medium",
+    "explanation": "A superkey is any attribute set that contains at least one candidate key as a subset. Supersets of {A,B} within {A,B,C,D} number 2^2=4 (freely including/excluding C,D), and likewise supersets of {A,C} number 4; by inclusion-exclusion, subtract the sets counted twice - those that are supersets of both, i.e. supersets of {A,B,C} - which number 2^1=2. This gives 4+4-2=6 total superkeys.",
+    "solution_steps": [
+      "A superkey is any subset of {A,B,C,D} that contains at least one of the candidate keys {A,B} or {A,C} as a subset.",
+      "Sets containing {A,B}: fix A,B present, freely choose to include/exclude each of C,D -> 2^2 = 4 sets: {A,B}, {A,B,C}, {A,B,D}, {A,B,C,D}.",
+      "Sets containing {A,C}: similarly 2^2 = 4 sets: {A,C}, {A,B,C}, {A,C,D}, {A,B,C,D}.",
+      "Sets counted in both groups are those containing {A,B,C} (the union of the two keys): freely choose D -> 2^1 = 2 sets: {A,B,C}, {A,B,C,D}.",
+      "By inclusion-exclusion, total distinct superkeys = 4 + 4 - 2 = 6."
+    ]
+  }
+]

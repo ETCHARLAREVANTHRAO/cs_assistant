@@ -1,0 +1,676 @@
+[
+  {
+    "file": "filter1_volume1_ch01_discrete_mathematics_combinatory.txt",
+    "chapter": "Discrete Mathematics: Combinatory",
+    "question_blocks": 51,
+    "answer_keys": 51,
+    "aligned": true,
+    "strategy": "chapter_aligned",
+    "recovered_blocks": 51,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume1_ch02_discrete_mathematics_graph_theory.txt",
+    "chapter": "Discrete Mathematics: Graph Theory",
+    "question_blocks": 88,
+    "answer_keys": 88,
+    "aligned": true,
+    "strategy": "chapter_aligned",
+    "recovered_blocks": 88,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume1_ch03_discrete_mathematics_mathematical_logic.txt",
+    "chapter": "Discrete Mathematics: Mathematical Logic",
+    "question_blocks": 78,
+    "answer_keys": 78,
+    "aligned": true,
+    "strategy": "chapter_aligned",
+    "recovered_blocks": 78,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume1_ch04_discrete_mathematics_set_theory_algebra.txt",
+    "chapter": "Discrete Mathematics: Set Theory & Algebra",
+    "question_blocks": 171,
+    "answer_keys": 173,
+    "aligned": false,
+    "strategy": "topic_group_recovery",
+    "recovered_blocks": 166,
+    "unrecovered_groups": [
+      {
+        "topic": null,
+        "key_prefix": "4.8",
+        "question_blocks": 0,
+        "answer_keys": 7,
+        "non_skip_answer_keys": 6,
+        "reason": "missing_topic_group"
+      }
+    ]
+  },
+  {
+    "file": "filter1_volume1_ch05_engineering_mathematics_calculus.txt",
+    "chapter": "Engineering Mathematics: Calculus",
+    "question_blocks": 67,
+    "answer_keys": 69,
+    "aligned": false,
+    "strategy": "topic_group_recovery",
+    "recovered_blocks": 53,
+    "unrecovered_groups": [
+      {
+        "topic": null,
+        "key_prefix": "5.5",
+        "question_blocks": 0,
+        "answer_keys": 15,
+        "non_skip_answer_keys": 15,
+        "reason": "missing_topic_group"
+      }
+    ]
+  },
+  {
+    "file": "filter1_volume1_ch06_engineering_mathematics_linear_algebra.txt",
+    "chapter": "Engineering Mathematics: Linear Algebra",
+    "question_blocks": 109,
+    "answer_keys": 112,
+    "aligned": false,
+    "strategy": "topic_group_recovery",
+    "recovered_blocks": 109,
+    "unrecovered_groups": [
+      {
+        "topic": null,
+        "key_prefix": "6.10",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      }
+    ]
+  },
+  {
+    "file": "filter1_volume1_ch07_engineering_mathematics_probability.txt",
+    "chapter": "Engineering Mathematics: Probability",
+    "question_blocks": 124,
+    "answer_keys": 125,
+    "aligned": false,
+    "strategy": "topic_group_recovery",
+    "recovered_blocks": 124,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume1_ch08_general_aptitude_analytical_aptitude.txt",
+    "chapter": "General Aptitude: Analytical Aptitude",
+    "question_blocks": 37,
+    "answer_keys": 48,
+    "aligned": false,
+    "strategy": "topic_group_recovery",
+    "recovered_blocks": 11,
+    "unrecovered_groups": [
+      {
+        "topic": null,
+        "key_prefix": "8.6",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "8.7",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "8.8",
+        "question_blocks": 0,
+        "answer_keys": 18,
+        "non_skip_answer_keys": 18,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "8.9",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "8.10",
+        "question_blocks": 0,
+        "answer_keys": 2,
+        "non_skip_answer_keys": 2,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "8.11",
+        "question_blocks": 0,
+        "answer_keys": 2,
+        "non_skip_answer_keys": 2,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "8.12",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "8.13",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "8.14",
+        "question_blocks": 0,
+        "answer_keys": 3,
+        "non_skip_answer_keys": 3,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "8.15",
+        "question_blocks": 0,
+        "answer_keys": 7,
+        "non_skip_answer_keys": 7,
+        "reason": "missing_topic_group"
+      }
+    ]
+  },
+  {
+    "file": "filter1_volume1_ch09_general_aptitude_quantitative_aptitude.txt",
+    "chapter": "General Aptitude: Quantitative Aptitude",
+    "question_blocks": 138,
+    "answer_keys": 197,
+    "aligned": false,
+    "strategy": "topic_group_recovery",
+    "recovered_blocks": 74,
+    "unrecovered_groups": [
+      {
+        "topic": null,
+        "key_prefix": "9.2",
+        "question_blocks": 0,
+        "answer_keys": 5,
+        "non_skip_answer_keys": 5,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.8",
+        "question_blocks": 0,
+        "answer_keys": 4,
+        "non_skip_answer_keys": 4,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.10",
+        "question_blocks": 0,
+        "answer_keys": 4,
+        "non_skip_answer_keys": 4,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.15",
+        "question_blocks": 0,
+        "answer_keys": 2,
+        "non_skip_answer_keys": 2,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.16",
+        "question_blocks": 0,
+        "answer_keys": 2,
+        "non_skip_answer_keys": 2,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.17",
+        "question_blocks": 0,
+        "answer_keys": 4,
+        "non_skip_answer_keys": 4,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.21",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.25",
+        "question_blocks": 0,
+        "answer_keys": 5,
+        "non_skip_answer_keys": 5,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.26",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.27",
+        "question_blocks": 0,
+        "answer_keys": 5,
+        "non_skip_answer_keys": 5,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.28",
+        "question_blocks": 0,
+        "answer_keys": 6,
+        "non_skip_answer_keys": 6,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.29",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.31",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.32",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.33",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.34",
+        "question_blocks": 0,
+        "answer_keys": 5,
+        "non_skip_answer_keys": 5,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.37",
+        "question_blocks": 0,
+        "answer_keys": 9,
+        "non_skip_answer_keys": 9,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.38",
+        "question_blocks": 0,
+        "answer_keys": 8,
+        "non_skip_answer_keys": 8,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.41",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.42",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.43",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.44",
+        "question_blocks": 0,
+        "answer_keys": 17,
+        "non_skip_answer_keys": 17,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.45",
+        "question_blocks": 0,
+        "answer_keys": 3,
+        "non_skip_answer_keys": 3,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.46",
+        "question_blocks": 0,
+        "answer_keys": 6,
+        "non_skip_answer_keys": 6,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.47",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.48",
+        "question_blocks": 0,
+        "answer_keys": 9,
+        "non_skip_answer_keys": 9,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.52",
+        "question_blocks": 0,
+        "answer_keys": 3,
+        "non_skip_answer_keys": 3,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.53",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.54",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.55",
+        "question_blocks": 0,
+        "answer_keys": 7,
+        "non_skip_answer_keys": 7,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "9.57",
+        "question_blocks": 0,
+        "answer_keys": 7,
+        "non_skip_answer_keys": 7,
+        "reason": "missing_topic_group"
+      }
+    ]
+  },
+  {
+    "file": "filter1_volume1_ch10_general_aptitude_spatial_aptitude.txt",
+    "chapter": "General Aptitude: Spatial Aptitude",
+    "question_blocks": 19,
+    "answer_keys": 19,
+    "aligned": true,
+    "strategy": "chapter_aligned",
+    "recovered_blocks": 19,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume1_ch11_general_aptitude_verbal_aptitude.txt",
+    "chapter": "General Aptitude: Verbal Aptitude",
+    "question_blocks": 105,
+    "answer_keys": 165,
+    "aligned": false,
+    "strategy": "topic_group_recovery",
+    "recovered_blocks": 34,
+    "unrecovered_groups": [
+      {
+        "topic": null,
+        "key_prefix": "11.1",
+        "question_blocks": 0,
+        "answer_keys": 7,
+        "non_skip_answer_keys": 7,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "11.7",
+        "question_blocks": 0,
+        "answer_keys": 47,
+        "non_skip_answer_keys": 47,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "11.8",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "11.9",
+        "question_blocks": 0,
+        "answer_keys": 23,
+        "non_skip_answer_keys": 23,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "11.11",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "11.12",
+        "question_blocks": 0,
+        "answer_keys": 2,
+        "non_skip_answer_keys": 2,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "11.13",
+        "question_blocks": 0,
+        "answer_keys": 2,
+        "non_skip_answer_keys": 2,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "11.14",
+        "question_blocks": 0,
+        "answer_keys": 1,
+        "non_skip_answer_keys": 1,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "11.15",
+        "question_blocks": 0,
+        "answer_keys": 13,
+        "non_skip_answer_keys": 13,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "11.17",
+        "question_blocks": 0,
+        "answer_keys": 15,
+        "non_skip_answer_keys": 15,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "11.18",
+        "question_blocks": 0,
+        "answer_keys": 5,
+        "non_skip_answer_keys": 5,
+        "reason": "missing_topic_group"
+      },
+      {
+        "topic": null,
+        "key_prefix": "11.19",
+        "question_blocks": 0,
+        "answer_keys": 14,
+        "non_skip_answer_keys": 14,
+        "reason": "missing_topic_group"
+      }
+    ]
+  },
+  {
+    "file": "filter1_volume2_ch01_algorithms.txt",
+    "chapter": "Algorithms",
+    "question_blocks": 357,
+    "answer_keys": 358,
+    "aligned": false,
+    "strategy": "topic_group_recovery",
+    "recovered_blocks": 357,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume2_ch02_compiler_design.txt",
+    "chapter": "Compiler Design",
+    "question_blocks": 242,
+    "answer_keys": 242,
+    "aligned": true,
+    "strategy": "chapter_aligned",
+    "recovered_blocks": 242,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume2_ch03_programming_and_ds_data_structures.txt",
+    "chapter": "Programming and DS: Data Structures",
+    "question_blocks": 238,
+    "answer_keys": 238,
+    "aligned": true,
+    "strategy": "chapter_aligned",
+    "recovered_blocks": 238,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume2_ch04_programming_and_ds_programming.txt",
+    "chapter": "Programming and DS: Programming",
+    "question_blocks": 1,
+    "answer_keys": 1,
+    "aligned": true,
+    "strategy": "chapter_aligned",
+    "recovered_blocks": 1,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume2_ch05_programming_programming_in_c.txt",
+    "chapter": "Programming: Programming in C",
+    "question_blocks": 131,
+    "answer_keys": 131,
+    "aligned": true,
+    "strategy": "chapter_aligned",
+    "recovered_blocks": 131,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume2_ch06_theory_of_computation.txt",
+    "chapter": "Theory of Computation",
+    "question_blocks": 293,
+    "answer_keys": 293,
+    "aligned": true,
+    "strategy": "chapter_aligned",
+    "recovered_blocks": 293,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume3_ch01_co_architecture.txt",
+    "chapter": "CO & Architecture",
+    "question_blocks": 251,
+    "answer_keys": 251,
+    "aligned": true,
+    "strategy": "chapter_aligned",
+    "recovered_blocks": 251,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume3_ch02_computer_networks.txt",
+    "chapter": "Computer Networks",
+    "question_blocks": 225,
+    "answer_keys": 226,
+    "aligned": false,
+    "strategy": "topic_group_recovery",
+    "recovered_blocks": 225,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume3_ch03_databases.txt",
+    "chapter": "Databases",
+    "question_blocks": 299,
+    "answer_keys": 302,
+    "aligned": false,
+    "strategy": "topic_group_recovery",
+    "recovered_blocks": 299,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume3_ch04_digital_logic.txt",
+    "chapter": "Digital Logic",
+    "question_blocks": 311,
+    "answer_keys": 313,
+    "aligned": false,
+    "strategy": "topic_group_recovery",
+    "recovered_blocks": 311,
+    "unrecovered_groups": []
+  },
+  {
+    "file": "filter1_volume3_ch05_operating_system.txt",
+    "chapter": "Operating System",
+    "question_blocks": 343,
+    "answer_keys": 343,
+    "aligned": true,
+    "strategy": "chapter_aligned",
+    "recovered_blocks": 343,
+    "unrecovered_groups": []
+  }
+]

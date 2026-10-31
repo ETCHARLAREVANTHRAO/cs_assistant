@@ -1,0 +1,39 @@
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-dotenv==1.0.1
+python-multipart==0.0.12
+
+# LangChain RAG stack (let pip resolve compatible versions)
+langchain>=0.3.9
+langchain-groq>=0.2.3
+langchain-openai>=0.2.0
+langchain-core>=0.3.29
+langchain-text-splitters>=0.3.2
+
+# Vector store: Supabase / pgvector
+supabase>=2.31.0
+
+# Lightweight local embeddings via ONNX — no PyTorch, fits Render free tier
+fastembed>=0.3.0
+huggingface-hub>=0.20.0
+
+# HTTP client for weather
+httpx==0.28.1
+
+# Web search tool (free, no API key needed)
+ddgs>=1.0.0
+
+# Document parsing (PDF, Word, images)
+pypdf>=4.0.0
+python-docx>=1.1.0
+Pillow>=10.0.0
+pytesseract>=0.3.10
+pypdfium2>=4.30.0
+
+# Firebase authentication
+firebase-admin>=6.5.0
+
+# Google Drive sync
+google-api-python-client>=2.100.0
+google-auth>=2.23.0
+google-auth-httplib2>=0.2.0

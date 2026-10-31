@@ -1,0 +1,4770 @@
+7
+Engineering Mathematics: Probability
+ 
+(125)
+Syllabus:
+ 
+Random variables
+, 
+Uniform
+, 
+Normal
+, 
+Exponential
+, 
+Poisson
+ and 
+Binomial distributions.
+ 
+Mean,
+median, mode and standard deviation.
+ 
+Conditional probability and Bayes theorem
+Welcome to the "Engineering Mathematics: Probability" chapter, a cornerstone for any aspiring GATE Computer
+Science candidate. This subject delves into the mathematical framework for quantifying uncertainty, analyzing random
+phenomena, and making informed decisions in the face of incomplete information. For GATE CS, a solid understanding
+of probability is indispensable, as it forms the theoretical bedrock for crucial areas like algorithms (randomized
+algorithms, average-case analysis), data structures (hash tables, skip lists), machine learning (classification, regression,
+neural networks, Bayesian inference), artificial intelligence, networking (queueing theory, packet loss), and even
+operating systems (scheduling, resource allocation). Typically, probability questions constitute a significant portion of
+the Engineering Mathematics section, often contributing 3-5 marks directly, with concepts frequently integrated into 1-
+mark or 2-mark questions across other CS topics. Questions can range from direct formula application and conceptual
+understanding to problem-solving involving combinations of distributions and theorems, often requiring careful
+interpretation of scenarios.
+Topic-wise Key Concepts
+Bayes Theorem
+Definition and Core Idea:
+ Bayes' Theorem describes the probability of an event, based on prior knowledge of
+conditions that might be related to the event. It's a fundamental concept for updating beliefs or probabilities as new
+evidence becomes available, forming the basis of Bayesian inference.
+Important Formulas, Theorems, and Results:
+1
+. 
+Bayes' Theorem:
+ For two events 
+ and 
+, where 
+,
+where 
+ can be expanded using the law of total probability:
+More generally, for a partition 
+ of the sample space,
+Key Properties and Identities:
+Allows for the calculation of posterior probability 
+ from prior probability 
+ and likelihood 
+.
+Crucial for diagnostic testing, spam filtering, and machine learning algorithms (e.g., Naive Bayes).
+Common Pitfalls or Tricky Points:
+Confusing 
+ with 
+.
+Incorrectly calculating the denominator 
+ by not considering all mutually exclusive and exhaustive cases.
+Not identifying the correct prior probabilities 
+ and conditional probabilities 
+.
+Standard Problem-Solving Techniques or Shortcuts:
+Clearly define events 
+ and 
+.
+Break down the problem into identifying 
+, 
+, and 
+ (or 
+).
+Use tree diagrams to visualize conditional probabilities and total probability.
+Bayesian Network
+Definition and Core Idea:
+ A Bayesian Network (BN) is a probabilistic graphical model that represents a set of random
+
+
+variables and their conditional dependencies via a directed acyclic graph (DAG). Nodes represent random variables,
+and directed edges represent conditional dependencies, allowing for efficient representation and inference of joint
+probability distributions.
+Important Formulas, Theorems, and Results:
+1
+. 
+Joint Probability Distribution:
+ For a Bayesian Network with nodes 
+, the joint probability
+distribution is given by the product of the conditional probability distributions of each node given its parents:
+2
+. 
+Conditional Independence:
+ A node is conditionally independent of its non-descendants given its parents.
+Key Properties and Identities:
+Provides a compact representation of joint probability distributions, especially for many variables.
+Facilitates inference (e.g., calculating 
+ where 
+ is evidence).
+The graph structure explicitly shows the assumed conditional independencies.
+Common Pitfalls or Tricky Points:
+Misinterpreting the direction of edges or the meaning of conditional independence.
+Incorrectly applying the chain rule for joint probability without respecting the network's structure.
+Confusing marginal independence with conditional independence.
+Standard Problem-Solving Techniques or Shortcuts:
+Identify parents for each node to write down the joint probability.
+Use d-separation rules to determine conditional independencies graphically.
+For inference, apply variable elimination or message passing algorithms (though GATE questions are usually
+simpler, focusing on structure and basic inference).
+Bernoulli Distribution
+Definition and Core Idea:
+ The Bernoulli distribution is a discrete probability distribution for a random variable that takes
+value 1 with probability 
+ (success) and value 0 with probability 
+ (failure). It models a single trial of an experiment
+with only two possible outcomes.
+Important Formulas, Theorems, and Results:
+1
+. 
+Probability Mass Function (PMF):
+ For a Bernoulli random variable 
+,
+2
+. 
+Mean (Expectation):
+ 
+3
+. 
+Variance:
+ 
+Key Properties and Identities:
+It's the simplest discrete distribution.
+The sum of 
+ independent Bernoulli trials follows a Binomial distribution.
+Common Pitfalls or Tricky Points:
+Confusing Bernoulli with Binomial (Bernoulli is a single trial, Binomial is multiple trials).
+Incorrectly identifying 
+ (probability of success).
+Standard Problem-Solving Techniques or Shortcuts:
+Identify the "success" event and its probability 
+.
+Directly apply formulas for mean and variance.
+Binomial Distribution
+Definition and Core Idea:
+ The Binomial distribution models the number of successes in a fixed number of independent
+Bernoulli trials, each with the same probability of success 
+. It is a discrete probability distribution.
+Important Formulas, Theorems, and Results:
+1
+. 
+Probability Mass Function (PMF):
+ For 
+,
+where 
+ is the binomial coefficient.
+
+
+2
+. 
+Mean (Expectation):
+ 
+3
+. 
+Variance:
+ 
+4
+. 
+Standard Deviation:
+ 
+Key Properties and Identities:
+Sum of 
+ independent Bernoulli random variables.
+Symmetric if 
+, skewed otherwise.
+Approximated by Poisson distribution when 
+ is large and 
+ is small (and 
+ is moderate).
+Approximated by Normal distribution when 
+ is large (and 
+, 
+).
+Common Pitfalls or Tricky Points:
+Incorrectly identifying 
+ (number of trials) or 
+ (probability of success).
+Miscalculating binomial coefficients.
+Confusing "at least," "at most," "exactly" in problem statements (e.g., 
+ vs. 
+).
+Standard Problem-Solving Techniques or Shortcuts:
+Identify if the problem involves a fixed number of independent trials with two outcomes.
+Use the complement rule for "at least" or "at most" probabilities (e.g., 
+).
+Memorize mean and variance formulas.
+Chi Square Distribution
+Definition and Core Idea:
+ The Chi-Square (
+) distribution is a continuous probability distribution that arises in
+statistics, particularly in hypothesis testing and confidence interval estimation. It is the distribution of a sum of the
+squares of independent standard normal random variables.
+Important Formulas, Theorems, and Results:
+1
+. 
+Definition:
+ If 
+ are independent standard normal random variables (i.e., 
+), then the
+random variable 
+ follows a Chi-Square distribution with 
+ degrees of freedom, denoted 
+.
+2
+. 
+Probability Density Function (PDF):
+where 
+ is the Gamma function.
+3
+. 
+Mean (Expectation):
+ 
+4
+. 
+Variance:
+ 
+Key Properties and Identities:
+Skewed to the right, but becomes more symmetric as 
+ increases.
+Used in goodness-of-fit tests, tests of independence, and for variance estimation.
+The sum of independent chi-square random variables is also a chi-square random variable with degrees of
+freedom equal to the sum of their individual degrees of freedom.
+Common Pitfalls or Tricky Points:
+Incorrectly identifying the degrees of freedom 
+.
+Confusing the 
+ definition with other squared terms.
+GATE questions usually focus on its properties or its role in statistical tests rather than direct PDF calculations.
+Standard Problem-Solving Techniques or Shortcuts:
+Understand that it's a sum of squared standard normal variables.
+Memorize mean and variance in terms of degrees of freedom.
+Recognize its application in hypothesis testing contexts (e.g., for categorical data).
+Conditional Probability
+Definition and Core Idea:
+ Conditional probability is the probability of an event occurring given that another event has
+already occurred. It quantifies how the probability of an event changes when new information is available.
+Important Formulas, Theorems, and Results:
+1
+. 
+Definition:
+ For two events 
+ and 
+, with 
+, the conditional probability of 
+ given 
+ is:
+
+
+2
+. 
+Multiplication Rule of Probability:
+3
+. 
+Law of Total Probability:
+ If 
+ form a partition of the sample space, then for any event 
+:
+Key Properties and Identities:
+If 
+ and 
+ are independent, 
+.
+.
+.
+Common Pitfalls or Tricky Points:
+Incorrectly identifying 
+ or 
+.
+Confusing 
+ with 
+ or 
+.
+Not recognizing when events are independent, which simplifies calculations.
+Standard Problem-Solving Techniques or Shortcuts:
+Clearly define the events 
+ and 
+.
+Use Venn diagrams or tree diagrams to visualize the sample space and events.
+Break down complex problems into simpler conditional probabilities.
+Continuous Distribution
+Definition and Core Idea:
+ A continuous probability distribution describes the probabilities of a random variable taking
+on values in a continuous range (e.g., real numbers). Unlike discrete distributions, the probability of a continuous
+random variable taking on any single exact value is zero.
+Important Formulas, Theorems, and Results:
+1
+. 
+Probability Density Function (PDF):
+ 
+ such that 
+ for all 
+, and 
+.
+2
+. 
+Probability of an Interval:
+ 
+.
+3
+. 
+Cumulative Distribution Function (CDF):
+ 
+.
+4
+. 
+Relationship between PDF and CDF:
+ 
+ (where 
+ is differentiable).
+5
+. 
+Mean (Expectation):
+ 
+.
+6
+. 
+Variance:
+ 
+.
+Key Properties and Identities:
+ for any specific value 
+.
+The area under the PDF curve over its entire range is 1.
+The CDF is non-decreasing and ranges from 0 to 1.
+Common Pitfalls or Tricky Points:
+Confusing PDF with PMF (for discrete distributions).
+Incorrectly calculating integrals for probabilities, mean, or variance.
+Forgetting that 
+ for continuous distributions.
+Standard Problem-Solving Techniques or Shortcuts:
+Always check if the given function is a valid PDF (non-negative and integrates to 1).
+Use integration for calculating probabilities and moments.
+Understand the relationship between PDF and CDF.
+Expectation
+Definition and Core Idea:
+ The expectation (or expected value, mean) of a random variable is the weighted average of
+all possible values that the random variable can take, with the weights being their respective probabilities. It represents
+the "long-run average" or central tendency of the random variable.
+Important Formulas, Theorems, and Results:
+1
+. 
+For Discrete Random Variable 
+:
+
+
+2
+. 
+For Continuous Random Variable 
+:
+3
+. 
+Expectation of a Function of a Random Variable 
+:
+Discrete: 
+Continuous: 
+4
+. 
+Linearity of Expectation:
+ For any random variables 
+ and constants 
+:
+5
+. 
+Expectation of Product (for Independent Variables):
+ If 
+ and 
+ are independent, then 
+.
+Key Properties and Identities:
+ for a constant 
+.
+.
+Expectation is a linear operator.
+Common Pitfalls or Tricky Points:
+Confusing 
+ with 
+. They are generally not equal.
+Applying 
+ when 
+ and 
+ are not independent.
+Incorrectly summing or integrating over the wrong range.
+Standard Problem-Solving Techniques or Shortcuts:
+Identify whether the variable is discrete or continuous.
+Use linearity of expectation extensively, as it holds even for dependent variables.
+For complex functions, break them down using linearity.
+Exponential Distribution
+Definition and Core Idea:
+ The Exponential distribution is a continuous probability distribution that describes the time
+between events in a Poisson process, i.e., a process in which events occur continuously and independently at a
+constant average rate. It is memoryless, meaning the past duration does not affect future duration.
+Important Formulas, Theorems, and Results:
+1
+. 
+Probability Density Function (PDF):
+ For 
+,
+where 
+ is the rate parameter.
+2
+. 
+Cumulative Distribution Function (CDF):
+3
+. 
+Mean (Expectation):
+ 
+4
+. 
+Variance:
+ 
+5
+. 
+Memoryless Property:
+ 
+ for any 
+.
+Key Properties and Identities:
+Models waiting times, lifetimes of components, etc.
+Its rate parameter 
+ is the inverse of the mean.
+The only continuous distribution with the memoryless property.
+Common Pitfalls or Tricky Points:
+Confusing the rate parameter 
+ with the mean 
+.
+Incorrectly applying the memoryless property or forgetting its implications.
+Errors in integration for probabilities or moments if not using CDF.
+Standard Problem-Solving Techniques or Shortcuts:
+Identify problems involving "time until" an event or "lifetime" with a constant rate.
+Directly use CDF for 
+ or 
+.
+Apply the memoryless property to simplify conditional probability questions.
+Independent Events
+
+
+Definition and Core Idea:
+ Two events are independent if the occurrence of one does not affect the probability of the
+other occurring. Their probabilities multiply to give the probability of both occurring.
+Important Formulas, Theorems, and Results:
+1
+. 
+Definition:
+ Events 
+ and 
+ are independent if and only if:
+2
+. 
+Equivalent Conditions:
+ If 
+, then 
+ and 
+ are independent if and only if 
+. Similarly,
+if 
+, then 
+.
+3
+. 
+Independence of Complements:
+ If 
+ and 
+ are independent, then 
+ and 
+, 
+ and 
+, and 
+ and 
+ are
+also independent.
+Key Properties and Identities:
+Simplifies calculations involving joint probabilities.
+Crucial assumption for many statistical models and distributions (e.g., Binomial, Poisson).
+Common Pitfalls or Tricky Points:
+Confusing independent events with mutually exclusive events (disjoint events). Mutually exclusive events cannot
+be independent unless one has zero probability.
+Assuming independence when it's not explicitly stated or logically implied.
+Incorrectly applying the product rule for dependent events.
+Standard Problem-Solving Techniques or Shortcuts:
+Always check the definition 
+ to verify independence.
+If events are independent, use the simplified conditional probability 
+.
+Normal Distribution
+Definition and Core Idea:
+ The Normal (or Gaussian) distribution is a symmetric, bell-shaped continuous probability
+distribution that is ubiquitous in natural and social sciences. It is characterized by its mean (
+) and standard deviation (
+), and is central to the Central Limit Theorem.
+Important Formulas, Theorems, and Results:
+1
+. 
+Probability Density Function (PDF):
+ For 
+,
+2
+. 
+Mean (Expectation):
+ 
+3
+. 
+Variance:
+ 
+4
+. 
+Standard Deviation:
+ 
+5
+. 
+Standard Normal Distribution:
+ A normal distribution with 
+ and 
+, denoted 
+.
+6
+. 
+Standardization:
+ If 
+, then 
+.
+7
+. 
+Empirical Rule (68-95-99.7 Rule):
+ Approximately 68% of data falls within 
+ of the mean, 95% within 
+, and
+99.7% within 
+.
+Key Properties and Identities:
+Symmetric about its mean.
+The mean, median, and mode are all equal to 
+.
+Sum of independent normal random variables is also normal.
+Central Limit Theorem: The sum/average of a large number of independent and identically distributed random
+variables, regardless of their original distribution, tends towards a normal distribution.
+Common Pitfalls or Tricky Points:
+Not standardizing correctly before using Z-tables (if tables were provided, though GATE usually tests concepts).
+Confusing variance 
+ with standard deviation 
+.
+Assuming normality when not justified, especially for small sample sizes.
+Standard Problem-Solving Techniques or Shortcuts:
+Convert any normal variable to a standard normal variable using 
+.
+Use the symmetry of the normal distribution: 
+.
+Apply the empirical rule for quick estimations.
+Poisson Distribution
+
+
+Definition and Core Idea:
+ The Poisson distribution is a discrete probability distribution that expresses the probability of
+a given number of events occurring in a fixed interval of time or space if these events occur with a known constant
+mean rate and independently of the time since the last event.
+Important Formulas, Theorems, and Results:
+1
+. 
+Probability Mass Function (PMF):
+ For 
+,
+where 
+ is the average rate of events in the interval.
+2
+. 
+Mean (Expectation):
+ 
+3
+. 
+Variance:
+ 
+Key Properties and Identities:
+Models rare events.
+The mean and variance are equal (
+).
+Can approximate the Binomial distribution when 
+ is large and 
+ is small, with 
+.
+The sum of independent Poisson random variables is also a Poisson random variable (with rate parameter equal
+to the sum of individual rates).
+Common Pitfalls or Tricky Points:
+Incorrectly identifying 
+ (the average rate for the specified interval). Ensure 
+ is consistent with the time/space
+unit of the problem.
+Miscalculating factorials or powers of 
+.
+Confusing "at least," "at most," "exactly" in problem statements.
+Standard Problem-Solving Techniques or Shortcuts:
+Identify problems involving counts of events over a fixed interval.
+Use the complement rule for "at least" probabilities.
+Remember that mean and variance are both 
+.
+Probability
+Definition and Core Idea:
+ Probability is a numerical measure of the likelihood of an event occurring. It is a value
+between 0 and 1, where 0 indicates impossibility and 1 indicates certainty. It forms the foundation for understanding
+randomness and uncertainty.
+Important Formulas, Theorems, and Results:
+1
+. 
+Axioms of Probability:
+For any event 
+, 
+.
+ where 
+ is the sample space.
+For a sequence of mutually exclusive events 
+, 
+.
+2
+. 
+Complement Rule:
+ 
+.
+3
+. 
+Addition Rule:
+ 
+.
+4
+. 
+For Mutually Exclusive Events:
+ If 
+, then 
+.
+Key Properties and Identities:
+Probabilities are non-negative.
+The sum of probabilities of all possible outcomes is 1.
+The probability of the impossible event is 0.
+Common Pitfalls or Tricky Points:
+Incorrectly identifying the sample space or events.
+Misapplying the addition rule without accounting for overlaps.
+Confusing "and" (
+) with "or" (
+).
+Standard Problem-Solving Techniques or Shortcuts:
+Clearly define the sample space and events.
+Use Venn diagrams for visualizing events and their intersections/unions.
+For equally likely outcomes, 
+.
+Probability Density Function (PDF)
+Definition and Core Idea:
+ The Probability Density Function (PDF), denoted 
+, is a function associated with
+continuous random variables. It describes the relative likelihood for the random variable to take on a given value. The
+area under the PDF curve over an interval gives the probability that the variable falls within that interval.
+
+
+Important Formulas, Theorems, and Results:
+1
+. 
+Properties of a PDF:
+ for all 
+.
+.
+2
+. 
+Probability Calculation:
+ 
+.
+3
+. 
+Relationship with CDF:
+ 
+, where 
+ is the Cumulative Distribution Function.
+Key Properties and Identities:
+The PDF itself does not give a probability; rather, its integral over an interval does.
+For continuous variables, 
+.
+Common Pitfalls or Tricky Points:
+Interpreting 
+ as 
+. This is incorrect for continuous variables.
+Forgetting to check if the PDF integrates to 1 over its entire domain.
+Errors in integration limits or the function itself.
+Standard Problem-Solving Techniques or Shortcuts:
+Always verify the two properties of a PDF.
+Use integration to find probabilities over intervals.
+If given a CDF, differentiate to find the PDF.
+Probability Distribution
+Definition and Core Idea:
+ A probability distribution is a mathematical function that describes all possible values and
+likelihoods that a random variable can take within a given range. It can be discrete (Probability Mass Function, PMF) or
+continuous (Probability Density Function, PDF).
+Important Formulas, Theorems, and Results:
+1
+. 
+For Discrete Distributions (PMF 
+):
+ for all 
+.
+.
+2
+. 
+For Continuous Distributions (PDF 
+):
+ for all 
+.
+.
+3
+. 
+Cumulative Distribution Function (CDF):
+ 
+.
+For discrete: 
+.
+For continuous: 
+.
+Key Properties and Identities:
+Completely characterizes a random variable's behavior.
+CDF is non-decreasing, 
+, 
+.
+Allows calculation of probabilities, expected values, and variances.
+Common Pitfalls or Tricky Points:
+Confusing PMF and PDF.
+Incorrectly applying summation for continuous or integration for discrete.
+Not understanding the difference between 
+ and 
+.
+Standard Problem-Solving Techniques or Shortcuts:
+Identify whether the random variable is discrete or continuous.
+Use the appropriate function (PMF/PDF) and its properties to solve problems.
+Understand the relationship between PMF/PDF and CDF.
+Random Variable
+Definition and Core Idea:
+ A random variable is a variable whose value is a numerical outcome of a random
+phenomenon. It is a function that maps outcomes from a sample space to real numbers. Random variables can be
+discrete (taking countable values) or continuous (taking values in an interval).
+Important Formulas, Theorems, and Results:
+1
+. 
+Discrete Random Variable:
+ Takes on a finite or countably infinite number of values (e.g., number of heads in
+coin flips).
+2
+. 
+Continuous Random Variable:
+ Takes on any value within a given interval (e.g., height, temperature).
+3
+. 
+Probability Distribution:
+ Each random variable has an associated probability distribution (PMF or PDF) that
+describes the probabilities of its possible values.
+Key Properties and Identities:
+
+
+Transforms qualitative outcomes into quantitative values.
+Allows for mathematical analysis of random phenomena.
+The sum, difference, product, or quotient of random variables is also a random variable.
+Common Pitfalls or Tricky Points:
+Confusing the random variable itself with the values it can take.
+Not correctly defining the sample space before defining the random variable.
+Misidentifying whether a variable is discrete or continuous.
+Standard Problem-Solving Techniques or Shortcuts:
+Clearly define the random variable and its possible values.
+Determine if it's discrete or continuous to choose the correct probability distribution type.
+Map real-world scenarios to appropriate random variable definitions.
+Square Invariant
+Definition and Core Idea:
+ While "Square Invariant" is not a standard term for a probability distribution or theorem, in
+the context of probability and statistics, it most likely refers to properties or transformations related to the square of a
+random variable, particularly in the calculation of moments or variance, or in the context of distributions like the Chi-
+Square distribution which involves sums of squared normal variables. It implies that certain properties hold true even
+after squaring the variable or that a transformation involving squaring preserves some characteristic.
+Important Formulas, Theorems, and Results:
+1
+. 
+Second Moment:
+ 
+ (discrete) or 
+ (continuous). This is a key "square"
+quantity.
+2
+. 
+Variance Definition:
+ 
+. This formula shows how 
+ is
+used to calculate variance.
+3
+. 
+Chi-Square Distribution:
+ Defined as the sum of squares of independent standard normal random variables, 
+. This is a direct application of squaring random variables.
+4
+. 
+Properties of Variance:
+ 
+. This shows how scaling affects the variance (a square
+property).
+Key Properties and Identities:
+ is always non-negative.
+Variance measures the spread of a distribution in squared units.
+The Chi-Square distribution is fundamental for statistical inference involving variances.
+Common Pitfalls or Tricky Points:
+Confusing 
+ with 
+. They are distinct and generally not equal.
+Incorrectly calculating 
+ by not squaring the values before applying expectation.
+Misinterpreting the degrees of freedom in Chi-Square related problems.
+Standard Problem-Solving Techniques or Shortcuts:
+When calculating variance, always compute 
+ and 
+ separately.
+Recognize that problems involving sums of squared normal variables point towards the Chi-Square distribution.
+Remember that variance is always non-negative.
+Statistics
+Definition and Core Idea:
+ Statistics is the science of collecting, analyzing, interpreting, presenting, and organizing
+data. In the context of probability, statistics involves using data from a sample to make inferences about a larger
+population, often relying on probability distributions to quantify uncertainty.
+Important Formulas, Theorems, and Results:
+1
+. 
+Measures of Central Tendency:
+Mean (
+ or 
+):
+ Average value.
+Median:
+ Middle value when data is ordered.
+Mode:
+ Most frequent value.
+2
+. 
+Measures of Dispersion:
+Variance (
+ or 
+):
+ Average of the squared differences from the mean.
+Standard Deviation (
+ or 
+):
+ Square root of variance, in original units.
+Range:
+ Max value - Min value.
+3
+. 
+Sample vs. Population:
+Population Mean: 
+Sample Mean: 
+
+
+Population Variance: 
+Sample Variance: 
+ (unbiased estimator)
+Key Properties and Identities:
+Statistics provides tools to summarize and interpret data.
+Probability distributions are models for the underlying data generation process.
+Central Limit Theorem is a bridge between probability and statistics.
+Common Pitfalls or Tricky Points:
+Confusing population parameters (
+) with sample statistics (
+).
+Using 
+ instead of 
+ in the denominator for sample variance (for unbiased estimation).
+Misinterpreting the meaning of different measures (e.g., mean vs. median for skewed data).
+Standard Problem-Solving Techniques or Shortcuts:
+Identify whether the problem refers to a population or a sample.
+Know the definitions and formulas for common descriptive statistics.
+Understand how probability distributions are used to model observed data.
+Uniform Distribution
+Definition and Core Idea:
+ The Uniform distribution is a continuous probability distribution where all values within a
+given interval 
+ are equally likely. It has a constant probability density over its support and zero elsewhere.
+Important Formulas, Theorems, and Results:
+1
+. 
+Probability Density Function (PDF):
+ For 
+,
+2
+. 
+Cumulative Distribution Function (CDF):
+3
+. 
+Mean (Expectation):
+ 
+4
+. 
+Variance:
+ 
+Key Properties and Identities:
+All outcomes within the interval 
+ are equally probable.
+Often used as a null hypothesis or a simple model when no other information is available.
+Common Pitfalls or Tricky Points:
+Incorrectly identifying the interval 
+.
+Errors in calculating probabilities for sub-intervals (e.g., 
+).
+Forgetting the constant 
+ in the variance formula.
+Standard Problem-Solving Techniques or Shortcuts:
+Draw the PDF as a rectangle for visualization.
+Probabilities are simply the ratio of the length of the sub-interval to the length of the total interval.
+Memorize mean and variance formulas.
+Variance
+Definition and Core Idea:
+ Variance is a measure of the spread or dispersion of a set of data points around their mean.
+It quantifies how much the values of a random variable deviate from its expected value, on average. A higher variance
+indicates greater variability.
+Important Formulas, Theorems, and Results:
+1
+. 
+Definition:
+ 
+2
+. 
+Computational Formula:
+ 
+3
+. 
+For Discrete Random Variable 
+:
+
+
+4
+. 
+For Continuous Random Variable 
+:
+5
+. 
+Properties of Variance:
+ for a constant 
+.
+ for a constant 
+.
+ for a constant 
+.
+.
+For independent random variables 
+: 
+.
+For independent random variables 
+: 
+.
+6
+. 
+Standard Deviation:
+ 
+.
+Key Properties and Identities:
+Variance is always non-negative.
+It is expressed in squared units of the random variable.
+It measures the average squared deviation from the mean.
+Common Pitfalls or Tricky Points:
+Forgetting to square the deviations or the constant 
+ when applying properties.
+Assuming 
+ when 
+ and 
+ are not independent (this requires covariance
+terms).
+Confusing variance with standard deviation.
+Standard Problem-Solving Techniques or Shortcuts:
+Always use the computational formula 
+ as it's often easier.
+Leverage the properties of variance to simplify calculations for linear transformations or sums of independent
+variables.
+Calculate 
+ first, then 
+.
+Quick Formula Reference
+Basic Probability
+Addition Rule: 
+Complement Rule: 
+Conditional Probability
+Definition: 
+Multiplication Rule: 
+Law of Total Probability: 
+Independent Events
+Condition: 
+ or 
+Bayes Theorem
+Formula: 
+Expectation (Mean)
+Discrete: 
+Continuous: 
+Linearity: 
+Variance
+Definition: 
+Computational: 
+Properties: 
+For independent 
+: 
+Standard Deviation: 
+Bernoulli Distribution
+ (
+, 
+)
+PMF: 
+Mean: 
+Variance: 
+Binomial Distribution
+ (
+)
+
+
+7.1
+7.1.1
+PMF: 
+Mean: 
+Variance: 
+Poisson Distribution
+ (
+)
+PMF: 
+Mean: 
+Variance: 
+Uniform Distribution
+ (
+)
+PDF: 
+ for 
+, else 0
+Mean: 
+Variance: 
+Exponential Distribution
+ (
+)
+PDF: 
+ for 
+, else 0
+CDF: 
+ for 
+Mean: 
+Variance: 
+Memoryless: 
+Normal Distribution
+ (
+)
+PDF: 
+Mean: 
+Variance: 
+Standardization: 
+Chi-Square Distribution
+ (
+)
+Definition: Sum of 
+ squared independent standard normal variables.
+Mean: 
+Variance: 
+Important Tips for GATE
+1
+. 
+Master the Fundamentals:
+ Ensure a strong grasp of basic probability axioms, conditional probability, and
+independence. Many complex problems are built upon these foundational concepts. Don't rush through them.
+2
+. 
+Understand Discrete vs. Continuous:
+ Clearly distinguish between discrete and continuous random variables.
+Know when to use summation (PMF) versus integration (PDF), and remember that 
+ for continuous
+variables.
+3
+. 
+Memorize Key Distribution Properties:
+ For each distribution (Bernoulli, Binomial, Poisson, Uniform, Exponential,
+Normal, Chi-Square), memorize their PMF/PDF, mean, and variance. This saves crucial time in the exam.
+4
+. 
+Practice Conditional Probability and Bayes' Theorem:
+ These are frequently tested. Practice problems that
+require careful identification of events and application of the formulas, especially those involving multiple stages or
+diagnostic scenarios.
+5
+. 
+Pay Attention to Keywords:
+ Words like "at least," "at most," "exactly," "given that," "independent," and "without
+replacement" significantly alter problem interpretation and solution approach. Read questions carefully.
+6
+. 
+Leverage Linearity of Expectation and Variance Properties:
+ 
+ is powerful as it
+holds even for dependent variables. For variance, remember 
+ and 
+ only for independent variables.
+7
+. 
+Don't Confuse Mean and Variance Parameters:
+ For Exponential distribution, 
+ is the rate, mean is 
+. For
+Normal, 
+ is mean, 
+ is variance (not 
+). Small errors here are common pitfalls.
+8
+. 
+Practice Problem Solving:
+ The best way to prepare is to solve a wide variety of problems from previous GATE
+papers and standard textbooks. Focus on understanding the logic behind each step, not just getting the answer.
+Bayes Theorem 
+(3)
+Bayes Theorem: GATE CSE 2018 | Question: 44
+Consider Guwahati, 
+ and Delhi 
+ whose temperatures can be classiﬁed as high 
+, medium 
+and low 
+. Let 
+ denote the probability that Guwahati has high temperature. Similarly, 
+ and 
+
+
+7.1.2
+7.1.3
+7.2
+ denotes the probability of Guwahati having medium and low temperatures respectively. Similarly, we use 
+ and 
+ for Delhi. The following table gives the conditional probabilities for Delhi’s
+temperature given Guwahati’s temperature.
+Consider the ﬁrst row in the table above. The ﬁrst entry denotes that if Guwahati has high temperature 
+ then
+the probability of Delhi also having a high temperature 
+ is 
+ i.e., 
+. Similarly, the next
+two entries are 
+. Similarly for the other rows.
+If it is known that 
+, and 
+, then the probability (correct to two decimal
+places) that Guwahati has high temperature given that Delhi has high temperature is ________.
+gatecse-2018
+ 
+probability
+ 
+bayes-theorem
+ 
+conditional-probability
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Bayes Theorem: GATE CSE 2021 | Set 1 | Question: 54
+A sender 
+ transmits a signal, which can be one of the two kinds: 
+ and 
+ with probabilities 
+ and 
+respectively, to a receiver 
+.
+In the graph below, the weight of edge 
+ is the probability of receiving 
+ when 
+ is transmitted, where 
+. For example, the probability that the received signal is 
+ given the transmitted signal was 
+, is 
+.
+If the received signal is 
+ the probability that the transmitted signal was 
+ (rounded to 
+ decimal places) is
+__________.
+gatecse-2021-set1
+ 
+probability
+ 
+bayes-theorem
+ 
+conditional-probability
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Bayes Theorem: GATE DA 2025 | Question: 21
+There are three boxes containing white balls and black balls.
+Box -
+ contains 
+ black and 
+ white balls.
+Box- 
+ contains 
+ black and 
+ white balls.
+Box -
+ contains 
+ black and 
+ white balls.
+In a random experiment, one of these boxes is selected, where the probability of choosing Box-
+ is 
+, Box-2 is 
+,
+and Box- 
+ is 
+. A ball is drawn at random from the selected box. Given that the ball drawn is white, the probability
+that it is drawn from Box-
+ is ____________ (Round off to two decimal places)
+gateda-2025
+ 
+probability
+ 
+bayes-theorem
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Bayesian Network 
+(2)
+
+
+7.2.1
+7.2.2
+Bayesian Network: GATE DS&AI 2024 | Question: 14
+​​​​​​
+Consider five random variables 
+, and 
+ whose joint distribution satisfies:
+Which ONE of the following statements is FALSE?
+A
+. 
+ is conditionally independent of 
+ given 
+B
+. 
+ is conditionally independent of 
+ given 
+C
+. 
+ and 
+ are conditionally independent given 
+D
+. 
+ and 
+ are conditionally independent given 
+ 
+gate-ds-ai-2024
+ 
+probability
+ 
+random-variable
+ 
+bayesian-network
+ 
+one-mark
+Answer key
+☟
+Bayesian Network: GATE DS&AI 2024 | Question: 54
+Given the following Bayesian Network consisting of four Bernoulli random variables and the associated
+conditional probability tables:
+
+
+7.3
+7.3.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.3.2
+7.4
+7.4.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+The value of 
+ (rounded off to three decimal places).
+ 
+gate-ds-ai-2024
+ 
+probability
+ 
+bayesian-network
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Bernoulli Distribution 
+(2)
+Bernoulli Distribution: GATE DA 2025 | Question: 30
+​​​​​
+A random variable 
+ is said to be distributed as 
+, denoted by 
+ Bernoulli( 
+ ), if
+for 
+. Let  
+, where 
+ be independent and identically
+distributed random variables with 
+. The value of 
+, after approximation through Central
+Limit Theorem, is given by 
+Recall that 
+gateda-2025
+ 
+probability
+ 
+random-variable
+ 
+bernoulli-distribution
+ 
+two-marks
+Answer key
+☟
+Bernoulli Distribution: GATE DA 2026 | Question: 54
+Let 
+ be a matrix such that each of its elements follows 
+ distribution
+independently.
+The probability that the row-sum of the second row and the column-sum of the third column are both equal to 
+ is 
+ (Rounded off to two decimal places)
+gateda-2026
+ 
+probability
+ 
+bernoulli-distribution
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Binomial Distribution 
+(6)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(10Q)
+Binomial Distribution: GATE CSE 2002 | Question: 2.16
+Four fair coins are tossed simultaneously. The probability that at least one head and one tail turn up is
+gatecse-2002
+ 
+probability
+ 
+easy
+ 
+binomial-distribution
+Answer key
+☟
+
+
+7.4.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.4.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.4.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.4.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.4.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.5
+7.5.1
+Binomial Distribution: GATE CSE 2005 | Question: 52
+A random bit string of length n is constructed by tossing a fair coin n times and setting a bit to 0 or 1
+depending on outcomes head and tail, respectively. The probability that two such randomly generated
+strings are not identical is:
+gatecse-2005
+ 
+probability
+ 
+binomial-distribution
+ 
+easy
+Answer key
+☟
+Binomial Distribution: GATE CSE 2006 | Question: 21
+For each element in a set of size 
+, an unbiased coin is tossed. The 
+ coin tosses are independent. An
+element is chosen if the corresponding coin toss was a head. The probability that exactly 
+ elements are
+chosen is
+gatecse-2006
+ 
+probability
+ 
+binomial-distribution
+ 
+normal
+Answer key
+☟
+Binomial Distribution: GATE IT 2005 | Question: 32
+An unbiased coin is tossed repeatedly until the outcome of two successive tosses is the same. Assuming
+that the trials are independent, the expected number of tosses is
+gateit-2005
+ 
+probability
+ 
+binomial-distribution
+ 
+expectation
+ 
+normal
+Answer key
+☟
+Binomial Distribution: GATE IT 2006 | Question: 22
+When a coin is tossed, the probability of getting a Head is 
+. Let 
+ be the random variable
+denoting the number of tosses till the ﬁrst Head appears, including the toss where the Head appears.
+Assuming that successive tosses are independent, the expected value of 
+ is
+gateit-2006
+ 
+probability
+ 
+binomial-distribution
+ 
+expectation
+ 
+normal
+Answer key
+☟
+Binomial Distribution: GATE IT 2007 | Question: 1
+Suppose there are two coins. The ﬁrst coin gives heads with probability 
+ when tossed, while the second
+coin gives heads with probability 
+ One of the two coins is picked up at random with equal probability and tossed.
+What is the probability of obtaining heads ?
+gateit-2007
+ 
+probability
+ 
+normal
+ 
+binomial-distribution
+Answer key
+☟
+Chi Square Distribution 
+(1)
+Chi Square Distribution: GATE DA 2026 | Question: 43
+Let 
+ be 
+ independent random variables. Each of the random variables follows 
+ distribution. Define 
+.
+Which of the following statements is/are correct?
+
+
+7.6
+7.6.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.6.2
+7.6.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+  
+7.6.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.6.5
+A
+. 
+ follows Chi-square distribution with 
+ degrees of freedom.
+B
+. 
+ follows Chi-square distribution with 
+ degrees of freedom.
+C
+. 
+ follows exponential distribution with mean 
+.
+D
+. 
+ follows Chi-square distribution with 
+ degrees of freedom.
+gateda-2026
+ 
+random-variable
+ 
+normal-distribution
+ 
+chi-square-distribution
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Conditional Probability 
+(14)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+Conditional Probability: GATE CSE 1994 | Question: 1.4, ISRO2017-2
+Let 
+ and 
+ be any two arbitrary events, then, which one of the following is TRUE?
+gate1994
+ 
+probability
+ 
+conditional-probability
+ 
+normal
+ 
+isro2017
+Answer key
+☟
+Conditional Probability: GATE CSE 1994 | Question: 2.6
+The probability of an event 
+ is 
+. The probability that events 
+ and 
+ occur together is 
+ while the
+probability that 
+ and 
+ occur together is 
+. The probability of the event 
+ in terms of 
+ and 
+ is
+_____________
+gate1994
+ 
+probability
+ 
+normal
+ 
+conditional-probability
+ 
+fill-in-the-blanks
+Answer key
+☟
+Conditional Probability: GATE CSE 2003 | Question: 3
+Let 
+ denote the probability of the event 
+. Given 
+, 
+, the values of 
+ and 
+ respectively are
+gatecse-2003
+ 
+probability
+ 
+easy
+ 
+conditional-probability
+Answer key
+☟
+Conditional Probability: GATE CSE 2005 | Question: 51
+Box 
+ has 
+ red balls and 
+ blue balls and box 
+ has 
+ red balls and 
+ blue ball. A ball is selected as
+follows: (i) select a box (ii) choose a ball from the selected box such that each ball in the box is equally likely
+to be chosen. The probabilities of selecting boxes 
+ and 
+ are 
+ and 
+ respectively. Given that a ball selected in
+the above process is a red ball, the probability that it came from the box 
+ is:
+gatecse-2005
+ 
+probability
+ 
+conditional-probability
+ 
+normal
+Answer key
+☟
+Conditional Probability: GATE CSE 2008 | Question: 27
+Aishwarya studies either computer science or mathematics everyday. If she studies computer science on a
+day, then the probability that she studies mathematics the next day is 
+. If she studies mathematics on a
+day, then the probability that she studies computer science the next day is 
+. Given that Aishwarya studies
+computer science on Monday, what is the probability that she studies computer science on Wednesday?
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.6.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.6.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.6.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.6.9
+7.6.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2008
+ 
+probability
+ 
+normal
+ 
+conditional-probability
+Answer key
+☟
+Conditional Probability: GATE CSE 2009 | Question: 21
+An unbalanced dice (with 
+ faces, numbered from 
+ to 
+) is thrown. The probability that the face value is odd
+is 
+ of the probability that the face value is even. The probability of getting any even numbered face is
+the same. If the probability that the face is even given that it is greater than 
+ is 
+, which one of the following
+options is closest to the probability that the face value exceeds 
+?
+gatecse-2009
+ 
+probability
+ 
+normal
+ 
+conditional-probability
+Answer key
+☟
+Conditional Probability: GATE CSE 2011 | Question: 3
+If two fair coins are ﬂipped and at least one of the outcomes is known to be a head, what is the probability
+that both outcomes are heads?
+gatecse-2011
+ 
+probability
+ 
+easy
+ 
+conditional-probability
+Answer key
+☟
+Conditional Probability: GATE CSE 2012 | Question: 33
+Suppose a fair six-sided die is rolled once. If the value on the die is 
+ or 
+ the die is rolled a second
+time. What is the probability that the sum total of values that turn up is at least 
+ ?
+gatecse-2012
+ 
+probability
+ 
+conditional-probability
+ 
+normal
+Answer key
+☟
+Conditional Probability: GATE CSE 2016 | Set 2 | Question: 05
+Suppose that a shop has an equal number of LED bulbs of two diﬀerent types. The probability of an LED
+bulb lasting more than 
+ hours given that it is of Type 
+ is 
+, and given that it is of Type 
+ is 
+. The
+probability that an LED bulb chosen uniformly at random lasts more than 
+ hours is _________.
+gatecse-2016-set2
+ 
+probability
+ 
+conditional-probability
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Conditional Probability: GATE CSE 2017 | Set 2 | Question: 26
+ and 
+ are considering to apply for a job. The probability that 
+ applies for the job is 
+ the probability
+that 
+ applies for the job given that 
+ applies for the job is 
+ and the probability that 
+ applies for the job given
+that 
+ applies for the job is 
+ Then the probability that 
+ does not apply for the job given that 
+ does not apply
+for this job is
+gatecse-2017-set2
+ 
+probability
+ 
+conditional-probability
+Answer key
+☟
+
+
+7.6.11
+7.6.12
+7.6.13
+7.6.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.7
+7.7.1
+7.8
+Conditional Probability: GATE CSE 2024 | Set 1 | Question: 53
+A bag contains 
+ red balls and 
+ blue balls. Two balls are drawn randomly without replacement. Given
+that the ﬁrst ball drawn is red, the probability 
+(rounded oﬀ to 
+ decimal places)
+ that both balls drawn are red
+is ___________.
+gatecse-2024-set1
+ 
+numerical-answers
+ 
+probability
+ 
+conditional-probability
+ 
+two-marks
+Answer key
+☟
+Conditional Probability: GATE CSE 2026 | Set 2 | Question: 53
+Suppose an unbiased coin is tossed 
+ times. Each coin toss is independent of all previous coin tosses. Let 
+ be the event that among the second, fourth, and sixth coin tosses, there are at least two heads. Let 
+be the event that among the first, second, third, and fifth coin tosses, there are equal number of heads and tails.
+The conditional probability 
+ is equal to 
+. (rounded off to one decimal place)
+gatecse-2026-set2
+ 
+conditional-probability
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Conditional Probability: GATE DA 2026 | Question: 47
+A clinic specializes in testing for a disease 
+. The result of the test can be either positive or negative.
+A study revealed that if a person suﬀers from the disease 
+, the test result in that clinic comes out positive 
+ of
+the time, and negative 
+ of the time. If a person is not suﬀering from the disease 
+, the test comes out positive 
+ of the time and negative 
+ of the time. It is also known that among the general population, the disease 
+occurs in 
+ of the individuals.
+If a person tests positive for 
+ in that clinic, the probability that he/she actually suﬀers from the disease 
+ is 
+.
+(Rounded off to two decimal places)
+gateda-2026
+ 
+probability
+ 
+conditional-probability
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Conditional Probability: GATE IT 2006 | Question: 1
+In a certain town, the probability that it will rain in the afternoon is known to be 
+. Moreover, meteorological
+data indicates that if the temperature at noon is less than or equal to 
+, the probability that it will rain in
+the afternoon is 
+. The temperature at noon is equally likely to be above 
+, or at/below 
+. What is the
+probability that it will rain in the afternoon on a day when the temperature at noon is above 
+?
+gateit-2006
+ 
+probability
+ 
+normal
+ 
+conditional-probability
+Answer key
+☟
+Continuous Distribution 
+(1)
+Continuous Distribution: GATE CSE 2016 | Set 1 | Question: 04
+A probability density function on the interval 
+ is given by 
+ and outside this interval the value of the
+function is zero. The value of 
+ is _________.
+gatecse-2016-set1
+ 
+probability
+ 
+normal
+ 
+numerical-answers
+ 
+continuous-distribution
+Answer key
+☟
+Expectation 
+(15)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(3Q)
+
+
+7.8.1
+7.8.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.8.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.8.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.8.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.8.6
+Expectation: GATE CSE 1999 | Question: 1.1
+Suppose that the expectation of a random variable 
+ is 
+. Which of the following statements is true?
+A
+. 
+There is a sample point at which 
+ has the value 
+.
+B
+. 
+There is a sample point at which 
+ has value greater than 
+.
+C
+. 
+There is a sample point at which 
+ has a value greater than equal to 
+.
+D
+. 
+None of the above.
+gate1999
+ 
+probability
+ 
+expectation
+ 
+easy
+Answer key
+☟
+Expectation: GATE CSE 2004 | Question: 74
+An examination paper has 
+ multiple choice questions of one mark each, with each question having four
+choices. Each incorrect answer fetches 
+ marks. Suppose 
+ students choose all their answers
+randomly with uniform probability. The sum total of the expected marks obtained by all these students is
+gatecse-2004
+ 
+probability
+ 
+expectation
+ 
+normal
+Answer key
+☟
+Expectation: GATE CSE 2006 | Question: 18
+We are given a set 
+ where 
+.  A sample  
+ is drawn by  selecting each 
+  
+independently with probability 
+ . The expected value of the smallest number in sample 
+ is:
+gatecse-2006
+ 
+probability
+ 
+expectation
+ 
+normal
+Answer key
+☟
+Expectation: GATE CSE 2011 | Question: 18
+If the diﬀerence between the expectation of the square of a random variable 
+ and the square of
+the expectation of the random variable 
+ is denoted by 
+, then
+gatecse-2011
+ 
+probability
+ 
+random-variable
+ 
+expectation
+ 
+normal
+Answer key
+☟
+Expectation: GATE CSE 2013 | Question: 24
+Consider an undirected random graph of eight vertices. The probability that there is an edge between a pair
+of vertices is 
+ What is the expected number of unordered cycles of length three?
+gatecse-2013
+ 
+probability
+ 
+expectation
+ 
+normal
+Answer key
+☟
+Expectation: GATE CSE 2014 | Set 2 | Question: 2
+Each of the nine words in the sentence 
+ is written on a
+separate piece of paper. These nine pieces of paper are kept in a box. One of the pieces is drawn at random
+from the box. The 
+ length of the word drawn is _____________. (The answer should be rounded to one
+decimal place.)
+gatecse-2014-set2
+ 
+probability
+ 
+expectation
+ 
+numerical-answers
+ 
+easy
+
+
+7.8.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Not expressible in terms of 
+ and 
+ alone
+7.8.8
+A
+. 
+Both 
+ and 
+ are true
+B
+. 
+ is true, but 
+ is false
+C
+. 
+ is false, but 
+ is true
+D
+. 
+Both 
+ and 
+ are false
+7.8.9
+Answer key
+☟
+Expectation: GATE CSE 2017 | Set 2 | Question: 31
+For any discrete random variable 
+, with probability mass function 
+, and 
+, deﬁne the polynomial function 
+. For a certain discrete random variable 
+, there exists a scalar 
+ such that 
+. The expectation of 
+ is
+gatecse-2017-set2
+ 
+probability
+ 
+random-variable
+ 
+difficult
+ 
+expectation
+Answer key
+☟
+Expectation: GATE CSE 2021 | Set 1 | Question: 35
+Consider the two statements.
+ There exist random variables 
+ and 
+ such that 
+ For all random variables 
+ and 
+Which one of the following choices is correct?
+gatecse-2021-set1
+ 
+probability
+ 
+random-variable
+ 
+difficult
+ 
+two-marks
+ 
+expectation
+Answer key
+☟
+Expectation: GATE CSE 2021 | Set 2 | Question: 29
+In an examination, a student can choose the order in which two questions (
+ and 
+) must be
+attempted.
+If the first question is answered wrong, the student gets zero marks.
+If the first question is answered correctly and the second question is not answered correctly, the student gets the
+marks only for the first question.
+If both the questions are answered correctly, the student gets the sum of the marks of the two questions.
+The following table shows the probability of correctly answering a question and the marks of the question
+respectively.
+Assuming that the student always wants to maximize her expected marks in the examination, in which order should
+she attempt  the questions and what is the expected marks for that order (assume that the questions are
+independent)?
+A
+. 
+First 
+ and then 
+. Expected marks 
+.
+B
+. 
+First 
+ and then 
+. Expected marks 
+.
+C
+. 
+First 
+ and then 
+. Expected marks 
+.
+D
+. 
+First 
+ and then 
+. Expected marks 
+.
+gatecse-2021-set2
+ 
+probability
+ 
+expectation
+ 
+two-marks
+Answer key
+☟
+
+
+7.8.10
+7.8.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.8.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.8.13
+7.8.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.8.15
+Expectation: GATE CSE 2026 | Set 1 | Question: 48
+Let 
+ be a random variable which takes values in the set 
+. Further, 
+ and 
+.
+The expected value of 
+, denoted by 
+, is equal to 
+. (rounded off to two decimal places)
+gatecse-2026-set1
+ 
+numerical-answers
+ 
+two-marks
+ 
+probability
+ 
+expectation
+Answer key
+☟
+Expectation: GATE DA 2025 | Question: 1
+Suppose 
+ and 
+ are random variables. The conditional expectation of 
+ given 
+ is denoted by 
+. Then 
+ equals
+gateda-2025
+ 
+probability
+ 
+random-variable
+ 
+expectation
+ 
+one-mark
+Answer key
+☟
+Expectation: GATE DA 2025 | Question: 10
+Let 
+, where 
+ is a standard normal random variable, and 
+ are two unknown constants. It is
+given that
+where 
+ denotes the expectation of random variable 
+. The values of 
+ are:
+gateda-2025
+ 
+probability
+ 
+expectation
+ 
+random-variable
+ 
+one-mark
+Answer key
+☟
+Expectation: GATE DA 2025 | Question: 51
+A bag contains 
+ white balls and 
+ black balls. In a random experiment, 
+ balls are drawn from the bag
+one at a time with replacement. Let 
+ denote the total number of black balls drawn in the experiment.
+The expectation of 
+ denoted by 
+ ____________. (Round off to one decimal place)
+gateda-2025
+ 
+probability
+ 
+expectation
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Expectation: GATE DS&AI 2024 | Question: 26
+​​​​​
+A fair six-sided die (with faces numbered 
+ ) is repeatedly thrown independently.
+What is the expected number of times the die is thrown until two consecutive throws of even numbers are
+seen?
+gate-ds-ai-2024
+ 
+probability
+ 
+expectation
+ 
+two-marks
+Answer key
+☟
+Expectation: GATE DS&AI 2024 | Question: 49
+Consider a joint probability density function of two random variables 
+ and 
+
+
+7.9
+7.9.1
+7.9.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.9.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.9.4
+7.9.5
+Then, 
+ is 
+gate-ds-ai-2024
+ 
+probability
+ 
+expectation
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Exponential Distribution 
+(6)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(7Q)
+Exponential Distribution: GATE CSE 2021 | Set 1 | Question: 18
+The lifetime of a component of a certain type is a random variable whose probability density function is
+exponentially distributed with parameter 
+. For a randomly picked component of this type, the probability that
+its lifetime exceeds the expected lifetime (rounded to 
+ decimal places) is ____________.
+gatecse-2021-set1
+ 
+probability
+ 
+random-variable
+ 
+numerical-answers
+ 
+one-mark
+ 
+exponential-distribution
+Answer key
+☟
+Exponential Distribution: GATE DA 2025 | Question: 11
+It is given that 
+ for an exponentially distributed random variable 
+ with 
+,
+where 
+ denotes the expectation of 
+. What is the value of 
+ ? (ln denotes natural logarithm)
+gateda-2025
+ 
+probability
+ 
+exponential-distribution
+ 
+expectation
+ 
+one-mark
+Answer key
+☟
+Exponential Distribution: GATE DA 2025 | Question: 31
+​​​​
+For 
+, the floor function is denoted by 
+ and defined as follows
+where 
+ is an integer. Let 
+, where 
+ is an exponentially distributed random variable with mean 
+,
+where 
+ denotes natural logarithm. For any positive integer 
+, one can write the probability of the event 
+ as
+follows
+The value of 
+ is
+gateda-2025
+ 
+probability
+ 
+random-variable
+ 
+exponential-distribution
+ 
+two-marks
+Answer key
+☟
+Exponential Distribution: GATE DA 2026 | Question: 24
+Let 
+ be an exponentially distributed random variable with mean 
+. If 
+, then the
+conditional probability 
+ is 
+. (Rounded off to two decimal places)
+gateda-2026
+ 
+conditional-probability
+ 
+random-variable
+ 
+exponential-distribution
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Exponential Distribution: GATE DS&AI 2024 | Question: 47
+Let 
+ be a random variable exponentially distributed with parameter 
+. The probability density function
+of 
+ is given by:
+
+
+7.9.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.10
+7.10.1
+7.10.2
+A
+. 
+B
+. 
+Events 
+ and 
+ are independent
+C
+. 
+Events 
+ and 
+ are not independent
+D
+. 
+7.10.3
+A
+. 
+ 
+B
+. 
+C
+. 
+D
+. 
+ 
+If 
+, where 
+ and 
+ indicate the expectation and variance of 
+, respectively, the
+value of 
+ is 
+ (rounded off to one decimal place).
+gate-ds-ai-2024
+ 
+numerical-answers
+ 
+probability
+ 
+random-variable
+ 
+exponential-distribution
+ 
+two-marks
+Answer key
+☟
+Exponential Distribution: GATE IT 2004 | Question: 33
+Let 
+ and 
+ be two exponentially distributed and independent random variables with mean 
+ and 
+,
+respectively. If 
+ = min 
+, then the mean of 
+ is given by
+gateit-2004
+ 
+probability
+ 
+exponential-distribution
+ 
+random-variable
+ 
+normal
+Answer key
+☟
+Independent Events 
+(6)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(13Q)
+Independent Events: GATE CSE 1994 | Question: 2.8
+Let 
+ and 
+ be independent events which occur with probabilities 
+ and 
+ respectively. The
+probability of occurrence of at least one of the event is _______
+gate1994
+ 
+probability
+ 
+normal
+ 
+numerical-answers
+ 
+independent-events
+Answer key
+☟
+Independent Events: GATE CSE 1999 | Question: 2.1
+Consider two events 
+ and 
+ such that probability of 
+, 
+, probability of 
+, 
+,
+and probability of 
+, and 
+, 
+. Which of the following statements is/are true?
+gate1999
+ 
+probability
+ 
+normal
+ 
+independent-events
+Answer key
+☟
+Independent Events: GATE CSE 2000 | Question: 2.2
+ and 
+  are events in a probability space satisfying the following constraints:
+ = 
+ = 
+ and 
+ are independent
+The value of 
+, the probability of the event 
+,  is
+gatecse-2000
+ 
+probability
+ 
+easy
+ 
+independent-events
+Answer key
+☟
+
+
+7.10.4
+A
+. 
+ and 
+ are independent.
+B
+. 
+ and 
+ are independent.
+C
+. 
+ and 
+ are independent.
+D
+. 
+7.10.5
+A
+. 
+B
+. 
+C
+. 
+As 
+ increases, variance of 
+decreases
+D
+. 
+Variance of 
+ does not depend on 
+7.10.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.11
+7.11.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.11.2
+Independent Events: GATE CSE 2023 | Question: 43
+Consider a random experiment where two fair coins are tossed. Let 
+ be the event that denotes 
+ on
+both the throws, 
+ be the event that denotes 
+ on the ﬁrst throw, and 
+ be the event that denotes 
+ on the second throw. Which of the following statements is/are 
+gatecse-2023
+ 
+probability
+ 
+independent-events
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Independent Events: GATE DA 2025 | Question: 44
+Consider a coin-toss experiment where the probability of head showing up is 
+. In the 
+ coin toss, let 
+ if head appears, and 
+ if tail appears. Consider
+where 
+ is the total number of independent coin tosses.
+Which of the following statements is/are correct?
+gateda-2025
+ 
+probability
+ 
+independent-events
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Independent Events: GATE DS&AI 2024 | Question: 2
+Three fair coins are tossed independently. 
+ is the event that two or more tosses result in heads. 
+ is the
+event that two or more tosses result in tails.
+What is the probability of the event 
+?
+gate-ds-ai-2024
+ 
+probability
+ 
+independent-events
+ 
+one-mark
+Answer key
+☟
+Normal Distribution 
+(4)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(7Q)
+Normal Distribution: GATE CSE 2008 | Question: 29
+Let 
+ be a random variable following normal distribution with mean 
+ and variance 
+. Let 
+ be another
+normal variable with mean 
+ and variance unknown. If 
+ , the standard deviation
+of 
+ is
+gatecse-2008
+ 
+random-variable
+ 
+normal-distribution
+ 
+probability
+ 
+normal
+Answer key
+☟
+Normal Distribution: GATE CSE 2017 Set-1 | Question:37
+ 
+Let X be a Gaussian random variable with mean 0 and variance 
+σ
+2. Let Y = max(X, 0) where max(a,b) is the
+maximum of a and b. The median of Y is __________.
+
+
+7.11.3
+7.11.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.12
+7.12.1
+7.12.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.12.3
+7.12.4
+gatecse-2017-set1
+ 
+statistics
+ 
+normal-distribution
+Answer key
+☟
+Normal Distribution: GATE CSE 2017 | Set 1 | Question: 19
+Let 
+ be a Gaussian random variable with mean 0 and variance 
+. Let 
+ = 
+ where 
+is the maximum of 
+ and 
+. The median of 
+ is ______________ .
+gatecse-2017-set1
+ 
+probability
+ 
+numerical-answers
+ 
+normal-distribution
+Answer key
+☟
+Normal Distribution: GATE DA 2026 | Question: 18
+Suppose a random variable 
+ follows 
+ distribution with probability density function
+ and cumulative distribution function 
+. Another random variable 
+ follows 
+ distribution with
+probability density function 
+ and cumulative distribution function 
+. Let 
+ be the positive real number for
+which 
+.
+Which of the following statements is/are correct?
+gateda-2026
+ 
+probability
+ 
+random-variable
+ 
+normal-distribution
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Poisson Distribution 
+(5)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(5Q)
+Poisson Distribution: GATE CSE 1989 | Question: 4-viii
+ is the probability of 
+ events occurring during a time interval 
+. How will you express 
+ in
+terms of 
+, if 
+ has stationary independent increments? (Note: 
+is the probability density
+function).
+gate1989
+ 
+descriptive
+ 
+probability
+ 
+poisson-distribution
+Answer key
+☟
+Poisson Distribution: GATE CSE 2013 | Question: 2
+Suppose 
+ is the number of cars per minute passing through a certain road junction between 
+ PM and 
+PM, and 
+ has a Poisson distribution with mean 
+. What is the probability of observing fewer than 
+ cars
+during any given minute in this interval? 
+gatecse-2013
+ 
+probability
+ 
+poisson-distribution
+ 
+normal
+Answer key
+☟
+Poisson Distribution: GATE CSE 2017 | Set 2 | Question: 48
+If a random variable 
+ has a Poisson distribution with mean 
+, then the expectation 
+ equals
+___.
+gatecse-2017-set2
+ 
+expectation
+ 
+poisson-distribution
+ 
+numerical-answers
+ 
+probability
+Answer key
+☟
+Poisson Distribution: GATE DA 2026 | Question: 35
+Let
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.12.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13
+7.13.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Which of the following is the value of 
+gateda-2026
+ 
+probability
+ 
+poisson-distribution
+ 
+two-marks
+Answer key
+☟
+Poisson Distribution: GATE IT 2007 | Question: 57
+In a multi-user operating system on an average, 
+ requests are made to use a particular resource per hour.
+The arrival of requests follows a Poisson distribution. The probability that either one, three or ﬁve requests
+are made in 
+ minutes is given by :
+gateit-2007
+ 
+probability
+ 
+poisson-distribution
+ 
+normal
+Answer key
+☟
+Probability 
+(31)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(15Q)
+ 
+Test 5 
+(15Q)
+Probability: GATE CSE 1995 | Question: 1.18
+The probability that a number selected at random between 
+ and 
+ (both inclusive) will not contain the
+digit 
+ is:  
+gate1995
+ 
+probability
+ 
+normal
+Answer key
+☟
+Probability: GATE CSE 1995 | Question: 2.14
+A bag contains 
+ white balls and 
+ black balls. Two balls are drawn in succession. The probability that
+one of them is black and the other is white is:
+gate1995
+ 
+probability
+ 
+normal
+Answer key
+☟
+Probability: GATE CSE 1996 | Question: 1.5
+Two dice are thrown simultaneously. The probability that at least one of them will have 
+ facing up is
+gate1996
+ 
+probability
+ 
+easy
+Answer key
+☟
+Probability: GATE CSE 1996 | Question: 2.7
+The probability that top and bottom cards of a randomly shuffled deck are both aces is
+
+
+7.13.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.6
+A
+. 
+  
+B
+. 
+  
+C
+. 
+  
+D
+. 
+7.13.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gate1996
+ 
+probability
+ 
+easy
+Answer key
+☟
+Probability: GATE CSE 1997 | Question: 1.1
+The probability that it will rain today is 
+. The probability that it will rain tomorrow is 
+. The probability
+that it will rain either today or tomorrow is 
+. What is the probability that it will rain today and tomorrow?
+gate1997
+ 
+probability
+ 
+easy
+Answer key
+☟
+Probability: GATE CSE 1998 | Question: 1.1
+A die is rolled three times. The probability that exactly one odd number turns up among the three outcomes
+is
+gate1998
+ 
+probability
+ 
+easy
+Answer key
+☟
+Probability: GATE CSE 2001 | Question: 2.4
+Seven (distinct) car accidents occurred in a week. What is the probability that they all occurred on the same
+day?
+gatecse-2001
+ 
+probability
+ 
+normal
+Answer key
+☟
+Probability: GATE CSE 2004 | Question: 25
+If a fair coin is tossed four times. What is the probability that two heads and two tails will result?
+gatecse-2004
+ 
+probability
+ 
+easy
+Answer key
+☟
+Probability: GATE CSE 2010 | Question: 26
+Consider a company that assembles computers. The probability of a faulty assembly of any computer is 
+.
+The company therefore subjects each computer to a testing process. This testing process gives the correct
+result for any computer with a probability of 
+. What is the probability of a computer being declared faulty?
+gatecse-2010
+ 
+probability
+ 
+easy
+Answer key
+☟
+Probability: GATE CSE 2010 | Question: 27
+What is the probability that divisor of 
+ is a multiple of 
+?
+gatecse-2010
+ 
+probability
+ 
+normal
+Answer key
+☟
+
+
+7.13.11
+A
+. 
+  
+B
+. 
+  
+C
+. 
+  
+D
+. 
+7.13.12
+7.13.13
+7.13.14
+7.13.15
+7.13.16
+Probability: GATE CSE 2011 | Question: 34
+A deck of 
+ cards (each carrying a distinct number from 
+ to 
+) is shuﬄed thoroughly. Two cards are then
+removed one at a time from the deck. What is the probability that the two cards are selected with the number
+on the first card being one higher than the number on the second card?
+ 
+gatecse-2011
+ 
+probability
+ 
+normal
+Answer key
+☟
+Probability: GATE CSE 2014 | Set 1 | Question: 48
+Four fair six-sided dice are rolled. The probability that the sum of the results being 
+ is 
+. The value of 
+ is _______
+gatecse-2014-set1
+ 
+probability
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Probability: GATE CSE 2014 | Set 2 | Question: 1
+The security system at an IT oﬃce is composed of 
+ computers of which exactly four are working. To
+check whether the system is functional, the oﬃcials inspect four of the computers picked at random (without
+replacement). The system is deemed functional if at least three of the four computers inspected are working. Let
+the probability that the system is deemed functional be denoted by 
+ Then 
+ _____________.
+gatecse-2014-set2
+ 
+probability
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Probability: GATE CSE 2014 | Set 2 | Question: 48
+The probability that a given positive integer lying between 
+ and 
+ (both inclusive) is NOT divisible by 
+, 
+or 
+ is ______ .
+gatecse-2014-set2
+ 
+probability
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Probability: GATE CSE 2014 | Set 3 | Question: 48
+Let 
+ be a sample space and two mutually exclusive events 
+ and 
+ be such that 
+. If 
+denotes the probability of the event, the maximum value of 
+ is_____.
+gatecse-2014-set3
+ 
+probability
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Probability: GATE CSE 2016 | Set 1 | Question: 29
+Consider the following experiment.
+Step 1
+. Flip a fair coin twice.
+Step 2
+. If the outcomes are (TAILS, HEADS) then output 
+ and stop.
+Step 3
+. If the outcomes are either (HEADS, HEADS) or (HEADS, TAILS), then output 
+ and stop.
+Step 4
+. If the outcomes are (TAILS, TAILS), then go to Step 
+The probability that the output of the experiment is 
+ is (up to two decimal places)
+gatecse-2016-set1
+ 
+probability
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+
+
+7.13.17
+7.13.18
+7.13.19
+7.13.20
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Probability: GATE CSE 2018 | Question: 15
+Two people, 
+ and 
+, decide to independently roll two identical dice, each with 
+ faces, numbered 
+ to 
+.
+The person with the lower number wins. In case of a tie, they roll the dice repeatedly until there is no tie.
+Deﬁne a trial as a throw of the dice by 
+ and 
+ Assume that all 
+ numbers on each dice are equi-probable and
+that all trials are independent. The probability (rounded to 
+ decimal places) that one of them wins on the third trial
+is ____
+gatecse-2018
+ 
+probability
+ 
+normal
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Probability: GATE CSE 2021 | Set 2 | Question: 33
+A bag has 
+ red balls and 
+ black balls. All balls are identical except for their colours. In a trial, a ball is
+randomly drawn from the bag, its colour is noted and the ball is placed back into the bag along with another
+ball of the same colour. Note that the number of balls in the bag will increase by one, after the trial. A sequence of
+four such trials is conducted. Which one of the following choices gives the probability of drawing a red ball in the
+fourth trial?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2021-set2
+ 
+probability
+ 
+normal
+ 
+two-marks
+Answer key
+☟
+Probability: GATE CSE 2024 | Set 1 | Question: 17
+Let 
+ and 
+ be two events in a probability space with 
+, and 
+.
+Which of the following statements is/are TRUE?
+A
+. 
+The two events 
+ and 
+ are independent
+B
+. 
+C
+. 
+, where 
+ is the complement of the event 
+ 
+D
+. 
+, where 
+ and 
+ are the complements of the events 
+ and 
+, respectively 
+gatecse-2024-set1
+ 
+multiple-selects
+ 
+probability
+ 
+one-mark
+Answer key
+☟
+Probability: GATE CSE 2024 | Set 2 | Question: 8
+When six unbiased dice are rolled simultaneously, the probability of getting all distinct numbers 
+ is
+gatecse-2024-set2
+ 
+probability
+ 
+one-mark
+Answer key
+☟
+
+
+7.13.21
+7.13.22
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.23
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.24
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.25
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.26
+Probability: GATE CSE 2025 | Set 1 | Question: 22
+A box contains 
+ coins: 
+ regular coins and 
+ fake coin. When a regular coin is tossed, the probability 
+head 
+ and for a fake coin, 
+ head 
+. You pick a coin at random and toss it twice, and get two
+heads. The probability that the coin you have chosen is the fake coin is __________. (rounded oﬀ to two decimal
+places)
+gatecse2025-set1
+ 
+probability
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Probability: GATE CSE 2026 | Set 1 | Question: 1
+An urn contains one red ball and one blue ball. At each step, a ball is picked uniformly at random from the
+urn, and this ball together with another ball of the same color is put back in the urn. The probability that there
+are equal number of red and blue balls after two steps is
+gatecse-2026-set1
+ 
+probability
+ 
+one-mark
+Answer key
+☟
+Probability: GATE DA 2025 | Question: 35
+A random experiment consists of throwing 
+ fair dice, each die having six faces numbered 
+ to 
+. An
+event 
+ represents the set of all outcomes where at least one of the dice shows a 
+. Then, 
+gateda-2025
+ 
+probability
+ 
+two-marks
+Answer key
+☟
+Probability: GATE DA 2026 | Question: 10
+Suppose that a computer program provides a non-negative and integer-valued random solution to the
+equation 
+.
+Which of the following is the probability that all of 
+ in the provided solution are positive?
+gateda-2026
+ 
+probability
+ 
+one-mark
+Answer key
+☟
+Probability: GATE DA 2026 | Question: 9
+Let 
+ be a randomly chosen non-empty subset of 
+.
+Which of the following is the probability that the product of all the elements of 
+ is even?
+gateda-2026
+ 
+probability
+ 
+one-mark
+Answer key
+☟
+Probability: GATE DS&AI 2024 | Question: 48
+Consider two events 
+ and 
+. Let 
+ denote the complement of the event 
+. The probability associated with
+different events are given as follows:
+Then, 
+ is 
+ (rounded off to two decimal places).
+
+
+7.13.27
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+ 
+7.13.28
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.29
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.30
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.13.31
+gate-ds-ai-2024
+ 
+numerical-answers
+ 
+probability
+ 
+two-marks
+Answer key
+☟
+Probability: GATE Data Science and Artificial Intelligence 
+2024 | Sample Paper | Question: 7
+A fair coin is ﬂipped twice and it is known that at least one tail is observed. The probability of getting two tails
+is 
+gateda-sample-paper-2024
+ 
+engineering-mathematics
+ 
+probability
+Answer key
+☟
+Probability: GATE IT 2004 | Question: 1
+In a population of 
+ families, 
+ of the families have three children, 
+ of the families have two children
+and the remaining families have one child. What is the probability that a randomly picked child belongs to a
+family with two children?
+gateit-2004
+ 
+probability
+ 
+normal
+Answer key
+☟
+Probability: GATE IT 2005 | Question: 1
+A bag contains 
+ blue marbles, 
+ green marbles and 
+ red marbles. A marble is drawn from the bag, its
+colour recorded and it is put back in the bag. This process is repeated 
+ times. The probability that no two of
+the marbles drawn have the same colour is
+gateit-2005
+ 
+probability
+ 
+normal
+Answer key
+☟
+Probability: GATE IT 2008 | Question: 2
+A sample space has two events 
+ and 
+ such that probabilities 
+. What is 
+ ?
+gateit-2008
+ 
+probability
+ 
+easy
+Answer key
+☟
+Probability: GATE IT 2008 | Question: 23
+What is the probability that in a randomly chosen group of 
+ people at least three people have the same
+birthday?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+
+
+7.14
+7.14.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.15
+7.15.1
+7.16
+7.16.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.16.2
+gateit-2008
+ 
+probability
+ 
+normal
+Answer key
+☟
+Probability Density Function 
+(1)
+Probability Density Function: GATE CSE 2003 | Question: 60, ISRO2007-45
+A program consists of two modules executed sequentially. Let 
+ and 
+ respectively denote the
+probability density functions of time taken to execute the two modules. The probability density function of the
+overall time taken to execute the program is given by 
+gatecse-2003
+ 
+probability
+ 
+normal
+ 
+isro2007
+ 
+probability-density-function
+Answer key
+☟
+Probability Distribution 
+(1)
+Probability Distribution: GATE CSE 2025 | Set 1 | Question: 48
+Consider a probability distribution given by the density function 
+.
+The probability that 
+ lies between 
+ and 
+, i.e., 
+ is _________. (rounded oﬀ to three decimal
+places)
+gatecse2025-set1
+ 
+probability
+ 
+probability-distribution
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Random Variable 
+(10)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(11Q)
+Random Variable: GATE CSE 2005 | Question: 12, ISRO2009-64
+Let 
+ be the continuous probability density function of a random variable 
+, the probability that 
+, is :
+gatecse-2005
+ 
+probability
+ 
+random-variable
+ 
+easy
+ 
+isro2009
+Answer key
+☟
+Random Variable: GATE CSE 2011 | Question: 33
+Consider a ﬁnite sequence of random values 
+. Let 
+ be the mean and 
+ be the
+standard deviation of 
+. Let another ﬁnite sequence 
+ of equal length be derived from this as 
+, where 
+ and 
+ are positive constants. Let 
+ be the mean and 
+ be the standard deviation of this
+sequence.
+Which one of the following statements is 
+INCORRECT
+?
+A
+. 
+Index position of mode of 
+ in 
+ is the same as the index position of mode of 
+ in 
+B
+. 
+Index position of median of 
+ in 
+ is the same as the index position of median of 
+ in 
+C
+. 
+D
+. 
+
+
+7.16.3
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+7.16.4
+7.16.5
+A
+. 
+ is an exponential random
+variable
+B
+. 
+ is a normal random variable
+C
+. 
+ is a Poisson random variable
+D
+. 
+ is a uniform random variable
+7.16.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.16.7
+gatecse-2011
+ 
+probability
+ 
+random-variable
+ 
+normal
+Answer key
+☟
+Random Variable: GATE CSE 2012 | Question: 21
+Consider a random variable 
+ that takes values 
+ and 
+ with probability 
+ each. The values of the
+cumulative distribution function 
+ at 
+ and 
+ are
+gatecse-2012
+ 
+probability
+ 
+random-variable
+ 
+easy
+Answer key
+☟
+Random Variable: GATE CSE 2015 | Set 3 | Question: 37
+Suppose 
+ for 
+ are independent and identically distributed random variables whose probability
+mass functions are 
+. Deﬁne another random variable 
+, where 
+ denotes XOR. Then 
+______.
+gatecse-2015-set3
+ 
+probability
+ 
+random-variable
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Random Variable: GATE CSE 2026 | Set 2 | Question: 4
+The probability density function 
+ of a random variable 
+ which takes real values is
+Which one of the following statements is correct about the random variable 
+ ?
+gatecse-2026-set2
+ 
+probability
+ 
+random-variable
+ 
+one-mark
+Answer key
+☟
+Random Variable: GATE DA 2025 | Question: 29
+​​​​​
+Consider the cumulative distribution function (CDF) of a random variable 
+ :
+The value of 
+ is
+gateda-2025
+ 
+probability
+ 
+random-variable
+ 
+two-marks
+Answer key
+☟
+Random Variable: GATE DA 2025 | Question: 9
+​​​​
+Let 
+ be a continuous random variable whose cumulative distribution function 
+ 
+, for some 
+, is
+given as follows:
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.16.8
+A
+. 
+ is always a positive function.
+B
+. 
+ is a non-decreasing function.
+C
+. 
+ has jump discontinuity.
+D
+. 
+ is a left continuous function.
+7.16.9
+A
+. 
+Both 
+ and 
+ are true
+B
+. 
+ is true and 
+ is false
+C
+. 
+ is true and 
+ is false
+D
+. 
+Both 
+ and 
+ are false
+7.16.10
+7.17
+7.17.1
+If the median of 
+ is 3 , then what is the value of 
+ ?
+gateda-2025
+ 
+probability
+ 
+random-variable
+ 
+one-mark
+Answer key
+☟
+Random Variable: GATE DA 2026 | Question: 44
+Let 
+ be a discrete valued random variable with cumulative distribution function 
+.
+Which of the following statements is/are correct?
+gateda-2026
+ 
+random-variable
+ 
+probability
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Random Variable: GATE DS&AI 2024 | Question: 1
+​​​​
+Consider the following statements:
+i
+. 
+The mean and variance of a Poisson random variable are equal.
+ii
+. 
+For a standard normal random variable, the mean is zero and the variance is one.
+Which 
+ONE 
+of the following options is 
+correct
+?
+ 
+gate-ds-ai-2024
+ 
+probability
+ 
+random-variable
+ 
+one-mark
+Answer key
+☟
+Random Variable: GATE DS&AI 2024 | Question: 55
+Two fair coins are tossed independently. 
+ is a random variable that takes a value of 
+ if both tosses are
+heads and 
+ otherwise. 
+ is a random variable that takes a value of 
+ if at least one of the tosses is heads
+and 
+ otherwise.
+The value of the covariance of 
+ and 
+ is 
+ (rounded off to three decimal places).
+gate-ds-ai-2024
+ 
+probability
+ 
+random-variable
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Square Invariant 
+(1)
+Square Invariant: GATE CSE 2025 | Set 2 | Question: 54
+A quadratic polynomial 
+ over complex numbers is said to be square invariant if 
+. Suppose from the set of all square invariant quadratic polynomials
+we choose one at random.
+The probability that the roots of the chosen polynomial are equal is __________. (rounded off to one decimal place)
+gatecse2025-set2
+ 
+probability
+ 
+square-invariant
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+
+
+7.18
+7.18.1
+7.18.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.18.3
+7.19
+7.19.1
+7.19.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Statistics 
+(3)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(12Q)
+Statistics: GATE CSE 2021 | Set 2 | Question: 22
+For a given biased coin, the probability that the outcome of a toss is a head is 
+. This coin is tossed 
+ times. Let 
+ denote the random variable whose value is the number of times that head appeared in
+these 
+ tosses. The standard deviation of 
+ (rounded to 
+ decimal place) is _________
+gatecse-2021-set2
+ 
+numerical-answers
+ 
+probability
+ 
+random-variable
+ 
+one-mark
+ 
+statistics
+Answer key
+☟
+Statistics: GATE CSE 2024 | Set 2 | Question: 34
+Let 
+ and 
+ be random variables, not necessarily independent, that take real values in the interval 
+. Let 
+ and let the mean values of 
+ be 
+, respectively. Which one of the following statements is
+TRUE?
+gatecse-2024-set2
+ 
+probability
+ 
+random-variable
+ 
+statistics
+ 
+two-marks
+Answer key
+☟
+Statistics: GATE DA 2026 | Question: 52
+For a given data set 
+, where 
+, it is known that
+Let us denote 
+The value of 
+ is 
+. (Answer in 
+integer
+)
+gateda-2026
+ 
+numerical-answers
+ 
+two-marks
+ 
+statistics
+Answer key
+☟
+Uniform Distribution 
+(11)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(3Q)
+Uniform Distribution: GATE CSE 1998 | Question: 3a
+Two friends agree to meet at a park with the following conditions. Each will reach the park between 4:00 pm
+and 5:00 pm and will see if the other has already arrived. If not, they will wait for 10 minutes or the end of the
+hour whichever is earlier and leave. What is the probability that the two will not meet?
+gate1998
+ 
+probability
+ 
+normal
+ 
+numerical-answers
+ 
+uniform-distribution
+Answer key
+☟
+Uniform Distribution: GATE CSE 2004 | Question: 78
+Two 
+ bit binary strings, 
+ and 
+ are chosen randomly with uniform probability. The probability that the
+Hamming distance between these strings (the number of bit positions where the two strings differ) is equal to
+ is
+gatecse-2004
+ 
+probability
+ 
+normal
+ 
+uniform-distribution
+Answer key
+☟
+
+
+7.19.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.19.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+None of these
+7.19.5
+7.19.6
+7.19.7
+7.19.8
+A
+. 
+The events 
+ and 
+ are mutually
+exclusive
+B
+. 
+The events 
+ and 
+ are
+independent
+C
+. 
+Either event 
+ or 
+ must occur
+D
+. 
+Event 
+ is more likely than event 
+7.19.9
+Uniform Distribution: GATE CSE 2004 | Question: 80
+A point is randomly selected with uniform probability in the 
+ plane within the rectangle with corners at 
+ and 
+ If 
+ is the length of the position vector of the point, the expected value of 
+is
+gatecse-2004
+ 
+probability
+ 
+uniform-distribution
+ 
+expectation
+ 
+normal
+Answer key
+☟
+Uniform Distribution: GATE CSE 2007 | Question: 24
+Suppose we uniformly and randomly select a permutation from the 
+ permutations of 
+ What
+is the probability that 
+ appears at an earlier position than any other even number in the selected
+permutation?
+gatecse-2007
+ 
+probability
+ 
+easy
+ 
+uniform-distribution
+Answer key
+☟
+Uniform Distribution: GATE CSE 2014 | Set 1 | Question: 2
+Suppose you break a stick of unit length at a point chosen uniformly at random. Then the expected length of
+the shorter stick is ________ .
+gatecse-2014-set1
+ 
+probability
+ 
+uniform-distribution
+ 
+expectation
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Uniform Distribution: GATE CSE 2019 | Question: 47
+Suppose 
+ is distributed uniformly in the open interval 
+. The probability that the polynomial 
+ has only real roots is (rounded off to 
+ decimal place) _______
+gatecse-2019
+ 
+numerical-answers
+ 
+engineering-mathematics
+ 
+probability
+ 
+uniform-distribution
+ 
+two-marks
+Answer key
+☟
+Uniform Distribution: GATE CSE 2020 | Question: 45
+For 
+, let 
+ be a non-zero vector. Suppose that 
+ is chosen uniformly at random from 
+. Then, the probability that 
+  is an odd number is______________
+gatecse-2020
+ 
+numerical-answers
+ 
+probability
+ 
+uniform-distribution
+ 
+two-marks
+Answer key
+☟
+Uniform Distribution: GATE CSE 2024 | Set 1 | Question: 4
+Consider a permutation sampled uniformly at random from the set of all permutations of 
+ for
+some 
+. Let 
+ be the event that 
+ occurs before 
+ in the permutation, and 
+ the event that 
+ occurs
+before 
+. Which one of the following statements is TRUE?
+gatecse-2024-set1
+ 
+probability
+ 
+uniform-distribution
+ 
+one-mark
+Answer key
+☟
+Uniform Distribution: GATE CSE 2025 | Set 2 | Question: 55
+The unit interval 
+ is divided at a point chosen uniformly distributed over 
+ in 
+ into two disjoint
+subintervals.
+
+
+7.19.10
+7.19.11
+7.20
+7.20.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+7.20.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+The expected length of the subinterval that contains 
+ is __________. (rounded off to two decimal places)
+gatecse2025-set2
+ 
+probability
+ 
+uniform-distribution
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Uniform Distribution: GATE DA 2026 | Question: 53
+Let 
+ be a random variable that follows Uniform 
+ distribution. The conditional distribution of the
+random variable 
+ given 
+ is the Uniform( 
+ ) distribution.
+The value of correlation 
+ is 
+. (Answer in integer)
+gateda-2026
+ 
+probability
+ 
+random-variable
+ 
+uniform-distribution
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Uniform Distribution: GATE DS&AI 2024 | Question: 46
+Let 
+ be a random variable uniformly distributed in the interval 
+ and 
+ be a random variable uniformly
+distributed in the interval 
+. If 
+ and 
+ are independent of each other, the probability 
+ is 
+ (rounded off to three decimal places).
+gate-ds-ai-2024
+ 
+numerical-answers
+ 
+random-variable
+ 
+probability
+ 
+uniform-distribution
+ 
+two-marks
+Answer key
+☟
+Variance 
+(2)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(5Q)
+Variance: GATE DA 2025 | Question: 26
+Let 
+, where 
+ is a normal random variable with mean 
+ and variance 
+. The
+variance of 
+ is
+gateda-2025
+ 
+probability
+ 
+random-variable
+ 
+variance
+ 
+two-marks
+Answer key
+☟
+Variance: GATE DA 2026 | Question: 34
+Let 
+ and 
+ be two independent random variables. 
+ follows 
+ distribution and 
+follows 
+ distribution.
+Which of the following options is the variance of 
+?
+gateda-2026
+ 
+probability
+ 
+random-variable
+ 
+normal-distribution
+ 
+variance
+ 
+two-marks
+Answer key
+☟
+Answer Keys
+7.1.1
+0.60 :
+0.61
+7.1.2
+0.04 : 0.04
+7.1.3
+0.25:0.25
+7.2.1
+C
+7.2.2
+0.125
+7.3.1
+A
+7.3.2
+0.08:0.12
+7.4.1
+C
+7.4.2
+D
+7.4.3
+A
+7.4.4
+A
+7.4.5
+A
+7.4.6
+C
+7.5.1
+A;B;C
+7.6.1
+D
+7.6.2
+N/A
+7.6.3
+D
+7.6.4
+A
+7.6.5
+C
+7.6.6
+B
+7.6.7
+A
+7.6.8
+B
+7.6.9
+0.55
+7.6.10
+A
+7.6.11
+0.375
+
+
+7.6.12
+0.5:0.5
+7.6.13
+0.76:0.78
+7.6.14
+C
+7.7.1
+0.5
+7.8.1
+C
+7.8.2
+D
+7.8.3
+D
+7.8.4
+C
+7.8.5
+C
+7.8.6
+3.8 : 3.9
+7.8.7
+B
+7.8.8
+D
+7.8.9
+D
+7.8.10
+4.24 :
+4.26
+7.8.11
+C
+7.8.12
+A
+7.8.13
+66.6:66.7
+7.8.14
+C
+7.8.15
+X
+7.9.1
+0.35 :
+0.39
+7.9.2
+A
+7.9.3
+A
+7.9.4
+0.34:0.36
+7.9.5
+0.2
+7.9.6
+C
+7.10.1
+0.93
+7.10.2
+C
+7.10.3
+D
+7.10.4
+C;D
+7.10.5
+A;C
+7.10.6
+A
+7.11.1
+A
+7.11.2
+TBA
+7.11.3
+0
+7.11.4
+A;C
+7.12.1
+N/A
+7.12.2
+C
+7.12.3
+54
+7.12.4
+A
+7.12.5
+B
+7.13.1
+D
+7.13.2
+C
+7.13.3
+D
+7.13.4
+C
+7.13.5
+D
+7.13.6
+B
+7.13.7
+B
+7.13.8
+A
+7.13.9
+A
+7.13.10
+A
+7.13.11
+A
+7.13.12
+10
+7.13.13
+11.85 :
+11.95
+7.13.14
+0.259 :
+0.261
+7.13.15
+0.25
+7.13.16
+0.33 :
+0.34
+7.13.17
+0.0230 :
+0.0232
+7.13.18
+A
+7.13.19
+B;C
+7.13.20
+B
+7.13.21
+0.49:0.51
+7.13.22
+B
+7.13.23
+C
+7.13.24
+A
+7.13.25
+C
+7.13.26
+0.25
+7.13.27
+B
+7.13.28
+B
+7.13.29
+B
+7.13.30
+B
+7.13.31
+X
+7.14.1
+C
+7.15.1
+0.300:0.302
+7.16.1
+C
+7.16.2
+D
+7.16.3
+C
+7.16.4
+0.75
+7.16.5
+B
+7.16.6
+C
+7.16.7
+A
+7.16.8
+B;C
+7.16.9
+A
+7.16.10
+0.062:0.063
+7.17.1
+0.5:0.5
+7.18.1
+15.00 :
+16.00
+7.18.2
+D
+7.18.3
+10:10
+7.19.1
+0.69:0.70
+7.19.2
+A
+7.19.3
+D
+7.19.4
+B
+7.19.5
+0.24 : 0.27
+7.19.6
+0.8
+7.19.7
+0.5
+7.19.8
+B
+7.19.9
+0.70:0.80
+7.19.10
+0:0
+7.19.11
+0.125
+7.20.1
+B
+7.20.2
+A

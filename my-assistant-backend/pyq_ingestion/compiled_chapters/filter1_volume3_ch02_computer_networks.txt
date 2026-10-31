@@ -1,0 +1,8750 @@
+2
+Computer Networks
+ 
+(226)
+Concept of layering.OSI and TCP/IP Protocol Stacks;
+ 
+Basics of packet, circuit and virtual circuit-
+switching;
+ Data link layer: 
+framing, error detection
+, Medium Access Control, Ethernet bridging; 
+Routing
+protocols: shortest path, flooding, distance vector and link state routing;
+ 
+Fragmentation and IP addressing, IPv4
+, CIDR
+notation, Basics of IP support protocols (ARP, DHCP, ICMP), Network Address Translation (NAT); Transport
+layer: 
+flow control
+ and 
+congestion control
+, 
+UDP
+, 
+TCP
+, sockets; 
+Application layer protocols: DNS, SMTP, HTTP,
+FTP
+, 
+Email
+.
+.
+The Computer Networks chapter in GATE Computer Science is a fundamental and high-scoring area, essential for
+understanding how modern computing systems communicate and interact. It covers everything from the physical
+transmission of data to high-level application protocols, network architecture, and security principles. Mastery of this
+subject is crucial not only for the GATE exam but also for a career in software development, system administration, and
+network engineering. Typically, Computer Networks carries a weightage of 8-12 marks in the GATE CS exam, with
+questions ranging from conceptual understanding of protocols and layers to numerical problems involving network
+performance, addressing, and error control. Question patterns often include multiple-choice questions (MCQs), multiple-
+select questions (MSQs), and numerical answer type (NAT) questions, testing both theoretical knowledge and problem-
+solving skills.
+Topic-wise Key Concepts
+Application Layer Protocols
+These protocols are at the highest layer of the TCP/IP model, providing services directly to user applications. They
+define how applications on different hosts communicate and exchange data.
+Key Concepts:
+HTTP (Hypertext Transfer Protocol):
+ Used for web browsing, client-server model, stateless. Default port 80.
+FTP (File Transfer Protocol):
+ Used for file transfer, uses two connections (control and data). Default ports 20
+(data) and 21 (control).
+DNS (Domain Name System):
+ Translates domain names to IP addresses. UDP port 53 for queries, TCP port 53 for
+zone transfers.
+SMTP (Simple Mail Transfer Protocol):
+ Used for sending emails. Default port 25.
+POP3 (Post Office Protocol v3):
+ Used for retrieving emails. Default port 110.
+IMAP (Internet Message Access Protocol):
+ More advanced email retrieval, allows managing mail on server.
+Default port 143.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing the functions and default port numbers of different protocols.
+Technique:
+ Create a table mapping protocol to function and port number for quick recall.
+ARP (Address Resolution Protocol)
+ARP is a protocol used to map an IP address (Network Layer) to a physical MAC address (Data Link Layer) on a local
+network. It is essential for IP packets to be encapsulated into Ethernet frames for local delivery.
+Key Concepts:
+ARP Request:
+ Broadcasts a query to all hosts on the local network asking for the MAC address corresponding to a
+specific IP.
+ARP Reply:
+ The host with the matching IP address sends a unicast reply containing its MAC address.
+ARP Cache:
+ Hosts maintain a cache of IP-to-MAC mappings to reduce ARP traffic.
+
+
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Assuming ARP works across routers; it's a local network protocol.
+Technique:
+ Understand the ARP process step-by-step for tracing packet flows.
+Bit Stuffing
+Bit stuffing is a technique used in the Data Link Layer to prevent the flag sequence from appearing in the data portion of
+a frame. It ensures that the receiver correctly identifies the start and end of a frame.
+Key Concepts:
+Flag Sequence:
+ A unique bit pattern (e.g., 
+01111110
+) used to mark frame boundaries.
+Stuffing Rule:
+ Whenever five consecutive 
+1
+s appear in the data, an extra 
+0
+ bit is inserted (stuffed) by the sender.
+Destuffing Rule:
+ The receiver removes a 
+0
+ bit after five consecutive 
+1
+s.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Incorrectly stuffing/destuffing bits, especially at the end of the data or near the flag sequence.
+Technique:
+ Practice with examples, carefully counting consecutive 
+1
+s.
+Bridges
+Bridges are Data Link Layer devices that connect two or more LAN segments. They filter frames based on MAC
+addresses, forwarding only those frames destined for another segment, thus reducing collision domains and improving
+network performance.
+Key Concepts:
+MAC Address Filtering:
+ Bridges maintain a forwarding table (MAC address table) to decide whether to forward or
+filter frames.
+Learning:
+ Bridges learn MAC addresses by inspecting the source MAC address of incoming frames.
+Spanning Tree Protocol (STP):
+ Used to prevent loops in bridged networks by disabling redundant paths.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing bridges with routers (Layer 3) or hubs (Layer 1). Bridges operate at Layer 2.
+Technique:
+ Trace frame paths in a bridged network, applying learning and forwarding rules.
+CRC Polynomial (Cyclic Redundancy Check)
+CRC is a powerful error detection technique used in the Data Link Layer. It appends a checksum (FCS - Frame Check
+Sequence) to the data, calculated using polynomial division.
+Important Formulas and Results:
+Let 
+ be the data polynomial and 
+ be the generator polynomial of degree 
+. 
+To find the CRC remainder 
+:
+where 
+ is the remainder polynomial of degree less than 
+.
+The transmitted codeword 
+ is:
+This means the codeword is exactly divisible by 
+.
+Key Properties and Identities:
+
+
+CRC can detect all single-bit errors, all double-bit errors, any odd number of errors, and all burst errors of length less
+than or equal to 
+.
+It can detect a high percentage of burst errors longer than 
+.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Performing binary division incorrectly (modulo-2 arithmetic, no borrows).
+Technique:
+ Practice modulo-2 polynomial division. Remember to pad the data with 
+ zeros before division.
+CSMA/CD (Carrier Sense Multiple Access with Collision Detection)
+CSMA/CD is a MAC protocol used in shared-medium networks like Ethernet. Stations listen before transmitting (carrier
+sense) and stop transmitting if a collision is detected (collision detection).
+Important Formulas and Results:
+Slot Time:
+ The maximum time it takes for a collision to be detected by all stations.
+Minimum Frame Size:
+ To ensure a collision is detected before the sender finishes transmitting the frame.
+Key Properties and Identities:
+Uses binary exponential backoff algorithm to resolve collisions.
+Collision domain is the segment where collisions can occur.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing propagation delay with transmission delay. Propagation delay is time for a bit to travel,
+transmission delay is time to put all bits on wire.
+Technique:
+ Ensure units are consistent (e.g., convert Mbps to bits/second, km to meters, ms to seconds).
+Channel Utilization
+Channel utilization (or efficiency) measures the fraction of time the channel is actively transmitting data, rather than
+being idle or transmitting overhead. It's a key performance metric for network protocols.
+Important Formulas and Results:
+General formula:
+For Stop-and-Wait ARQ:
+where 
+. 
+This assumes no errors and negligible ACK transmission time.
+For Sliding Window (Go-Back-N or Selective Repeat) with window size 
+:
+This assumes no errors. If 
+, utilization can be 100%.
+For Pure Aloha:
+
+
+where 
+ is throughput, 
+ is offered load. Max 
+ at 
+.
+For Slotted Aloha:
+Max 
+ at 
+.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Incorrectly calculating 
+ or not considering the full round-trip time.
+Technique:
+ Clearly identify 
+ and 
+ from the problem statement. Remember 
+ is one-way.
+Communication
+Communication in networks refers to the process of exchanging information between two or more entities. It involves
+various modes and fundamental concepts that define how data travels.
+Key Concepts:
+Simplex:
+ Data flows in one direction only (e.g., radio broadcast).
+Half-Duplex:
+ Data flows in both directions, but not simultaneously (e.g., walkie-talkie).
+Full-Duplex:
+ Data flows in both directions simultaneously (e.g., telephone call).
+Bandwidth:
+ The maximum data transfer rate of a network path, typically measured in bits per second (bps).
+Latency (Delay):
+ The time it takes for a data packet to travel from one point to another. Comprises transmission,
+propagation, processing, and queuing delays.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing bandwidth with throughput. Bandwidth is capacity, throughput is actual rate.
+Technique:
+ Understand the implications of each communication mode on protocol design (e.g., collision detection
+in half-duplex).
+Congestion Control
+Congestion control mechanisms aim to prevent network collapse by regulating the rate at which senders transmit data
+when the network is overloaded. TCP implements several strategies for this.
+Key Concepts (TCP):
+Slow Start:
+ Exponentially increases congestion window (
+cwnd
+) at the beginning of a connection or after a timeout.
+cwnd
+ starts at 1 MSS (Maximum Segment Size) and doubles every RTT.
+Congestion Avoidance:
+ After 
+cwnd
+ reaches 
+ssthresh
+ (slow start threshold), 
+cwnd
+ increases linearly (by 1 MSS per
+RTT).
+Fast Retransmit:
+ If the sender receives three duplicate ACKs, it retransmits the lost segment without waiting for a
+timeout.
+Fast Recovery:
+ After Fast Retransmit, 
+ssthresh
+ is set to half of the current 
+cwnd
+, and 
+cwnd
+ is set to 
+ssthresh + 3
+MSS
+. It then enters congestion avoidance.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Incorrectly applying the rules for 
+cwnd
+ and 
+ssthresh
+ changes during slow start, congestion avoidance, and
+recovery phases.
+Technique:
+ Draw a graph of 
+cwnd
+ vs. RTT to visualize the changes. Remember the 
+ssthresh
+ value is halved upon
+a loss.
+Data Communication
+Data communication encompasses the processes, technologies, and methods involved in the electronic transmission of
+information. It covers the physical and logical aspects of moving data between devices.
+
+
+Key Concepts:
+Signals:
+ Electrical or electromagnetic waves used to transmit data. Can be analog or digital.
+Modulation:
+ Converting digital data into analog signals for transmission over analog media.
+Demodulation:
+ Converting analog signals back into digital data.
+Multiplexing:
+ Combining multiple data streams into a single stream for transmission (e.g., TDM, FDM, WDM).
+Switching:
+ Techniques for connecting communication paths (e.g., circuit, packet, message switching).
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing modulation with encoding, or different multiplexing techniques.
+Technique:
+ Understand the purpose and basic mechanism of each concept.
+Distance Vector Routing
+Distance Vector Routing is a dynamic routing algorithm where each router maintains a routing table (distance vector)
+containing the best known distance to each destination and the next hop. Routers exchange their entire routing tables
+with directly connected neighbors.
+Key Concepts:
+Bellman-Ford Algorithm:
+ The underlying algorithm for distance vector routing.
+where 
+ is the cost from 
+ to 
+, 
+ is cost from 
+ to neighbor 
+, and 
+ is 
+'s reported cost to 
+.
+Count-to-Infinity Problem:
+ A major drawback where routing loops can cause costs to increase indefinitely.
+Poisoned Reverse:
+ A mechanism to mitigate count-to-infinity by advertising infinite cost for routes learned from a
+neighbor back to that neighbor.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Incorrectly updating routing tables or failing to identify routing loops.
+Technique:
+ Simulate the routing table updates step-by-step for a given network topology and link cost changes.
+Error Detection
+Error detection techniques are used to determine if errors have occurred during data transmission. They add redundant
+bits to the data, allowing the receiver to check for integrity.
+Key Concepts:
+Parity Check:
+ Adds a single parity bit to make the total number of 1s even (even parity) or odd (odd parity). Detects
+single-bit errors.
+Checksum:
+ Divides data into segments, sums them (using one's complement arithmetic), and takes the one's
+complement of the sum as the checksum. Detects most errors, but not as robust as CRC.
+CRC (Cyclic Redundancy Check):
+ Most powerful error detection technique, uses polynomial division. (See CRC
+Polynomial topic).
+Important Formulas and Results:
+Internet Checksum:
+ Sum all 16-bit words (or specified size) of the data. If sum exceeds 16 bits, wrap around the
+carry. Take one's complement of the final sum.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Forgetting one's complement arithmetic for checksum calculations.
+Technique:
+ Practice checksum calculations, especially with carry bits.
+Ethernet
+
+
+Ethernet is the most widely used LAN technology, standardized by IEEE 802.3. It defines the physical and Data Link
+Layer specifications for wired networks, primarily using CSMA/CD.
+Key Concepts:
+MAC Address:
+ A 48-bit (6-byte) unique hardware identifier assigned to each network interface card (NIC).
+Ethernet Frame Format:
+ Includes Preamble, SFD (Start Frame Delimiter), Destination MAC, Source MAC,
+Type/Length, Data, and FCS (Frame Check Sequence/CRC).
+Minimum/Maximum Frame Size:
+ Standard Ethernet has a minimum frame size of 64 bytes (including header and
+FCS) and a maximum of 1518 bytes.
+CSMA/CD:
+ The access method used for shared Ethernet segments.
+Important Formulas and Results:
+Minimum Data Size:
+ 46 bytes (to ensure minimum frame size of 64 bytes, considering 18 bytes of header/trailer).
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing the total frame size with the data payload size.
+Technique:
+ Memorize the Ethernet frame structure and minimum/maximum sizes.
+Fragmentation
+Fragmentation is the process at the Network Layer (IP) where a large IP packet is divided into smaller fragments to
+traverse a network link with a smaller Maximum Transmission Unit (MTU).
+Important Formulas and Results:
+Offset Field:
+ In the IP header, indicates the position of the fragment's data relative to the original datagram's data,
+in units of 8 bytes.
+Total Length Field:
+ In the IP header, indicates the total length of the current fragment (header + data).
+More Fragments (MF) Flag:
+ Set to 1 for all fragments except the last one.
+Key Properties and Identities:
+Fragmentation can occur at any router along the path.
+Reassembly typically occurs only at the destination host.
+The data payload of each fragment (except possibly the last) must be a multiple of 8 bytes.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Incorrectly calculating the offset field or the data length of fragments, especially when the original packet's
+data length is not a multiple of 8.
+Technique:
+ Work through fragmentation problems step-by-step, ensuring each fragment's data length is a multiple
+of 8 (except the last) and updating the offset correctly.
+Hamming Code
+Hamming code is an error-correcting code capable of detecting and correcting single-bit errors. It adds redundant parity
+bits at specific positions within the data.
+Important Formulas and Results:
+Number of Parity Bits (
+):
+ To correct single-bit errors in a message of 
+ data bits, the number of parity bits 
+ must
+satisfy:
+
+
+Parity Bit Positions:
+ Parity bits are placed at positions that are powers of 2 (1, 2, 4, 8, ...).
+Parity Check:
+ Each parity bit checks specific data bit positions. For example, parity bit at position 
+ checks all
+positions whose binary representation has the 
+-th bit set.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Incorrectly assigning parity bit positions or calculating parity values.
+Technique:
+ Systematically determine parity bit positions, then calculate parity values based on the data bits they
+cover. For error detection/correction, calculate syndrome bits.
+IP Addressing
+IP addressing (IPv4 and IPv6) is a fundamental concept in the Network Layer, providing unique logical addresses for
+devices on a network. IPv4 uses 32-bit addresses, while IPv6 uses 128-bit addresses.
+Important Formulas and Results (IPv4):
+Number of Hosts:
+ For a given subnet mask, if 
+ bits are available for host IDs, then the number of usable hosts is 
+ (subtracting network and broadcast addresses).
+Number of Subnets:
+ If 
+ bits are borrowed from the host portion for subnetting, the number of subnets created is 
+.
+CIDR (Classless Inter-Domain Routing):
+ Uses a prefix length (e.g., 
+/24
+) to specify the network portion of an IP
+address, replacing class-based addressing.
+Key Properties and Identities:
+Network ID:
+ All host bits are 0.
+Broadcast ID:
+ All host bits are 1.
+Private IP Ranges:
+ Reserved for private networks (e.g., 
+10.0.0.0/8
+, 
+172.16.0.0/12
+, 
+192.168.0.0/16
+).
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Incorrectly calculating subnet masks, network IDs, or broadcast IDs, especially with CIDR notation.
+Technique:
+ Convert IP addresses and subnet masks to binary for clear visualization. Practice subnetting problems
+extensively.
+IP Packet
+An IP packet (or datagram) is the fundamental unit of data transfer in the Internet Protocol. It consists of an IP header
+and a data payload.
+Key Concepts (IPv4 Header Fields):
+Version (4 bits):
+ Indicates IPv4 or IPv6.
+Header Length (IHL, 4 bits):
+ Length of the IP header in 32-bit words. Minimum 5 (20 bytes), maximum 15 (60
+bytes).
+Total Length (16 bits):
+ Total length of the IP datagram (header + data) in bytes. Max 65535 bytes.
+Identification (16 bits):
+ Used for reassembling fragmented datagrams.
+Flags (3 bits):
+ Includes DF (Don't Fragment) and MF (More Fragments).
+Fragment Offset (13 bits):
+ Position of the fragment in the original datagram (in 8-byte units).
+Time To Live (TTL, 8 bits):
+ Decremented by each router; packet is discarded if TTL reaches 0. Prevents infinite
+loops.
+Protocol (8 bits):
+ Indicates the next-level protocol (e.g., 6 for TCP, 17 for UDP, 1 for ICMP).
+Header Checksum (16 bits):
+ Used for error detection only on the header. Recalculated at each hop.
+Source IP Address (32 bits):
+ Sender's IP address.
+Destination IP Address (32 bits):
+ Receiver's IP address.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing header length (in 32-bit words) with total length (in bytes).
+
+
+Technique:
+ Memorize the key fields and their sizes. Practice calculating header checksums.
+ICMP (Internet Control Message Protocol)
+ICMP is a Network Layer protocol used by network devices, like routers, to send error messages and operational
+information indicating, for example, that a requested service is not available or that a host or router could not be
+reached.
+Key Concepts:
+Error Reporting:
+ Reports errors such as "Destination Unreachable," "Time Exceeded," "Parameter Problem."
+Query Messages:
+ Used for diagnostic purposes (e.g., Echo Request/Reply for 
+ping
+, Timestamp Request/Reply).
+Traceroute:
+ Uses ICMP Time Exceeded messages to map the path to a destination.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing ICMP's role with routing protocols or transport layer protocols. ICMP is for network diagnostics
+and error reporting.
+Technique:
+ Understand the common ICMP message types and their uses (e.g., ping uses type 8/0, traceroute uses
+type 11).
+LAN Technologies
+LAN (Local Area Network) technologies define the standards and methods for connecting devices within a limited
+geographical area. Ethernet is the dominant LAN technology.
+Key Concepts:
+Ethernet (IEEE 802.3):
+ Dominant wired LAN technology, uses CSMA/CD (for shared media) or full-duplex
+switching. Various speeds (10 Mbps, 100 Mbps, 1 Gbps, 10 Gbps, etc.).
+Token Ring (IEEE 802.5):
+ Older LAN technology, uses a token-passing mechanism for media access. Devices
+form a logical ring.
+FDDI (Fiber Distributed Data Interface):
+ High-speed token-passing LAN over fiber optics, uses dual rings for
+redundancy.
+Wi-Fi (IEEE 802.11):
+ Wireless LAN technology, uses CSMA/CA (Collision Avoidance).
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing the MAC access methods (CSMA/CD vs. Token Passing vs. CSMA/CA).
+Technique:
+ Compare and contrast the characteristics, advantages, and disadvantages of different LAN
+technologies.
+MAC Protocol (Medium Access Control)
+MAC protocols define how multiple stations share a common transmission medium to avoid collisions and ensure fair
+access. They are part of the Data Link Layer.
+Key Concepts:
+Channel Partitioning Protocols:
+ Divide the channel into smaller, independent channels (e.g., TDMA, FDMA,
+CDMA).
+Random Access Protocols:
+ Allow stations to transmit whenever they have data, resolving collisions if they occur
+(e.g., Aloha, CSMA, CSMA/CD, CSMA/CA).
+Taking-Turns Protocols:
+ Stations take turns accessing the channel (e.g., Token Ring, Polling).
+Important Formulas and Results:
+(See Pure Aloha, Slotted Aloha, CSMA/CD for specific formulas).
+Common Pitfalls and Problem-Solving Techniques:
+
+Pitfall:
+ Misidentifying the type of MAC protocol or its collision resolution mechanism.
+Technique:
+ Understand the trade-offs between different MAC protocols (efficiency, fairness, complexity).
+Network Flow
+Network flow is a concept in graph theory used to model the movement of resources through a network. In computer
+networks, it can represent data traffic.
+Key Concepts:
+Flow Network:
+ A directed graph where each edge has a capacity and a flow.
+Source and Sink:
+ Special nodes representing the origin and destination of the flow.
+Max-Flow Min-Cut Theorem:
+ States that the maximum amount of flow passing from a source to a sink in a flow
+network is equal to the total capacity of the minimum cut.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ While Max-Flow Min-Cut is a core concept, GATE CS typically tests its conceptual understanding rather than
+complex numerical algorithms like Edmonds-Karp or Dinic.
+Technique:
+ Focus on understanding the theorem and identifying cuts in simple networks.
+Network Layer
+The Network Layer (Layer 3 of the OSI model) is responsible for logical addressing, routing, and forwarding packets
+across different networks. IP is the primary protocol at this layer.
+Key Concepts:
+Logical Addressing:
+ IP addresses provide unique identification for devices across the internet.
+Routing:
+ Determining the best path for packets to travel from source to destination.
+Forwarding:
+ Moving a packet from an incoming interface to an outgoing interface on a router.
+Protocols:
+ IP, ICMP, IGMP, Routing Protocols (RIP, OSPF, BGP).
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing Network Layer functions with Data Link Layer (MAC addressing, framing) or Transport Layer (port
+numbers, reliability).
+Technique:
+ Clearly distinguish the responsibilities of each layer in the OSI/TCP-IP model.
+Network Protocols
+Network protocols are formal rules and standards that govern how devices communicate and exchange data over a
+network. They define the format, timing, sequencing, and error control of data transmission.
+Key Concepts:
+TCP/IP Suite:
+ The most widely used set of protocols, forming the basis of the internet. Includes TCP, UDP, IP,
+HTTP, FTP, etc.
+Layered Architecture:
+ Protocols are organized into layers (e.g., OSI model, TCP/IP model), with each layer
+providing services to the layer above it.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Not knowing which protocols operate at which layer or their specific functions.
+Technique:
+ Create a mental map or table of protocols and their corresponding layers/functions.
+Network Switching
+Network switching refers to the mechanisms used to establish connections between communicating devices in a
+network. Different switching techniques have varying characteristics regarding resource allocation and delay.
+
+Key Concepts:
+Circuit Switching:
+ A dedicated end-to-end communication path (circuit) is established before data transfer and
+maintained for the duration of the communication (e.g., traditional telephone networks). Guarantees bandwidth.
+Packet Switching:
+ Data is broken into small, independent packets, each routed individually through the network. No
+dedicated path. More efficient use of bandwidth, but variable delay (e.g., Internet).
+Message Switching:
+ Entire messages are stored and forwarded at each intermediate node. No dedicated path.
+High delay.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing the characteristics of circuit vs. packet switching, especially regarding setup time, resource
+reservation, and delay.
+Technique:
+ Understand the trade-offs: Circuit switching for guaranteed QoS, Packet switching for efficiency and
+flexibility.
+OSI Model
+The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a
+telecommunication or computing system into seven distinct layers. It helps in understanding network architecture and
+troubleshooting.
+Key Concepts:
+1
+. 
+Physical Layer (Layer 1):
+ Deals with the physical transmission of raw bits over a medium (cables, connectors,
+voltage levels). PDU: Bit.
+2
+. 
+Data Link Layer (Layer 2):
+ Provides reliable data transfer between adjacent nodes, framing, MAC addressing, error
+detection/correction. PDU: Frame.
+3
+. 
+Network Layer (Layer 3):
+ Handles logical addressing (IP), routing, and forwarding packets across networks. PDU:
+Packet/Datagram.
+4
+. 
+Transport Layer (Layer 4):
+ Provides end-to-end communication, reliability (TCP), flow control, congestion control,
+port addressing. PDU: Segment (TCP), Datagram (UDP).
+5
+. 
+Session Layer (Layer 5):
+ Manages communication sessions, synchronization, dialog control.
+6
+. 
+Presentation Layer (Layer 6):
+ Handles data representation, encryption, decryption, compression.
+7
+. 
+Application Layer (Layer 7):
+ Provides network services directly to user applications (HTTP, FTP, DNS). PDU:
+Data/Message.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Forgetting the order of layers or the primary function/PDU of each layer.
+Technique:
+ Use mnemonics (e.g., "Please Do Not Throw Sausage Pizza Away") to remember the order. Focus on
+the first four layers, as they are most frequently tested.
+Probability
+Probability theory is used in computer networks to model and analyze the performance of random access protocols (like
+Aloha) and to evaluate network reliability and queueing behavior.
+Key Concepts:
+Poisson Distribution:
+ Often used to model arrival rates of packets or frames in random access protocols.
+Throughput:
+ The rate at which successful transmissions occur.
+Offered Load (G):
+ The total number of frames generated per unit of time, including retransmissions.
+Important Formulas and Results:
+(See Pure Aloha, Slotted Aloha for specific probability-based throughput formulas).
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Misinterpreting the meaning of offered load (G) vs. throughput (S).
+
+Technique:
+ Understand the assumptions behind probabilistic models (e.g., Poisson arrivals, infinite number of
+users).
+Pure Aloha
+Pure Aloha is a simple random access MAC protocol where stations transmit frames whenever they have data. If a
+collision occurs, the stations wait a random amount of time and retransmit.
+Important Formulas and Results:
+Throughput (S):
+ The rate of successful transmissions.
+where 
+ is the offered load (total number of frames generated per frame transmission time, including
+retransmissions).
+Maximum Throughput (
+):
+ Occurs when 
+.
+Key Properties and Identities:
+Collision window is 
+.
+Highly inefficient due to frequent collisions.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Forgetting the factor of 
+2G
+ in the exponent for pure Aloha.
+Technique:
+ Understand the concept of the vulnerability period for collisions.
+Routing
+Routing is the process of selecting paths in a network along which to send network traffic. It involves determining the
+best route for packets from a source to a destination.
+Key Concepts:
+Static Routing:
+ Routes are manually configured by an administrator. Simple for small networks.
+Dynamic Routing:
+ Routers exchange routing information and update their tables automatically using routing
+protocols. Adaptable to network changes.
+Routing Table:
+ A table stored in a router that maps destination network addresses to the next hop router and
+outgoing interface.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing routing (path selection) with forwarding (packet movement).
+Technique:
+ Understand how a router uses its routing table to make forwarding decisions.
+Routing Protocols
+Routing protocols are the algorithms and rules that routers use to exchange routing information and build their routing
+tables. They are classified by their operating scope and algorithm type.
+Key Concepts:
+Interior Gateway Protocols (IGPs):
+ Used within an Autonomous System (AS).
+RIP (Routing Information Protocol):
+ Distance Vector, uses hop count as metric, max 15 hops.
+OSPF (Open Shortest Path First):
+ Link State, uses Dijkstra's algorithm, builds a complete topology map.
+Exterior Gateway Protocols (EGPs):
+ Used between Autonomous Systems.
+BGP (Border Gateway Protocol):
+ Path Vector, used for inter-domain routing on the Internet.
+
+
+Link State vs. Distance Vector:
+Distance Vector:
+ Routers share their entire routing tables with neighbors. (e.g., RIP)
+Link State:
+ Routers share information about their directly connected links with all other routers in the AS. (e.g.,
+OSPF)
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing RIP with OSPF, or IGPs with EGPs.
+Technique:
+ Know the key characteristics of each protocol (metric, algorithm type, scope). Practice Dijkstra's
+algorithm for OSPF-like problems.
+Sliding Window
+Sliding Window protocols are flow control mechanisms that allow a sender to transmit multiple frames before receiving
+an acknowledgment, improving channel utilization. They use a window of sequence numbers.
+Important Formulas and Results:
+Window Size (W):
+ The maximum number of unacknowledged frames a sender can transmit.
+Sequence Number Bits (n):
+ For a window size 
+, the minimum number of bits required for sequence numbers
+depends on the protocol.
+Go-Back-N:
+ Sender window 
+, Receiver window 
+. Sequence numbers range from 0 to 
+. 
+.
+Selective Repeat:
+ Sender window 
+, Receiver window 
+. 
+.
+Channel Utilization (U) for Sliding Window:
+where 
+.
+Key Properties and Identities:
+Go-Back-N (GBN):
+ If a frame is lost, the sender retransmits that frame and all subsequent frames already sent.
+Receiver discards out-of-order frames.
+Selective Repeat (SR):
+ If a frame is lost, only that specific frame is retransmitted. Receiver buffers out-of-order
+frames. More efficient but complex.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Incorrectly determining the maximum window size for Go-Back-N vs. Selective Repeat for a given number of
+sequence bits.
+Technique:
+ Memorize the window size rules for GBN and SR. Practice calculating utilization with different window
+sizes and 
+ values.
+Slotted Aloha
+Slotted Aloha is an improvement over Pure Aloha where time is divided into discrete slots. Stations are only allowed to
+transmit at the beginning of a slot, reducing the collision window.
+Important Formulas and Results:
+Throughput (S):
+where 
+ is the offered load.
+Maximum Throughput (
+):
+ Occurs when 
+.
+
+
+Key Properties and Identities:
+Collision window is 
+.
+Requires global time synchronization.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing the throughput formula with Pure Aloha (exponent is 
+-G
+, not 
+-2G
+).
+Technique:
+ Understand how slotting reduces the vulnerability period for collisions.
+Sockets
+Sockets provide an Application Programming Interface (API) for network communication, allowing applications to send
+and receive data over a network. They are the endpoints of communication.
+Key Concepts:
+Socket Types:
+Stream Sockets (TCP):
+ Connection-oriented, reliable, ordered data delivery.
+Datagram Sockets (UDP):
+ Connectionless, unreliable, unordered data delivery.
+Common Socket Functions (for TCP server):
+ 
+socket()
+, 
+bind()
+, 
+listen()
+, 
+accept()
+, 
+send()
+, 
+recv()
+, 
+close()
+.
+Common Socket Functions (for TCP client):
+ 
+socket()
+, 
+connect()
+, 
+send()
+, 
+recv()
+, 
+close()
+.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing the sequence of system calls for client vs. server, or for TCP vs. UDP.
+Technique:
+ Memorize the typical sequence of socket calls for both client and server applications.
+Stop and Wait
+Stop and Wait is the simplest ARQ (Automatic Repeat Request) protocol for reliable data transfer. The sender transmits
+one frame and waits for an acknowledgment (ACK) before sending the next.
+Important Formulas and Results:
+Transmission Time (
+):
+ Time to put the entire frame on the link.
+Propagation Delay (
+):
+ Time for the first bit to travel from sender to receiver.
+Dimensionless Parameter (
+):
+ Ratio of propagation delay to transmission time.
+Channel Utilization (Efficiency) (
+):
+This assumes no errors and negligible ACK transmission time.
+Key Properties and Identities:
+
+
+Sender window size = 1, Receiver window size = 1.
+Uses 1-bit sequence numbers (0 and 1).
+Low utilization for high bandwidth-delay product links.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Forgetting to multiply 
+ by 2 for the round-trip propagation delay in the denominator of the utilization
+formula.
+Technique:
+ Always calculate 
+ and 
+ first, then 
+, then 
+. Pay attention to units.
+Subnetting
+Subnetting is the process of dividing a larger IP network into smaller, more manageable subnetworks (subnets). It
+improves network efficiency, security, and reduces broadcast traffic.
+Important Formulas and Results:
+Number of Subnets:
+ If 
+ bits are borrowed from the host portion of the IP address to create subnets, the number of
+subnets created is 
+.
+Number of Usable Hosts per Subnet:
+ If 
+ bits remain for host IDs in a subnet, the number of usable hosts is 
+ (excluding the network and broadcast addresses for that subnet).
+Subnet Mask:
+ A 32-bit number that distinguishes the network portion from the host portion of an IP address. All
+network/subnet bits are 1, all host bits are 0.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Incorrectly identifying the network ID, broadcast ID, or valid host range for a given IP address and subnet
+mask.
+Technique:
+ Convert IP addresses and subnet masks to binary. Draw out the network, subnet, and host portions.
+Practice finding the first/last usable IP.
+TCP (Transmission Control Protocol)
+TCP is a reliable, connection-oriented, byte-stream Transport Layer protocol. It provides error control, flow control, and
+congestion control, making it suitable for applications requiring high data integrity.
+Key Concepts:
+Connection-Oriented:
+ Establishes a connection using a 3-way handshake before data transfer.
+Reliable:
+ Uses sequence numbers, acknowledgments (ACKs), and retransmissions to ensure all data arrives
+correctly.
+Flow Control:
+ Prevents a fast sender from overwhelming a slow receiver using a receive window (
+rwnd
+).
+Congestion Control:
+ Prevents network congestion (see Congestion Control topic).
+Full-Duplex:
+ Data can flow in both directions simultaneously.
+Header Fields:
+ Source/Destination Port, Sequence Number, Acknowledgment Number, Window Size, Checksum,
+Flags (SYN, ACK, FIN, RST, PSH, URG).
+Important Formulas and Results:
+3-Way Handshake:
+ SYN -> SYN+ACK -> ACK.
+4-Way Handshake (Connection Termination):
+ FIN -> ACK -> FIN -> ACK.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing sequence numbers with acknowledgment numbers, or the purpose of different TCP flags.
+Technique:
+ Trace the sequence and acknowledgment numbers during a TCP connection setup, data transfer, and
+termination. Understand the role of the advertised window.
+Token Bucket
+
+
+The Token Bucket algorithm is a traffic shaping technique used to control the rate at which data is sent over a network.
+It smooths out bursty traffic and enforces a maximum average rate.
+Key Concepts:
+Bucket Capacity (C):
+ The maximum number of tokens the bucket can hold. Represents the maximum burst size
+allowed.
+Token Arrival Rate (r):
+ The rate at which tokens are added to the bucket (e.g., tokens/second). Represents the
+average allowed transmission rate.
+Traffic Shaping:
+ Packets can only be sent if there are enough tokens in the bucket. If not, packets are buffered or
+dropped.
+Important Formulas and Results:
+Maximum Output Rate:
+ Can be up to the link speed for a burst, but limited by the token rate 
+ over time.
+Maximum Burst Size:
+ Equal to the bucket capacity 
+.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Confusing token bucket with leaky bucket. Token bucket allows bursts up to capacity, leaky bucket smooths
+all traffic to a constant rate.
+Technique:
+ Calculate the maximum burst duration or the time it takes for the bucket to fill given a token rate and
+capacity.
+UDP (User Datagram Protocol)
+UDP is a simple, connectionless, unreliable Transport Layer protocol. It provides minimal services, primarily
+multiplexing/demultiplexing and basic error checking (optional checksum).
+Key Concepts:
+Connectionless:
+ No connection setup or teardown.
+Unreliable:
+ No guarantees of delivery, order, or duplicate protection.
+No Flow Control, No Congestion Control:
+ Applications must handle these if needed.
+Header Fields:
+ Source Port, Destination Port, Length, Checksum (optional).
+Key Properties and Identities:
+Lower overhead and faster than TCP.
+Suitable for applications where speed is more critical than reliability (e.g., streaming media, DNS, VoIP).
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Attributing TCP features (reliability, flow control) to UDP.
+Technique:
+ Understand the trade-offs between UDP and TCP and identify appropriate applications for each.
+Wrap Around Time
+Wrap Around Time (WAT) refers to the time it takes for the sequence numbers used in a protocol (like TCP) to cycle
+through all possible values and return to the starting point. It's crucial for preventing ambiguity when old segments with
+duplicate sequence numbers arrive late.
+Important Formulas and Results:
+If sequence numbers are in bytes and 
+ is the number of bits for the sequence number field:
+
+
+(This formula might vary based on how sequence numbers are defined, e.g., per byte or per segment).
+A simpler form often seen:
+Key Properties and Identities:
+WAT should ideally be greater than the maximum segment lifetime (MSL) to prevent old segments from being
+misinterpreted.
+For TCP, the sequence number field is 32 bits.
+Common Pitfalls and Problem-Solving Techniques:
+Pitfall:
+ Forgetting to account for the units of sequence numbers (bytes vs. segments) and bandwidth.
+Technique:
+ Ensure consistent units. Understand the relationship between WAT and MSL.
+Quick Formula Reference
+Channel Utilization & Throughput:
+Stop-and-Wait ARQ:
+ 
+ where 
+Sliding Window ARQ (Go-Back-N/Selective Repeat):
+ 
+Pure Aloha Throughput:
+ 
+ (Max 
+ at 
+)
+Slotted Aloha Throughput:
+ 
+ (Max 
+ at 
+)
+Transmission Time:
+ 
+Propagation Delay:
+ 
+Error Detection & Correction:
+Hamming Code Parity Bits:
+ 
+CRC Codeword:
+ 
+MAC Protocols:
+CSMA/CD Slot Time:
+ 
+CSMA/CD Minimum Frame Size:
+ 
+IP Fragmentation:
+Fragment Offset:
+ 
+ (in 8-byte units)
+IP Addressing & Subnetting:
+Usable Hosts:
+ 
+ (where 
+ is host bits)
+Number of Subnets:
+ 
+ (where 
+ is subnet bits)
+Sliding Window Sequence Numbers:
+Go-Back-N Sender Window 
+:
+ 
+ (where 
+ is sequence number bits)
+Selective Repeat Sender/Receiver Window 
+:
+ 
+Wrap Around Time:
+WAT (bytes):
+ 
+ (where 
+ is sequence number bits)
+Important Tips for GATE
+
+
+2.1
+2.1.1
+A
+. 
+Any size
+B
+. 
+ bytes - size of TCP header
+C
+. 
+ bytes
+D
+. 
+ bytes
+2.1.2
+2.1.3
+A
+. 
+Segment
+B
+. 
+Datagram
+C
+. 
+Message
+D
+. 
+Frame
+2.1.4
+1
+. 
+Master OSI/TCP-IP Layers:
+ Understand the function of each layer, the protocols operating at each layer, and the
+PDU (Protocol Data Unit) names. This is foundational and frequently tested.
+2
+. 
+Practice Numerical Problems Extensively:
+ Focus on channel utilization, throughput, propagation/transmission
+delay calculations, IP addressing, subnetting, and fragmentation. Pay close attention to units (bits vs. bytes, Mbps
+vs. Kbps, ms vs. seconds).
+3
+. 
+Differentiate Flow Control vs. Congestion Control:
+ Understand their distinct goals, mechanisms, and the
+protocols that implement them (e.g., TCP's window mechanisms for both).
+4
+. 
+Know Protocol Headers:
+ Be familiar with the key fields in Ethernet, IP, TCP, and UDP headers. Questions often
+test the purpose or size of specific fields.
+5
+. 
+Understand ARQ Protocols:
+ Clearly distinguish Stop-and-Wait, Go-Back-N, and Selective Repeat in terms of
+window sizes, retransmission strategies, and efficiency.
+6
+. 
+Be Precise with IP Addressing and Subnetting:
+ Convert to binary if needed. Don't confuse network ID, broadcast
+ID, and usable host addresses. Practice CIDR notation.
+7
+. 
+Read Questions Carefully:
+ Look for keywords like "negligible ACK time," "error-free channel," "half-duplex," or "full-
+duplex" as they significantly impact formula application.
+8
+. 
+Time Management:
+ Some numerical problems can be lengthy. If stuck, make an educated guess (if no negative
+marking) or move on and return if time permits.
+Application Layer Protocols 
+(13)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(4Q)
+Application Layer Protocols: GATE CSE 2008 | Question: 14, ISRO2016-74
+What is the maximum size of data that the application layer can pass on to the TCP layer below?
+gatecse-2008
+ 
+easy
+ 
+computer-networks
+ 
+application-layer-protocols
+ 
+isro2016
+Answer key
+☟
+Application Layer Protocols: GATE CSE 2011 | Question: 4
+Consider the different activities related to email.
+ Send an email from mail client to mail server
+ Download an email from mailbox server to a mail client
+ Checking email in a web browser
+Which is the application level protocol used in each activity?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2011
+ 
+computer-networks
+ 
+application-layer-protocols
+ 
+easy
+Answer key
+☟
+Application Layer Protocols: GATE CSE 2012 | Question: 10
+The protocol data unit (PDU) for the application layer in the Internet stack is:
+gatecse-2012
+ 
+computer-networks
+ 
+application-layer-protocols
+ 
+easy
+Answer key
+☟
+Application Layer Protocols: GATE CSE 2016 | Set 1 | Question: 25
+Which of the following is/are example(s) of stateful application layer protocol?
+
+
+A
+. 
+ and 
+ only
+B
+. 
+ and 
+ only
+C
+. 
+ and 
+ only
+D
+. 
+ only
+2.1.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.1.6
+2.1.7
+2.1.8
+2.1.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+i
+. 
+ii
+. 
+iii
+. 
+iv
+. 
+gatecse-2016-set1
+ 
+computer-networks
+ 
+application-layer-protocols
+ 
+normal
+Answer key
+☟
+Application Layer Protocols: GATE CSE 2019 | Question: 16
+Which of the following protocol pairs can be used to send and retrieve e-mails (in that order)?
+gatecse-2019
+ 
+computer-networks
+ 
+application-layer-protocols
+ 
+one-mark
+Answer key
+☟
+Application Layer Protocols: GATE CSE 2020 | Question: 25
+Assume that you have made a request for a web page through your web browser to a web server. Initially
+the browser cache is empty. Further, the browser is conﬁgured to send 
+ requests in non-persistent
+mode. The web page contains text and ﬁve very small images.The minimum number of 
+ connections required
+to display the web page completely in your browser is__________.
+gatecse-2020
+ 
+numerical-answers
+ 
+computer-networks
+ 
+application-layer-protocols
+ 
+one-mark
+Answer key
+☟
+Application Layer Protocols: GATE CSE 2022 | Question: 25
+Consider the resolution of the domain name 
+ by a 
+ resolver. Assume that no resource
+records are cached anywhere across the 
+ servers and that iterative query mechanism is used in the
+resolution. The number of 
+ query-response pairs involved in completely resolving the domain name is
+________________.
+gatecse-2022
+ 
+numerical-answers
+ 
+computer-networks
+ 
+one-mark
+ 
+application-layer-protocols
+Answer key
+☟
+Application Layer Protocols: GATE CSE 2026 | Set 1 | Question: 9
+Which of the following statements is/are true with respect to the interaction of a web browser with a web
+server using HTTP 
+?
+A
+. 
+HTTP 
+ facilitates downloading multiple objects of the same webpage over the same TCP connection, if the
+objects are stored in the same server
+B
+. 
+HTTP 
+ facilitates downloading multiple objects of the same webpage over the same TCP connection, even if
+they are stored in different servers
+C
+. 
+HTTP 
+ facilitates sending a request for downloading one object without waiting for a previously requested
+object to be downloaded completely
+D
+. 
+HTTP 
+ facilitates downloading multiple webpages on the same server to be downloaded over a single TCP
+connection
+gatecse-2026-set1
+ 
+computer-networks
+ 
+application-layer-protocols
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Application Layer Protocols: GATE CSE 2026 | Set 2 | Question: 12
+Which one of the following protocols may need to broadcast some of its messages?
+gatecse-2026-set2
+ 
+computer-networks
+ 
+application-layer-protocols
+ 
+one-mark
+
+
+2.1.10
+A
+. 
+HTTP, SMTP, FTP
+B
+. 
+FTP, HTTP, SMTP
+C
+. 
+HTTP, FTP, SMTP
+D
+. 
+SMTP, HTTP, FTP
+2.1.11
+2.1.12
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+2.1.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.2
+2.2.1
+Answer key
+☟
+Application Layer Protocols: GATE IT 2005 | Question: 25
+Consider the three commands : PROMPT, HEAD and RCPT.
+Which of the following options indicate a correct association of these commands with protocols where these
+are used?
+gateit-2005
+ 
+computer-networks
+ 
+application-layer-protocols
+ 
+normal
+Answer key
+☟
+Application Layer Protocols: GATE IT 2005 | Question: 77
+Assume that "host1.mydomain.dom" has an IP address of 
+. Which of the following options
+would be most appropriate as a subsequence of steps in performing the reverse lookup of 
+ ?
+In the following options "NS" is an abbreviation of "nameserver".
+A
+. 
+Query a NS for the root domain and then NS for the "dom" domains
+B
+. 
+Directly query a NS for "dom" and then a NS for "mydomain.dom" domains
+C
+. 
+Query a NS for in-addr.arpa and then a NS for 
+in-addr.arpa domains
+D
+. 
+Directly query a NS for 
+in-addr.arpa and then a NS for 
+in-addr.arpa domains
+gateit-2005
+ 
+computer-networks
+ 
+normal
+ 
+application-layer-protocols
+Answer key
+☟
+Application Layer Protocols: GATE IT 2006 | Question: 18
+ and 
+, respectively, are commands from the protocols:
+gateit-2006
+ 
+computer-networks
+ 
+application-layer-protocols
+ 
+normal
+Answer key
+☟
+Application Layer Protocols: GATE IT 2008 | Question: 20
+Provide the best matching between the entries in the two columns given in the table below:
+gateit-2008
+ 
+computer-networks
+ 
+normal
+ 
+application-layer-protocols
+Answer key
+☟
+Arp 
+(1)
+Arp: GATE CSE 2025 | Set 2 | Question: 6
+​​​​​
+Consider the following statements:
+i
+. 
+Address Resolution Protocol (ARP) provides a mapping from an IP address to the corresponding hardware
+(link-layer) address.
+ii
+. 
+A single TCP segment from a sender 
+ to a receiver 
+ cannot carry both data from 
+ to 
+ and
+acknowledgement for a segment from 
+ to 
+Which one of the following is CORRECT?
+
+
+A
+. 
+Both 
+ and 
+ are TRUE
+B
+. 
+ is TRUE and 
+ is FALSE
+C
+. 
+ is FALSE and 
+ is TRUE
+D
+. 
+Both 
+ and 
+ are FALSE
+2.3
+2.3.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.3.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.4
+2.4.1
+2.4.2
+gatecse2025-set2
+ 
+computer-networks
+ 
+tcp
+ 
+arp
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Bit Stuffing 
+(2)
+Bit Stuffing: GATE CSE 2014 | Set 3 | Question: 24
+A bit-stuﬃng based framing protocol uses an 
+ delimiter pattern of 
+ If the output bit-string
+after stuffing is 
+ then the input bit-string is:
+gatecse-2014-set3
+ 
+computer-networks
+ 
+error-detection
+ 
+bit-stuffing
+Answer key
+☟
+Bit Stuffing: GATE IT 2004 | Question: 80
+In a data link protocol, the frame delimiter ﬂag is given by 
+. Assuming that bit stuﬃng is employed, the
+transmitter sends the data sequence 
+ as:
+gateit-2004
+ 
+computer-networks
+ 
+network-flow
+ 
+normal
+ 
+bit-stuffing
+Answer key
+☟
+Bridges 
+(3)
+Bridges: GATE CSE 2004 | Question: 16
+Which of the following is NOT true with respect to a transparent bridge and a router?
+A
+. 
+Both bridge and router selectively forward data packets
+B
+. 
+A bridge uses IP addresses while a router uses MAC addresses
+C
+. 
+A bridge builds up its routing table by inspecting incoming packets
+D
+. 
+A router can connect between a LAN and a WAN
+gatecse-2004
+ 
+computer-networks
+ 
+bridges
+ 
+normal
+Answer key
+☟
+Bridges: GATE CSE 2006 | Question: 82
+Consider the diagram shown below where a number of LANs are connected by (transparent) bridges. In
+order to avoid packets looping through circuits in the graph, the bridges organize themselves in a spanning
+tree. First, the root bridge is identiﬁed as the bridge with the least serial number. Next, the root sends out (one or
+more) data units to enable the setting up of the spanning tree of shortest paths from the root bridge to each bridge. 
+Each bridge identiﬁes a port (the root port) through which it will forward frames to the root bridge. Port conﬂicts are
+always resolved in favour of the port with the lower index value. When there is a possibility of multiple bridges
+forwarding to the same LAN (but not through the root port), ties are broken as follows: bridges closest to the root
+get preference and between such bridges, the one with the lowest serial number is preferred.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.4.3
+For the given connection of LANs by bridges, which one of the following choices represents the depth ﬁrst traversal
+of the spanning tree of bridges?
+gatecse-2006
+ 
+computer-networks
+ 
+bridges
+ 
+normal
+Answer key
+☟
+Bridges: GATE CSE 2006 | Question: 83
+Consider the diagram shown below where a number of LANs are connected by (transparent) bridges. In
+order to avoid packets looping through circuits in the graph, the bridges organize themselves in a spanning
+tree. First, the root bridge is identiﬁed as the bridge with the least serial number. Next, the root sends out (one or
+more) data 
+units to enable the setting up of the spanning tree of shortest paths from the root bridge to each bridge. 
+Each bridge identiﬁes a port (the root port) through which it will forward frames to the root bridge. Port conﬂicts are
+always resolved in favour of the port with the lower index value. When there is a possibility of multiple bridges
+forwarding to the same LAN (but not through the root port), ties are broken as follows: bridges closest to the root
+get preference and between such bridges, the one with the lowest serial number is preferred.
+Consider the spanning tree 
+ for the given connection of LANs by bridges, that represents the
+depth ﬁrst traversal of the spanning tree of bridges. Let host 
+ send out a broadcast ping packet. Which of the
+following options represents the correct forwarding table on 
+?
+
+
+2.5
+2.5.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.3
+a
+. 
+b
+. 
+c
+. 
+d
+. 
+gatecse-2006
+ 
+computer-networks
+ 
+bridges
+ 
+normal
+Answer key
+☟
+CRC Polynomial 
+(5)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(7Q)
+CRC Polynomial: GATE CSE 2007 | Question: 68, ISRO2016-73
+The message 
+ is to be transmitted using the CRC polynomial 
+ to protect it from errors. The
+message that should be transmitted is:
+gatecse-2007
+ 
+computer-networks
+ 
+error-detection
+ 
+crc-polynomial
+ 
+normal
+ 
+isro2016
+Answer key
+☟
+CRC Polynomial: GATE CSE 2017 | Set 1 | Question: 32
+A computer network uses polynomials over 
+ for error checking with 
+ bits as information bits and
+uses 
+ as the generator polynomial to generate the check bits. In this network, the message 
+ is transmitted as:
+gatecse-2017-set1
+ 
+computer-networks
+ 
+crc-polynomial
+ 
+normal
+Answer key
+☟
+CRC Polynomial: GATE CSE 2021 | Set 2 | Question: 34
+Consider the cyclic redundancy check 
+ based error detecting scheme having the generator
+polynomial 
+. Suppose the message 
+ is to be transmitted. Check
+bits 
+ are appended at the end of the message by the transmitter using the above 
+ scheme. The
+transmitted bit string is denoted by 
+. The value of the checkbit sequence 
+ is
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.5.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.6
+2.6.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.6.2
+2.6.3
+gatecse-2021-set2
+ 
+computer-networks
+ 
+crc-polynomial
+ 
+two-marks
+Answer key
+☟
+CRC Polynomial: GATE CSE 2026 | Set 2 | Question: 33
+Consider the transmission of data bits 
+ over a link that uses Cyclic Redundancy Check (CRC)
+code for error detection. If the generator bit pattern is given to be 
+, which one of the following options
+shows the remainder bit pattern appended to the data bits before transmission?
+gatecse-2026-set2
+ 
+computer-networks
+ 
+crc-polynomial
+ 
+error-detection
+ 
+two-marks
+Answer key
+☟
+CRC Polynomial: GATE IT 2005 | Question: 78
+Consider the following message 
+. The cyclic redundancy check (CRC) for this message
+using the divisor polynomial 
+ is :
+gateit-2005
+ 
+computer-networks
+ 
+crc-polynomial
+ 
+normal
+Answer key
+☟
+CSMA CD 
+(6)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(10Q)
+CSMA CD: GATE CSE 2015 | Set 3 | Question: 6
+Consider a CSMA/CD network that transmits data at a rate of 
+ per second) over a 
+ (kilometre) cable with no repeaters. If the minimum frame size required for this network is 
+What is the signal speed 
+ in the cable?
+gatecse-2015-set3
+ 
+computer-networks
+ 
+congestion-control
+ 
+csma-cd
+ 
+normal
+Answer key
+☟
+CSMA CD: GATE CSE 2016 | Set 2 | Question: 53
+A network has a data transmission bandwidth of 
+ bits per second. It uses 
+CSMA/CD
+ in the 
+MAC
+layer. The maximum signal propagation time from one node to another node is 
+ microseconds.
+The minimum size of a frame in the network is __________ bytes.
+gatecse-2016-set2
+ 
+computer-networks
+ 
+csma-cd
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+CSMA CD: GATE CSE 2018 | Question: 55
+Consider a simple communication system where multiple nodes are connected by a shared broadcast
+medium (like Ethernet or wireless). The nodes in the system use the following carrier-sense based medium
+access protocol. A node that receives a packet to transmit will carrier-sense the medium for 
+ units of time. If the
+node does not detect any other transmission, it starts transmitting its packet in the next time unit. If the node detects
+another transmission, it waits until this other transmission ﬁnishes, and then begins to carrier-sense for 
+ time units
+again. Once they start to transmit, nodes do not perform any collision detection and continue transmission even if a
+collision occurs. All transmissions last for 
+ units of time. Assume that the transmission signal travels at the speed
+of 
+ meters per unit time in the medium.
+Assume that the system has two nodes 
+ and 
+, located at a distance 
+ meters from each other. 
+ start
+transmitting a packet at time 
+ after successfully completing its carrier-sense phase. Node 
+ has a packet to
+
+
+2.6.4
+2.6.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.6.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+None of the above
+2.7
+2.7.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.8
+2.8.1
+transmit at time 
+ and begins to carrier-sense the medium.
+The maximum distance 
+ (in meters, rounded to the closest integer) that allows 
+ to successfully avoid a collision
+between its proposed transmission and 
+’s ongoing transmission is _______.
+gatecse-2018
+ 
+computer-networks
+ 
+csma-cd
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+CSMA CD: GATE IT 2005 | Question: 27
+Which of the following statements is TRUE about CSMA/CD:
+A
+. 
+IEEE 
+ wireless LAN runs CSMA/CD protocol
+B
+. 
+Ethernet is not based on CSMA/CD protocol
+C
+. 
+CSMA/CD is not suitable for a high propagation delay network like satellite network
+D
+. 
+There is no contention in a CSMA/CD network
+gateit-2005
+ 
+computer-networks
+ 
+congestion-control
+ 
+csma-cd
+ 
+normal
+Answer key
+☟
+CSMA CD: GATE IT 2005 | Question: 71
+A network with CSMA/CD protocol in the MAC layer is running at 
+ over a 
+ cable with no
+repeaters. The signal speed in the cable is 
+. The minimum frame size for this network should
+be:
+gateit-2005
+ 
+computer-networks
+ 
+congestion-control
+ 
+csma-cd
+ 
+normal
+Answer key
+☟
+CSMA CD: GATE IT 2008 | Question: 65
+The minimum frame size required for a CSMA/CD based computer network running at 
+ on a 
+cable with a link speed of 
+ is:
+gateit-2008
+ 
+computer-networks
+ 
+csma-cd
+ 
+normal
+Answer key
+☟
+Channel Utilization 
+(1)
+Channel Utilization: GATE CSE 2025 | Set 2 | Question: 26
+Suppose we are transmitting frames between two nodes using Stop-and-Wait protocol. The frame size is 
+ bits. The transmission rate of the channel is 
+ bps (bits/second) and the propagation delay
+between the two nodes is 
+ milliseconds. Assume that the processing times at the source and destination are
+negligible. Also, assume that the size of the acknowledgement packet is negligible. Which ONE of the following
+most accurately gives the channel utilization for the above scenario in percentage?
+gatecse2025-set2
+ 
+computer-networks
+ 
+stop-and-wait
+ 
+channel-utilization
+ 
+two-marks
+Answer key
+☟
+Communication 
+(4)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(11Q)
+Communication: GATE CSE 2012 | Question: 44
+Consider a source computer 
+ transmitting a ﬁle of size 
+ bits to a destination computer 
+ over a
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.8.2
+2.8.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.8.4
+A
+. 
+ Mbps
+B
+. 
+ Mbps
+C
+. 
+ Mbps
+D
+. 
+ Mbps
+2.9
+2.9.1
+A
+. 
+does not increase
+B
+. 
+increase linearly
+C
+. 
+increases quadratically
+D
+. 
+increases exponentially
+2.9.2
+network of two routers 
+ and three links 
+. 
+ connects 
+ to 
+; 
+ connects 
+ to 
+; and 
+ connects 
+ to 
+. Let each link be of length 
+. Assume signals travel over each link at a speed
+of 
+ meters per second. Assume that the link bandwidth on each link is 
+. Let the ﬁle be broken down into 
+ packets each of size 
+ bits. Find the total sum of transmission and propagation delays in transmitting the
+file from 
+ to 
+?
+gatecse-2012
+ 
+computer-networks
+ 
+communication
+ 
+normal
+Answer key
+☟
+Communication: GATE CSE 2022 | Question: 49
+Consider a 
+ link between an earth station (sender) and a satellite (receiver) at an altitude of 
+ The signal propagates at a speed of 
+ The time taken 
+ for the receiver to completely receive a packet of 
+ transmitted by the sender is _______________.
+gatecse-2022
+ 
+numerical-answers
+ 
+computer-networks
+ 
+two-marks
+ 
+communication
+Answer key
+☟
+Communication: GATE IT 2007 | Question: 62
+Let us consider a statistical time division multiplexing of packets. The number of sources is 
+. In a time unit,
+a source transmits a packet of 
+ bits. The number of sources sending data for the ﬁrst 
+ time units is 
+ respectively. The output capacity of multiplexer is 
+ bits per
+time unit. Then the average number of backlogged of packets per time unit during the given period is
+gateit-2007
+ 
+computer-networks
+ 
+communication
+ 
+normal
+Answer key
+☟
+Communication: GATE IT 2007 | Question: 64
+A broadcast channel has 
+ nodes and total capacity of 
+ Mbps. It uses polling for medium access. Once a
+node ﬁnishes transmission, there is a polling delay of 
+ 
+μ
+s to poll the next node. Whenever a node is
+polled, it is allowed to transmit a maximum of 
+ bytes. The maximum throughput of the broadcast channel is:
+gateit-2007
+ 
+computer-networks
+ 
+communication
+ 
+normal
+Answer key
+☟
+Congestion Control 
+(9)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(14Q)
+Congestion Control: GATE CSE 2008 | Question: 56
+In the slow start phase of the TCP congestion algorithm, the size of the congestion window:
+gatecse-2008
+ 
+computer-networks
+ 
+congestion-control
+ 
+normal
+Answer key
+☟
+Congestion Control: GATE CSE 2012 | Question: 45
+Consider an instance of TCP’s Additive Increase Multiplicative Decrease (AIMD) algorithm where the
+window size at the start of the slow start phase is 
+ MSS and the threshold at the start of the ﬁrst
+transmission is 
+ MSS. Assume that a timeout occurs during the fifth transmission. Find the congestion window size
+at the end of the tenth transmission.
+
+
+A
+. 
+ MSS
+B
+. 
+ MSS
+C
+. 
+ MSS
+D
+. 
+ MSS
+2.9.3
+2.9.4
+A
+. 
+Only 
+ and 
+ are true
+B
+. 
+Only 
+ and 
+ are true
+C
+. 
+Only 
+ is true
+D
+. 
+Only 
+ and 
+ are true
+2.9.5
+2.9.6
+2.9.7
+gatecse-2012
+ 
+computer-networks
+ 
+congestion-control
+ 
+normal
+Answer key
+☟
+Congestion Control: GATE CSE 2014 | Set 1 | Question: 27
+Let the size of congestion window of a TCP connection be 
+ KB when a timeout occurs. The round trip time
+of the connection is 
+ msec and the maximum segment size used is 
+ KB. The time taken 
+(in msec)
+ by
+the TCP connection to get back to 
+ KB congestion window is _________.
+gatecse-2014-set1
+ 
+computer-networks
+ 
+tcp
+ 
+congestion-control
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Congestion Control: GATE CSE 2018 | Question: 14
+Consider the following statements regarding the slow start phase of the TCP congestion control algorithm.
+Note that 
+cwnd 
+stands for the TCP congestion window and MSS window denotes the Maximum Segments
+Size:
+i
+. 
+The 
+cwnd 
+increases by 
+ MSS on every successful acknowledgment
+ii
+. 
+The 
+cwnd 
+approximately doubles on every successful acknowledgment
+iii
+. 
+The 
+cwnd 
+increases by 
+ MSS every round trip time
+iv
+. 
+The 
+cwnd 
+approximately doubles every round trip time
+Which one of the following is correct?
+gatecse-2018
+ 
+computer-networks
+ 
+tcp
+ 
+congestion-control
+ 
+normal
+ 
+one-mark
+Answer key
+☟
+Congestion Control: GATE CSE 2020 | Question: 55
+Consider a 
+ connection between a client and a server with the following speciﬁcations; the round trip
+time is 
+ ms, the size of the receiver advertised window is 
+ KB, slow-start threshold at the client is 
+ KB,
+and the maximum segment size is 
+ KB. The connection is established at time 
+. Assume that there are no
+timeouts and errors during transmission. Then the size of the congestion window (in 
+) at time 
+ ms after all
+acknowledgements are processed is _______
+gatecse-2020
+ 
+numerical-answers
+ 
+computer-networks
+ 
+tcp
+ 
+congestion-control
+ 
+two-marks
+Answer key
+☟
+Congestion Control: GATE CSE 2024 | Set 2 | Question: 44
+Consider a 
+ connection operating at a point of time with the congestion window of size 
+ 
+(Maximum Segment Size), when a timeout occurs due to packet loss. Assuming that all the segments
+transmitted in the next two 
+ (Round Trip Time) are acknowledged correctly, the congestion window size (
+in 
+) during the third 
+ will be __________.
+gatecse-2024-set2
+ 
+numerical-answers
+ 
+computer-networks
+ 
+tcp
+ 
+congestion-control
+ 
+two-marks
+Answer key
+☟
+Congestion Control: GATE CSE 2026 | Set 1 | Question: 34
+A TCP sender successfully establishes a connection with a TCP receiver and starts the transmission of
+segments. The TCP congestion control mechanism's slow-start threshold is set to 
+ segments.
+Assume that the round-trip time is ﬁxed at 
+ millisecond. Assume that the sender always has data to send, the
+segments are numbered from 
+, and no segment is lost. Let 
+ denote the time (in milliseconds) at which the
+transmission of segment number 
+ starts.
+Which one of the following options is correct?
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.9.8
+2.9.9
+A
+. 
+ bytes
+B
+. 
+ bytes
+C
+. 
+ bytes
+D
+. 
+ bytes
+2.10
+2.10.1
+2.11
+2.11.1
+gatecse-2026-set1
+ 
+two-marks
+ 
+computer-networks
+ 
+congestion-control
+ 
+tcp
+Answer key
+☟
+Congestion Control: GATE CSE 2026 | Set 2 | Question: 48
+Consider a new TCP connection between a sender and a receiver. The receiver advertised window is
+constant at 
+ KB, the maximum segment size (MSS) is 
+ KB, and the slow start threshold for TCP
+congestion control is 
+ KB. Assume that there are no timeouts or duplicate acknowledgements. The number of
+rounds of transmission required for the congestion control algorithm of the TCP connection to reach the congestion
+avoidance phase is 
+. (answer in integer)
+Note: 
+gatecse-2026-set2
+ 
+computer-networks
+ 
+congestion-control
+ 
+tcp
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Congestion Control: GATE IT 2005 | Question: 73
+On a TCP connection, current congestion window size is Congestion Window = 
+ KB. The window size
+advertised by the receiver is Advertise Window = 
+ KB. The last byte sent by the sender is LastByteSent = 
+ and the last byte acknowledged by the receiver is LastByteAcked = 
+. The current window size at the
+sender is:
+gateit-2005
+ 
+computer-networks
+ 
+congestion-control
+ 
+normal
+Answer key
+☟
+Data Communication 
+(1)
+Data Communication: GATE CSE 2026 | Set 2 | Question: 55
+It is necessary to design a link-layer protocol between two hosts that are directly connected over a lossless
+link of length 
+ kilometers. Assume that the link bandwidth is 
+ bits per second and that the
+propagation delay in the link is 
+ nanoseconds per meter. Every transmitted data byte is assigned a unique
+sequence number.
+Let 
+ be the minimum number of bits needed for the sequence number field in the protocol header such that
+i
+. 
+the sequence numbers do not wrap around before 
+ seconds, and
+ii
+. 
+the maximum utilization of the link is achieved.
+The value of 
+ is 
+ . (answer in integer)
+gatecse-2026-set2
+ 
+computer-networks
+ 
+data-communication
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Distance Vector Routing 
+(8)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(15Q)
+Distance Vector Routing: GATE CSE 2010 | Question: 54
+Consider a network with 
+ routers 
+ to 
+ connected with links having weights as shown in the following
+diagram.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.11.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.11.3
+All the routers use the distance vector based routing algorithm to update their routing tables. Each router starts with
+its routing table initialized to contain an entry for each neighbor with the weight of the respective connecting link.
+After all the routing tables stabilize, how many links in the network will never be used for carrying any data?
+gatecse-2010
+ 
+computer-networks
+ 
+routing
+ 
+distance-vector-routing
+ 
+normal
+Answer key
+☟
+Distance Vector Routing: GATE CSE 2010 | Question: 55
+Consider a network with 
+ routers 
+ to 
+ connected with links having weights as shown in the following
+diagram.
+Suppose the weights of all unused links are changed to 
+ and the distance vector algorithm is used again until all
+routing tables stabilize. How many links will now remain unused?
+ 
+gatecse-2010
+ 
+computer-networks
+ 
+routing
+ 
+distance-vector-routing
+ 
+normal
+Answer key
+☟
+Distance Vector Routing: GATE CSE 2011 | Question: 52
+Consider a network with five nodes, 
+ to 
+, as shown as below.
+The network uses a Distance Vector Routing protocol. Once the routes have been stabilized, the distance vectors
+at different nodes are as follows.
+N1
+: 
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.11.4
+A
+. 
+B
+. 
+C
+. 
+ 
+D
+. 
+N2
+: 
+N3
+: 
+N4
+: 
+N5
+: 
+Each distance vector is the distance of the best known path at that instance to nodes, 
+ to 
+, where the
+distance to itself is 
+. Also, all links are symmetric and the cost is identical in both directions. In each round, all
+nodes exchange their distance vectors with their respective neighbors. Then all nodes update their distance
+vectors. In between two rounds, any change in cost of a link will cause the two incident nodes to change only that
+entry in their distance vectors.
+The cost of link 
+ reduces to 
+ (in both directions). After the next round of updates, what will be the new
+distance vector at node, 
+?
+gatecse-2011
+ 
+computer-networks
+ 
+routing
+ 
+distance-vector-routing
+ 
+normal
+Answer key
+☟
+Distance Vector Routing: GATE CSE 2011 | Question: 53
+Consider a network with five nodes, 
+ to 
+, as shown as below.
+The network uses a Distance Vector Routing protocol. Once the routes have been stabilized, the distance vectors
+at different nodes are as follows.
+N1
+: 
+N2
+: 
+N3
+: 
+N4
+: 
+N5
+: 
+Each distance vector is the distance of the best known path at that instance to nodes, 
+ to 
+, where the
+distance to itself is 
+. Also, all links are symmetric and the cost is identical in both directions. In each round, all
+nodes exchange their distance vectors with their respective neighbors. Then all nodes update their distance
+vectors. In between two rounds, any change in cost of a link will cause the two incident nodes to change only that
+entry in their distance vectors.
+The cost of link 
+ reduces to 
+ (in both directions). After the next round of updates, the link 
+goes down. 
+ will reﬂect this change immediately in its distance vector as cost, 
+. After the 
+NEXT ROUND
+ of
+update, what will be the cost to 
+ in the distance vector of 
+ ?
+gatecse-2011
+ 
+computer-networks
+ 
+routing
+ 
+distance-vector-routing
+ 
+normal
+Answer key
+☟
+
+
+2.11.5
+2.11.6
+2.11.7
+A
+. 
+link state routing protocol.
+B
+. 
+distance vector routing protocol
+C
+. 
+DNS while resolving host name
+D
+. 
+TCP for congestion control
+2.11.8
+Distance Vector Routing: GATE CSE 2021 | Set 2 | Question: 45
+Consider a computer network using the distance vector routing algorithm in its network layer. The partial
+topology of the network is shown below.
+The objective is to ﬁnd the shortest-cost path from the router 
+ to routers 
+ and 
+. Assume that 
+ does not
+initially know the shortest routes to 
+ and 
+. Assume that 
+ has three neighbouring routers denoted as 
+, 
+ and 
+. During one iteration, 
+ measures its distance to its neighbours 
+, 
+, and 
+ as 
+, 
+ and 
+, respectively. Router 
+ gets routing vectors from its neighbours that indicate that the distance to router 
+ from routers 
+, 
+ and 
+ are 
+, 
+ and 
+, respectively. The routing vector also indicates that the distance to router 
+ from routers 
+, 
+ and 
+are 
+, 
+ and 
+ respectively. Which of the following statement(s) is/are correct with respect to the new routing table
+o 
+, after updation during this iteration?
+A
+. 
+The distance from 
+ to 
+ will be stored as 
+B
+. 
+The distance from 
+ to 
+ will be stored as 
+C
+. 
+The next hop router for a packet from 
+ to 
+ is 
+D
+. 
+The next hop router for a packet from 
+ to 
+ is 
+gatecse-2021-set2
+ 
+multiple-selects
+ 
+computer-networks
+ 
+distance-vector-routing
+ 
+two-marks
+Answer key
+☟
+Distance Vector Routing: GATE CSE 2022 | Question: 47
+Consider a network with three routers 
+ shown in the figure below. All the links have cost of unity.
+The routers exchange distance vector routing information and have converged on the routing tables, after which the
+link 
+ fails. Assume that 
+ and 
+ send out routing updates at random times, each at the same average rate.
+The probability of a routing loop formation 
+(rounded oﬀ to one decimal place)
+ between 
+ and 
+ leading to count-
+to-infinity problem, is _______________.
+gatecse-2022
+ 
+numerical-answers
+ 
+computer-networks
+ 
+routing
+ 
+distance-vector-routing
+ 
+two-marks
+Answer key
+☟
+Distance Vector Routing: GATE IT 2005 | Question: 29
+Count to infinity is a problem associated with:
+gateit-2005
+ 
+computer-networks
+ 
+routing
+ 
+distance-vector-routing
+ 
+normal
+Answer key
+☟
+Distance Vector Routing: GATE IT 2007 | Question: 60
+For the network given in the ﬁgure below, the routing tables of the four nodes 
+, 
+, 
+ and 
+ are shown.
+Suppose that 
+ has estimated its delay to its neighbors, 
+, 
+, 
+ and 
+ as 
+, 
+, 
+ and 
+ msecs
+respectively and updates its routing table using distance vector routing technique.
+
+
+2.12
+2.12.1
+2.12.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.12.3
+gateit-2007
+ 
+computer-networks
+ 
+distance-vector-routing
+ 
+normal
+Answer key
+☟
+Error Detection 
+(8)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(9Q)
+Error Detection: GATE CSE 1992 | Question: 01,ii
+Consider a 
+-bit error detection and 
+-bit error correction hamming code for 
+-bit data. The extra parity bits
+required would be _____ and the 
+-bit error detection is possible because the code has a minimum distance
+of _______.
+gate1992
+ 
+computer-networks
+ 
+error-detection
+ 
+normal
+ 
+fill-in-the-blanks
+Answer key
+☟
+Error Detection: GATE CSE 1995 | Question: 1.12
+What is the distance of the following code 
+, 
+, 
+, 
+, 
+?
+gate1995
+ 
+computer-networks
+ 
+error-detection
+ 
+normal
+Answer key
+☟
+Error Detection: GATE CSE 2009 | Question: 48
+Let 
+ be the generator polynomial used for CRC checking. What is the condition that should be satisﬁed
+by 
+ to detect odd number of bits in error?
+A
+. 
+ contains more than two terms
+B
+. 
+ does not divide 
+, for any 
+ not exceeding the frame length
+C
+. 
+ is a factor of 
+D
+. 
+ has an odd number of terms.
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+
+
+2.12.4
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+2.12.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.12.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.12.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2009
+ 
+computer-networks
+ 
+error-detection
+ 
+normal
+Answer key
+☟
+Error Detection: GATE CSE 2017 | Set 2 | Question: 34
+Consider the binary code that consists of only four valid codewords as given below:
+Let the minimum Hamming distance of the code 
+ and the maximum number of erroneous bits that can be
+corrected by the code be 
+. Then the values of 
+ and 
+ are
+gatecse-2017-set2
+ 
+computer-networks
+ 
+error-detection
+Answer key
+☟
+Error Detection: GATE IT 2005 | Question: 74
+In a communication network, a packet of length 
+ bits takes link 
+ with a probability of 
+ or link 
+ with a
+probability of 
+. Link 
+ and 
+ have bit error probability of 
+ and 
+ respectively. The probability that the
+packet will be received without error via either 
+ or 
+ is
+gateit-2005
+ 
+computer-networks
+ 
+error-detection
+ 
+probability
+ 
+normal
+Answer key
+☟
+Error Detection: GATE IT 2007 | Question: 43
+An error correcting code has the following code words: 
+. What is the maximum number of bit errors that
+can be corrected?
+gateit-2007
+ 
+computer-networks
+ 
+error-detection
+ 
+normal
+Answer key
+☟
+Error Detection: GATE IT 2008 | Question: 66
+Data transmitted on a link uses the following 
+ parity scheme for error detection:
+Each sequence of 
+ bits is arranged in a 
+ matrix (rows 
+ through 
+, and columns 
+  through 
+)
+and is padded with a column 
+ and row 
+ of parity bits computed using the Even parity scheme. Each bit of
+column 
+ (respectively, row 
+) gives the parity of the corresponding row (respectively, column). These 
+ bits are
+transmitted over the data link.
+The table shows data received by a receiver and has 
+ corrupted bits. What is the mini
+​
+mum possible value of 
+?
+gateit-2008
+ 
+computer-networks
+ 
+normal
+ 
+error-detection
+Answer key
+☟
+
+
+2.12.8
+2.13
+2.13.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.13.2
+A
+. 
+B
+. 
+      
+C
+. 
+     
+D
+. 
+2.13.3
+2.13.4
+Error Detection: GATE1987-2-i
+Match the pairs in the following questions:
+gate1989
+ 
+descriptive
+ 
+computer-networks
+ 
+error-detection
+Answer key
+☟
+Ethernet 
+(7)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(8Q)
+Ethernet: GATE CSE 2004 | Question: 54
+ and 
+ are the only two stations on an Ethernet. Each has a steady queue of frames to send. Both 
+ and 
+ attempt to transmit a frame, collide, and 
+ wins the ﬁrst backoﬀ race. At the end of this successful
+transmission by 
+, both 
+ and 
+ attempt to transmit and collide. The probability that 
+ wins the second backoﬀ
+race is:
+gatecse-2004
+ 
+computer-networks
+ 
+ethernet
+ 
+probability
+ 
+normal
+Answer key
+☟
+Ethernet: GATE CSE 2013 | Question: 36
+Determine the maximum length of the cable (in km) for transmitting data at a rate of 
+ Mbps in an
+Ethernet LAN with frames of size 
+ bits. Assume the signal speed in the cable to be 
+ km/s.
+gatecse-2013
+ 
+computer-networks
+ 
+ethernet
+ 
+normal
+Answer key
+☟
+Ethernet: GATE CSE 2016 | Set 2 | Question: 24
+In an Ethernet local area network, which one of the following statements is 
+TRUE
+?
+A
+. 
+A station stops to sense the channel once it starts transmitting a frame.
+B
+. 
+The purpose of the jamming signal is to pad the frames that are smaller than the minimum frame size.
+C
+. 
+A station continues to transmit the packet even after the collision is detected.
+D
+. 
+The exponential back off mechanism reduces the probability of collision on retransmissions.
+gatecse-2016-set2
+ 
+computer-networks
+ 
+ethernet
+ 
+normal
+Answer key
+☟
+Ethernet: GATE CSE 2022 | Question: 12
+Consider an enterprise network with two Ethernet segments, a web server and a ﬁrewall, connected via
+three routers as shown below.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.13.5
+2.13.6
+2.13.7
+What is the number of subnets inside the enterprise network?
+gatecse-2022
+ 
+computer-networks
+ 
+ethernet
+ 
+one-mark
+Answer key
+☟
+Ethernet: GATE CSE 2024 | Set 2 | Question: 13
+Node 
+ has a 
+ connection open to node 
+. The packets from 
+ to 
+ go through an intermediate 
+router 
+. Ethernet switch 
+ is the ﬁrst switch on the network path between 
+ and 
+. Consider a packet sent
+from 
+ to 
+ over this connection.
+Which of the following statements is/are TRUE about the destination 
+ and 
+ addresses on this packet at the
+time it leaves 
+?
+A
+. 
+The destination 
+ address is the 
+ address of 
+B
+. 
+The destination 
+ address is the 
+ address of 
+C
+. 
+The destination 
+ address is the 
+ address of 
+D
+. 
+The destination 
+ address is the 
+ address of 
+gatecse-2024-set2
+ 
+computer-networks
+ 
+multiple-selects
+ 
+ethernet
+ 
+one-mark
+Answer key
+☟
+Ethernet: GATE CSE 2024 | Set 2 | Question: 45
+Consider an Ethernet segment with a transmission speed of 
+ and a maximum segment length of
+ meters. If the speed of propagation of the signal in the medium is 
+, then the
+minimum frame size (
+in bits
+) required for collision detection is ___________.
+gatecse-2024-set2
+ 
+numerical-answers
+ 
+computer-networks
+ 
+ethernet
+ 
+two-marks
+Answer key
+☟
+Ethernet: GATE IT 2006 | Question: 19
+Which of the following statements is TRUE?
+A
+. 
+Both Ethernet frame and IP packet include checksum fields
+B
+. 
+Ethernet frame includes a checksum field and IP packet includes a CRC field
+C
+. 
+Ethernet frame includes a CRC field and IP packet includes a checksum field
+D
+. 
+Both Ethernet frame and IP packet include CRC fields
+gateit-2006
+ 
+computer-networks
+ 
+normal
+ 
+ethernet
+Answer key
+☟
+
+
+2.14
+2.14.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.14.2
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+ 
+2.14.3
+A
+. 
+Last fragment, 
+ and 
+B
+. 
+First fragment, 
+ and 
+C
+. 
+Last fragment, 
+ and 
+D
+. 
+Middle fragment, 
+ and 
+Fragmentation 
+(5)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(12Q)
+Fragmentation: GATE CSE 2004 | Question: 56
+Consider three IP networks 
+ and 
+. Host 
+ in network 
+ sends messages each containing 
+bytes of application data to a host 
+ in network 
+. The 
+ layer preﬁxes 
+ byte header to the
+message.
+This passes through an intermediate network 
+.The maximum packet size, including 
+ byte IP header, in each
+network is:
+A: 
+B: 
+C: 
+The network 
+ and 
+ are connected through a 
+ Mbps link, while 
+ and 
+ are connected by a 
+ Kbps link (bps = bits per second).        
+Assuming that the packets are correctly delivered, how many bytes, including headers, are delivered to the 
+layer at the destination for one application message, in the best case? Consider only data packets.
+gatecse-2004
+ 
+computer-networks
+ 
+ip-addressing
+ 
+fragmentation
+ 
+tcp
+ 
+normal
+Answer key
+☟
+Fragmentation: GATE CSE 2004 | Question: 57
+Consider three IP networks 
+ and 
+. Host 
+ in network 
+ sends messages each containing 
+ 
+ of application data to a host 
+ in network 
+. The TCP layer preﬁxes 
+ byte header to the
+message. This passes through an intermediate network 
+. The maximum packet size, including 
+ byte IP header,
+in each network, is:
+ 
+ 
+   
+ 
+The network 
+ and 
+ are connected through a 
+ 
+ link, while 
+ and 
+ are connected by a 
+ 
+ link
+(bps = bits per second).
+What is the rate at which application data is transferred to host 
+? Ignore errors, acknowledgments, and other
+overheads.
+gatecse-2004
+ 
+computer-networks
+ 
+ip-addressing
+ 
+fragmentation
+ 
+tcp
+ 
+normal
+Answer key
+☟
+Fragmentation: GATE CSE 2013 | Question: 37
+In an IPv4 datagram, the 
+ bit is 
+, the value of 
+ is 
+, the value of total length is 
+ and the
+fragment oﬀset value is 
+. The position of the datagram, the sequence numbers of the ﬁrst and the last
+bytes of the payload, respectively are:
+gatecse-2013
+ 
+computer-networks
+ 
+ip-addressing
+ 
+fragmentation
+ 
+normal
+
+
+2.14.4
+2.14.5
+A
+. 
+ fragments 
+ bytes
+B
+. 
+ fragments 
+ bytes
+C
+. 
+ fragments 
+ bytes
+D
+. 
+ fragments 
+ bytes
+2.15
+2.15.1
+2.15.2
+Answer key
+☟
+Fragmentation: GATE CSE 2025 | Set 1 | Question: 47
+Suppose a message of size 
+ bytes is transmitted from a source to a destination using IPv4 protocol
+via two routers as shown in the ﬁgure. Each router has a deﬁned maximum transmission unit (MTU) as
+shown in the ﬁgure, including IP header. The number of fragments that will be delivered to the destination is
+_________. (Answer in integer)
+ 
+gatecse2025-set1
+ 
+computer-networks
+ 
+ip-addressing
+ 
+fragmentation
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Fragmentation: GATE CSE 2025 | Set 2 | Question: 13
+Consider a network that uses Ethernet and 
+. Assume that 
+ headers do not use any options ﬁeld.
+Each Ethernet frame can carry a maximum of 
+ bytes in its data ﬁeld. A UDP segment is transmitted.
+The payload (data) in the UDPO segment is 
+ bytes.
+Which ONE of the following choices has the CORRECT total number of fragments transmitted and the size of the
+last fragment including 
+ header?
+gatecse2025-set2
+ 
+computer-networks
+ 
+fragmentation
+ 
+ip-addressing
+ 
+one-mark
+Answer key
+☟
+Hamming Code 
+(2)
+Hamming Code: GATE CSE 1994 | Question: 9
+Following 
+ bit single error correcting hamming coded message is received.
+Determine if the message is correct (assuming that at most 
+ bit could be corrupted). If the message contains an
+error find the bit which is erroneous and gives correct message.
+gate1994
+ 
+computer-networks
+ 
+error-detection
+ 
+hamming-code
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Hamming Code: GATE CSE 2021 | Set 1 | Question: 29
+Assume that a 
+-bit Hamming codeword consisting of 
+-bit data and 
+ check bits is 
+, where the data bits and the check bits are given in the following tables:
+
+
+A
+. 
+ is 
+ and 
+ is 
+B
+. 
+ is 
+ and 
+ is 
+C
+. 
+ is 
+ and 
+ is 
+D
+. 
+ is 
+ and 
+ is 
+2.16
+2.16.1
+2.16.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.16.3
+2.16.4
+2.16.5
+Which one of the following choices gives the correct values of 
+ and 
+?
+gatecse-2021-set1
+ 
+computer-networks
+ 
+hamming-code
+ 
+two-marks
+ 
+error-detection
+Answer key
+☟
+IP Addressing 
+(8)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(2Q)
+IP Addressing: GATE CSE 2003 | Question: 27
+Which of the following assertions is FALSE about the Internet Protocol (IP)?
+A
+. 
+It is possible for a computer to have multiple IP addresses
+B
+. 
+IP packets from the same source to the same destination can take different routes in the network
+C
+. 
+IP ensures that a packet is discarded if it is unable to reach its destination within a given number of hops
+D
+. 
+The packet source cannot set the route of an outgoing packets; the route is determined only by the routing
+tables in the routers on the way
+gatecse-2003
+ 
+computer-networks
+ 
+ip-addressing
+ 
+normal
+Answer key
+☟
+IP Addressing: GATE CSE 2012 | Question: 23
+In the IPv4 addressing format, the number of networks allowed under Class 
+ addresses is:
+gatecse-2012
+ 
+computer-networks
+ 
+ip-addressing
+ 
+easy
+Answer key
+☟
+IP Addressing: GATE CSE 2017 | Set 2 | Question: 20
+The maximum number of 
+ router addresses that can be listed in the record route (RR) option ﬁeld of an 
+ header is______.
+gatecse-2017-set2
+ 
+computer-networks
+ 
+ip-addressing
+ 
+numerical-answers
+Answer key
+☟
+IP Addressing: GATE CSE 2018 | Question: 54
+Consider an IP packet with a length of 
+ that includes a 
+ header and a 
+TCP header. The packet is forwarded to an 
+ router that supports a Maximum Transmission Unit (MTU)
+of 
+. Assume that the length of the IP header in all the outgoing fragments of this packet is 
+.
+Assume that the fragmentation offset value stored in the first fragment is 
+.
+The fragmentation offset value stored in the third fragment is ________.
+gatecse-2018
+ 
+computer-networks
+ 
+ip-addressing
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+IP Addressing: GATE CSE 2023 | Question: 42
+Suppose in a web browser, you click on the 
+. The browser cache is empty. The 
+ for this 
+ is not cached in your local host, so a 
+ lookup is triggered (by the local 
+server deployed on your local host) over the 
+-tier 
+ hierarchy in an iterative mode. No resource records are
+cached anywhere across all 
+ servers.
+Let 
+ denote the round trip time between your local host and 
+ servers in the 
+ hierarchy. The round
+trip time between the local host and the web server hosting 
+ is also equal to 
+. The 
+ﬁle associated with the 
+ is small enough to have negligible transmission time and negligible rendering time by
+
+
+2.16.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.16.7
+A
+. 
+Internet Control Message Protocol
+(ICMP)
+B
+. 
+Internet Group Management
+(IGMP)
+C
+. 
+Open Shortest Path First (OSPF)
+D
+. 
+Routing Information Protocol (RIP)
+2.16.8
+2.17
+2.17.1
+your web browser, which references 
+ equally small objects on the same web server.
+Which of the following statements is/are 
+ about the minimum elapsed time between clicking on the 
+ and your browser fully rendering it?
+A
+. 
+s, in case of non-persistent 
+ with 
+ parallel 
+ connections.
+B
+. 
+s, in case of persistent 
+ with pipelining.
+C
+. 
+s, in case of non-persistent 
+ with 
+ parallel 
+ connections.
+D
+. 
+s, in case of persistent 
+ with pipelining.
+gatecse-2023
+ 
+computer-networks
+ 
+ip-addressing
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+IP Addressing: GATE CSE 2024 | Set 2 | Question: 28
+Which one of the following 
+ preﬁxes exactly represents the range of 
+ addresses 
+ to 
+?
+gatecse-2024-set2
+ 
+computer-networks
+ 
+ip-addressing
+ 
+two-marks
+Answer key
+☟
+IP Addressing: GATE CSE 2025 | Set 2 | Question: 8
+A machine receives an 
+ datagram. The protocol ﬁeld of the 
+ header has the protocol number of a
+protocol 
+.
+Which ONE of the following is NOT a possible candidate for 
+?
+gatecse2025-set2
+ 
+computer-networks
+ 
+ip-addressing
+ 
+one-mark
+Answer key
+☟
+IP Addressing: GATE CSE 2026 | Set 2 | Question: 23
+If an IP network uses a subnet mask of 
+, the maximum number of IP addresses that can be
+assigned to network interfaces is 
+. (answer in integer)
+gatecse-2026-set2
+ 
+computer-networks
+ 
+ip-addressing
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+IP Packet 
+(12)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(3Q)
+IP Packet: GATE CSE 2006 | Question: 5
+For which one of the following reasons does internet protocol(IP) use the time-to-live(TTL) ﬁeld in IP
+datagram header?
+A
+. 
+Ensure packets reach destination within that time
+B
+. 
+Discard packets that reach later than that time
+C
+. 
+Prevent packets from looping indefinitely
+D
+. 
+Limit the time for which a packet gets queued in intermediate routers
+gatecse-2006
+ 
+computer-networks
+ 
+ip-addressing
+ 
+ip-packet
+ 
+easy
+Answer key
+☟
+
+
+2.17.2
+A
+. 
+It can be used to prioritize packets.
+B
+. 
+It can be used to reduce delays.
+C
+. 
+It can be used to optimize
+throughput.
+D
+. 
+It can be used to prevent packet
+looping.
+2.17.3
+A
+. 
+ only
+B
+. 
+ and 
+ only
+C
+. 
+ and 
+ only
+D
+. 
+ and 
+2.17.4
+2.17.5
+A
+. 
+Check sum
+B
+. 
+Source address
+C
+. 
+Time to Live (TTL)
+D
+. 
+Length
+2.17.6
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+IP Packet: GATE CSE 2010 | Question: 15. PGEE 2018
+One of the header ﬁelds in an IP datagram is the Time-to-Live (TTL) ﬁeld. Which of the following statements
+best explains the need for this field?
+gatecse-2010
+ 
+computer-networks
+ 
+ip-packet
+ 
+easy
+Answer key
+☟
+IP Packet: GATE CSE 2014 | Set 3 | Question: 25
+Host A (on TCP/IP v4 network A) sends an IP datagram D to host B (also on TCP/IP v4 network B). Assume
+that no error occurred during the transmission of D. When D reaches B, which of the following IP header
+field(s) may be different from that of the original datagram D?
+i
+. 
+TTL
+ii
+. 
+Checksum
+iii
+. 
+Fragment Offset
+gatecse-2014-set3
+ 
+computer-networks
+ 
+ip-packet
+ 
+normal
+Answer key
+☟
+IP Packet: GATE CSE 2014 | Set 3 | Question: 28
+An 
+ router with a 
+ of 
+ bytes has received an 
+ packet of
+size 
+ with an 
+ header of length 
+. The values of the relevant ﬁelds in the header of the
+third 
+ fragment generated by the router for this packet are:
+A
+. 
+: 
+ Datagram Length:
+ Offset
+B
+. 
+: 
+ Datagram Length
+ Offset
+C
+. 
+: 
+ Datagram Length
+ Offset
+D
+. 
+: 
+ Datagram Length
+ Offset
+gatecse-2014-set3
+ 
+computer-networks
+ 
+fragmentation
+ 
+ip-packet
+ 
+normal
+Answer key
+☟
+IP Packet: GATE CSE 2015 | Set 1 | Question: 22
+Which of the following fields of an IP header is NOT modified by a typical IP router?
+gatecse-2015-set1
+ 
+computer-networks
+ 
+ip-packet
+ 
+easy
+Answer key
+☟
+IP Packet: GATE CSE 2015 | Set 2 | Question: 52
+ sends a 
+ datagram containing 
+ of user data to 
+ over an 
+Ethernet frames may carry data up to 
+ Size of 
+ header is 
+ and size of 
+ header is 
+ There is no option ﬁeld in 
+ header. How many total number of 
+fragments will be transmitted and what will be the contents of offset field in the last fragment?
+gatecse-2015-set2
+ 
+computer-networks
+ 
+fragmentation
+ 
+ip-packet
+ 
+normal
+Answer key
+☟
+
+
+2.17.7
+2.17.8
+A
+. 
+Source 
+B
+. 
+Destination 
+C
+. 
+Header Checksum
+D
+. 
+Total Length 
+2.17.9
+2.17.10
+2.17.11
+A
+. 
+Source 
+ Address
+B
+. 
+Protocol
+C
+. 
+Time to Live 
+D
+. 
+Header Checksum
+2.17.12
+A
+. 
+Fragment Offset
+B
+. 
+Source IP address
+C
+. 
+Destination IP address
+D
+. 
+Destination port number
+IP Packet: GATE CSE 2016 | Set 1 | Question: 53
+An IP datagram of size 
+ 
+arrives at a router. The router has to forward this packet on a link whose
+MTU (maximum transmission unit) is 
+ 
+. Assume that the size of the IP header is 
+ 
+The number of fragments that the IP datagram will be divided into for transmission is________.
+gatecse-2016-set1
+ 
+computer-networks
+ 
+fragmentation
+ 
+ip-packet
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+IP Packet: GATE CSE 2024 | Set 1 | Question: 21
+Which of the following ﬁelds is/are modiﬁed in the 
+ header of a packet going out of a network address
+translation 
+ device from an internal network to an external network?
+gatecse-2024-set1
+ 
+multiple-selects
+ 
+computer-networks
+ 
+ip-packet
+ 
+one-mark
+Answer key
+☟
+IP Packet: GATE CSE 2024 | Set 1 | Question: 55
+Consider sending an 
+ datagram of size 
+ bytes (including 
+ bytes of 
+ header) from a sender to a
+receiver over a path of two links with a router between them. The ﬁrst link (sender to router) has an 
+(Maximum Transmission Unit) size of 
+ bytes, while the second link (router to receiver) has an 
+ size of 
+bytes. The number of fragments that would be delivered at the receiver is ____________.
+gatecse-2024-set1
+ 
+numerical-answers
+ 
+computer-networks
+ 
+ip-packet
+ 
+fragmentation
+ 
+two-marks
+Answer key
+☟
+IP Packet: GATE CSE 2024 | Set 2 | Question: 18
+​​​​​
+Which of the following statements about 
+ fragmentation is/are TRUE?
+A
+. 
+The fragmentation of an 
+ datagram is performed 
+only 
+at the source of the datagram
+B
+. 
+The fragmentation of an 
+  datagram is performed at any 
+  router which ﬁnds that the size of the datagram
+to be transmitted exceeds the 
+C
+. 
+The reassembly of fragments is performed 
+only 
+at the destination of the datagram
+D
+. 
+The reassembly of fragments is performed at all intermediate routers along the path from the source to the
+destination
+gatecse-2024-set2
+ 
+computer-networks
+ 
+multiple-selects
+ 
+ip-packet
+ 
+one-mark
+Answer key
+☟
+IP Packet: GATE CSE 2024 | Set 2 | Question: 22
+Which of the following ﬁelds of an 
+ header is/are 
+always 
+modiﬁed by any router before it forwards the 
+packet?
+gatecse-2024-set2
+ 
+computer-networks
+ 
+multiple-selects
+ 
+ip-packet
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+IP Packet: GATE IT 2004 | Question: 86
+In the TCP/IP protocol suite, which one of the following is NOT part of the IP header?
+gateit-2004
+ 
+computer-networks
+ 
+ip-packet
+ 
+easy
+Answer key
+☟
+
+
+2.18
+2.18.1
+2.19
+2.19.1
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+None of the above
+2.19.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.19.3
+Icmp 
+(1)
+Icmp: GATE IT 2005 | Question: 26
+Traceroute reports a possible route that is taken by packets moving from some host 
+ to some other host 
+. Which of the following options represents the technique used by traceroute to identify these hosts:
+A
+. 
+By progressively querying routers about the next router on the path to 
+ using 
+ packets, starting with the
+first router
+B
+. 
+By requiring each router to append the address to the 
+ packet as it is forwarded to 
+. The list of all
+routers en-route to 
+ is returned by 
+ in an 
+ reply packet
+C
+. 
+By ensuring that an 
+ reply packet is returned to 
+ by each router en-route to 
+ in the ascending order of
+their hop distance from 
+D
+. 
+By locally computing the shortest path from 
+ to 
+gateit-2005
+ 
+computer-networks
+ 
+icmp
+ 
+application-layer-protocols
+ 
+normal
+Answer key
+☟
+LAN Technologies 
+(7)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(11Q)
+LAN Technologies: GATE CSE 2003 | Question: 83
+A 
+ 
+ long broadcast LAN has 
+ bps bandwidth and uses CSMA/CD. The signal travels along the wire
+at 
+ m/s. What is the minimum packet size that can be used on this network?
+gatecse-2003
+ 
+computer-networks
+ 
+lan-technologies
+ 
+normal
+Answer key
+☟
+LAN Technologies: GATE CSE 2007 | Question: 65
+There are 
+ stations in slotted LAN. Each station attempts to transmit with a probability 
+ in each time slot.
+What is the probability that 
+ONLY 
+one station transmits in a given time slot?
+gatecse-2007
+ 
+computer-networks
+ 
+lan-technologies
+ 
+probability
+ 
+normal
+Answer key
+☟
+LAN Technologies: GATE CSE 2014 | Set 2 | Question: 25
+In the diagram shown below, 
+ is an Ethernet LAN and 
+ is a Token-Ring LAN. An 
+ packet originates
+from sender 
+ and traverses to 
+, as shown. The links within each 
+ and across the two 
+s, are all
+point-to-point optical links. The initial value of the 
+ ﬁeld is 
+. The maximum possible value of the 
+ ﬁeld
+when 
+ receives the datagram is _______.
+gatecse-2014-set2
+ 
+computer-networks
+ 
+numerical-answers
+ 
+lan-technologies
+ 
+ethernet
+ 
+normal
+Answer key
+☟
+
+
+2.19.4
+2.19.5
+A
+. 
+the subnet to which the host
+belongs
+B
+. 
+the Department network
+C
+. 
+the University network
+D
+. 
+the Internet
+2.19.6
+A
+. 
+Bridge is a layer 
+ device
+B
+. 
+Bridge reduces collision domain
+C
+. 
+Bridge is used to connect two or
+more LAN segments
+D
+. 
+Bridge reduces broadcast domain
+2.19.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.20
+2.20.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.20.2
+LAN Technologies: GATE CSE 2019 | Question: 49
+Consider that 
+ machines need to be connected in a LAN using 
+-port Ethernet switches. Assume that
+these switches do not have any separate uplink ports. The minimum number of switches needed is ______
+gatecse-2019
+ 
+numerical-answers
+ 
+computer-networks
+ 
+lan-technologies
+ 
+two-marks
+Answer key
+☟
+LAN Technologies: GATE IT 2004 | Question: 27
+A host is connected to a Department network which is part of a University network. The University network,
+in turn, is part of the Internet. The largest network in which the Ethernet address of the host is unique is
+gateit-2004
+ 
+computer-networks
+ 
+lan-technologies
+ 
+ethernet
+ 
+normal
+Answer key
+☟
+LAN Technologies: GATE IT 2005 | Question: 28
+Which of the following statements is FALSE regarding a bridge?
+gateit-2005
+ 
+computer-networks
+ 
+lan-technologies
+ 
+normal
+Answer key
+☟
+LAN Technologies: GATE IT 2006 | Question: 66
+A router has two full-duplex Ethernet interfaces each operating at 
+ 
+. Ethernet frames are at least 
+ 
+ long (including the Preamble and the Inter-Packet-Gap). The maximum packet processing time at
+the router for wirespeed forwarding to be possible is (in micro
+​
+seconds)
+gateit-2006
+ 
+computer-networks
+ 
+lan-technologies
+ 
+ethernet
+ 
+normal
+Answer key
+☟
+MAC Protocol 
+(4)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(6Q)
+MAC Protocol: GATE CSE 2005 | Question: 74
+Suppose the round trip propagation delay for a 
+ Ethernet having 
+ jamming signal is 
+.
+The minimum frame size is:
+gatecse-2005
+ 
+computer-networks
+ 
+mac-protocol
+ 
+ethernet
+Answer key
+☟
+MAC Protocol: GATE CSE 2015 | Set 2 | Question: 8
+A link has transmission speed of 
+ bits/sec. It uses data packets of size 
+ 
+ each. Assume that
+the acknowledgment has negligible transmission delay and that its propagation delay is the same as the
+data propagation delay. Also, assume that the processing delays at nodes are negligible. The eﬃciency of the stop-
+and-wait protocol in this setup is exactly 
+. The value of the one way propagation delay (in milliseconds)
+is_____.
+gatecse-2015-set2
+ 
+computer-networks
+ 
+mac-protocol
+ 
+stop-and-wait
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+
+
+2.20.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.20.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.21
+2.21.1
+2.21.2
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+2.21.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+MAC Protocol: GATE IT 2004 | Question: 85
+Consider a simpliﬁed time slotted MAC protocol, where each host always has data to send and transmits
+with probability 
+ = 
+ in every slot. There is no backoﬀ and one frame can be transmitted in one slot. If
+more than one host transmits in the same slot, then the transmissions are unsuccessful due to collision. What is the
+maximum number of hosts which this protocol can support if each host has to be provided a minimum throughput of
+ frames per time slot?
+gateit-2004
+ 
+computer-networks
+ 
+congestion-control
+ 
+mac-protocol
+ 
+normal
+Answer key
+☟
+MAC Protocol: GATE IT 2005 | Question: 75
+In a TDM medium access control bus LAN, each station is assigned one time slot per cycle for transmission.
+Assume that the length of each time slot is the time to transmit 
+ 
+ plus the end-to-end propagation
+delay. Assume a propagation speed of 
+. The length of the LAN is 
+ 
+ with a bandwidth of 
+ 
+. The maximum number of stations that can be allowed in the LAN so that the throughput of each station can
+be 
+ 
+ is
+ 
+gateit-2005
+ 
+computer-networks
+ 
+mac-protocol
+ 
+normal
+Answer key
+☟
+Network Flow 
+(4)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(5Q)
+Network Flow: GATE CSE 1992 | Question: 01,v
+A simple and reliable data transfer can be accomplished by using the 'handshake protocol'. It accomplishes
+reliable data transfer because for every data item sent by the transmitter _______.
+gate1992
+ 
+computer-networks
+ 
+network-flow
+ 
+easy
+ 
+fill-in-the-blanks
+Answer key
+☟
+Network Flow: GATE CSE 2017 | Set 2 | Question: 35
+Consider two hosts 
+ and 
+, connected by a single direct link of rate 
+. The distance between
+the two hosts is 
+ and the propagation speed along the link is 
+. Host 
+ sends a
+ﬁle of 
+ as one large message to host 
+ continuously. Let the transmission and propagation delays
+be 
+ and 
+ respectively. Then the value of 
+ and 
+ are
+gatecse-2017-set2
+ 
+computer-networks
+ 
+network-flow
+Answer key
+☟
+Network Flow: GATE IT 2004 | Question: 87
+A TCP message consisting of 
+  
+ is passed to IP for delivery across two networks. The ﬁrst
+network can carry a maximum payload of 
+ 
+ per frame and the second network can carry a
+maximum payload of 
+ 
+ per frame, excluding network overhead. Assume that IP overhead per packet is 
+. What is the total IP overhead in the second network for this transmission?
+gateit-2004
+ 
+computer-networks
+ 
+network-flow
+ 
+normal
+Answer key
+☟
+
+
+2.21.4
+A
+. 
+ 
+ 
+B
+. 
+ 
+ 
+C
+. 
+ 
+ 
+D
+. 
+ 
+ 
+2.22
+2.22.1
+A
+. 
+Recovery from packet losses
+B
+. 
+Detection of duplicate packets
+C
+. 
+Packet delivery in the correct order
+D
+. 
+End to end connectivity
+2.22.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.22.3
+Network Flow: GATE IT 2006 | Question: 67
+A link of capacity 
+ 
+ is carrying traﬃc from a number of sources. Each source generates an on-oﬀ
+traﬃc stream; when the source is on, the rate of traﬃc is 
+ 
+, and when the source is oﬀ, the rate of
+traﬃc is zero. The duty cycle, which is the ratio of on-time to oﬀ-time, is 
+. When there is no buﬀer at the link,
+the minimum number of sources that can be multiplexed on the link so that link capacity is not wasted and no data
+loss occurs is 
+. Assuming that all sources are synchronized and that the link is provided with a large buﬀer, the
+maximum number of sources that can be multiplexed so that no data loss occurs is 
+. The values of 
+ and 
+are, respectively,
+gateit-2006
+ 
+computer-networks
+ 
+network-flow
+ 
+normal
+Answer key
+☟
+Network Layer 
+(6)
+Network Layer: GATE CSE 2003 | Question: 28
+Which of the following functionality 
+must 
+be implemented by a transport protocol over and above the network
+protocol?
+gatecse-2003
+ 
+computer-networks
+ 
+network-layer
+ 
+easy
+Answer key
+☟
+Network Layer: GATE CSE 2004 | Question: 15
+Choose the best matching between 
+ and 
+gatecse-2004
+ 
+computer-networks
+ 
+network-layer
+ 
+normal
+Answer key
+☟
+Network Layer: GATE CSE 2013 | Question: 14
+Assume that source S and destination D are connected through two intermediate routers labeled R.
+Determine how many times each packet has to visit the network layer and the data link layer during a
+transmission from S to D.
+A
+. 
+Network layer – 
+ times and Data link layer – 
+ times
+B
+. 
+Network layer – 
+ times and Data link layer – 
+ times
+C
+. 
+Network layer – 
+ times and Data link layer – 
+ times
+D
+. 
+Network layer – 
+ times and Data link layer – 
+ times
+gatecse-2013
+ 
+computer-networks
+ 
+network-layer
+ 
+normal
+Answer key
+☟
+
+
+2.22.4
+A
+. 
+Network layer and Routing
+B
+. 
+Data Link Layer and Bit
+synchronization
+C
+. 
+Transport layer and End-to-end
+process communication
+D
+. 
+Medium Access Control sub-layer
+and Channel sharing
+2.22.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.22.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.23
+2.23.1
+2.23.2
+A
+. 
+HTTP
+B
+. 
+Telnet
+C
+. 
+DNS
+D
+. 
+SMTP
+Network Layer: GATE CSE 2014 | Set 3 | Question: 23
+In the following pairs of OSI protocol layer/sub-layer and its functionality, the 
+INCORRECT 
+pair is 
+gatecse-2014-set3
+ 
+computer-networks
+ 
+network-layer
+ 
+easy
+Answer key
+☟
+Network Layer: GATE CSE 2018 | Question: 13
+Match the following:
+gatecse-2018
+ 
+computer-networks
+ 
+network-layer
+ 
+match-the-following
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Network Layer: GATE CSE 2026 | Set 1 | Question: 46
+An ISP having an address block 
+ assigns a block of 
+ IP addresses to a client, using the
+classless internet domain routing (CIDR) super-netting approach. Which of the following address blocks can
+be assigned by the ISP?
+gatecse-2026-set1
+ 
+computer-networks
+ 
+two-marks
+ 
+network-layer
+ 
+multiple-selects
+Answer key
+☟
+Network Protocols 
+(11)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(15Q)
+Network Protocols: GATE CSE 2005 | Question: 24
+The address resolution protocol (ARP) is used for:
+A
+. 
+Finding the IP address from the DNS
+B
+. 
+Finding the IP address of the default gateway
+C
+. 
+Finding the IP address that corresponds to a MAC address
+D
+. 
+Finding the MAC address that corresponds to an IP address
+gatecse-2005
+ 
+computer-networks
+ 
+normal
+ 
+network-protocols
+Answer key
+☟
+Network Protocols: GATE CSE 2007 | Question: 20
+Which one of the following uses UDP as the transport protocol?
+gatecse-2007
+ 
+computer-networks
+ 
+network-protocols
+ 
+application-layer-protocols
+ 
+easy
+Answer key
+☟
+
+
+2.23.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.23.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.23.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.23.6
+2.23.7
+Network Protocols: GATE CSE 2007 | Question: 70
+Match the following:
+gatecse-2007
+ 
+computer-networks
+ 
+network-layer
+ 
+network-protocols
+ 
+easy
+ 
+match-the-following
+Answer key
+☟
+Network Protocols: GATE CSE 2015 | Set 1 | Question: 1
+7
+In one of the pairs of protocols given below , both the protocols can use multiple 
+ connections between
+the same client and the server. Which one is that?
+gatecse-2015-set1
+ 
+computer-networks
+ 
+network-protocols
+ 
+normal
+Answer key
+☟
+Network Protocols: GATE CSE 2016 | Set 1 | Question: 24
+Which one of the following protocols is 
+NOT
+ used to resolve one form of address to another one?
+gatecse-2016-set1
+ 
+computer-networks
+ 
+network-protocols
+ 
+easy
+Answer key
+☟
+Network Protocols: GATE CSE 2019 | Question: 29
+Suppose that in an IP-over-Ethernet network, a machine X wishes to ﬁnd the MAC address of another
+machine Y  in its subnet. Which one of the following techniques can be used for this?
+A
+. 
+X sends an ARP request packet to the local gateway’s IP address which then ﬁnds the MAC address of Y and
+sends to X
+B
+. 
+X sends an ARP request packet to the local gateway’s MAC address which then ﬁnds the MAC address of Y
+and sends to X
+C
+. 
+X sends an ARP request packet with broadcast MAC address in its local subnet
+D
+. 
+X sends an ARP request packet with broadcast IP address in its local subnet
+gatecse-2019
+ 
+computer-networks
+ 
+network-protocols
+ 
+two-marks
+Answer key
+☟
+Network Protocols: GATE CSE 2021 | Set 1 | Question: 49
+Consider the sliding window ﬂow-control protocol operating between a sender and a receiver over a full-
+duplex error-free link. Assume the following:
+The time taken for processing the data frame by the receiver is negligible.
+The time taken for processing the acknowledgement frame by the sender is negligible.
+The sender has infinite number of frames available for transmission.
+The size of the data frame is 
+ bits and the size of the acknowledgement frame is 
+ bits.
+The link data rate in each direction is 
+ Mbps (
+ bits per second).
+One way propagation delay of the link is 
+ milliseconds.
+
+
+2.23.8
+A
+. 
+Both 
+ and 
+ are true
+B
+. 
+ is true and 
+ is false
+C
+. 
+ is false and 
+ is true
+D
+. 
+Both 
+ and 
+ are false
+2.23.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.23.10
+The minimum value of the sender's window size in terms of the number of frames, (rounded to the nearest  integer)
+ needed  to achieve a link utilization of 
+ is_____________.
+gatecse-2021-set1
+ 
+computer-networks
+ 
+network-protocols
+ 
+sliding-window
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Network Protocols: GATE CSE 2021 | Set 1 | Question: 8
+Consider the following two statements.
+: Destination 
+ address of an 
+ reply is a broadcast address.
+: Destination 
+ address of an 
+ request is a broadcast address.
+Which one of the following choices is correct?
+gatecse-2021-set1
+ 
+computer-networks
+ 
+network-protocols
+ 
+one-mark
+Answer key
+☟
+Network Protocols: GATE CSE 2024 | Set 1 | Question: 6
+A user starts browsing a webpage hosted at a remote server. The browser opens a single TCP connection
+to fetch the entire webpage from the server. The webpage consists of a top-level index page with multiple
+embedded image objects. Assume that all caches (e.g., DNS cache, browser cache) are all initially empty. The
+following packets leave the user's computer in some order.
+i
+. 
+HTTP GET request for the index page
+ii
+. 
+DNS request to resolve the web server's name to its IP address
+iii
+. 
+HTTP GET request for an image object
+iv
+. 
+TCP SYN to open a connection to the web server
+Which one of the following is the CORRECT chronological order (earliest in time to latest) of the packets leaving the
+computer?
+gatecse-2024-set1
+ 
+computer-networks
+ 
+network-protocols
+ 
+one-mark
+Answer key
+☟
+Network Protocols: GATE IT 2007 | Question: 69
+Consider the following clauses:
+i
+. 
+Not inherently suitable for client authentication.
+ii
+. 
+Not a state sensitive protocol.
+iii
+. 
+Must be operated with more than one server.
+iv
+. 
+Suitable for structured message organization.
+v
+. 
+May need two ports on the serve side for proper operation.
+The option that has the maximum number of correct matches is
+A
+. 
+ IMAP-i;  FTP-ii;  HTTP-iii;  DNS-iv;  POP3-v
+B
+. 
+ FTP-i;  POP3-ii;  SMTP-iii;  HTTP-iv;  IMAP-v
+C
+. 
+ POP3-i;  SMTP-ii;  DNS-iii;  IMAP-iv;  HTTP-v
+D
+. 
+ SMTP-i;  HTTP-ii;  IMAP-iii;  DNS-iv;  FTP-v
+gateit-2007
+ 
+computer-networks
+ 
+network-protocols
+ 
+normal
+Answer key
+☟
+
+
+2.23.11
+A
+. 
+, 
+ and 
+ only
+B
+. 
+ and 
+ only
+C
+. 
+ and 
+ only
+D
+. 
+, 
+ and 
+ only
+2.24
+2.24.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.24.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.24.3
+2.24.4
+Network Protocols: GATE IT 2008 | Question: 68
+Which of the following statements are TRUE?
+S1:
+  TCP handles both congestion and flow control
+S2:
+  UDP handles congestion but not flow control
+S3:
+  Fast retransmit deals with congestion but not flow control
+S4:
+  Slow start mechanism deals with both congestion and flow control
+gateit-2008
+ 
+computer-networks
+ 
+network-protocols
+ 
+normal
+Answer key
+☟
+Network Switching 
+(4)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(6Q)
+Network Switching: GATE CSE 2005 | Question: 73
+In a packet switching network, packets are routed from source to destination along a single path having two
+intermediate nodes. If the message size is 
+ bytes and each packet contains a header of 
+ bytes, then the
+optimum packet size is:
+gatecse-2005
+ 
+computer-networks
+ 
+network-switching
+ 
+normal
+Answer key
+☟
+Network Switching: GATE CSE 2014 | Set 2 | Question: 26
+Consider the store and forward packet switched network given below. Assume that the bandwidth of each
+link is 
+ bytes / sec. A user on host 
+ sends a ﬁle of size 
+ bytes to host 
+ through routers 
+ and 
+in three diﬀerent ways. In the ﬁrst case a single packet containing the complete ﬁle is transmitted from 
+ to 
+. In
+the second case, the ﬁle is split into 
+ equal parts, and these packets are transmitted from 
+ to 
+. In the third
+case, the file is split into 
+ equal parts and these packets are sent from 
+ to 
+. Each packet contains 
+ bytes of
+header information along with the user data. Consider only transmission time and ignore processing, queuing and
+propagation delays. Also assume that there are no errors during transmission. Let 
+, 
+ and 
+ be the times
+taken to transmit the file in the first, second and third case respectively. Which one of the following is CORRECT?
+gatecse-2014-set2
+ 
+computer-networks
+ 
+network-switching
+ 
+normal
+Answer key
+☟
+Network Switching: GATE CSE 2015 | Set 3 | Question: 36
+Two hosts are connected via a packet switch with 
+ bits per second links. Each link has a propagation
+delay of 
+ microseconds. The switch begins forwarding a packet 
+ microseconds after it receives the
+same. If 
+ bits of data are to be transmitted between the two hosts using a packet size of 
+ bits, the time
+elapsed between the transmission of the ﬁrst bit of data and the reception of the last bit of the data in microseconds
+is ______.
+gatecse-2015-set3
+ 
+computer-networks
+ 
+normal
+ 
+numerical-answers
+ 
+network-switching
+Answer key
+☟
+Network Switching: GATE IT 2004 | Question: 22
+Which one of the following statements is FALSE?
+A
+. 
+Packet switching leads to better utilization of bandwidth resources than circuit switching
+
+
+2.25
+2.25.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.26
+2.26.1
+2.27
+2.27.1
+2.28
+2.28.1
+A
+. 
+For shortest path routing between LANs
+B
+. 
+For avoiding loops in the routing paths
+B
+. 
+Packet switching results in less variation in delay than circuit switching
+C
+. 
+Packet switching requires more per-packet processing than circuit switching
+D
+. 
+Packet switching can lead to reordering unlike in circuit switching
+gateit-2004
+ 
+computer-networks
+ 
+network-switching
+ 
+normal
+Answer key
+☟
+Osi Model 
+(1)
+Osi Model: GATE CSE 2025 | Set 1 | Question: 6
+Identify the ONE CORRECT matching between the OSI layers and their corresponding functionalities as
+shown.
+gatecse2025-set1
+ 
+computer-networks
+ 
+osi-model
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Probability 
+(1)
+Probability: GATE CSE 2025 | Set 1 | Question: 46
+Suppose a 
+-bit message is transmitted from a source to a destination through a noisy channel. The
+probability that a bit of the message gets ﬂipped during transmission is 
+. Flipping of each bit is
+independent of one another. The probability that the message is delivered error-free to the destination is
+___________ (rounded off to three decimal places)
+gatecse2025-set1
+ 
+computer-networks
+ 
+probability
+ 
+numerical-answers
+ 
+easy
+ 
+two-marks
+Answer key
+☟
+Pure Aloha 
+(1)
+Pure Aloha: GATE CSE 2021 | Set 2 | Question: 54
+Consider a network using the pure 
+ medium access control protocol, where each frame is of length
+ bits. The channel transmission rate is 
+ Mbps (
+ bits per second). The aggregate number of
+transmissions across all the nodes (including new frame transmissions and retransmitted frames due to collisions)
+is modelled as a Poisson process with a rate of 
+ frames per second. Throughput is deﬁned as the average
+number of frames successfully transmitted per second. The throughput of the network (rounded to the nearest
+integer) is ______________
+gatecse-2021-set2
+ 
+computer-networks
+ 
+mac-protocol
+ 
+pure-aloha
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Routing 
+(14)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(4Q)
+Routing: GATE CSE 2005 | Question: 26
+In a network of LANs connected by bridges, packets are sent from one LAN to another through intermediate
+bridges. Since more than one path may exist between two LANs, packets may have to be routed through
+multiple bridges. Why is the 
+spanning tree algorithm
+ used for bridge-routing?
+
+
+C
+. 
+For fault tolerance
+D
+. 
+For minimizing collisions
+2.28.2
+A
+. 
+, 
+, and 
+ are all true.
+B
+. 
+, 
+, and 
+ are all false. 
+C
+. 
+ and 
+ are true, but 
+ is
+false.
+D
+. 
+ and 
+ are true, but 
+ is
+false.
+2.28.3
+2.28.4
+2.28.5
+gatecse-2005
+ 
+computer-networks
+ 
+routing
+ 
+normal
+Answer key
+☟
+Routing: GATE CSE 2014 | Set 1 | Question: 23
+Consider the following three statements about link state and distance vector routing protocols, for a large
+network with 
+ network nodes and 
+ links. 
+[S1]: The computational overhead in link state protocols is higher than in distance vector protocols. 
+[S2]: A distance vector protocol (with split horizon) avoids persistent routing loops, but not a link state protocol. 
+[S3]: After a topology change, a link state protocol will converge faster than a distance vector protocol. 
+Which one of the following is correct about 
+, 
+, and 
+?
+gatecse-2014-set1
+ 
+computer-networks
+ 
+routing
+ 
+normal
+Answer key
+☟
+Routing: GATE CSE 2014 | Set 2 | Question: 23
+Which of the following is TRUE about the interior gateway routing protocols 
+ Routing Information Protocol 
+ and Open Shortest Path First 
+A
+. 
+RIP uses distance vector routing and OSPF uses link state routing
+B
+. 
+OSPF uses distance vector routing and RIP uses link state routing
+C
+. 
+Both RIP and OSPF use link state routing
+D
+. 
+Both RIP and OSPF use distance vector routing
+gatecse-2014-set2
+ 
+computer-networks
+ 
+routing
+ 
+easy
+Answer key
+☟
+Routing: GATE CSE 2014 | Set 3 | Question: 26
+An IP router implementing Classless Inter-domain Routing (CIDR) receives a packet with address 
+. The router's routing table has the following entries:
+The identifier of the output interface on which this packet will be forwarded is ______.
+gatecse-2014-set3
+ 
+computer-networks
+ 
+routing
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Routing: GATE CSE 2017 | Set 2 | Question: 09
+Consider the following statements about the routing protocols. Routing Information Protocol (RIP) and Open
+Shortest Path First (OSPF) in an 
+ network.
+I
+. 
+RIP uses distance vector routing
+II
+. 
+RIP packets are sent using UDP
+III
+. 
+OSPF packets are sent using TCP
+IV
+. 
+OSPF operation is based on link-state routing
+
+
+A
+. 
+I and IV only
+B
+. 
+I, II and III only
+C
+. 
+I, II and IV only
+D
+. 
+II, III and IV only
+2.28.6
+A
+. 
+I and II only
+B
+. 
+I only
+C
+. 
+II and III only
+D
+. 
+II only
+2.28.7
+2.28.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.28.9
+Which of the above statements are CORRECT?
+gatecse-2017-set2
+ 
+computer-networks
+ 
+routing
+Answer key
+☟
+Routing: GATE CSE 2020 | Question: 15
+Consider the following statements about the functionality of an 
+ based router.
+I
+. 
+A router does not modify the 
+ packets during forwarding.
+II
+. 
+It is not necessary for a router to implement any routing protocol.
+III
+. 
+A router should reassemble 
+ fragments if the 
+ of the outgoing link is larger than the size of the incoming 
+ packet.
+  Which of the above statements is/are TRUE?
+gatecse-2020
+ 
+computer-networks
+ 
+routing
+ 
+one-mark
+Answer key
+☟
+Routing: GATE CSE 2023 | Question: 15
+Which of the following statements is/are 
+ about the 
+routing protocol used in the Internet?
+A
+. 
+ implements Bellman-Ford algorithm to find shortest paths.
+B
+. 
+ uses Dijkstra's shortest path algorithm to implement least-cost path routing.
+C
+. 
+ is used as an inter-domain routing protocol.
+D
+. 
+ implements hierarchical routing.
+gatecse-2023
+ 
+computer-networks
+ 
+routing
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Routing: GATE CSE 2024 | Set 1 | Question: 26
+Consider a network path 
+ between nodes 
+ and 
+ via router 
+. Node 
+ sends a ﬁle of size 
+bytes to 
+ via this path by splitting the ﬁle into chunks of 
+ bytes each. Node 
+ sends these chunks one
+after the other without any wait time between the successive chunk transmissions. Assume that the size of extra
+headers added to these chunks is negligible, and that the chunk size is less than the 
+.
+Each of the links 
+ and 
+ has a bandwidth of 
+, and negligible propagation latency. Router 
+ immediately transmits every packet it receives from 
+ to 
+, with negligible processing and queueing delays.
+Router 
+ can simultaneously receive on 
+ and transmit on 
+.
+Assume 
+ starts transmitting the chunks at time 
+.
+Which one of the following options gives the time (
+in seconds, rounded oﬀ to 
+ decimal places
+) at which 
+ receives
+all the chunks of the file?
+gatecse-2024-set1
+ 
+computer-networks
+ 
+routing
+ 
+two-marks
+Answer key
+☟
+Routing: GATE CSE 2024 | Set 1 | Question: 48
+Consider the entries shown below in the forwarding table of an 
+ router. Each entry consists of an 
+ preﬁx
+and the corresponding next hop router for packets whose destination 
+ address matches the preﬁx. The
+notation " /
+ " in a prefix indicates a subnet mask with the most significant 
+ bits set to 
+.
+
+
+2.28.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.28.11
+This router forwards 
+ packets each to 
+ hosts. The 
+ addresses of the hosts are 
+ and 
+. The number of packets forwarded via the next
+hop router 
+ is __________.
+gatecse-2024-set1
+ 
+numerical-answers
+ 
+computer-networks
+ 
+routing
+ 
+two-marks
+Answer key
+☟
+Routing: GATE CSE 2026 | Set 2 | Question: 11
+Consider a ﬁle of size 
+ million bytes being transferred between two hosts connected via a path consisting of
+three consecutive links of bandwidth 
+ Mbps , 
+ kbps , and 
+ Mbps , respectively. All processing delays
+and propagation delays are negligible. Assume that there is no other background traﬃc over the path and no other
+additional overhead to transfer the file.
+Which one of the following is the total time (in seconds) to transfer the file?
+Note: 
+gatecse-2026-set2
+ 
+computer-networks
+ 
+routing
+ 
+one-mark
+Answer key
+☟
+Routing: GATE IT 2005 | Question: 85a
+Consider a simple graph with unit edge costs. Each node in the graph represents a router. Each node
+maintains a routing table indicating the next hop router to be used to relay a packet to its destination and the
+cost of the path to the destination through that router. Initially, the routing table is empty. The routing table is
+synchronously updated as follows. In each updated interval, three tasks are performed.
+i
+. 
+A node determines whether its neighbours in the graph are accessible. If so, it sets the tentative cost to each
+accessible neighbour as 
+. Otherwise, the cost is set to 
+.
+ii
+. 
+From each accessible neighbour, it gets the costs to relay to other nodes via that neighbour (as the next hop).
+iii
+. 
+Each node updates its routing table based on the information received in the previous two steps by choosing the
+minimum cost.
+For the graph given above, possible routing tables for various nodes after they have stabilized, are shown in the
+following options. Identify the correct table.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.28.12
+A
+. 
+ but finite
+B
+. 
+C
+. 
+D
+. 
+ and 
+2.28.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.28.14
+gateit-2005
+ 
+computer-networks
+ 
+routing
+ 
+normal
+Answer key
+☟
+Routing: GATE IT 2005 | Question: 85b
+Consider a simple graph with unit edge costs. Each node in the graph represents a router. Each node
+maintains a routing table indicating the next hop router to be used to relay a packet to its destination and the
+cost of the path to the destination through that router. Initially, the routing table is empty. The routing table is
+synchronously updated as follows. In each updated interval, three tasks are performed.
+i
+. 
+A node determines whether its neighbors in the graph are accessible. If so, it sets the tentative cost to each
+accessible neighbor as 
+. Otherwise, the cost is set to 
+.
+ii
+. 
+From each accessible neighbor, it gets the costs to relay to other nodes via that neighbor (as the next hop).
+iii
+. 
+Each node updates its routing table based on the information received in the previous two steps by choosing the
+minimum cost.
+Continuing from the earlier problem, suppose at some time 
+, when the costs have stabilized, node 
+ goes down.
+The cost from node 
+ to node 
+ at time 
+ is :
+gateit-2005
+ 
+computer-networks
+ 
+routing
+ 
+normal
+Answer key
+☟
+Routing: GATE IT 2007 | Question: 63
+A group of 
+ routers is interconnected in a centralized complete binary tree with a router at each tree node.
+Router 
+ communicates with router 
+ by sending a message to the root of the tree. The root then sends the
+message back down to router 
+. The mean number of hops per message, assuming all possible router pairs are
+equally likely is
+gateit-2007
+ 
+computer-networks
+ 
+routing
+ 
+binary-tree
+ 
+normal
+Answer key
+☟
+Routing: GATE IT 2008 | Question: 67
+Two popular routing algorithms are Distance Vector(DV) and Link State (LS) routing. Which of the following
+are true?
+(S1):
+  Count to infinity is a problem only with DV and not LS routing
+(S2):
+  In LS, the shortest path algorithm is run only at one node
+(S3):
+  In DV, the shortest path algorithm is run only at one node
+(S4):
+  DV requires lesser number of network messages than LS
+
+
+A
+. 
+S1, S2 and S4 only
+B
+. 
+S1, S3 and S4 only
+C
+. 
+S2 and S3 only
+D
+. 
+S1 and S4 only
+2.29
+2.29.1
+A
+. 
+(i) - (a) and (ii) - (b)
+B
+. 
+(i) - (a) and (ii) - (a)
+C
+. 
+(i) - (b) and (ii) - (a)
+D
+. 
+(i) - (b) and (ii) - (b)
+2.30
+2.30.1
+A
+. 
+ Bps
+B
+. 
+ Bps
+C
+. 
+ Bps
+D
+. 
+ Bps
+2.30.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.30.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gateit-2008
+ 
+computer-networks
+ 
+routing
+ 
+normal
+Answer key
+☟
+Routing Protocols 
+(1)
+Routing Protocols: GATE CSE 2025 | Set 2 | Question: 7
+Consider the routing protocols given in 
+List I 
+and the names given in 
+List II
+:
+For matching of items in 
+List I 
+ with those in 
+List II
+, which ONE of the following options is CORRECT?
+ 
+gatecse2025-set2
+ 
+computer-networks
+ 
+match-the-following
+ 
+routing-protocols
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Sliding Window 
+(16)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(11Q)
+Sliding Window: GATE CSE 2003 | Question: 84
+Host 
+ is sending data to host 
+ over a full duplex link. 
+ and 
+ are using the sliding window protocol for
+ﬂow control. The send and receive window sizes are 
+ packets each. Data packets (sent only from 
+ to 
+)
+are all 
+ bytes long and the transmission time for such a packet is 
+ 
+. Acknowledgment packets (sent only
+from 
+ to 
+) are very small and require negligible transmission time. The propagation delay over the link is 
+ 
+. What is the maximum achievable throughput in this communication?
+gatecse-2003
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+Answer key
+☟
+Sliding Window: GATE CSE 2005 | Question: 25
+The maximum window size for data transmission using the selective reject protocol with 
+ frame
+sequence numbers is:
+gatecse-2005
+ 
+computer-networks
+ 
+sliding-window
+ 
+easy
+Answer key
+☟
+Sliding Window: GATE CSE 2006 | Question: 44
+Station 
+ uses 
+ packets to transmit messages to Station 
+ using a sliding window protocol. The
+round trip delay between A and 
+ is 
+ and the bottleneck bandwidth on the path between 
+and 
+ is 
+ . What is the optimal window size that 
+ should use?
+gatecse-2006
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+Answer key
+☟
+
+
+2.30.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.30.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.30.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.30.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.30.8
+Sliding Window: GATE CSE 2006 | Question: 46
+Station 
+ needs to send a message consisting of 
+ packets to Station 
+ using a sliding window (window
+size 
+) and go-back-
+ error control strategy. All packets are ready and immediately available for
+transmission. If every 
+th packet that 
+ transmits gets lost (but no acks from 
+ ever get lost), then what is the
+number of packets that 
+ will transmit for sending the message to 
+? 
+gatecse-2006
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+Answer key
+☟
+Sliding Window: GATE CSE 2007 | Question: 69
+The distance between two stations 
+ and 
+ is 
+ kilometers. All frames are 
+ bits long. The propagation
+delay per kilometer is 
+ seconds. Let 
+ bits/second be the channel capacity. Assuming that the processing
+delay is negligible, the 
+ number of bits for the sequence number ﬁeld in a frame for maximum utilization,
+when the 
+ is used, is:
+gatecse-2007
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+Answer key
+☟
+Sliding Window: GATE CSE 2009 | Question: 57, ISRO2016-75
+Frames of 
+ are sent over a 
+ 
+ duplex link between two hosts. The propagation time is 
+. Frames are to be transmitted into this link to maximally pack them in transit (within the link).
+What is the minimum number of bits 
+ that will be required to represent the sequence numbers distinctly?
+Assume that no time gap needs to be given between transmission of two frames.
+gatecse-2009
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+ 
+isro2016
+Answer key
+☟
+Sliding Window: GATE CSE 2009 | Question: 58
+Frames of 
+ are sent over a 
+ bps duplex link between two hosts. The propagation time is 
+.
+Frames are to be transmitted into this link to maximally pack them in transit (within the link).
+Let 
+ be the minimum number of bits 
+ that will be required to represent the sequence numbers distinctly
+assuming that no time gap needs to be given between transmission of two frames.
+Suppose that the sliding window protocol is used with the sender window size of 
+, where 
+ is the numbers of bits
+as mentioned earlier and acknowledgements are always piggy backed. After sending 
+ frames, what is the
+minimum time the sender will have to wait before starting transmission of the next frame? (Identify the closest
+choice ignoring the frame processing time)
+gatecse-2009
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+Answer key
+☟
+Sliding Window: GATE CSE 2014 | Set 1 | Question: 28
+Consider a selective repeat sliding window protocol that uses a frame size of 
+ 
+ to send data on a 
+ 
+ link with a one-way latency of 
+ 
+. To achieve a link utilization of 
+, the minimum number of
+bits required to represent the sequence number field is ________.
+gatecse-2014-set1
+ 
+computer-networks
+ 
+sliding-window
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+
+
+2.30.9
+2.30.10
+2.30.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.30.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.30.13
+A
+. 
+ 
+B
+. 
+ 
+​​​​​​​
+C
+. 
+ 
+​​​​​​​
+D
+. 
+ 
+​​​​​​​
+2.30.14
+Sliding Window: GATE CSE 2015 | Set 3 | Question: 28
+Consider a network connecting two systems located 
+ 
+ apart. The bandwidth of the network is 
+ 
+ per second. The propagation speed of the media is 
+ 
+ per second. It needs to
+design a Go-Back-
+ sliding window protocol for this network. The average packet size is 
+ 
+. The network is
+to be used to its full capacity. Assume that processing delays at nodes are negligible. Then, the minimum size in
+bits of the sequence number field has to be ______.
+gatecse-2015-set3
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Sliding Window: GATE CSE 2016 | Set 2 | Question: 55
+Consider a 
+ bits/second satellite communication link with one way propagation delay of 
+milliseconds. Selective retransmission (repeat) protocol is used on this link to send data with a frame size of 
+ kilobyte. Neglect the transmission time of acknowledgement. The minimum number of bits required for the
+sequence number field to achieve 
+ utilization is ________.
+gatecse-2016-set2
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Sliding Window: GATE CSE 2026 | Set 1 | Question: 35
+Consider the implementation of sliding window protocol over a lossless link, with a window size of 
+frames, where each frame is of size 
+ bits (including header). The bandwidth of the link is 
+ and the one-way propagation delay is 
+ milliseconds. Assume that processing times at
+the sender and receiver are zero and the transmission time of acknowledgements is also zero. Which one of the
+following options gives the minimum size of 
+ (in number of frames) required to achieve 
+ link utilization?
+gatecse-2026-set1
+ 
+two-marks
+ 
+sliding-window
+ 
+computer-networks
+Answer key
+☟
+Sliding Window: GATE IT 2004 | Question: 81
+In a sliding window 
+ scheme, the transmitter's window size is 
+ and the receiver's window size is 
+.
+The minimum number of distinct sequence numbers required to ensure correct operation of the 
+scheme is
+gateit-2004
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+Answer key
+☟
+Sliding Window: GATE IT 2004 | Question: 83
+A 
+ 
+ satellite link has a propagation delay of 
+ 
+. The transmitter employs the "go back 
+ 
+"
+scheme with 
+ set to 
+. Assuming that each frame is 
+ 
+ long, what is the maximum data rate
+possible?
+gateit-2004
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+Answer key
+☟
+Sliding Window: GATE IT 2004 | Question: 88
+Suppose that the maximum transmit window size for a TCP connection is 
+ 
+. Each packet
+consists of 
+ 
+. At some point in time, the connection is in slow-start phase with a current transmit
+window of 
+ 
+. Subsequently, the transmitter receives two acknowledgments. Assume that no packets are
+lost and there are no time-outs. What is the maximum possible value of the current transmit window?
+
+
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+ 
+2.30.15
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+2.30.16
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.31
+2.31.1
+2.32
+2.32.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.32.2
+gateit-2004
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+Answer key
+☟
+Sliding Window: GATE IT 2006 | Question: 64
+Suppose that it takes 
+ unit of time to transmit a packet (of ﬁxed size) on a communication link. The link
+layer uses a window ﬂow control protocol with a window size of 
+ packets. Each packet causes an ack or a
+nak to be generated by the receiver, and ack/nak transmission times are negligible. Further, the round trip time on
+the link is equal to 
+ units. Consider time 
+. If only acks have been received till time i(no naks), then the
+goodput evaluated at the transmitter at time i(in packets per unit time) is
+gateit-2006
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+Answer key
+☟
+Sliding Window: GATE IT 2008 | Question: 64
+A 
+ satellite link connects two ground stations. The altitude of the satellite is 
+ and speed
+of the signal is 
+ What should be the packet size for a channel utilization of 
+ for a satellite
+link using go-back-
+ sliding window proto
+col? Assume that the acknowledgment packets are negligible in size
+and that there are no errors during communication.
+gateit-2008
+ 
+computer-networks
+ 
+sliding-window
+ 
+normal
+Answer key
+☟
+Slotted Aloha 
+(1)
+Slotted Aloha: GATE CSE 2015 | Set 1 | Question: 29
+Consider a LAN with four nodes 
+ and 
+. Time is divided into ﬁxed-size slots, and a node can
+begin its transmission only at the beginning of a slot. A collision is said to have occurred if more than one
+node transmits in the same slot. The probabilities of generation of a frame in a time slot by 
+ and 
+ are 
+ and 
+ respectively. The probability of sending a frame in the ﬁrst slot without any collision by any of
+these four stations is__________________.
+gatecse-2015-set1
+ 
+computer-networks
+ 
+normal
+ 
+numerical-answers
+ 
+slotted-aloha
+Answer key
+☟
+Sockets 
+(4)
+Sockets: GATE CSE 2008 | Question: 17
+Which of the following system calls results in the sending of SYN packets?
+gatecse-2008
+ 
+normal
+ 
+computer-networks
+ 
+sockets
+Answer key
+☟
+Sockets: GATE CSE 2008 | Question: 59
+A client process P needs to make a TCP connection to a server process S. Consider the following situation:
+the server process S executes a 
+, a 
+ and a 
+ system call in that order, following which
+it is preempted. Subsequently, the client process P executes a 
+ system call followed by 
+ system
+call to connect to the server process S. The server process has not executed any 
+ system call. Which one
+
+
+2.32.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.32.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.33
+2.33.1
+2.33.2
+2.33.3
+of the following events could take place?
+A
+. 
+ system call returns successfully
+B
+. 
+ system call blocks
+C
+. 
+ system call returns an error
+D
+. 
+ system call results in a core dump
+gatecse-2008
+ 
+computer-networks
+ 
+sockets
+ 
+normal
+Answer key
+☟
+Sockets: GATE CSE 2014 | Set 2 | Question: 24
+Which of the following socket API functions converts an unconnected active TCP socket into a passive
+socket?
+gatecse-2014-set2
+ 
+computer-networks
+ 
+sockets
+ 
+easy
+Answer key
+☟
+Sockets: GATE CSE 2015 | Set 2 | Question: 20
+Identify the correct order in which a server process must invoke the function calls accept, bind, listen, and
+recv according to UNIX socket API.
+gatecse-2015-set2
+ 
+computer-networks
+ 
+sockets
+ 
+easy
+Answer key
+☟
+Stop and Wait 
+(6)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(13Q)
+Stop and Wait: GATE CSE 2015 | Set 1 | Question: 53
+Suppose that the stop-and-wait protocol is used on a link with a bit rate of 
+ 
+ per second and 
+ 
+ propagation delay. Assume that the transmission time for the acknowledgment and the
+processing time at nodes are negligible. Then the minimum frame size in bytes to achieve a link utilization of at
+least 
+ 
+ is_________________.
+gatecse-2015-set1
+ 
+computer-networks
+ 
+stop-and-wait
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Stop and Wait: GATE CSE 2016 | Set 1 | Question: 55
+A sender uses the Stop-and-Wait 
+ protocol for reliable transmission of frames. Frames are of size 
+ bytes and the transmission rate at the sender is 
+  Size of an
+acknowledgment is 
+ bytes and the transmission rate at the receiver is 
+ The one-way propagation delay
+is 
+ milliseconds.
+Assuming no frame is lost, the sender throughput is ________ bytes/ second.
+gatecse-2016-set1
+ 
+computer-networks
+ 
+stop-and-wait
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Stop and Wait: GATE CSE 2017 | Set 1 | Question: 45
+The values of parameters for the Stop-and-Wait ARQ protocol are as given below:
+Bit rate of the transmission channel 
+ Mbps.
+Propagation delay from sender to receiver 
+ ms.
+
+
+2.33.4
+2.33.5
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+ 
+2.33.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.34
+2.34.1
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+Time to process a frame 
+ ms.
+Number of bytes in the information frame 
+.
+Number of bytes in the acknowledge frame 
+.
+Number of overhead bytes in the information frame 
+.
+Assume there are no transmission errors. Then, the transmission eﬃciency (expressed in percentage) of the Stop-
+and-Wait ARQ protocol for the above parameters is _____________ (correct to 
+ decimal places).
+gatecse-2017-set1
+ 
+computer-networks
+ 
+stop-and-wait
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Stop and Wait: GATE CSE 2023 | Question: 7
+Suppose two hosts are connected by a point-to-point link and they are conﬁgured to use 
+protocol for reliable data transfer. Identify in which one of the following scenarios, the utilization of the link is
+the lowest.
+A
+. 
+Longer link length and lower transmission rate
+B
+. 
+Longer link length and higher transmission rate
+C
+. 
+Shorter link length and lower transmission rate
+D
+. 
+Shorter link length and higher transmission rate
+gatecse-2023
+ 
+computer-networks
+ 
+stop-and-wait
+ 
+one-mark
+Answer key
+☟
+Stop and Wait: GATE IT 2005 | Question: 72
+A channel has a bit rate of 
+ 
+ and one-way propagation delay of 
+ 
+. The channel uses stop and
+wait protocol. The transmission time of the acknowledgment frame is negligible. To get a channel eﬃciency
+of at least 
+, the minimum frame size should be
+gateit-2005
+ 
+computer-networks
+ 
+stop-and-wait
+ 
+normal
+Answer key
+☟
+Stop and Wait: GATE IT 2006 | Question: 68
+On a wireless link, the probability of packet error is 
+. A stop-and-wait protocol is used to transfer data
+across the link. The channel condition is assumed to be independent of transmission to transmission. What
+is the average number of transmission attempts required to transfer 
+ packets?
+gateit-2006
+ 
+computer-networks
+ 
+sliding-window
+ 
+stop-and-wait
+ 
+normal
+Answer key
+☟
+Subnetting 
+(21)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(13Q)
+Subnetting: GATE CSE 2003 | Question: 82, ISRO2009-1
+The subnet mask for a particular network is 
+ Which of the following pairs of 
+ addresses
+could belong to this network?
+gatecse-2003
+ 
+computer-networks
+ 
+subnetting
+ 
+normal
+ 
+isro2009
+Answer key
+☟
+
+
+2.34.2
+A
+. 
+Eth
+ and Eth
+B
+. 
+Eth
+ and Eth
+C
+. 
+Eth
+ and Eth
+D
+. 
+Eth
+ and Eth
+2.34.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.34.4
+2.34.5
+A
+. 
+ subnets and 
+ hosts.
+B
+. 
+ subnets and 
+ hosts.
+C
+. 
+ subnets and 
+ hosts.
+D
+. 
+ subnets and 
+ hosts.
+2.34.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Subnetting: GATE CSE 2004 | Question: 55
+The routing table of a router  is shown below:
+On which interface will the router forward packets addressed to destinations 
+ and 
+respectively?
+gatecse-2004
+ 
+computer-networks
+ 
+subnetting
+ 
+normal
+Answer key
+☟
+Subnetting: GATE CSE 2005 | Question: 27
+An organization has a class 
+ network and wishes to form subnets for 
+ departments. The subnet mask
+would be:
+gatecse-2005
+ 
+computer-networks
+ 
+subnetting
+ 
+normal
+Answer key
+☟
+Subnetting: GATE CSE 2006 | Question: 45
+Two computers 
+ and 
+ are conﬁgured as follows. 
+ has IP address 
+ and netmask 
+. 
+ has IP address 
+ and netmask 
+. Which one of the
+following statements is true?
+A
+. 
+ and 
+ both assume they are on the same network
+B
+. 
+ assumes 
+ is on same network, but 
+ assumes 
+ is on a different network
+C
+. 
+ assumes 
+ is on same network, but 
+ assumes 
+ is on a different network
+D
+. 
+ and 
+ both assume they are on different networks.
+gatecse-2006
+ 
+computer-networks
+ 
+subnetting
+ 
+normal
+Answer key
+☟
+Subnetting: GATE CSE 2007 | Question: 67, ISRO2016-72
+The address of a class 
+ host is to be split into subnets with a 
+ subnet number. What is the maximum
+number of subnets and the maximum number of hosts in each subnet?
+gatecse-2007
+ 
+computer-networks
+ 
+subnetting
+ 
+easy
+ 
+isro2016
+Answer key
+☟
+Subnetting: GATE CSE 2008 | Question: 57
+If a class 
+ network on the Internet has a subnet mask of 
+, what is the maximum number of
+hosts per subnet?
+gatecse-2008
+ 
+computer-networks
+ 
+subnetting
+ 
+easy
+
+
+2.34.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.34.8
+2.34.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Answer key
+☟
+Subnetting: GATE CSE 2010 | Question: 47
+Suppose computers 
+ and 
+ have 
+ addresses 
+ and 
+ respectively and they
+both use same netmask 
+. Which of the values of 
+ given below should not be used if 
+ and 
+ should
+belong to the same network?
+gatecse-2010
+ 
+computer-networks
+ 
+subnetting
+ 
+easy
+Answer key
+☟
+Subnetting: GATE CSE 2012 | Question: 34, ISRO-DEC2017-32
+An Internet Service Provider (ISP) has the following chunk of CIDR-based IP addresses available with it: 
+. The ISP wants to give half of this chunk of addresses to Organization 
+, and a quarter
+to Organization 
+, while retaining the remaining with itself. Which of the following is a valid allocation of addresses
+to 
+ and 
+?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2012
+ 
+computer-networks
+ 
+subnetting
+ 
+normal
+ 
+isrodec2017
+Answer key
+☟
+Subnetting: GATE CSE 2015 | Set 2 | Question: 41
+Consider the following routing table at an IP router:
+For each IP address in Group I Identify the correct choice of the next hop from Group II using the entries from the
+routing table above.
+gatecse-2015-set2
+ 
+computer-networks
+ 
+subnetting
+ 
+easy
+Answer key
+☟
+
+
+2.34.10
+2.34.11
+A
+. 
+M, N, and P all belong to the same
+subnet
+B
+. 
+Only M and N belong to the same
+subnet
+C
+. 
+Only N and P belong to the same
+subnet
+D
+. 
+M, N, and P belong to three
+different subnets
+2.34.12
+A
+. 
+ and 
+ only
+B
+. 
+ and 
+  only
+C
+. 
+ and 
+ only
+D
+. 
+ and 
+ only
+2.34.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Subnetting: GATE CSE 2015 | Set 3 | Question: 38
+In the network 
+, the 
+ octet (in decimal) of the last 
+ address of the network which
+can be assigned to a host is _______.
+gatecse-2015-set3
+ 
+computer-networks
+ 
+subnetting
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Subnetting: GATE CSE 2019 | Question: 28
+Consider three machines M, N, and P with IP addresses 
+, and 
+respectively. The subnet mask is set to 
+ for all the three machines. Which one of the
+following is true?
+gatecse-2019
+ 
+computer-networks
+ 
+subnetting
+ 
+two-marks
+Answer key
+☟
+Subnetting: GATE CSE 2020 | Question: 38
+An organization requires a range of IP address to assign one to each of its 
+ computers. The
+organization has approached an Internet Service Provider (ISP) for this task. The ISP uses CIDR and serves
+the requests from the available IP address space 
+. The ISP wants to assign an address space to
+the organization which will minimize the number of routing entries in the ISP’s router using route aggregation.
+Which of the following address spaces are potential candidates from which the ISP can allot any one of the
+organization?
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+gatecse-2020
+ 
+computer-networks
+ 
+subnetting
+ 
+two-marks
+Answer key
+☟
+Subnetting: GATE CSE 2022 | Question: 45
+Consider routing table of an organization’s router shown below:
+Which of the following preﬁxes in 
+ notation can be collectively used to correctly aggregate all of the subnets
+in the routing table?
+gatecse-2022
+ 
+computer-networks
+ 
+subnetting
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+
+
+2.34.14
+2.34.15
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.34.16
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.34.17
+Subnetting: GATE CSE 2023 | Question: 55
+The forwarding table of a router is shown below.
+A packet addressed to a destination address 
+ arrives at the router. It will be forwarded to the
+interface with 
+ __________.
+gatecse-2023
+ 
+computer-networks
+ 
+subnetting
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Subnetting: GATE CSE 2025 | Set 1 | Question: 30
+A packet with the destination 
+ address 
+ arrives at a router whose routing table is shown.
+Which interface will the packet be forwarded to?
+gatecse2025-set1
+ 
+computer-networks
+ 
+subnetting
+ 
+two-marks
+Answer key
+☟
+Subnetting: GATE IT 2004 | Question: 26
+A subnet has been assigned a subnet mask of 
+. What is the maximum number of hosts
+that can belong to this subnet?
+gateit-2004
+ 
+computer-networks
+ 
+subnetting
+ 
+normal
+Answer key
+☟
+Subnetting: GATE IT 2005 | Question: 76
+A company has a class 
+ network address of 
+. It wishes to have three subnets, one with 
+ hosts and two with 
+ hosts each. Which one of the following options represents a feasible set of
+subnet address/subnet mask pairs?
+A
+. 
+B
+. 
+C
+. 
+
+
+2.34.18
+A
+. 
+eth
+B
+. 
+eth
+C
+. 
+eth
+D
+. 
+eth
+2.34.19
+2.34.20
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.34.21
+A
+. 
+B
+. 
+D
+. 
+gateit-2005
+ 
+computer-networks
+ 
+subnetting
+ 
+normal
+Answer key
+☟
+Subnetting: GATE IT 2006 | Question: 63, ISRO2015-57
+A router uses the following routing table:
+ Packet bearing a destination address 
+ arrives at the router. On which interface will it be forwarded?
+gateit-2006
+ 
+computer-networks
+ 
+subnetting
+ 
+normal
+ 
+isro2015
+Answer key
+☟
+Subnetting: GATE IT 2006 | Question: 70
+A subnetted Class 
+ network has the following broadcast address: 
+Its subnet mask
+A
+. 
+is necessarily 
+B
+. 
+is necessarily 
+C
+. 
+is necessarily 
+D
+. 
+could be any one of 
+, 
+,
+gateit-2006
+ 
+computer-networks
+ 
+subnetting
+ 
+normal
+Answer key
+☟
+Subnetting: GATE IT 2008 | Question: 84
+Host 
+ has IP address 
+ and is connected through two routers 
+ and 
+ to an
+other host 
+with IP address 
+. Router 
+ has IP addresses 
+ and 
+. 
+ has
+IP addresses 
+ and 
+. The netmask used in the network is 
+.
+Given the information above, how many distinct subnets are guaranteed to already exist in the network?
+gateit-2008
+ 
+computer-networks
+ 
+subnetting
+ 
+normal
+Answer key
+☟
+Subnetting: GATE IT 2008 | Question: 85
+Host 
+ has 
+ address 
+ and is connected through two routers 
+ and 
+ to an
+other host 
+with 
+ address 
+. Router 
+ has 
+ addresses 
+ and 
+. 
+has 
+ addresses 
+ and 
+. The netmask used in the network is 
+.
+Which 
+ address should 
+ configure its gateway as?
+
+
+C
+. 
+D
+. 
+2.35
+2.35.1
+A
+. 
+/s
+B
+. 
+/s
+C
+. 
+/s
+D
+. 
+/s
+2.35.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.35.3
+A
+. 
+III only
+B
+. 
+I and III only
+C
+. 
+I and IV only
+D
+. 
+II and IV only
+2.35.4
+A
+. 
+ milliseconds, 
+ 
+2
+B
+. 
+ milliseconds, 
+ 
+2
+C
+. 
+ milliseconds, 
+ 
+2
+D
+. 
+ milliseconds, 
+ 
+2
+2.35.5
+gateit-2008
+ 
+computer-networks
+ 
+subnetting
+ 
+normal
+Answer key
+☟
+TCP 
+(20)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(4Q)
+TCP: GATE CSE 2009 | Question: 47
+While opening a 
+ connection, the initial sequence number is to be derived using a time-of-day (ToD)
+clock that keeps running even when the host is down. The low order 
+ bits of the counter of the ToD clock
+is to be used for the initial sequence numbers. The clock counter increments once per milliseconds. The maximum
+packet lifetime is given to be 
+s.
+Which one of the choices given below is closest to the minimum permissible rate at which sequence numbers used
+for packets of a connection can increase?
+gatecse-2009
+ 
+computer-networks
+ 
+tcp
+ 
+difficult
+ 
+ambiguous
+Answer key
+☟
+TCP: GATE CSE 2012 | Question: 22
+Which of the following transport layer protocols is used to support electronic mail?
+gatecse-2012
+ 
+computer-networks
+ 
+tcp
+ 
+easy
+Answer key
+☟
+TCP: GATE CSE 2015 | Set 1 | Question: 1
+9
+Suppose two hosts use a TCP connection to transfer a large ﬁle. Which of the following statements is/are
+FALSE with respect to the TCP connection?
+I
+. 
+If the sequence number of a segment is 
+ then the sequence number of the subsequent segment is always 
+II
+. 
+If the estimated round trip time at any given point of time is 
+ sec, the value of the retransmission timeout is
+always set to greater than or equal to 
+ sec.
+III
+. 
+The size of the advertised window never changes during the course of the TCP connection.
+IV
+. 
+The number of unacknowledged bytes at the sender is always less than or equal to the advertised window.
+gatecse-2015-set1
+ 
+computer-networks
+ 
+tcp
+ 
+normal
+Answer key
+☟
+TCP: GATE CSE 2015 | Set 2 | Question: 34
+Assume that the bandwidth for a 
+ connection  is 
+ bits/sec. Let 
+ be the value of RTT in
+milliseconds (rounded oﬀ to the nearest integer) after which the 
+ window scale option is needed. Let 
+be the maximum possible window size with window scale option. Then the values of 
+ and 
+ are 
+gatecse-2015-set2
+ 
+computer-networks
+ 
+difficult
+ 
+tcp
+Answer key
+☟
+TCP: GATE CSE 2015 | Set 3 | Question: 22
+Consider the following statements.
+I
+. 
+TCP connections are full duplex
+
+
+A
+. 
+Only I is correct
+B
+. 
+Only I and III are correct
+C
+. 
+Only II and III are correct
+D
+. 
+All of I, II and III are correct
+2.35.6
+A
+. 
+HTTP GET request, DNS query,
+TCP SYN
+B
+. 
+DNS query, HTTP GET request,
+TCP SYN
+C
+. 
+DNS query, TCP SYN, HTTP GET
+request.
+D
+. 
+TCP SYN, DNS query, HTTP GET
+request.
+2.35.7
+A
+. 
+LAST-ACK
+B
+. 
+TIME-WAIT
+C
+. 
+FIN-WAIT-
+D
+. 
+FIN-WAIT-
+2.35.8
+2.35.9
+II
+. 
+TCP has no option for selective acknowledgement
+III
+. 
+TCP connections are message streams
+gatecse-2015-set3
+ 
+computer-networks
+ 
+tcp
+ 
+easy
+Answer key
+☟
+TCP: GATE CSE 2016 | Set 2 | Question: 25
+Identify the correct sequence in which the following packets are transmitted on the network by a host when a
+browser requests a webpage from a remote server, assuming that the host has just been restarted.
+gatecse-2016-set2
+ 
+computer-networks
+ 
+normal
+ 
+tcp
+Answer key
+☟
+TCP: GATE CSE 2017 | Set 1 | Question: 14
+Consider a TCP client and a TCP server running on two diﬀerent machines. After completing data transfer,
+the TCP client calls close to terminate the connection and a FIN segment is sent to the TCP server. Server-
+side TCP responds by sending an ACK, which is received by the client-side TCP. As per the TCP connection state
+diagram 
+, in which state does the client-side TCP connection wait for the FIN from the server-side
+TCP?
+gatecse-2017-set1
+ 
+computer-networks
+ 
+tcp
+Answer key
+☟
+TCP: GATE CSE 2021 | Set 1 | Question: 44
+A 
+ server application is programmed to listen on port number 
+ on host 
+. A 
+ client is connected
+to the 
+ server over the network.
+Consider that while the 
+ connection was active, the server machine 
+ crashed and rebooted. Assume that the
+client does not use the 
+ keepalive timer. Which of the following behaviors is/are possible?
+A
+. 
+If the client was waiting to receive a packet, it may wait indefinitely
+B
+. 
+The 
+ server application on 
+ can listen on 
+ after reboot
+C
+. 
+If the client sends a packet after the server reboot, it will receive a 
+ segment
+D
+. 
+If the client sends a packet after the server reboot, it will receive a 
+ segment
+gatecse-2021-set1
+ 
+multiple-selects
+ 
+computer-networks
+ 
+tcp
+ 
+two-marks
+Answer key
+☟
+TCP: GATE CSE 2021 | Set 1 | Question: 45
+Consider two hosts 
+ and 
+ connected through a router 
+. The maximum transfer unit 
+ value of the
+link between 
+ and 
+ is 
+ bytes, and between 
+ and 
+ is 
+ bytes.
+A 
+ segment of size 
+ bytes was transferred from 
+ to 
+ through 
+, with 
+ identiﬁcation value as 
+ Assume that the 
+ header size is 
+ bytes. Further, the packet is allowed to be fragmented, i.e., 
+ flag in the 
+ header is 
+ set by 
+.
+Which of the following statements is/are correct?
+A
+. 
+Two fragments are created at 
+ and the 
+ datagram size carrying the second fragment is 
+ bytes.
+B
+. 
+If the second fragment is lost, 
+ will resend the fragment with the 
+ identification value 
+C
+. 
+If the second fragment is lost, 
+ is required to resend the whole 
+ segment.
+D
+. 
+ destination port can be determined by analysing 
+ the second fragment.
+
+
+2.35.10
+2.35.11
+2.35.12
+A
+. 
+ bits
+B
+. 
+ bits
+C
+. 
+ bits
+D
+. 
+ bits
+2.35.13
+2.35.14
+gatecse-2021-set1
+ 
+computer-networks
+ 
+tcp
+ 
+two-marks
+ 
+multiple-selects
+Answer key
+☟
+TCP: GATE CSE 2021 | Set 2 | Question: 7
+Consider the three-way handshake mechanism followed during 
+ connection establishment between
+hosts 
+ and 
+. Let 
+ and 
+ be two random 
+-bit starting sequence numbers chosen by 
+ and 
+respectively. Suppose 
+ sends a 
+ connection request message to 
+ with a 
+ segment having 
+ bit 
+, 
+ number 
+, and 
+ bit 
+. Suppose 
+ accepts the connection request. Which one of the
+following choices represents the information present in the 
+ segment header that is sent by 
+ to 
+?
+A
+. 
+ bit 
+, 
+ number 
+, 
+ bit 
+, 
+ number 
+, 
+ bit 
+B
+. 
+ bit 
+, 
+ number 
+, 
+ bit 
+, 
+ number 
+, 
+ bit 
+C
+. 
+ bit 
+, 
+ number 
+, 
+ bit 
+, 
+ number 
+, 
+ bit 
+D
+. 
+ bit 
+, 
+ number 
+, 
+ bit 
+, 
+ number 
+, 
+ bit 
+gatecse-2021-set2
+ 
+computer-networks
+ 
+tcp
+ 
+one-mark
+Answer key
+☟
+TCP: GATE CSE 2022 | Question: 50
+Consider the data transfer using 
+ over a 
+ link. Assuming that the maximum segment lifetime 
+ is set to 
+ the minimum number of bits required for the sequence number ﬁeld of the 
+ header, to prevent the sequence number space from wrapping around during the 
+ is
+________________.
+gatecse-2022
+ 
+numerical-answers
+ 
+computer-networks
+ 
+tcp
+ 
+two-marks
+Answer key
+☟
+TCP: GATE CSE 2023 | Question: 40
+Suppose you are asked to design a new reliable byte-stream transport protocol like 
+ This protocol,
+named 
+, runs over a 
+ network with Round Trip Time of 
+ milliseconds and the
+maximum segment lifetime of 
+ minutes.
+Which of the following is/are valid lengths of the 
+Sequence Number
+ field in the 
+ header?
+gatecse-2023
+ 
+computer-networks
+ 
+tcp
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+TCP: GATE CSE 2024 | Set 1 | Question: 19
+​
+ client 
+ successfully establishes a connection to 
+ server 
+. Let 
+ denote the sequence
+number in the 
+ sent from 
+ to 
+. Let 
+ denote the acknowledgement number in the SYN ACK from 
+ to 
+. Which of the following statements is/are CORRECT?
+A
+. 
+The sequence number 
+ is chosen randomly by 
+B
+. 
+The sequence number 
+ is always 
+ for a new connection
+C
+. 
+The acknowledgement number 
+ is equal to 
+ 
+D
+. 
+The acknowledgement number 
+ is equal to 
+gatecse-2024-set1
+ 
+multiple-selects
+ 
+computer-networks
+ 
+tcp
+ 
+one-mark
+Answer key
+☟
+TCP: GATE CSE 2025 | Set 1 | Question: 12
+Consider the 
+-way handshaking protocol for TCP connection establishment. Let the three packets
+exchanged during the connection establishment be denoted as 
+, and 
+, in order. Which of the
+following option(s) is/are TRUE with respect to TCP header flags that are set in the packets?
+
+
+A
+. 
+B
+. 
+C
+. 
+: 
+D
+. 
+2.35.15
+2.35.16
+2.35.17
+A
+. 
+byte
+B
+. 
+word
+C
+. 
+segment
+D
+. 
+message
+2.35.18
+A
+. 
+ is false, but 
+ and 
+ are
+true
+B
+. 
+ and 
+ are false, but 
+ is
+true
+C
+. 
+ and 
+ are false, but 
+ is
+true
+D
+. 
+ and 
+ are false
+2.35.19
+gatecse2025-set1
+ 
+computer-networks
+ 
+tcp
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+TCP: GATE CSE 2026 | Set 1 | Question: 8
+With respect to a TCP connection between a client and a server, which one of the following statements is
+true?
+A
+. 
+The client and server use a two-way handshake mechanism before the start of data transmission
+B
+. 
+The server cannot initiate closing of the connection before the client initiates closing of the connection
+C
+. 
+The TCP connection is half-duplex
+D
+. 
+The client and server can initiate closing of the connection at the same time
+gatecse-2026-set1
+ 
+computer-networks
+ 
+tcp
+ 
+one-mark
+Answer key
+☟
+TCP: GATE IT 2004 | Question: 23
+Which one of the following statements is FALSE?
+A
+. 
+TCP guarantees a minimum communication rate
+B
+. 
+TCP ensures in-order delivery
+C
+. 
+TCP reacts to congestion by reducing sender window size
+D
+. 
+TCP employs retransmission to compensate for packet loss
+gateit-2004
+ 
+computer-networks
+ 
+tcp
+ 
+normal
+Answer key
+☟
+TCP: GATE IT 2004 | Question: 28
+In TCP, a unique sequence number is assigned to each
+gateit-2004
+ 
+computer-networks
+ 
+tcp
+ 
+easy
+Answer key
+☟
+TCP: GATE IT 2007 | Question: 13
+Consider the following statements about the timeout value used in TCP.
+i
+. 
+The timeout value is set to the RTT (Round Trip Time) measured during TCP connection establishment for the
+entire duration of the connection.
+ii
+. 
+Appropriate RTT estimation algorithm is used to set the timeout value of a TCP connection.
+iii
+. 
+Timeout value is set to twice the propagation delay from the sender to the receiver.
+Which of the following choices hold?
+gateit-2007
+ 
+computer-networks
+ 
+tcp
+ 
+normal
+Answer key
+☟
+TCP: GATE IT 2007 | Question: 14
+Consider a 
+ connection in a state where there are no outstanding 
+s. The sender sends two
+segments back to back. The sequence numbers of the ﬁrst and second segments are 
+ and 
+respectively. The ﬁrst segment was lost, but the second segment was received correctly by the receiver. Let 
+ be
+
+
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+2.35.20
+A
+. 
+ and 
+ only
+B
+. 
+ and 
+ only
+C
+. 
+ and 
+ only
+D
+. 
+ and 
+ only
+2.36
+2.36.1
+A
+. 
+ seconds
+B
+. 
+ seconds
+C
+. 
+ seconds
+D
+. 
+ seconds
+2.36.2
+2.37
+the amount of data carried in the first segment (in bytes), and 
+ be the 
+ number sent by the receiver.
+The values of 
+ and 
+ (in that order) are
+gateit-2007
+ 
+computer-networks
+ 
+tcp
+ 
+normal
+Answer key
+☟
+TCP: GATE IT 2008 | Question: 69
+The three way handshake for 
+ connection establishment is shown below. 
+Which of the following statements are TRUE?
+  Loss of 
+ from the server will not establish a connection
+  Loss of 
+ from the client cannot establish the connection
+ 
+The server moves 
+ in the state machine
+on no packet loss
+ 
+The server moves 
+ in the state machine on no packet loss
+gateit-2008
+ 
+computer-networks
+ 
+tcp
+ 
+normal
+Answer key
+☟
+Token Bucket 
+(2)
+Token Bucket: GATE CSE 2008 | Question: 58
+A computer on a 
+ network is regulated by a token bucket. The token bucket is ﬁlled at a rate of 
+. It is initially ﬁlled to capacity with 
+. What is the maximum duration for which the
+computer can transmit at the full 
+?
+gatecse-2008
+ 
+computer-networks
+ 
+token-bucket
+Answer key
+☟
+Token Bucket: GATE CSE 2016 | Set 1 | Question: 54
+For a host machine that uses the token bucket algorithm for congestion control, the token bucket has a
+capacity of 
+ 
+ and the maximum output rate is 
+ 
+ per 
+. Tokens arrive at a rate
+to sustain output at a rate of 
+ 
+ per 
+. The token bucket is currently full and the machine needs
+to send 
+ 
+ of data. The minimum time required to transmit the data is _____________ 
+.
+gatecse-2016-set1
+ 
+computer-networks
+ 
+token-bucket
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+UDP 
+(4)
+
+
+2.37.1
+A
+. 
+TCP, but not UDP
+B
+. 
+TCP and UDP
+C
+. 
+UDP, but not TCP
+D
+. 
+Neither TCP nor UDP
+2.37.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+2.37.3
+A
+. 
+ only
+B
+. 
+ only
+C
+. 
+Both 
+ and 
+D
+. 
+Neither 
+ nor 
+2.37.4
+A
+. 
+ but not 
+B
+. 
+ but not 
+C
+. 
+Neither 
+ nor 
+D
+. 
+Both 
+ and 
+2.38
+2.38.1
+2.38.2
+UDP: GATE CSE 2005 | Question: 23
+Packets of the same session may be routed through different paths in:
+gatecse-2005
+ 
+computer-networks
+ 
+tcp
+ 
+udp
+ 
+easy
+Answer key
+☟
+UDP: GATE CSE 2013 | Question: 12
+The transport layer protocols used for real time multimedia, file transfer, 
+ and email, respectively are
+gatecse-2013
+ 
+computer-networks
+ 
+tcp
+ 
+udp
+ 
+easy
+Answer key
+☟
+UDP: GATE CSE 2017 | Set 2 | Question: 18
+Consider socket API on a Linux machine that supports connected UDP sockets. A connected UDP socket is
+a UDP socket on which connect function has already been called. Which of the following statements is/are
+CORRECT?
+I
+. 
+A connected UDP socket can be used to communicate with multiple peers simultaneously.
+II
+. 
+A process can successfully call connect function again for an already connected UDP socket.
+gatecse-2017-set2
+ 
+computer-networks
+ 
+udp
+Answer key
+☟
+UDP: GATE IT 2006 | Question: 69
+A program on machine 
+ attempts to open a 
+ connection to port 
+ on a machine 
+, and a 
+connection to port 
+ on machine 
+. However, there are no applications listening at the corresponding
+ports on 
+ and 
+. An 
+ Port Unreachable error will be generated by
+gateit-2006
+ 
+computer-networks
+ 
+tcp
+ 
+udp
+ 
+normal
+Answer key
+☟
+Wrap Around Time 
+(2)
+Wrap Around Time: GATE CSE 2014 | Set 3 | Question: 27
+Every host in an 
+ network has a 
+ resolution real-time clock with battery backup. Each host
+needs to generate up to 
+ unique identiﬁers per second. Assume that each host has a globally unique 
+ address. Design a 
+ globally unique ID for this purpose. After what period (in seconds) will the identiﬁers
+generated by a host wrap around?
+gatecse-2014-set3
+ 
+computer-networks
+ 
+ip-addressing
+ 
+wrap-around-time
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Wrap Around Time: GATE CSE 2018 | Question: 25
+Consider a long-lived 
+ session with an end-to-end bandwidth of 
+ bits-per-second
+ The
+session starts with a sequence number of 
+. The minimum time (in seconds, rounded to the closet
+integer) before this sequence number can be used again is _________.
+gatecse-2018
+ 
+computer-networks
+ 
+tcp
+ 
+wrap-around-time
+ 
+normal
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+
+
+Answer Keys
+2.1.1
+A
+2.1.2
+C
+2.1.3
+C
+2.1.4
+C
+2.1.5
+B
+2.1.6
+6
+2.1.7
+4
+2.1.8
+A;C;D
+2.1.9
+C
+2.1.10
+B
+2.1.11
+C
+2.1.12
+D
+2.1.13
+C
+2.2.1
+B
+2.3.1
+B
+2.3.2
+D
+2.4.1
+B
+2.4.2
+A
+2.4.3
+A
+2.5.1
+B
+2.5.2
+C
+2.5.3
+C
+2.5.4
+D
+2.5.5
+A
+2.6.1
+D
+2.6.2
+200
+2.6.3
+50
+2.6.4
+C
+2.6.5
+A
+2.6.6
+B
+2.7.1
+A
+2.8.1
+A
+2.8.2
+7.07:7.09
+2.8.3
+B
+2.8.4
+B
+2.9.1
+D
+2.9.2
+C
+2.9.3
+1100
+2.9.4
+C
+2.9.5
+44
+2.9.6
+4
+2.9.7
+B
+2.9.8
+4:4
+2.9.9
+B
+2.10.1
+30:30
+2.11.1
+C
+2.11.2
+B
+2.11.3
+A
+2.11.4
+C
+2.11.5
+B;C
+2.11.6
+0.5
+2.11.7
+B
+2.11.8
+A
+2.12.1
+3 : 4
+2.12.2
+A
+2.12.3
+C
+2.12.4
+A
+2.12.5
+A
+2.12.6
+B
+2.12.7
+C
+2.12.8
+N/A
+2.13.1
+B
+2.13.2
+B
+2.13.3
+D
+2.13.4
+C
+2.13.5
+B
+2.13.6
+500
+2.13.7
+C
+2.14.1
+D
+2.14.2
+B
+2.14.3
+C
+2.14.4
+7:7
+2.14.5
+D
+2.15.1
+N/A
+2.15.2
+A
+2.16.1
+D
+2.16.2
+C
+2.16.3
+9
+2.16.4
+144
+2.16.5
+C;D
+2.16.6
+A
+2.16.7
+D
+2.16.8
+4094
+2.17.1
+C
+2.17.2
+D
+2.17.3
+D
+2.17.4
+A
+2.17.5
+B
+2.17.6
+C
+2.17.7
+13
+2.17.8
+A;C
+2.17.9
+6
+2.17.10
+B;C
+2.17.11
+C;D
+2.17.12
+D
+2.18.1
+A
+2.19.1
+D
+2.19.2
+A
+2.19.3
+26
+2.19.4
+3
+2.19.5
+D
+2.19.6
+D
+2.19.7
+B
+2.20.1
+D
+2.20.2
+12
+2.20.3
+B
+2.20.4
+C
+2.21.1
+N/A
+2.21.2
+D
+2.21.3
+C
+2.21.4
+A
+2.22.1
+D
+2.22.2
+A
+2.22.3
+C
+2.22.4
+B
+2.22.5
+C
+2.22.6
+A;B;C
+2.23.1
+D
+2.23.2
+C
+2.23.3
+B
+2.23.4
+A
+2.23.5
+C
+2.23.6
+C
+2.23.7
+50 : 52
+2.23.8
+C
+2.23.9
+C
+2.23.10
+D
+2.23.11
+B
+2.24.1
+D
+2.24.2
+D
+2.24.3
+1575
+2.24.4
+B
+2.25.1
+B
+2.26.1
+0.949:0.952
+2.27.1
+130 : 140
+2.28.1
+B
+2.28.2
+D
+2.28.3
+A
+2.28.4
+1
+2.28.5
+C
+2.28.6
+D
+2.28.7
+A;C
+2.28.8
+B
+2.28.9
+40
+2.28.10
+B
+2.28.11
+C
+2.28.12
+A
+2.28.13
+C
+2.28.14
+D
+2.29.1
+A
+2.30.1
+B
+2.30.2
+B
+2.30.3
+B
+2.30.4
+C
+2.30.5
+C
+2.30.6
+D
+2.30.7
+C
+2.30.8
+5
+2.30.9
+8
+2.30.10
+4
+2.30.11
+B
+2.30.12
+C
+2.30.13
+B
+2.30.14
+B
+2.30.15
+A
+2.30.16
+A
+2.31.1
+0.4404
+2.32.1
+D
+2.32.2
+C
+2.32.3
+C
+2.32.4
+B
+2.33.1
+320
+2.33.2
+2500
+2.33.3
+86.5 : 89.5
+2.33.4
+B
+2.33.5
+D
+2.33.6
+B
+2.34.1
+D
+2.34.2
+A
+2.34.3
+D
+2.34.4
+C
+2.34.5
+C
+2.34.6
+C
+2.34.7
+D
+2.34.8
+A
+2.34.9
+A
+2.34.10
+158
+2.34.11
+C
+2.34.12
+B
+2.34.13
+B;D
+
+2.34.14
+3
+2.34.15
+A
+2.34.16
+C
+2.34.17
+D
+2.34.18
+C
+2.34.19
+D
+2.34.20
+C
+2.34.21
+B
+2.35.1
+A
+2.35.2
+C
+2.35.3
+B
+2.35.4
+C
+2.35.5
+A
+2.35.6
+C
+2.35.7
+D
+2.35.8
+A;B;C
+2.35.9
+A;C
+2.35.10
+C
+2.35.11
+33
+2.35.12
+B;C;D
+2.35.13
+A;D
+2.35.14
+B;D
+2.35.15
+D
+2.35.16
+A
+2.35.17
+A
+2.35.18
+B
+2.35.19
+D
+2.35.20
+B
+2.36.1
+B
+2.36.2
+1.10:1.19
+2.37.1
+B
+2.37.2
+C
+2.37.3
+B
+2.37.4
+D
+2.38.1
+256
+2.38.2
+34 : 35

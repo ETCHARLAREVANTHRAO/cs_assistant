@@ -1,0 +1,222 @@
+[
+  {
+    "volume": "filter1_volume1",
+    "number": 1,
+    "title": "Discrete Mathematics: Combinatory",
+    "start_page_index": 11,
+    "end_page_index": 30,
+    "output": "filter1_volume1_ch01_discrete_mathematics_combinatory.txt",
+    "start_page": 12,
+    "end_page": 30
+  },
+  {
+    "volume": "filter1_volume1",
+    "number": 2,
+    "title": "Discrete Mathematics: Graph Theory",
+    "start_page_index": 30,
+    "end_page_index": 56,
+    "output": "filter1_volume1_ch02_discrete_mathematics_graph_theory.txt",
+    "start_page": 31,
+    "end_page": 56
+  },
+  {
+    "volume": "filter1_volume1",
+    "number": 3,
+    "title": "Discrete Mathematics: Mathematical Logic",
+    "start_page_index": 56,
+    "end_page_index": 81,
+    "output": "filter1_volume1_ch03_discrete_mathematics_mathematical_logic.txt",
+    "start_page": 57,
+    "end_page": 81
+  },
+  {
+    "volume": "filter1_volume1",
+    "number": 4,
+    "title": "Discrete Mathematics: Set Theory & Algebra",
+    "start_page_index": 81,
+    "end_page_index": 127,
+    "output": "filter1_volume1_ch04_discrete_mathematics_set_theory_algebra.txt",
+    "start_page": 82,
+    "end_page": 127
+  },
+  {
+    "volume": "filter1_volume1",
+    "number": 5,
+    "title": "Engineering Mathematics: Calculus",
+    "start_page_index": 127,
+    "end_page_index": 151,
+    "output": "filter1_volume1_ch05_engineering_mathematics_calculus.txt",
+    "start_page": 128,
+    "end_page": 151
+  },
+  {
+    "volume": "filter1_volume1",
+    "number": 6,
+    "title": "Engineering Mathematics: Linear Algebra",
+    "start_page_index": 151,
+    "end_page_index": 188,
+    "output": "filter1_volume1_ch06_engineering_mathematics_linear_algebra.txt",
+    "start_page": 152,
+    "end_page": 188
+  },
+  {
+    "volume": "filter1_volume1",
+    "number": 7,
+    "title": "Engineering Mathematics: Probability",
+    "start_page_index": 188,
+    "end_page_index": 227,
+    "output": "filter1_volume1_ch07_engineering_mathematics_probability.txt",
+    "start_page": 189,
+    "end_page": 227
+  },
+  {
+    "volume": "filter1_volume1",
+    "number": 8,
+    "title": "General Aptitude: Analytical Aptitude",
+    "start_page_index": 227,
+    "end_page_index": 249,
+    "output": "filter1_volume1_ch08_general_aptitude_analytical_aptitude.txt",
+    "start_page": 228,
+    "end_page": 249
+  },
+  {
+    "volume": "filter1_volume1",
+    "number": 9,
+    "title": "General Aptitude: Quantitative Aptitude",
+    "start_page_index": 249,
+    "end_page_index": 313,
+    "output": "filter1_volume1_ch09_general_aptitude_quantitative_aptitude.txt",
+    "start_page": 250,
+    "end_page": 313
+  },
+  {
+    "volume": "filter1_volume1",
+    "number": 10,
+    "title": "General Aptitude: Spatial Aptitude",
+    "start_page_index": 313,
+    "end_page_index": 330,
+    "output": "filter1_volume1_ch10_general_aptitude_spatial_aptitude.txt",
+    "start_page": 314,
+    "end_page": 330
+  },
+  {
+    "volume": "filter1_volume1",
+    "number": 11,
+    "title": "General Aptitude: Verbal Aptitude",
+    "start_page_index": 330,
+    "end_page_index": 375,
+    "output": "filter1_volume1_ch11_general_aptitude_verbal_aptitude.txt",
+    "start_page": 331,
+    "end_page": 375
+  },
+  {
+    "volume": "filter1_volume2",
+    "number": 1,
+    "title": "Algorithms",
+    "start_page_index": 6,
+    "end_page_index": 116,
+    "output": "filter1_volume2_ch01_algorithms.txt",
+    "start_page": 7,
+    "end_page": 116
+  },
+  {
+    "volume": "filter1_volume2",
+    "number": 2,
+    "title": "Compiler Design",
+    "start_page_index": 116,
+    "end_page_index": 188,
+    "output": "filter1_volume2_ch02_compiler_design.txt",
+    "start_page": 117,
+    "end_page": 188
+  },
+  {
+    "volume": "filter1_volume2",
+    "number": 3,
+    "title": "Programming and DS: Data Structures",
+    "start_page_index": 188,
+    "end_page_index": 254,
+    "output": "filter1_volume2_ch03_programming_and_ds_data_structures.txt",
+    "start_page": 189,
+    "end_page": 254
+  },
+  {
+    "volume": "filter1_volume2",
+    "number": 4,
+    "title": "Programming and DS: Programming",
+    "start_page_index": 254,
+    "end_page_index": 265,
+    "output": "filter1_volume2_ch04_programming_and_ds_programming.txt",
+    "start_page": 255,
+    "end_page": 265
+  },
+  {
+    "volume": "filter1_volume2",
+    "number": 5,
+    "title": "Programming: Programming in C",
+    "start_page_index": 265,
+    "end_page_index": 320,
+    "output": "filter1_volume2_ch05_programming_programming_in_c.txt",
+    "start_page": 266,
+    "end_page": 320
+  },
+  {
+    "volume": "filter1_volume2",
+    "number": 6,
+    "title": "Theory of Computation",
+    "start_page_index": 320,
+    "end_page_index": 403,
+    "output": "filter1_volume2_ch06_theory_of_computation.txt",
+    "start_page": 321,
+    "end_page": 403
+  },
+  {
+    "volume": "filter1_volume3",
+    "number": 1,
+    "title": "CO & Architecture",
+    "start_page_index": 12,
+    "end_page_index": 94,
+    "output": "filter1_volume3_ch01_co_architecture.txt",
+    "start_page": 13,
+    "end_page": 94
+  },
+  {
+    "volume": "filter1_volume3",
+    "number": 2,
+    "title": "Computer Networks",
+    "start_page_index": 94,
+    "end_page_index": 166,
+    "output": "filter1_volume3_ch02_computer_networks.txt",
+    "start_page": 95,
+    "end_page": 166
+  },
+  {
+    "volume": "filter1_volume3",
+    "number": 3,
+    "title": "Databases",
+    "start_page_index": 166,
+    "end_page_index": 274,
+    "output": "filter1_volume3_ch03_databases.txt",
+    "start_page": 167,
+    "end_page": 274
+  },
+  {
+    "volume": "filter1_volume3",
+    "number": 4,
+    "title": "Digital Logic",
+    "start_page_index": 274,
+    "end_page_index": 363,
+    "output": "filter1_volume3_ch04_digital_logic.txt",
+    "start_page": 275,
+    "end_page": 363
+  },
+  {
+    "volume": "filter1_volume3",
+    "number": 5,
+    "title": "Operating System",
+    "start_page_index": 363,
+    "end_page_index": 469,
+    "output": "filter1_volume3_ch05_operating_system.txt",
+    "start_page": 364,
+    "end_page": 469
+  }
+]

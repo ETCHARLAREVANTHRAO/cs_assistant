@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "GATE CS Assistant",
+    "slug": "gate-cs-assistant-mobile",
+    "owner": "reva333",
+    "version": "1.0.0",
+    "newArchEnabled": true,
+    "updates": {
+      "enabled": false
+    },
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.myassistant.app"
+    },
+    "android": {
+      "package": "com.myassistant.app"
+    },
+    "plugins": [
+      "expo-notifications",
+      "expo-document-picker",
+      [
+        "llama.rn",
+        {
+          "enableEntitlements": true,
+          "forceCxx20": true,
+          "enableOpenCLAndHexagon": false
+        }
+      ],
+      "./plugins/withAndroidLocalModel"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "e29790d6-8b39-4aa0-b241-2c530e649e52"
+      }
+    }
+  }
+}

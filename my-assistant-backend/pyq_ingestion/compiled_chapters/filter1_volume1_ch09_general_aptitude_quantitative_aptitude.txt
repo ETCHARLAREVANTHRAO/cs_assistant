@@ -1,0 +1,7683 @@
+9
+General Aptitude: Quantitative Aptitude
+ 
+(197)
+Syllabus: 
+Numerical computation, Numerical estimation, Numerical reasoning and data interpretation
+Welcome to the Quantitative Aptitude section of your GATE Computer Science preparation! This chapter is designed to
+equip you with the essential mathematical and logical reasoning skills crucial for success in the General Aptitude
+section of the GATE exam. Quantitative Aptitude tests your ability to solve numerical problems, interpret data, and
+apply fundamental mathematical concepts efficiently and accurately. Typically, this section carries a significant
+weightage, often contributing 8-10 marks out of the total 15 marks for General Aptitude, with questions ranging from
+direct formula application to complex problem-solving and data interpretation. Mastering these topics is not just about
+scoring in aptitude; it also sharpens your analytical thinking, which is invaluable for the core Computer Science
+subjects.
+Topic-wise Key Concepts
+Absolute Value
+The absolute value of a real number 
+, denoted 
+, is its non-negative value regardless of its sign. It represents the
+distance of 
+ from zero on the number line.
+Definition:
+ 
+ if 
+, and 
+ if 
+.
+Properties:
+1
+. 
+2
+. 
+3
+. 
+4
+. 
+ (for 
+)
+5
+. 
+Triangle Inequality: 
+Solving Equations/Inequalities:
+1
+. 
+ (for 
+)
+2
+. 
+ (for 
+)
+3
+. 
+ (for 
+)
+Pitfall:
+ Forgetting to consider both positive and negative cases when removing the absolute value sign.
+Technique:
+ Isolate the absolute value term, then apply the appropriate definition or rule.
+Age Relation
+Age relation problems involve finding the current or future/past ages of individuals based on given conditions, usually
+forming linear equations.
+Core Idea:
+ Translate word problems into algebraic equations involving variables for ages.
+Technique:
+ Assign variables (e.g., 
+ for current age), form equations based on the relationships (e.g., "A is twice as
+old as B" 
+), and solve the system of equations.
+Pitfall:
+ Misinterpreting phrases like "X years ago" or "X years hence".
+Algebra
+Algebra deals with symbols and rules for manipulating these symbols. It involves basic operations, factorization, and
+algebraic identities.
+Identities:
+1
+. 
+2
+. 
+3
+. 
+4
+. 
+
+
+5
+. 
+6
+. 
+7
+. 
+8
+. 
+9
+. 
+If 
+, then 
+Pitfall:
+ Sign errors, incorrect order of operations (PEMDAS/BODMAS).
+Technique:
+ Simplify expressions using identities, factorize, and solve equations systematically.
+Alligation Mixture
+Alligation is a rule that helps determine the ratio in which two or more ingredients of different prices must be mixed to
+produce a mixture of a desired price.
+Formula:
+Technique:
+ Use the "alligation cross" diagram to visualize and solve problems quickly.
+Pitfall:
+ Incorrectly identifying the cheaper, dearer, or mean price.
+Area
+Area is the measure of the extent of a two-dimensional surface or shape.
+Formulas:
+1
+. 
+Square:
+ 
+ (where 
+ is side)
+2
+. 
+Rectangle:
+ 
+ (where 
+ is length, 
+ is width)
+3
+. 
+Circle:
+ 
+ (where 
+ is radius)
+4
+. 
+Triangle:
+ 
+ (or Heron's formula: 
+ where 
+)
+5
+. 
+Parallelogram:
+ 
+6
+. 
+Trapezoid:
+ 
+7
+. 
+Rhombus:
+ 
+ (where 
+ are diagonals)
+Pitfall:
+ Using perimeter formulas instead of area, or incorrect units.
+Technique:
+ Identify the shape, recall the correct formula, and ensure consistent units.
+Arithmetic Series
+An arithmetic series is the sum of terms in an arithmetic progression, where the difference between consecutive terms is
+constant (common difference 
+).
+Formulas:
+1
+. 
+-th term: 
+2
+. 
+Sum of 
+ terms: 
+ or 
+Pitfall:
+ Off-by-one errors when calculating 
+, especially when given ranges.
+Technique:
+ Clearly identify 
+, 
+, and 
+.
+Average
+The average (arithmetic mean) is the sum of a set of values divided by the number of values.
+Formula:
+ 
+Weighted Average:
+ 
+Technique:
+ Use the formula directly. For weighted averages, ensure correct weights are applied.
+Pitfall:
+ Confusing average with median or mode.
+Bar Graph
+A bar graph uses rectangular bars to represent data, with the length or height of the bars proportional to the values they
+
+
+represent.
+Core Idea:
+ Visual representation of discrete data for comparison.
+Technique:
+ Carefully read labels, scales, and legends. Compare bar heights/lengths to answer questions about
+quantities, differences, or ratios.
+Pitfall:
+ Misinterpreting scales or units on the axes.
+Bayes Theorem
+Bayes' Theorem describes the probability of an event, based on prior knowledge of conditions that might be related to
+the event.
+Formula:
+ 
+Key Terms:
+ 
+ is posterior probability, 
+ is likelihood, 
+ is prior probability, 
+ is evidence.
+Pitfall:
+ Confusing conditional probabilities 
+ and 
+.
+Technique:
+ Break down the problem into individual probabilities and substitute into the formula.
+Calendar
+Calendar problems involve determining the day of the week for a given date or finding specific dates based on calendar
+logic.
+Core Idea:
+ Based on the concept of "odd days" (remainder when days are divided by 7).
+Key Concepts:
+1
+. 
+Ordinary year = 365 days = 52 weeks + 1 odd day
+2
+. 
+Leap year = 366 days = 52 weeks + 2 odd days
+3
+. 
+Leap year rules: Divisible by 4, unless it's a century year not divisible by 400.
+4
+. 
+Odd days for centuries: 100 years = 5 odd days, 200 years = 3, 300 years = 1, 400 years = 0.
+Technique:
+ Calculate total odd days from a reference date (e.g., Jan 1, 0001) to the target date.
+Pitfall:
+ Incorrectly identifying leap years or counting odd days.
+Cartesian Coordinates
+Cartesian coordinates define the position of a point in a plane using two perpendicular axes (x and y).
+Key Formulas:
+1
+. 
+Distance between 
+ and 
+:
+ 
+2
+. 
+Midpoint of a segment:
+ 
+3
+. 
+Section Formula (dividing in ratio 
+):
+ 
+4
+. 
+Area of triangle with vertices 
+:
+ 
+Pitfall:
+ Sign errors in distance or section formula.
+Technique:
+ Plot points if helpful, apply formulas carefully.
+Circle
+A circle is the set of all points in a plane that are equidistant from a central point.
+Formulas:
+1
+. 
+Circumference:
+ 
+2
+. 
+Area:
+ 
+3
+. 
+Equation of a circle (center 
+, radius 
+):
+ 
+4
+. 
+Area of sector:
+ 
+ (where 
+ is central angle in degrees)
+5
+. 
+Length of arc:
+ 
+Pitfall:
+ Confusing radius with diameter, or circumference with area.
+Technique:
+ Identify given parameters and apply the correct formula.
+Clock Time
+
+
+Clock time problems involve calculating angles between clock hands, or determining exact times based on relative
+speeds of hands.
+Key Rates:
+1
+. 
+Hour hand: 
+ per minute
+2
+. 
+Minute hand: 
+ per minute
+3
+. 
+Relative speed: 
+ per minute (minute hand gains on hour hand)
+Formula for angle between hands at H hours M minutes:
+ 
+Technique:
+ Calculate the position of each hand relative to 12, then find the difference.
+Pitfall:
+ Not considering the hour hand's movement within the hour.
+Combinatory (Permutation and Combination)
+Combinatory deals with counting arrangements (permutations) and selections (combinations) of objects.
+Formulas:
+1
+. 
+Permutation (arrangement of 
+ items from 
+):
+ 
+2
+. 
+Combination (selection of 
+ items from 
+):
+ 
+3
+. 
+, 
+Key Principle:
+ Permutation is about order, combination is not. "Arrangement" implies permutation, "selection" or
+"group" implies combination.
+Pitfall:
+ Confusing permutation with combination.
+Technique:
+ Determine if order matters. Use multiplication principle for sequential events, addition principle for
+mutually exclusive events.
+Compound Interest
+Compound interest is interest calculated on the initial principal, which also includes all of the accumulated interest from
+previous periods on a deposit or loan.
+Formulas:
+1
+. 
+Amount (compounded annually):
+ 
+2
+. 
+Compound Interest (CI):
+ 
+3
+. 
+Amount (compounded 
+ times a year):
+ 
+4
+. 
+Amount (compounded continuously):
+ 
+Pitfall:
+ Confusing simple interest with compound interest, or incorrect compounding frequency.
+Technique:
+ Identify principal (P), rate (R), time (T), and compounding frequency.
+Conditional Probability
+Conditional probability is the probability of an event occurring given that another event has already occurred.
+Formula:
+ 
+ (where 
+)
+Key Idea:
+ The sample space is reduced to event B.
+Pitfall:
+ Misidentifying the intersection event or the conditioning event.
+Technique:
+ Clearly define events A and B, find their intersection, and the probability of B.
+Cones
+A cone is a three-dimensional geometric shape that tapers smoothly from a flat base (usually circular) to a point called
+the apex or vertex.
+Formulas:
+1
+. 
+Volume:
+ 
+2
+. 
+Curved Surface Area (CSA):
+ 
+ (where 
+ is slant height, 
+)
+3
+. 
+Total Surface Area (TSA):
+ 
+Pitfall:
+ Confusing height (
+) with slant height (
+).
+Technique:
+ Use Pythagorean theorem to find 
+ if 
+ and 
+ are given.
+
+
+Contour Plots
+Contour plots (or isoline maps) display three-dimensional data on a two-dimensional plane, where lines connect points
+of equal value.
+Core Idea:
+ Visualize a third variable (e.g., elevation, temperature) over a surface.
+Technique:
+ Interpret the density and values of contour lines. Closely spaced lines indicate a steep gradient, widely
+spaced lines indicate a gentle gradient.
+Pitfall:
+ Misinterpreting the values represented by the lines or the gradient.
+Cost Market Price
+These problems involve concepts of cost price (CP), selling price (SP), market price (MP), profit, loss, and discount.
+Formulas:
+1
+. 
+ (if 
+)
+2
+. 
+ (if 
+)
+3
+. 
+4
+. 
+5
+. 
+6
+. 
+7
+. 
+Pitfall:
+ Calculating profit/loss % on SP instead of CP, or discount % on CP instead of MP.
+Technique:
+ Clearly identify CP, SP, MP, and the base for percentage calculations.
+Counting
+Counting principles involve determining the number of possible outcomes for various events.
+Principles:
+1
+. 
+Addition Principle:
+ If event A can occur in 
+ ways and event B in 
+ ways, and they are mutually exclusive,
+then A or B can occur in 
+ ways.
+2
+. 
+Multiplication Principle:
+ If event A can occur in 
+ ways and event B in 
+ ways, then A and B can occur in 
+ ways.
+Technique:
+ Break down complex counting problems into simpler, sequential or mutually exclusive steps.
+Pitfall:
+ Overcounting or undercounting by misapplying the principles.
+Cubes
+A cube is a three-dimensional solid object bounded by six square faces, facets or sides, with three meeting at each
+vertex.
+Formulas:
+1
+. 
+Volume:
+ 
+ (where 
+ is side length)
+2
+. 
+Surface Area:
+ 
+3
+. 
+Diagonal of a face:
+ 
+4
+. 
+Main Diagonal of the cube:
+ 
+Pitfall:
+ Confusing surface area with volume, or face diagonal with main diagonal.
+Technique:
+ Visualize the cube and its dimensions.
+Currency Notes
+Problems involve calculating the total value of currency notes of different denominations or determining the number of
+notes of each denomination given a total amount.
+Core Idea:
+ Form linear equations based on the value and count of notes.
+Technique:
+ Assign variables to the number of notes of each denomination and set up equations.
+Pitfall:
+ Calculation errors with large numbers or multiple denominations.
+Curves
+
+
+In quantitative aptitude, "curves" generally refer to the graphs of functions, requiring interpretation of their shape, slope,
+and points of interest.
+Core Idea:
+ Visual representation of relationships between variables.
+Technique:
+ Analyze the trend (increasing/decreasing), points of maxima/minima, and intersections.
+Pitfall:
+ Misinterpreting the axes or the units.
+Data Interpretation
+Data interpretation involves extracting, analyzing, and drawing conclusions from various forms of data presentation like
+tables, charts (bar, pie, line, scatter, radar), and graphs.
+Core Idea:
+ Critical analysis of presented data to answer specific questions.
+Technique:
+ Read titles, labels, scales, and legends carefully. Perform calculations (percentages, ratios, averages)
+based on the data.
+Pitfall:
+ Rushing calculations, misreading data points, or making assumptions not supported by the data.
+Digital Image Processing
+While a CS topic, in QA it might appear as basic numerical problems related to image size, resolution, or data storage.
+Core Idea:
+ Image represented as a grid of pixels.
+Key Concepts:
+1
+. 
+Resolution:
+ Width 
+ Height (in pixels)
+2
+. 
+Color Depth:
+ Bits per pixel (e.g., 8-bit for 256 colors, 24-bit for true color)
+3
+. 
+Image Size (uncompressed):
+ Resolution 
+ Color Depth (in bits)
+Technique:
+ Apply multiplication principles for calculating total bits/bytes.
+Pitfall:
+ Unit conversions (bits to bytes, KB to MB).
+Factors
+Factors (or divisors) of a number are integers that divide the number evenly without leaving a remainder.
+Core Idea:
+ Finding numbers that multiply to give the original number.
+Properties:
+1
+. 
+For 
+ (prime factorization):
+2
+. 
+Number of factors:
+ 
+3
+. 
+Sum of factors:
+ 
+Technique:
+ Prime factorization is key to finding number and sum of factors.
+Pitfall:
+ Missing factors, especially 1 and the number itself.
+Fractions
+Fractions represent a part of a whole, expressed as a ratio of two integers (numerator/denominator).
+Operations:
+ Addition, subtraction, multiplication, division.
+Properties:
+ Equivalent fractions, proper/improper fractions, mixed numbers.
+Technique:
+ Find common denominators for addition/subtraction. Invert and multiply for division. Simplify fractions.
+Pitfall:
+ Errors in finding common denominators or simplifying.
+Functions
+A function is a relation between a set of inputs and a set of permissible outputs with the property that each input is
+related to exactly one output.
+Core Idea:
+ Mapping inputs to outputs. 
+.
+Key Concepts:
+ Domain (set of inputs), Range (set of outputs), types (linear, quadratic, polynomial).
+Technique:
+ Evaluate functions at given points, understand their graphs, and solve for unknowns.
+Pitfall:
+ Incorrectly applying function rules or misinterpreting domain/range restrictions.
+Geometry
+
+
+Geometry deals with the properties and relations of points, lines, surfaces, solids, and higher dimensional analogs.
+Core Idea:
+ Understanding shapes, angles, and spatial relationships.
+Key Theorems:
+ Pythagorean theorem, properties of parallel lines and transversals, angle sum property of triangles,
+similar/congruent triangles.
+Technique:
+ Draw diagrams, identify knowns and unknowns, apply relevant theorems and formulas.
+Pitfall:
+ Assuming properties not explicitly stated or derivable.
+Graph Coloring
+Graph coloring assigns colors to elements of a graph subject to certain constraints. In QA, it's usually simplified to
+finding the minimum number of colors for a small graph.
+Core Idea:
+ Assign colors to vertices such that no two adjacent vertices share the same color.
+Technique:
+ Start coloring from a vertex with high degree; systematically assign colors, avoiding conflicts with
+neighbors.
+Pitfall:
+ Missing a valid coloring or not finding the minimum.
+Inequality
+Inequalities are mathematical statements comparing two expressions using symbols like 
+.
+Properties:
+1
+. 
+Adding/subtracting a number from both sides does not change the inequality direction.
+2
+. 
+Multiplying/dividing by a positive number does not change the inequality direction.
+3
+. 
+Multiplying/dividing by a negative number 
+reverses
+ the inequality direction.
+Technique:
+ Solve like equations, but remember to flip the sign when multiplying/dividing by a negative number. For
+quadratic inequalities, use sign analysis of factors.
+Pitfall:
+ Forgetting to reverse the inequality sign.
+LCM HCF
+LCM (Least Common Multiple) is the smallest positive integer divisible by each of a given set of integers. HCF (Highest
+Common Factor) or GCD (Greatest Common Divisor) is the largest positive integer that divides each of a given set of
+integers.
+Formulas:
+1
+. 
+For two numbers 
+ and 
+: 
+2
+. 
+To find LCM/HCF: Use prime factorization method.
+Technique:
+ Prime factorization is the most reliable method.
+Pitfall:
+ Confusing LCM with HCF, especially in word problems.
+Line Graph
+A line graph displays information as a series of data points connected by straight line segments, showing trends over
+time or categories.
+Core Idea:
+ Visualizing trends and changes over a continuous variable.
+Technique:
+ Observe the slope of the lines to understand rates of change, identify peaks and troughs.
+Pitfall:
+ Misinterpreting the scale or the meaning of the trend.
+Lines
+Lines in coordinate geometry are one-dimensional figures with properties like slope, intercepts, and equations.
+Formulas:
+1
+. 
+Slope (
+) of a line through 
+ and 
+:
+ 
+2
+. 
+Equation of a line (slope-intercept form):
+ 
+ (where 
+ is y-intercept)
+3
+. 
+Equation of a line (point-slope form):
+ 
+4
+. 
+Parallel lines:
+ 
+5
+. 
+Perpendicular lines:
+ 
+Pitfall:
+ Sign errors in slope calculation, confusing parallel with perpendicular conditions.
+
+
+Technique:
+ Identify slope and a point, then use the appropriate equation form.
+Logarithms
+Logarithms are the inverse operation to exponentiation. The logarithm of a number 
+ to the base 
+ is the exponent to
+which 
+ must be raised to produce 
+.
+Definition:
+ 
+Properties:
+1
+. 
+2
+. 
+3
+. 
+4
+. 
+, 
+5
+. 
+Change of Base:
+ 
+Pitfall:
+ Misapplying properties, especially for addition/subtraction.
+Technique:
+ Convert between logarithmic and exponential forms, use properties to simplify.
+Maps
+Map problems involve interpreting scale, distances, and directions on maps.
+Core Idea:
+ Scale represents the ratio of a distance on the map to the corresponding distance on the ground.
+Formula:
+ 
+Technique:
+ Pay close attention to the scale (e.g., 1:100000 or 1 cm = 10 km) and units.
+Pitfall:
+ Incorrect unit conversions.
+Maxima Minima
+Finding the maximum or minimum value of a function or expression.
+Core Idea:
+ Identifying the highest or lowest point a function can reach.
+For Quadratic Function 
+:
+1
+. 
+Vertex at 
+2
+. 
+If 
+, minimum value at vertex.
+3
+. 
+If 
+, maximum value at vertex.
+General Technique (Calculus-based, if applicable):
+ Find derivative 
+, set to zero to find critical points. Use
+second derivative test for max/min.
+Pitfall:
+ Confusing local maxima/minima with global maxima/minima.
+Mensuration
+Mensuration is the branch of mathematics that deals with the measurement of geometric figures and their parameters
+like length, area, and volume. This topic consolidates formulas for various 2D and 3D shapes.
+Core Idea:
+ Applying geometric formulas to calculate dimensions, areas, and volumes.
+Technique:
+ Refer to specific topics like Area, Volume, Cones, Cubes, Circles, Triangles for detailed formulas.
+Pitfall:
+ Incorrectly applying formulas or unit conversions.
+Modular Arithmetic
+Modular arithmetic is a system of arithmetic for integers, where numbers "wrap around" when reaching a certain value
+—the modulus.
+Definition:
+ 
+ means 
+ and 
+ have the same remainder when divided by 
+, or 
+ divides 
+.
+Properties:
+1
+. 
+If 
+ and 
+, then 
+ and 
+.
+2
+. 
+Technique:
+ Use properties to simplify large numbers before finding remainders. Useful for unit digit problems.
+Pitfall:
+ Incorrectly handling negative numbers in modulo operations.
+Number Representation
+
+
+Number representation deals with how numbers are written and interpreted, often involving different bases (e.g.,
+decimal, binary).
+Core Idea:
+ Converting numbers between different bases.
+Technique:
+ For base-10 to base-B, repeatedly divide by B and collect remainders. For base-B to base-10, use
+positional notation (sum of digits 
+ base to power of position).
+Pitfall:
+ Errors in powers of the base or order of remainders.
+Number Series
+Number series problems involve identifying the pattern in a sequence of numbers and finding the next term or a missing
+term.
+Types:
+ Arithmetic, geometric, difference series, squares/cubes, prime numbers, alternating patterns, Fibonacci-like.
+Technique:
+ Look for common differences, common ratios, differences of differences, squares/cubes, or
+combinations of operations.
+Pitfall:
+ Overlooking subtle patterns or assuming a simple pattern too quickly.
+Number System
+The number system classifies numbers (natural, whole, integers, rational, irrational, real, complex) and includes
+concepts like divisibility rules, prime/composite numbers.
+Divisibility Rules:
+ (e.g., by 2, 3, 4, 5, 6, 8, 9, 10, 11).
+Classification:
+1
+. 
+Natural Numbers: 
+2
+. 
+Whole Numbers: 
+3
+. 
+Integers: 
+4
+. 
+Rational Numbers: 
+5
+. 
+Irrational Numbers: Non-terminating, non-repeating decimals (e.g., 
+)
+6
+. 
+Real Numbers: Rational + Irrational
+Technique:
+ Apply divisibility rules, understand properties of number types.
+Pitfall:
+ Confusing different sets of numbers (e.g., integers vs. whole numbers).
+Number Theory
+Number theory is a branch of pure mathematics devoted primarily to the study of integers and integer-valued functions,
+including primes, divisibility, and modular arithmetic.
+Core Idea:
+ Properties of integers. (Overlaps with Factors, Prime Numbers, Modular Arithmetic).
+Key Concepts:
+ Prime numbers, composite numbers, factors, multiples, HCF, LCM, divisibility.
+Technique:
+ Use prime factorization, apply divisibility rules, understand modular arithmetic.
+Pitfall:
+ Misapplying theorems or properties.
+Numerical Computation
+Numerical computation involves performing calculations accurately and efficiently, often with approximations, rounding,
+and significant figures.
+Core Idea:
+ Precision and accuracy in calculations.
+Technique:
+ Estimate answers, use approximations (e.g., 
+ or 3.14), understand rules for significant figures
+and rounding.
+Pitfall:
+ Rounding too early, leading to accumulated errors.
+Percentage
+Percentage is a way of expressing a number or ratio as a fraction of 100. It is often denoted using the percent sign, "%".
+Formulas:
+1
+. 
+2
+. 
+
+
+3
+. 
+Successive Percentage Change: If an item changes by 
+ then by 
+, net change is 
+.
+Pitfall:
+ Calculating percentage change based on the wrong base value.
+Technique:
+ Convert percentages to decimals or fractions for calculations.
+Permutation and Combination
+Refer to "Combinatory" section for details.
+Pie Chart
+A pie chart is a circular statistical graphic, which is divided into slices to illustrate numerical proportion.
+Core Idea:
+ Visualizing parts of a whole as proportions.
+Properties:
+ The sum of all percentages in a pie chart must be 100%, and the sum of all central angles must be 
+.
+Technique:
+ Relate percentages to degrees (
+). Calculate proportions and compare sectors.
+Pitfall:
+ Misinterpreting the size of sectors or the total quantity.
+Polynomials
+A polynomial is an expression consisting of variables and coefficients, that involves only the operations of addition,
+subtraction, multiplication, and non-negative integer exponents of variables.
+Key Concepts:
+ Degree, roots (zeros), factors.
+Theorems:
+1
+. 
+Remainder Theorem:
+ If a polynomial 
+ is divided by 
+, the remainder is 
+.
+2
+. 
+Factor Theorem:
+ 
+ is a factor of 
+ if and only if 
+.
+Technique:
+ Factorization, synthetic division, applying remainder/factor theorems.
+Pitfall:
+ Errors in algebraic manipulation or sign errors.
+Powers
+Powers (or exponents) indicate the number of times a base number is multiplied by itself.
+Rules of Exponents:
+1
+. 
+2
+. 
+3
+. 
+4
+. 
+5
+. 
+6
+. 
+ (for 
+)
+7
+. 
+8
+. 
+Pitfall:
+ Incorrectly applying rules, especially with negative exponents or fractions.
+Technique:
+ Simplify expressions using exponent rules, convert to common base if possible.
+Prime Numbers
+A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+Properties:
+1
+. 
+2 is the only even prime number.
+2
+. 
+Every integer greater than 1 is either prime or can be uniquely expressed as a product of primes (Fundamental
+Theorem of Arithmetic).
+Technique:
+ To check if 
+ is prime, test divisibility by primes up to 
+.
+Pitfall:
+ Confusing 1 as a prime number (it's not).
+Probability
+Probability is the measure of the likelihood that an event will occur.
+
+
+Formula:
+ 
+Properties:
+1
+. 
+2
+. 
+3
+. 
+4
+. 
+For independent events: 
+Technique:
+ Clearly define the sample space and the event. Use counting techniques (P&C) to find favorable and
+total outcomes.
+Pitfall:
+ Incorrectly identifying sample space or favorable outcomes, or assuming independence when events are
+dependent.
+Probability Density Function
+For continuous random variables, the Probability Density Function (PDF) describes the relative likelihood for the
+random variable to take on a given value. The probability of the variable falling within a range is given by the integral of
+the PDF over that range.
+Core Idea:
+ For continuous variables, 
+.
+Property:
+ 
+Technique:
+ Understand that for continuous variables, 
+. Focus on areas under the curve.
+Pitfall:
+ Treating PDF values directly as probabilities (they are not).
+Profit Loss
+Refer to "Cost Market Price" section for details.
+Quadratic Equations
+A quadratic equation is a polynomial equation of the second degree, typically written as 
+.
+Formulas:
+1
+. 
+Quadratic Formula (roots):
+ 
+2
+. 
+Discriminant:
+ 
+If 
+, two distinct real roots.
+If 
+, two equal real roots.
+If 
+, no real roots (complex roots).
+3
+. 
+Sum of roots:
+ 
+4
+. 
+Product of roots:
+ 
+Technique:
+ Factorization, completing the square, or using the quadratic formula.
+Pitfall:
+ Sign errors in the quadratic formula or discriminant.
+Radar Chart
+A radar chart (or spider chart) displays multivariate data in the form of a two-dimensional chart of three or more
+quantitative variables represented on axes starting from the same point.
+Core Idea:
+ Comparing multiple attributes of one or more items.
+Technique:
+ Compare the area covered by different polygons or the values along each axis.
+Pitfall:
+ Overcrowding with too many variables or items, making comparisons difficult.
+Ratio Proportion
+Ratio is a comparison of two quantities by division. Proportion states that two ratios are equal.
+Formulas:
+1
+. 
+Ratio:
+ 
+2
+. 
+Proportion:
+ 
+ (product of extremes = product of means)
+3
+. 
+Direct Proportion:
+ 
+4
+. 
+Inverse Proportion:
+ 
+
+
+Technique:
+ Simplify ratios, use cross-multiplication for proportions, apply unitary method for direct/inverse
+proportion problems.
+Pitfall:
+ Incorrectly setting up ratios or proportions, especially in word problems.
+Scatter Plot
+A scatter plot uses Cartesian coordinates to display values for two variables for a set of data. The data is displayed as a
+collection of points, each having the value of one variable determining the position on the horizontal axis and the value
+of the other variable determining the position on the vertical axis.
+Core Idea:
+ Visualizing the relationship (correlation) between two variables.
+Technique:
+ Observe the trend of points (positive, negative, or no correlation), strength of correlation (tightness of
+points).
+Pitfall:
+ Inferring causation from correlation.
+Seating Arrangement
+Seating arrangement problems involve arranging people or objects in a specific order (linear, circular, etc.) based on
+given conditions.
+Core Idea:
+ Logical deduction and application of permutation principles.
+Technique:
+ Draw diagrams, start with fixed positions or most restrictive conditions, use elimination. For circular
+arrangements, fix one person's position first.
+Pitfall:
+ Missing a condition, or misinterpreting "left/right" in circular arrangements.
+Sequence Series
+A sequence is an ordered list of numbers. A series is the sum of the terms of a sequence. (Refer to Arithmetic Series
+for specific formulas).
+Core Idea:
+ Identifying patterns and calculating sums.
+Types:
+ Arithmetic, Geometric, Harmonic, special series (squares, cubes).
+Geometric Series:
+1
+. 
+-th term: 
+2
+. 
+Sum of 
+ terms: 
+ (for 
+)
+3
+. 
+Sum to infinity: 
+ (for 
+)
+Technique:
+ Determine the type of sequence, find the common difference/ratio, and apply the correct formula.
+Pitfall:
+ Confusing arithmetic and geometric series formulas.
+Set Theory
+Set theory deals with collections of objects (sets) and their properties and operations.
+Key Concepts:
+ Union (
+), Intersection (
+), Complement (
+ or 
+), Difference (
+), Subset (
+), Cardinality (
+).
+Formulas:
+1
+. 
+2
+. 
+Technique:
+ Use Venn diagrams to visualize and solve problems involving multiple sets.
+Pitfall:
+ Double-counting or missing elements in set operations.
+Shortest Path
+While a CS algorithm topic, in QA, it might involve finding the shortest distance between two points on a simple grid or a
+small, explicitly given graph.
+Core Idea:
+ Finding the minimum distance or cost to travel between two nodes.
+Technique:
+ For simple graphs, inspect paths and sum edge weights. For grids, use Manhattan distance or
+Euclidean distance depending on movement rules.
+Pitfall:
+ Missing a shorter path or incorrectly calculating path length.
+
+
+Speed Time Distance
+These problems relate speed, time, and distance, often involving relative motion, trains, or boats.
+Formulas:
+1
+. 
+2
+. 
+3
+. 
+Relative Speed (same direction):
+ 
+4
+. 
+Relative Speed (opposite direction):
+ 
+5
+. 
+Conversion: 
+Technique:
+ Ensure consistent units. For relative speed, determine if objects are moving towards or away from each
+other.
+Pitfall:
+ Unit conversion errors, or misapplying relative speed concepts.
+Squares
+A square is a regular quadrilateral, which means it has four equal sides and four equal angles (
+ each).
+Formulas:
+1
+. 
+Area:
+ 
+2
+. 
+Perimeter:
+ 
+3
+. 
+Diagonal:
+ 
+Properties:
+ All sides equal, all angles 
+, diagonals bisect each other at 
+.
+Technique:
+ Apply formulas directly. Recognize perfect squares.
+Pitfall:
+ Confusing square properties with other quadrilaterals.
+Statistics
+Statistics involves the collection, analysis, interpretation, presentation, and organization of data.
+Key Measures:
+1
+. 
+Mean:
+ Average of all values.
+2
+. 
+Median:
+ Middle value when data is ordered.
+3
+. 
+Mode:
+ Most frequent value.
+4
+. 
+Range:
+ Max value - Min value.
+5
+. 
+Standard Deviation:
+ Measure of data dispersion (basic understanding).
+Technique:
+ Calculate measures of central tendency and dispersion. Interpret basic statistical graphs.
+Pitfall:
+ Confusing mean, median, and mode.
+System of Equations
+A system of equations is a set of two or more equations containing common variables, which are to be solved
+simultaneously.
+Core Idea:
+ Finding values for variables that satisfy all equations simultaneously.
+Techniques:
+1
+. 
+Substitution:
+ Solve one equation for a variable, substitute into others.
+2
+. 
+Elimination:
+ Add/subtract equations to eliminate a variable.
+3
+. 
+Matrix methods:
+ For larger systems (less common in basic QA).
+Pitfall:
+ Algebraic errors during substitution or elimination.
+Tables / Tabular Data
+Tables organize data into rows and columns, providing a structured way to present information.
+Core Idea:
+ Extracting specific data points and performing calculations based on row/column totals or individual
+entries.
+Technique:
+ Carefully read row and column headers, identify the required data, and perform calculations (sum,
+average, percentage, ratio).
+Pitfall:
+ Misreading data from the wrong row/column, or incorrect calculations.
+
+
+Triangles
+A triangle is a polygon with three edges and three vertices. It is one of the basic shapes in geometry.
+Properties:
+1
+. 
+Sum of angles = 
+.
+2
+. 
+Triangle Inequality: Sum of any two sides is greater than the third side.
+3
+. 
+Types: Equilateral, Isosceles, Scalene, Right-angled, Acute, Obtuse.
+Formulas:
+1
+. 
+Area:
+ 
+ (or Heron's formula)
+2
+. 
+Pythagorean Theorem (for right triangle):
+ 
+Technique:
+ Draw diagrams, identify triangle type, apply relevant theorems (e.g., Pythagorean, similar triangles).
+Pitfall:
+ Assuming a triangle is right-angled or isosceles without sufficient information.
+Trigonometry
+Trigonometry deals with the relationships between the sides and angles of triangles, particularly right-angled triangles.
+Ratios (SOH CAH TOA):
+1
+. 
+2
+. 
+3
+. 
+Identities:
+1
+. 
+2
+. 
+3
+. 
+Standard Angles:
+ Memorize values for 
+.
+Technique:
+ Draw right triangles, label sides, apply appropriate ratios.
+Pitfall:
+ Confusing ratios, or incorrect use of identities.
+Unit Digit
+Finding the unit digit of large powers or complex expressions.
+Core Idea:
+ The unit digit of powers of a number follows a cycle.
+Technique:
+ Identify the cyclicity of the unit digit of the base number (e.g., 2: 2,4,8,6; 3: 3,9,7,1; 4: 4,6; 5: 5; 6: 6; 7:
+7,9,3,1; 8: 8,4,2,6; 9: 9,1). Divide the exponent by the cycle length and use the remainder.
+Pitfall:
+ Errors in determining the cycle or using the remainder.
+Venn Diagram
+Venn diagrams are graphical representations used to show relationships between sets. (Refer to Set Theory for
+formulas).
+Core Idea:
+ Visualizing set operations and relationships.
+Technique:
+ Draw overlapping circles (or other shapes) to represent sets. Fill in the numbers in each region based
+on the given information, starting from the innermost intersection.
+Pitfall:
+ Incorrectly placing numbers in regions or misinterpreting the meaning of overlapping areas.
+Volume
+Volume is the amount of three-dimensional space occupied by an object or substance.
+Formulas:
+1
+. 
+Cube:
+ 
+2
+. 
+Cuboid:
+ 
+3
+. 
+Cylinder:
+ 
+4
+. 
+Cone:
+ 
+5
+. 
+Sphere:
+ 
+
+
+6
+. 
+Hemisphere:
+ 
+Technique:
+ Identify the 3D shape, recall the correct formula, ensure consistent units.
+Pitfall:
+ Confusing volume with surface area, or using incorrect dimensions.
+Work Time
+Work-time problems involve calculating the time taken to complete a task by individuals or groups, often working at
+different rates.
+Core Idea:
+ Work = Rate 
+ Time. Rate is typically "work per unit time".
+Formulas:
+1
+. 
+If A takes 
+ days, A's 1-day work = 
+.
+2
+. 
+If A and B work together, their combined 1-day work = 
+.
+3
+. 
+4
+. 
+ (for multiple workers)
+Technique:
+ Convert all work rates to a common unit (e.g., work per day). Use LCM method for efficiency.
+Pitfall:
+ Incorrectly adding/subtracting rates, or misinterpreting "together" vs. "alone" work.
+Quick Formula Reference
+Absolute Value:
+ 
+; \(|x|
+a \implies x<-a \text{ or } x>a\)
+Algebraic Identities:
+ 
+, 
+, 
+Alligation:
+ 
+Area:
+ Square 
+, Rectangle 
+, Circle 
+, Triangle 
+Arithmetic Series:
+ 
+, 
+Average:
+ 
+Bayes Theorem:
+ 
+Cartesian Coordinates:
+ Distance 
+, Midpoint 
+Circle:
+ Circumference 
+, Area 
+Clock Angle:
+ 
+Combinations:
+ 
+Permutations:
+ 
+Compound Interest:
+ 
+Conditional Probability:
+ 
+Cone:
+ Volume 
+, CSA 
+, TSA 
+Cost/Profit/Loss:
+ 
+, 
+Cube:
+ Volume 
+, Surface Area 
+Factors:
+ For 
+, No. of factors 
+Geometric Series:
+ 
+, 
+LCM HCF:
+ 
+Lines:
+ Slope 
+, 
+, Parallel 
+, Perpendicular 
+Logarithms:
+ 
+, 
+, 
+Percentage:
+ 
+Probability:
+ 
+Quadratic Equation:
+ 
+, Sum of roots 
+, Product of roots 
+Ratio Proportion:
+ 
+Set Theory:
+ 
+Speed Time Distance:
+ 
+, Relative Speed (same) 
+, (opposite) 
+Trigonometry:
+ 
+, 
+, 
+, 
+Volume:
+ Cube 
+, Cuboid 
+, Cylinder 
+, Cone 
+, Sphere 
+Work Time:
+ Work = Rate 
+ Time
+
+
+9.1
+9.1.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.2
+9.2.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.2.2
+A
+. 
+The maximum of 
+ and 
+B
+. 
+The minimum of 
+ and 
+C
+. 
+D
+. 
+None of the above
+9.2.3
+A
+. 
+ 
+B
+. 
+ 
+ 
+C
+. 
+ 
+       
+D
+. 
+Important Tips for GATE
+1
+. 
+Master Fundamentals:
+ Ensure a strong grasp of basic arithmetic, algebra, geometry, and data interpretation. Many
+complex problems are built upon these foundational concepts.
+2
+. 
+Memorize Formulas:
+ Quantitative Aptitude is heavily formula-driven. Create flashcards or a dedicated notebook for
+all key formulas and identities. Regular revision is crucial.
+3
+. 
+Practice Data Interpretation:
+ DI questions are common and can be time-consuming. Practice reading various
+charts (bar, pie, line, scatter, radar) and tables accurately and quickly. Pay attention to scales and units.
+4
+. 
+Time Management:
+ Aptitude questions often have quick solutions if the right approach is identified. Don't get stuck
+on one question; if it's taking too long, mark it for review and move on.
+5
+. 
+Unit Consistency:
+ Always check and convert units to be consistent within a problem (e.g., km/hr to m/s, cm to
+meters) to avoid common calculation errors.
+6
+. 
+Approximation Skills:
+ For questions with close options or complex calculations, develop the ability to estimate and
+approximate to quickly narrow down choices.
+7
+. 
+Identify Question Type:
+ Quickly categorize the problem (e.g., P&C, Profit/Loss, Speed-Time) to recall the relevant
+formulas and problem-solving strategies.
+8
+. 
+Review Common Pitfalls:
+ Be aware of typical mistakes like sign errors in algebra, confusing permutations with
+combinations, or misinterpreting relative speed. Consciously check for these during practice.
+No Classified Topic 
+(1)
+GATE CSE 2026 | Set 2 | GA | Question: 4
+The values of Stock 
+ and Stock 
+ on a particular day are Rs. 
+ and Rs. 
+, respectively. An investor
+invests Rs. 
+ in Stock 
+ and Rs. 
+ in Stock 
+. He sells all the stocks the next day when the value of
+Stock 
+ is Rs. 
+ and Stock 
+ is Rs. 
+. The profit made by the investor is Rs. 
+gatecse-2026-set2
+ 
+quantitative-aptitude
+ 
+one-mark
+Answer key
+☟
+Absolute Value 
+(5)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(10Q)
+Absolute Value: GATE CSE 2014 | Set 2 | GA | Question: 8
+If 
+ is real and 
+, then possible values of 
+ include
+gatecse-2014-set2
+ 
+quantitative-aptitude
+ 
+normal
+ 
+absolute-value
+Answer key
+☟
+Absolute Value: GATE CSE 2017 | Set 1 | GA | Question: 8
+The expression 
+ is equal to :
+gatecse-2017-set1
+ 
+general-aptitude
+ 
+quantitative-aptitude
+ 
+maxima-minima
+ 
+absolute-value
+ 
+easy
+Answer key
+☟
+Absolute Value: GATE2011 AG: GA-7
+Given that 
+ and 
+ is non-zero real number, the value of 
+ is
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2011-ag
+ 
+absolute-value
+Answer key
+☟
+
+
+9.2.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.2.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.3
+9.3.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.4
+9.4.1
+A
+. 
+ litres
+B
+. 
+ litres
+C
+. 
+ litres
+D
+. 
+ litres
+9.4.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+None of the previous
+9.5
+Absolute Value: GATE2013 AE: GA-8
+If 
+ then the possible value of 
+ would be:
+gate2013-ae
+ 
+quantitative-aptitude
+ 
+absolute-value
+Answer key
+☟
+Absolute Value: GATE2013 CE: GA-7
+If  
+ then the values of 
+ is:
+gate2013-ce
+ 
+quantitative-aptitude
+ 
+absolute-value
+Answer key
+☟
+Algebra 
+(1)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(12Q)
+Algebra: GATE2011 MN: GA-61
+If 
+ then which of the following alternatives gives the CORRECT range of 
+ ?
+quantitative-aptitude
+ 
+gate2011-mn
+ 
+algebra
+Answer key
+☟
+Alligation Mixture 
+(2)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(8Q)
+Alligation Mixture: GATE CSE 2011 | Question: 65
+A container originally contains 
+ litres of pure spirit. From this container, 
+ litre of spirit replaced with 
+ litre
+of water. Subsequently, 
+ litre of the mixture is again replaced with 
+ litre of water and this process is
+repeated one more time. How much spirit is now left in the container?
+gatecse-2011
+ 
+quantitative-aptitude
+ 
+normal
+ 
+alligation-mixture
+Answer key
+☟
+Alligation Mixture: GATE2010 TF: GA-9
+A tank has 
+ liters of water
+ At the end of every hour, the following two operations are performed in
+sequence
+ 
+ water equal to 
+ of the current contents of the tank is added to the tank 
+ water equal to 
+ of the current contents of the tank is removed from the tank
+ At the end of 
+ hours, the tank contains exactly 
+ liters of water 
+ The relation between 
+ and 
+ is 
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2010-tf
+ 
+alligation-mixture
+Answer key
+☟
+Area 
+(1)
+
+
+9.5.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.6
+9.6.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.6.2
+A
+. 
+I only
+B
+. 
+I and II
+C
+. 
+II and III
+D
+. 
+I and III
+9.6.3
+Area: GATE CSE 2025 | Set 1 | GA | Question: 7
+In the diagram, the lines QR and ST are parallel to each other. The shortest distance between these two
+lines is half the shortest distance between the point P and line QR. What is the ratio of the area of the
+triangle PST to the area of the trapezium SQRT?
+Note: The figure shown is representative.
+gatecse2025-set1
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+area
+ 
+two-marks
+Answer key
+☟
+Arithmetic Series 
+(3)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(10Q)
+Arithmetic Series: GATE CSE 2013 | Question: 58
+What will be the maximum sum of 
+ ?
+gatecse-2013
+ 
+quantitative-aptitude
+ 
+easy
+ 
+arithmetic-series
+Answer key
+☟
+Arithmetic Series: GATE CSE 2015 | Set 2 | GA | Question: 6
+If the list of letters 
+, 
+, 
+, 
+, 
+ is an arithmetic sequence, which of the following are also in arithmetic
+sequence?
+I
+. 
+II
+. 
+III
+. 
+gatecse-2015-set2
+ 
+quantitative-aptitude
+ 
+normal
+ 
+arithmetic-series
+Answer key
+☟
+Arithmetic Series: GATE2011 AG: GA-6
+The sum of 
+ terms of the series 
+ is
+A. 
+B. 
+
+
+9.7
+9.7.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.8
+9.8.1
+9.8.2
+A
+. 
+ profit
+B
+. 
+ loss
+C
+. 
+ profit
+D
+. 
+ loss
+C. 
+D. 
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2011-ag
+ 
+arithmetic-series
+Answer key
+☟
+Average 
+(1)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(13Q)
+Average: GATE CSE 2025 | Set 1 | GA | Question: 3
+The average marks obtained by a class in an examination were calculated as 
+. However, while
+checking the marks entered, the teacher found that the marks of one student were entered incorrectly as 
+instead of 
+. After correcting the marks, the average becomes 
+. How many students does the class have?
+gatecse2025-set1
+ 
+quantitative-aptitude
+ 
+average
+ 
+one-mark
+Answer key
+☟
+Bar Graph 
+(4)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(4Q)
+Bar Graph: GATE CSE 2015 | Set 3 | GA | Question: 10
+The exports and imports (in crores of 
+.) of a country from the year 
+ to 
+ are given in the following
+bar chart. In which year is the combined percentage increase in imports and exports the highest?
+gatecse-2015-set3
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+normal
+ 
+numerical-answers
+ 
+bar-graph
+Answer key
+☟
+Bar Graph: GATE CSE 2020 | GA | Question: 10
+The total revenue of a company during 
+ is shown in the bar graph. If the total expenditure of
+the company in each year is 
+ million rupees, then the aggregate proﬁt or loss (in percentage) on the total
+expenditure of the company during 
+ is ___________.
+
+
+9.8.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.8.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.9
+9.9.1
+gatecse-2020
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+bar-graph
+ 
+two-marks
+Answer key
+☟
+Bar Graph: GATE CSE 2021 | Set 2 | GA | Question: 9
+The number of units of a product sold in three diﬀerent years and the respective net proﬁts are presented in the
+ﬁgure above. The cost/unit in Year 
+ was 
+₹
+, which was half the cost/unit in Year 
+. The cost/unit in Year 
+ was
+one-third of the cost/unit in Year 
+. Taxes were paid on the selling price at 
+, 
+, and 
+ respectively for
+the three years. Net proﬁt is calculated as the diﬀerence between the selling price and the sum of cost and taxes
+paid in that year.
+The ratio of the selling price in Year 
+ to the selling price in Year 
+ is _________.
+gatecse-2021-set2
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+bar-graph
+ 
+two-marks
+Answer key
+☟
+Bar Graph: GATE DA 2025 | GA | Question: 10
+The number of patients per shift 
+ consulting Dr. Gita in her past 
+ shifts is shown in the ﬁgure. If the
+amount she earns is 
+₹
+ 
+, what is the average amount (in 
+₹
+) she has earned per shift in the
+past 
+ shifts?
+Note: The figure shown is representative.
+gateda-2025
+ 
+quantitative-aptitude
+ 
+bar-graph
+ 
+data-interpretation
+ 
+two-marks
+Answer key
+☟
+Bayes Theorem 
+(1)
+Bayes Theorem: GATE CSE 2012 | Question: 63
+An automobile plant contracted to buy shock absorbers from two suppliers 
+ and 
+ . 
+ supplies 
+ and
+Y supplies 
+ of the shock absorbers. All shock absorbers are subjected to a quality test. The ones that
+pass the quality test are considered reliable. Of 
+ shock absorbers, 
+ are reliable. Of 
+ shock absorbers, 
+ are reliable.
+The probability that a randomly chosen shock absorber, which is found to be reliable, is made by 
+ is
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.10
+9.10.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.10.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.10.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.10.4
+A
+. 
+passes through 
+B
+. 
+has a slope of 
+C
+. 
+is parallel to the 
+-axis
+D
+. 
+has a slope of 
+9.11
+9.11.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2012
+ 
+quantitative-aptitude
+ 
+bayes-theorem
+ 
+probability
+ 
+normal
+ 
+conditional-probability
+Answer key
+☟
+Cartesian Coordinates 
+(4)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(10Q)
+Cartesian Coordinates: GATE CSE 2020 | GA | Question: 9
+Two straight lines are drawn perpendicular to each other in 
+ plane. If 
+ and 
+ are the acute angles
+the straight lines make with the 
+ axis, then 
+ is ________.
+gatecse-2020
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+cartesian-coordinates
+ 
+two-marks
+Answer key
+☟
+Cartesian Coordinates: GATE CSE 2022 | GA | Question: 2
+A function 
+ is defined in the interval 
+ on the 
+ axis as
+Which one of the following is the area under the curve for the interval 
+ on the 
+ axis?
+gatecse-2022
+ 
+quantitative-aptitude
+ 
+cartesian-coordinates
+ 
+area
+ 
+one-mark
+Answer key
+☟
+Cartesian Coordinates: GATE2012 AE: GA-9
+Two points 
+ and 
+ lie on a straight line having a slope of 
+. The value of 
+ is
+gate2012-ae
+ 
+quantitative-aptitude
+ 
+cartesian-coordinates
+ 
+geometry
+Answer key
+☟
+Cartesian Coordinates: GATE2014 AE: GA-4
+If 
+, then the tangent at 
+, 
+gate2014-ae
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+cartesian-coordinates
+Answer key
+☟
+Circle 
+(3)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(10Q)
+Circle: GATE CSE 2018 | GA | Question: 3
+The area of a square is 
+. What is the area of the circle which has the diagonal of the square as its
+diameter?
+
+
+9.11.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.11.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.12
+9.12.1
+gatecse-2018
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+circle
+ 
+normal
+ 
+one-mark
+Answer key
+☟
+Circle: GATE CSE 2020 | GA | Question: 8
+The ﬁgure below shows an annular ring with outer and inner as 
+ and 
+, respectively. The annular space
+has been painted in the form of blue colour circles touching the outer and inner periphery of annular space. If
+maximum 
+ number of circles can be painted, then the unpainted area available in annular space is _____.
+ 
+gatecse-2020
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+circle
+ 
+area
+ 
+two-marks
+Answer key
+☟
+Circle: GATE DA 2026 | GA | Question: 10
+In the given ﬁgure, 
+, and 
+ are three points on a circle of radius 
+ cm with 
+ as its center, 
+, and 
+. The ﬁgure is representative. The area of the shaded region 
+ is 
+ 
+.
+ 
+gateda-2026
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+circle
+ 
+area
+ 
+two-marks
+Answer key
+☟
+Clock Time 
+(1)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(11Q)
+Clock Time: GATE CSE 2014 | Set 2 | GA | Question: 10
+At what time between 
+ a. m. and 
+ a. m. will the minute hand and hour hand of a clock make an angle
+
+
+A
+. 
+ a.m.
+B
+. 
+ a.m.
+C
+. 
+ a.m.
+D
+. 
+ a.m.
+9.13
+9.13.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.13.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.13.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.13.4
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+9.13.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+closest to 
+?
+gatecse-2014-set2
+ 
+quantitative-aptitude
+ 
+normal
+ 
+clock-time
+Answer key
+☟
+Combinatory 
+(5)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(13Q)
+Combinatory: GATE CSE 2010 | Question: 65
+Given digits 
+ how many distinct 
+ digit numbers greater than 
+ can be formed?
+gatecse-2010
+ 
+quantitative-aptitude
+ 
+combinatory
+ 
+normal
+Answer key
+☟
+Combinatory: GATE CSE 2016 | Set 2 | GA | Question: 09
+In a 
+ rectangle grid shown below, each cell is rectangle. How many rectangles can be observed in the
+grid?
+gatecse-2016-set2
+ 
+quantitative-aptitude
+ 
+normal
+ 
+combinatory
+Answer key
+☟
+Combinatory: GATE CSE 2017 | Set 1 | GA | Question: 9
+Arun, Gulab, Neel and Shweta must choose one shirt each from a pile of four shirts coloured red, pink, blue
+and white respectively. Arun dislikes the colour red and Shweta dislikes the colour white. Gulab and Neel
+like all the colours. In how many diﬀerent ways can they choose the shirts so that no one has a shirt with a colour
+he or she dislikes?
+gatecse-2017-set1
+ 
+combinatory
+ 
+quantitative-aptitude
+Answer key
+☟
+Combinatory: GATE2011 MN: GA-59
+In how many ways 
+ scholarships can be awarded to 
+ applicants, when each applicant can receive any
+number of scholarships?
+quantitative-aptitude
+ 
+gate2011-mn
+ 
+combinatory
+Answer key
+☟
+Combinatory: GATE2012 AR: GA-5
+Ten teams participate in a tournament. Every team plays each of the other teams twice. The total number of
+matches to be played is  
+gate2012-ar
+ 
+quantitative-aptitude
+ 
+combinatory
+Answer key
+☟
+
+
+9.14
+9.14.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.14.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.14.3
+A
+. 
+ years
+B
+. 
+ years 
+C
+. 
+ years 
+D
+. 
+ years
+9.15
+9.15.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.15.2
+Compound Interest 
+(3)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(5Q)
+Compound Interest: GATE DS&AI 2024 | GA | Question: 8
+​​​​​
+Person 
+ and Person 
+ invest in three mutual funds 
+, and 
+. The amounts they invest in each of these
+mutual funds are given in the table.
+At the end of one year, the total amount that Person 
+ gets is 
+₹
+ more than Person 
+. The annual rate of return
+for the mutual funds 
+ and 
+ is 
+ each. What is the annual rate of return for the mutual fund 
+?
+gate-ds-ai-2024
+ 
+quantitative-aptitude
+ 
+compound-interest
+ 
+two-marks
+Answer key
+☟
+Compound Interest: GATE2010 MN: GA-5
+A person invest Rs.1000 at 
+ annual compound interest for 
+ years
+ At the end of two years, the whole
+amount is invested at an annual simple interest of 
+ for 
+ years
+ The total value of the investment ﬁnally
+is 
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2010-mn
+ 
+compound-interest
+Answer key
+☟
+Compound Interest: GATE2014 AG: GA-5
+The population of a new city is 
+ million and is growing at 
+ annually. How many years would it take to
+double at this growth rate? 
+gate2014-ag
+ 
+quantitative-aptitude
+ 
+compound-interest
+ 
+normal
+Answer key
+☟
+Conditional Probability 
+(2)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(6Q)
+Conditional Probability: GATE2013 AE: GA-10
+In a factory, two machines 
+ and 
+ manufacture 
+ and 
+ of the autocomponents respectively.
+Out of the total production, 
+ of 
+ and 
+ of 
+ are found to be defective. If a randomly drawn
+autocomponent from the combined lot is found defective, what is the probability that it was manufactured by 
+?
+gate2013-ae
+ 
+quantitative-aptitude
+ 
+conditional-probability
+Answer key
+☟
+Conditional Probability: GATE2014 AG: GA-10
+% of the population in a town is 
+. A new diagnostic kit for 
+ detection is available; this kit
+correctly identiﬁes 
+ individuals 
+% of the time, and 
+ individuals 
+% of the time. A particular
+patient is tested using this kit and is found to be positive. The probability that the individual is actually positive is
+
+
+9.16
+9.16.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.16.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.17
+9.17.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+______.
+gate2014-ag
+ 
+quantitative-aptitude
+ 
+probability
+ 
+conditional-probability
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Contour Plots 
+(2)
+Contour Plots: GATE CSE 2017 | Set 1 | GA | Question: 10
+A contour line joins locations having the same height above the mean sea level. The following is a contour
+plot of a geographical region. Contour lines are shown at 
+ m intervals in this plot. If in a ﬂood, the water
+level rises to 
+ m, which of the villages 
+ get submerged?
+gatecse-2017-set1
+ 
+general-aptitude
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+normal
+ 
+contour-plots
+Answer key
+☟
+Contour Plots: GATE CSE 2017 | Set 2 | GA | Question: 10
+An air pressure contour line joins locations in a region having the same atmospheric pressure. The following
+is an air pressure contour plot of a geographical region. Contour lines are shown at 
+ bar intervals in this
+plot.
+If the possibility of a thunderstorm is given by how fast air pressure rises or drops over a region, which of the
+following regions is most likely to have a thunderstorm?
+gatecse-2017-set2
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+normal
+ 
+contour-plots
+Answer key
+☟
+Cost Market Price 
+(4)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(7Q)
+Cost Market Price: GATE CSE 2011 | Question: 63
+The variable cost 
+ of manufacturing a product varies according to the equation 
+, where 
+ is the
+quantity produced. The ﬁxed cost 
+ of production of same product reduces with 
+ according to the
+equation 
+. How many units should be produced to minimize the total cost 
+?
+gatecse-2011
+ 
+quantitative-aptitude
+ 
+cost-market-price
+ 
+normal
+Answer key
+☟
+
+
+9.17.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.17.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.17.4
+9.18
+9.18.1
+a
+. 
+b
+. 
+c
+. 
+d
+. 
+9.18.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.19
+9.19.1
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+ 
+9.20
+Cost Market Price: GATE CSE 2012 | Question: 56
+The cost function for a product in a ﬁrm is given by 
+, where 
+ is the amount of production. The ﬁrm can
+sell the product at a market price of 
+ per unit. The number of units to be produced by the ﬁrm such that
+the profit is maximized is
+gatecse-2012
+ 
+quantitative-aptitude
+ 
+cost-market-price
+ 
+normal
+Answer key
+☟
+Cost Market Price: GATE CSE 2019 | GA | Question: 4
+Ten friends planned to share equally the cost of buying a gift for their teacher. When two of them decided
+not to contribute, each of the other friends had to pay Rs. 
+ more. The cost of the gift was Rs. ____
+gatecse-2019
+ 
+general-aptitude
+ 
+quantitative-aptitude
+ 
+cost-market-price
+ 
+one-mark
+Answer key
+☟
+Cost Market Price: GATE2014 AE: GA-5
+A foundry has a ﬁxed daily cost of 
+ whenever it operates and a variable cost of 
+,where 
+ is the daily production in tonnes. What is the cost of production in 
+ per tonne for a daily production of 
+ tonnes.
+gate2014-ae
+ 
+quantitative-aptitude
+ 
+cost-market-price
+ 
+numerical-answers
+Answer key
+☟
+Cubes 
+(2)
+Cubes: GATE CSE 2016 | Set 1 | GA | Question: 05
+A cube is built using 
+ cubic blocks of side one unit. After it is built, one cubic block is removed from every
+corner of the cube. The resulting surface area of the body (in square units) after the removal is ________.
+gatecse-2016-set1
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+normal
+ 
+cubes
+Answer key
+☟
+Cubes: GATE CSE 2021 | Set 2 | GA | Question: 3
+If 
+ is the angle, in degrees, between the longest diagonal of the cube and any one of the edges of the cube,
+then, 
+gatecse-2021-set2
+ 
+quantitative-aptitude
+ 
+mensuration
+ 
+cubes
+ 
+one-mark
+Answer key
+☟
+Currency Notes 
+(1)
+Currency Notes: GATE2012 CY: GA-10
+Raju has 
+ currency notes in his pocket consisting of only Rs. 
+ notes and Rs. 
+ notes. The total money
+value of the notes is Rs. 
+. The number of Rs. 
+ notes that Raju has is
+gate2012-cy
+ 
+quantitative-aptitude
+ 
+numerical-computation
+ 
+currency-notes
+Answer key
+☟
+Data Interpretation 
+(3)
+₹
+
+
+9.20.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.20.2
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(8Q)
+Data Interpretation: GATE CSE 2011 | Question: 62
+ and 
+ are four types of dangerous microbes recently found in a human habitat. The area of each
+circle with its diameter printed in brackets represents the growth of a single microbe surviving human
+immunity system within 
+ hours of entering the body. The danger to human beings varies proportionately with the
+toxicity, potency and growth attributed to a microbe shown in the figure below:
+A pharmaceutical company is contemplating the development of a vaccine against the most dangerous microbe.
+Which microbe should the company target in its first attempt?
+gatecse-2011
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+normal
+Answer key
+☟
+Data Interpretation: GATE CSE 2026 | Set 2 | GA | Question: 8
+Figures 
+ and 
+ represent intercity highway systems. The black dots represent cities and the line
+segments between them represent intercity highways.
+A salesperson needs to make a trip. She needs to start from a city, visit each of the remaining cities exactly once,
+and finally return to the same city from which she started.
+Which one of the following options is then true?
+
+
+9.20.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Either 
+ or 
+9.21
+9.21.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.22
+9.22.1
+ 
+A
+. 
+Such a trip is possible for 
+, but not for 
+.
+B
+. 
+Such a trip is possible for 
+, but not for 
+.
+C
+. 
+Such a trip is possible for both 
+ and 
+.
+D
+. 
+Such a trip is possible neither for 
+ nor for 
+.
+gatecse-2026-set2
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+two-marks
+Answer key
+☟
+Data Interpretation: GATE DA 2025 | GA | Question: 7
+Weight of a person can be expressed as a function of their age. The function usually varies from person to
+person. Suppose this function is identical for two brothers, and it monotonically increases till the age of 50
+years and then it monotonically decreases. Let 
+ and 
+ (in years) denote the ages of the brothers and 
+.
+Which one of the following statements is correct about their age on the day when they attain the same weight?
+gateda-2025
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+two-marks
+Answer key
+☟
+Digital Image Processing 
+(1)
+Digital Image Processing: GATE DA 2025 | GA | Question: 3
+​​​​
+A 
+ digital image has pixel intensities 
+ as shown in the figure. The number of pixels with 
+ is:
+gateda-2025
+ 
+quantitative-aptitude
+ 
+digital-image-processing
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Factors 
+(3)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(5Q)
+Factors: GATE CSE 2013 | Question: 62
+Out of all the 
+-digit integers between 
+ and 
+ a 
+-digit number has to be selected at random. What is
+the probability that the selected number is not divisible by 
+ ?
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.22.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.22.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.23
+9.23.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.24
+9.24.1
+gatecse-2013
+ 
+quantitative-aptitude
+ 
+easy
+ 
+probability
+ 
+factors
+Answer key
+☟
+Factors: GATE CSE 2018 | GA | Question: 4
+What would be the smallest natural number which when divided either by 
+ or by 
+ or by 
+ leaves a
+remainder of  
+ in each case?
+gatecse-2018
+ 
+quantitative-aptitude
+ 
+factors
+ 
+one-mark
+Answer key
+☟
+Factors: GATE2010 MN: GA-8
+Consider the set of integers 
+ The number of integers that is divisible by neither 
+ nor 
+is 
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2010-mn
+ 
+factors
+Answer key
+☟
+Fractions 
+(1)
+Fractions: GATE CSE 2018 | GA | Question: 6
+In appreciation of the social improvements completed in a town, a wealthy philanthropist decided to gift 
+ to each male senior citizen in the town and 
+ to each female senior citizen. Altogether, there
+were 300 senior citizens eligible for this gift. However, only 
+ of the eligible men and 
+ of the eligible women
+claimed the gift.How much money (in Rupees) did the philanthropist give away in total?
+gatecse-2018
+ 
+quantitative-aptitude
+ 
+fractions
+ 
+normal
+ 
+two-marks
+Answer key
+☟
+Functions 
+(7)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(7Q)
+Functions: GATE CSE 2015 | Set 2 | GA | Question: 9
+If 
+ are distinct integers such that:
+Also a function 
+Also the same operations are valid with two variable functions of the form 
+What is the value of 
+?
+gatecse-2015-set2
+ 
+functions
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+
+
+9.24.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.24.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.24.4
+A
+. 
+only (i) is correct
+B
+. 
+only (ii) is correct
+C
+. 
+both (i) and (ii) are correct
+D
+. 
+neither (i) nor (ii) is correct
+9.24.5
+A
+. 
+ and 
+B
+. 
+ constant
+C
+. 
+ constant and 
+constant
+D
+. 
+9.24.6
+Functions: GATE CSE 2015 | Set 3 | GA | Question: 5
+A function 
+ is linear and has a value of 
+ at 
+ and 
+ at 
+. Find its value at 
+.
+gatecse-2015-set3
+ 
+quantitative-aptitude
+ 
+normal
+ 
+functions
+Answer key
+☟
+Functions: GATE CSE 2015 | Set 3 | GA | Question: 8
+Choose the most appropriate equation for the function drawn as thick line, in the plot below.
+gatecse-2015-set3
+ 
+quantitative-aptitude
+ 
+normal
+ 
+functions
+Answer key
+☟
+Functions: GATE CSE 2023 | GA | Question: 7
+Consider two functions of time 
+where 
+Now consider the following two statements:
+i
+. 
+For some 
+.
+ii
+. 
+There exists a 
+ such that 
+ for all 
+.
+Which one of the following options is 
+gatecse-2023
+ 
+quantitative-aptitude
+ 
+functions
+ 
+two-marks
+Answer key
+☟
+Functions: GATE CSE 2023 | GA | Question: 9
+ and 
+ are functions of 
+ and 
+, respectively, and 
+ for all values of 
+ and 
+. Which one
+of the following options is necessarily 
+ for a 
+ and 
+ 
+gatecse-2023
+ 
+quantitative-aptitude
+ 
+functions
+ 
+two-marks
+Answer key
+☟
+Functions: GATE2010 MN: GA-10
+Given the following four functions 
+  
+  
+ 
+ which
+function will have the largest value for sufficiently large values of n 
+ 
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.24.7
+9.25
+9.25.1
+9.25.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ 
+9.25.3
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2010-mn
+ 
+functions
+Answer key
+☟
+Functions: GATE2012 AR: GA-7
+Let 
+ where 
+ and 
+ is the greatest integer not larger than 
+ Then 
+ is a
+A
+. 
+ monotonically increasing function
+B
+. 
+ monotonically decreasing function
+C
+. 
+linearly increasing function between two integers
+D
+. 
+linearly decreasing function between two integers
+gate2012-ar
+ 
+quantitative-aptitude
+ 
+functions
+ 
+normal
+Answer key
+☟
+Geometry 
+(5)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(4Q)
+Geometry: GATE CSE 2014 | Set 1 | GA | Question: 10
+When a point inside of a tetrahedron (a solid with four triangular surfaces) is connected by straight lines to
+its corners, how many (new) internal planes are created with these lines?
+gatecse-2014-set1
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+combinatory
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Geometry: GATE CSE 2024 | Set 1 | GA | Question: 7
+A rectangular paper sheet of dimensions 
+ is taken. The two longer edges of the sheet are
+joined together to create a cylindrical tube. A cube whose surface area is equal to the area of the sheet is
+also taken.
+Then, the ratio of the volume of the cylindrical tube to the volume of the cube is
+gatecse-2024-set1
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+two-marks
+Answer key
+☟
+Geometry: GATE CSE 2025 | Set 2 | GA | Question: 9
+In the Given ﬁgure, PQRS is a square of side 
+ cm and PLMN is a rectangle. The corner L of the rectangle
+is on the side QR. Side MN of the rectangle passes through the corner S of the square.
+ 
+What is the area (in 
+) of the rectangle PLMN?
+Note: The figure shown is representative.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.25.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.25.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.26
+ 
+gatecse2025-set2
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+two-marks
+Answer key
+☟
+Geometry: GATE DA 2025 | GA | Question: 4
+In the given ﬁgure, the numbers associated with the rectangle, triangle, and ellipse are 
+ , and 
+,
+respectively. Which one among the given options is the most appropriate combination of 
+, and 
+ ?
+gateda-2025
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+one-mark
+Answer key
+☟
+Geometry: GATE DA 2025 | GA | Question: 8
+​​​​​
+A regular dodecagon (
+-sided regular polygon) is inscribed in a circle of radius 
+ cm as shown in the ﬁgure.
+The side of the dodecagon is 
+. All the triangles (numbered 
+ to 
+) in the ﬁgure are used to form
+squares of side 
+ and each numbered triangle is used only once to form a square.
+The number of squares that can be formed and the number of triangles required to form each square, respectively,
+are:
+Note: The figure shown is representative.
+ 
+gateda-2025
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+two-marks
+Answer key
+☟
+Graph Coloring 
+(1)
+
+
+9.26.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.27
+9.27.1
+9.27.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.27.3
+Graph Coloring: GATE DS&AI 2024 | GA | Question: 2
+The 
+ parts of the given ﬁgure are to be painted such that no two adjacent parts with shared boundaries
+(excluding corners) have the same color. The minimum number of colors required is
+ 
+gate-ds-ai-2024
+ 
+quantitative-aptitude
+ 
+graph-coloring
+ 
+one-mark
+ 
+easy
+Answer key
+☟
+Line Graph 
+(5)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(12Q)
+Line Graph: GATE CSE 2014 | Set 2 | GA | Question: 9
+The ratio of male to female students in a college for ﬁve years is plotted in the following line graph. If the
+number of female students doubled in 
+, by what percent did the number of male students increase in 
+?
+gatecse-2014-set2
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+numerical-answers
+ 
+normal
+ 
+line-graph
+Answer key
+☟
+Line Graph: GATE CSE 2014 | Set 3 | GA | Question: 9
+The ratio of male to female students in a college for ﬁve years is plotted in the following line graph. If the
+number of female students in 
+ and 
+ is equal, what is the ratio of male students in 
+ to male
+students in 
+?
+gatecse-2014-set3
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+normal
+ 
+line-graph
+Answer key
+☟
+Line Graph: GATE CSE 2016 | Set 2 | GA | Question: 10
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.27.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.27.5
+gatecse-2016-set2
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+normal
+ 
+line-graph
+Answer key
+☟
+Line Graph: GATE2011 AG: GA-9
+The fuel consumed by a motorcycle during a journey while traveling at various speeds is indicated in the
+graph below.
+The distances covered during four laps of the journey are listed in the table below
+From the given data, we can conclude that the fuel consumed per kilometre was least during the lap
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2011-ag
+ 
+data-interpretation
+ 
+line-graph
+Answer key
+☟
+Line Graph: GATE2014 AE: GA-10
+The monthly rainfall chart based on 
+ years of rainfall in Agra is shown in the following figure.
+
+
+A
+. 
+(i) and (ii)
+B
+. 
+(i) and (iii)
+C
+. 
+(ii) and (iii)
+D
+. 
+(iii) and (iv)
+9.28
+9.28.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.28.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.28.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.28.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Which of the following are true? (k percentile is the value such that k percent of the data fall below that value)
+i
+. 
+On average, it rains more in July than in December
+ii
+. 
+Every year, the amount of rainfall in August is more than that in January
+iii
+. 
+July rainfall can be estimated with better confidence than February rainfall
+iv
+. 
+In August, there is at least 
+ mm of rainfall
+gate2014-ae
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+line-graph
+Answer key
+☟
+Logarithms 
+(6)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(4Q)
+Logarithms: GATE CSE 2011 | Question: 57
+If 
+, then which of the following options is 
+TRUE
+?
+gatecse-2011
+ 
+quantitative-aptitude
+ 
+normal
+ 
+logarithms
+Answer key
+☟
+Logarithms: GATE CSE 2018 | GA | Question: 7
+ If 
+ and 
+ what is the value of the product 
+ ?
+gatecse-2018
+ 
+quantitative-aptitude
+ 
+ratio-proportion
+ 
+two-marks
+ 
+logarithms
+Answer key
+☟
+Logarithms: GATE CSE 2024 | Set 1 | GA | Question: 5
+For positive non-zero real variables 
+ and 
+, if
+then, the value of 
+ is
+gatecse-2024-set1
+ 
+quantitative-aptitude
+ 
+logarithms
+ 
+one-mark
+Answer key
+☟
+Logarithms: GATE CSE 2024 | Set 2 | GA | Question: 4
+For positive non-zero real variables 
+ and 
+, if
+then, the value of 
+ is
+gatecse-2024-set2
+ 
+quantitative-aptitude
+ 
+logarithms
+ 
+one-mark
+Answer key
+☟
+
+
+9.28.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.28.6
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+9.29
+9.29.1
+A
+. 
+Bridges on 
+ and 
+B
+. 
+Bridges on 
+ and 
+C
+. 
+Bridges on 
+ and 
+D
+. 
+Bridges on 
+ and 
+9.30
+9.30.1
+A
+. 
+ meters
+B
+. 
+ meters
+C
+. 
+ meters
+D
+. 
+ meters
+Logarithms: GATE DA 2026 | GA | Question: 4
+Consider two distinct positive real numbers 
+, with 
+. Let 
+ and 
+. The
+relation between 
+ and 
+ is 
+.
+gateda-2026
+ 
+quantitative-aptitude
+ 
+logarithms
+ 
+one-mark
+Answer key
+☟
+Logarithms: GATE2012 AR: GA-6
+A value of 
+ that satisfies the equation 
+ 
+is
+gate2012-ar
+ 
+quantitative-aptitude
+ 
+logarithms
+Answer key
+☟
+Maps 
+(1)
+Maps: GATE CSE 2025 | Set 2 | GA | Question: 10
+The diagram below shows a river system consisting of 
+ segments, marked 
+ and 
+ It
+splits the land into 
+ zones, marked 
+ and 
+. We need to connect these zones using the
+least number of bridges, Out of the following options, which one is correct?
+ 
+Note: The figure shown is representative.
+gatecse2025-set2
+ 
+quantitative-aptitude
+ 
+maps
+ 
+two-marks
+Answer key
+☟
+Maxima Minima 
+(4)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(5Q)
+Maxima Minima: GATE CSE 2012 | Question: 62
+A political party orders an arch for the entrance to the ground in which the annual convention is being held.
+The proﬁle of the arch follows the equation 
+ where 
+ is the height of the arch in meters. The
+maximum possible height of the arch is
+ 
+gatecse-2012
+ 
+quantitative-aptitude
+ 
+normal
+ 
+maxima-minima
+Answer key
+☟
+
+
+9.30.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.30.3
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+9.30.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.31
+9.31.1
+A
+. 
+Perimeter increases by 
+.
+B
+. 
+Length of the diagonals increases
+by 
+.
+C
+. 
+Area increases by 
+.
+D
+. 
+The rectangle becomes a square.
+9.32
+9.32.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.33
+9.33.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Maxima Minima: GATE CSE 2017 | Set 2 | GA | Question: 9
+The number of roots of 
+ in the range 
+ is
+gatecse-2017-set2
+ 
+quantitative-aptitude
+ 
+normal
+ 
+maxima-minima
+ 
+calculus
+Answer key
+☟
+Maxima Minima: GATE2010 TF: GA-5
+Consider the function 
+ In which range does 
+ take its minimum value
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2010-tf
+ 
+maxima-minima
+ 
+functions
+Answer key
+☟
+Maxima Minima: GATE2013 CE: GA-6
+ and 
+ are two positive real numbers such that 
+ and 
+For which of the
+following values of 
+ the function 
+ will give maximum value ?
+gate2013-ce
+ 
+quantitative-aptitude
+ 
+maxima-minima
+Answer key
+☟
+Mensuration 
+(1)
+Mensuration: GATE DA 2025 | GA | Question: 5
+A rectangle has a length 
+ and a width 
+  where 
+. If the width, 
+ is increased by 
+, which
+one of the following statements is correct for all values of 
+ and 
+gateda-2025
+ 
+quantitative-aptitude
+ 
+mensuration
+ 
+one-mark
+Answer key
+☟
+Modular Arithmetic 
+(1)
+Modular Arithmetic: GATE2012 CY: GA-1
+If 
+= 
+ and 
+= 
+, then 
+=
+gate2012-cy
+ 
+quantitative-aptitude
+ 
+modular-arithmetic
+Answer key
+☟
+Number Representation 
+(1)
+Number Representation: GATE DA 2026 | GA | Question: 2
+The product of the digits of a three-digit number is 
+. The sum of the digits of this three-digit number is 
+gateda-2026
+ 
+quantitative-aptitude
+ 
+one-mark
+ 
+number-representation
+
+
+9.34
+9.34.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.34.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.34.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.34.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.34.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.35
+9.35.1
+Answer key
+☟
+Number Series 
+(5)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(10Q)
+Number Series: GATE CSE 2013 | Question: 61
+Find the sum of the expression
+gatecse-2013
+ 
+quantitative-aptitude
+ 
+normal
+ 
+number-series
+Answer key
+☟
+Number Series: GATE CSE 2014 | Set 2 | GA | Question: 5
+The value of 
+is
+gatecse-2014-set2
+ 
+quantitative-aptitude
+ 
+easy
+ 
+number-series
+Answer key
+☟
+Number Series: GATE CSE 2014 | Set 3 | GA | Question: 4
+Which number does not belong in the series below?
+gatecse-2014-set3
+ 
+quantitative-aptitude
+ 
+number-series
+ 
+easy
+Answer key
+☟
+Number Series: GATE2010 TF: GA-7
+Consider the series 
+ The sum of the inﬁnite series above
+is
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2010-tf
+ 
+number-series
+Answer key
+☟
+Number Series: GATE2013 EE: GA-10
+Find the sum to 
+ terms of the series 
+gate2013-ee
+ 
+quantitative-aptitude
+ 
+number-series
+Answer key
+☟
+Number System 
+(4)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(2Q)
+Number System: GATE CSE 2014 | Set 3 | GA | Question: 10
+Consider the equation: 
+, where 
+ stands for 
+ to the base 
+. Find 
+.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.35.2
+A
+. 
+ digits
+B
+. 
+ digits
+C
+. 
+ digits
+D
+. 
+ digits
+9.35.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.35.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.36
+9.36.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.36.2
+gatecse-2014-set3
+ 
+quantitative-aptitude
+ 
+number-system
+ 
+normal
+ 
+digital-logic
+Answer key
+☟
+Number System: GATE CSE 2017 | Set 2 | GA | Question: 8
+ is a 
+ digit number starting with the digit 
+ followed by the digit 
+. Then the number 
+ will have
+gatecse-2017-set2
+ 
+quantitative-aptitude
+ 
+number-system
+Answer key
+☟
+Number System: GATE DA 2026 | GA | Question: 9
+, and 
+ are distinct single-digit whole numbers taking values from 
+ to 
+.
+ is a two-digit number with 
+ being in the units place and 
+ in the tens place. Similarly, 
+ is a two-digit
+number.
+It is known that 
+ and 
+ are consecutive numbers and 
+, with 
+ being a three-
+digit number.
+The value of 
+ is 
+gateda-2026
+ 
+quantitative-aptitude
+ 
+two-marks
+ 
+number-system
+Answer key
+☟
+Number System: GATE2010 MN: GA-9
+A positive integer 
+ in base 
+ when represented in base 
+ has the representation 
+ and in base 
+ has the
+representation 
+ We get 
+ where the subtraction is done in base 
+ Which of the following is
+necessarily true
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2010-mn
+ 
+number-system
+Answer key
+☟
+Number Theory 
+(2)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(7Q)
+Number Theory: GATE CSE 2025 | Set 2 | GA | Question: 3
+​​​​​​
+If 
+ for all real values of 
+, which one of the following statements is true?
+ 
+gatecse2025-set2
+ 
+quantitative-aptitude
+ 
+mathematical-logic
+ 
+one-mark
+ 
+number-theory
+Answer key
+☟
+Number Theory: GATE2012 AE: GA-8
+If a prime number on division by 
+ gives a remainder of 
+ then that number can be expressed as
+A
+. 
+sum of squares of two natural numbers
+B
+. 
+sum of cubes of two natural numbers
+C
+. 
+sum of square roots of two natural numbers
+D
+. 
+sum of cube roots of two natural numbers
+
+
+9.37
+9.37.1
+9.37.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.37.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.37.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.37.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.37.6
+gate2012-ae
+ 
+number-theory
+ 
+quantitative-aptitude
+Answer key
+☟
+Numerical Computation 
+(9)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(3Q)
+Numerical Computation: GATE CSE 2014 | Set 1 | GA | Question: 4
+If 
+, compute 
+.
+gatecse-2014-set1
+ 
+quantitative-aptitude
+ 
+easy
+ 
+numerical-answers
+ 
+numerical-computation
+Answer key
+☟
+Numerical Computation: GATE CSE 2014 | Set 2 | GA | Question: 4
+What is the average of all multiples of 
+ from 
+ to 
+?
+gatecse-2014-set2
+ 
+quantitative-aptitude
+ 
+easy
+ 
+numerical-computation
+ 
+factors
+Answer key
+☟
+Numerical Computation: GATE CSE 2017 | Set 1 | GA | Question: 4
+Find the smallest number 
+ such that 
+ is a perfect cube.
+gatecse-2017-set1
+ 
+general-aptitude
+ 
+quantitative-aptitude
+ 
+easy
+ 
+numerical-computation
+Answer key
+☟
+Numerical Computation: GATE CSE 2017 | Set 2 | GA | Question: 4
+A test has twenty questions worth 
+ marks in total. There are two types of questions. Multiple choice
+questions are worth 
+ marks each and essay questions are worth 
+ marks each. How many multiple choice
+questions does the exam have?
+gatecse-2017-set2
+ 
+quantitative-aptitude
+ 
+numerical-computation
+Answer key
+☟
+Numerical Computation: GATE CSE 2026 | Set 1 | GA | Question: 3
+Consider a knock-out women's badminton singles tournament where there are no ties. The loser in each
+game is eliminated from the tournament. Every player plays until she is defeated or remains the last
+undefeated player. The last undefeated player is declared the winner of the tournament. If there are 
+ players in
+the beginning of the tournament, how many games should be played in total to declare the winner of the
+tournament?
+gatecse-2026-set1
+ 
+quantitative-aptitude
+ 
+numerical-computation
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Numerical Computation: GATE CSE 2026 | Set 1 | GA | Question: 4
+A student needs to enroll for a minimum of 
+ credits. A student cannot enroll for more than 
+ credits. The
+credits are divided amongst project and three distinct sets of courses namely, core courses, specialization
+courses, and elective courses. It is compulsory for a student to enroll for exactly 
+ credits of core courses and
+exactly 
+ credits of project. In addition, a student has to enroll for a minimum of 
+ credits of specialization
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.37.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.37.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.37.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.38
+courses. The maximum credits of elective courses that a student can enroll for is 
+gatecse-2026-set1
+ 
+quantitative-aptitude
+ 
+numerical-computation
+ 
+one-mark
+Answer key
+☟
+Numerical Computation: GATE CSE 2026 | Set 1 | GA | Question: 8
+For positive real numbers 
+ and 
+, the function 
+ is defined as:
+ 
+. The max function is defined as:
+The graph below shows the plot of a function 
+ versus 
+.
+ can be expressed as 
+.
+ 
+gatecse-2026-set1
+ 
+quantitative-aptitude
+ 
+numerical-computation
+ 
+two-marks
+Answer key
+☟
+Numerical Computation: GATE2010 TF: GA-10
+A student is answering a multiple choice examination with 
+ questions with a marking scheme as follows
+  
+ 
+ marks for each correct answer 
+  
+ for a wrong answer 
+ 
+ for a question that has not been
+attempted
+ If the student gets 
+ marks in the test then the least possible number of questions the student has NOT
+answered is
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2010-tf
+ 
+numerical-computation
+Answer key
+☟
+Numerical Computation: GATE2013 CE: GA-1
+A number is as much greater than 
+ as it is smaller than 
+. The number is:
+gate2013-ce
+ 
+quantitative-aptitude
+ 
+numerical-computation
+Answer key
+☟
+Percentage 
+(8)
+
+
+9.38.1
+9.38.2
+A
+. 
+increased by 
+B
+. 
+decreased by 
+C
+. 
+decreased by 
+D
+. 
+decreased by 
+9.38.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ 
+9.38.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.38.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+Percentage: GATE CSE 2014 | Set 1 | GA | Question: 8
+Round-trip tickets to a tourist destination are eligible for a discount of 
+ on the total fare. In addition,
+groups of 
+ or more get a discount of 
+ on the total fare. If the one way single person fare is 
+ 
+, a
+group of 
+ tourists purchasing round-trip tickets will be charged 
+ __________
+gatecse-2014-set1
+ 
+quantitative-aptitude
+ 
+easy
+ 
+numerical-answers
+ 
+percentage
+Answer key
+☟
+Percentage: GATE CSE 2014 | Set 3 | GA | Question: 8
+The Gross Domestic Product 
+ in Rupees grew at 
+ during 
+. For international
+comparison, the 
+ is compared in US Dollars 
+ after conversion based on the market exchange
+rate. During the period 
+ the exchange rate for the 
+ increased from 
+. 
+ to 
+/ 
+. India's GDP in USD during the period 
+gatecse-2014-set3
+ 
+quantitative-aptitude
+ 
+normal
+ 
+percentage
+Answer key
+☟
+Percentage: GATE CSE 2024 | Set 1 | GA | Question: 4
+The number of coins of 
+₹
+, 
+₹
+, and 
+₹
+ denominations that a person has are in the ratio 
+. Of the
+total amount, the percentage of money in 
+₹
+ coins is
+gatecse-2024-set1
+ 
+quantitative-aptitude
+ 
+percentage
+ 
+one-mark
+Answer key
+☟
+Percentage: GATE2011 AG: GA-4
+There are two candidates 
+ and 
+ in an election. During the campaign, 
+ of the voters promised to vote
+for 
+ and rest for 
+ However, on the day of election 
+ of the voters went back on their promise to vote
+for 
+ and instead voted for 
+  
+ of the voters went back on their promise to vote for 
+ and instead voted for 
+ Suppose
+ lost by 
+ votes
+  then what was the total number of voters?
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2011-ag
+ 
+percentage
+Answer key
+☟
+Percentage: GATE2012 AE: GA-7
+The total runs scored by four cricketers 
+ and 
+ in years 
+ and 
+ are given in the following
+table;
+The player with the lowest percentage increase in total runs is 
+gate2012-ae
+ 
+quantitative-aptitude
+ 
+percentage
+
+
+9.38.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.38.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.38.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.39
+9.39.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Answer key
+☟
+Percentage: GATE2012 CY: GA-8
+The data given in the following table summarizes the monthly budget of an average household.
+The approximate percentage of the monthly budget 
+NOT
+ spent on savings is
+gate2012-cy
+ 
+quantitative-aptitude
+ 
+percentage
+Answer key
+☟
+Percentage: GATE2013 EE: GA-2
+In the summer of 
+, in New Delhi, the mean temperature of Monday to Wednesday was 
+ and of
+Tuesday to Thursday was 
+. If the temperature on Thursday was 
+ higher than that of Monday, then
+the temperature in 
+ on Thursday was
+gate2013-ee
+ 
+quantitative-aptitude
+ 
+percentage
+Answer key
+☟
+Percentage: GATE2014 AE: GA-9
+One percent of the people of country 
+ are taller than 
+ ft. Two percent of the people of country 
+ are taller
+than 
+ ft. There are thrice as many people in country 
+ as in country 
+ Taking both countries together,
+what is the percentage of people taller than 
+ ft?
+gate2014-ae
+ 
+percentage
+ 
+quantitative-aptitude
+Answer key
+☟
+Permutation and Combination 
+(4)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(14Q)
+Permutation and Combination: GATE CSE 2024 | Set 2 | GA | Question: 2
+Two wizards try to create a spell using all the four elements, 
+water, air, ﬁre
+, and 
+earth
+. For this, they decide
+to mix all these elements in all possible orders. They also decide to work independently. After trying all
+possible combination of elements, they conclude that the spell does not work.
+How many attempts does each wizard make before coming to this conclusion, independently?
+gatecse-2024-set2
+ 
+quantitative-aptitude
+ 
+permutation-and-combination
+ 
+one-mark
+Answer key
+☟
+
+
+9.39.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.39.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.39.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.40
+9.40.1
+9.40.2
+Permutation and Combination: GATE CSE 2025 | Set 1 | GA | Question: 10
+A shop has 
+ distinct ﬂavors of ice-cream. One can purchase any number of scoops of any ﬂavor. The order
+in which the scoops are purchased is inconsequential. If one wants to purchase 
+ scoops of ice-cream, in
+how many ways can one make that purchase?
+gatecse2025-set1
+ 
+quantitative-aptitude
+ 
+permutation-and-combination
+ 
+two-marks
+Answer key
+☟
+Permutation and Combination: GATE DA 2026 | GA | Question: 7
+Five integers are picked from 
+ to 
+, with possible repetitions, such that their mean is 
+, median is 
+,
+and they have a single mode of 
+.
+Ignoring permutations, the number of ways to pick these five integers is 
+gateda-2026
+ 
+quantitative-aptitude
+ 
+permutation-and-combination
+ 
+two-marks
+Answer key
+☟
+Permutation and Combination: GATE DS&AI 2024 | GA | Question: 3
+How many 
+-digit positive integers divisible by 
+ can be formed using only the digits 
+, such
+that no digit appears more than once in a number?
+gate-ds-ai-2024
+ 
+quantitative-aptitude
+ 
+permutation-and-combination
+ 
+one-mark
+Answer key
+☟
+Pie Chart 
+(5)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(7Q)
+Pie Chart: GATE CSE 2015 | Set 1 | GA | Question: 9
+The pie chart below has the breakup of the number of students from diﬀerent departments in an engineering
+college for the year 
+. The proportion of male to female students in each department is 
+. There are 
+ males in Electrical Engineering. What is the diﬀerence between the numbers of female students in the civil
+department and the female students in the Mechanical department?
+gatecse-2015-set1
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+numerical-answers
+ 
+pie-chart
+Answer key
+☟
+Pie Chart: GATE CSE 2024 | Set 1 | GA | Question: 8
+The pie chart presents the percentage contribution of diﬀerent macronutrients to a typical 
+ diet of
+a person.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.40.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.40.4
+The typical energy density 
+ of these macronutrients is given in the table.
+The total fat (all three types), in grams, this person consumes is 
+gatecse-2024-set1
+ 
+quantitative-aptitude
+ 
+pie-chart
+ 
+two-marks
+Answer key
+☟
+Pie Chart: GATE CSE 2024 | Set 2 | GA | Question: 8
+The pie charts depict the shares of various power generation technologies in the total electricity generation
+of a country for the years 
+ and 
+.
+The renewable sources of electricity generation consist of Hydro, Solar and Wind. Assuming that the total electricity
+generated remains the same from 
+ to 
+, what is the percentage increase in the share of the renewable
+sources of electricity generation over this period?
+gatecse-2024-set2
+ 
+quantitative-aptitude
+ 
+pie-chart
+ 
+two-marks
+Answer key
+☟
+Pie Chart: GATE DS&AI 2024 | GA | Question: 5
+In an election, the share of valid votes received by the four candidates 
+, and 
+ is represented by the
+pie chart shown. The total number of votes cast in the election were 
+, out of which 
+ were
+invalid.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.40.5
+A
+. 
+ 
+B
+. 
+C
+. 
+ 
+D
+. 
+9.41
+9.41.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.42
+Based on the data provided, the total number of valid votes received by the candidates 
+ and 
+ is
+gate-ds-ai-2024
+ 
+quantitative-aptitude
+ 
+pie-chart
+ 
+one-mark
+Answer key
+☟
+Pie Chart: GATE2014 AG: GA-8
+The total exports and revenues from the exports of a country are given in the two pie charts below. The pie
+chart for exports shows the quantity of each item as a percentage of the total quantity of exports. The pie
+chart for the revenues shows the percentage of the total revenue generated through export of each item. The total
+quantity of exports of all the items is 
+ lakh tonnes and the total revenues are 
+ crore rupees. What is the ratio of
+the revenue generated through export of Item 
+ per kilogram to the revenue generated through export of Item 
+ per
+kilogram?
+gate2014-ag
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+pie-chart
+ 
+ratio-proportion
+ 
+normal
+Answer key
+☟
+Polynomials 
+(1)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(5Q)
+Polynomials: GATE CSE 2016 | Set 1 | GA | Question: 09
+If 
+, which of the following is a factor of 
+?
+gatecse-2016-set1
+ 
+quantitative-aptitude
+ 
+polynomials
+ 
+normal
+Answer key
+☟
+Powers 
+(1)
+
+
+9.42.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.43
+9.43.1
+A
+. 
+ not a prime number
+B
+. 
+ is not a prime number
+C
+. 
+ is a prime number
+D
+. 
+ is a prime number
+9.44
+9.44.1
+A
+. 
+Only relation I is true.
+B
+. 
+Only relation II is true.
+C
+. 
+Relations II and III are true.
+D
+. 
+Relations I and III are true.
+9.44.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.44.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Powers: GATE DA 2025 | GA | Question: 9
+If a real variable 
+ satisfies 
+, then the value of 
+ is:
+gateda-2025
+ 
+quantitative-aptitude
+ 
+powers
+ 
+two-marks
+Answer key
+☟
+Prime Numbers 
+(1)
+Prime Numbers: GATE CSE 2025 | Set 2 | GA | Question: 5
+Let 
+ and 
+ denote two arbitrary prime numbers. Which one of the following statemetns is correct for all
+values of 
+ and 
+?
+ 
+gatecse2025-set2
+ 
+quantitative-aptitude
+ 
+easy
+ 
+prime-numbers
+ 
+one-mark
+Answer key
+☟
+Probability 
+(17)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(10Q)
+Probability: GATE CSE 2015 | Set 1 | GA | Question: 10
+The probabilities that a student passes in mathematics, physics and chemistry are 
+ and 
+ respectively.
+Of these subjects, the student has 
+ chance of passing in at least one, a 
+ chance of passing in at
+least two and a 
+ chance of passing in exactly two. Following relations are drawn in 
+:
+I
+. 
+II
+. 
+III
+. 
+gatecse-2015-set1
+ 
+quantitative-aptitude
+ 
+probability
+Answer key
+☟
+Probability: GATE CSE 2015 | Set 1 | GA | Question: 3
+Given Set 
+ and Set 
+, two numbers are randomly selected, one from
+each set. What is the probability that the sum of the two numbers equals 
+?
+gatecse-2015-set1
+ 
+quantitative-aptitude
+ 
+probability
+ 
+normal
+Answer key
+☟
+Probability: GATE CSE 2017 | Set 1 | GA | Question: 5
+The probability that a 
+-digit number does NOT contain the digits 
+ or 
+ is
+gatecse-2017-set1
+ 
+general-aptitude
+ 
+quantitative-aptitude
+ 
+probability
+ 
+easy
+Answer key
+☟
+
+
+9.44.4
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+9.44.5
+A
+. 
+Three green faces and four red
+faces.
+B
+. 
+Four green faces and three red
+faces.
+C
+. 
+Five green faces and two red
+faces.
+D
+. 
+Six green faces and one red face
+9.44.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.44.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.44.8
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.44.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Probability: GATE CSE 2017 | Set 2 | GA | Question: 5
+There are 
+ red socks, 
+ green socks and 
+ blue socks.You choose 
+ socks. The probability that they are of
+the same colour is
+gatecse-2017-set2
+ 
+quantitative-aptitude
+ 
+probability
+Answer key
+☟
+Probability: GATE CSE 2018 | GA | Question: 10
+A six sided unbiased die with four green faces and two red faces is rolled seven times. Which of the
+following combinations is the most likely outcome of the experiment?
+gatecse-2018
+ 
+quantitative-aptitude
+ 
+probability
+ 
+normal
+ 
+two-marks
+Answer key
+☟
+Probability: GATE CSE 2021 | Set 1 | GA | Question: 8
+There are ﬁve bags each containing identical sets of ten distinct chocolates. One chocolate is picked from
+each bag.
+The probability that at least two chocolates are identical is __________
+gatecse-2021-set1
+ 
+quantitative-aptitude
+ 
+probability
+ 
+two-marks
+Answer key
+☟
+Probability: GATE CSE 2022 | GA | Question: 8
+A box contains ﬁve balls of same size and shape. Three of them are green coloured balls and two of them
+are orange coloured balls. Balls are drawn from the box one at a time. If a green ball is drawn, it is not
+replaced. If an orange ball is drawn, it is replaced with another orange ball.
+First ball is drawn. What is the probability of getting an orange ball in the next draw?
+gatecse-2022
+ 
+quantitative-aptitude
+ 
+probability
+ 
+two-marks
+Answer key
+☟
+Probability: GATE CSE 2025 | Set 1 | GA | Question: 8
+A fair six-faced dice, with the faces labelled  
+‘ 
+ 
+’
+, 
+‘ 
+ 
+’
+, 
+‘
+ 
+ 
+’
+, 
+‘
+ 
+ 
+’
+, 
+‘
+ 
+ 
+’
+, and 
+‘
+ 
+ 
+’
+, is rolled thrice. What is the
+probability of rolling 
+‘
+ 
+ 
+’
+ exactly once?
+gatecse2025-set1
+ 
+quantitative-aptitude
+ 
+probability
+ 
+easy
+ 
+two-marks
+Answer key
+☟
+Probability: GATE CSE 2026 | Set 1 | GA | Question: 10
+An unbiased six-faced dice whose faces are marked with numbers 
+, and 
+ is rolled twice in
+succession and the number on the top face is recorded each time. The probability that the number
+appearing in the second roll is an integer multiple of the number appearing in the first roll is 
+
+
+9.44.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.44.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.44.12
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.44.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.44.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.44.15
+gatecse-2026-set1
+ 
+quantitative-aptitude
+ 
+probability
+ 
+two-marks
+Answer key
+☟
+Probability: GATE CSE 2026 | Set 2 | GA | Question: 10
+An unbiased six-faced dice whose faces are marked with numbers 
+, and 
+ is rolled twice in
+succession and the number on the top face is recorded each time. The probability that the sum of the two
+recorded numbers is a prime number is 
+gatecse-2026-set2
+ 
+quantitative-aptitude
+ 
+probability
+ 
+two-marks
+Answer key
+☟
+Probability: GATE CSE 2026 | Set 2 | GA | Question: 3
+A day can only be cloudy or sunny. The probability of a day being cloudy is 
+, independent of the condition
+on other days. What is the probability that in any given four days, there will be three cloudy days and one
+sunny day?
+gatecse-2026-set2
+ 
+quantitative-aptitude
+ 
+probability
+ 
+one-mark
+Answer key
+☟
+Probability: GATE DS&AI 2024 | GA | Question: 7
+The probability of a boy or a girl being born is 
+. For a family having only three children, what is the
+probability of having two girls and one boy?
+gate-ds-ai-2024
+ 
+quantitative-aptitude
+ 
+probability
+ 
+two-marks
+Answer key
+☟
+Probability: GATE2012 AE: GA-6
+Two policemen, 
+ and 
+, ﬁre once each at the same time at an escaping convict. The probability that 
+ hits
+the convict is three times the probability that 
+ hits the convict. If the probability of the convict not getting
+injured is 
+, the probability that 
+ hits the convict is
+gate2012-ae
+ 
+quantitative-aptitude
+ 
+probability
+Answer key
+☟
+Probability: GATE2012 AR: GA-9
+A smuggler has 
+ capsules in which ﬁve are ﬁlled with narcotic drugs and the rest contain the original
+medicine. All the 
+ capsules are mixed in a single box, from which the customs oﬃcials picked two
+capsules at random and tested for the presence of narcotic drugs. The probability that the smuggler will be caught
+is
+gate2012-ar
+ 
+quantitative-aptitude
+ 
+probability
+Answer key
+☟
+Probability: GATE2012 CY: GA-7
+ and 
+ are friends. They decide to meet between 1:00 pm and 2:00 pm on a given day. There is a
+condition that whoever arrives ﬁrst will not wait for the other for more than 
+ minutes. The probability that
+they will meet on that day is
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.44.16
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.44.17
+9.45
+9.45.1
+A
+. 
+ 
+B
+. 
+C
+. 
+D
+. 
+9.45.2
+A
+. 
+ profit
+B
+. 
+ profit
+C
+. 
+ loss
+D
+. 
+ loss
+9.45.3
+gate2012-cy
+ 
+quantitative-aptitude
+ 
+probability
+Answer key
+☟
+Probability: GATE2013 EE: GA-6
+What is the chance that a leap year, selected at random, will contain 
+ Saturdays?
+gate2013-ee
+ 
+quantitative-aptitude
+ 
+probability
+Answer key
+☟
+Probability: GATE2014 AG: GA-4
+In any given year, the probability of an earthquake greater than Magnitude 
+ occurring in the Garhwal
+Himalayas is 
+. The average time between successive occurrences of such earthquakes is ____ years.
+gate2014-ag
+ 
+quantitative-aptitude
+ 
+probability
+ 
+numerical-answers
+ 
+normal
+Answer key
+☟
+Profit Loss 
+(3)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(14Q)
+Profit Loss: GATE CSE 2021 | Set 1 | GA | Question: 7
+Details of prices of two items 
+ and 
+ are presented in the above table. The ratio of cost of item 
+ to cost of item 
+ is 
+. Discount is calculated as the diﬀerence between the marked price and the selling price. The proﬁt
+percentage is calculated as the ratio of the difference between selling price and cost, to the cost 
+The discount on item 
+, as a percentage of its marked price, is _______
+gatecse-2021-set1
+ 
+quantitative-aptitude
+ 
+profit-loss
+ 
+two-marks
+Answer key
+☟
+Profit Loss: GATE CSE 2024 | Set 2 | GA | Question: 7
+A person sold two diﬀerent items at the same price. He made 
+ proﬁt in one item, and 
+ loss in the
+other item. In selling these two items, the person made a total of
+gatecse-2024-set2
+ 
+quantitative-aptitude
+ 
+profit-loss
+ 
+two-marks
+Answer key
+☟
+Profit Loss: GATE2013 CE: GA-9
+A ﬁrm is selling its product at Rs. 
+ per unit. The total cost of production is Rs. 
+ and ﬁrm is earning total
+proﬁt of Rs. 
+. Later, the total cost increased by 
+ By what percentage the price should be increased
+to maintained the same profit level.
+₹
+₹
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.46
+9.46.1
+A
+. 
+no roots
+B
+. 
+ real roots
+C
+. 
+ real roots
+D
+. 
+ real roots
+9.46.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.46.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.46.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.46.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+quantitative-aptitude
+ 
+gate2013-ce
+ 
+profit-loss
+Answer key
+☟
+Quadratic Equations 
+(6)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(13Q)
+Quadratic Equations: GATE CSE 2014 | Set 1 | GA | Question: 5
+The roots of 
+ are real and positive. 
+ and 
+ are real. Then 
+ has 
+gatecse-2014-set1
+ 
+quantitative-aptitude
+ 
+quadratic-equations
+ 
+normal
+Answer key
+☟
+Quadratic Equations: GATE CSE 2016 | Set 2 | GA | Question: 05
+In a quadratic function, the value of the product of the roots 
+ is 
+. Find the value of
+                        
+gatecse-2016-set2
+ 
+quantitative-aptitude
+ 
+quadratic-equations
+ 
+normal
+Answer key
+☟
+Quadratic Equations: GATE CSE 2021 | Set 2 | GA | Question: 4
+​​​​​​
+If 
+, then the value of 
+ is:
+gatecse-2021-set2
+ 
+quantitative-aptitude
+ 
+quadratic-equations
+ 
+one-mark
+Answer key
+☟
+Quadratic Equations: GATE CSE 2022 | GA | Question: 3
+Let 
+ be a root of the equation 
+Then the value of the expression 
+ is
+gatecse-2022
+ 
+quantitative-aptitude
+ 
+quadratic-equations
+ 
+one-mark
+Answer key
+☟
+Quadratic Equations: GATE2011 MN: GA-62
+A student attempted to solve a quadratic equation in 
+ twice. However, in the ﬁrst attempt, he incorrectly
+wrote the constant term and ended up with the roots as 
+. In the second attempt, he incorrectly wrote
+down the coeﬃcient of 
+ and got the roots as 
+. Based on the above information, the roots of the correct
+quadratic equation are
+gate2011-mn
+ 
+quadratic-equations
+ 
+quantitative-aptitude
+Answer key
+☟
+
+
+9.46.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.47
+9.47.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.48
+9.48.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.48.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Quadratic Equations: GATE2013 EE: GA-8
+The set of values of 
+ for which the roots of the equation 
+ are of opposite sign is
+ 
+gate2013-ee
+ 
+quantitative-aptitude
+ 
+quadratic-equations
+Answer key
+☟
+Radar Chart 
+(1)
+Radar Chart: GATE2011 GG: GA-9
+The quality of services delivered by a company consists of six factors as shown below in the radar diagram.
+The dots in the ﬁgure indicate the score for each factor on a scale of 
+ to 
+ The standardized coeﬃcient
+for each factor is given in the parentheses. The contribution of each factor to the overall service quality is directly
+proportional to the factor score and its standardized coefficient.
+ 
+The lowest contribution among all the above factors to the overall quality of services delivered by the company is
+gate2011-gg
+ 
+difficult
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+radar-chart
+Answer key
+☟
+Ratio Proportion 
+(9)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(3Q)
+Ratio Proportion: GATE CSE 2016 | Set 1 | GA | Question: 10
+In a process, the number of cycles to failure decreases exponentially with an increase in load. At a load of 
+ units, it takes 
+ cycles for failure. When the load is halved, it takes 
+ for failure.The load
+for which the failure will happen in 
+ is _____________.
+gatecse-2016-set1
+ 
+quantitative-aptitude
+ 
+ratio-proportion
+ 
+normal
+Answer key
+☟
+Ratio Proportion: GATE CSE 2018 | GA | Question: 8
+In a party, 
+ of the invited guests are male and 
+ are female.If 
+ of the invited guests attended the
+party and if all the invited female guests attended, what would be the ratio of males to females among the
+attendees in the party?
+gatecse-2018
+ 
+quantitative-aptitude
+ 
+ratio-proportion
+ 
+two-marks
+Answer key
+☟
+
+
+9.48.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.48.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.48.5
+A
+. 
+depends on 
+B
+. 
+depends only on 
+ and not on 
+C
+. 
+depends only on 
+ and not on 
+D
+. 
+is a constant
+9.48.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.48.7
+A
+. 
+ days
+B
+. 
+ days
+C
+. 
+ days
+D
+. 
+ days
+9.48.8
+A
+. 
+ 
+B
+. 
+C
+. 
+D
+. 
+Ratio Proportion: GATE CSE 2021 | Set 1 | GA | Question: 1
+​​​​​​
+The ratio of boys to girls in a class is 
+ to 
+.
+Among the options below, an acceptable value for the total number of students in the class is:
+gatecse-2021-set1
+ 
+quantitative-aptitude
+ 
+ratio-proportion
+ 
+one-mark
+Answer key
+☟
+Ratio Proportion: GATE CSE 2021 | Set 2 | GA | Question: 8
+The number of students in three classes is in the ratio 
+. If 
+ students are added to each class, the
+ratio changes to 
+.
+The total number of students in all the three classes in the beginning was:
+gatecse-2021-set2
+ 
+ratio-proportion
+ 
+quantitative-aptitude
+ 
+two-marks
+Answer key
+☟
+Ratio Proportion: GATE CSE 2024 | Set 1 | GA | Question: 2
+If two distinct non-zero real variables 
+ and 
+ are such that 
+ is proportional to 
+ then the value
+of 
+gatecse-2024-set1
+ 
+quantitative-aptitude
+ 
+ratio-proportion
+ 
+one-mark
+Answer key
+☟
+Ratio Proportion: GATE2011 AG: GA-8
+Three friends, 
+ and 
+ shared toﬀee from a bowl. 
+ took 
+ of the toﬀees, but returned four to the
+bowl. 
+ took 
+ of what was left but returned three toﬀees to the bowl. 
+ took half of the remainder but
+returned two back into the bowl. If the bowl had 
+ toffees left, how may toffees were originally there in the bowl?
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2011-ag
+ 
+ratio-proportion
+Answer key
+☟
+Ratio Proportion: GATE2011 GG: GA-4
+If 
+ students require a total of 
+ pages of stationery in 
+ days, then 
+ students will require 
+ pages of
+stationery in
+gate2011-gg
+ 
+quantitative-aptitude
+ 
+ratio-proportion
+Answer key
+☟
+Ratio Proportion: GATE2013 AE: GA-1
+If 
+ and 
+ then which of the following options is TRUE?
+gate2013-ae
+ 
+quantitative-aptitude
+ 
+ratio-proportion
+ 
+normal
+Answer key
+☟
+
+
+9.48.9
+9.49
+9.49.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.49.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.49.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.49.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.50
+9.50.1
+Ratio Proportion: GATE2014 AE: GA-8
+The smallest angle of a triangle is equal to two thirds of the smallest angle of a quadrilateral. The ratio
+between the angles of the quadrilateral is 
+ The largest angle of the triangle is twice its smallest
+angle. What is the sum, in degrees, of the second largest angle of the triangle and the largest angle of the
+quadrilateral?
+gate2014-ae
+ 
+quantitative-aptitude
+ 
+ratio-proportion
+ 
+numerical-answers
+Answer key
+☟
+Sequence Series 
+(4)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(1Q)
+Sequence Series: GATE CSE 2012 | Question: 65
+Given the sequence of terms, 
+, the next term is
+gatecse-2012
+ 
+quantitative-aptitude
+ 
+sequence-series
+ 
+easy
+Answer key
+☟
+Sequence Series: GATE CSE 2018 | GA | Question: 5
+gatecse-2018
+ 
+quantitative-aptitude
+ 
+sequence-series
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Sequence Series: GATE CSE 2023 | GA | Question: 3
+A series of natural numbers 
+ obeys 
+ for all integers 
+.
+If 
+ and 
+ then what is 
+gatecse-2023
+ 
+quantitative-aptitude
+ 
+sequence-series
+ 
+one-mark
+Answer key
+☟
+Sequence Series: GATE DS&AI 2024 | GA | Question: 4
+​​​​​​
+The sum of the following infinite series is
+gate-ds-ai-2024
+ 
+quantitative-aptitude
+ 
+sequence-series
+ 
+one-mark
+Answer key
+☟
+Shortest Path 
+(1)
+Shortest Path: GATE CSE 2020 | GA | Question: 5
+There are multiple routes to reach from node 
+ to node 
+, as shown in the network.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.51
+9.51.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.51.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.51.3
+A
+. 
+ 
+ 
+B
+. 
+ 
+ 
+C
+. 
+ 
+  
+D
+. 
+  
+9.51.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+The cost of travel on an edge between two nodes is given in rupees. Nodes 
+ and 
+ are toll
+booths. The toll price at toll booths marked 
+ and 
+ is Rs. 
+, and is Rs. 
+ for the other toll booths. Which is
+the cheapest route from node 
+ to node 
+?
+gatecse-2020
+ 
+quantitative-aptitude
+ 
+graph-theory
+ 
+shortest-path
+ 
+one-mark
+Answer key
+☟
+Speed Time Distance 
+(4)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(11Q)
+Speed Time Distance: GATE CSE 2013 | Question: 64
+A tourist covers half of his journey by train at 
+, half of the remainder by bus at 
+ and the
+rest by cycle at 
+. The average speed of the tourist in 
+ during his entire journey is
+gatecse-2013
+ 
+quantitative-aptitude
+ 
+easy
+ 
+speed-time-distance
+Answer key
+☟
+Speed Time Distance: GATE CSE 2019 | GA | Question: 3
+Two cars at the same time from the same location and go in the same direction. The speed of the ﬁrst car is 
+ km/h and the speed of the second car is 
+ km/h. The number of hours it takes for the distance between
+the two cars to be 
+ km is _____.
+gatecse-2019
+ 
+general-aptitude
+ 
+quantitative-aptitude
+ 
+speed-time-distance
+ 
+one-mark
+Answer key
+☟
+Speed Time Distance: GATE2013 AE: GA-6
+Velocity of an object ﬁred directly in upward direction is given by 
+ܸ
+where 
+ (time) is in
+seconds. When will the velocity be between 
+ and 
+?
+gate2013-ae
+ 
+quantitative-aptitude
+ 
+speed-time-distance
+Answer key
+☟
+Speed Time Distance: GATE2013 EE: GA-9
+A car travels 
+ 
+ in the ﬁrst quarter of an hour, 
+ 
+ in the second quarter and 
+ 
+ in the third quarter.
+The average speed of the car in km per hour over the entire journey is
+gate2013-ee
+ 
+speed-time-distance
+ 
+quantitative-aptitude
+
+
+9.52
+9.52.1
+A
+. 
+, 
+B
+. 
+, 
+C
+. 
+, 
+D
+. 
+, 
+9.52.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ 
+9.52.3
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+9.53
+9.53.1
+A
+. 
+B
+. 
+infinite
+C
+. 
+D
+. 
+9.54
+9.54.1
+Answer key
+☟
+Statistics 
+(3)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(11Q)
+Statistics: GATE CSE 2012 | Question: 64
+Which of the following assertions are 
+CORRECT
+?
+P: Adding 
+ to each entry in a list adds 
+ to the mean of the list 
+Q: Adding 
+ to each entry in a list adds 
+ to the standard deviation of the list 
+R: Doubling each entry in a list doubles the mean of the list
+S: Doubling each entry in a list leaves the standard deviation of the list unchanged
+gatecse-2012
+ 
+quantitative-aptitude
+ 
+statistics
+ 
+normal
+Answer key
+☟
+Statistics: GATE CSE 2024 | Set 1 | GA | Question: 3
+Consider the following sample of numbers:
+The median of the sample is
+gatecse-2024-set1
+ 
+quantitative-aptitude
+ 
+statistics
+ 
+one-mark
+Answer key
+☟
+Statistics: GATE2012 AE: GA-5
+The arithmetic mean of ﬁve diﬀerent natural numbers is 
+. The largest possible value among the numbers
+is
+gate2012-ae
+ 
+statistics
+ 
+quantitative-aptitude
+Answer key
+☟
+System of Equations 
+(1)
+System of Equations: GATE2011 GG: GA-6
+The number of solutions for the following system of inequalities is
+gate2011-gg
+ 
+quantitative-aptitude
+ 
+system-of-equations
+Answer key
+☟
+Tables 
+(1)
+Tables: GATE CSE 2025 | Set 2 | GA | Question: 8
+Which one of the following options is correct for the given data in the table?
+
+
+9.55
+9.55.1
+9.55.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.55.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse2025-set2
+ 
+quantitative-aptitude
+ 
+tables
+ 
+two-marks
+Answer key
+☟
+Tabular Data 
+(7)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(12Q)
+Tabular Data: GATE CSE 2014 | Set 1 | GA | Question: 9
+In a survey, 
+ respondents were asked whether they own a vehicle or not. If yes, they were further asked
+to mention whether they own a car or scooter or both. Their responses are tabulated below. What percent of
+respondents do not own a scooter?
+gatecse-2014-set1
+ 
+quantitative-aptitude
+ 
+normal
+ 
+numerical-answers
+ 
+data-interpretation
+ 
+tabular-data
+Answer key
+☟
+Tabular Data: GATE CSE 2014 | Set 3 | GA | Question: 5
+The table below has question-wise data on the performance of students in an examination. The marks for
+each question are also listed. There is no negative or partial marking in the examination.
+What is the average of the marks obtained by the class in the examination?
+gatecse-2014-set3
+ 
+quantitative-aptitude
+ 
+normal
+ 
+data-interpretation
+ 
+tabular-data
+Answer key
+☟
+Tabular Data: GATE CSE 2015 | Set 1 | GA | Question: 6
+The number of students in a class who have answered correctly, wrongly, or not attempted each question in
+an exam, are listed in the table below. The marks for each question are also listed. There is no negative or
+partial marking.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.55.4
+A
+. 
+Elegance
+B
+. 
+Executive
+C
+. 
+Smooth
+D
+. 
+Soft
+9.55.5
+What is the average of the marks obtained by the class in the examination?
+gatecse-2015-set1
+ 
+quantitative-aptitude
+ 
+easy
+ 
+data-interpretation
+ 
+tabular-data
+Answer key
+☟
+Tabular Data: GATE CSE 2016 | Set 1 | GA | Question: 06
+A shaving set company sells 
+ different types of razors- Elegance, Smooth, Soft and Executive.
+Elegance sells at 
+, Smooth at 
+, Soft at 
+ and Executive at 
+ per piece. The table
+below shows the numbers of each razor sold in each quarter of a year.
+Which product contributes the greatest fraction to the revenue of the company in that year?
+gatecse-2016-set1
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+easy
+ 
+tabular-data
+Answer key
+☟
+Tabular Data: GATE2011 MN: GA-64
+Four archers P, Q, R, and S try to hit a bull’s eye during a tournament consisting of seven rounds. As
+illustrated in the ﬁgure below, a player receives 
+ points for hitting the bull's eye, 
+ points for hitting within
+the inner circle and 
+ point for hitting within the outer circle.
+The final scores received by the players during the tournament are listed in the table below.
+
+
+A
+. 
+ P and S
+B
+. 
+Q and R
+C
+. 
+Q and Q
+D
+. 
+R and Q
+9.55.6
+A
+. 
+USA and Japan
+B
+. 
+USA and Australia
+C
+. 
+England and France
+D
+. 
+Japan and Australia
+9.55.7
+A
+. 
+Raw material and Salary & wages.
+B
+. 
+Salary & wages and Advertising.
+C
+. 
+Power & fuel and Advertising.
+D
+. 
+Raw material and research &
+Development.
+The most accurate and the most consistent players during the tournament are respectively
+gate2011-mn
+ 
+data-interpretation
+ 
+quantitative-aptitude
+ 
+tabular-data
+Answer key
+☟
+Tabular Data: GATE2013 AE: GA-7
+Following table gives data on tourist from different countries visiting India in the year 
+Which two countries contributed to the one third of the total number of tourists who visited India in 
+?
+gate2013-ae
+ 
+quantitative-aptitude
+ 
+data-interpretation
+ 
+normal
+ 
+tabular-data
+Answer key
+☟
+Tabular Data: GATE2013 CE: GA-8
+Following table provides figures(in rupees) on annual expenditure of a firm for two years -
+ and 
+.
+In 
+, which of the two categories have registered increase by same percentage?
+quantitative-aptitude
+ 
+gate2013-ce
+ 
+data-interpretation
+ 
+normal
+ 
+tabular-data
+
+
+9.56
+9.56.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.56.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.56.3
+A
+. 
+ cannot be placed at a corner
+B
+. 
+ cannot be placed at a corner
+C
+. 
+ cannot be placed at a mid-point
+D
+. 
+ cannot be placed at a corner
+9.57
+Answer key
+☟
+Triangles 
+(3)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(11Q)
+Triangles: GATE CSE 2015 | Set 2 | GA | Question: 8
+In a triangle 
+ is the angle bisector of 
+. What is the length of 
+ ?
+gatecse-2015-set2
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+difficult
+ 
+triangles
+Answer key
+☟
+Triangles: GATE CSE 2018 | GA | Question: 9
+In the figure below, 
+ is equal to _____
+gatecse-2018
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+normal
+ 
+triangles
+ 
+two-marks
+Answer key
+☟
+Triangles: GATE CSE 2022 | GA | Question: 9
+The corners and mid-points of the sides of a triangle are named using the distinct letters 
+ and 
+ but not necessarily in the same order. Consider the following statements:
+The line joining 
+ and 
+ is parallel to the line joining 
+ and 
+ is placed on the side opposite to the corner 
+ and 
+ cannot be placed on the same side.
+Which one of the following statements is correct based on the above information?
+gatecse-2022
+ 
+quantitative-aptitude
+ 
+geometry
+ 
+triangles
+ 
+two-marks
+Answer key
+☟
+Venn Diagram 
+(7)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(3Q)
+
+
+9.57.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.57.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.57.3
+A
+. 
+ to 
+B
+. 
+ to 
+C
+. 
+ to 
+D
+. 
+ to 
+9.57.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.57.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Venn Diagram: GATE CSE 2010 | Question: 59
+ persons are in a room. 
+ of them play hockey, 
+ of them play football and 
+ of them play both hockey
+and football. Then the number of persons playing neither hockey nor football is:
+gatecse-2010
+ 
+quantitative-aptitude
+ 
+easy
+ 
+set-theory&algebra
+ 
+venn-diagram
+Answer key
+☟
+Venn Diagram: GATE CSE 2016 | Set 2 | GA | Question: 06
+Among 
+ faculty members in an institute, 
+ are connected with each other through Facebook and 
+ are
+connected through Whatsapp. 
+ faculty members do not have Facebook or Whatsapp accounts. The
+numbers of faculty members connected only through Facebook accounts is _______.
+gatecse-2016-set2
+ 
+quantitative-aptitude
+ 
+venn-diagram
+ 
+easy
+Answer key
+☟
+Venn Diagram: GATE CSE 2019 | GA | Question: 7
+In the given diagram, teachers are represented in the triangle, researchers in the circle and administrators in
+the rectangle. Out of the total number of the people, the percentage of administrators shall be in the range of
+_______
+gatecse-2019
+ 
+general-aptitude
+ 
+quantitative-aptitude
+ 
+venn-diagram
+ 
+two-marks
+Answer key
+☟
+Venn Diagram: GATE CSE 2019 | GA | Question: 9
+In a college, there are three student clubs, 
+ students are only in the Drama club, 
+ students are only in
+the Dance club, 
+ students are only in Maths club, 
+ students are in both Drama and Dance clubs, 
+students are in both Dance and Maths clubs, 
+ students are in both Drama and Maths clubs, and 
+ students are in
+all clubs. If 
+ of the students in the college are not in any of these clubs, then the total number of students in the
+college is _____.
+gatecse-2019
+ 
+general-aptitude
+ 
+quantitative-aptitude
+ 
+venn-diagram
+ 
+two-marks
+Answer key
+☟
+Venn Diagram: GATE CSE 2024 | Set 2 | GA | Question: 3
+In an engineering college of 
+ students, 
+ like neither their core branches nor other branches.
+The number of students who like their core branches is 
+ of the number of students who like other
+branches. The number of students who like both their core and other branches is 
+.
+The number of students who like their core branches is
+gatecse-2024-set2
+ 
+quantitative-aptitude
+ 
+venn-diagram
+ 
+one-mark
+
+
+9.57.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ 
+9.57.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.58
+9.58.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.59
+9.59.1
+A
+. 
+ days
+B
+. 
+ days
+C
+. 
+ days
+D
+. 
+ days
+9.59.2
+Answer key
+☟
+Venn Diagram: GATE2010 TF: GA-8
+A gathering of 
+ linguists discovered that 
+ knew Kannada
+ Telugu and Tamil
+ 
+ knew only Telugu and
+Tamil 
+ 
+ knew only Kannada and Tamil 
+ 
+ knew only Telugu and Kannada
+ If the number of linguists who
+knew Tamil is 
+ and those who knew Kannada is also 
+ how many linguists knew only Telugu
+general-aptitude
+ 
+quantitative-aptitude
+ 
+gate2010-tf
+ 
+venn-diagram
+Answer key
+☟
+Venn Diagram: GATE2011 GG: GA-7
+In a class of 
+ students in an M.Tech programme, each student is required to take at least one subject
+from the following three:
+M600: Advanced Engineering Mathematics
+C600: Computational Methods for Engineers
+E600: Experimental Techniques for Engineers
+The registration data for the M.Tech class shows that 
+ students have taken M600, 
+ students have taken
+C600, and 
+ students have taken E600. What is the maximum possible number of students in the class who have
+taken all the above three subjects?
+gate2011-gg
+ 
+quantitative-aptitude
+ 
+set-theory&algebra
+ 
+venn-diagram
+Answer key
+☟
+Volume 
+(1)
+Volume: GATE CSE 2021 | Set 1 | GA | Question: 6
+We have 
+ rectangular sheets of paper, 
+ and 
+, of dimensions 
+ each. Sheet 
+ is rolled to
+form an open cylinder by bringing the short edges of the sheet together. Sheet 
+ is cut into equal square
+patches and assembled to form the largest possible closed cube. Assuming the ends of the cylinder are closed,
+the ratio of the volume of the cylinder to that of the cube is _________.
+gatecse-2021-set1
+ 
+quantitative-aptitude
+ 
+mensuration
+ 
+volume
+ 
+two-marks
+Answer key
+☟
+Work Time 
+(3)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(8Q)
+Work Time: GATE CSE 2010 | Question: 64
+ skilled workers can build a wall in 
+ days; 
+ semi-skilled workers can build a wall in 
+ days; 
+ unskilled
+workers can build a wall in 
+ days. If a team has 
+ skilled, 
+ semi-skilled and 
+ unskilled workers, how long
+it will take to build the wall?
+gatecse-2010
+ 
+quantitative-aptitude
+ 
+normal
+ 
+work-time
+Answer key
+☟
+Work Time: GATE CSE 2011 | Question: 64
+A transporter receives the same number of orders each day. Currently, he has some pending orders
+(backlog) to be shipped. If he uses 
+ trucks, then at the end of the 
+ day he can clear all the orders.
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+9.59.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Alternatively, if he uses only 
+ trucks, then all the orders are cleared at the end of the 
+ day. What is the
+minimum number of trucks required so that there will be no pending order at the end of 
+ day?
+gatecse-2011
+ 
+quantitative-aptitude
+ 
+normal
+ 
+work-time
+Answer key
+☟
+Work Time: GATE CSE 2013 | Question: 65
+The current erection cost of a structure is Rs. 
+ If the labour wages per day increase by 
+ of the
+current wages and the working hours decrease by 
+ of the current period, then the new cost of erection
+in Rs. is
+gatecse-2013
+ 
+quantitative-aptitude
+ 
+normal
+ 
+work-time
+Answer key
+☟
+Answer Keys
+9.1.1
+A
+9.2.1
+D
+9.2.2
+B
+9.2.3
+D
+9.2.4
+B
+9.2.5
+B
+9.3.1
+B
+9.4.1
+D
+9.4.2
+B
+9.5.1
+A
+9.6.1
+C
+9.6.2
+B
+9.6.3
+C
+9.7.1
+C
+9.8.1
+2006
+9.8.2
+C
+9.8.3
+A
+9.8.4
+A
+9.9.1
+B
+9.10.1
+B
+9.10.2
+C
+9.10.3
+C
+9.10.4
+C
+9.11.1
+D
+9.11.2
+A
+9.11.3
+C
+9.12.1
+A
+9.13.1
+B
+9.13.2
+C
+9.13.3
+D
+9.13.4
+C
+9.13.5
+D
+9.14.1
+B
+9.14.2
+D
+9.14.3
+A
+9.15.1
+C
+9.15.2
+0.4895 : 0.4897
+9.16.1
+C
+9.16.2
+C
+9.17.1
+A
+9.17.2
+A
+9.17.3
+C
+9.17.4
+1300
+9.18.1
+D
+9.18.2
+B
+9.19.1
+A
+9.20.1
+D
+9.20.2
+A
+9.20.3
+B
+9.21.1
+C
+9.22.1
+D
+9.22.2
+C
+9.22.3
+C
+9.23.1
+B
+9.24.1
+8
+9.24.2
+C
+9.24.3
+B
+9.24.4
+C
+9.24.5
+B
+9.24.6
+A
+9.24.7
+C
+9.25.1
+6
+9.25.2
+A
+9.25.3
+D
+9.25.4
+A
+9.25.5
+A
+9.26.1
+A
+9.27.1
+140
+9.27.2
+C
+9.27.3
+C
+9.27.4
+B
+9.27.5
+B
+9.28.1
+B
+9.28.2
+C
+9.28.3
+A
+9.28.4
+C
+9.28.5
+C
+9.28.6
+D
+9.29.1
+C
+9.30.1
+B
+9.30.2
+C
+9.30.3
+C
+9.30.4
+A
+9.31.1
+C
+9.32.1
+D
+9.33.1
+B
+9.34.1
+B
+9.34.2
+C
+9.34.3
+C
+9.34.4
+B
+9.34.5
+D
+9.35.1
+C
+9.35.2
+A
+9.35.3
+C
+9.35.4
+B
+9.36.1
+A
+9.36.2
+X
+9.37.1
+96
+9.37.2
+B
+9.37.3
+D
+9.37.4
+B
+9.37.5
+C
+9.37.6
+D
+9.37.7
+A
+9.37.8
+A
+9.37.9
+D
+9.38.1
+850
+9.38.2
+D
+9.38.3
+C
+9.38.4
+A
+9.38.5
+B
+9.38.6
+D
+9.38.7
+C
+9.38.8
+D
+9.39.1
+A
+9.39.2
+B
+9.39.3
+B
+9.39.4
+B
+9.40.1
+32
+9.40.2
+C
+9.40.3
+D
+9.40.4
+B
+9.40.5
+D
+9.41.1
+B
+9.42.1
+C
+9.43.1
+B
+9.44.1
+D
+9.44.2
+A
+9.44.3
+C
+9.44.4
+D
+
+
+9.44.5
+C
+9.44.6
+C
+9.44.7
+D
+9.44.8
+A
+9.44.9
+C
+9.44.10
+C
+9.44.11
+A
+9.44.12
+A
+9.44.13
+A
+9.44.14
+C
+9.44.15
+C
+9.44.16
+A
+9.44.17
+25
+9.45.1
+C
+9.45.2
+C
+9.45.3
+A
+9.46.1
+D
+9.46.2
+B
+9.46.3
+B
+9.46.4
+D
+9.46.5
+C
+9.46.6
+B
+9.47.1
+A
+9.48.1
+B
+9.48.2
+B
+9.48.3
+C
+9.48.4
+C
+9.48.5
+D
+9.48.6
+C
+9.48.7
+D
+9.48.8
+B
+9.48.9
+180
+9.49.1
+A
+9.49.2
+B
+9.49.3
+A
+9.49.4
+B
+9.50.1
+B
+9.51.1
+C
+9.51.2
+B
+9.51.3
+C
+9.51.4
+C
+9.52.1
+C
+9.52.2
+A
+9.52.3
+C
+9.53.1
+A
+9.54.1
+A
+9.55.1
+48
+9.55.2
+C
+9.55.3
+C
+9.55.4
+B
+9.55.5
+B
+9.55.6
+C
+9.55.7
+D
+9.56.1
+B
+9.56.2
+A
+9.56.3
+B
+9.57.1
+D
+9.57.2
+A
+9.57.3
+C
+9.57.4
+C
+9.57.5
+A
+9.57.6
+C
+9.57.7
+B
+9.58.1
+C
+9.59.1
+D
+9.59.2
+C
+9.59.3
+B

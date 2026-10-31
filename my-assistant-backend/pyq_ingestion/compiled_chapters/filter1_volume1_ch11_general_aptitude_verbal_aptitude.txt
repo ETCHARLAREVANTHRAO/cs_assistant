@@ -1,0 +1,6230 @@
+11
+General Aptitude: Verbal Aptitude
+ 
+(165)
+Syllabus:
+ English grammar, Sentence completion. Verbal analogies, Word groups. Instructions, Critical
+reasoning and Verbal deduction
+Welcome to the "General Aptitude: Verbal Aptitude" chapter of your GATE Computer Science exam preparation. This
+section is designed to equip you with the essential linguistic and reasoning skills necessary to excel in the verbal
+aptitude segment of the GATE exam. Verbal Aptitude assesses your comprehension of English language, grammar,
+vocabulary, and logical reasoning abilities, which are crucial not just for the exam but also for effective communication
+in your professional career. Typically, verbal aptitude questions constitute a significant portion (around 5-8 marks out of
+15 for General Aptitude) and can range from direct vocabulary and grammar questions to more complex reading
+comprehension and logical deduction problems. Mastering these topics can significantly boost your overall GATE score.
+Topic-wise Key Concepts
+Antonyms
+Definition and core idea:
+ Antonyms are words that have opposite meanings. Understanding antonyms enhances
+vocabulary and comprehension by highlighting contrasts in meaning.
+Key properties and identities:
+Antonyms can be absolute (e.g., hot/cold) or relative (e.g., happy/sad).
+Often formed by adding prefixes (e.g., 
+un-
+, 
+dis-
+, 
+in-
+, 
+im-
+, 
+non-
+) to a word.
+Context is crucial; a word can have different antonyms depending on its usage.
+Common pitfalls:
+Choosing a word that is merely different, not opposite.
+Ignoring prefixes/suffixes that might indicate an antonym.
+Misinterpreting the nuance of the given word.
+Standard problem-solving techniques:
+1
+. 
+Understand the exact meaning of the given word.
+2
+. 
+Look for prefixes that reverse meaning (e.g., 
+capable
+ -> 
+incapable
+).
+3
+. 
+Consider the context if the word has multiple meanings.
+4
+. 
+Eliminate options that are synonyms or unrelated.
+5
+. 
+If unsure, try to use the options in a sentence to see which one creates an opposite meaning.
+Articles
+Definition and core idea:
+ Articles are words (a, an, the) that define whether a noun is specific or unspecific. They are
+determiners that precede nouns.
+Important formulas, theorems, and results:
+1
+. 
+Indefinite Article 'a':
+ Used before singular, countable nouns that begin with a consonant sound. E.g., 
+, 
+ (starts with 'y' sound).
+2
+. 
+Indefinite Article 'an':
+ Used before singular, countable nouns that begin with a vowel sound. E.g., 
+, 
+ (starts with 'o' sound).
+3
+. 
+Definite Article 'the':
+ Used before specific or unique nouns, or nouns that have been previously mentioned.
+E.g., 
+, 
+.
+4
+. 
+Zero Article:
+ No article is used before plural countable nouns, uncountable nouns, proper nouns, or abstract
+nouns when speaking generally. E.g., 
+, 
+.
+Key properties and identities:
+'A' and 'an' are used for general or non-specific items.
+'The' is used for specific or previously identified items.
+Sound, not spelling, determines 'a' vs. 'an'.
+Common pitfalls:
+Confusing 'a' and 'an' based on spelling rather than sound.
+
+
+Overusing 'the' with general nouns or proper nouns.
+Omitting articles where they are required for singular countable nouns.
+Standard problem-solving techniques:
+1
+. 
+Identify if the noun is singular/plural, countable/uncountable.
+2
+. 
+Determine if the noun is specific or general in the context.
+3
+. 
+Pay attention to the initial sound of the word following the article.
+4
+. 
+Check for common phrases or idioms that require specific article usage.
+Comparative Forms
+Definition and core idea:
+ Comparative forms of adjectives and adverbs are used to compare two things, while
+superlative forms are used to compare three or more things.
+Important formulas, theorems, and results:
+1
+. 
+One-syllable adjectives/adverbs:
+ Add 
+-er
+ for comparative, 
+-est
+ for superlative. E.g., 
+.
+2
+. 
+Two-syllable adjectives ending in 
+-y
+:
+ Change 
+-y
+ to 
+-i
+ and add 
+-er
+/
+-est
+. E.g., 
+.
+3
+. 
+Two or more syllable adjectives/adverbs:
+ Use 
+more
+ for comparative, 
+most
+ for superlative. E.g., 
+.
+4
+. 
+Irregular forms:
+ Some words have irregular comparative/superlative forms. E.g., 
+; 
+; 
+.
+5
+. 
+Comparison structure:
+ Comparative forms are often followed by 
+than
+. E.g., 
+.
+Key properties and identities:
+Do not use double comparatives/superlatives (e.g., "more happier" is incorrect).
+Ensure logical comparison (comparing like with like).
+Common pitfalls:
+Using "more" or "most" with 
+-er
+ or 
+-est
+ endings.
+Incorrectly forming irregular comparatives/superlatives.
+Making illogical comparisons (e.g., "My car is faster than John").
+Standard problem-solving techniques:
+1
+. 
+Count the syllables of the adjective/adverb.
+2
+. 
+Check for irregular forms.
+3
+. 
+Ensure the comparison is grammatically and logically sound.
+English Grammar
+Definition and core idea:
+ English grammar refers to the set of structural rules governing the composition of clauses,
+phrases, and words in the English language. It ensures clarity and correctness in communication.
+Important formulas, theorems, and results:
+1
+. 
+Basic Sentence Structure:
+ 
+ (SVO) is the most common structure. E.g., 
+.
+2
+. 
+Parts of Speech:
+ Nouns, Pronouns, Verbs, Adjectives, Adverbs, Prepositions, Conjunctions, Interjections. Each
+has specific roles.
+3
+. 
+Subject-Verb Agreement:
+ The verb must agree in number with its subject. E.g., 
+ (singular); 
+(plural).
+4
+. 
+Tense Consistency:
+ Maintain a consistent tense throughout a sentence or paragraph unless there's a specific
+reason to change.
+5
+. 
+Parallelism:
+ Similar items in a series or comparison should be in the same grammatical form. E.g., 
+.
+Key properties and identities:
+Grammar provides the framework for meaningful sentences.
+Correct grammar prevents ambiguity and misinterpretation.
+Common pitfalls:
+Errors in subject-verb agreement, pronoun agreement, and tense usage.
+Lack of parallelism.
+Misplaced modifiers.
+Incorrect punctuation.
+Standard problem-solving techniques:
+1
+. 
+Break down the sentence into its core components (subject, verb, object).
+2
+. 
+Identify the part of speech for each word.
+3
+. 
+Check for agreement (subject-verb, pronoun-antecedent).
+
+
+4
+. 
+Look for consistency in tense and structure.
+5
+. 
+Read the sentence aloud to catch awkward phrasing or obvious errors.
+Grammatical Error
+Definition and core idea:
+ Grammatical errors are mistakes in the structure or usage of language that violate standard
+English grammar rules. Identifying and correcting them is key to effective communication.
+Key properties and identities:
+Common error types include subject-verb agreement, pronoun agreement, tense consistency, parallelism,
+misplaced modifiers, comma splices, run-on sentences, fragment sentences, and incorrect word choice.
+Common pitfalls:
+Overlooking subtle errors, especially in complex sentences.
+Focusing only on obvious errors and missing nuanced ones.
+Not knowing the specific rule being tested.
+Standard problem-solving techniques:
+1
+. 
+Read the sentence carefully, looking for any awkward phrasing.
+2
+. 
+Check for subject-verb agreement (singular subject, singular verb; plural subject, plural verb).
+3
+. 
+Verify pronoun-antecedent agreement (pronoun matches the noun it refers to in number and gender).
+4
+. 
+Ensure tense consistency throughout the sentence.
+5
+. 
+Look for parallel structure in lists or comparisons.
+6
+. 
+Identify misplaced or dangling modifiers.
+7
+. 
+Check for correct use of articles, prepositions, and conjunctions.
+8
+. 
+Consider punctuation errors.
+Incorrect Sentence Part
+Definition and core idea:
+ This question type presents a sentence divided into several parts, one of which contains a
+grammatical error. The task is to identify the erroneous part.
+Key properties and identities:
+Errors can span any grammatical rule: subject-verb agreement, tense, pronouns, articles, prepositions,
+parallelism, vocabulary, etc.
+Often, the error is subtle and requires careful attention to detail.
+Common pitfalls:
+Rushing through the sentence and missing the error.
+Fixating on one type of error and ignoring others.
+Assuming a part is correct because it "sounds" okay.
+Standard problem-solving techniques:
+1
+. 
+Read the entire sentence first to understand its meaning and flow.
+2
+. 
+Examine each part individually, checking for common grammatical errors:
+Subject-Verb Agreement:
+ Does the verb match the subject in number?
+Tense:
+ Is the tense consistent and appropriate for the context?
+Pronouns:
+ Do pronouns agree with their antecedents in number, gender, and case?
+Articles/Prepositions:
+ Are they used correctly?
+Parallelism:
+ Are items in a list or comparison structured similarly?
+Word Choice/Vocabulary:
+ Is the correct word used (e.g., affect vs. effect)?
+Modifiers:
+ Are adjectives and adverbs placed correctly?
+3
+. 
+If no error is found, consider the "No Error" option if available.
+Most Appropriate Word
+Definition and core idea:
+ This involves choosing the word that best fits the meaning and context of a given sentence
+or passage from a set of options.
+Key properties and identities:
+Requires strong vocabulary and understanding of nuances in word meanings.
+Context is paramount; a word might be grammatically correct but semantically inappropriate.
+Common pitfalls:
+Choosing a word that is a near-synonym but doesn't fit the exact context.
+Ignoring the tone or register of the sentence.
+Misinterpreting the overall meaning of the sentence.
+
+Standard problem-solving techniques:
+1
+. 
+Read the sentence carefully to grasp its full meaning and tone.
+2
+. 
+Consider the part of speech required for the blank (noun, verb, adjective, adverb).
+3
+. 
+Substitute each option into the sentence.
+4
+. 
+Evaluate which option makes the most sense semantically and grammatically.
+5
+. 
+Look for collocations (words that naturally go together) or idiomatic expressions.
+6
+. 
+Eliminate options that are clearly incorrect in meaning or grammar.
+Narrative Sequencing
+Definition and core idea:
+ This task involves arranging a set of jumbled sentences or paragraphs into a coherent and
+logical narrative sequence.
+Key properties and identities:
+A coherent narrative follows a logical progression, often chronological, cause-and-effect, or problem-solution.
+Transition words and pronouns are crucial clues.
+Common pitfalls:
+Ignoring transition words or pronoun references.
+Focusing only on the first sentence and not the overall flow.
+Assuming a chronological order when a different logical order is intended.
+Standard problem-solving techniques:
+1
+. 
+Identify the opening sentence:
+ Look for sentences that introduce a topic, character, or setting, often without
+pronouns or conjunctions referring to previous sentences.
+2
+. 
+Identify transition words/phrases:
+ Words like 
+however
+, 
+therefore
+, 
+meanwhile
+, 
+subsequently
+, 
+in addition
+, 
+finally
+,
+etc., indicate relationships between sentences.
+3
+. 
+Look for pronoun references:
+ A pronoun (he, she, it, they, this, that) must refer back to a noun introduced in a
+previous sentence.
+4
+. 
+Establish cause-and-effect or chronological order:
+ Determine if events follow a time sequence or if one event
+leads to another.
+5
+. 
+Identify the concluding sentence:
+ Look for sentences that summarize or provide a final thought.
+6
+. 
+Form pairs:
+ Try to identify two sentences that logically follow each other.
+7
+. 
+Read the assembled sequence:
+ Once you have an order, read it through to ensure it flows logically and makes
+sense.
+Noun Verb Adjective
+Definition and core idea:
+ This topic focuses on understanding the definitions, functions, and interrelationships of
+nouns (naming words), verbs (action/state words), and adjectives (describing words).
+Important formulas, theorems, and results:
+1
+. 
+Noun:
+ Names a person, place, thing, or idea. Can be subject or object. E.g., 
+.
+2
+. 
+Verb:
+ Expresses an action, occurrence, or state of being. E.g., 
+.
+3
+. 
+Adjective:
+ Modifies or describes a noun or pronoun. Answers questions like "which one?", "what kind?", "how
+many?". E.g., 
+.
+4
+. 
+Common Suffixes:
+Nouns: 
+-tion, -sion, -ment, -ness, -ity, -ance, -ence, -er, -or
+ (e.g., 
+).
+Verbs: 
+-ate, -ify, -ize, -en
+ (e.g., 
+).
+Adjectives: 
+-ful, -less, -able, -ible, -ous, -ic, -al, -y
+ (e.g., 
+).
+Key properties and identities:
+A word's function (noun, verb, adjective) can change based on context (e.g., "run" as a verb vs. "a run" as a
+noun).
+Understanding these parts of speech is fundamental to sentence construction and error identification.
+Common pitfalls:
+Confusing words that have similar forms but different parts of speech (e.g., "advice" (noun) vs. "advise" (verb)).
+Incorrectly identifying the function of a word in a sentence.
+Standard problem-solving techniques:
+1
+. 
+Identify the word's role in the sentence (e.g., is it naming something, performing an action, or describing
+something?).
+2
+. 
+Look for common suffixes that indicate a specific part of speech.
+3
+. 
+Test the word by replacing it with a clear example of a noun, verb, or adjective to see if the sentence structure
+
+
+remains valid.
+Passage Reading
+Definition and core idea:
+ This involves reading a given passage and answering comprehension questions based on its
+content, including main idea, specific details, inference, and author's tone.
+Key properties and identities:
+Questions can be direct (explicitly stated in the text) or inferential (requiring logical deduction from the text).
+Understanding the main idea and supporting details is crucial.
+Common pitfalls:
+Reading too slowly or too quickly without comprehension.
+Making assumptions not supported by the text.
+Getting bogged down by unfamiliar vocabulary.
+Misinterpreting the author's intent or tone.
+Standard problem-solving techniques:
+1
+. 
+Skim the passage first:
+ Read quickly to get a general idea of the topic, main argument, and structure. Pay
+attention to the first and last sentences of paragraphs.
+2
+. 
+Read the questions:
+ Understand what information you need to find. This helps you focus your reading.
+3
+. 
+Scan for keywords:
+ For specific detail questions, scan the passage for keywords from the question.
+4
+. 
+Read carefully for answers:
+ When you locate relevant sections, read them thoroughly to understand the
+context and find the exact answer.
+5
+. 
+Inferential questions:
+ Look for clues, implications, and logical connections within the text. Avoid bringing in
+outside knowledge.
+6
+. 
+Main idea questions:
+ Often found in the introduction or conclusion, or can be derived from summarizing the key
+points.
+7
+. 
+Vocabulary in context:
+ Use surrounding words and sentences to deduce the meaning of unfamiliar words.
+Phrasal Verb
+Definition and core idea:
+ A phrasal verb is a verb combined with a preposition or an adverb (or both) to create a new
+meaning that is often different from the original verb's meaning.
+Important formulas, theorems, and results:
+1
+. 
+ (e.g., 
+ = care for)
+2
+. 
+ (e.g., 
+ = stop functioning)
+3
+. 
+ (e.g., 
+ = admire)
+Key properties and identities:
+Meanings are often idiomatic and cannot be deduced from the individual words.
+Can be separable (object can go between verb and particle) or inseparable.
+Common pitfalls:
+Assuming the literal meaning of the words.
+Confusing similar-looking phrasal verbs.
+Incorrectly using separable/inseparable phrasal verbs.
+Standard problem-solving techniques:
+1
+. 
+Memorize common phrasal verbs and their meanings.
+2
+. 
+Pay close attention to the context of the sentence to infer meaning.
+3
+. 
+If unsure, try to replace the phrasal verb with a single-word synonym to see if it fits.
+Phrase Meaning
+Definition and core idea:
+ This involves understanding the meaning of idiomatic expressions, proverbs, or common
+phrases that often have a figurative meaning different from the literal interpretation of their individual words.
+Key properties and identities:
+Idioms are non-literal and culturally specific.
+Context is vital for interpreting the correct nuance of a phrase.
+Common pitfalls:
+Interpreting phrases literally.
+Confusing similar-sounding idioms.
+Not recognizing the figurative nature of the expression.
+Standard problem-solving techniques:
+
+
+1
+. 
+Read the sentence containing the phrase carefully to understand the overall context.
+2
+. 
+If the phrase is unfamiliar, try to infer its meaning from the surrounding words and the situation described.
+3
+. 
+Consider the options provided and see which one logically fits the context.
+4
+. 
+Eliminate options that represent a literal interpretation or are completely irrelevant.
+5
+. 
+Familiarity with common idioms and proverbs is the best preparation.
+Prepositions
+Definition and core idea:
+ Prepositions are words that show the relationship between a noun or pronoun and other
+words in a sentence, indicating location, time, direction, or manner.
+Important formulas, theorems, and results:
+1
+. 
+Prepositions of Place:
+: for enclosed spaces, cities, countries (e.g., 
+, 
+).
+: for surfaces, streets, specific days (e.g., 
+, 
+).
+: for specific points, addresses, events (e.g., 
+, 
+).
+2
+. 
+Prepositions of Time:
+: for months, years, seasons, long periods (e.g., 
+, 
+).
+: for specific days, dates (e.g., 
+, 
+).
+: for specific times (e.g., 
+, 
+).
+3
+. 
+Prepositions of Direction:
+ 
+. E.g., 
+, 
+.
+4
+. 
+Fixed Prepositional Phrases:
+ Many verbs, adjectives, and nouns are followed by specific prepositions (e.g., 
+, 
+, 
+).
+Key properties and identities:
+Prepositions always introduce a prepositional phrase, which includes a noun or pronoun (the object of the
+preposition).
+Their usage is often idiomatic and requires memorization.
+Common pitfalls:
+Confusing prepositions with similar meanings (e.g., "between" vs. "among").
+Incorrectly using fixed prepositional phrases.
+Omitting necessary prepositions or adding unnecessary ones.
+Standard problem-solving techniques:
+1
+. 
+Identify the relationship the preposition is trying to express (place, time, direction, etc.).
+2
+. 
+Check if the verb, adjective, or noun preceding the blank requires a specific preposition.
+3
+. 
+Consider the context and the object of the preposition.
+4
+. 
+Memorize common fixed prepositional phrases.
+Pronouns
+Definition and core idea:
+ Pronouns are words that replace nouns to avoid repetition. They must agree with the nouns
+they refer to (antecedents) in number, gender, and case.
+Important formulas, theorems, and results:
+1
+. 
+Types of Pronouns:
+Personal:
+ 
+ (subjective); 
+ (objective).
+Possessive:
+ 
+.
+Reflexive/Intensive:
+ 
+.
+Relative:
+ 
+.
+Demonstrative:
+ 
+.
+Indefinite:
+ 
+.
+2
+. 
+Pronoun-Antecedent Agreement:
+ A pronoun must agree with its antecedent in number (singular/plural) and
+gender (masculine/feminine/neuter). E.g., 
+. 
+.
+3
+. 
+Pronoun Case:
+Subjective Case:
+ Used when the pronoun is the subject of a verb (e.g., 
+).
+Objective Case:
+ Used when the pronoun is the object of a verb or preposition (e.g., 
+, 
+).
+Key properties and identities:
+Pronouns clarify sentences by preventing redundancy.
+Correct pronoun usage is essential for grammatical accuracy.
+
+
+Common pitfalls:
+Incorrect agreement in number or gender with the antecedent.
+Confusing subjective and objective cases (e.g., "between you and I" instead of "between you and me").
+Ambiguous pronoun reference (unclear what noun the pronoun refers to).
+Using "its" (possessive) vs. "it's" (it is).
+Standard problem-solving techniques:
+1
+. 
+Identify the pronoun and its antecedent (the noun it replaces).
+2
+. 
+Check for agreement in number (singular/plural) and gender.
+3
+. 
+Determine if the pronoun is acting as a subject or an object to choose the correct case.
+4
+. 
+Ensure the pronoun's reference is clear and unambiguous.
+Sentence Ordering
+Definition and core idea:
+ Similar to Narrative Sequencing, this involves arranging jumbled parts of a single sentence
+(or a short paragraph) into a grammatically correct and logically coherent order.
+Key properties and identities:
+Focuses on sentence structure, grammatical rules, and logical flow within a single sentence or a very short set of
+related sentences.
+Often involves identifying the subject, verb, and object, and then arranging modifiers correctly.
+Common pitfalls:
+Creating grammatically incorrect structures.
+Producing a sentence that is grammatically correct but makes no logical sense.
+Misplacing modifiers, leading to ambiguity.
+Standard problem-solving techniques:
+1
+. 
+Identify the subject and main verb:
+ These usually form the core of the sentence.
+2
+. 
+Look for introductory phrases/clauses:
+ These often come at the beginning.
+3
+. 
+Identify conjunctions:
+ Words like 
+and, but, or, because, while
+ connect clauses or phrases.
+4
+. 
+Check for pronoun references:
+ Ensure pronouns follow their antecedents.
+5
+. 
+Consider logical flow:
+ What event or idea logically precedes another?
+6
+. 
+Read the assembled sentence:
+ Ensure it is grammatically correct, makes sense, and flows naturally.
+Statement Sufficiency
+Definition and core idea:
+ In this type of question, a question is given, followed by two or more statements. You need
+to determine whether the information in the statements is sufficient to answer the question.
+Key properties and identities:
+Focus is on sufficiency, not necessarily on finding the answer itself.
+Statements are evaluated independently first, then together if neither is sufficient alone.
+Common pitfalls:
+Trying to solve the question instead of just checking sufficiency.
+Assuming information not explicitly given in the statements.
+Incorrectly combining statements.
+Standard problem-solving techniques:
+1
+. 
+Analyze the question:
+ Understand exactly what information is required to answer it.
+2
+. 
+Evaluate Statement 1 alone:
+ Can the question be answered using only the information in Statement 1? Ignore
+Statement 2.
+3
+. 
+Evaluate Statement 2 alone:
+ Can the question be answered using only the information in Statement 2? Ignore
+Statement 1.
+4
+. 
+Evaluate Statements 1 and 2 together:
+ If neither statement alone is sufficient, check if combining them
+provides enough information.
+5
+. 
+Select the appropriate option:
+Statement 1 alone is sufficient.
+Statement 2 alone is sufficient.
+Either Statement 1 alone or Statement 2 alone is sufficient.
+Both Statement 1 and Statement 2 together are sufficient (but neither alone).
+Neither Statement 1 nor Statement 2 nor both together are sufficient.
+Statements Follow
+Definition and core idea:
+ This involves analyzing a set of given statements (premises) and determining which
+
+conclusion(s) logically follow from them, often based on principles of deductive reasoning.
+Important formulas, theorems, and results:
+1
+. 
+Deductive Reasoning:
+ If the premises are true, the conclusion must be true.
+Example: 
+. 
+. Therefore, 
+.
+2
+. 
+Categorical Syllogisms:
+ Often involve "All," "No," "Some" statements.
+ (Universal Affirmative)
+ (Universal Negative)
+ (Particular Affirmative)
+ (Particular Negative)
+3
+. 
+Venn Diagrams:
+ A useful tool for visually representing relationships between categories and testing the validity
+of conclusions.
+Key properties and identities:
+Conclusions must be derived solely from the given statements, without external knowledge.
+Focus on logical necessity, not probability or common sense.
+Common pitfalls:
+Bringing in outside knowledge or personal opinions.
+Making assumptions not supported by the statements.
+Confusing "some" with "all" or "none."
+Errors in interpreting negative statements.
+Standard problem-solving techniques:
+1
+. 
+Read statements carefully:
+ Understand the exact meaning of each premise.
+2
+. 
+Use Venn Diagrams:
+ Draw circles to represent the categories and their relationships as described by the
+statements.
+3
+. 
+Test each conclusion:
+ Check if the conclusion is necessarily true based on your diagram or logical deduction. If
+there's even one scenario where the conclusion is false, it does not follow.
+4
+. 
+Avoid assumptions:
+ Stick strictly to the information provided in the statements.
+Synonyms
+Definition and core idea:
+ Synonyms are words that have the same or very similar meanings. Understanding synonyms
+expands vocabulary and allows for varied expression.
+Key properties and identities:
+Few words are perfect synonyms; most have slightly different connotations or contexts of use.
+Can often be identified by root words, prefixes, and suffixes.
+Common pitfalls:
+Choosing a word that is related but not a true synonym.
+Ignoring the context in which the word is used.
+Misinterpreting the nuance of the given word.
+Standard problem-solving techniques:
+1
+. 
+Understand the precise meaning of the given word.
+2
+. 
+Consider the context if the word has multiple meanings.
+3
+. 
+Look for words with similar roots or derivations.
+4
+. 
+Substitute each option into a sentence where the original word is used to see which one fits best.
+5
+. 
+Eliminate options that are antonyms or unrelated.
+Tenses
+Definition and core idea:
+ Tenses indicate the time an action occurs (past, present, future) and its aspect (simple,
+continuous, perfect, perfect continuous), showing whether an action is completed, ongoing, or habitual.
+Important formulas, theorems, and results:
+1
+. 
+Simple Present:
+ 
+ (for 3rd person singular). Used for habits, facts, scheduled events. E.g., 
+.
+2
+. 
+Present Continuous:
+ 
+. Used for actions happening now or temporary actions. E.g.,
+.
+3
+. 
+Present Perfect:
+ 
+. Used for actions completed in the past but with present relevance. E.g.,
+.
+4
+. 
+Present Perfect Continuous:
+ 
+. Used for actions that started in the past and
+continue to the present. E.g., 
+.
+
+
+5
+. 
+Simple Past:
+ 
+. Used for completed actions in the past. E.g., 
+.
+6
+. 
+Past Continuous:
+ 
+. Used for actions ongoing in the past. E.g., 
+.
+7
+. 
+Past Perfect:
+ 
+. Used for an action completed before another past action. E.g., 
+before I arrived.
+8
+. 
+Past Perfect Continuous:
+ 
+. Used for an action ongoing up to a point in the past.
+E.g., 
+ for an hour when I saw him.
+9
+. 
+Simple Future:
+ 
+. Used for future actions. E.g., 
+.
+10
+. 
+Future Continuous:
+ 
+. Used for actions ongoing at a specific time in the future.
+E.g., 
+.
+11
+. 
+Future Perfect:
+ 
+. Used for actions that will be completed by a certain time in the
+future. E.g., 
+ 10 km by then.
+12
+. 
+Future Perfect Continuous:
+ 
+. Used for actions that will have been
+ongoing up to a point in the future. E.g., 
+ for two hours.
+Key properties and identities:
+Tense consistency is crucial within a sentence or paragraph.
+Time markers (e.g., yesterday, now, next week, since, for) often indicate the appropriate tense.
+Common pitfalls:
+Incorrectly mixing tenses within a sentence.
+Confusing similar tenses (e.g., simple past vs. present perfect).
+Incorrect verb forms (V1, V2, V3).
+Standard problem-solving techniques:
+1
+. 
+Identify the time frame of the action (past, present, future).
+2
+. 
+Determine the aspect (simple, continuous, perfect, perfect continuous) based on whether the action is
+completed, ongoing, or has relevance to another time.
+3
+. 
+Look for time expressions or other verbs in the sentence that provide clues about the correct tense.
+4
+. 
+Ensure tense consistency, especially in complex sentences or reported speech.
+Verbal Reasoning
+Definition and core idea:
+ Verbal Reasoning assesses the ability to understand and logically process information
+presented in words, including analogies, critical reasoning, and logical deduction from textual information.
+Key properties and identities:
+Requires analytical thinking and the ability to identify patterns, relationships, and logical fallacies.
+Often involves drawing conclusions, identifying assumptions, or evaluating arguments.
+Common pitfalls:
+Making assumptions not explicitly stated.
+Confusing correlation with causation.
+Allowing personal bias to influence judgment.
+Misinterpreting logical connectors (e.g., "if...then," "unless").
+Standard problem-solving techniques:
+1
+. 
+Read carefully:
+ Understand the exact meaning of all statements and the question.
+2
+. 
+Identify the core argument/relationship:
+ For analogies, determine the relationship between the first pair. For
+critical reasoning, identify the premise(s) and conclusion.
+3
+. 
+Break down complex statements:
+ Simplify sentences to their core logical components.
+4
+. 
+Look for keywords:
+ Words like 
+therefore, because, however, if, then, unless, all, some, none
+ are crucial for
+logical deduction.
+5
+. 
+Test options:
+ For multiple-choice questions, evaluate each option against the given information.
+6
+. 
+Avoid outside knowledge:
+ Base your reasoning strictly on the provided text.
+Word Meaning
+Definition and core idea:
+ This involves understanding the precise definition of a word, often in a given context, and
+choosing the option that best reflects that meaning.
+Key properties and identities:
+Words can have multiple meanings; context determines the relevant one.
+Knowledge of root words, prefixes, and suffixes can help deduce meanings.
+Common pitfalls:
+Choosing a common meaning of a word when the context implies a less common one.
+Misinterpreting the nuance or connotation of a word.
+
+
+Ignoring contextual clues.
+Standard problem-solving techniques:
+1
+. 
+Read the sentence or phrase containing the word carefully.
+2
+. 
+Try to infer the meaning of the word from its context (surrounding words, overall sentence meaning).
+3
+. 
+Look for synonyms or antonyms within the sentence that might provide clues.
+4
+. 
+Break down the word into its root, prefix, and suffix if applicable.
+5
+. 
+Substitute each option into the sentence to see which one makes the most sense.
+6
+. 
+Eliminate options that are clearly incorrect or irrelevant.
+Word Pairs
+Definition and core idea:
+ This question type presents a pair of words that share a specific relationship, and you must
+identify another pair of words from the options that shares the same relationship (analogies).
+Important formulas, theorems, and results:
+1
+. 
+Common Relationship Types:
+Synonym:
+ 
+Antonym:
+ 
+Part-Whole:
+ 
+Cause-Effect:
+ 
+Tool-User:
+ 
+Object-Function:
+ 
+Category-Member:
+ 
+Intensity:
+ 
+Producer-Product:
+ 
+Action-Object:
+ 
+Key properties and identities:
+The relationship must be consistent across both pairs.
+The order of words in the pair often matters (e.g., cause-effect is different from effect-cause).
+Common pitfalls:
+Identifying a weak or incorrect relationship in the original pair.
+Finding a relationship in the options that is similar but not identical to the original.
+Ignoring the order of the words in the pair.
+Standard problem-solving techniques:
+1
+. 
+Identify the precise relationship:
+ Clearly define how the two words in the given pair are related. Be specific
+(e.g., "is a type of," "is used to," "is the opposite of").
+2
+. 
+Formulate a sentence:
+ Create a simple sentence that expresses the relationship (e.g., "A finger is a part of a
+hand").
+3
+. 
+Apply the sentence to options:
+ Test each option by plugging its words into your sentence. The option that fits
+best is likely the answer.
+4
+. 
+Consider nuances:
+ If multiple options seem plausible, re-evaluate the strength and specificity of the
+relationship.
+5
+. 
+Check for order:
+ Ensure the order of the words in the option pair matches the order of the relationship in the
+original pair.
+Quick Formula Reference
+For Verbal Aptitude, "formulas" refer to core rules, structures, and patterns. Here's a consolidated list:
+Articles:
+'a': Singular, countable, consonant sound.
+'an': Singular, countable, vowel sound.
+'the': Specific, unique, or previously mentioned.
+Zero Article: General plural/uncountable/abstract nouns, proper nouns.
+Comparative Forms:
+1-syllable: 
+2-syllable ending in -y: 
+2+ syllables: 
+Irregular: 
+, 
+, etc.
+English Grammar (Core):
+Sentence Structure: 
+ (common).
+
+
+11.1
+11.1.1
+A
+. 
+merge
+B
+. 
+split
+C
+. 
+collect
+D
+. 
+separate
+Subject-Verb Agreement: 
+, 
+.
+Tense Consistency: Maintain consistent tense.
+Parallelism: Similar items in same grammatical form.
+Pronouns:
+Agreement: Pronoun matches antecedent in number, gender.
+Case: Subjective (
+) for subjects; Objective (
+) for objects.
+Tenses (Basic Structures):
+Simple Present: 
+Present Continuous: 
+Present Perfect: 
+Simple Past: 
+Past Continuous: 
+Past Perfect: 
+Simple Future: 
+Phrasal Verbs:
+ 
+ (often idiomatic meaning).
+Statement Sufficiency:
+ Evaluate Statement 1 alone, then Statement 2 alone, then both together.
+Statements Follow (Deductive Logic):
+ If 
+ and 
+ are true, then 
+ MUST be true.
+Use Venn Diagrams.
+Word Pairs (Analogies):
+ Identify the specific relationship 
+ and find 
+ with the same relationship.
+Important Tips for GATE
+1
+. 
+Build a Strong Vocabulary:
+ Many questions (Synonyms, Antonyms, Word Meaning, Most Appropriate Word, Word
+Pairs, Phrasal Verbs, Phrase Meaning) directly test vocabulary. Read widely, use flashcards, and learn root words,
+prefixes, and suffixes.
+2
+. 
+Master Grammar Rules:
+ Questions on Articles, Comparative Forms, English Grammar, Grammatical Error,
+Incorrect Sentence Part, Prepositions, Pronouns, and Tenses require a solid understanding of fundamental
+grammar. Practice identifying common errors.
+3
+. 
+Read Actively and Critically:
+ For Passage Reading, Narrative Sequencing, and Verbal Reasoning, don't just read
+passively. Actively look for main ideas, supporting details, logical connections, transition words, and author's tone.
+Practice skimming and scanning.
+4
+. 
+Context is King:
+ For vocabulary-based questions and even grammar, the context of the sentence or passage is
+crucial. A word's meaning or the correct grammatical form can change depending on its usage. Always read the full
+sentence.
+5
+. 
+Practice Time Management:
+ Verbal Aptitude questions can be time-consuming, especially Passage Reading and
+Sentence Ordering. Practice solving questions under timed conditions to improve speed and accuracy. Don't get
+stuck on one question; move on and return if time permits.
+6
+. 
+Eliminate Options Strategically:
+ For multiple-choice questions, if you're unsure of the answer, try to eliminate
+obviously incorrect options first. This increases your chances of selecting the correct answer, especially if negative
+marking is less severe.
+7
+. 
+Don't Overthink Verbal Reasoning:
+ For Statement Sufficiency and Statements Follow, stick strictly to the
+information given in the statements. Do not bring in outside knowledge or make assumptions. Focus purely on
+logical deduction.
+8
+. 
+Review Common Pitfalls:
+ Be aware of common errors like subject-verb agreement, pronoun-antecedent
+agreement, tense shifts, double comparatives, and literal interpretation of idioms. Regularly review these tricky
+areas.
+Antonyms 
+(7)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(7Q)
+Antonyms: GATE CSE 2011 | Question: 60
+Choose the word from the options given below that is most nearly opposite in the meaning to the given word
+Amalgamate
+gatecse-2011
+ 
+verbal-aptitude
+ 
+antonyms
+ 
+normal
+Answer key
+☟
+
+
+11.1.2
+A
+. 
+sticky
+B
+. 
+well-connected
+C
+. 
+rambling
+D
+. 
+friendly
+11.1.3
+A
+. 
+agnostic
+B
+. 
+antagonist
+C
+. 
+arsonist
+D
+. 
+anarchist
+11.1.4
+A
+. 
+Innocence
+B
+. 
+Respect
+C
+. 
+Solace
+D
+. 
+Wealth
+11.1.5
+A
+. 
+periodicity
+B
+. 
+rarity
+C
+. 
+gradualness
+D
+. 
+persistency
+11.1.6
+A
+. 
+imitative
+B
+. 
+conciliatory
+C
+. 
+truthful
+D
+. 
+ideological
+11.1.7
+A
+. 
+aversion
+B
+. 
+resignation
+C
+. 
+suspicion
+D
+. 
+contempt
+11.2
+11.2.1
+Antonyms: GATE CSE 2014 | Set 3 | GA | Question: 3
+Choose the word that is opposite in meaning to the word “coherent”.
+gatecse-2014-set3
+ 
+verbal-aptitude
+ 
+antonyms
+ 
+easy
+Answer key
+☟
+Antonyms: GATE CSE 2026 | Set 1 | GA | Question: 1
+The antonym of the word protagonist is 
+.
+gatecse-2026-set1
+ 
+verbal-aptitude
+ 
+antonyms
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Antonyms: GATE DA 2026 | GA | Question: 1
+Verbosity : Brevity :: Insolence : 
+Choose the word that best fills the blank.
+gateda-2026
+ 
+verbal-aptitude
+ 
+antonyms
+ 
+one-mark
+Answer key
+☟
+Antonyms: GATE2011 AG: GA-2
+Choose the word from the questions given below that is most nearly opposite in meaning to the given word:
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2011-ag
+ 
+antonyms
+Answer key
+☟
+Antonyms: GATE2011 GG: GA-2
+Choose the word from the options given below that is most nearly opposite in meaning to the given word:
+Polemical
+gate2011-gg
+ 
+verbal-aptitude
+ 
+antonyms
+Answer key
+☟
+Antonyms: GATE2011 MN: GA-56
+Choose the word from the options given below that is most nearly opposite in meaning to the given word:
+Deference
+verbal-aptitude
+ 
+gate2011-mn
+ 
+antonyms
+Answer key
+☟
+Articles 
+(2)
+Articles: GATE CSE 2016 | Set 2 | GA | Question: 01
+The man who is now Municipal Commissioner worked as ________________.
+
+
+A
+. 
+the security guard at a university
+B
+. 
+a security guard at the university
+C
+. 
+a security guard at university
+D
+. 
+the security guard at the university
+11.2.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+11.3
+11.3.1
+A
+. 
+any paper
+B
+. 
+much paper
+C
+. 
+no paper
+D
+. 
+a few paper
+11.3.2
+A
+. 
+as well as
+B
+. 
+as better as
+C
+. 
+as nicest as
+D
+. 
+as worse as
+11.4
+11.4.1
+A
+. 
+completely forgot --- don't just
+know
+B
+. 
+forgot completely --- don't just
+know
+C
+. 
+completely forgot --- just don't
+know
+D
+. 
+forgot completely --- just don't
+know
+11.4.2
+A
+. 
+Mr., was, found, on
+B
+. 
+a, was, found, at
+C
+. 
+the, was, found, on
+D
+. 
+a, being, find, at
+gatecse-2016-set2
+ 
+verbal-aptitude
+ 
+english-grammar
+ 
+normal
+ 
+articles
+Answer key
+☟
+Articles: GATE CSE 2025 | Set 1 | GA | Question: 1
+Ravi had _______ younger brother who taught at _________ university. He was widely regarded as
+________ honorable man.
+Select the option with the correct sequence of articles to fill in the blanks.
+gatecse2025-set1
+ 
+verbal-aptitude
+ 
+articles
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Comparative Forms 
+(2)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(7Q)
+Comparative Forms: GATE CSE 2015 | Set 1 | GA | Question: 1
+Didn't you buy ____ when you went shopping?
+gatecse-2015-set1
+ 
+verbal-aptitude
+ 
+easy
+ 
+english-grammar
+ 
+comparative-forms
+Answer key
+☟
+Comparative Forms: GATE CSE 2021 | Set 2 | GA | Question: 1
+Gauri said that she can play the keyboard __________ her sister.
+gatecse-2021-set2
+ 
+verbal-aptitude
+ 
+comparative-forms
+ 
+one-mark
+Answer key
+☟
+English Grammar 
+(5)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(11Q)
+English Grammar: GATE CSE 2015 | Set 2 | GA | Question: 1
+We __________ our friends's birthday and we _________ how to make it up to him.
+gatecse-2015-set2
+ 
+verbal-aptitude
+ 
+easy
+ 
+english-grammar
+Answer key
+☟
+English Grammar: GATE CSE 2015 | Set 3 | GA | Question: 2
+The Tamil version of __________ John Abraham-starrer 
+Madras Cafe
+ __________ cleared by the Censor
+Board with no cuts last week, but the ﬁlm's distributor _______ no takers among the exhibitors for a release
+in Tamilnadu _______ this Friday.
+gatecse-2015-set3
+ 
+verbal-aptitude
+ 
+normal
+ 
+english-grammar
+Answer key
+☟
+
+
+11.4.3
+A
+. 
+enough bright
+B
+. 
+bright enough
+C
+. 
+as enough bright
+D
+. 
+bright as enough
+11.4.4
+A
+. 
+during, for
+B
+. 
+for, since
+C
+. 
+for, in
+D
+. 
+within, for
+11.4.5
+11.5
+11.5.1
+11.5.2
+A
+. 
+He is of Asian origin.
+B
+. 
+They belonged to Africa.
+C
+. 
+She is an European.
+D
+. 
+They migrated from India to
+Australia.
+English Grammar: GATE CSE 2017 | Set 2 | GA | Question: 2
+Saturn is ___________ to be seen on a clear night with the naked eye.
+gatecse-2017-set2
+ 
+verbal-aptitude
+ 
+english-grammar
+Answer key
+☟
+English Grammar: GATE CSE 2020 | GA | Question: 1
+Raman is conﬁdent of speaking English _______six months as he has been practising regularly_______the
+last three weeks
+gatecse-2020
+ 
+verbal-aptitude
+ 
+english-grammar
+ 
+one-mark
+Answer key
+☟
+English Grammar: GATE CSE 2021 | Set 1 | GA | Question: 3
+Consider the following sentences:
+i
+. 
+Everybody in the class is prepared for the exam.
+ii
+. 
+Babu invited Danish to his home because he enjoys playing chess.
+Which of the following is the 
+ observation about the above two sentences?
+A
+. 
+ is grammatically correct and 
+ is unambiguous
+B
+. 
+ is grammatically incorrect and 
+ is unambiguous
+C
+. 
+ is grammatically correct and 
+ is ambiguous
+D
+. 
+ is grammatically incorrect and 
+ is ambiguous
+gatecse-2021-set1
+ 
+verbal-aptitude
+ 
+english-grammar
+ 
+one-mark
+Answer key
+☟
+Grammatical Error 
+(6)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(11Q)
+Grammatical Error: GATE CSE 2012 | Question: 59
+Choose the grammatically 
+INCORRECT
+ sentence:
+A
+. 
+They gave us the money back less the service charges of Three Hundred rupees.
+B
+. 
+This country’s expenditure is not less than that of Bangladesh.
+C
+. 
+The committee initially asked for a funding of Fifty Lakh rupees, but later settled for a lesser sum.
+D
+. 
+This country’s expenditure on educational reforms is very less.
+ 
+gatecse-2012
+ 
+verbal-aptitude
+ 
+grammatical-error
+ 
+normal
+Answer key
+☟
+Grammatical Error: GATE CSE 2013 | Question: 60
+Choose the grammatically 
+INCORRECT
+ sentence:
+gatecse-2013
+ 
+verbal-aptitude
+ 
+grammatical-error
+ 
+normal
+Answer key
+☟
+
+
+11.5.3
+11.5.4
+11.5.5
+11.5.6
+A
+. 
+Two and two add four.
+B
+. 
+Two and two become four.
+C
+. 
+Two and two are four.
+D
+. 
+Two and two make four.
+11.6
+11.6.1
+A
+. 
+I
+B
+. 
+II
+C
+. 
+III
+D
+. 
+IV
+Grammatical Error: GATE CSE 2015 | Set 2 | GA | Question: 10
+Out of the following 
+ sentences, select the most suitable sentence with respect to grammar and usage:
+A
+. 
+Since the report lacked needed information, it was of no use to them.
+B
+. 
+The report was useless to them because there were no needed information in it.
+C
+. 
+Since the report did not contain the needed information, it was not real useful to them.
+D
+. 
+Since the report lacked needed information, it would not had been useful to them.
+gatecse-2015-set2
+ 
+verbal-aptitude
+ 
+normal
+ 
+english-grammar
+ 
+grammatical-error
+Answer key
+☟
+Grammatical Error: GATE CSE 2016 | Set 1 | GA | Question: 01
+Out of the following four sentences, select the most suitable sentence with respect to grammar and usage.
+A
+. 
+I will not leave the place until the minister does not meet me.
+B
+. 
+I will not leave the place until the minister doesn't meet me.
+C
+. 
+I will not leave the place until the minister meet me.
+D
+. 
+I will not leave the place until the minister meets me.
+gatecse-2016-set1
+ 
+verbal-aptitude
+ 
+english-grammar
+ 
+easy
+ 
+grammatical-error
+Answer key
+☟
+Grammatical Error: GATE2012 AR: GA-3
+Choose the grammatically CORRECT sentence:
+A
+. 
+He laid in bed till 
+ o’clock in the morning.
+B
+. 
+He layed in bed till 
+ o’clock in the morning.
+C
+. 
+He lain in bed till 
+ o’clock in the morning.
+D
+. 
+He lay in bed till 
+ o’clock in the morning.
+gate2012-ar
+ 
+verbal-aptitude
+ 
+english-grammar
+ 
+easy
+ 
+grammatical-error
+Answer key
+☟
+Grammatical Error: GATE2013 EE: GA-4
+Choose the grammatically 
+CORRECT 
+sentence:
+gate2013-ee
+ 
+english-grammar
+ 
+verbal-aptitude
+ 
+grammatical-error
+Answer key
+☟
+Incorrect Sentence Part 
+(5)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(6Q)
+Incorrect Sentence Part: GATE CSE 2014 | Set 3 | GA | Question: 1
+ an envelope 
+ 
+ and 
+Which one of the above underlined parts of the sentence is NOT appropriate?
+gatecse-2014-set3
+ 
+verbal-aptitude
+ 
+easy
+ 
+english-grammar
+ 
+incorrect-sentence-part
+Answer key
+☟
+
+
+11.6.2
+A
+. 
+no sooner had
+B
+. 
+results of the blood test
+C
+. 
+suggested the patient
+D
+. 
+see the specialist
+11.6.3
+A
+. 
+requested that
+B
+. 
+should be given
+C
+. 
+the driving test
+D
+. 
+instead of tomorrow
+11.6.4
+a
+. 
+I
+b
+. 
+II
+c
+. 
+III
+d
+. 
+IV
+11.6.5
+A
+. 
+I
+B
+. 
+II
+C
+. 
+III
+D
+. 
+IV
+11.7
+11.7.1
+A
+. 
+masked
+B
+. 
+belied
+C
+. 
+betrayed
+D
+. 
+suppressed
+11.7.2
+Incorrect Sentence Part: GATE2012 AR: GA-4
+Which one of the parts (A, B, C, D) in the sentence contains an 
+ERROR
+?
+No sooner had the doctor seen the results of the blood test, than he suggested the patient to see the
+specialist.
+gate2012-ar
+ 
+verbal-aptitude
+ 
+incorrect-sentence-part
+Answer key
+☟
+Incorrect Sentence Part: GATE2012 CY: GA-2
+One of the parts 
+ in the sentence given below contains an ERROR. Which one of the following
+is 
+INCORRECT
+?
+I requested that he should be given the driving test today instead of tomorrow
+.
+gate2012-cy
+ 
+verbal-aptitude
+ 
+incorrect-sentence-part
+Answer key
+☟
+Incorrect Sentence Part: GATE2013 AE: GA-4
+All engineering students should learn mechanics, mathematics and how to do computation.
+                I                            II                                            III                           IV
+Which of the above underlined parts of the sentence is not appropriate?
+gate2013-ae
+ 
+verbal-aptitude
+ 
+incorrect-sentence-part
+Answer key
+☟
+Incorrect Sentence Part: GATE2013 CE: GA-2
+ 
+ 
+ 
+Which of the above underlined parts of the sentence is grammatically incorrect?
+gate2013-ce
+ 
+incorrect-sentence-part
+ 
+verbal-aptitude
+Answer key
+☟
+Most Appropriate Word 
+(47)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 10 
+(3Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(15Q)
+ 
+Test 5 
+(15Q)
+ 
+Test 6 
+(15Q)
+ 
+Test 7 
+(15Q)
+ 
+Test 8 
+(15Q)
+ 
+Test 9 
+(15Q)
+Most Appropriate Word: GATE CSE 2010 | Question: 56
+Choose the most appropriate word from the options given below to complete the following sentence:
+His rather casual remarks on politics ________ his lack of seriousness about the subject.
+gatecse-2010
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+normal
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2010 | Question: 58
+Choose the most appropriate word from the options given below to complete the following sentence:
+If we manage to __________ our natural resources, we would leave a better planet for our children.
+
+
+A
+. 
+uphold
+B
+. 
+restrain
+C
+. 
+cherish
+D
+. 
+conserve
+11.7.3
+A
+. 
+to visit
+B
+. 
+having to visit
+C
+. 
+visiting
+D
+. 
+for a visit
+11.7.4
+A
+. 
+hyperbolic
+B
+. 
+restrained
+C
+. 
+argumentative
+D
+. 
+indifferent
+11.7.5
+A
+. 
+attempts
+B
+. 
+setbacks
+C
+. 
+meetings
+D
+. 
+delegations
+11.7.6
+A
+. 
+that
+B
+. 
+which
+C
+. 
+who
+D
+. 
+whom
+11.7.7
+A
+. 
+superb
+B
+. 
+medium
+C
+. 
+mediocre
+D
+. 
+exhilarating
+11.7.8
+gatecse-2010
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+easy
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2011 | Question: 58
+Choose the most appropriate word(s) from the options given below to complete the following sentence.
+I contemplated _________ Singapore for my vacation but decided against it.
+gatecse-2011
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+easy
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2011 | Question: 59
+Choose the most appropriate word from the options given below to complete the following sentence.
+If you are trying to make a strong impression on your audience, you cannot do so by being
+understated, tentative or ________.
+gatecse-2011
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+normal
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2012 | Question: 57
+Choose the most appropriate alternative from the options given below to complete the following sentence:
+Despite several _________ the mission succeeded in its attempt to resolve the conflict.
+gatecse-2012
+ 
+verbal-aptitude
+ 
+easy
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2012 | Question: 60
+Choose the most appropriate alternative from the options given below to complete the following sentence:
+Suresh’s dog is the one ________ was hurt in the stampede.
+gatecse-2012
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+normal
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2014 | Set 1 | GA | Question: 2
+Choose the most appropriate word from the options given below to complete the following sentence.
+She could not understand the judges awarding her the ﬁrst prize, because she thought that her performance was
+quite _________.
+gatecse-2014-set1
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+easy
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2014 | Set 2 | GA | Question: 1
+Choose the most appropriate phrase from the options given below to complete the following sentence.
+India is a post-colonial country because
+
+11.7.9
+A
+. 
+fabric
+B
+. 
+textile
+C
+. 
+fiber
+D
+. 
+apparel
+11.7.10
+A
+. 
+related
+B
+. 
+extraneous
+C
+. 
+outside
+D
+. 
+useful
+11.7.11
+A
+. 
+figurative
+B
+. 
+collateral
+C
+. 
+literal
+D
+. 
+figurine
+11.7.12
+A
+. 
+money beside
+B
+. 
+beside money
+C
+. 
+money besides
+D
+. 
+besides money
+11.7.13
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+11.7.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+A
+. 
+it was a former British colony
+B
+. 
+Indian Information Technology professionals have colonized the world
+C
+. 
+India does not follow any colonial practices
+D
+. 
+India has helped other countries gain freedom
+gatecse-2014-set2
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+easy
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2015 | Set 2 | GA | Question: 4
+A generic term that includes various items of clothing such as a skirt, a pair of trousers and a shirt is
+gatecse-2015-set2
+ 
+verbal-aptitude
+ 
+easy
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2015 | Set 3 | GA | Question: 3
+Extreme focus on syllabus and studying for tests has become such a dominant concern of Indian student
+that they close their minds to anything ___________ to the requirements of the exam.
+gatecse-2015-set3
+ 
+verbal-aptitude
+ 
+normal
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2016 | Set 1 | GA | Question: 03
+Archimedes said, "Give me a lever long enough and a fulcrum on which to place it, and I will move the
+world."
+The sentence above is an example of a ____________ statement.
+gatecse-2016-set1
+ 
+verbal-aptitude
+ 
+normal
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2017 | Set 1 | GA | Question: 2
+Research in the workplace reveals that people work for many reasons _______________ .
+gatecse-2017-set1
+ 
+general-aptitude
+ 
+verbal-aptitude
+ 
+english-grammar
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2018 | GA | Question: 1
+"From where are they bringing their books? _______ bringing _______ books from ________"
+The words that best fill the blanks in the above sentence are
+gatecse-2018
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2018 | GA | Question: 2
+A ________ investigation can sometimes yield new facts, but typically organized ones are more successful.
+The word that best fills the blank in the above sentence is
+
+
+11.7.15
+A
+. 
+break down
+B
+. 
+break
+C
+. 
+breaks down
+D
+. 
+breaks
+11.7.16
+A
+. 
+revolves
+B
+. 
+plays
+C
+. 
+sinks
+D
+. 
+bursts
+11.7.17
+A
+. 
+a student
+B
+. 
+a punishment
+C
+. 
+a syllabus
+D
+. 
+a school
+11.7.18
+A
+. 
+fair / fare
+B
+. 
+faer / fair
+C
+. 
+fare / fare
+D
+. 
+fare / fair
+11.7.19
+A
+. 
+near
+B
+. 
+nearly
+C
+. 
+utterly
+D
+. 
+mostly
+11.7.20
+A
+. 
+starve
+B
+. 
+reject
+C
+. 
+feast 
+D
+. 
+deny
+11.7.21
+gatecse-2018
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+normal
+ 
+one-mark
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2019 | GA | Question: 1
+The expenditure on the project _____ as follows: equipment Rs.
+ lakhs, salaries Rs.
+ lakhs, and
+contingency Rs.
+ lakhs.
+gatecse-2019
+ 
+general-aptitude
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+one-mark
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2019 | GA | Question: 2
+The search engine’s business model ____ around the fulcrum of trust.
+gatecse-2019
+ 
+general-aptitude
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+one-mark
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2019 | GA | Question: 5
+A court is to a judge as _________ is to a teacher
+gatecse-2019
+ 
+general-aptitude
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+one-mark
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2022 | GA | Question: 1
+The ____________ is too high for it to be considered _____________.
+gatecse-2022
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+one-mark
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2023 | GA | Question: 1
+We reached the station late, and _______ missed the train.
+gatecse-2023
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+one-mark
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2024 | Set 1 | GA | Question: 1
+If ' 
+ ' denotes increasing order of intensity, then the meaning of the words
+[dry 
+ arid 
+ parched] is analogous to [diet 
+ fast 
+ ________ ].
+Which one of the given options is appropriate to fill the blank?
+gatecse-2024-set1
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+one-mark
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2024 | Set 1 | GA | Question: 6
+In the given text, the blanks are numbered 
+. Select the best match for all the blanks.
+Steve was advised to keep his head   
+ (i)  
+before heading  
+(ii)  
+ to bat; for, while he had a head 
+ (iii)  
+ batting,
+he could only do so with a cool head 
+ iv 
+his shoulders.
+
+
+A
+. 
+(i) down (ii) down (iii) on (iv) for
+B
+. 
+(i) on (ii) down (iii) for (iv) on
+C
+. 
+(i) down (ii) out (iii) for (iv) on
+D
+. 
+(i) on (ii) out (iii) on (iv) for
+11.7.22
+A
+. 
+phased
+B
+. 
+phrased
+C
+. 
+fazed
+D
+. 
+fused
+11.7.23
+A
+. 
+visionary
+B
+. 
+shortsighted
+C
+. 
+progressive
+D
+. 
+innovative
+11.7.24
+A
+. 
+ambivalence
+B
+. 
+satisfaction
+C
+. 
+resolve
+D
+. 
+revolve
+11.7.25
+A
+. 
+Longing
+B
+. 
+Yelling
+C
+. 
+Yawning
+D
+. 
+Glaring
+11.7.26
+A
+. 
+frown
+B
+. 
+fawn
+C
+. 
+vein
+D
+. 
+vain
+gatecse-2024-set1
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+two-marks
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2024 | Set 2 | GA | Question: 1
+If ' 
+ ' denotes increasing order of intensity, then the meaning of the words [walk 
+ jog 
+ sprint] is
+analogous to [bothered 
+ ________
+ daunted].
+Which one of the given options is appropriate to fill the blank?
+gatecse-2024-set2
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+one-mark
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2025 | Set 1 | GA | Question: 2
+The CEO's decision to downsize the workforce was considered 
+ because it sacriﬁced long-term
+stability to accommodate short-term gains.
+Select the most appropriate option that can replace the word "myopic" without changing the meaning of the
+sentence.
+ 
+gatecse2025-set1
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Most Appropriate Word: GATE CSE 2025 | Set 2 | GA | Question: 1
+Despite his initial hesitation, Rehman's ____________ to contribute to the success of the project never
+wavered. 
+Select the most appropriate option to complete the above sentence.
+ 
+ 
+gatecse2025-set2
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Most Appropriate Word: GATE DA 2025 | GA | Question: 1
+​​​​
+Courage : Bravery :: Yearning : _________.
+Select the most appropriate option to complete the analogy.
+gateda-2025
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Most Appropriate Word: GATE DS&AI 2024 | GA | Question: 1
+If ' 
+ ' denotes increasing order of intensity, then the meaning of the words [sick 
+ inﬁrm 
+ moribund] is
+analogous to [silly 
+ daft].
+Which one of the given options is appropriate to fill the blank?
+ 
+gate-ds-ai-2024
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+one-mark
+Answer key
+☟
+
+
+11.7.27
+A
+. 
+reasonable
+B
+. 
+supportive
+C
+. 
+biased
+D
+. 
+fragmented
+11.7.28
+A
+. 
+inevitable 
+B
+. 
+contingent
+C
+. 
+oblivious
+D
+. 
+imperative
+11.7.29
+A
+. 
+disincentives
+B
+. 
+incitements
+C
+. 
+restrictions
+D
+. 
+restraints
+11.7.30
+A
+. 
+aberration
+B
+. 
+weakening
+C
+. 
+decline
+D
+. 
+deterioration
+11.7.31
+A
+. 
+similar
+B
+. 
+most
+C
+. 
+uncommon
+D
+. 
+available
+11.7.32
+A
+. 
+identified
+B
+. 
+ascertained
+C
+. 
+exacerbated 
+D
+. 
+analysed 
+Most Appropriate Word: GATE2010 MN: GA-3
+Choose the most appropriate word from the options given below to complete the following sentence
+The committee wrote a _______ report
+ extolling only the strengths of the proposal
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2010-mn
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE2010 MN: GA-4
+Choose the most appropriate word from the options given below to complete the following sentence
+If the country has to achieve real prosperity, it is _______ that the fruits of progress reach all, and in equal
+measure
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2010-mn
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE2010 TF: GA-3
+Choose the most appropriate word from the options given below to complete the following sentence:
+The two child norm with _______ for the violators will have signiﬁcant implications for oar demographic
+profile
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2010-tf
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE2010 TF: GA-4
+Choose the most appropriate word from the options given below to complete the following sentence
+There is no ﬁxed relation between food and famine
+ famines can occur with or without a substantial _______
+in food output
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2010-tf
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE2011 AG: GA-1
+Choose the most appropriate word from the options given below to complete the following sentence:
+Under ethical guidelines recently adopted by the India Medical Association, human genes are to be
+manipulated only to correct diseases for which ________ treatments are unsatisfactory.
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2011-ag
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE2011 AG: GA-3
+Choose the most appropriate word from the options given below to complete the following sentence:
+It was her view that the country’s problem had been _________ by foreign technocrats, so that to
+invite them to come back would be counter-productive.
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2011-ag
+ 
+most-appropriate-word
+
+
+11.7.33
+A
+. 
+in restoring
+B
+. 
+in the restoration of
+C
+. 
+to restore
+D
+. 
+restoring
+11.7.34
+A
+. 
+acerbic
+B
+. 
+resilient
+C
+. 
+volatile
+D
+. 
+heterogeneous
+11.7.35
+A
+. 
+ insolence …… irately
+B
+. 
+ insouciance …… curtly
+C
+. 
+ graciousness …… amiably
+D
+. 
+ querulousness …… affably
+11.7.36
+A
+. 
+delivered
+B
+. 
+delivered on
+C
+. 
+forgot
+D
+. 
+reneged on
+11.7.37
+A
+. 
+To survive
+B
+. 
+Surviving
+C
+. 
+Survival
+D
+. 
+That survival
+11.7.38
+Answer key
+☟
+Most Appropriate Word: GATE2011 GG: GA-1
+Choose the most appropriate word or phrase from the options given below to complete the following
+sentence.
+ 
+The environmentalists hope ________ the lake to its pristine condition.
+ 
+gate2011-gg
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE2011 GG: GA-3
+Choose the most appropriate word from the options given below to complete the following sentence.
+Despite the mixture’s ______ nature, we found that by lowering its temperature in the 
+laboratory we
+could dramatically reduce its tendency to vaporize.
+gate2011-gg
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+normal
+Answer key
+☟
+Most Appropriate Word: GATE2011 GG: GA-5
+Choose the most appropriate words from the options given below to complete the following sentence.
+Because she had a reputation for _________ we were surprised and pleased when she greeted us so
+_______.
+gate2011-gg
+ 
+most-appropriate-word
+ 
+verbal-aptitude
+Answer key
+☟
+Most Appropriate Word: GATE2011 MN: GA-57
+Choose the most appropriate word(s) from the options given below to complete the following sentence.
+We lost confidence in him because he never __________ the grandiose promises he had made.
+gate2011-mn
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE2011 MN: GA-58
+Choose the word or phrase that best completes the sentence below.
+______________ in the frozen wastes of Arctic takes special equipment.
+verbal-aptitude
+ 
+gate2011-mn
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE2011 MN: GA-60
+Choose the most appropriate word from the options given below to complete the following sentence.
+The _________ of evidence was on the side of the plaintiﬀ since all but one witness testiﬁed that his story
+was correct.
+
+A
+. 
+paucity
+B
+. 
+propensity
+C
+. 
+preponderance
+D
+. 
+accuracy
+11.7.39
+A
+. 
+reflective
+B
+. 
+utopian
+C
+. 
+luxuriant
+D
+. 
+unpopular
+11.7.40
+A
+. 
+intrepidity
+B
+. 
+inevitability
+C
+. 
+inability
+D
+. 
+inertness
+11.7.41
+A
+. 
+difficulty, compensated
+B
+. 
+exactitude, magnified
+C
+. 
+aptitude, decreased
+D
+. 
+attitude, mitigated
+ 
+11.7.42
+A
+. 
+beggary
+B
+. 
+nomenclature
+C
+. 
+jealousy
+D
+. 
+nonchalance
+11.7.43
+A
+. 
+cordial
+B
+. 
+intimate
+C
+. 
+secret
+D
+. 
+pleasant
+11.7.44
+verbal-aptitude
+ 
+gate2011-mn
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE2012 AE: GA-3
+Choose the most appropriate alternative from the options given below to complete the following sentence:
+ 
+The administrators went on to implement yet another unreasonable measure, arguing that 
+the measures
+were already ___ and one more would hardly make a difference.
+gate2012-ae
+ 
+most-appropriate-word
+ 
+verbal-aptitude
+Answer key
+☟
+Most Appropriate Word: GATE2012 AE: GA-4
+Choose the most appropriate alternative from the options given below to complete the following
+sentence:
+To those of us who had always thought him timid, his ___ came as a surprise.
+gate2012-ae
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE2012 AR: GA-2
+Choose the most appropriate pair of words from the options given below to complete the following 
+sentence:
+The high level of ___ of the questions in the test was ___ by an increase in the period of time allotted for answering
+them.
+gate2012-ar
+ 
+most-appropriate-word
+ 
+verbal-aptitude
+ 
+normal
+Answer key
+☟
+Most Appropriate Word: GATE2012 CY: GA-4
+Choose the most appropriate word from the options given below to complete the following
+sentence:
+Given the seriousness of the situation that he had to face, his ___ was impressive
+.
+gate2012-cy
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE2013 CE: GA-4
+Friendship, no matter how _________ it is, has its limitations.
+gate2013-ce
+ 
+most-appropriate-word
+ 
+verbal-aptitude
+Answer key
+☟
+Most Appropriate Word: GATE2013 EE: GA-3
+Complete the sentence:
+
+A
+. 
+commit
+B
+. 
+to commit
+C
+. 
+committed
+D
+. 
+committing
+11.7.45
+A
+. 
+vice
+B
+. 
+virtues
+C
+. 
+choices
+D
+. 
+strength
+11.7.46
+A
+. 
+Experienced 
+B
+. 
+Has experienced
+C
+. 
+Is experiencing
+D
+. 
+Experiences
+11.7.47
+A
+. 
+Contentment
+B
+. 
+Ambition 
+C
+. 
+Perseverance
+D
+. 
+Hunger
+11.8
+11.8.1
+Dare _______________ mistakes.
+gate2013-ee
+ 
+most-appropriate-word
+ 
+easy
+ 
+verbal-aptitude
+Answer key
+☟
+Most Appropriate Word: GATE2014 AE: GA-2
+Choose the most appropriate word from the options given below to complete the following
+sentence.
+One of his biggest ______ was his ability to forgive.
+gate2014-ae
+ 
+most-appropriate-word
+Answer key
+☟
+Most Appropriate Word: GATE2014 AG: GA-1
+Choose the most appropriate word from the options given below to complete the following sentence. A
+person suffering from Alzheimer’s disease ______ short-term memory loss.
+gate2014-ag
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+normal
+Answer key
+☟
+Most Appropriate Word: GATE2014 AG: GA-2
+Choose the most appropriate word from the options given below to complete the following sentence.
+_______ is the key to their happiness; they are satisfied with what they have. 
+gate2014-ag
+ 
+verbal-aptitude
+ 
+most-appropriate-word
+ 
+easy
+Answer key
+☟
+Narrative Sequencing 
+(1)
+Narrative Sequencing: GATE DA 2025 | GA | Question: 6
+Column-I has statements made by Shanthala; and, Column-II has responses given by Kanishk.
+Identify the option that has the correct match between Column-I and Column-II.
+A
+. 
+B
+. 
+
+
+11.9
+11.9.1
+11.9.2
+11.9.3
+A
+. 
+Failure is the pillar of success.
+B
+. 
+Honesty is the best policy.
+C
+. 
+Life begins and ends with
+adventures.
+D
+. 
+No adversity justiﬁes giving up
+hope.
+C
+. 
+D
+. 
+gateda-2025
+ 
+verbal-aptitude
+ 
+narrative-sequencing
+ 
+two-marks
+Answer key
+☟
+Passage Reading 
+(23)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(6Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(15Q)
+ 
+Test 5 
+(5Q)
+Passage Reading: GATE CSE 2010 | Question: 63
+Modern warfare has changed from large scale clashes of armies to suppression of civilian
+populations. Chemical agents that do their work silently appear to be suited to such warfare; and
+regretfully, there exist people in military establishments who think that chemical agents are useful tools for
+their cause.
+Which of the following statements best sums up the meaning of the above passage:
+A
+. 
+Modern warfare has resulted in civil strife.
+B
+. 
+Chemical agents are useful in modern warfare.
+C
+. 
+Use of chemical agents in warfare would be undesirable.
+D
+. 
+People in military establishments like to use chemical agents in war.
+gatecse-2010
+ 
+verbal-aptitude
+ 
+passage-reading
+ 
+normal
+Answer key
+☟
+Passage Reading: GATE CSE 2011 | Question: 61
+Few school curricula include a unit on how to deal with bereavement and grief, and yet all students
+at some point in their lives suffer from losses through death and parting.
+Based on the above passage which topic would not be included in a unit on bereavement?
+A
+. 
+how to write a letter of condolence
+B
+. 
+what emotional stages are passed through in the healing process
+C
+. 
+what the leading causes of death are
+D
+. 
+how to give support to a grieving friend
+gatecse-2011
+ 
+verbal-aptitude
+ 
+passage-reading
+ 
+normal
+Answer key
+☟
+Passage Reading: GATE CSE 2013 | Question: 63
+After several defeats in wars, Robert Bruce went in exile and wanted to commit suicide. Just before
+committing suicide, he came across a spider attempting tirelessly to have its net. Time and again, the spider
+failed but that did not deter it to refrain from making attempts. Such attempts by the spider made Bruce curious.
+Thus, Bruce started observing the near-impossible goal of the spider to have the net. Ultimately, the spider
+succeeded in having its net despite several failures. Such act of the spider encouraged Bruce not to commit
+suicide. And then, Bruce went back again and won many a battle, and the rest is history.
+Which one of the following assertions is best supported by the above information?
+gatecse-2013
+ 
+verbal-aptitude
+ 
+passage-reading
+ 
+normal
+Answer key
+☟
+
+
+11.9.4
+11.9.5
+11.9.6
+11.9.7
+Passage Reading: GATE CSE 2014 | Set 1 | GA | Question: 6
+The Palghat Gap (or Palakkad Gap) , a region about 
+ wide in the southern part of the Western Ghats
+in India, is lower than the hilly terrain to its north and south. The exact reasons for the formation of this gap
+are not clear. It results in the neighbouring regions of Tamil Nadu getting more rainfall from the South West
+monsoon and the neighbouring regions of Kerala having higher summer temperatures.  
+What can be inferred from this passage?
+Select one:
+A
+. 
+The Palghat gap is caused by high rainfall and high temperatures in southern Tamil Nadu and Kerala
+B
+. 
+The regions in Tamil Nadu and Kerala that are near the Palghat Gap are low-lying
+C
+. 
+The low terrain of the Palghat Gap has a signiﬁcant impact on weather patterns in neighbouring parts of Tamil
+Nadu and Kerala
+D
+. 
+Higher summer temperatures result in higher rainfall near the Palghat Gap area
+gatecse-2014-set1
+ 
+verbal-aptitude
+ 
+passage-reading
+ 
+normal
+Answer key
+☟
+Passage Reading: GATE CSE 2014 | Set 2 | GA | Question: 6
+The old city of Koenigsberg, which had a German majority population before World War 2, is now called
+Kaliningrad. After the events of the war, Kaliningrad is now a Russian territory and has a predominantly
+Russian population. It is bordered by the Baltic Sea on the north and the countries of Poland to the south and west
+and Lithuania to the east respectively. Which of the statements below can be inferred from this passage?
+A
+. 
+Kaliningrad was historically Russian in its ethnic make up
+B
+. 
+Kaliningrad is a part of Russia despite it not being contiguous with the rest of Russia
+C
+. 
+Koenigsberg was renamed Kaliningrad, as that was its original Russian name
+D
+. 
+Poland and Lithuania are on the route from Kaliningrad to the rest of Russia
+gatecse-2014-set2
+ 
+verbal-aptitude
+ 
+passage-reading
+ 
+normal
+Answer key
+☟
+Passage Reading: GATE CSE 2014 | Set 2 | GA | Question: 7
+Number of people diagnosed with dengue fever (contracted from the bite of a mosquito) in North India is
+twice the number diagnosed last year. Municipal authorities have concluded that measures to control the
+mosquito population have failed in this region. 
+Which one of the following statements, if true, does not contradict this conclusion?
+A
+. 
+A high proportion of the aﬀected population has returned from neighbouring countries where dengue is
+prevalent
+B
+. 
+More cases of dengue are now reported because of an increase in the Municipal Oﬃce's administrative
+efficiency
+C
+. 
+Many more cases of dengue are being diagnosed this year since the introduction of a new and eﬀective
+diagnostic test
+D
+. 
+The number of people with malarial fever (also contracted from mosquito bites) has increased this year
+gatecse-2014-set2
+ 
+verbal-aptitude
+ 
+passage-reading
+ 
+normal
+Answer key
+☟
+Passage Reading: GATE CSE 2014 | Set 3 | GA | Question: 6
+A dance programme is scheduled for 
+ a.m. Some students are participating in the programme and
+they need to come an hour earlier than the start of the event. These students should be accompanied by a
+parent. Other students and parents should come in time for the programme. The instruction you think that is
+appropriate for this is 
+A
+. 
+Students should come at 
+ a.m. and parents should come at 
+ a.m.
+
+
+11.9.8
+A
+. 
+i, ii and iv
+B
+. 
+iii only
+C
+. 
+i and iv
+D
+. 
+iv only
+11.9.9
+A
+. 
+iii and iv
+B
+. 
+ii and iii
+C
+. 
+i, ii and iii
+D
+. 
+ii only
+11.9.10
+A
+. 
+(i) only
+B
+. 
+(ii) only
+C
+. 
+Both (i) and (ii)
+D
+. 
+Neither (i) nor (ii)
+B
+. 
+Participating students should come at 
+ a.m. accompanied by a parent, and other parents and students
+should come by 
+ a.m.
+C
+. 
+Students who are not participating should come by 
+ a.m. and they should not bring their parents.
+Participating students should come at 
+ a.m.
+D
+. 
+Participating students should come before 
+ a.m. Parents who accompany them should come at 
+ a.m.
+All others should come at 
+ a.m.
+gatecse-2014-set3
+ 
+verbal-aptitude
+ 
+passage-reading
+ 
+easy
+Answer key
+☟
+Passage Reading: GATE CSE 2014 | Set 3 | GA | Question: 7
+By the beginning of the 
+ century, several hypotheses were being proposed, suggesting a paradigm shift
+in our understanding of the universe. However, the clinching evidence was provided by experimental
+measurements of the position of a star which was directly behind our sun.
+Which of the following inference(s) may be drawn from the above passage? 
+i
+. 
+Our understanding of the universe changes based on the positions of stars
+ii
+. 
+Paradigm shifts usually occur at the beginning of centuries
+iii
+. 
+Stars are important objects in the universe
+iv
+. 
+Experimental evidence was important in confirming this paradigm shift
+gatecse-2014-set3
+ 
+verbal-aptitude
+ 
+passage-reading
+ 
+easy
+Answer key
+☟
+Passage Reading: GATE CSE 2015 | Set 3 | GA | Question: 9
+Most experts feel that in spite of possessing all the technical skills required to be a batsman of the highest
+order, he is unlikely to be so due to lack of requisite temperament. He was guilty of throwing away his wicket
+several time after working hard to lay a strong foundation. His critics pointed out that until he addressed his
+problem, success at the highest level will continue to elude him. 
+Which of the statement(s) below is/are logically valid and can be inferred from the above passage?
+i
+. 
+He was already a successful batsman at the highest level.
+ii
+. 
+He was to improve his temperament in order to become a great batsman.
+iii
+. 
+He failed to make many of his good starts count.
+iv
+. 
+Improving his technical skills will guarantee success.
+gatecse-2015-set3
+ 
+verbal-aptitude
+ 
+normal
+ 
+passage-reading
+Answer key
+☟
+Passage Reading: GATE CSE 2016 | Set 2 | GA | Question: 07
+Computers were invented for performing only high-end useful computations. However, it is no
+understatement that they have taken over our world today. The internet, for example, is ubiquitous. Many
+believe that the internet itself is an unintended consequence of the original invention. With the advent of mobile
+computing on our phones, a whole new dimension is now enabled. One is left wondering if all these developments
+are good or, more importantly, required.
+Which of the statement(s) below is/are logically valid and can be inferred from the above paragraph?
+(i) The author believes that computers are not good for us.
+(ii) Mobile computers and the internet are both intended inventions.
+gatecse-2016-set2
+ 
+verbal-aptitude
+ 
+passage-reading
+ 
+normal
+Answer key
+☟
+
+
+11.9.11
+11.9.12
+11.9.13
+11.9.14
+Passage Reading: GATE CSE 2017 | Set 1 | GA | Question: 6
+"The hold of the nationalist imagination on our colonial past is such that anything inadequately or improperly
+nationalist is just not history."
+Which of the following statements best reflects the author's opinion?
+A
+. 
+Nationalists are highly imaginative.
+B
+. 
+History is viewed through the filter of nationalism.
+C
+. 
+Our colonial past never happened.
+D
+. 
+Nationalism has to be both adequately and properly imagined.
+gatecse-2017-set1
+ 
+general-aptitude
+ 
+verbal-aptitude
+ 
+passage-reading
+Answer key
+☟
+Passage Reading: GATE CSE 2022 | GA | Question: 6
+Some people believe that “what gets measured, improves”. Some others believe that “what gets measured,
+gets gamed”. One possible reason for the diﬀerence in the beliefs is the work culture in organizations. In
+organizations with good work culture, metrics help improve outcomes. However, the same metrics are
+counterproductive in organizations with poor work culture.
+Which one of the following is the 
+ logical inference based on the information in the above passage?
+A
+. 
+Metrics are useful in organizations with poor work culture
+B
+. 
+Metrics are useful in organizations with good work culture
+C
+. 
+Metrics are always counterproductive in organizations with good work culture
+D
+. 
+Metrics are never useful in organizations with good work culture
+gatecse-2022
+ 
+verbal-aptitude
+ 
+passage-reading
+ 
+two-marks
+Answer key
+☟
+Passage Reading: GATE CSE 2025 | Set 1 | GA | Question: 6
+"I put the brown paper in my pocket along with the chalks, and possibly other things. I suppose every one
+must have reﬂected how primeval and how poetical are the things that one carries in one's pocket: the
+pocket-knife, for instance the type of all human tools, the infant of the sword. Once I planned to write a book of
+poems entirely about the things in my pocket. But I found it would be too long: and the age of the great epics is
+past."
+(From G.K. Chesterton's "A Piece of Chalk")
+Based only on the information provided in the above passage, which one of the following statements is true?
+A
+. 
+The author of the passage carries a mirror in his pocket to reflect upon things.
+B
+. 
+The author of the passage had decided to write a poem on epics.
+C
+. 
+The pocket-knife is described as the infant of the sword.
+D
+. 
+Epics are described as too inconvenient to write.
+gatecse2025-set1
+ 
+verbal-aptitude
+ 
+passage-reading
+ 
+two-marks
+Answer key
+☟
+Passage Reading: GATE2010 MN: GA-6
+The ban on smoking in designated public places can save a large number of people from the well-known
+eﬀects of environmental tobacco smoke. Passive smoking seriously impairs respiratory health. The ban
+rightly seeks to protect non-smokers from its ill effects.
+Which of the following statements best sums up the meaning of the above passage:
+A
+. 
+Effects of environmental tobacco are well known.
+B
+. 
+The ban on smoking in public places protects the non-smokers.
+C
+. 
+Passive smoking is bad for health.
+D
+. 
+The ban on smoking in public places excludes passive smoking. 
+
+
+11.9.15
+11.9.16
+A
+. 
+given immunity to diseases
+B
+. 
+generally quite immune to
+diseases
+C
+. 
+given medicines to fight toxins
+D
+. 
+given diphtheria and tetanus
+serums
+11.9.17
+11.9.18
+passage-reading
+ 
+verbal-aptitude
+ 
+gate2010-mn
+Answer key
+☟
+Passage Reading: GATE2010 TF: GA-6
+It has taken ﬁfty-six long and frustrating, years to turn bronze, into gold for India’s Olympics aspirations
+Beijing 
+ marks a deﬁning moment in India’s Olympic history
+ From Delhi to Beijing is a long journey but
+one that our Olympians have undertaken with courage
+Which of the following statement best sums up the meaning of the above passage
+A
+. 
+India’s participation in Olympics has been frustrating.
+B
+. 
+Beijing Olympics was a landmark in India’s Olympic history.
+C
+. 
+Our Olympians have undertaken a long journey to Beijing.
+D
+. 
+India’s bronze medal turned into gold at Beijing.
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2010-tf
+ 
+passage-reading
+Answer key
+☟
+Passage Reading: GATE2011 AG: GA-10
+The horse has played a little known but very important role in the ﬁeld of medicine. Horses were
+injected with toxins of diseases until their blood built up immunities. Then a serum was made from
+their blood. Serums to fight with diphtheria and tetanus were developed this way.
+It can be inferred from the passage, that horses were
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2011-ag
+ 
+passage-reading
+Answer key
+☟
+Passage Reading: GATE2011 GG: GA-10
+In order to develop to full potential, a baby needs to be physically able to respond to the
+environment.
+It can be inferred from the passage that
+A
+. 
+Full physical potential is needed in order for a baby to be able to respond to the environment.
+B
+. 
+It is necessary for a baby to be able to physically respond to the environment for it to develop its full potential.
+C
+. 
+Response to the environment of physically able babies needs to be developed to its full potential.
+D
+. 
+A physically able baby needs to develop its full potential in order to respond to its environment.
+ 
+gate2011-gg
+ 
+logical-reasoning
+ 
+passage-reading
+Answer key
+☟
+Passage Reading: GATE2011 MN: GA-65
+Nimbus clouds are dark and ragged, stratus clouds appear dull in colour and cover the entire
+sky. Cirrus clouds are thin and delicate, whereas cumulus clouds look like cotton balls.
+It can be inferred from the passage that
+A
+. 
+A cumulus cloud on the ground is called fog
+B
+. 
+It is easy to predict the weather by studying clouds
+C
+. 
+Clouds are generally of very different shapes, sizes and mass
+D
+. 
+There are four basic cloud types: stratus, nimbus, cumulus and cirrus
+ 
+
+
+11.9.19
+A
+. 
+did not question that progress was
+a fact.
+B
+. 
+did not approve of Biology.
+C
+. 
+framed the laws of progress.
+D
+. 
+emphasized Biology over Social
+Sciences.
+ 
+11.9.20
+11.9.21
+11.9.22
+gate2011-mn
+ 
+verbal-aptitude
+ 
+passage-reading
+Answer key
+☟
+Passage Reading: GATE2012 AE: GA-10
+In the early nineteenth century, theories of social evolution were inspired less by Biology than
+ by the
+conviction of social scientists that there was a growing improvement in social
+ institutions. Progress
+was taken for granted and social scientists attempted to discover its
+ laws and phases.
+Which one of the following inferences may be drawn with the greatest accuracy from the above passage?
+Social scientists
+gate2012-ae
+ 
+verbal-aptitude
+ 
+passage-reading
+Answer key
+☟
+Passage Reading: GATE2012 AR: GA-10
+The documents expose the cynicism of the government oﬃcials – and yet as the media website
+reflects, not a single newspaper has reported on their existence.
+Which one of the following inferences may be drawn with the greatest accuracy from the above passage?
+A
+. 
+Nobody other than the government officials knew about the existence of the documents.
+B
+. 
+Newspapers did report about the documents but nobody cared.
+C
+. 
+Media reports did not show the existence of the documents.
+D
+. 
+The documents reveal the attitude of the government officials.
+gate2012-ar
+ 
+verbal-aptitude
+ 
+passage-reading
+Answer key
+☟
+Passage Reading: GATE2012 CY: GA-6
+One of the legacies of the Roman legions was discipline. In the legions, military law prevailed and
+discipline was brutal. Discipline on the battleﬁeld kept units obedient, intact and ﬁghting, even when
+the odds and conditions were against them.
+Which one of the following statements best sums up the meaning of the above passage?
+A
+. 
+Thorough regimentation was the main reason for the eﬃciency of the Roman legions even in adverse
+circumstances.
+B
+. 
+The legions were treated inhumanly as if the men were animals.
+C
+. 
+Discipline was the armies’ inheritance from their seniors.
+D
+. 
+The harsh discipline to which the legions were subjected to led to the odds and conditions being against them.
+gate2012-cy
+ 
+verbal-aptitude
+ 
+passage-reading
+Answer key
+☟
+Passage Reading: GATE2014 AE: GA-3
+Rajan was not happy that Sajan decided to do the project on his own. On observing his unhappiness, Sajan
+explained to Rajan that he preferred to work independently.
+Which one of the statements below is logically valid and can be inferred from the above sentences?
+A
+. 
+Rajan has decided to work only in a group.
+B
+. 
+Rajan and Sajan were formed into a group against their wishes.
+C
+. 
+Sajan had decided to give in to Rajan's request to work with him.
+D
+. 
+Rajan had believed that Sajan and he would be working together.
+
+11.9.23
+11.10
+11.10.1
+A
+. 
+Adopt to
+B
+. 
+Adapt to
+C
+. 
+Adept in
+D
+. 
+Accept with
+11.10.2
+A
+. 
+He wants all the money
+B
+. 
+He will return the money
+C
+. 
+He will assume final responsibility
+D
+. 
+He will resist all enquiries
+11.10.3
+A
+. 
+She had a terrible time at the party
+B
+. 
+She had a horrible time at the
+party
+C
+. 
+She had a terrific time at the party
+D
+. 
+She had a terrifying time at the
+party
+11.10.4
+A
+. 
+Took shelter in a thick jungle
+B
+. 
+Open indiscriminate fire
+gate2014-ae
+ 
+passage-reading
+ 
+logical-reasoning
+Answer key
+☟
+Passage Reading: GATE2014 AG: GA-7
+Moving into a world of big data will require us to change our thinking about the merits of exactitude. To apply
+the conventional mindset of measurement to the digital, connected world of the twenty-ﬁrst century is to miss
+a crucial point. As mentioned earlier, the obsession with exactness is an artefact of the information-deprived analog
+era. When data was sparse, every data point was critical, and thus great care was taken to avoid letting any point
+bias the analysis. From “BIG DATA” Viktor Mayer-Schonberger and Kenneth Cukier. The main point of the
+paragraph is:
+A
+. 
+The twenty-first century is a digital world
+B
+. 
+Big data is obsessed with exactness
+C
+. 
+Exactitude is not critical in dealing with big data
+D
+. 
+Sparse data leads to a bias in the analysis
+gate2014-ag
+ 
+verbal-aptitude
+ 
+passage-reading
+ 
+normal
+Answer key
+☟
+Phrase Meaning 
+(5)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(8Q)
+Phrase Meaning: GATE CSE 2014 | Set 1 | GA | Question: 1
+Which of the following options is the closest in meaning to the phrase in bold in the sentence below?
+It is fascinating to see life forms 
+cope with
+ varied environmental conditions.
+verbal-aptitude
+ 
+gatecse-2014-set1
+ 
+phrase-meaning
+ 
+easy
+Answer key
+☟
+Phrase Meaning: GATE CSE 2014 | Set 1 | GA | Question: 3
+In a press meet on the recent scam, the minister said, "The buck stops here". What did the minister convey
+by the statement?
+gatecse-2014-set1
+ 
+verbal-aptitude
+ 
+normal
+ 
+phrase-meaning
+Answer key
+☟
+Phrase Meaning: GATE CSE 2015 | Set 1 | GA | Question: 2
+Which of the following options is the closest in meaning of the sentence below?
+She enjoyed herself immensely at the party.
+gatecse-2015-set1
+ 
+verbal-aptitude
+ 
+easy
+ 
+phrase-meaning
+Answer key
+☟
+Phrase Meaning: GATE CSE 2015 | Set 1 | GA | Question: 7
+Select the alternative meaning of the underlined part of the sentence.
+The chain snatchers 
+ when the police party arrived.
+
+
+C
+. 
+Took to flight
+D
+. 
+Unconditionally surrendered
+11.10.5
+A
+. 
+Put up with.
+B
+. 
+Put in with.
+C
+. 
+Put down to.
+D
+. 
+Put up against.
+11.11
+11.11.1
+A
+. 
+at; of; for
+B
+. 
+for; at; of
+C
+. 
+of; for; in
+D
+. 
+in; of; for
+11.12
+11.12.1
+A
+. 
+(i), (ii), (iv), (iii)
+B
+. 
+(ii), (iii), (i), (iv)
+C
+. 
+(iv), (ii), (i), (iii)
+D
+. 
+(iii), (ii), (i), (iv)
+11.12.2
+gatecse-2015-set1
+ 
+verbal-aptitude
+ 
+phrase-meaning
+ 
+easy
+Answer key
+☟
+Phrase Meaning: GATE CSE 2016 | Set 2 | GA | Question: 02
+Nobody knows how the Indian cricket team is going to 
+cope with
+ the diﬃcult and seamer-friendly wickets in
+Australia.
+Choose the option which is closest in meaning to the underlined phrase in the above sentence.
+gatecse-2016-set2
+ 
+verbal-aptitude
+ 
+phrase-meaning
+ 
+normal
+Answer key
+☟
+Prepositions 
+(1)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(10Q)
+Prepositions: GATE DA 2026 | GA | Question: 6
+'My friend and I parted __ the door__ the cabin that I had rented __ the night.'
+Choose the option with the correct sequence of words to fill the blanks.
+gateda-2026
+ 
+verbal-aptitude
+ 
+fill-in-the-blanks
+ 
+two-marks
+ 
+prepositions
+Answer key
+☟
+Sentence Ordering 
+(2)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(5Q)
+Sentence Ordering: GATE CSE 2023 | GA | Question: 8
+Which one of the following sentence sequences creates a coherent narrative?
+i
+. 
+Once on the terrace, on her way to her small room in the corner, she notices the man right away.
+ii
+. 
+She begins to pant by the time she has climbed all the stairs.
+iii
+. 
+Mina has bought vegetables and rice at the market, so her bags are heavy.
+iv
+. 
+He was leaning against the parapet, watching the traffic below.
+ 
+gatecse-2023
+ 
+verbal-aptitude
+ 
+sentence-ordering
+ 
+two-marks
+Answer key
+☟
+Sentence Ordering: GATE CSE 2024 | Set 2 | GA | Question: 6
+​​​​​
+Sequence the following sentences in a coherent passage.
+: This fortuitous geological event generated a colossal amount of energy and heat that resulted in the rocks rising
+to an average height of 
+ across the contact zone.
+: Thus, the geophysicists tend to think of the Himalayas as an active geological event rather than as a static
+geological feature.
+ : The natural process of the cooling of this massive ediﬁce absorbed large quantities of atmospheric carbon
+dioxide, altering the earth's atmosphere and making it better suited for life.
+: Many millennia ago, a breakaway chunk of bedrock from the Antarctic Plate collided with the massive Eurasian
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+11.13
+11.13.1
+11.13.2
+11.14
+11.14.1
+Plate.
+gatecse-2024-set2
+ 
+verbal-aptitude
+ 
+sentence-ordering
+ 
+two-marks
+Answer key
+☟
+Statement Sufficiency 
+(2)
+Statement Sufficiency: GATE CSE 2015 | Set 1 | GA | Question: 4
+Based on the given statements, select the most appropriate option to solve the given question.
+If two ﬂoors in a certain building are 
+ feet apart, how many steps are there in a set of stairs that extends
+from the first floor to the second floor of the building?
+Statements:
+I
+. 
+Each step is 
+ foot high.
+II
+. 
+Each step is 
+ foot wide. 
+A
+. 
+Statements I alone is sufficient, but statement II alone is not sufficient.
+B
+. 
+Statements II alone is sufficient, but statement I alone is not sufficient.
+C
+. 
+Both statements together are sufficient, but neither statement alone is sufficient.
+D
+. 
+Statements I and II together are not sufficient. 
+gatecse-2015-set1
+ 
+verbal-aptitude
+ 
+easy
+ 
+statement-sufficiency
+Answer key
+☟
+Statement Sufficiency: GATE CSE 2015 | Set 2 | GA | Question: 5
+Based on the given statements, select the most appropriate option to solve the given question.
+What will be the total weight of 
+ poles each of same weight?
+Statements:
+I
+. 
+One fourth of the weight of the pole is 
+.
+II
+. 
+The total weight of these poles is 
+ more than the total weight of two poles.
+A
+. 
+Statement I alone is not sufficient.
+B
+. 
+Statement II alone is not sufficient.
+C
+. 
+Either I or II alone is sufficient.
+D
+. 
+Both statements I and II together are not sufficient.
+gatecse-2015-set2
+ 
+normal
+ 
+logical-reasoning
+ 
+statement-sufficiency
+Answer key
+☟
+Statements Follow 
+(1)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(7Q)
+Statements Follow: GATE CSE 2015 | Set 1 | GA | Question: 8
+The given statement is followed by some courses of action. Assuming the statement to be true, decide the
+correct option.
+Statement:
+There has been a significant drop in the water level in the lakes supplying water to the city.
+Course of action:
+I
+. 
+The water supply authority should impose a partial cut in supply to tackle the situation.
+II
+. 
+The government should appeal to all the residents through mass media for minimal use of water.
+III
+. 
+The government should ban the water supply in lower areas.
+
+
+A
+. 
+Statements I and II follow.
+B
+. 
+Statements I and III follow.
+C
+. 
+Statements II and III follow.
+D
+. 
+All the statements follow.
+11.15
+11.15.1
+A
+. 
+cyclic
+B
+. 
+indirect
+C
+. 
+confusing
+D
+. 
+crooked
+11.15.2
+A
+. 
+ Incomprehensible
+B
+. 
+ Indelible
+C
+. 
+ Inextricable
+D
+. 
+ Infallible
+11.15.3
+A
+. 
+Diminish
+B
+. 
+Divulge
+C
+. 
+Dedicate
+D
+. 
+Denote
+11.15.4
+A
+. 
+Highest
+B
+. 
+Lowest
+C
+. 
+Medium
+D
+. 
+Integration
+11.15.5
+A
+. 
+aversion, dislike
+B
+. 
+luminous, radiant
+C
+. 
+plunder, loot
+D
+. 
+yielding, resistant
+11.15.6
+gatecse-2015-set1
+ 
+verbal-aptitude
+ 
+normal
+ 
+statements-follow
+Answer key
+☟
+Synonyms 
+(13)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(6Q)
+Synonyms: GATE CSE 2010 | Question: 57
+Which of the following options is the closest in meaning to the word given below:
+Circuitous
+gatecse-2010
+ 
+verbal-aptitude
+ 
+word-meaning
+ 
+normal
+ 
+synonyms
+Answer key
+☟
+Synonyms: GATE CSE 2011 | Question: 56
+Which of the following options is the closest in the meaning to the word below:
+Inexplicable
+gatecse-2011
+ 
+verbal-aptitude
+ 
+synonyms
+ 
+normal
+Answer key
+☟
+Synonyms: GATE CSE 2012 | Question: 58
+Which one of the following options is the closest in meaning to the word given below?
+Mitigate 
+ 
+gatecse-2012
+ 
+verbal-aptitude
+ 
+synonyms
+ 
+easy
+Answer key
+☟
+Synonyms: GATE CSE 2013 | Question: 56
+Which one of the following options is the closest in meaning to the word given below?
+Nadir
+gatecse-2013
+ 
+verbal-aptitude
+ 
+synonyms
+ 
+normal
+Answer key
+☟
+Synonyms: GATE CSE 2017 | Set 2 | GA | Question: 1
+Choose the option with words that are not synonyms.
+gatecse-2017-set2
+ 
+verbal-aptitude
+ 
+synonyms
+Answer key
+☟
+Synonyms: GATE CSE 2026 | Set 2 | GA | Question: 1
+Expedite, Hasten, Hurry, 
+Fill the blank by choosing a word with a meaning similar to that of the words given above.
+
+
+A
+. 
+Accelerate
+B
+. 
+Retard
+C
+. 
+Provide
+D
+. 
+Disable
+11.15.7
+A
+. 
+urge
+B
+. 
+condemn
+C
+. 
+restrain
+D
+. 
+scold
+11.15.8
+A
+. 
+effeminate
+B
+. 
+ghostlike
+C
+. 
+soft
+D
+. 
+short-lived
+11.15.9
+A
+. 
+Excite
+B
+. 
+Soothe
+C
+. 
+Deplete
+D
+. 
+Tire
+11.15.10
+A
+. 
+Eligibility
+B
+. 
+Freedom
+C
+. 
+Coercion
+D
+. 
+Meticulousness
+11.15.11
+A
+. 
+Modern
+B
+. 
+Historic
+C
+. 
+Primitive
+D
+. 
+Antique
+11.15.12
+A
+. 
+make out
+B
+. 
+call out
+C
+. 
+dig out
+D
+. 
+fall out
+gatecse-2026-set2
+ 
+verbal-aptitude
+ 
+synonyms
+ 
+one-mark
+Answer key
+☟
+Synonyms: GATE2010 MN: GA-1
+Which of the following options is the closest in meaning to the word below
+Exhort 
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2010-mn
+ 
+synonyms
+Answer key
+☟
+Synonyms: GATE2010 TF: GA-1
+Which of the following options is the closest in meaning to the word below
+Ephemeral
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2010-tf
+ 
+synonyms
+Answer key
+☟
+Synonyms: GATE2012 AR: GA-1
+Which one of the following options is the closest in meaning to the word given below?
+Pacify
+gate2012-ar
+ 
+verbal-aptitude
+ 
+synonyms
+Answer key
+☟
+Synonyms: GATE2012 CY: GA-3
+Which one of the following options is the closest in meaning to the word given below?
+Latitude
+gate2012-cy
+ 
+verbal-aptitude
+ 
+synonyms
+Answer key
+☟
+Synonyms: GATE2013 CE: GA-3
+Which of the following options is the closest in meaning to the word given below: 
+Primeval
+gate2013-ce
+ 
+synonyms
+ 
+most-appropriate-word
+Answer key
+☟
+Synonyms: GATE2013 EE: GA-1
+They were requested not to 
+ 
+with others.
+Which one of the following options is the closest in meaning to the word 
+?
+gate2013-ee
+ 
+verbal-aptitude
+ 
+synonyms
+Answer key
+☟
+
+
+11.15.13
+A
+. 
+understanding
+B
+. 
+meaning
+C
+. 
+concentration
+D
+. 
+stability
+11.16
+11.16.1
+A
+. 
+would fly
+B
+. 
+shall fly
+C
+. 
+should fly
+D
+. 
+shall have flown
+11.16.2
+A
+. 
+you said
+B
+. 
+did you say
+C
+. 
+did you say that
+D
+. 
+had you said
+11.16.3
+A
+. 
+knows, will have
+B
+. 
+knew, had
+C
+. 
+had known, could have
+D
+. 
+should have known, would have
+11.16.4
+A
+. 
+was wishing
+B
+. 
+is wishing
+C
+. 
+wished
+D
+. 
+had wished
+11.16.5
+A
+. 
+have been playing
+B
+. 
+had been playing
+C
+. 
+would have been playing
+D
+. 
+could be playing
+11.16.6
+Synonyms: GATE2014 AE: GA-1
+A student is required to demonstrate a high level of comprehension of the subject, especially in the social
+sciences.
+The word closest in meaning to 
+comprehension
+ is
+gate2014-ae
+ 
+synonyms
+ 
+verbal-aptitude
+Answer key
+☟
+Tenses 
+(9)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(11Q)
+Tenses: GATE CSE 2013 | Question: 59
+Were you a bird, you ___________________ in the sky.
+gatecse-2013
+ 
+verbal-aptitude
+ 
+tenses
+ 
+normal
+Answer key
+☟
+Tenses: GATE CSE 2014 | Set 2 | GA | Question: 2
+Who ___________ was coming to see us this evening?
+gatecse-2014-set2
+ 
+verbal-aptitude
+ 
+tenses
+ 
+normal
+Answer key
+☟
+Tenses: GATE CSE 2014 | Set 3 | GA | Question: 2
+If she _______________ how to calibrate the instrument, she _______________ done the experiment.
+gatecse-2014-set3
+ 
+verbal-aptitude
+ 
+easy
+ 
+english-grammar
+ 
+tenses
+Answer key
+☟
+Tenses: GATE CSE 2017 | Set 1 | GA | Question: 1
+After Rajendra Chola returned from his voyage to Indonesia, he ________ to visit the temple in Thanjavur.
+gatecse-2017-set1
+ 
+general-aptitude
+ 
+verbal-aptitude
+ 
+tenses
+ 
+english-grammar
+ 
+normal
+Answer key
+☟
+Tenses: GATE DA 2025 | GA | Question: 2
+We _________ tennis in the lawn when it suddenly started to rain.
+Select the most appropriate option to complete the above sentence.
+gateda-2025
+ 
+verbal-aptitude
+ 
+tenses
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Tenses: GATE2012 AE: GA-1
+Choose the most appropriate alternative from the options given below to complete the following
+sentence:
+
+A
+. 
+have a liking
+B
+. 
+should have liked
+C
+. 
+would like
+D
+. 
+may like
+11.16.7
+A
+. 
+have raised
+B
+. 
+have been raising
+C
+. 
+have been rising
+D
+. 
+have arose
+ 
+11.16.8
+A
+. 
+should take
+B
+. 
+shall take
+C
+. 
+should have taken
+D
+. 
+will have taken
+11.16.9
+A
+. 
+ is wanting
+B
+. 
+ wants
+C
+. 
+ want
+D
+. 
+ was wanting
+11.17
+11.17.1
+A
+. 
+Gender-discriminatory
+B
+. 
+Xenophobic
+C
+. 
+Not designed to make the post
+attractive
+D
+. 
+Not gender-discriminatory
+11.17.2
+I ___ to have bought a diamond ring.
+gate2012-ae
+ 
+tenses
+ 
+verbal-aptitude
+Answer key
+☟
+Tenses: GATE2012 AE: GA-2
+Choose the most appropriate alternative from the options given below to complete the following sentence:
+Food prices ___ again this month.
+gate2012-ae
+ 
+verbal-aptitude
+ 
+tenses
+Answer key
+☟
+Tenses: GATE2012 CY: GA-5
+Choose the most appropriate alternative from the options given below to complete the following sentence:
+If the tired soldier wanted to lie down, he ___ the mattress out on the balcony.
+gate2012-cy
+ 
+tenses
+ 
+verbal-aptitude
+Answer key
+☟
+Tenses: GATE2013 AE: GA-2
+The Headmaster ___________ to speak to you. Which of the following options is incorrect to complete the
+above sentence?
+gate2013-ae
+ 
+verbal-aptitude
+ 
+english-grammar
+ 
+tenses
+Answer key
+☟
+Verbal Reasoning 
+(15)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(15Q)
+ 
+Test 4 
+(2Q)
+Verbal Reasoning: GATE CSE 2012 | Question: 61
+Wanted Temporary, Part-time persons for the post of Field Interviewer to conduct personal
+interviews to collect and collate economic data. Requirements: High School-pass, must be available
+for Day, Evening and Saturday work. Transportation paid, expenses reimbursed.
+Which one of the following is the best inference from the above advertisement?
+gatecse-2012
+ 
+verbal-aptitude
+ 
+verbal-reasoning
+ 
+normal
+Answer key
+☟
+Verbal Reasoning: GATE CSE 2014 | Set 1 | GA | Question: 7
+Geneticists say that they are very close to conﬁrming the genetic roots of psychiatric illnesses such as
+depression and schizophrenia, and consequently, that doctors will be able to eradicate these diseases
+through early identification and gene therapy.
+On which of the following assumptions does the statement above rely?
+Select one:
+
+11.17.3
+11.17.4
+11.17.5
+A
+. 
+‘culture’
+B
+. 
+‘seemingly’
+C
+. 
+‘urgent’
+D
+. 
+‘political’
+11.17.6
+A
+. 
+Strategies are now available for eliminating psychiatric illnesses
+B
+. 
+Certain psychiatric illnesses have a genetic basis
+C
+. 
+All human diseases can be traced back to genes and how they are expressed
+D
+. 
+In the future, genetics will become the only relevant field for identifying psychiatric illnesses
+gatecse-2014-set1
+ 
+verbal-aptitude
+ 
+verbal-reasoning
+ 
+normal
+Answer key
+☟
+Verbal Reasoning: GATE CSE 2015 | Set 3 | GA | Question: 6
+Alexander turned his attention towards India, since he had conquered Persia.
+Which one of the statements below is logically valid and can be inferred from the above sentence?
+A
+. 
+Alexander would not have turned his attention towards India had he not conquered Persia.
+B
+. 
+Alexander was not ready to rest on his laurels, and wanted to march to India.
+C
+. 
+Alexander was not completely in control of his army and could command it to move towards India.
+D
+. 
+Since Alexander's kingdom extended to Indian borders after the conquest of Persia, he was keen to move
+further.
+gatecse-2015-set3
+ 
+verbal-aptitude
+ 
+normal
+ 
+verbal-reasoning
+Answer key
+☟
+Verbal Reasoning: GATE CSE 2016 | Set 1 | GA | Question: 07
+Indian currency notes show the denomination indicated in at least seventeen languages. If this is not an
+indication of the nation's diversity, nothing else is.
+Which of the following can be logically inferred from the above sentences?
+A
+. 
+India is a country of exactly seventeen languages.
+B
+. 
+Linguistic pluralism is the only indicator of a nation's diversity.
+C
+. 
+Indian currency notes have sufficient space for all the Indian languages.
+D
+. 
+Linguistic pluralism is strong evidence of India's diversity.
+gatecse-2016-set1
+ 
+verbal-aptitude
+ 
+verbal-reasoning
+ 
+normal
+Answer key
+☟
+Verbal Reasoning: GATE CSE 2017 | Set 2 | GA | Question: 6
+“We lived in a culture that denied any merit to literary works, considering them important only when they
+were handmaidens to something seemingly more urgent – namely ideology. This was a country where all
+gestures, even the most private, were interpreted in political terms.”
+The author’s belief that ideology is not as important as literature is revealed by the word:
+gatecse-2017-set2
+ 
+passage-reading
+ 
+verbal-reasoning
+Answer key
+☟
+Verbal Reasoning: GATE CSE 2019 | GA | Question: 6
+The police arrested four criminals – 
+ and 
+ The criminals knew each other. They made the
+following statements:
+ says “Q committed the crime.”
+ says “S committed the crime.”
+ says “ I did not do it.”
+ says “What Q said about me is false”.
+Assume only one of the arrested four committed the crime and only one of the statements made above is true. Who
+committed the crime?
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+11.17.7
+11.17.8
+11.17.9
+11.17.10
+gatecse-2019
+ 
+verbal-aptitude
+ 
+verbal-reasoning
+ 
+two-marks
+Answer key
+☟
+Verbal Reasoning: GATE CSE 2019 | GA | Question: 8
+“A recent High Court judgement has sought to dispel the idea of begging as a disease – which leads to its
+stigmatization and criminalization  – and to regard it as a symptom. The underlying disease is the failure of
+the state to protect citizens who fall through the social security net.”
+Which one of the following statements can be inferred from the given passage?
+A
+. 
+Beggars are lazy people who beg because they are unwilling to work
+B
+. 
+Beggars are created because of the lack of social welfare schemes
+C
+. 
+Begging is an offence that has to be dealt with firmly
+D
+. 
+Begging has to be banned because it adversely affects the welfare of the state
+gatecse-2019
+ 
+general-aptitude
+ 
+verbal-aptitude
+ 
+verbal-reasoning
+ 
+two-marks
+Answer key
+☟
+Verbal Reasoning: GATE CSE 2020 | GA | Question: 4
+The dawn of the 
+st century witnessed the melting glaciers oscillating between giving too much and too
+little to billions of people who depend on them for fresh water. The UN climate report estimates that without
+deep cuts to man-made emissions, at least 
+ of the northern hemisphere’s surface permafrost could melt by the
+end of the century. Given this situation of imminent global exodus of billions of people displaced by rising seas,
+nation-states need to rethink their carbon footprint for political concerns, if not for environmental ones.
+Which one of the following statements can be inferred from the given passage?
+A
+. 
+Nation-states do not have environmental concerns.
+B
+. 
+Nation-states are responsible for providing fresh water to billions of people.
+C
+. 
+Billions of people are responsible for man-made emissions.
+D
+. 
+Billions of people are affected by melting glaciers.
+gatecse-2020
+ 
+verbal-aptitude
+ 
+verbal-reasoning
+ 
+passage-reading
+ 
+one-mark
+Answer key
+☟
+Verbal Reasoning: GATE CSE 2020 | GA | Question: 6
+Goods and Services Tax (GST) is an indirect tax introduced in India in 
+ that is imposed on the supply of
+goods and services, and it subsumes all indirect taxes except few. It is a destination-based tax imposed on
+goods and services used, and it is not imposed at the point of origin from where goods come. GST also has a few
+components specific to state governments, central government  and Union Territories (UTs).
+Which one of the following statements can be inferred from the given passage?
+A
+. 
+GST is imposed on the production of goods and services.
+B
+. 
+GST includes all indirect taxes.
+C
+. 
+GST does not have a component specific to UT.
+D
+. 
+GST is imposed at the point of usage of goods and services.
+gatecse-2020
+ 
+verbal-aptitude
+ 
+verbal-reasoning
+ 
+passage-reading
+ 
+two-marks
+Answer key
+☟
+Verbal Reasoning: GATE CSE 2021 | Set 1 | GA | Question: 10
+Some people suggest anti-obesity measures 
+ such as displaying calorie information in restaurant
+menus. Such measures sidestep addressing the core problems that cause obesity: poverty and income
+inequality.
+Which one of the following statements summarizes the passage?
+
+
+11.17.11
+11.17.12
+11.17.13
+11.17.14
+A
+. 
+The proposed 
+ addresses the core problems that cause obesity
+B
+. 
+If obesity reduces, poverty will naturally reduce, since obesity causes poverty
+C
+. 
+ are addressing the core problems and are likely to succeed
+D
+. 
+ are addressing the problem superficially
+gatecse-2021-set1
+ 
+verbal-aptitude
+ 
+verbal-reasoning
+ 
+passage-reading
+ 
+two-marks
+Answer key
+☟
+Verbal Reasoning: GATE CSE 2021 | Set 2 | GA | Question: 6
+Listening to music during exercise improves performance and reduces discomfort. Scientists researched
+whether listening to music while studying can help students learn better and the results were inconclusive.
+Students who needed external stimulation for studying fared worse while students who did not need any external
+stimulation benefited from music.
+Which one of the following statements is the 
+ inference of the above passage?
+A
+. 
+Listening to music has no effect on learning and a positive effect on physical exercise
+B
+. 
+Listening to music has a clear positive effect both in physical exercise and on learning
+C
+. 
+Listening to music has a clear positive eﬀect on physical exercise. Music has a positive eﬀect on learning only in
+some students
+D
+. 
+Listening to music has a clear positive eﬀect on learning in all students. Music has a positive eﬀect only in some
+students who exercise
+gatecse-2021-set2
+ 
+verbal-aptitude
+ 
+verbal-reasoning
+ 
+passage-reading
+ 
+two-marks
+Answer key
+☟
+Verbal Reasoning: GATE2013 AE: GA-3
+Mahatama Gandhi was known for his humility as
+A
+. 
+he played an important role in humiliating exit of British from India.
+B
+. 
+he worked for humanitarian causes.
+C
+. 
+he displayed modesty in his interactions.
+D
+. 
+he was a fine human being
+gate2013-ae
+ 
+verbal-aptitude
+ 
+verbal-reasoning
+Answer key
+☟
+Verbal Reasoning: GATE2013 EE: GA-5
+Statement: 
+You can always give me a ring whenever you need.
+Which one of the following is the best inference from the above statement?
+A
+. 
+Because I have a nice caller tune.
+B
+. 
+Because I have a better telephone facility.
+C
+. 
+Because a friend in need is a friend indeed.
+D
+. 
+Because you need not pay towards the telephone bills when you give me a ring.
+gate2013-ee
+ 
+verbal-reasoning
+ 
+verbal-aptitude
+Answer key
+☟
+Verbal Reasoning: GATE2013 EE: GA-7
+Statement:
+ There were diﬀerent streams of freedom movements in colonial India carried out by
+the moderates, liberals, radicals, socialists, and so on.
+Which one of the following is the best inference from the above statement?
+A
+. 
+The emergence of nationalism in colonial India led to our Independence.
+B
+. 
+Nationalism in India emerged in the context of colonialism.
+C
+. 
+Nationalism in India is homogeneous.
+
+
+11.17.15
+11.18
+11.18.1
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+11.18.2
+11.18.3
+A
+. 
+paraphrase
+B
+. 
+paradox
+C
+. 
+paradigm
+D
+. 
+paraffin
+D
+. 
+Nationalism in India is heterogeneous
+gate2013-ee
+ 
+passage-reading
+ 
+verbal-aptitude
+ 
+verbal-reasoning
+Answer key
+☟
+Verbal Reasoning: GATE2014 AG: GA-3
+Which of the following options is the closest in meaning to the sentence below?
+A
+. 
+Women have no country. 
+B
+. 
+Women are not citizens of any country. 
+C
+. 
+Women’s solidarity knows no national boundaries. 
+D
+. 
+Women of all countries have equal legal rights.
+gate2014-ag
+ 
+general-aptitude
+ 
+verbal-aptitude
+ 
+verbal-reasoning
+ 
+normal
+Answer key
+☟
+Word Meaning 
+(5)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(4Q)
+Word Meaning: GATE CSE 2014 | Set 2 | GA | Question: 3
+Match the columns.
+gatecse-2014-set2
+ 
+verbal-aptitude
+ 
+word-meaning
+ 
+normal
+ 
+match-the-following
+Answer key
+☟
+Word Meaning: GATE CSE 2015 | Set 2 | GA | Question: 2
+Choose the statement where underlined word is used correctly.
+A
+. 
+The industrialist had a 
+personnel
+ jet.
+B
+. 
+I write my experience in my 
+personnel
+ diary.
+C
+. 
+All 
+personnel
+ are being given the day off.
+D
+. 
+Being religious is a 
+personnel
+ aspect.
+gatecse-2015-set2
+ 
+verbal-aptitude
+ 
+word-meaning
+ 
+normal
+Answer key
+☟
+Word Meaning: GATE CSE 2016 | Set 1 | GA | Question: 02
+A rewording of something written or spoken is a __________.
+gatecse-2016-set1
+ 
+verbal-aptitude
+ 
+word-meaning
+ 
+normal
+Answer key
+☟
+
+
+11.18.4
+A
+. 
+Mock
+B
+. 
+Deride
+C
+. 
+Praise
+D
+. 
+Jeer
+11.18.5
+A
+. 
+extremely poor
+B
+. 
+good
+C
+. 
+desirable
+D
+. 
+praiseworthy
+11.19
+11.19.1
+A
+. 
+fallow : land
+B
+. 
+unaware : sleeper
+C
+. 
+wit : jester
+D
+. 
+renovated : house
+11.19.2
+A
+. 
+specificity
+B
+. 
+neutrality
+C
+. 
+generality
+D
+. 
+adaptation
+11.19.3
+A
+. 
+Acquiescence - Submission
+B
+. 
+Wheedle - Roundabout
+C
+. 
+Flippancy - Lightness
+D
+. 
+Profligate - Extravagant
+11.19.4
+A
+. 
+Adult : Orthopaedist
+B
+. 
+Females : Gynaecologist
+C
+. 
+Kidney : Nephrologist
+D
+. 
+Skin : Dermatologist
+Word Meaning: GATE CSE 2016 | Set 2 | GA | Question: 03
+Find the odd one in the following group of words.
+mock, deride, praise, jeer
+gatecse-2016-set2
+ 
+verbal-aptitude
+ 
+word-meaning
+ 
+easy
+Answer key
+☟
+Word Meaning: GATE CSE 2020 | GA | Question: 2
+His knowledge of the subject was excellent but his classroom performance was_______.
+gatecse-2020
+ 
+verbal-aptitude
+ 
+english-grammar
+ 
+word-meaning
+ 
+one-mark
+Answer key
+☟
+Word Pairs 
+(14)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(5Q)
+Word Pairs: GATE CSE 2010 | Question: 60
+The question below consists of a pair of related words followed by four pairs of words. Select the pair that
+best expresses the relation in the original pair.
+Unemployed : Worker
+gatecse-2010
+ 
+verbal-aptitude
+ 
+word-pairs
+ 
+normal
+Answer key
+☟
+Word Pairs: GATE CSE 2013 | Question: 57
+Complete the sentence:
+Universalism is to particularism as diffuseness is to _______________.
+gatecse-2013
+ 
+verbal-aptitude
+ 
+normal
+ 
+word-pairs
+Answer key
+☟
+Word Pairs: GATE CSE 2015 | Set 1 | GA | Question: 5
+Which one of the following combinations is incorrect?
+gatecse-2015-set1
+ 
+verbal-aptitude
+ 
+difficult
+ 
+word-pairs
+Answer key
+☟
+Word Pairs: GATE CSE 2015 | Set 3 | GA | Question: 4
+Select the pair of best expresses a relationship similar to that expressed in the pair:
+Children : Pediatrician
+gatecse-2015-set3
+ 
+verbal-aptitude
+ 
+easy
+ 
+word-pairs
+Answer key
+☟
+
+11.19.5
+A
+. 
+Flyer
+B
+. 
+Flying
+C
+. 
+Flew
+D
+. 
+Flighter
+11.19.6
+A
+. 
+Plan, outline
+B
+. 
+Hospital, library
+C
+. 
+Doctor, book
+D
+. 
+Medicine, grammar
+11.19.7
+A
+. 
+Vegetables
+B
+. 
+Sharp
+C
+. 
+Cut
+D
+. 
+Blunt
+11.19.8
+A
+. 
+Mean
+B
+. 
+Type
+C
+. 
+Cruel
+D
+. 
+Kindly
+11.19.9
+A
+. 
+Kennel
+B
+. 
+Hammock
+C
+. 
+Hive
+D
+. 
+Lair
+11.19.10
+A
+. 
+amendment 
+ law
+B
+. 
+prologue 
+ play
+C
+. 
+episode 
+ serial
+D
+. 
+plot 
+ story
+11.19.11
+Word Pairs: GATE CSE 2020 | GA | Question: 3
+Select the word that fits the analogy:
+Cook : Cook :: Fly : _______
+gatecse-2020
+ 
+verbal-aptitude
+ 
+word-pairs
+ 
+one-mark
+Answer key
+☟
+Word Pairs: GATE CSE 2021 | Set 1 | GA | Question: 5
+___________ is to 
+surgery as writer
+ is to ___________
+Which one of the following options maintains a similar logical relation in the above sentence?
+gatecse-2021-set1
+ 
+verbal-aptitude
+ 
+word-pairs
+ 
+one-mark
+Answer key
+☟
+Word Pairs: GATE CSE 2021 | Set 2 | GA | Question: 5
+ _______
+Which one of the following options maintains a similar logical relation in the above?
+gatecse-2021-set2
+ 
+verbal-aptitude
+ 
+word-pairs
+ 
+one-mark
+ 
+easy
+Answer key
+☟
+Word Pairs: GATE CSE 2023 | GA | Question: 2
+Kind : _______ : : Often : Frequently (By word meaning)
+gatecse-2023
+ 
+verbal-aptitude
+ 
+word-pairs
+ 
+one-mark
+Answer key
+☟
+Word Pairs: GATE CSE 2025 | Set 2 | GA | Question: 2
+​​​​​
+Bird : Nest :: Bee : ______
+ 
+gatecse2025-set2
+ 
+verbal-aptitude
+ 
+word-pairs
+ 
+easy
+ 
+one-mark
+Answer key
+☟
+Word Pairs: GATE2010 MN: GA-2
+The question below consists of a pair of related words followed by four pairs of words
+ Select the pair that
+best expresses the relation in the original pair
+Preamble : Constitution
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2010-mn
+ 
+word-pairs
+Answer key
+☟
+Word Pairs: GATE2010 TF: GA-2
+The question below consists of a pair of related words followed by four pairs of words. Select the pair the
+best expresses the relation in the original pair
+
+
+A
+. 
+steadfast 
+ mercurial
+B
+. 
+competence 
+ strict
+C
+. 
+skill 
+ craftsman
+D
+. 
+nurse 
+ doctor
+11.19.12
+A
+. 
+dancer : stage
+B
+. 
+commuter : train
+C
+. 
+teacher : classroom
+D
+. 
+lawyer : courtroom 
+11.19.13
+A
+. 
+cart: road
+B
+. 
+electricity: wire
+C
+. 
+sea: beach
+D
+. 
+music: instrument
+ 
+11.19.14
+A
+. 
+Science: Experiment
+B
+. 
+Wealth: Peace
+C
+. 
+Education: Knowledge
+D
+. 
+Money: Happiness
+Erudition : Scholar
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2010-tf
+ 
+word-pairs
+Answer key
+☟
+Word Pairs: GATE2011 AG: GA-5
+The question below consists of a pair of related words followed by four pairs of words. Select the pair that
+best expresses the relation in the original pair:
+general-aptitude
+ 
+verbal-aptitude
+ 
+gate2011-ag
+ 
+word-pairs
+Answer key
+☟
+Word Pairs: GATE2013 AE: GA-5
+Select the pair that best expresses a relationship similar to that expressed in the pair:
+water: pipe::
+gate2013-ae
+ 
+verbal-aptitude
+ 
+word-pairs
+Answer key
+☟
+Word Pairs: GATE2013 CE: GA-5
+Select the pair that best expresses a relationship similar to that expressed in the pair:
+Medicine: Health
+gate2013-ce
+ 
+word-pairs
+ 
+verbal-aptitude
+Answer key
+☟
+Answer Keys
+11.1.1
+D
+11.1.2
+C
+11.1.3
+B
+11.1.4
+B
+11.1.5
+B
+11.1.6
+B
+11.1.7
+D
+11.2.1
+B
+11.2.2
+A
+11.3.1
+A
+11.3.2
+A
+11.4.1
+C
+11.4.2
+C
+11.4.3
+B
+11.4.4
+D
+11.4.5
+C
+11.5.1
+D
+11.5.2
+C
+11.5.3
+A
+11.5.4
+D
+11.5.5
+D
+11.5.6
+D
+11.6.1
+D
+11.6.2
+D
+11.6.3
+B
+11.6.4
+D
+11.6.5
+B
+11.7.1
+C
+11.7.2
+D
+11.7.3
+C
+11.7.4
+B
+11.7.5
+B
+11.7.6
+A
+11.7.7
+C
+11.7.8
+A
+11.7.9
+D
+11.7.10
+B
+11.7.11
+A
+11.7.12
+D
+11.7.13
+B
+11.7.14
+A
+11.7.15
+C
+11.7.16
+A
+11.7.17
+D
+11.7.18
+D
+11.7.19
+B
+11.7.20
+A
+11.7.21
+C
+11.7.22
+C
+11.7.23
+B
+11.7.24
+C
+11.7.25
+A
+11.7.26
+D
+11.7.27
+C
+11.7.28
+D
+11.7.29
+A
+11.7.30
+C
+11.7.31
+D
+11.7.32
+C
+11.7.33
+C
+11.7.34
+C
+11.7.35
+D
+11.7.36
+B
+11.7.37
+C
+11.7.38
+C
+
+
+11.7.39
+D
+11.7.40
+A
+11.7.41
+A
+11.7.42
+D
+11.7.43
+B
+11.7.44
+A
+11.7.45
+B
+11.7.46
+D
+11.7.47
+A
+11.8.1
+B
+11.9.1
+D
+11.9.2
+C
+11.9.3
+D
+11.9.4
+C
+11.9.5
+B
+11.9.6
+D
+11.9.7
+B
+11.9.8
+D
+11.9.9
+B
+11.9.10
+D
+11.9.11
+B
+11.9.12
+B
+11.9.13
+C
+11.9.14
+B
+11.9.15
+B
+11.9.16
+A
+11.9.17
+B
+11.9.18
+D
+11.9.19
+A
+11.9.20
+D
+11.9.21
+A
+11.9.22
+D
+11.9.23
+C
+11.10.1
+B
+11.10.2
+C
+11.10.3
+C
+11.10.4
+C
+11.10.5
+A
+11.11.1
+A
+11.12.1
+D
+11.12.2
+C
+11.13.1
+A
+11.13.2
+C
+11.14.1
+A
+11.15.1
+B
+11.15.2
+A
+11.15.3
+A
+11.15.4
+B
+11.15.5
+D
+11.15.6
+A
+11.15.7
+A
+11.15.8
+D
+11.15.9
+B
+11.15.10
+B
+11.15.11
+C
+11.15.12
+D
+11.15.13
+A
+11.16.1
+A
+11.16.2
+B
+11.16.3
+C
+11.16.4
+C
+11.16.5
+B
+11.16.6
+C
+11.16.7
+C
+11.16.8
+A
+11.16.9
+C
+11.17.1
+D
+11.17.2
+B
+11.17.3
+A
+11.17.4
+D
+11.17.5
+B
+11.17.6
+B
+11.17.7
+B
+11.17.8
+D
+11.17.9
+D
+11.17.10
+D
+11.17.11
+C
+11.17.12
+C
+11.17.13
+C
+11.17.14
+D
+11.17.15
+C
+11.18.1
+A
+11.18.2
+C
+11.18.3
+A
+11.18.4
+C
+11.18.5
+A
+11.19.1
+A
+11.19.2
+A
+11.19.3
+B
+11.19.4
+B
+11.19.5
+A
+11.19.6
+C
+11.19.7
+C
+11.19.8
+B,D
+11.19.9
+C
+11.19.10
+B
+11.19.11
+C
+11.19.12
+D
+11.19.13
+B
+11.19.14
+C

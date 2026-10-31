@@ -1,0 +1,2758 @@
+3
+Discrete Mathematics: Mathematical Logic
+ 
+(78)
+Syllabus:
+ 
+Propositional and first order logic.
+Welcome to the "Discrete Mathematics: Mathematical Logic" chapter of your GATE Computer Science exam
+preparation. This section is designed to provide a comprehensive, exam-focused overview of the fundamental concepts,
+formulas, and problem-solving techniques you'll need to master. Mathematical Logic is the bedrock of computer
+science, providing the formal tools to reason about computation, verify program correctness, design circuits, and
+understand artificial intelligence. For the GATE CS exam, this subject typically carries a weightage of 5-8 marks.
+Questions often involve determining the validity of arguments, checking logical equivalence, translating natural
+language statements into logical expressions, and identifying tautologies or contradictions. A strong grasp of these
+concepts is indispensable not just for direct questions but also for understanding the logical underpinnings of other
+topics like set theory, relations, and algorithms.
+Topic-wise Key Concepts
+Propositional Logic
+Propositional Logic, also known as propositional calculus, is the study of propositions (declarative sentences that are
+either true or false, but not both) and their combinations using logical connectives. It forms the most basic level of
+logical reasoning, focusing on the truth values of simple statements and how they combine to determine the truth values
+of complex statements.
+Definition and Core Idea:
+ A proposition is a statement that is unequivocally true or false. Propositional logic uses
+symbols to represent propositions and logical connectives to form compound propositions, allowing us to analyze
+their truth values systematically.
+Important Formulas, Theorems, and Results:
+1
+. 
+Logical Connectives:
+Negation (NOT): 
+ (read as "not p")
+Conjunction (AND): 
+ (read as "p and q")
+Disjunction (OR): 
+ (read as "p or q")
+Implication (IF...THEN): 
+ (read as "if p then q" or "p implies q")
+Biconditional (IF AND ONLY IF): 
+ (read as "p if and only if q")
+Exclusive OR (XOR): 
+ (read as "p xor q")
+NAND: 
+NOR: 
+2
+. 
+Truth Tables:
+ Essential for defining connectives and evaluating compound propositions.
+: T if p is F, F if p is T.
+: T if both p and q are T, else F.
+: T if p is T or q is T (or both), else F.
+: F only if p is T and q is F, else T.
+: T if p and q have the same truth value, else F.
+: T if p and q have different truth values, else F.
+3
+. 
+Tautology, Contradiction, Contingency:
+Tautology:
+ A compound proposition that is always true, regardless of the truth values of its atomic
+propositions. Example: 
+.
+Contradiction (or Absurdity):
+ A compound proposition that is always false. Example: 
+.
+Contingency:
+ A compound proposition that is neither a tautology nor a contradiction (i.e., its truth value
+depends on the truth values of its atomic propositions).
+4
+. 
+Logical Equivalence (
+):
+ Two propositions 
+ and 
+ are logically equivalent if 
+ is a tautology. This
+means they always have the same truth value.
+5
+. 
+Laws of Logic (Logical Equivalences):
+Identity Laws:
+
+
+Domination Laws:
+Idempotent Laws:
+Double Negation Law:
+ 
+Commutative Laws:
+Associative Laws:
+Distributive Laws:
+De Morgan's Laws:
+Absorption Laws:
+Inverse Laws (Complement Laws):
+Implication Equivalences:
+ (Contrapositive)
+Biconditional Equivalences:
+6
+. 
+Conjunctive Normal Form (CNF) and Disjunctive Normal Form (DNF):
+Literal:
+ A propositional variable or its negation (e.g., 
+).
+Clause:
+ A disjunction of literals (e.g., 
+).
+CNF:
+ A conjunction of clauses (e.g., 
+).
+Minterm:
+ A conjunction of literals where each variable appears exactly once (e.g., 
+).
+Maxterm:
+ A disjunction of literals where each variable appears exactly once (e.g., 
+).
+DNF:
+ A disjunction of minterms (e.g., 
+).
+Any propositional formula can be converted into an equivalent CNF or DNF.
+Key Properties and Identities:
+ All the laws of logic listed above are crucial identities for simplification and proving
+equivalence. Understanding the truth conditions for each connective is fundamental.
+Common Pitfalls or Tricky Points:
+Confusing implication (
+) with causation or "if and only if". Remember 
+ is false only when 
+ is true
+and 
+ is false.
+Incorrectly applying De Morgan's Laws, especially with more complex expressions.
+Misinterpreting the biconditional; it implies mutual implication.
+Errors in constructing truth tables, particularly for propositions with many variables.
+Assuming logical equivalence based on partial truth values.
+Standard Problem-Solving Techniques or Shortcuts:
+Truth Tables:
+ The most direct method for small propositions to check tautology, contradiction, or equivalence.
+Logical Equivalences:
+ Use the laws of logic to simplify expressions or prove equivalence without truth tables.
+This is often faster for complex expressions.
+Substitution:
+ Replace sub-expressions with their known equivalents.
+Proof by Contradiction:
+ To show 
+ is a tautology, assume 
+ is true and derive a contradiction. To show 
+, assume 
+ is true and derive a contradiction.
+Conversion to CNF/DNF:
+ Useful for standardization and for certain proof methods like resolution.
+
+
+First Order Logic (Predicate Logic)
+First Order Logic (FOL), also known as Predicate Logic, extends propositional logic by allowing us to express more
+complex statements about objects, their properties, and relationships. It introduces predicates, variables, and
+quantifiers, enabling reasoning about "all" or "some" elements within a domain.
+Definition and Core Idea:
+ FOL allows us to break down propositions into predicates (properties or relations) and
+arguments (variables or constants). It introduces quantifiers (
+ for "for all" and 
+ for "there exists") to make
+statements about collections of objects, providing a richer expressive power than propositional logic.
+Important Formulas, Theorems, and Results:
+1
+. 
+Components of FOL:
+Predicates:
+ Represent properties or relations (e.g., 
+ for "x is prime", 
+ for "x loves y").
+Variables:
+ Placeholders for objects (e.g., 
+).
+Constants:
+ Specific objects (e.g., "Socrates", "5").
+Functions:
+ Map objects to other objects (e.g., 
+ for "father of x").
+Quantifiers:
+Universal Quantifier (
+):
+ "For all", "for every", "for each". 
+ means 
+ is true for every 
+ in the
+domain.
+Existential Quantifier (
+):
+ "There exists", "for some", "for at least one". 
+ means there is at least
+one 
+ in the domain for which 
+ is true.
+2
+. 
+Scope of Quantifiers, Free and Bound Variables:
+The 
+scope
+ of a quantifier is the part of the formula to which it applies.
+A variable is 
+bound
+ if it is within the scope of a quantifier using that variable.
+A variable is 
+free
+ if it is not bound by any quantifier.
+A formula with no free variables is called a 
+sentence
+ or 
+closed formula
+ and has a definite truth value.
+3
+. 
+Quantifier Equivalences (Negation Rules):
+ (It is not true that all x have property P if and only if there exists an x that does not
+have property P).
+ (It is not true that there exists an x with property P if and only if all x do not have
+property P).
+4
+. 
+Distributive Properties of Quantifiers:
+Important Non-Equivalences:
+ is NOT equivalent to 
+. (e.g., "Every number is even or odd" is true,
+but "Every number is even or every number is odd" is false).
+ is NOT equivalent to 
+. (e.g., "There is a number that is both even
+and prime" (2) is true, but "There is an even number and there is a prime number" is also true, but the
+existence of one doesn't imply the other is the same number).
+5
+. 
+Interchange of Quantifiers:
+Order Matters for Mixed Quantifiers:
+ (For every x, there exists a y such that P(x,y)) is NOT equivalent to 
+ (There
+exists a y such that for every x, P(x,y)).
+Example: Let 
+ be "x loves y". 
+ means "Everyone loves someone". 
+means "There is someone whom everyone loves". These are clearly different.
+6
+. 
+Prenex Normal Form (PNF):
+ A formula is in PNF if all quantifiers are at the beginning of the formula, followed
+by a quantifier-free formula (called the matrix). Any FOL formula can be converted to an equivalent PNF.
+Key Properties and Identities:
+ The quantifier negation rules are fundamental for manipulating and simplifying FOL
+expressions. Understanding the implications of quantifier order is critical.
+Common Pitfalls or Tricky Points:
+Incorrect Translation:
+ Translating natural language statements into FOL is a major source of errors. Pay close
+attention to words like "all", "some", "no", "only if", "unless".
+"All A are B": 
+ (NOT 
+)
+"Some A are B": 
+ (NOT 
+)
+"No A are B": 
+ or 
+Scope Errors:
+ Misplacing parentheses or incorrectly determining the scope of a quantifier.
+Variable Binding:
+ Confusing free and bound variables, or using the same variable name for different purposes
+in nested scopes.
+
+
+Order of Mixed Quantifiers:
+ Assuming 
+ is the same as 
+.
+Standard Problem-Solving Techniques or Shortcuts:
+Step-by-step Translation:
+ Break down complex natural language sentences into smaller parts, translate each,
+and then combine them. Identify predicates, variables, and connectives first.
+Applying Quantifier Equivalences:
+ Use negation rules to simplify expressions or move negations inwards.
+Domain Awareness:
+ Always consider the domain of discourse when evaluating truth values or translating.
+Counterexamples:
+ To show a statement is false or not equivalent, try to find a specific example in a small
+domain that makes it false.
+Logical Reasoning (Inference)
+Logical Reasoning, or Inference, is the process of deriving conclusions from a set of premises using valid rules. It
+focuses on the structure of arguments to determine whether a conclusion necessarily follows from the premises,
+regardless of the actual truth of the premises.
+Definition and Core Idea:
+ An argument is a sequence of propositions, where the first propositions are premises
+and the final proposition is the conclusion. An argument is 
+valid
+ if, whenever all its premises are true, the conclusion
+must also be true. The goal is to determine if an argument's structure guarantees the truth of its conclusion given
+true premises.
+Important Formulas, Theorems, and Results:
+1
+. 
+Argument Validity:
+ An argument with premises 
+ and conclusion 
+ is valid if the proposition 
+ is a tautology.
+2
+. 
+Rules of Inference (for Propositional Logic):
+ These are fundamental valid argument forms.
+Modus Ponens (Law of Detachment):
+Equivalent to 
+ being a tautology.
+Modus Tollens:
+Equivalent to 
+ being a tautology.
+Hypothetical Syllogism:
+Equivalent to 
+ being a tautology.
+Disjunctive Syllogism:
+Equivalent to 
+ being a tautology.
+Addition:
+Simplification:
+
+
+Conjunction:
+Resolution:
+This is particularly useful in automated theorem proving and for converting to CNF.
+Constructive Dilemma:
+Destructive Dilemma:
+3
+. 
+Rules of Inference (for First Order Logic):
+Universal Instantiation (UI):
+ If 
+ is true, then 
+ is true for any arbitrary individual 
+ in the domain.
+Universal Generalization (UG):
+ If 
+ is true for an arbitrary individual 
+ in the domain, then 
+ is
+true.
+Existential Instantiation (EI):
+ If 
+ is true, then 
+ is true for some specific individual 
+ in the
+domain. This 
+ must be a new constant not previously used in the proof.
+Existential Generalization (EG):
+ If 
+ is true for some specific individual 
+ in the domain, then 
+ is
+true.
+4
+. 
+Proof Methods:
+Direct Proof:
+ Assume premises are true, and use inference rules and logical equivalences to derive the
+conclusion.
+
+
+Indirect Proof (Proof by Contradiction):
+ To prove 
+ from premises 
+, assume 
+ is true along
+with 
+, and derive a contradiction (
+).
+Proof by Contraposition:
+ To prove 
+, prove its contrapositive 
+.
+Key Properties and Identities:
+ The validity of each inference rule is a key property. Understanding that these rules
+preserve truth is fundamental.
+Common Pitfalls or Tricky Points:
+Fallacies:
+ Invalid argument forms that resemble valid ones.
+Fallacy of Affirming the Consequent:
+ 
+ (NOT a tautology). Example: "If it rains, the
+ground is wet. The ground is wet. Therefore, it rained." (Could be wet from a sprinkler).
+Fallacy of Denying the Antecedent:
+ 
+ (NOT a tautology). Example: "If it rains, the
+ground is wet. It did not rain. Therefore, the ground is not wet." (Could be wet from a sprinkler).
+Confusing Validity with Soundness:
+ A valid argument can have false premises and a false conclusion. A
+sound
+ argument is a valid argument with all true premises (and thus, a true conclusion). GATE questions
+usually focus on validity.
+Incorrect Application of Quantifier Rules:
+ Especially with EI and UG, ensure the constant chosen for
+instantiation is new (for EI) or truly arbitrary (for UG).
+Circular Reasoning:
+ Assuming the conclusion (or something equivalent to it) as a premise.
+Standard Problem-Solving Techniques or Shortcuts:
+Formal Proofs:
+ List premises and then systematically apply inference rules and logical equivalences to derive
+the conclusion, citing the rule for each step.
+Truth Tables (for small arguments):
+ Convert the argument into a single conditional statement 
+ and check if it's a tautology.
+Resolution Principle:
+ Convert all premises and the negation of the conclusion into CNF clauses. Add the
+negation of the conclusion as a clause. If an empty clause (
+) can be derived through resolution, the original
+argument is valid.
+Look for Fallacies:
+ If an argument resembles a common fallacy, it's likely invalid.
+Quick Formula Reference
+Propositional Logic Equivalences
+ (Double Negation)
+ (Commutative)
+ (Commutative)
+ (Associative)
+ (Associative)
+ (Distributive)
+ (Distributive)
+ (De Morgan's)
+ (De Morgan's)
+ (Contrapositive)
+ (Inverse Law)
+ (Inverse Law)
+ (Domination Law)
+ (Domination Law)
+ (Identity Law)
+ (Identity Law)
+ (Idempotent Law)
+ (Idempotent Law)
+ (Absorption Law)
+ (Absorption Law)
+Quantifier Equivalences
+
+
+3.1
+3.1.1
+Rules of Inference (Propositional Logic)
+Modus Ponens:
+ 
+Modus Tollens:
+ 
+Hypothetical Syllogism:
+ 
+Disjunctive Syllogism:
+ 
+Addition:
+ 
+Simplification:
+ 
+Conjunction:
+ 
+Resolution:
+ 
+Rules of Inference (First Order Logic)
+Universal Instantiation (UI):
+ 
+Universal Generalization (UG):
+ 
+Existential Instantiation (EI):
+ 
+Existential Generalization (EG):
+ 
+Important Tips for GATE
+1
+. 
+Master Truth Tables:
+ They are the foundation. Be able to quickly construct and interpret truth tables for any
+compound proposition, especially for 2-3 variables. This helps in verifying tautologies, contradictions, and
+equivalences.
+2
+. 
+Memorize Key Equivalences and Inference Rules:
+ Speed and accuracy in GATE questions heavily rely on your
+ability to recall and apply De Morgan's laws, implication equivalences, and the common rules of inference (Modus
+Ponens, Modus Tollens, etc.) without hesitation.
+3
+. 
+Practice Natural Language Translation:
+ A significant portion of GATE questions involves translating English
+sentences into logical expressions (and vice-versa). Pay close attention to keywords like "all", "some", "no", "only if",
+"unless", and the correct use of quantifiers and connectives.
+4
+. 
+Understand Quantifier Scope and Order:
+ Incorrectly interpreting the scope of quantifiers or swapping the order of
+mixed quantifiers (
+ vs. 
+) is a very common mistake. Always visualize the domain and what each quantifier
+implies.
+5
+. 
+Distinguish Validity from Soundness:
+ GATE questions usually ask about the 
+validity
+ of an argument (whether the
+conclusion logically follows from the premises), not its 
+soundness
+ (which also requires premises to be true in the
+real world). Focus on the logical structure.
+6
+. 
+Systematic Approach to Proofs:
+ When asked to prove an argument's validity, don't guess. Start with the premises
+and systematically apply inference rules and logical equivalences, one step at a time, until you reach the conclusion.
+Clearly state the rule used for each step.
+7
+. 
+Identify Common Fallacies:
+ Be aware of fallacies like "Affirming the Consequent" and "Denying the Antecedent". If
+an argument structure matches a known fallacy, you can quickly identify it as invalid.
+8
+. 
+Time Management:
+ Some logical reasoning problems can be lengthy, especially those involving formal proofs or
+complex translations. If a question seems too time-consuming, make an educated guess or mark it for review if time
+permits, and move on to other questions.
+First Order Logic 
+(35)
+First Order Logic: GATE CSE 1989 | Question: 14a
+Symbolize the expression "Every mother loves her children" in predicate logic.
+gate1989
+ 
+descriptive
+ 
+first-order-logic
+ 
+mathematical-logic
+Answer key
+☟
+
+
+3.1.2
+3.1.3
+3.1.4
+3.1.5
+First Order Logic: GATE CSE 1991 | Question: 15,b
+Consider the following first order formula:
+Does it have finite models?
+Is it satisfiable? If so, give a countable model for it.
+gate1991
+ 
+mathematical-logic
+ 
+first-order-logic
+ 
+descriptive
+Answer key
+☟
+First Order Logic: GATE CSE 1992 | Question: 92,xv
+Which of the following predicate calculus statements is/are valid?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gate1992
+ 
+mathematical-logic
+ 
+normal
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2003 | Question: 32
+Which of the following is a valid ﬁrst order formula? (Here 
+ and 
+ are ﬁrst order formulae with 
+ as their
+only free variable)
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2003
+ 
+mathematical-logic
+ 
+first-order-logic
+ 
+normal
+Answer key
+☟
+First Order Logic: GATE CSE 2003 | Question: 33
+Consider the following formula and its two interpretations 
+ and 
+.
+ : Domain: the set of natural numbers
+
+
+3.1.6
+3.1.7
+3.1.8
+ =  '
+ is a prime number'
+ = '
+ divides 
+'
+ : same as 
+ except that 
+ = '
+ is a composite number'.
+Which of the following statements is true?
+A
+. 
+ satisfies 
+, 
+ does not
+B
+. 
+ satisfies 
+, 
+ does not
+C
+. 
+Neither 
+ nor 
+ satisfies 
+D
+. 
+Both 
+ and 
+ satisfies 
+gatecse-2003
+ 
+mathematical-logic
+ 
+difficult
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2004 | Question: 23, ISRO2007-32
+Identify the correct translation into logical notation of the following assertion.
+Some boys in the class are taller than all the girls
+Note: 
+ is true if 
+ is taller than 
+.
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2004
+ 
+mathematical-logic
+ 
+easy
+ 
+isro2007
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2005 | Question: 41
+What is the first order predicate calculus statement equivalent to the following?
+"Every teacher is liked by some student"
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2005
+ 
+mathematical-logic
+ 
+easy
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2006 | Question: 26
+Which one of the ﬁrst order predicate calculus statements given below correctly expresses the following
+English statement?
+ Tigers and lions attack if they are hungry or threatened.
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2006
+ 
+mathematical-logic
+ 
+normal
+ 
+first-order-logic
+ 
+tricky
+
+
+3.1.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.1.10
+3.1.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.1.12
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+Answer key
+☟
+First Order Logic: GATE CSE 2007 | Question: 22
+Let 
+ be a predicate which denotes that 
+ is a graph. Let 
+ be a predicate which
+denotes that 
+ is connected. Which of the following ﬁrst order logic sentences 
+DOES NOT
+ represent the
+statement:
+gatecse-2007
+ 
+mathematical-logic
+ 
+easy
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2008 | Question: 30
+Let 
+ and 
+ be two predicates such that 
+ means 
+ is a ﬁnite state automaton and 
+ means
+that 
+ is a pushdown automaton. Let 
+ be another predicate such that 
+ means 
+and 
+ are equivalent. Which of the following first order logic statements represent the following?
+Each finite state automaton has an equivalent pushdown automaton
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2008
+ 
+easy
+ 
+mathematical-logic
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2009 | Question: 23
+Which one of the following is the most appropriate logical formula to represent the statement?
+"Gold and silver ornaments are precious".
+The following notations are used:        
+ is a gold ornament
+ is a silver ornament        
+ is precious
+gatecse-2009
+ 
+mathematical-logic
+ 
+easy
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2009 | Question: 26
+Consider the following well-formed formulae:
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+Which of the above are equivalent?
+gatecse-2009
+ 
+mathematical-logic
+ 
+normal
+ 
+first-order-logic
+
+
+3.1.13
+3.1.14
+3.1.15
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.1.16
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.1.17
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Answer key
+☟
+First Order Logic: GATE CSE 2010 | Question: 30
+Suppose the predicate 
+ is used to represent the statement that person 
+ can fool person 
+ at time 
+.
+Which one of the statements below expresses best the meaning of the formula,
+  
+ 
+A
+. 
+Everyone can fool some person at some time
+B
+. 
+No one can fool everyone all the time
+C
+. 
+Everyone cannot fool some person all the time
+D
+. 
+No one can fool some person at some time
+gatecse-2010
+ 
+mathematical-logic
+ 
+easy
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2011 | Question: 30
+Which one of the following options is CORRECT given three positive integers 
+ and 
+, and a predicate
+A
+. 
+ being true means that 
+ is a prime number
+B
+. 
+ being true means that 
+ is a number other than 
+C
+. 
+ is always true irrespective of the value of 
+D
+. 
+ being true means that 
+ has exactly two factors other than 
+ and 
+gatecse-2011
+ 
+mathematical-logic
+ 
+normal
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2012 | Question: 13
+What is the correct translation of the following statement into mathematical logic?
+“Some real numbers are rational”
+gatecse-2012
+ 
+mathematical-logic
+ 
+easy
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2013 | Question: 27
+What is the logical translation of the following statement?
+"None of my friends are perfect."
+gatecse-2013
+ 
+mathematical-logic
+ 
+easy
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2013 | Question: 47
+Which one of the following is 
+NOT 
+logically equivalent to 
+ ?
+mathematical-logic
+ 
+normal
+ 
+marks-to-all
+ 
+gatecse-2013
+ 
+first-order-logic
+Answer key
+☟
+
+
+3.1.18
+3.1.19
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.1.20
+3.1.21
+3.1.22
+First Order Logic: GATE CSE 2014 | Set 1 | Question: 1
+Consider the statement
+ "Not all that glitters is gold”
+Predicate glitters
+ is true if 
+ glitters and predicate gold
+ is true if 
+ is gold.  Which one of the following logical
+formulae represents the above statement?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2014-set1
+ 
+mathematical-logic
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2014 | Set 3 | Question: 53
+The CORRECT formula for the sentence, "not all Rainy days are Cold" is
+gatecse-2014-set3
+ 
+mathematical-logic
+ 
+easy
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2015 | Set 2 | Question: 55
+Which one of the following  well-formed formulae is a tautology?
+ 
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2015-set2
+ 
+mathematical-logic
+ 
+normal
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2016 | Set 2 | Question: 27
+Which one of the following well-formed formulae in predicate calculus is 
+NOT
+ valid ?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2016-set2
+ 
+mathematical-logic
+ 
+first-order-logic
+ 
+normal
+Answer key
+☟
+First Order Logic: GATE CSE 2017 | Set 1 | Question: 02
+Consider the ﬁrst-order logic sentence 
+. Assuming non-empty logical domains, which of
+the sentences below are 
+implied 
+by 
+?
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+
+
+A
+. 
+IV only
+B
+. 
+I and IV only
+C
+. 
+II only
+D
+. 
+II and III only
+3.1.23
+3.1.24
+A
+. 
+ and 
+B
+. 
+ and 
+C
+. 
+ and 
+D
+. 
+ and 
+3.1.25
+3.1.26
+gatecse-2017-set1
+ 
+mathematical-logic
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE CSE 2018 | Question: 28
+Consider the first-order logic sentence
+where 
+ is a quantiﬁer-free ﬁrst-order logic formula using only predicate symbols, and possibly
+equality, but no function symbols. Suppose 
+ has a model with a universe containing 
+ elements.
+Which one of the following statements is necessarily true?
+A
+. 
+There exists at least one model of 
+ with universe of size less than or equal to 
+B
+. 
+There exists no model of 
+ with universe of size less than or equal to 
+C
+. 
+There exists no model of 
+ with universe size of greater than 
+D
+. 
+Every model of 
+ has a universe of size equal to 
+gatecse-2018
+ 
+mathematical-logic
+ 
+normal
+ 
+first-order-logic
+ 
+two-marks
+Answer key
+☟
+First Order Logic: GATE CSE 2019 | Question: 35
+Consider the first order predicate formula 
+:
+Here 
+ denotes that  
+ , where  
+ and 
+ are integers. Consider the following sets:
+ Set of all positive integers
+ Set of all integers
+Which of the above sets satisfy 
+?
+gatecse-2019
+ 
+discrete-mathematics
+ 
+mathematical-logic
+ 
+first-order-logic
+ 
+two-marks
+ 
+normal
+Answer key
+☟
+First Order Logic: GATE CSE 2020 | Question: 39
+Which one of the following predicate formulae is NOT logically valid?
+Note that 
+ is a predicate formula without any free occurrence of 
+.
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2020
+ 
+first-order-logic
+ 
+mathematical-logic
+ 
+two-marks
+Answer key
+☟
+First Order Logic: GATE CSE 2023 | Question: 16
+Geetha has a conjecture about integers, which is of the form
+where 
+ is a statement about integers, and 
+ is a statement about pairs of integers. Which of the following (one or
+
+
+3.1.27
+3.1.28
+3.1.29
+more) option(s) would 
+imply 
+Geetha's conjecture?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2023
+ 
+mathematical-logic
+ 
+first-order-logic
+ 
+multiple-selects
+ 
+one-mark
+ 
+difficult
+Answer key
+☟
+First Order Logic: GATE CSE 2025 | Set 1 | Question: 38
+Which of the following predicate logic formulae/formula is/are CORRECT representation(s) of the statement:
+"Everyone has exactly one mother"?
+The meanings of the predicates used are:
+mother 
+ is the mother of 
+noteq 
+ and 
+ are not equal
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse2025-set1
+ 
+mathematical-logic
+ 
+first-order-logic
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+First Order Logic: GATE CSE 2025 | Set 2 | Question: 5
+Let 
+ be an arbitrary predicate over the domain of natural numbers. Which ONE of the following
+statements is TRUE?
+A
+. 
+ 
+B
+. 
+C
+. 
+D
+. 
+gatecse2025-set2
+ 
+mathematical-logic
+ 
+first-order-logic
+ 
+one-mark
+Answer key
+☟
+First Order Logic: GATE CSE 2026 | Set 2 | Question: 1
+For two diﬀerent persons 
+ and 
+, the predicate 
+ denotes that 
+ knows 
+. Consider the following
+statement.
+There is a person who does not know anyone else, but that person is known by everyone else.
+Which one of the following expressions represents the above statement?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2026-set2
+ 
+mathematical-logic
+ 
+first-order-logic
+ 
+one-mark
+Answer key
+☟
+
+
+3.1.30
+3.1.31
+3.1.32
+A
+. 
+satisfiable and valid
+B
+. 
+satisfiable and so is its negation
+C
+. 
+unsatisﬁable but its negation is
+valid
+D
+. 
+satisﬁable but its negation is
+unsatisfiable
+3.1.33
+3.1.34
+First Order Logic: GATE IT 2004 | Question: 3
+Let 
+ and 
+ be three statements with variables 
+ and 
+ chosen from some universe.
+Consider the following statement:
+Which one of the following is its equivalent?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gateit-2004
+ 
+mathematical-logic
+ 
+normal
+ 
+discrete-mathematics
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE IT 2005 | Question: 36
+Let 
+ and 
+ be arbitrary predicates. Which of the following statements is always 
+TRUE
+?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gateit-2005
+ 
+mathematical-logic
+ 
+first-order-logic
+ 
+normal
+Answer key
+☟
+First Order Logic: GATE IT 2006 | Question: 21
+Consider the following first order logic formula in which 
+ is a binary relation symbol.
+The formula is
+gateit-2006
+ 
+mathematical-logic
+ 
+normal
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE IT 2007 | Question: 21
+Which one of these first-order logic formulae is valid?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gateit-2007
+ 
+mathematical-logic
+ 
+normal
+ 
+first-order-logic
+Answer key
+☟
+First Order Logic: GATE IT 2008 | Question: 21
+Which of the following ﬁrst order formulae is logically valid? Here 
+ is a ﬁrst order formula with 
+ as a
+free variable, and 
+ is a first order formula with no free variable.
+
+
+3.1.35
+3.2
+3.2.1
+3.2.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gateit-2008
+ 
+first-order-logic
+ 
+normal
+Answer key
+☟
+First Order Logic: GATE IT 2008 | Question: 22
+Which of the following is the negation of 
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gateit-2008
+ 
+mathematical-logic
+ 
+normal
+ 
+first-order-logic
+Answer key
+☟
+Logical Reasoning 
+(3)
+Logical Reasoning: GATE CSE 2012 | Question: 1
+Consider the following logical inferences.
+: If it rains then the cricket match will not be played.
+The cricket match was played.
+Inference:  There was no rain.
+: If it rains then the cricket match will not be played.
+It did not rain.
+Inference: The cricket match was played.
+Which of the following is 
+TRUE
+?
+A
+. 
+Both 
+ and 
+ are correct inferences
+B
+. 
+ is correct but 
+ is not a correct inference
+C
+. 
+ is not correct but 
+ is a correct inference
+D
+. 
+Both 
+ and 
+ are not correct inferences
+gatecse-2012
+ 
+mathematical-logic
+ 
+easy
+ 
+logical-reasoning
+Answer key
+☟
+Logical Reasoning: GATE CSE 2015 | Set 2 | Question: 3
+Consider the following two statements.
+: If a candidate is known to be corrupt, then he will not be elected
+: If a candidate is kind, he will be elected
+Which one of the following statements follows from 
+ and 
+ as per sound inference rules of logic?
+A
+. 
+If a person is known to be corrupt, he is kind
+B
+. 
+If a person is not known to be corrupt, he is not kind
+C
+. 
+If a person is kind, he is not known to be corrupt
+D
+. 
+If a person is not kind, he is not known to be corrupt
+gatecse-2015-set2
+ 
+mathematical-logic
+ 
+normal
+ 
+logical-reasoning
+Answer key
+☟
+
+
+3.2.3
+A
+. 
+The result is head
+B
+. 
+The result is tail
+C
+. 
+If the person is of 
+, then the
+result is tail
+D
+. 
+If the person is of 
+, then the
+result is tail
+3.3
+3.3.1
+3.3.2
+3.3.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.3.4
+3.3.5
+A
+. 
+Both 
+ and 
+ are tautologies
+B
+. 
+The conjunction 
+ is not
+satisfiable
+C
+. 
+Neither is tautologous
+D
+. 
+Neither is satisfiable
+E
+. 
+None of the above
+Logical Reasoning: GATE CSE 2015 | Set 3 | Question: 24
+In a room there are only two types of people, namely 
+ and 
+. 
+ people always tell the
+truth and 
+ people always lie. You give a fair coin to a person in that room, without knowing which
+type he is from and tell him to toss it and hide the result from you till you ask for it. Upon asking the person replies
+the following
+"The result of the toss is head if and only if I am telling the truth"
+Which of the following options is correct?
+gatecse-2015-set3
+ 
+mathematical-logic
+ 
+difficult
+ 
+logical-reasoning
+Answer key
+☟
+Propositional Logic 
+(40)
+Propositional Logic: GATE CSE 1987 | Question: 10e
+Show that the conclusion 
+ follows from the premises
+gate1987
+ 
+mathematical-logic
+ 
+propositional-logic
+ 
+proof
+ 
+descriptive
+Answer key
+☟
+Propositional Logic: GATE CSE 1988 | Question: 2vii
+Define the validity of a well-formed formula(wff)?
+gate1988
+ 
+descriptive
+ 
+mathematical-logic
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 1989 | Question: 3-v
+Which of the following well-formed formulas are equivalent?
+gate1989
+ 
+normal
+ 
+mathematical-logic
+ 
+propositional-logic
+ 
+multiple-selects
+Answer key
+☟
+Propositional Logic: GATE CSE 1990 | Question: 3-x
+Indicate which of the following well-formed formulae are valid:
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gate1990
+ 
+normal
+ 
+mathematical-logic
+ 
+propositional-logic
+ 
+multiple-selects
+Answer key
+☟
+Propositional Logic: GATE CSE 1991 | Question: 03,xii
+If 
+, 
+ and 
+ are propositional formulae such that 
+ and 
+ are both
+tautologies, then which of the following is true:
+
+
+3.3.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.3.7
+3.3.8
+3.3.9
+A
+. 
+a tautology
+B
+. 
+logically equivalent to 
+C
+. 
+logically equivalent to 
+D
+. 
+a contradiction
+E
+. 
+none of the above
+3.3.10
+3.3.11
+gate1991
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+ 
+multiple-selects
+Answer key
+☟
+Propositional Logic: GATE CSE 1992 | Question: 02,xvi
+Which of the following is/are a tautology?
+gate1992
+ 
+mathematical-logic
+ 
+easy
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 1992 | Question: 15.a
+Use Modus ponens 
+ or resolution to show that the following set is inconsistent:
+1
+. 
+2
+. 
+3
+. 
+4
+. 
+where 
+ and 
+ are universally quantified variables, 
+ is a constant and 
+ are monadic predicates.
+gate1992
+ 
+normal
+ 
+mathematical-logic
+ 
+propositional-logic
+ 
+descriptive
+Answer key
+☟
+Propositional Logic: GATE CSE 1993 | Question: 18
+Show that proposition 
+ is a logical consequence of the formula
+using truth tables.
+gate1993
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+ 
+proof
+ 
+descriptive
+Answer key
+☟
+Propositional Logic: GATE CSE 1993 | Question: 8.2
+The proposition 
+ is:
+gate1993
+ 
+mathematical-logic
+ 
+easy
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 1994 | Question: 3.13
+Let 
+ and 
+ be propositions. Using only the Truth Table, decide whether 
+ does not imply 
+is 
+True 
+or 
+False
+.
+gate1994
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+ 
+true-false
+Answer key
+☟
+Propositional Logic: GATE CSE 1995 | Question: 13
+Obtain the principal (canonical) conjunctive normal form of the propositional formula
+
+
+3.3.12
+A
+. 
+True
+B
+. 
+Multiple Values
+C
+. 
+False
+D
+. 
+Cannot be determined
+3.3.13
+3.3.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.3.15
+A
+. 
+I stay if you go
+B
+. 
+If I stay then you go
+C
+. 
+If you do not go then I do not stay
+D
+. 
+If I do not stay then you go
+3.3.16
+where 
+ is logical and, 
+ is inclusive or and 
+ is negation.
+gate1995
+ 
+mathematical-logic
+ 
+propositional-logic
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Propositional Logic: GATE CSE 1995 | Question: 2.19
+If the proposition 
+ is true, then the truth value of the proposition 
+, where 
+ is negation,
+ is inclusive OR and 
+ is implication, is
+gate1995
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 1996 | Question: 2.3
+Which of the following is NOT True?
+(Read 
+ as AND, 
+ as OR, 
+ as NOT,  
+ as one way implication and 
+ as two way implication)
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gate1996
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 1997 | Question: 3.2
+Which of the following propositions is a tautology?
+gate1997
+ 
+mathematical-logic
+ 
+easy
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 1998 | Question: 1.5
+What is the converse of the following assertion?
+I stay only if you go
+gate1998
+ 
+mathematical-logic
+ 
+easy
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 1999 | Question: 14
+Show that the formula 
+ is not a tautology.
+Let 
+ be a tautology and 
+ any other formula. Prove that 
+ is a tautology.
+gate1999
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+ 
+proof
+ 
+descriptive
+Answer key
+☟
+
+
+3.3.17
+A
+. 
+True
+B
+. 
+False
+C
+. 
+Same as the truth-value of 
+D
+. 
+Same as the truth-value of 
+3.3.18
+A
+. 
+ is satisfiable, 
+ is valid
+B
+. 
+ unsatisfiable, 
+ is satisfiable
+C
+. 
+ is unsatisfiable, 
+ is valid
+D
+. 
+ and 
+ are both satisfiable
+3.3.19
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.3.20
+3.3.21
+Propositional Logic: GATE CSE 2000 | Question: 2.7
+Let 
+ be propositions. Assume that the equivalence 
+ and 
+ hold. Then the truth-
+value of the formula 
+ is always
+gatecse-2000
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2001 | Question: 1.3
+Consider two well-formed formulas in propositional logic
+          
+Which one of the following statements is correct?
+gatecse-2001
+ 
+mathematical-logic
+ 
+easy
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2002 | Question: 1.8
+"If 
+ then 
+ unless 
+" is represented by which of the following formulas in propositional logic? ("
+" is
+negation, "
+" is conjunction, and "
+" is implication)
+gatecse-2002
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2002 | Question: 5b
+Determine whether each of the following is a tautology, a contradiction, or neither ("
+" is disjunction, "
+" is
+conjunction, "
+" is implication, "
+" is negation, and "
+" is biconditional (if and only if).
+1
+. 
+2
+. 
+3
+. 
+gatecse-2002
+ 
+mathematical-logic
+ 
+easy
+ 
+descriptive
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2003 | Question: 72
+The following resolution rule is used in logic programming.
+Derive clause 
+ from clauses 
+Which of the following statements related to this rule is FALSE?
+A
+. 
+ is logically valid
+B
+. 
+ is logically valid
+C
+. 
+ is satisfiable if and only if 
+ is satisfiable
+D
+. 
+ if and only if both 
+ and 
+ are unsatisfiable
+gatecse-2003
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+Answer key
+☟
+
+
+3.3.22
+A
+. 
+   satisfiable but not valid
+B
+. 
+   valid
+C
+. 
+   a contradiction
+D
+. 
+   None of the above
+3.3.23
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+3.3.24
+A
+. 
+ is a tautology, but not 
+B
+. 
+ is a tautology, but not 
+C
+. 
+ and 
+ are both tautologies
+D
+. 
+Both 
+ and 
+ are not tautologies
+3.3.25
+A
+. 
+Only I and II
+B
+. 
+Only I, II and III
+C
+. 
+Only I, II and IV
+D
+. 
+All of I, II, III and IV
+3.3.26
+A
+. 
+   
+B
+. 
+   
+C
+. 
+   
+D
+. 
+   
+Propositional Logic: GATE CSE 2004 | Question: 70
+The following propositional statement is  
+gatecse-2004
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2005 | Question: 40
+Let 
+ and 
+ be three atomic propositional assertions. Let 
+ denote 
+ and 
+ denote 
+ Which one of the following is a tautology?
+gatecse-2005
+ 
+mathematical-logic
+ 
+propositional-logic
+ 
+normal
+Answer key
+☟
+Propositional Logic: GATE CSE 2006 | Question: 27
+Consider the following propositional statements:
+Which one of the following is true?
+gatecse-2006
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2008 | Question: 31
+ and 
+ are two propositions. Which of the following logical expressions are equivalent?
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+gatecse-2008
+ 
+normal
+ 
+mathematical-logic
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2009 | Question: 24
+The binary operation 
+ is defined as follows
+Which one of the following is equivalent to 
+?
+
+
+3.3.27
+3.3.28
+3.3.29
+A
+. 
+Only L is TRUE.
+B
+. 
+Only M is TRUE.
+C
+. 
+Only N is TRUE.
+D
+. 
+L, M and N are TRUE.
+3.3.30
+gatecse-2009
+ 
+mathematical-logic
+ 
+easy
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2014 | Set 1 | Question: 53
+Which one of the following propositional logic formulas is TRUE when exactly two of 
+ and 
+ are TRUE?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2014-set1
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2014 | Set 2 | Question: 53
+Which one of the following Boolean expressions is NOT a tautology?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2014-set2
+ 
+mathematical-logic
+ 
+propositional-logic
+ 
+normal
+Answer key
+☟
+Propositional Logic: GATE CSE 2014 | Set 3 | Question: 1
+Consider the following statements:
+P: Good mobile phones are not cheap
+Q: Cheap mobile phones are not good
+L: P implies Q
+M: Q implies P
+N: P is equivalent to Q
+Which one of the following about L, M, and N is CORRECT?
+gatecse-2014-set3
+ 
+mathematical-logic
+ 
+easy
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2015 | Set 1 | Question: 1
+4
+Which one of the following is NOT equivalent to 
+?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2015-set1
+ 
+mathematical-logic
+ 
+easy
+ 
+propositional-logic
+Answer key
+☟
+
+
+3.3.31
+3.3.32
+3.3.33
+A
+. 
+I only
+B
+. 
+I and IV only
+C
+. 
+II only
+D
+. 
+II and III only
+3.3.34
+A
+. 
+a tautology
+B
+. 
+a contradiction
+C
+. 
+always TRUE when 
+ is FALSE
+D
+. 
+always TRUE when 
+ is TRUE
+3.3.35
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Propositional Logic: GATE CSE 2016 | Set 1 | Question: 1
+Let 
+ represents the following propositions.
+ 
+ is a composite number.
+ 
+ is a perfect square.
+ 
+ is a prime number.
+The integer 
+ which satisfies 
+ is ____________.
+gatecse-2016-set1
+ 
+mathematical-logic
+ 
+normal
+ 
+numerical-answers
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2016 | Set 2 | Question: 01
+Consider the following expressions:
+i
+. 
+ii
+. 
+iii
+. 
+iv
+. 
+v
+. 
+The number of expressions given above that are logically implied by 
+ is ___________.
+gatecse-2016-set2
+ 
+mathematical-logic
+ 
+normal
+ 
+numerical-answers
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2017 | Set 1 | Question: 01
+The statement 
+ is logically equivalent to which of the statements below?
+I
+. 
+II
+. 
+III
+. 
+IV
+. 
+gatecse-2017-set1
+ 
+mathematical-logic
+ 
+propositional-logic
+ 
+easy
+Answer key
+☟
+Propositional Logic: GATE CSE 2017 | Set 1 | Question: 29
+Let 
+, 
+ and 
+ be propositions and the expression 
+ be a contradiction. Then, the expression 
+ is
+gatecse-2017-set1
+ 
+mathematical-logic
+ 
+propositional-logic
+Answer key
+☟
+Propositional Logic: GATE CSE 2017 | Set 2 | Question: 11
+Let 
+ denote the statements ”
+It is raining
+”, “
+It is cold
+”, and “
+It is pleasant
+”
+, 
+respectively. Then the
+statement “
+It is not raining and it is pleasant, and it is not pleasant only if it is raining and it is cold
+” is
+represented by
+gatecse-2017-set2
+ 
+mathematical-logic
+ 
+propositional-logic
+
+
+3.3.36
+3.3.37
+3.3.38
+A
+. 
+ 
+B
+. 
+ 
+C
+. 
+ 
+D
+. 
+ 
+3.3.39
+Answer key
+☟
+Propositional Logic: GATE CSE 2021 | Set 1 | Question: 7
+Let 
+ and 
+ be two propositions. Consider the following two formulae in propositional logic.
+Which one of the following choices is correct?
+A
+. 
+Both 
+ and 
+ are tautologies.
+B
+. 
+ is a tautology but 
+ is not a tautology
+C
+. 
+ is not a tautology but 
+ is a tautology
+D
+. 
+Neither 
+ nor 
+ is a tautology
+gatecse-2021-set1
+ 
+mathematical-logic
+ 
+propositional-logic
+ 
+one-mark
+Answer key
+☟
+Propositional Logic: GATE CSE 2021 | Set 2 | Question: 15
+Choose the correct choice(s) regarding the following proportional logic assertion 
+:
+A
+. 
+ is neither a tautology nor a contradiction
+B
+. 
+ is a tautology
+C
+. 
+ is a contradiction
+D
+. 
+The antecedent of 
+ is logically equivalent to the consequent of 
+gatecse-2021-set2
+ 
+multiple-selects
+ 
+mathematical-logic
+ 
+propositional-logic
+ 
+one-mark
+Answer key
+☟
+Propositional Logic: GATE CSE 2024 | Set 2 | Question: 2
+​​​​
+Let 
+ and 
+ be the following propositions:
+ : Fail grade can be given.
+ : Student scores more than 
+ marks.
+Consider the statement: "
+Fail grade cannot be given when student scores more than 
+ marks.
+"
+Which one of the following is the CORRECT representation of the above statement in propositional logic?
+gatecse-2024-set2
+ 
+mathematical-logic
+ 
+propositional-logic
+ 
+one-mark
+Answer key
+☟
+Propositional Logic: GATE DS&AI 2024 | Question: 19
+​​​​​​
+Let 
+ and 
+ be two propositions. Which of the following statements is a tautology /are tautologies?
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ 
+gate-ds-ai-2024
+ 
+mathematical-logic
+ 
+propositional-logic
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+
+
+3.3.40
+A
+. 
+ and 
+ only
+B
+. 
+ and 
+ only
+C
+. 
+ and 
+ only
+D
+. 
+ and 
+Propositional Logic: GATE IT 2004 | Question: 31
+Let 
+ and 
+ be four primitive statements. Consider the following arguments:
+Which of the above arguments are valid?
+gateit-2004
+ 
+mathematical-logic
+ 
+normal
+ 
+propositional-logic
+Answer key
+☟
+Answer Keys
+3.1.1
+N/A
+3.1.2
+N/A
+3.1.3
+A
+3.1.4
+D
+3.1.5
+D
+3.1.6
+D
+3.1.7
+B
+3.1.8
+D
+3.1.9
+D
+3.1.10
+X
+3.1.11
+D
+3.1.12
+B
+3.1.13
+B
+3.1.14
+A
+3.1.15
+C
+3.1.16
+D
+3.1.17
+X
+3.1.18
+D
+3.1.19
+D
+3.1.20
+C
+3.1.21
+D
+3.1.22
+B
+3.1.23
+A
+3.1.24
+C
+3.1.25
+C
+3.1.26
+B;C
+3.1.27
+B;D
+3.1.28
+A
+3.1.29
+A
+3.1.30
+C
+3.1.31
+B
+3.1.32
+B
+3.1.33
+A
+3.1.34
+C
+3.1.35
+D
+3.2.1
+B
+3.2.2
+C
+3.2.3
+A
+3.3.1
+N/A
+3.3.2
+N/A
+3.3.3
+A;B;C
+3.3.4
+A
+3.3.5
+B
+3.3.6
+B
+3.3.7
+N/A
+3.3.8
+N/A
+3.3.9
+B
+3.3.10
+True
+3.3.11
+N/A
+3.3.12
+D
+3.3.13
+D
+3.3.14
+C
+3.3.15
+A
+3.3.16
+N/A
+3.3.17
+A
+3.3.18
+A
+3.3.19
+A
+3.3.20
+N/A
+3.3.21
+B
+3.3.22
+A
+3.3.23
+B
+3.3.24
+D
+3.3.25
+B
+3.3.26
+B
+3.3.27
+B
+3.3.28
+B
+3.3.29
+D
+3.3.30
+C
+3.3.31
+11
+3.3.32
+4
+3.3.33
+D
+3.3.34
+D
+3.3.35
+A
+3.3.36
+B
+3.3.37
+B;D
+3.3.38
+A
+3.3.39
+B;C;D
+3.3.40
+C

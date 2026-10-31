@@ -1,0 +1,2706 @@
+5
+Engineering Mathematics: Calculus
+ 
+(69)
+Syllabus:
+ 
+Limits,
+ 
+Continuity,
+ and 
+Differentiability,
+ 
+Maxima and minima,
+ 
+Mean value theorem,
+ 
+Integration.
+Welcome to the "Engineering Mathematics: Calculus" chapter, a cornerstone of your GATE Computer Science
+preparation. This section is designed as a comprehensive, exam-focused reference to equip you with the essential
+concepts, formulas, and problem-solving strategies required to excel in the calculus portion of the GATE exam.
+Calculus is not merely a collection of mathematical techniques; it is the language of change and optimization,
+fundamental to understanding algorithms, data structures, probability, and various computational models. A solid grasp
+of calculus concepts will not only help you score well in the dedicated Engineering Mathematics section but also
+enhance your analytical abilities for other subjects. Typically, Engineering Mathematics accounts for 8-10% of the total
+GATE marks, with Calculus being a significant component of this weightage. Questions usually range from direct
+application of formulas and theorems to conceptual problems involving limits, continuity, differentiation, and integration,
+often requiring a blend of analytical reasoning and careful calculation. Expect a mix of Multiple Choice Questions
+(MCQ), Multiple Select Questions (MSQ), and Numerical Answer Type (NAT) questions.
+Topic-wise Key Concepts
+Limits
+Definition and Core Idea:
+ A limit describes the behavior of a function as its input approaches a certain value. It tells us
+what value the function 'tends to' or 'approaches' as the independent variable gets arbitrarily close to a specific point,
+without necessarily reaching it.
+Important Formulas, Theorems, and Results:
+1
+. 
+Algebra of Limits:
+ If 
+ and 
+, then:
+, provided 
+2
+. 
+Standard Limits:
+3
+. 
+L'Hopital's Rule:
+ If 
+ is of the indeterminate form 
+ or 
+, then 
+, provided
+the latter limit exists. This can be applied repeatedly.
+4
+. 
+Squeeze Theorem (Sandwich Theorem):
+ If 
+ for all 
+ in an open interval containing 
+ (except
+possibly at 
+ itself), and if 
+ and 
+, then 
+.
+Key Properties and Identities:
+Indeterminate forms: 
+. These require special techniques like L'Hopital's Rule or
+algebraic manipulation.
+
+
+One-sided limits: For a limit to exist, the left-hand limit (
+) and the right-hand limit (
+) must
+be equal.
+Common Pitfalls or Tricky Points:
+Applying L'Hopital's Rule when the limit is not an indeterminate form.
+Incorrectly handling one-sided limits, especially for piecewise functions or functions with square roots.
+Errors in algebraic simplification before applying standard limits.
+Misinterpreting limits involving infinity (e.g., 
+, but 
+ is indeterminate).
+Standard Problem-Solving Techniques or Shortcuts:
+Direct Substitution:
+ Always try this first. If it yields a finite value, that's the limit.
+Factorization and Cancellation:
+ For 
+ forms involving polynomials, factorize the numerator and denominator to
+cancel common terms.
+Rationalization:
+ For expressions involving square roots, multiply by the conjugate to simplify.
+Using Standard Limits:
+ Manipulate the expression to fit one of the standard limit forms.
+L'Hopital's Rule:
+ Apply for 
+ or 
+ forms. Remember to differentiate numerator and denominator separately.
+Transforming Indeterminate Forms:
+ or 
+ combine terms, rationalize, or find a common denominator.
+ take natural logarithm: If 
+, then 
+. Then find 
+ and
+exponentiate the result.
+Continuity
+Definition and Core Idea:
+ A function is continuous at a point if its graph has no breaks, jumps, or holes at that point.
+Informally, you can draw the graph without lifting your pen. Formally, it means the function's value at the point is equal
+to its limit as the input approaches that point.
+Important Formulas, Theorems, and Results:
+1
+. 
+Conditions for Continuity at a Point 
+:
+ A function 
+ is continuous at 
+ if and only if all three
+conditions are met:
+a
+. 
+ is defined (the function exists at 
+).
+b
+. 
+ exists (the limit exists at 
+). This implies 
+.
+c
+. 
+ (the limit equals the function value).
+2
+. 
+Continuity on an Interval:
+ A function is continuous on an open interval 
+ if it is continuous at every point in the
+interval. It is continuous on a closed interval 
+ if it is continuous on 
+, continuous from the right at 
+ (
+), and continuous from the left at 
+ (
+).
+3
+. 
+Intermediate Value Theorem (IVT):
+ If 
+ is continuous on the closed interval 
+ and 
+ is any number between 
+ and 
+, then there exists at least one number 
+ in 
+ such that 
+.
+4
+. 
+Extreme Value Theorem (EVT):
+ If 
+ is continuous on a closed interval 
+, then 
+ attains both an absolute
+maximum value and an absolute minimum value on that interval.
+Key Properties and Identities:
+The sum, difference, product, and quotient (where the denominator is non-zero) of continuous functions are
+continuous.
+The composition of continuous functions is continuous: If 
+ is continuous at 
+ and 
+ is continuous at 
+, then 
+ is continuous at 
+.
+Polynomials, exponential functions (
+), logarithmic functions (
+), trigonometric functions (
+), and rational functions (where the denominator is non-zero) are continuous in their domains.
+Common Pitfalls or Tricky Points:
+Piecewise Functions:
+ Pay close attention to the points where the definition of the function changes. These are the
+critical points to check for continuity.
+Removable Discontinuities:
+ Occur when 
+ exists but is not equal to 
+, or 
+ is undefined (e.g.,
+holes in the graph).
+Jump Discontinuities:
+ Occur when the left-hand and right-hand limits exist but are not equal (e.g., step functions).
+
+
+Infinite Discontinuities:
+ Occur when one or both of the one-sided limits are infinite (e.g., vertical asymptotes).
+Forgetting to check all three conditions for continuity.
+Standard Problem-Solving Techniques or Shortcuts:
+For piecewise functions, evaluate the function value at the transition point, and calculate both the left-hand and right-
+hand limits at that point. Equate them to find unknown constants.
+Identify the domain of the function first. Discontinuities often occur at points where the function is undefined (e.g.,
+denominator is zero, negative under square root).
+For functions involving absolute values, rewrite them as piecewise functions.
+Differentiation
+Definition and Core Idea:
+ Differentiation is the process of finding the derivative of a function. The derivative represents
+the instantaneous rate of change of a function with respect to its independent variable. Geometrically, it gives the slope
+of the tangent line to the function's graph at a given point.
+Important Formulas, Theorems, and Results:
+1
+. 
+Definition of Derivative:
+ 
+2
+. 
+Basic Differentiation Rules:
+ (where 
+ is a constant)
+3
+. 
+Rules of Differentiation:
+Constant Multiple Rule:
+ 
+Sum/Difference Rule:
+ 
+Product Rule:
+ 
+Quotient Rule:
+ 
+Chain Rule:
+ 
+4
+. 
+Implicit Differentiation:
+ Used when 
+ is not explicitly defined as a function of 
+. Differentiate both sides of the
+equation with respect to 
+, treating 
+ as a function of 
+ (i.e., use the chain rule for terms involving 
+).
+5
+. 
+Rolle's Theorem:
+ If 
+ is continuous on 
+, differentiable on 
+, and 
+, then there exists at least
+one 
+ such that 
+.
+6
+. 
+Mean Value Theorem (Lagrange's MVT):
+ If 
+ is continuous on 
+ and differentiable on 
+, then there exists
+at least one 
+ such that 
+.
+7
+. 
+Cauchy's Mean Value Theorem:
+ If 
+ and 
+ are continuous on 
+ and differentiable on 
+, and 
+ for
+any 
+, then there exists at least one 
+ such that 
+.
+Key Properties and Identities:
+Differentiability implies continuity, but continuity does not imply differentiability (e.g., 
+ at 
+).
+
+
+Higher-order derivatives: 
+, 
+, etc.
+Common Pitfalls or Tricky Points:
+Forgetting the chain rule, especially with composite functions like 
+ or 
+.
+Errors in applying the product or quotient rule.
+Mistakes in implicit differentiation, particularly when differentiating terms involving 
+ (e.g., 
+).
+Confusing the derivative of 
+ with 
+.
+Not simplifying expressions before differentiating when possible.
+Standard Problem-Solving Techniques or Shortcuts:
+Logarithmic Differentiation:
+ For functions of the form 
+ or complex products/quotients, take the
+natural logarithm of both sides before differentiating implicitly.
+Parametric Differentiation:
+ If 
+ and 
+, then 
+.
+Derivative of Inverse Function:
+ If 
+, then 
+.
+Practice recognizing common derivative patterns for speed.
+Maxima Minima
+Definition and Core Idea:
+ Maxima and minima (collectively called extrema) refer to the highest and lowest values a
+function attains within a given interval or its entire domain. A local maximum/minimum is the highest/lowest point in its
+immediate neighborhood, while a global (absolute) maximum/minimum is the highest/lowest point over the entire
+domain/interval.
+Important Formulas, Theorems, and Results:
+1
+. 
+Critical Points:
+ A critical point of a function 
+ is a point 
+ in the domain of 
+ where either 
+ or 
+ is
+undefined. Local extrema can only occur at critical points or endpoints of a closed interval.
+2
+. 
+First Derivative Test:
+ Let 
+ be a critical point of a continuous function 
+.
+If 
+ changes from positive to negative at 
+, then 
+ has a local maximum at 
+.
+If 
+ changes from negative to positive at 
+, then 
+ has a local minimum at 
+.
+If 
+ does not change sign at 
+, then 
+ has neither a local maximum nor a local minimum at 
+.
+3
+. 
+Second Derivative Test:
+ Let 
+ be a critical point where 
+ and 
+ exists.
+If 
+, then 
+ has a local minimum at 
+.
+If 
+, then 
+ has a local maximum at 
+.
+If 
+, the test is inconclusive (use the First Derivative Test).
+4
+. 
+Concavity:
+If 
+ on an interval, 
+ is concave up (graph opens upwards).
+If 
+ on an interval, 
+ is concave down (graph opens downwards).
+5
+. 
+Inflection Point:
+ A point where the concavity of the function changes. This occurs where 
+ or 
+ is
+undefined, and 
+ changes sign.
+Key Properties and Identities:
+For global extrema on a closed interval 
+, evaluate 
+ at all critical points in 
+ and at the endpoints 
+ and 
+. The largest of these values is the absolute maximum, and the smallest is the absolute minimum.
+Common Pitfalls or Tricky Points:
+Forgetting to check endpoints when finding global extrema on a closed interval.
+Misinterpreting the results of the second derivative test, especially when 
+.
+Not considering points where 
+ is undefined as critical points.
+Errors in algebraic manipulation while finding critical points or second derivatives.
+Confusing local extrema with global extrema.
+Standard Problem-Solving Techniques or Shortcuts:
+Optimization Problems:
+1
+. 
+Understand the problem and identify the quantity to be maximized or minimized.
+
+
+2
+. 
+Draw a diagram if helpful.
+3
+. 
+Introduce variables and write the primary equation for the quantity to be optimized.
+4
+. 
+Write a secondary equation (constraint) relating the variables.
+5
+. 
+Use the secondary equation to express the primary equation in terms of a single independent variable.
+6
+. 
+Find the domain of this function.
+7
+. 
+Differentiate the function, find critical points, and apply the First or Second Derivative Test.
+8
+. 
+Verify the solution makes sense in the context of the problem.
+For simple functions, sometimes the graph can quickly indicate extrema.
+Integration
+Definition and Core Idea:
+ Integration is the reverse process of differentiation, also known as antidifferentiation. It finds
+the function whose derivative is the given function. Geometrically, definite integration calculates the area under the
+curve of a function between two specified limits.
+Important Formulas, Theorems, and Results:
+1
+. 
+Basic Integration Formulas (Indefinite Integrals):
+, for 
+2
+. 
+Properties of Indefinite Integrals:
+3
+. 
+Integration by Substitution (u-substitution):
+ If 
+, then 
+. 
+.
+4
+. 
+Integration by Parts:
+ 
+. Often remembered by the mnemonic "LIATE" (Logarithmic, Inverse
+trig, Algebraic, Trigonometric, Exponential) for choosing 
+.
+Key Properties and Identities:
+Always include the constant of integration 
+ for indefinite integrals.
+Trigonometric identities are often crucial for simplifying integrands before integration.
+Common Pitfalls or Tricky Points:
+Forgetting the constant of integration 
+.
+Incorrectly choosing 
+ and 
+ in integration by parts.
+Errors in algebraic manipulation or trigonometric identities.
+Not recognizing when substitution is appropriate.
+Confusing integration formulas with differentiation formulas (e.g., 
+ vs. 
+).
+Standard Problem-Solving Techniques or Shortcuts:
+Direct Integration:
+ If the integrand matches a basic formula.
+Substitution:
+ Look for a function and its derivative within the integrand. Let the inner function be 
+.
+Integration by Parts:
+ Use for products of functions (e.g., 
+).
+Partial Fractions:
+ For rational functions (polynomials divided by polynomials), decompose into simpler fractions that
+are easier to integrate. (Briefly mention as it's a common technique).
+
+
+Trigonometric Identities:
+ Use identities to simplify powers of trig functions or products of trig functions.
+Definite Integral
+Definition and Core Idea:
+ A definite integral represents the net signed area between the graph of a function and the x-
+axis over a specified interval 
+. It is evaluated by finding the antiderivative of the function and then evaluating it at
+the upper and lower limits of integration.
+Important Formulas, Theorems, and Results:
+1
+. 
+Fundamental Theorem of Calculus (Part 1):
+ If 
+ is continuous on 
+, then the function 
+ has
+a derivative at every point in 
+, and 
+.
+2
+. 
+Fundamental Theorem of Calculus (Part 2):
+ If 
+ is continuous on 
+ and 
+ is any antiderivative of 
+ on 
+,
+then 
+.
+3
+. 
+Properties of Definite Integrals:
+, where 
+ (useful for simplifying integrals)
+Even/Odd Functions:
+If 
+ is an even function (
+), then 
+.
+If 
+ is an odd function (
+), then 
+.
+Key Properties and Identities:
+The definite integral evaluates to a numerical value, not a function.
+The constant of integration 
+ is not included in definite integrals because it cancels out (
+).
+Common Pitfalls or Tricky Points:
+Incorrectly applying the limits of integration (upper limit minus lower limit).
+Sign errors when evaluating 
+.
+Forgetting to change the limits of integration when using substitution for definite integrals.
+Not recognizing even/odd function properties to simplify integrals over symmetric intervals.
+Improper integrals (involving infinite limits or discontinuities within the interval) are less common in GATE CS but
+good to be aware of.
+Standard Problem-Solving Techniques or Shortcuts:
+Direct Application of FTC:
+ Find the antiderivative and evaluate at the limits.
+Substitution:
+ If using substitution, either change the limits of integration to be in terms of 
+ or revert back to 
+before applying the original limits.
+Properties of Definite Integrals:
+ Use properties like linearity, interval splitting, and even/odd function rules to
+simplify the integral before evaluation.
+Symmetry:
+ For integrals over 
+, check if the integrand is even or odd.
+Polynomials
+Definition and Core Idea:
+ A polynomial is an expression consisting of variables and coefficients, involving only the
+operations of addition, subtraction, multiplication, and non-negative integer exponents of variables. They are
+fundamental building blocks in calculus as they are continuous and differentiable everywhere.
+Important Formulas, Theorems, and Results:
+1
+. 
+General Form:
+ 
+, where 
+ are coefficients and 
+ is a non-negative
+integer (degree).
+2
+. 
+Remainder Theorem:
+ If a polynomial 
+ is divided by 
+, the remainder is 
+.
+
+
+3
+. 
+Factor Theorem:
+ 
+ is a factor of a polynomial 
+ if and only if 
+ (i.e., 
+ is a root of the
+polynomial).
+4
+. 
+Fundamental Theorem of Algebra:
+ Every non-constant single-variable polynomial with complex coefficients has at
+least one complex root. Consequently, a polynomial of degree 
+ has exactly 
+ roots (counting multiplicity) in the
+complex numbers.
+5
+. 
+Vieta's Formulas (for quadratic and cubic):
+For 
+ with roots 
+:
+For 
+ with roots 
+:
+Key Properties and Identities:
+Polynomials are continuous and infinitely differentiable everywhere.
+The degree of a polynomial determines the maximum number of roots it can have.
+If a polynomial has real coefficients, then any complex roots must occur in conjugate pairs.
+Common Pitfalls or Tricky Points:
+Errors in polynomial division or synthetic division.
+Misapplying Vieta's formulas (e.g., sign errors).
+Not considering multiplicity of roots.
+Confusing roots with factors.
+Standard Problem-Solving Techniques or Shortcuts:
+Synthetic Division:
+ A quick method for dividing a polynomial by a linear factor 
+.
+Rational Root Theorem:
+ Helps find potential rational roots of a polynomial with integer coefficients.
+Factoring:
+ Look for common factors, use grouping, or quadratic formula for quadratic factors.
+Derivative for Repeated Roots:
+ If 
+ is a root of 
+ with multiplicity 
+, then 
+ is also a root of 
+ with
+multiplicity 
+.
+Summation
+Definition and Core Idea:
+ Summation is the process of adding a sequence of numbers or terms. It is often represented
+using sigma notation (
+). In calculus, summation is foundational to understanding series, Riemann sums (for
+integration), and numerical methods.
+Important Formulas, Theorems, and Results:
+1
+. 
+Arithmetic Progression (AP) Sum:
+ For an AP with first term 
+, common difference 
+, and 
+ terms:
+, where 
+ is the last term.
+2
+. 
+Geometric Progression (GP) Sum:
+ For a GP with first term 
+, common ratio 
+, and 
+ terms:
+, for 
+, for 
+Sum to Infinity for GP:
+ 
+, for 
+3
+. 
+Standard Summation Formulas:
+Key Properties and Identities:
+Linearity of Summation:
+
+
+Telescoping Sums:
+ Sums where intermediate terms cancel out, e.g., 
+.
+Common Pitfalls or Tricky Points:
+Off-by-one errors in summation limits.
+Confusing AP and GP formulas.
+Incorrectly applying the sum to infinity formula (only valid for 
+).
+Errors in algebraic manipulation when simplifying complex summations.
+Standard Problem-Solving Techniques or Shortcuts:
+Identify Series Type:
+ Determine if it's an AP, GP, or a combination.
+Use Standard Formulas:
+ Apply the formulas for 
+.
+Split and Combine:
+ Use linearity to break down complex summations into simpler ones.
+Method of Differences (Telescoping Sums):
+ Express each term as a difference of two consecutive terms to
+simplify the sum.
+Generating Functions:
+ (Advanced, less common for direct GATE CS questions, but good for understanding
+series).
+Quick Formula Reference
+Limits
+L'Hopital's Rule: If 
+ is 
+ or 
+, then 
+.
+Continuity
+Continuous at 
+ if: 
+ defined, 
+ exists, and 
+.
+Differentiation
+Let 
+ be functions of 
+, 
+ be a constant.
+
+
+ (Chain Rule)
+Rolle's Theorem: 
+Mean Value Theorem: 
+Maxima Minima
+Critical points: 
+ or 
+ undefined.
+First Derivative Test: Sign change of 
+ at critical point.
+Second Derivative Test: If 
+: 
+ local min; 
+ local max.
+Integration (Indefinite)
+, for 
+Integration by Parts: 
+Definite Integral
+Fundamental Theorem of Calculus: 
+ where 
+.
+Even function (
+): 
+Odd function (
+): 
+Polynomials
+Remainder Theorem: 
+ divided by 
+ has remainder 
+.
+Factor Theorem: 
+ is a factor of 
+ iff 
+.
+Vieta's Formulas (for 
+): 
+, 
+.
+Summation
+AP Sum: 
+ or 
+GP Sum: 
+GP Sum to Infinity: 
+ for 
+Important Tips for GATE
+
+
+5.1
+5.1.1
+5.1.2
+A
+. 
+continuous and differentiable
+B
+. 
+continuous but not differentiable
+C
+. 
+differentiable but not continuous
+D
+. 
+neither continuous nor
+differentiable
+5.1.3
+A
+. 
+ is true and 
+ is false.
+B
+. 
+ is false and 
+ is true.
+C
+. 
+Both 
+ and 
+ are true.
+D
+. 
+Both 
+ and 
+ are false.
+1
+. 
+Master the Fundamentals:
+ Calculus builds upon basic algebra, trigonometry, and functions. Ensure your
+foundation in these areas is strong to avoid silly mistakes.
+2
+. 
+Practice with PYQs:
+ Solve previous year's GATE questions extensively. This helps you understand the typical
+question patterns, difficulty levels, and time constraints.
+3
+. 
+Understand Concepts, Don't Just Memorize:
+ While formulas are crucial, knowing *why* they work (e.g., the
+geometric interpretation of derivatives and integrals) will help you tackle trickier conceptual questions and apply
+them correctly in unfamiliar scenarios.
+4
+. 
+Pay Attention to Domains and Conditions:
+ For limits, continuity, and differentiability, always check the domain of
+the function and any specific conditions (e.g., 
+ for quotient rule, 
+ for infinite GP sum). Piecewise
+functions are common traps.
+5
+. 
+Be Careful with Signs and Constants:
+ A common source of error in differentiation and integration is incorrect
+signs or forgetting the constant of integration (
+) for indefinite integrals. Double-check your calculations.
+6
+. 
+Time Management:
+ Some calculus problems can be lengthy. Learn to identify problems that might take too much
+time and mark them for review. Practice solving problems within a strict time limit. Shortcuts like L'Hopital's rule or
+properties of definite integrals can save valuable time.
+7
+. 
+Visualize Functions:
+ For problems involving maxima/minima or definite integrals, sketching a rough graph of the
+function can often provide intuition and help verify your analytical results.
+8
+. 
+Review Properties of Even/Odd Functions:
+ These properties are frequently tested in definite integral problems,
+especially over symmetric intervals like 
+, and can significantly simplify calculations.
+Continuity 
+(11)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(14Q)
+Continuity: GATE CSE 1996 | Question: 3
+Let 
+ be a function defined by
+Find the values for the constants 
+ and 
+ so that 
+ is continuous and diﬀerentiable everywhere on the real
+line.
+gate1996
+ 
+calculus
+ 
+continuity
+ 
+differentiation
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Continuity: GATE CSE 1998 | Question: 1.4
+Consider the function 
+ in the interval 
+. In this interval, the function is
+gate1998
+ 
+calculus
+ 
+continuity
+ 
+differentiation
+ 
+easy
+Answer key
+☟
+Continuity: GATE CSE 2007 | Question: 1
+Consider the following two statements about the function 
+:
+P. 
+ is continuous for all real values of 
+.
+Q. 
+ is differentiable for all real values of 
+ .
+Which of the following is 
+TRUE
+?
+gatecse-2007
+ 
+calculus
+ 
+continuity
+ 
+differentiation
+ 
+easy
+
+
+5.1.4
+5.1.5
+5.1.6
+A
+. 
+II only
+B
+. 
+III only
+C
+. 
+II and III only
+D
+. 
+I, II and III
+5.1.7
+5.1.8
+Answer key
+☟
+Continuity: GATE CSE 2013 | Question: 22
+Which one of the following functions is continuous at 
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+gatecse-2013
+ 
+calculus
+ 
+continuity
+ 
+normal
+Answer key
+☟
+Continuity: GATE CSE 2014 | Set 1 | Question: 47
+A function 
+ is continuous in the interval 
+. It is known that 
+ and 
+. Which
+one of the following statements must be true?
+A
+. 
+There exists a 
+ 
+in the interval 
+ such that 
+ 
+B
+. 
+For every 
+ 
+in the interval 
+,
+ = 
+C
+. 
+The maximum value of the function in the interval 
+ is 
+D
+. 
+There exists a 
+ 
+in the interval 
+ such that 
+ = 
+gatecse-2014-set1
+ 
+calculus
+ 
+continuity
+ 
+tricky
+Answer key
+☟
+Continuity: GATE CSE 2015 | Set 2 | Question: 26
+Let 
+ and 
+ denote the area of region bounded by 
+ and the X-axis, when 
+ varies from 
+ to 
+. Which of the following statements is/are TRUE?
+I
+. 
+ is continuous in 
+II
+. 
+ is not bounded in 
+III
+. 
+ is nonzero and finite
+gatecse-2015-set2
+ 
+calculus
+ 
+continuity
+ 
+functions
+ 
+normal
+Answer key
+☟
+Continuity: GATE CSE 2021 | Set 2 | Question: 25
+Suppose that 
+ is a continuous function on the interval 
+ and a diﬀerentiable function in the
+interval 
+ such that for every 
+ in the interval, 
+. If 
+, then 
+ is at most
+__________
+gatecse-2021-set2
+ 
+numerical-answers
+ 
+calculus
+ 
+continuity
+ 
+one-mark
+Answer key
+☟
+Continuity: GATE CSE 2026 | Set 1 | Question: 22
+Consider the function 
+ defined as follows:
+
+
+5.1.9
+5.1.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.1.11
+5.2
+where 
+.
+If 
+ is continuous at 
+, then 
+ 
+. (answer in integer)
+gatecse-2026-set1
+ 
+calculus
+ 
+continuity
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Continuity: GATE CSE 2026 | Set 2 | Question: 54
+Consider a function 
+ defined as follows.
+For a real number 
+ if the second digit after the decimal point in 
+ is one of the four digits
+ and 
+. Otherwise, 
+ is equal to 
+.
+The number of points in 
+ at which 
+ is discontinuous is 
+. (answer in integer)
+gatecse-2026-set2
+ 
+calculus
+ 
+continuity
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Continuity: GATE DS&AI 2024 | Question: 27
+​​​​​
+Let 
+ be a function. Note: 
+ denotes the set of real numbers.
+Which ONE of the following choices gives the values of 
+ that make the function 
+ continuous and
+differentiable?
+ 
+gate-ds-ai-2024
+ 
+calculus
+ 
+continuity
+ 
+differentiation
+ 
+two-marks
+Answer key
+☟
+Continuity: GATE2010 ME
+The function 
+​
+A
+. 
+is continuous 
+ and differentiable 
+B
+. 
+is continuous 
+ and differentiable 
+ except at 
+C
+. 
+is continuous 
+ and differentiable 
+ except at 
+D
+. 
+is continuous 
+ except 
+ and differentiable 
+calculus
+ 
+gate2010me
+ 
+engineering-mathematics
+ 
+continuity
+Answer key
+☟
+Definite Integral 
+(4)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(12Q)
+
+
+5.2.1
+5.2.2
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.2.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.2.4
+5.3
+5.3.1
+A
+. 
+B
+. 
+C
+. 
+ 
+D
+. 
+ 
+Definite Integral: GATE CSE 2023 | Question: 21
+The value of the definite integral 
+is _________. (Rounded off to the nearest integer)
+gatecse-2023
+ 
+calculus
+ 
+definite-integral
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Definite Integral: GATE CSE 2024 | Set 2 | Question: 6
+​​​​​
+Let 
+ be a continuous function from 
+ to 
+ such that
+Which one of the following options is the CORRECT value of 
+ ?
+gatecse-2024-set2
+ 
+calculus
+ 
+definite-integral
+ 
+one-mark
+Answer key
+☟
+Definite Integral: GATE CSE 2025 | Set 2 | Question: 2
+​​​​​
+The value of 
+ such that 
+, satisfying the equation 
+ is
+gatecse2025-set2
+ 
+calculus
+ 
+definite-integral
+ 
+one-mark
+Answer key
+☟
+Definite Integral: GATE CSE 2026 | Set 2 | Question: 17
+For a real number 
+, let 
+. Which of the following statements is/are true?
+A
+. 
+The value of 
+ is independent of the value of 
+B
+. 
+The value of 
+ can vary with the value of 
+C
+. 
+There exists 
+ such that 
+ is a positive real number
+D
+. 
+There exists 
+ such that 
+ is a negative real number
+gatecse-2026-set2
+ 
+calculus
+ 
+definite-integral
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Differentiation 
+(11)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(10Q)
+Differentiation: GATE CSE 1996 | Question: 1.6
+The formula used to compute an approximation for the second derivative of a function 
+ at a point 
+ is
+gate1996
+ 
+calculus
+ 
+differentiation
+ 
+normal
+
+
+5.3.2
+5.3.3
+A
+. 
+I only
+B
+. 
+II only
+C
+. 
+Both I and II
+D
+. 
+Neither I nor II
+5.3.4
+5.3.5
+A
+. 
+ and 
+B
+. 
+ and 0
+C
+. 
+ and 0
+D
+. 
+ and 
+5.3.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ 
+Answer key
+☟
+Differentiation: GATE CSE 2014 | Set 1 | Question: 46
+The function 
+ satisfies the following equation:
+The value of 
+ is______.
+gatecse-2014-set1
+ 
+calculus
+ 
+easy
+ 
+numerical-answers
+ 
+differentiation
+Answer key
+☟
+Differentiation: GATE CSE 2014 | Set 1 | Question: 6
+Let the function
+where 
+ and 
+     denote the derivative of 
+ with respect to 
+. Which of the following statements
+is/are 
+TRUE
+?
+I
+. 
+There exists 
+ such that 
+II
+. 
+There exists 
+ such that 
+gatecse-2014-set1
+ 
+calculus
+ 
+differentiation
+ 
+normal
+Answer key
+☟
+Differentiation: GATE CSE 2016 | Set 2 | Question: 02
+Let 
+ be a polynomial and 
+ be its derivative. If the degree of 
+ is 
+, then
+the degree of 
+ is __________.
+gatecse-2016-set2
+ 
+calculus
+ 
+normal
+ 
+numerical-answers
+ 
+differentiation
+Answer key
+☟
+Differentiation: GATE CSE 2017 | Set 2 | Question: 10
+If 
+ and 
+, then the constants 
+ and 
+ are
+gatecse-2017-set2
+ 
+engineering-mathematics
+ 
+calculus
+ 
+differentiation
+Answer key
+☟
+Differentiation: GATE CSE 2024 | Set 1 | Question: 1
+Let 
+ be a function such that 
+, where 
+ is the set of all real
+numbers. The set of all points where 
+ is NOT differentiable is
+gatecse-2024-set1
+ 
+calculus
+ 
+differentiation
+ 
+one-mark
+Answer key
+☟
+
+
+5.3.7
+5.3.8
+A
+. 
+ has a local maximum
+B
+. 
+ has a local minimum
+C
+. 
+ is continuous over 
+D
+. 
+ is not differentiable over 
+5.3.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.3.10
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.3.11
+Differentiation: GATE CSE 2025 | Set 1 | Question: 21
+Consider the given function 
+.
+If the function is differentiable everywhere, the value of 
+ must be ________. (rounded off to one decimal place)
+gatecse2025-set1
+ 
+calculus
+ 
+differentiation
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Differentiation: GATE CSE 2026 | Set 1 | Question: 36
+Let 
+ be defined as follows:
+Which of the following statements is/are true?
+gatecse-2026-set1
+ 
+two-marks
+ 
+differentiation
+ 
+calculus
+ 
+multiple-selects
+Answer key
+☟
+Differentiation: GATE DA 2025 | Question: 14
+Consider two functions 
+ and 
+. Both functions are diﬀerentiable at a point 
+.
+Which of the following functions is/are ALWAYS diﬀerentiable at 
+ ? The symbol 
+ denotes product and the
+symbol 
+ denotes composition of functions.
+gateda-2025
+ 
+calculus
+ 
+differentiation
+ 
+limits
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Differentiation: GATE DA 2025 | Question: 4
+Let 
+. Let 
+ denote the 
+ derivative of 
+ evaluated at 
+. What is the value of 
+? (Note: ! denotes factorial)
+gateda-2025
+ 
+calculus
+ 
+differentiation
+ 
+one-mark
+Answer key
+☟
+Differentiation: GATE DA 2025 | Question: 41
+Let 
+ be a twice-diﬀerentiable function and suppose its second derivative satisﬁes 
+ for
+all 
+. Which of the following statements is/are ALWAYS correct?
+A
+. 
+ has a local minima
+B
+. 
+There does not exist 
+ and 
+, such that 
+C
+. 
+ has at most one global minimum
+D
+. 
+ has at most one local minimum
+gateda-2025
+ 
+calculus
+ 
+maxima-minima
+ 
+differentiation
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+
+
+5.4
+5.4.1
+5.4.2
+5.4.3
+A
+. 
+B
+. 
+C
+. 
+ and 
+D
+. 
+5.4.4
+A
+. 
+B
+. 
+  
+C
+. 
+D
+. 
+5.4.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.4.6
+Integration 
+(11)
+✍
+ 
+Practice Test:
+ 
+Test 1 
+(14Q)
+Integration: GATE CSE 1993 | Question: 02.6
+The value of the double integral 
+ is_________.
+gate1993
+ 
+calculus
+ 
+integration
+ 
+normal
+ 
+fill-in-the-blanks
+Answer key
+☟
+Integration: GATE CSE 1998 | Question: 8
+a
+. 
+Find the points of local maxima and minima, if any, of the following function defined in 
+.
+b
+. 
+Integrate
+gate1998
+ 
+calculus
+ 
+maxima-minima
+ 
+integration
+ 
+normal
+ 
+descriptive
+Answer key
+☟
+Integration: GATE CSE 2000 | Question: 2.3
+Let 
+, and 
+.
+Which of the following statements is true?
+gatecse-2000
+ 
+calculus
+ 
+integration
+ 
+normal
+Answer key
+☟
+Integration: GATE CSE 2009 | Question: 25
+gatecse-2009
+ 
+calculus
+ 
+integration
+ 
+normal
+Answer key
+☟
+Integration: GATE CSE 2011 | Question: 31
+Given 
+, what will be the evaluation of the definite integral 
+ ?
+gatecse-2011
+ 
+calculus
+ 
+integration
+ 
+normal
+Answer key
+☟
+Integration: GATE CSE 2014 | Set 3 | Question: 47
+The value of the integral given below is
+
+
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.4.7
+5.4.8
+5.4.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.4.10
+5.4.11
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.5
+gatecse-2014-set3
+ 
+calculus
+ 
+limits
+ 
+integration
+ 
+normal
+Answer key
+☟
+Integration: GATE CSE 2014 | Set 3 | Question: 6
+If 
+, then the value of 
+ is equal to ______.
+gatecse-2014-set3
+ 
+calculus
+ 
+integration
+ 
+limits
+ 
+numerical-answers
+ 
+easy
+Answer key
+☟
+Integration: GATE CSE 2015 | Set 1 | Question: 44
+Compute the value of:
+gatecse-2015-set1
+ 
+calculus
+ 
+integration
+ 
+normal
+ 
+numerical-answers
+Answer key
+☟
+Integration: GATE CSE 2015 | Set 3 | Question: 45
+If for non-zero 
+ where 
+ is
+gatecse-2015-set3
+ 
+calculus
+ 
+integration
+ 
+normal
+Answer key
+☟
+Integration: GATE CSE 2018 | Question: 16
+The value of 
+ correct to three decimal places (assuming that 
+) is ____
+gatecse-2018
+ 
+calculus
+ 
+integration
+ 
+normal
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Integration: GATE IT 2005 | Question: 35
+What is the value of 
+gateit-2005
+ 
+calculus
+ 
+integration
+ 
+normal
+Answer key
+☟
+Limits 
+(15)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(8Q)
+
+
+5.5.1
+5.5.2
+5.5.3
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.5.4
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.5.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Not defined
+5.5.6
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.5.7
+Limits: GATE CSE 1993 | Question: 02.1
+ is __________
+gate1993
+ 
+limits
+ 
+calculus
+ 
+normal
+ 
+fill-in-the-blanks
+Answer key
+☟
+Limits: GATE CSE 1995 | Question: 7(B)
+Compute without using power series expansion 
+gate1995
+ 
+calculus
+ 
+limits
+ 
+numerical-answers
+Answer key
+☟
+Limits: GATE CSE 2008 | Question: 1
+ equals
+gatecse-2008
+ 
+calculus
+ 
+limits
+ 
+easy
+Answer key
+☟
+Limits: GATE CSE 2010 | Question: 5
+What is the value of 
+ ?
+gatecse-2010
+ 
+calculus
+ 
+limits
+ 
+normal
+Answer key
+☟
+Limits: GATE CSE 2015 | Set 1 | Question: 4
+ is
+gatecse-2015-set1
+ 
+calculus
+ 
+limits
+ 
+normal
+Answer key
+☟
+Limits: GATE CSE 2015 | Set 3 | Question: 9
+The value of 
+ is
+gatecse-2015-set3
+ 
+calculus
+ 
+limits
+ 
+normal
+Answer key
+☟
+Limits: GATE CSE 2016 | Set 1 | Question: 3
+gatecse-2016-set1
+ 
+calculus
+ 
+limits
+ 
+easy
+ 
+numerical-answers
+
+
+5.5.8
+A
+. 
+is 
+B
+. 
+is 
+C
+. 
+is 
+D
+. 
+does not exist
+5.5.9
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+Limit does not exist
+5.5.10
+5.5.11
+5.5.12
+5.5.13
+Answer key
+☟
+Limits: GATE CSE 2017 | Set 1 | Question: 28
+The value of 
+gatecse-2017-set1
+ 
+calculus
+ 
+limits
+ 
+normal
+Answer key
+☟
+Limits: GATE CSE 2019 | Question: 13
+Compute 
+gatecse-2019
+ 
+engineering-mathematics
+ 
+calculus
+ 
+limits
+ 
+one-mark
+Answer key
+☟
+Limits: GATE CSE 2021 | Set 1 | Question: 20
+Consider the following expression.
+The value of the above expression (rounded to 2 decimal places) is ___________.
+gatecse-2021-set1
+ 
+calculus
+ 
+limits
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Limits: GATE CSE 2022 | Question: 24
+The value of the following limit is ________________.
+gatecse-2022
+ 
+numerical-answers
+ 
+calculus
+ 
+limits
+ 
+one-mark
+Answer key
+☟
+Limits: GATE DA 2025 | Question: 22
+(Round off to one decimal place)
+ 
+gateda-2025
+ 
+calculus
+ 
+limits
+ 
+numerical-answers
+ 
+one-mark
+Answer key
+☟
+Limits: GATE DA 2025 | Question: 49
+Let 
+ be such that 
+ for all 
+. Then 
+ __________
+(Answer in integer)
+
+
+5.5.14
+5.5.15
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+ 
+5.6
+5.6.1
+5.6.2
+A
+. 
+No solution
+B
+. 
+Exactly one solution
+C
+. 
+Exactly two solutions
+D
+. 
+An infinite number of solutions
+5.6.3
+5.6.4
+gateda-2025
+ 
+calculus
+ 
+limits
+ 
+numerical-answers
+ 
+two-marks
+Answer key
+☟
+Limits: GATE DS&AI 2024 | Question: 50
+Evaluate the following limit:
+gate-ds-ai-2024
+ 
+calculus
+ 
+numerical-answers
+ 
+limits
+ 
+engineering-mathematics
+ 
+two-marks
+Answer key
+☟
+Limits: GATE Data Science and Artificial Intelligence 
+2024 | Sample Paper | Question: 5
+gateda-sample-paper-2024
+ 
+calculus
+ 
+limits
+Answer key
+☟
+Maxima Minima 
+(14)
+✍
+ 
+Practice Tests:
+ 
+Test 1 
+(15Q)
+ 
+Test 2 
+(15Q)
+ 
+Test 3 
+(6Q)
+Maxima Minima: GATE CSE 1987 | Question: 1-xxvi
+If 
+ then
+A
+. 
+There must be a root of 
+ between 
+ and 
+B
+. 
+There need not be a root of 
+ between 
+ and 
+C
+. 
+There fourth derivative of 
+ with respect to 
+ vanishes at 
+D
+. 
+The fourth derivative of 
+ with respect to 
+ vanishes at 
+gate1987
+ 
+calculus
+ 
+maxima-minima
+Answer key
+☟
+Maxima Minima: GATE CSE 1995 | Question: 1.21
+In the interval 
+ the equation 
+ has 
+gate1995
+ 
+calculus
+ 
+normal
+ 
+maxima-minima
+Answer key
+☟
+Maxima Minima: GATE CSE 1995 | Question: 25a
+Find the minimum value of 
+.
+gate1995
+ 
+calculus
+ 
+maxima-minima
+ 
+easy
+ 
+descriptive
+Answer key
+☟
+Maxima Minima: GATE CSE 1997 | Question: 4.1
+What is the maximum value of the function 
+ in the interval 
+?
+
+
+A
+. 
+6
+B
+. 
+10
+C
+. 
+12
+D
+. 
+5.5
+5.6.5
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.6.6
+A
+. 
+One, at 
+B
+. 
+One, at 
+C
+. 
+Two, at 
+ and 
+D
+. 
+Two, at  
+ and 
+5.6.7
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.6.8
+A
+. 
+Ⅲ
+ only
+B
+. 
+Ⅱ
+ only
+C
+. 
+Ⅱ
+ and  
+Ⅲ
+ only
+D
+. 
+Ⅰ
+ and 
+Ⅲ
+ only
+5.6.9
+A
+. 
+ does not have a local
+maximum.
+B
+. 
+ has a local maximum.
+gate1997
+ 
+calculus
+ 
+maxima-minima
+ 
+normal
+Answer key
+☟
+Maxima Minima: GATE CSE 2008 | Question: 25
+A point on a curve is said to be an extremum if it is a local minimum or a local maximum. The number of
+distinct extrema for the curve 
+ is
+gatecse-2008
+ 
+calculus
+ 
+maxima-minima
+ 
+easy
+Answer key
+☟
+Maxima Minima: GATE CSE 2012 | Question: 9
+Consider the function 
+ in the interval 
+. The number and location(s) of the local
+minima of this function are
+gatecse-2012
+ 
+calculus
+ 
+maxima-minima
+ 
+normal
+Answer key
+☟
+Maxima Minima: GATE CSE 2015 | Set 2 | GA | Question: 3
+Consider a function 
+. The value of 
+ at which the function attains a
+maximum, and the maximum value of the function are:
+gatecse-2015-set2
+ 
+set-theory&algebra
+ 
+functions
+ 
+normal
+ 
+maxima-minima
+Answer key
+☟
+Maxima Minima: GATE CSE 2020 | Question: 1
+Consider the functions
+I
+. 
+ 
+II
+. 
+III
+. 
+Which of the above functions is/are increasing everywhere in  
+?
+gatecse-2020
+ 
+engineering-mathematics
+ 
+calculus
+ 
+maxima-minima
+ 
+one-mark
+Answer key
+☟
+Maxima Minima: GATE CSE 2023 | Question: 18
+ Let
+be a real-valued function.
+Which of the following statements is/are 
+
+
+C
+. 
+ does not have a local
+minimum.
+D
+. 
+ has a local minimum.
+5.6.10
+5.6.11
+A
+. 
+ has exactly two roots in 
+.
+B
+. 
+ has a minimum at 
+ only.
+C
+. 
+ has maximum at 
+ only.
+D
+. 
+ has a root at 
+.
+5.6.12
+A
+. 
+ is a local maximum of 
+B
+. 
+ is a local minimum of 
+C
+. 
+ is a local maximum of 
+D
+. 
+ is a local minimum of 
+5.6.13
+A
+. 
+local minimum
+B
+. 
+global minimum
+C
+. 
+local maximum
+D
+. 
+global maximum
+gatecse-2023
+ 
+calculus
+ 
+maxima-minima
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Maxima Minima: GATE DA 2025 | Question: 39
+Consider the function 
+. Which of the following statements
+is/are correct?
+A
+. 
+The maximum value of 
+ is attained at 
+B
+. 
+The minimum value of 
+ is attained at 
+C
+. 
+The maximum value of 
+ is 
+D
+. 
+The minimum value of the derivative of 
+ is attained at 
+gateda-2025
+ 
+calculus
+ 
+maxima-minima
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Maxima Minima: GATE DA 2026 | Question: 17
+Let 
+ be a function defined on 
+.
+Which of the following statements is/are correct?
+gateda-2026
+ 
+calculus
+ 
+maxima-minima
+ 
+multiple-selects
+ 
+one-mark
+Answer key
+☟
+Maxima Minima: GATE DS&AI 2024 | Question: 40
+​​​​​
+Consider the function 
+ where 
+ is the set of all real numbers.
+Which of the following statements is/are TRUE?
+ 
+gate-ds-ai-2024
+ 
+calculus
+ 
+maxima-minima
+ 
+multiple-selects
+ 
+two-marks
+Answer key
+☟
+Maxima Minima: GATE DS&AI 2024 | Question: 5
+For any twice diﬀerentiable function 
+, if at some 
+ and 
+, then the
+function 
+ necessarily has a 
+ at 
+.
+Note: 
+ denotes the set of real numbers.
+gate-ds-ai-2024
+ 
+calculus
+ 
+maxima-minima
+ 
+one-mark
+Answer key
+☟
+
+
+5.6.14
+A
+. 
+B
+. 
+C
+. 
+D
+. 
+5.7
+5.7.1
+A
+. 
+All complex roots
+B
+. 
+At least one real root
+C
+. 
+Four pairs of imaginary roots
+D
+. 
+None of the above
+5.7.2
+A
+. 
+   
+B
+. 
+C
+. 
+D
+. 
+    
+5.8
+5.8.1
+Maxima Minima: GATE IT 2008 | Question: 31
+If 
+ is defined as follows, what is the minimum value of 
+ for 
+ ?
+gateit-2008
+ 
+calculus
+ 
+maxima-minima
+ 
+normal
+Answer key
+☟
+Polynomials 
+(2)
+Polynomials: GATE CSE 1987 | Question: 1-xxii
+The equation 
+ has
+gate1987
+ 
+calculus
+ 
+polynomials
+Answer key
+☟
+Polynomials: GATE CSE 1995 | Question: 2.8
+If the cube roots of unity are 
+ and 
+, then the roots of the following equation are
+gate1995
+ 
+calculus
+ 
+normal
+ 
+polynomials
+Answer key
+☟
+Summation 
+(1)
+Summation: GATE DA 2026 | Question: 25
+The value of 
+ is 
+. (Answer in integer)
+gateda-2026
+ 
+calculus
+ 
+numerical-answers
+ 
+one-mark
+ 
+summation
+Answer key
+☟
+Answer Keys
+5.1.1
+N/A
+5.1.2
+B
+5.1.3
+A
+5.1.4
+A
+5.1.5
+A
+5.1.6
+C
+5.1.7
+19 : 19
+5.1.8
+03 : 03
+5.1.9
+40:40
+5.1.10
+A
+5.1.11
+C
+5.2.1
+0
+5.2.2
+B
+5.2.3
+A
+5.2.4
+A;C
+5.3.1
+D
+5.3.2
+-2
+5.3.3
+C
+5.3.4
+9
+5.3.5
+C
+5.3.6
+D
+5.3.7
+-2.1:-1.9
+5.3.8
+A;C;D
+5.3.9
+A;B;C
+5.3.10
+A
+5.3.11
+B;C;D
+5.4.1
+N/A
+5.4.2
+N/A
+5.4.3
+A
+5.4.4
+D
+5.4.5
+D
+5.4.6
+A
+5.4.7
+4
+5.4.8
+-1
+5.4.9
+A
+5.4.10
+0.288 : 0.289
+5.4.11
+B
+5.5.1
+1
+5.5.2
+1
+5.5.3
+A
+5.5.4
+B
+5.5.5
+C
+5.5.6
+C
+5.5.7
+1
+5.5.8
+C
+5.5.9
+C
+5.5.10
+0.25 : 0.25
+5.5.11
+-0.5
+5.5.12
+0.5:0.5
+5.5.13
+0:0
+
+
+5.5.14
+0.5
+5.5.15
+C
+5.6.1
+A
+5.6.2
+B
+5.6.3
+1
+5.6.4
+B
+5.6.5
+B
+5.6.6
+D
+5.6.7
+C
+5.6.8
+A
+5.6.9
+B;D
+5.6.10
+C;D
+5.6.11
+B;D
+5.6.12
+A;B
+5.6.13
+A
+5.6.14
+B
+5.7.1
+B
+5.7.2
+C
+5.8.1
+1:1

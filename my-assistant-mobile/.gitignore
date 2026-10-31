@@ -1,0 +1,20 @@
+node_modules/
+.npm-cache/
+.expo/
+.jdk17/
+*.log
+hs_err_pid*.log
+dist/
+web-build/
+.env
+
+.vercel
+.env*
+
+# Android local/generated files
+android/.gradle/
+android/.kotlin/
+android/.idea/
+android/**/.cxx/
+android/**/build/
+android/local.properties
