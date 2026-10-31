@@ -1,0 +1,19 @@
+{
+  "buildCommand": "npm install && npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/backend/:path*",
+      "destination": "https://my-assistant-backend-nxwg.onrender.com/:path*"
+    },
+    {
+      "source": "/exam/:path*",
+      "destination": "https://exam-rag-backend.onrender.com/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

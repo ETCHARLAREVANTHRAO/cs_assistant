@@ -1,10 +1,16 @@
-# Large AI / ML Model files (Crucial: GitHub/GitLab will block files > 100MB)
+# Large AI / ML Model files (GitHub/GitLab block files > 100MB)
 *.gguf
 *.bin
 *.pt
 *.onnx
 *.weights
 *.safetensors
+models/*
+!models/.gitkeep
+
+# External Binary tools & runtimes
+.tools/
+tools/
 
 # Python
 __pycache__/
@@ -40,6 +46,7 @@ yarn-error.log*
 .expo-shared/
 web-build/
 dist/
+frontend-mobile/web/
 
 # Environment and sensitive files
 .env
@@ -58,4 +65,3 @@ dist/
 Thumbs.db
 .vscode/
 .idea/
-
