@@ -1,3 +1,4 @@
+import httpx
 import os
 
 # Clean invalid/inaccessible SSLKEYLOGFILE if present to avoid SSL context crashes
@@ -143,18 +144,66 @@ async def robots():
 
 @app.get("/login")
 @app.head("/login")
-@app.post("/login")
 @app.get("/auth/login")
 @app.head("/auth/login")
-@app.post("/auth/login")
 @app.get("/api/login")
-@app.post("/api/login")
 @app.get("/backend/login")
-@app.post("/backend/login")
-async def login_info():
+@app.get("/api/auth/login")
+@app.get("/backend/auth/login")
+@app.get("/user/login")
+async def login_get():
     return {
         "status": "ok",
-        "message": "Authentication is client-side via Firebase Auth. To sign in, open https://mycsassistant.in/login",
+        "message": "Authentication is client-side via Firebase Auth. To sign in, open https://mycsassistant.in/login or POST {'email': '...', 'password': '...'}.",
+        "login_url": "https://mycsassistant.in/login",
+    }
+
+
+@app.post("/login")
+@app.post("/auth/login")
+@app.post("/api/login")
+@app.post("/backend/login")
+@app.post("/api/auth/login")
+@app.post("/backend/auth/login")
+@app.post("/token")
+@app.post("/auth/token")
+@app.post("/user/login")
+async def login_post(body: dict | None = None):
+    # If client passed email and password, authenticate with Firebase Auth REST API
+    if body and "email" in body and "password" in body:
+        api_key = os.getenv("FIREBASE_WEB_API_KEY") or os.getenv("VITE_FIREBASE_API_KEY") or "AIzaSyBNmRsap9D-4OHvpeluY33WA0YgnzKNxEg"
+        url = f"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={api_key}"
+        try:
+            async with httpx.AsyncClient(timeout=10) as client:
+                resp = await client.post(url, json={
+                    "email": body["email"].strip(),
+                    "password": body["password"],
+                    "returnSecureToken": True,
+                })
+                if resp.status_code == 200:
+                    data = resp.json()
+                    id_token = data.get("idToken")
+                    return {
+                        "access_token": id_token,
+                        "token_type": "bearer",
+                        "idToken": id_token,
+                        "refreshToken": data.get("refreshToken"),
+                        "expiresIn": data.get("expiresIn"),
+                        "localId": data.get("localId"),
+                        "email": data.get("email"),
+                    }
+                else:
+                    err_data = resp.json().get("error", {})
+                    msg = err_data.get("message", "Invalid credentials")
+                    raise HTTPException(status_code=401, detail=msg)
+        except HTTPException:
+            raise
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Authentication service error: {e}")
+
+    return {
+        "status": "ok",
+        "message": "Authentication is client-side via Firebase Auth. To sign in, open https://mycsassistant.in/login or POST {'email': '...', 'password': '...'}.",
         "login_url": "https://mycsassistant.in/login",
     }
 

@@ -189,10 +189,27 @@ async def list_notifications(user_id: str | None = Depends(optional_verify_token
 @router.get("/unread-count")
 @router.get("/count")
 @router.get("/summary")
+@router.get("/unread")
 async def unread_count(user_id: str | None = Depends(optional_verify_token)):
     if not user_id:
         return {"unread_count": 0}
     return {"unread_count": _response(user_id).unread_count}
+
+
+@router.get("/all", response_model=NotificationsResponse)
+@router.get("/list", response_model=NotificationsResponse)
+@router.get("/items", response_model=NotificationsResponse)
+async def list_notifications_alias(user_id: str | None = Depends(optional_verify_token)):
+    if not user_id:
+        return NotificationsResponse(notifications=[], unread_count=0, preferences=NotificationPreferences())
+    return _response(user_id)
+
+
+@router.get("/read-all", response_model=NotificationsResponse)
+async def mark_all_read_get(user_id: str | None = Depends(optional_verify_token)):
+    if not user_id:
+        return NotificationsResponse(notifications=[], unread_count=0, preferences=NotificationPreferences())
+    return await mark_all_read(user_id)
 
 
 @router.post("/{notification_id}/read", response_model=NotificationsResponse)
