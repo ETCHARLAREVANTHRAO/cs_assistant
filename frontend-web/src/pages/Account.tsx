@@ -1,10 +1,20 @@
-﻿import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import { useAuth } from '../context/AuthContext';
 
 export default function Account() {
   const { currentUser, signOutUser } = useAuth();
   const navigate = useNavigate();
+
+  const planId = localStorage.getItem('my_assistant_user_plan') || 'student';
+  const planNames: Record<string, string> = {
+    free: 'Free',
+    student: 'Student (₹149/mo)',
+    pro: 'Pro (₹499/mo)',
+    research: 'Research/Power (₹999/mo)',
+    institute: 'Institute / Teams',
+  };
+  const activePlanName = planNames[planId] || 'Student';
 
   const displayName = currentUser?.displayName || currentUser?.email?.split('@')[0] || 'Student';
   const email = currentUser?.email || '';
@@ -36,9 +46,15 @@ export default function Account() {
             <div>
               <h3 className="font-headline-md text-headline-md text-on-surface">{displayName}</h3>
               <p className="font-body-md text-body-md text-text-muted">{email}</p>
-              <div className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">
-                <span className="material-symbols-outlined text-[14px]">school</span>
-                GATE CS Aspirant
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">
+                  <span className="material-symbols-outlined text-[14px]">school</span>
+                  GATE CS Aspirant
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm border border-primary/20">
+                  <span className="material-symbols-outlined text-[14px]">verified</span>
+                  {activePlanName} Plan
+                </div>
               </div>
             </div>
           </div>
@@ -68,21 +84,29 @@ export default function Account() {
                     chevron_right
                   </span>
                 </button>
-                <button className="w-full flex items-center justify-between p-4 hover:bg-surface-container-lowest transition-colors group cursor-pointer text-left">
+                <button
+                  onClick={() => navigate('/billing')}
+                  className="w-full flex items-center justify-between p-4 hover:bg-surface-container-lowest transition-colors group cursor-pointer text-left"
+                >
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                       <span className="material-symbols-outlined">payments</span>
                     </div>
                     <div>
-                      <p className="font-label-md text-label-md text-on-surface">Manage Subscription</p>
+                      <p className="font-label-md text-label-md text-on-surface">Manage Subscription &amp; Plans</p>
                       <p className="font-body-md text-text-muted text-sm mt-0.5">
-                        View billing and plan details
+                        Current: <strong className="text-primary">{activePlanName}</strong> • View pricing &amp; invoices
                       </p>
                     </div>
                   </div>
-                  <span className="material-symbols-outlined text-text-muted group-hover:text-primary">
-                    chevron_right
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-primary px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 group-hover:bg-primary group-hover:text-on-primary transition">
+                      View Plans
+                    </span>
+                    <span className="material-symbols-outlined text-text-muted group-hover:text-primary">
+                      chevron_right
+                    </span>
+                  </div>
                 </button>
               </div>
             </div>

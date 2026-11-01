@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 
 const CHART_BARS = [20, 30, 25, 50, 70, 45, 35, 15, 60, 85, 100, 75, 40, 30];
@@ -6,11 +7,20 @@ export default function UsageDashboard() {
   return (
     <Layout activePage="usage" title="Usage Dashboard">
       <div className="max-w-container-max mx-auto w-full px-4 md:px-gutter pb-24">
-        <div className="mb-stack-lg">
-          <h2 className="font-headline-lg text-headline-lg text-on-surface mb-2">Usage Overview</h2>
-          <p className="text-text-muted font-body-md text-body-md">
-            Monitor your study credits and API consumption for the current billing cycle.
-          </p>
+        <div className="mb-stack-lg flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-2">Usage Overview</h2>
+            <p className="text-text-muted font-body-md text-body-md">
+              Monitor your study credits and API consumption for the current billing cycle.
+            </p>
+          </div>
+          <Link
+            to="/billing"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary/90 transition shadow-soft w-fit"
+          >
+            <span className="material-symbols-outlined text-sm">upgrade</span>
+            Upgrade Plan
+          </Link>
         </div>
         {/* Bento Grid Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-stack-lg">

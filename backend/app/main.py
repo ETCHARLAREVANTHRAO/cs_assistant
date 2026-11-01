@@ -16,7 +16,7 @@ from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv(usecwd=True))
 
-from app.routes import chat, documents, weather, usage, pyq, learning, doubts, planner, resources, complete, admin_content, admin_dashboard, local_chat, notifications
+from app.routes import chat, documents, weather, usage, pyq, learning, doubts, planner, resources, complete, admin_content, admin_dashboard, local_chat, notifications, research
 
 
 @asynccontextmanager
@@ -65,6 +65,7 @@ app.include_router(admin_content.router)
 app.include_router(admin_dashboard.router)
 app.include_router(local_chat.router)
 app.include_router(notifications.router)
+app.include_router(research.router)
 
 _pyq_assets_dir = os.path.join(os.path.dirname(__file__), "data", "gate_pyqs")
 app.mount("/pyq-assets", StaticFiles(directory=_pyq_assets_dir), name="pyq-assets")

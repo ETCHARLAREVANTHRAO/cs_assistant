@@ -26,7 +26,9 @@ export type PageKey =
   | 'downloads'
   | 'settings'
   | 'account'
-  | 'usage';
+  | 'usage'
+  | 'billing'
+  | 'research';
 
 interface NavItem {
   key: PageKey;
@@ -42,6 +44,7 @@ const NAV_ITEMS: NavItem[] = [
   { key: 'doubts', label: 'Doubts', icon: 'psychology_alt', to: '/doubts' },
   { key: 'revision-planner', label: 'Revision Planner', icon: 'event_note', to: '/revision-planner' },
   { key: 'resources', label: 'Resources', icon: 'auto_stories', to: '/resources' },
+  { key: 'research', label: 'Research', icon: 'biotech', to: '/research' },
   { key: 'quiz', label: 'Quiz', icon: 'quiz', to: '/quiz' },
   { key: 'pyq', label: 'PYQ', icon: 'school', to: '/pyq' },
   { key: 'progress', label: 'Progress', icon: 'leaderboard', to: '/progress' },
@@ -171,6 +174,17 @@ export default function Layout({ activePage, children, title, searchPlaceholder 
           })}
         </nav>
         <div className="mt-stack-md space-y-1 shrink-0 border-t border-border/60 pt-stack-sm">
+          <Link
+            to="/billing"
+            className={
+              activePage === 'billing'
+                ? 'flex items-center gap-3 px-3 py-2 text-primary dark:text-primary-fixed font-bold bg-secondary-container/10 dark:bg-secondary-container/20 rounded-lg transition-all duration-200 ease-in-out'
+                : 'flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-outline-variant hover:text-primary hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all duration-200 ease-in-out'
+            }
+          >
+            <span className="material-symbols-outlined">credit_card</span>
+            <span className="font-label-md text-label-md">Plans &amp; Billing</span>
+          </Link>
           <Link
             to="/settings"
             className={
@@ -314,7 +328,8 @@ export default function Layout({ activePage, children, title, searchPlaceholder 
         <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-surface dark:bg-inverse-surface border-t border-border flex justify-around items-center h-16 z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
           {MOBILE_NAV_ITEMS.map((item) => {
             const active =
-              item.key === activePage || (item.key === 'account' && activePage === 'settings');
+              item.key === activePage ||
+              (item.key === 'account' && (activePage === 'settings' || activePage === 'billing'));
             return (
               <Link
                 key={item.key}

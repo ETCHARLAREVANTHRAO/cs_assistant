@@ -28,6 +28,8 @@ const Progress = lazy(() => import('./pages/Progress'));
 const Downloads = lazy(() => import('./pages/Downloads'));
 const Settings = lazy(() => import('./pages/Settings'));
 const Account = lazy(() => import('./pages/Account'));
+const Billing = lazy(() => import('./pages/Billing'));
+const Research = lazy(() => import('./pages/Research'));
 const UsageDashboard = lazy(() => import('./pages/UsageDashboard'));
 const AdminDriveSync = lazy(() => import('./pages/AdminDriveSync'));
 const AdminContent = lazy(() => import('./pages/AdminContent'));
@@ -69,6 +71,8 @@ function AppRoutes() {
       <Route path="/downloads" element={<ProtectedRoute><Downloads /></ProtectedRoute>} />
       <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
       <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
+      <Route path="/billing" element={<ProtectedRoute><Billing /></ProtectedRoute>} />
+      <Route path="/research" element={<ProtectedRoute><Research /></ProtectedRoute>} />
       <Route path="/usage" element={<ProtectedRoute><UsageDashboard /></ProtectedRoute>} />
       <Route path="/admin/drive-sync" element={<ProtectedRoute><AdminDriveSync /></ProtectedRoute>} />
       <Route path="/admin/content" element={<ProtectedRoute><AdminContent /></ProtectedRoute>} />

@@ -932,3 +932,144 @@ export async function lookupDictionaryTerm(word: string): Promise<DictionaryLook
   return data;
 }
 
+export interface ResearchSection {
+  id: string;
+  title: string;
+  type: string;
+  summary: string;
+  key_takeaways: string[];
+  excerpt: string;
+}
+
+export interface ResearchFormulaVariable {
+  symbol: string;
+  meaning: string;
+}
+
+export interface ResearchFormula {
+  id: string;
+  name: string;
+  section: string;
+  latex: string;
+  explanation: string;
+  variables: ResearchFormulaVariable[];
+  derivation_summary: string;
+}
+
+export interface ResearchTable {
+  id: string;
+  title: string;
+  section: string;
+  headers: string[];
+  rows: string[][];
+  key_insight: string;
+  markdown?: string;
+}
+
+export interface ResearchGraphDataset {
+  label: string;
+  data: number[];
+  color: string;
+}
+
+export interface ResearchGraph {
+  id: string;
+  title: string;
+  type: 'bar' | 'line' | 'radar';
+  xAxisLabel: string;
+  yAxisLabel: string;
+  labels: string[];
+  datasets: ResearchGraphDataset[];
+  description: string;
+}
+
+export interface ResearchPaperSummary {
+  paper_id: string;
+  title: string;
+  authors: string[];
+  year: number;
+  citation_count: string;
+  tldr: string;
+  section_count: number;
+  formula_count: number;
+  table_count: number;
+}
+
+export interface ResearchPaperDetail {
+  paper_id: string;
+  title: string;
+  authors: string[];
+  affiliation?: string;
+  year: number;
+  citation_count: string;
+  tldr: string;
+  abstract: string;
+  sections: ResearchSection[];
+  formulas: ResearchFormula[];
+  tables: ResearchTable[];
+  graphs: ResearchGraph[];
+}
+
+export interface ResearchChatReply {
+  reply: string;
+  citations: string[];
+  paper_id: string;
+}
+
+export async function fetchResearchPapers(): Promise<{ papers: ResearchPaperSummary[] }> {
+  try {
+    const { data } = await api.get<{ papers: ResearchPaperSummary[] }>('/research/papers');
+    return data;
+  } catch {
+    return {
+      papers: [
+        {
+          paper_id: 'vaswani2017',
+          title: 'Attention Is All You Need',
+          authors: ['Ashish Vaswani', 'Noam Shazeer', 'Niki Parmar', 'et al.'],
+          year: 2017,
+          citation_count: '145,000+',
+          tldr: 'Introduced the Transformer architecture, replacing RNNs with self-attention mechanisms to achieve massive parallelizability.',
+          section_count: 6,
+          formula_count: 4,
+          table_count: 2,
+        },
+        {
+          paper_id: 'he2015resnet',
+          title: 'Deep Residual Learning for Image Recognition',
+          authors: ['Kaiming He', 'Xiangyu Zhang', 'Shaoqing Ren', 'Jian Sun'],
+          year: 2015,
+          citation_count: '210,000+',
+          tldr: 'Introduced deep residual learning framework (ResNet) with skip connections, enabling networks of 152+ layers.',
+          section_count: 4,
+          formula_count: 2,
+          table_count: 1,
+        },
+      ],
+    };
+  }
+}
+
+export async function fetchResearchPaper(paperId: string): Promise<ResearchPaperDetail> {
+  const { data } = await api.get<ResearchPaperDetail>(`/research/paper/${paperId}`);
+  return data;
+}
+
+export async function uploadResearchPaper(file: File): Promise<ResearchPaperDetail> {
+  const formData = new FormData();
+  formData.append('file', file);
+  const { data } = await api.post<ResearchPaperDetail>('/research/upload', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
+  return data;
+}
+
+export async function sendResearchChatMessage(paperId: string, message: string): Promise<ResearchChatReply> {
+  const { data } = await api.post<ResearchChatReply>('/research/chat', {
+    paper_id: paperId,
+    message,
+  });
+  return data;
+}
+
+
