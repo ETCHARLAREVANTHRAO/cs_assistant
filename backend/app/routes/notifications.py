@@ -5,7 +5,7 @@ import httpx
 from fastapi import APIRouter, Depends, HTTPException
 
 from app.core import firestore_service, product_data, pyq_analytics
-from app.core.auth import verify_admin_token, verify_token
+from app.core.auth import verify_admin_token, verify_token, optional_verify_token
 from app.models import (
     AdminAnnouncement,
     AdminAnnouncementCreate,
@@ -180,12 +180,16 @@ def _response(user_id: str) -> NotificationsResponse:
 
 
 @router.get("", response_model=NotificationsResponse)
-async def list_notifications(user_id: str = Depends(verify_token)):
+async def list_notifications(user_id: str | None = Depends(optional_verify_token)):
+    if not user_id:
+        return NotificationsResponse(notifications=[], unread_count=0, preferences=NotificationPreferences())
     return _response(user_id)
 
 
 @router.get("/unread-count")
-async def unread_count(user_id: str = Depends(verify_token)):
+async def unread_count(user_id: str | None = Depends(optional_verify_token)):
+    if not user_id:
+        return {"unread_count": 0}
     return {"unread_count": _response(user_id).unread_count}
 
 

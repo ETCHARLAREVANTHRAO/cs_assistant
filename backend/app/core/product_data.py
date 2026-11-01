@@ -142,24 +142,32 @@ COMMUNITY_SEED = {
 
 
 def exam_info():
-    admin = firestore_service.get_admin_content()
-    return admin.get("exam_info") or EXAM_INFO
+    try:
+        admin = firestore_service.get_admin_content()
+        return admin.get("exam_info") or EXAM_INFO
+    except Exception:
+        return EXAM_INFO
 
 
 def motivation(user_id: str):
     today_ord = date.today().toordinal()
-    analytics = pyq_analytics.compute_analytics(user_id)
-    streak = firestore_service.get_study_streak(user_id)
+    streak = {"current_streak": 0, "longest_streak": 0}
     rewards = []
-    if analytics["total_attempts"]:
-        rewards.append("First Drill")
-    if analytics["overall_accuracy"] >= 70:
-        rewards.append("Accuracy Builder")
-    if streak.get("current_streak", 0) >= 3:
-        rewards.append("Streak Starter")
-    resolved_errors = sum(1 for item in resources_data.error_notebook(user_id) if item.get("resolved"))
-    if resolved_errors >= 10:
-        rewards.append("Error Cleaner")
+    if user_id and user_id != "anonymous":
+        try:
+            analytics = pyq_analytics.compute_analytics(user_id)
+            streak = firestore_service.get_study_streak(user_id)
+            if analytics.get("total_attempts"):
+                rewards.append("First Drill")
+            if analytics.get("overall_accuracy", 0) >= 70:
+                rewards.append("Accuracy Builder")
+            if streak.get("current_streak", 0) >= 3:
+                rewards.append("Streak Starter")
+            resolved_errors = sum(1 for item in resources_data.error_notebook(user_id) if item.get("resolved"))
+            if resolved_errors >= 10:
+                rewards.append("Error Cleaner")
+        except Exception:
+            pass
     return {
         "daily_quote": _get_daily_quote(today_ord),
         "daily_challenge": CHALLENGES[today_ord % len(CHALLENGES)],
@@ -171,24 +179,37 @@ def motivation(user_id: str):
 
 
 def revision(user_id: str):
-    analytics = pyq_analytics.compute_analytics(user_id)
     repeated = pyq_data.topic_frequency()[:12]
+    personalized = []
+    if user_id and user_id != "anonymous":
+        try:
+            analytics = pyq_analytics.compute_analytics(user_id)
+            personalized = analytics.get("personalized_study_plan", [])
+        except Exception:
+            pass
     return {
         **REVISION_PLANS,
         "most_repeated_pyqs": repeated,
         "frequently_asked_concepts": [item["topic"] for item in repeated],
-        "personalized_focus": analytics.get("personalized_study_plan", []),
+        "personalized_focus": personalized,
     }
 
 
 def community(user_id: str):
-    admin = firestore_service.get_admin_content()
     seed = dict(COMMUNITY_SEED)
-    if admin.get("mentor_sessions"):
-        seed["mentor_sessions"] = admin["mentor_sessions"]
+    posts = []
+    leaderboard = []
+    try:
+        admin = firestore_service.get_admin_content()
+        if admin.get("mentor_sessions"):
+            seed["mentor_sessions"] = admin["mentor_sessions"]
+        posts = firestore_service.list_community_posts()
+        leaderboard = firestore_service.practice_leaderboard()
+    except Exception:
+        pass
     return {
-        "posts": firestore_service.list_community_posts(),
-        "leaderboard": firestore_service.practice_leaderboard(),
+        "posts": posts,
+        "leaderboard": leaderboard,
         **seed,
     }
 

@@ -4,7 +4,7 @@ from datetime import date, datetime, timedelta, timezone
 from fastapi import APIRouter, Depends, HTTPException
 
 from app.core import firestore_service
-from app.core.auth import verify_token
+from app.core.auth import verify_token, optional_verify_token
 from app.models import StudyGoalUpdate, StudyPlannerSummary, StudyPlanTask, StudyPlanTaskCreate, StudyPlanTaskUpdate
 
 router = APIRouter(prefix="/planner", tags=["planner"])
@@ -91,7 +91,20 @@ def _summary(user_id: str) -> StudyPlannerSummary:
 
 
 @router.get("/summary", response_model=StudyPlannerSummary)
-async def get_planner_summary(user_id: str = Depends(verify_token)):
+async def get_planner_summary(user_id: str | None = Depends(optional_verify_token)):
+    if not user_id:
+        return StudyPlannerSummary(
+            tasks=[],
+            today_key=_today_key(),
+            weekly_hours_goal=10.0,
+            weekly_completed_minutes=0,
+            weekly_planned_minutes=0,
+            completion_rate=0.0,
+            current_streak=0,
+            longest_streak=0,
+            completed_today=0,
+            revision_reminders=[],
+        )
     return _summary(user_id)
 
 

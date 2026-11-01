@@ -5,7 +5,7 @@ from app.core.firestore_service import get_db
 
 DAILY_LIMIT    = 50          # messages per day
 MONTHLY_LIMIT  = 100_000     # tokens per month
-RATE_LIMIT     = 5           # messages per minute (in-memory)
+RATE_LIMIT     = 30          # messages per minute (in-memory)
 
 _rate_windows: dict[str, list[float]] = {}
 

@@ -66,18 +66,18 @@ async def get_exam_info(_user_id: str | None = Depends(optional_verify_token)):
 
 
 @router.get("/motivation")
-async def get_motivation(user_id: str = Depends(verify_token)):
-    return product_data.motivation(user_id)
+async def get_motivation(user_id: str | None = Depends(optional_verify_token)):
+    return product_data.motivation(user_id or "anonymous")
 
 
 @router.get("/revision")
-async def get_revision(user_id: str = Depends(verify_token)):
-    return product_data.revision(user_id)
+async def get_revision(user_id: str | None = Depends(optional_verify_token)):
+    return product_data.revision(user_id or "anonymous")
 
 
 @router.get("/community")
-async def get_community(user_id: str = Depends(verify_token)):
-    return product_data.community(user_id)
+async def get_community(user_id: str | None = Depends(optional_verify_token)):
+    return product_data.community(user_id or "anonymous")
 
 
 @router.post("/community/posts")
