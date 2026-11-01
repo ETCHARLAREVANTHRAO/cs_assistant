@@ -5,7 +5,7 @@ from fastapi.responses import PlainTextResponse, Response
 
 from app.core import firestore_service, learning_data, pyq_data, config
 from app.core.simple_pdf import text_to_pdf_bytes
-from app.core.auth import verify_token
+from app.core.auth import verify_token, optional_verify_token
 from app.models import (
     CodeExecutionRequest,
     CodeExecutionResponse,
@@ -116,7 +116,7 @@ def _subject_cheat_sheet(subject: dict) -> str:
 
 
 @router.get("/subjects", response_model=list[LearningSubjectSummary])
-async def list_learning_subjects(_user_id: str = Depends(verify_token)):
+async def list_learning_subjects(_user_id: str | None = Depends(optional_verify_token)):
     return [
         {
             "slug": subject["slug"],
@@ -130,7 +130,7 @@ async def list_learning_subjects(_user_id: str = Depends(verify_token)):
 
 
 @router.get("/subjects/{subject_slug}", response_model=LearningSubjectDetail)
-async def get_learning_subject(subject_slug: str, _user_id: str = Depends(verify_token)):
+async def get_learning_subject(subject_slug: str, _user_id: str | None = Depends(optional_verify_token)):
     subject = _get_subject(subject_slug)
     if subject is None:
         raise HTTPException(status_code=404, detail=f"Unknown learning subject '{subject_slug}'.")
@@ -138,7 +138,7 @@ async def get_learning_subject(subject_slug: str, _user_id: str = Depends(verify
 
 
 @router.get("/syllabus", response_model=list[LearningSubjectDetail])
-async def get_learning_syllabus(_user_id: str = Depends(verify_token)):
+async def get_learning_syllabus(_user_id: str | None = Depends(optional_verify_token)):
     return _all_subjects()
 
 

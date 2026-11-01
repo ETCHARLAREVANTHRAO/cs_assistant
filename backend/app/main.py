@@ -38,6 +38,9 @@ app = FastAPI(title="my_assistant API", version="1.0.0", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://mycsassistant.in",
+        "https://www.mycsassistant.in",
+        "https://api.mycsassistant.in",
         "https://my-assistant-mobile.vercel.app",
         "https://my-assistant-mobile.pages.dev",
         "https://20701fbc.my-assistant-mobile.pages.dev",
@@ -45,7 +48,9 @@ app.add_middleware(
         "http://localhost:19006",
         "http://localhost:3000",
         "http://localhost:8000",
+        "http://localhost:5173",
     ],
+    allow_origin_regex=r"^https://([a-zA-Z0-9-]+\.)*(mycsassistant\.in|pages\.dev|vercel\.app)(:\d+)?$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

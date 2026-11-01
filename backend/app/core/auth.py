@@ -21,16 +21,26 @@ def _init_firebase():
     firebase_admin.initialize_app(cred)
     _initialized = True
 
-_bearer = HTTPBearer()
+_bearer = HTTPBearer(auto_error=False)
 _optional_bearer = HTTPBearer(auto_error=False)
 
-def verify_token(credentials: HTTPAuthorizationCredentials = Security(_bearer)) -> str:
+def verify_token(credentials: HTTPAuthorizationCredentials | None = Security(_bearer)) -> str:
+    if credentials is None or not credentials.credentials:
+        raise HTTPException(
+            status_code=401,
+            detail="Authentication token required.",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
     try:
         _init_firebase()
         decoded = auth.verify_id_token(credentials.credentials)
         return decoded["uid"]
     except Exception:
-        raise HTTPException(status_code=401, detail="Invalid or expired token")
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid or expired token",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
 
 
 def optional_verify_token(credentials: HTTPAuthorizationCredentials | None = Security(_optional_bearer)) -> str | None:

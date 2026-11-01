@@ -1,11 +1,11 @@
-﻿import uuid
+import uuid
 from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from app.core import firestore_service, product_data, pyq_analytics, rag, usage_service
-from app.core.auth import verify_token
+from app.core.auth import verify_token, optional_verify_token
 
 router = APIRouter(tags=["complete"])
 
@@ -61,7 +61,7 @@ async def ai_revision_plan(body: dict, user_id: str = Depends(verify_token)):
 
 
 @router.get("/exam-info")
-async def get_exam_info(_user_id: str = Depends(verify_token)):
+async def get_exam_info(_user_id: str | None = Depends(optional_verify_token)):
     return product_data.exam_info()
 
 

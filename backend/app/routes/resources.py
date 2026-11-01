@@ -1,14 +1,14 @@
 from fastapi import APIRouter, Depends
 
 from app.core import firestore_service, resources_data
-from app.core.auth import verify_token
+from app.core.auth import verify_token, optional_verify_token
 from app.models import ErrorNotebookUpdate, ResourcesSummaryResponse
 
 router = APIRouter(prefix="/resources", tags=["resources"])
 
 
 @router.get("/summary", response_model=ResourcesSummaryResponse)
-async def get_resources_summary(user_id: str = Depends(verify_token)):
+async def get_resources_summary(user_id: str | None = Depends(optional_verify_token)):
     return resources_data.resources_summary(user_id)
 
 

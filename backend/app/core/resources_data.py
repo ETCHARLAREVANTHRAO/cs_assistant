@@ -1,4 +1,4 @@
-﻿from app.core import firestore_service, pyq_data
+from app.core import firestore_service, pyq_data
 
 BOOK_RECOMMENDATIONS = [
     {"subject": "Algorithms", "title": "Introduction to Algorithms", "author": "Cormen, Leiserson, Rivest, Stein", "use_for": "Reference for algorithm design and complexity."},
@@ -171,7 +171,9 @@ def _notebook_id(attempt_id: str, question_id: str) -> str:
     return f"{attempt_id}:{question_id}"
 
 
-def error_notebook(user_id: str) -> list[dict]:
+def error_notebook(user_id: str | None = None) -> list[dict]:
+    if not user_id:
+        return []
     statuses = firestore_service.get_error_notebook_statuses(user_id)
     items = []
     for attempt in firestore_service.list_pyq_attempts(user_id):
@@ -232,7 +234,7 @@ def resource_content() -> dict:
     }
 
 
-def resources_summary(user_id: str) -> dict:
+def resources_summary(user_id: str | None = None) -> dict:
     content = resource_content()
     return {
         "pyq_solutions": pyq_solutions(limit=80),
