@@ -19,11 +19,24 @@ export const localApi = axios.create({
 api.interceptors.request.use(async (config) => {
   if (!auth) return config;
 
+  // Wait for initial Firebase auth state to resolve (ensures stored sessions are restored)
+  if (typeof auth.authStateReady === 'function') {
+    try {
+      await auth.authStateReady();
+    } catch {
+      // ignore initialization errors and fall through
+    }
+  }
+
   const user = auth.currentUser;
   if (user) {
-    const token = await user.getIdToken();
-    config.headers = config.headers ?? {};
-    config.headers.Authorization = `Bearer ${token}`;
+    try {
+      const token = await user.getIdToken();
+      config.headers = config.headers ?? {};
+      config.headers.Authorization = `Bearer ${token}`;
+    } catch {
+      // ignore token retrieval failure
+    }
   }
   return config;
 });

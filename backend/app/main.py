@@ -141,6 +141,24 @@ async def robots():
     return Response(content="User-agent: *\nAllow: /\n", media_type="text/plain")
 
 
+@app.get("/login")
+@app.head("/login")
+@app.post("/login")
+@app.get("/auth/login")
+@app.head("/auth/login")
+@app.post("/auth/login")
+@app.get("/api/login")
+@app.post("/api/login")
+@app.get("/backend/login")
+@app.post("/backend/login")
+async def login_info():
+    return {
+        "status": "ok",
+        "message": "Authentication is client-side via Firebase Auth. To sign in, open https://mycsassistant.in/login",
+        "login_url": "https://mycsassistant.in/login",
+    }
+
+
 @app.get("/chat")
 async def chat_get_info():
     return {"detail": "Chat endpoint is active. Use HTTP POST with JSON body {'message': '...', 'session_id': '...'}"}

@@ -187,6 +187,8 @@ async def list_notifications(user_id: str | None = Depends(optional_verify_token
 
 
 @router.get("/unread-count")
+@router.get("/count")
+@router.get("/summary")
 async def unread_count(user_id: str | None = Depends(optional_verify_token)):
     if not user_id:
         return {"unread_count": 0}

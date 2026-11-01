@@ -29,7 +29,8 @@ async def _ai(user_id: str, system: str, prompt: str) -> dict:
 
 
 @router.post("/ai/tutor")
-async def ai_tutor(body: dict, user_id: str = Depends(verify_token)):
+async def ai_tutor(body: dict, user_id: str | None = Depends(optional_verify_token)):
+    user_id = user_id or 'guest'
     topic = (body.get("topic") or "").strip()
     level = (body.get("level") or "beginner").strip()
     if not topic:
@@ -38,7 +39,8 @@ async def ai_tutor(body: dict, user_id: str = Depends(verify_token)):
 
 
 @router.post("/ai/quiz-generator")
-async def ai_quiz_generator(body: dict, user_id: str = Depends(verify_token)):
+async def ai_quiz_generator(body: dict, user_id: str | None = Depends(optional_verify_token)):
+    user_id = user_id or 'guest'
     topic = (body.get("topic") or "mixed GATE CS").strip()
     count = int(body.get("count") or 5)
     difficulty = (body.get("difficulty") or "medium").strip()
@@ -46,17 +48,29 @@ async def ai_quiz_generator(body: dict, user_id: str = Depends(verify_token)):
 
 
 @router.post("/ai/exam-mentor")
-async def ai_exam_mentor(body: dict, user_id: str = Depends(verify_token)):
+async def ai_exam_mentor(body: dict, user_id: str | None = Depends(optional_verify_token)):
     concern = (body.get("concern") or "How should I improve my GATE preparation?").strip()
-    analytics = pyq_analytics.compute_analytics(user_id)
+    analytics = {}
+    if user_id and user_id != "guest":
+        try:
+            analytics = pyq_analytics.compute_analytics(user_id)
+        except Exception:
+            pass
+    user_id = user_id or "guest" 
     return await _ai(user_id, "You are a practical GATE exam mentor. Give focused strategy, not motivation fluff.", f"Student concern: {concern}\nAnalytics: {analytics}\nGive a weekly action plan, mock strategy, and mistake-review method.")
 
 
 @router.post("/ai/revision-plan")
-async def ai_revision_plan(body: dict, user_id: str = Depends(verify_token)):
+async def ai_revision_plan(body: dict, user_id: str | None = Depends(optional_verify_token)):
     days = int(body.get("days") or 7)
     target = (body.get("target") or "GATE CS revision").strip()
-    analytics = pyq_analytics.compute_analytics(user_id)
+    analytics = {}
+    if user_id and user_id != "guest":
+        try:
+            analytics = pyq_analytics.compute_analytics(user_id)
+        except Exception:
+            pass
+    user_id = user_id or "guest" 
     return await _ai(user_id, "You make realistic GATE CS revision plans.", f"Create a {max(1, min(days, 60))}-day revision plan for {target}. Use analytics: {analytics}. Include daily tasks, mock days, and error notebook review.")
 
 

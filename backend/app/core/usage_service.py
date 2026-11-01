@@ -35,43 +35,60 @@ def check_rate_limit(user_id: str):
 
 
 def check_and_increment_daily(user_id: str):
-    today = _today()
-    stats = _get_stats(user_id)
-    if stats.get("daily_date") != today:
-        stats["daily_date"] = today
-        stats["daily_messages"] = 0
-    count = stats.get("daily_messages", 0)
-    if count >= DAILY_LIMIT:
-        raise HTTPException(
-            status_code=429,
-            detail=f"Daily limit reached ({DAILY_LIMIT} messages/day). Resets at midnight UTC.",
-        )
-    stats["daily_messages"] = count + 1
-    _set_stats(user_id, stats)
+    if not user_id or user_id in ("guest", "anonymous"):
+        return
+    try:
+        today = _today()
+        stats = _get_stats(user_id)
+        if stats.get("daily_date") != today:
+            stats["daily_date"] = today
+            stats["daily_messages"] = 0
+        count = stats.get("daily_messages", 0)
+        if count >= DAILY_LIMIT:
+            raise HTTPException(
+                status_code=429,
+                detail=f"Daily limit reached ({DAILY_LIMIT} messages/day). Resets at midnight UTC.",
+            )
+        stats["daily_messages"] = count + 1
+        _set_stats(user_id, stats)
+    except HTTPException:
+        raise
+    except Exception:
+        pass
 
 
 def check_monthly_limit(user_id: str):
-    month = _this_month()
-    stats = _get_stats(user_id)
-    if stats.get("monthly_month") != month:
-        return  # new month — no usage yet
-    if stats.get("monthly_tokens", 0) >= MONTHLY_LIMIT:
-        raise HTTPException(
-            status_code=429,
-            detail=f"Monthly token limit reached ({MONTHLY_LIMIT:,} tokens). Resets on the 1st.",
-        )
+    if not user_id or user_id in ("guest", "anonymous"):
+        return
+    try:
+        month = _this_month()
+        stats = _get_stats(user_id)
+        if stats.get("monthly_month") != month:
+            return
+        if stats.get("monthly_tokens", 0) >= MONTHLY_LIMIT:
+            raise HTTPException(
+                status_code=429,
+                detail=f"Monthly token limit reached ({MONTHLY_LIMIT:,} tokens). Resets on the 1st.",
+            )
+    except HTTPException:
+        raise
+    except Exception:
+        pass
 
 
 def add_tokens(user_id: str, tokens: int):
-    if tokens <= 0:
+    if not user_id or user_id in ("guest", "anonymous") or tokens <= 0:
         return
-    month = _this_month()
-    stats = _get_stats(user_id)
-    if stats.get("monthly_month") != month:
-        stats["monthly_month"] = month
-        stats["monthly_tokens"] = 0
-    stats["monthly_tokens"] = stats.get("monthly_tokens", 0) + tokens
-    _set_stats(user_id, stats)
+    try:
+        month = _this_month()
+        stats = _get_stats(user_id)
+        if stats.get("monthly_month") != month:
+            stats["monthly_month"] = month
+            stats["monthly_tokens"] = 0
+        stats["monthly_tokens"] = stats.get("monthly_tokens", 0) + tokens
+        _set_stats(user_id, stats)
+    except Exception:
+        pass
 
 
 def get_summary(user_id: str) -> dict:

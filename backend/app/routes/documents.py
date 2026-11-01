@@ -3,7 +3,7 @@ import os
 from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
 from app.models import DocumentUploadResponse, DocumentListResponse
 from app.core.rag import ingest_document, delete_document, _log
-from app.core.auth import verify_token, verify_admin_token
+from app.core.auth import verify_token, verify_admin_token, optional_verify_token
 from app.core import firestore_service
 from app.core import drive_sync
 
@@ -59,7 +59,13 @@ async def upload_document(
 
 
 @router.get("", response_model=DocumentListResponse)
-async def list_docs(user_id: str = Depends(verify_token)):
+async def list_docs(user_id: str | None = Depends(optional_verify_token)):
+    if not user_id:
+        return DocumentListResponse(
+            documents=[],
+            used_bytes=0,
+            limit_bytes=firestore_service.LIMIT_BYTES,
+        )
     docs = firestore_service.list_documents(user_id)
     used = firestore_service.get_user_size(user_id)
     return DocumentListResponse(
