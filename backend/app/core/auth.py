@@ -55,7 +55,9 @@ def optional_verify_token(credentials: HTTPAuthorizationCredentials | None = Sec
 
 
 DEFAULT_ADMIN_EMAILS = {
+    "etcherlarevanthrao9402@gmail.com",
     "etcharlarevanthrao9402@gmail.com",
+    "revrao9550@gmail.com",
 }
 
 
