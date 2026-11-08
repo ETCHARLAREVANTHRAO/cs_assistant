@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Layout from '../components/Layout';
 import { solveDoubt } from '../services/api';
+import { FormattedMessage } from '../components/FormattedMessage';
 
 const GATE_SUBJECT_SUGGESTIONS = [
   'Algorithms & Data Structures',
@@ -221,8 +222,8 @@ export default function Doubts() {
               </div>
 
               {answer ? (
-                <div className="flex-1 text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed whitespace-pre-wrap selection:bg-indigo-500/20">
-                  {answer}
+                <div className="flex-1 text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed selection:bg-indigo-500/20">
+                  <FormattedMessage content={answer} />
                 </div>
               ) : (
                 <div className="flex-1 flex flex-col items-center justify-center text-center py-16 text-slate-400 space-y-3">

@@ -8,6 +8,8 @@ import {
   type KnowledgeMode,
 } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import { FormattedMessage } from '../components/FormattedMessage';
+import { RoadmapCard } from '../components/RoadmapCard';
 
 interface ChatMessage {
   id: string;
@@ -15,6 +17,7 @@ interface ChatMessage {
   content: string;
   sources?: string[];
   timestamp?: string;
+  roadmap?: any;
 }
 
 const KNOWLEDGE_MODES: Array<{
@@ -177,6 +180,7 @@ export default function Chat() {
         content: res.reply,
         sources: res.sources,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        roadmap: res.roadmap,
       };
       setMessages((prev) => [...prev, assistantMsg]);
     } catch (err: any) {
@@ -484,10 +488,16 @@ export default function Chat() {
                         </div>
                       )}
 
-                      {/* Content Body */}
-                      <div className="text-[14px] leading-relaxed text-slate-800 dark:text-slate-200 whitespace-pre-wrap font-normal selection:bg-indigo-500/20">
-                        {msg.content}
-                      </div>
+                      {/* Content Body with Styled Markdown & Color Highlighting */}
+                      <FormattedMessage content={msg.content} />
+
+                      {/* Concept Roadmap for Academic Subjects */}
+                      {msg.roadmap && (
+                        <RoadmapCard
+                          roadmap={msg.roadmap}
+                          onSelectPrompt={(prompt) => handleSend(prompt)}
+                        />
+                      )}
 
                       {/* Timestamp */}
                       {msg.timestamp && (

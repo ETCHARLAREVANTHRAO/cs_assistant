@@ -286,6 +286,9 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
         _conversation_history[user_id] = []
     history = _conversation_history[user_id]
 
+    from .concept_service import classify_intent_and_roadmap
+    intent, roadmap = classify_intent_and_roadmap(message)
+
     doc_context, sources = _search_docs_sync(message, user_id=user_id, knowledge_mode=mode)
     _log(f"CONTEXT: {len(doc_context)} chars retrieved for user={user_id[:8]} mode={mode}")
 
@@ -304,6 +307,21 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
         "hybrid": "Knowledge mode: Best Answer. Use both the shared GATE Library and the student-provided documents when available, and prefer the most relevant cited context.",
     }[mode]
     system_with_context = f"{SYSTEM_PROMPT}\n\n{mode_instructions}"
+
+    if intent == "ACADEMIC_SUBJECT":
+        system_with_context += (
+            "\n\nStudent Doubt / Academic Question detected. Structure your answer using the high-yield standard format:"
+            "\n1. Core Concept (TL;DR): 1-2 crisp, direct sentences."
+            "\n2. Key Working Principles / Architecture: Use clear bullet points or comparison table with bolded terms and numerical values."
+            "\n3. Exam Focus / Common Trap: Point out common exam pitfalls, unit conversions, or edge cases."
+            "\nBe direct, precise, and avoid unnecessary chatty greetings."
+        )
+    else:
+        system_with_context += (
+            "\n\nUtility / casual conversation detected (weather, time, calendar, chitchat)."
+            "\nAnswer directly and concisely in 1-2 friendly sentences. Do not use academic blocks or exam warnings."
+        )
+
     if doc_context:
         system_with_context += f"\n\n--- Relevant retrieved study context ---\n{doc_context}\n---"
 
@@ -401,7 +419,13 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
     if len(history) > MAX_HISTORY_TURNS:
         _conversation_history[user_id] = history[-MAX_HISTORY_TURNS:]
 
-    return {"reply": reply, "sources": sources, "tokens_used": total_tokens, "knowledge_mode": mode}
+    return {
+        "reply": reply,
+        "sources": sources,
+        "tokens_used": total_tokens,
+        "knowledge_mode": mode,
+        "roadmap": roadmap,
+    }
 
 
 async def explain_pyq_question(question: dict) -> dict:

@@ -12,6 +12,7 @@ class ChatResponse(BaseModel):
     reply: str
     sources: list[str] = []
     knowledge_mode: Literal["server", "local", "hybrid"] = "hybrid"
+    roadmap: Optional[dict[str, Any]] = None
 
 
 class LocalChatRequest(BaseModel):

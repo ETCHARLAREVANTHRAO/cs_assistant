@@ -48,6 +48,7 @@ export interface ChatResponse {
   reply: string;
   sources: string[];
   knowledge_mode: KnowledgeMode;
+  roadmap?: any;
 }
 
 export async function sendChatMessage(

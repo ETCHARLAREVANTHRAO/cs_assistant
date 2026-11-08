@@ -25,4 +25,9 @@ async def chat_endpoint(body: ChatRequest, user_id: str = Depends(verify_token))
     except Exception:
         pass
 
-    return ChatResponse(reply=result["reply"], sources=result["sources"], knowledge_mode=result.get("knowledge_mode", body.knowledge_mode))
+    return ChatResponse(
+        reply=result["reply"],
+        sources=result["sources"],
+        knowledge_mode=result.get("knowledge_mode", body.knowledge_mode),
+        roadmap=result.get("roadmap"),
+    )
