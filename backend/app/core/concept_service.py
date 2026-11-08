@@ -291,3 +291,4 @@ def classify_intent_and_roadmap(query: str) -> tuple[str, Optional[dict[str, Any
 
     # Default to NON_ACADEMIC for casual conversation
     return "NON_ACADEMIC", None
+

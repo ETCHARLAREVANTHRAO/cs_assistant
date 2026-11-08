@@ -132,3 +132,4 @@ export const FormattedMessage: React.FC<FormattedMessageProps> = ({ content }) =
     </div>
   );
 };
+
