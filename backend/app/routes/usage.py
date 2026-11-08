@@ -1,4 +1,4 @@
-﻿from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends
 from app.core.auth import verify_token
 from app.core import usage_service, firestore_service
 

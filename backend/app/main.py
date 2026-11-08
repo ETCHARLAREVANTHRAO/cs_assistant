@@ -10,7 +10,7 @@ if "SSLKEYLOGFILE" in os.environ:
         os.environ.pop("SSLKEYLOGFILE", None)
 
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, Response
+from fastapi import FastAPI, Response, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv, find_dotenv

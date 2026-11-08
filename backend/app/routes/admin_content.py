@@ -1,4 +1,4 @@
-﻿from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends
 from firebase_admin import auth as firebase_auth
 
 from app.core import firestore_service, product_data, resources_data
