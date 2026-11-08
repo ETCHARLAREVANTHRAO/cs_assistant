@@ -11,3 +11,4 @@ export function isUserAdmin(email?: string | null): boolean {
   const envAdmins = ((import.meta as any).env?.VITE_ADMIN_EMAILS || '').split(',');
   return envAdmins.some((e: string) => e.trim().toLowerCase() === normalized && e.trim().length > 0);
 }
+
