@@ -36,18 +36,32 @@ from app.routes import (
 )
 
 
+import asyncio
+
+
+async def _background_warmup():
+    """Warm up heavy ONNX embeddings and Supabase in the background without blocking server startup."""
+    try:
+        from app.core.rag import _log
+        from app.core.vectorstore import get_embeddings, get_vectorstore
+        loop = asyncio.get_running_loop()
+        await loop.run_in_executor(None, get_embeddings)
+        await loop.run_in_executor(None, get_vectorstore)
+        _log("Background warmup completed successfully")
+    except Exception as exc:
+        try:
+            from app.core.rag import _log
+            _log(f"Startup background warmup skipped: {exc}")
+        except Exception:
+            pass
+
+
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    from app.core.rag import _log
-    from app.core.vectorstore import get_embeddings, get_vectorstore
-
-    try:
-        get_embeddings()    # load ONNX model into memory
-        get_vectorstore()   # initialise Supabase client
-    except Exception as exc:
-        _log(f"Startup warmup skipped: {exc}")
-
+    warmup_task = asyncio.create_task(_background_warmup())
     yield
+    if not warmup_task.done():
+        warmup_task.cancel()
 
 
 app = FastAPI(title="my_assistant API", version="1.0.0", lifespan=lifespan)

@@ -1,18 +1,31 @@
 ﻿import { useEffect, useState } from 'react';
 import { adminGetDashboard, type AdminDashboardResponse, type AdminDashboardUser } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 
 export default function AdminDashboard() {
+  const { currentUser } = useAuth();
   const [data, setData] = useState<AdminDashboardResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [statusCode, setStatusCode] = useState<number | null>(null);
 
   async function load() {
     setLoading(true);
     setError('');
+    setStatusCode(null);
     try {
       setData(await adminGetDashboard());
     } catch (err: any) {
-      setError(err?.response?.data?.detail || 'Admin dashboard could not be loaded.');
+      const status = err?.response?.status;
+      setStatusCode(status || null);
+      const detail = err?.response?.data?.detail;
+      if (status === 403) {
+        setError(detail || `Access restricted. Your account (${currentUser?.email || 'unknown'}) does not have administrator privileges.`);
+      } else if (status === 401) {
+        setError('Your session has expired or authentication token is missing. Please sign in again.');
+      } else {
+        setError(detail || err?.message || 'Admin dashboard could not be loaded.');
+      }
     } finally {
       setLoading(false);
     }
@@ -34,7 +47,33 @@ export default function AdminDashboard() {
           </button>
         </header>
 
-        {error && <div className="rounded-lg border border-error/30 bg-error-container/30 p-4 text-on-error-container">{error}</div>}
+        {error && (
+          <div className="rounded-xl border border-error/40 bg-error-container/20 p-5 text-on-surface space-y-3">
+            <div className="flex items-start gap-3">
+              <span className="material-symbols-outlined text-error text-2xl">error</span>
+              <div className="space-y-1">
+                <h3 className="font-title-md text-title-md font-semibold text-error">
+                  {statusCode === 403 ? 'Administrator Access Required' : statusCode === 401 ? 'Authentication Required' : 'Failed to Load Dashboard'}
+                </h3>
+                <p className="font-body-md text-body-md text-text-muted">{error}</p>
+                {currentUser?.email && (
+                  <p className="font-body-sm text-body-sm text-text-muted/80">
+                    Currently signed in as: <span className="font-mono text-text-primary">{currentUser.email}</span>
+                  </p>
+                )}
+              </div>
+            </div>
+            <div className="flex items-center gap-3 pt-2">
+              <button
+                onClick={load}
+                className="inline-flex items-center gap-2 rounded-lg bg-surface-container-high px-3 py-1.5 font-label-md text-label-md text-text-primary hover:bg-surface-container-highest transition"
+              >
+                <span className="material-symbols-outlined text-sm">refresh</span>
+                Try Again
+              </button>
+            </div>
+          </div>
+        )}
         {loading && !data ? <div className="bg-surface rounded-lg border border-border shadow-soft p-5 text-text-muted">Loading...</div> : data && <Dashboard data={data} />}
       </div>
     </div>

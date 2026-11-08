@@ -12,6 +12,11 @@ _db = None
 def get_db():
     global _db
     if _db is None:
+        try:
+            from app.core.auth import _init_firebase
+            _init_firebase()
+        except Exception:
+            pass
         _db = fb_firestore.client()
     return _db
 
@@ -355,12 +360,19 @@ def upsert_user_profile(user_id: str, email: str = "", display_name: str = ""):
 
 
 def list_user_profiles() -> list[dict]:
-    docs = get_db().collection("users").stream()
-    return [d.to_dict() | {"user_id": d.id} for d in docs]
+    try:
+        docs = get_db().collection("users").stream()
+        return [d.to_dict() | {"user_id": d.id} for d in docs]
+    except Exception as exc:
+        print(f"Warning: Failed to list user profiles: {exc}")
+        return []
 
 
 def _count_subcollection(user_id: str, collection_name: str) -> int:
-    return sum(1 for _ in get_db().collection("users").document(user_id).collection(collection_name).stream())
+    try:
+        return sum(1 for _ in get_db().collection("users").document(user_id).collection(collection_name).stream())
+    except Exception:
+        return 0
 
 
 def admin_activity_snapshot(firebase_users: list[dict]) -> dict:
@@ -370,28 +382,49 @@ def admin_activity_snapshot(firebase_users: list[dict]) -> dict:
     today = now.date().isoformat()
     week_ago = now - timedelta(days=7)
     month_ago = now - timedelta(days=30)
-    profiles = {p["user_id"]: p for p in list_user_profiles()}
 
-    total_documents = total_storage = total_attempts = submitted_attempts = planner_tasks = completed_planner_tasks = 0
-    community_posts = len(list_community_posts())
+    try:
+        profiles = {p["user_id"]: p for p in list_user_profiles()}
+    except Exception as exc:
+        print(f"Warning: Failed to load user profiles: {exc}")
+        profiles = {}
+
+    try:
+        community_posts = len(list_community_posts())
+    except Exception:
+        community_posts = 0
+
+    all_users_map: dict[str, dict] = {}
+    for fu in firebase_users:
+        uid = fu.get("uid")
+        if uid:
+            all_users_map[uid] = dict(fu)
+
+    for uid, prof in profiles.items():
+        if uid not in all_users_map:
+            all_users_map[uid] = {
+                "uid": uid,
+                "email": prof.get("email", ""),
+                "display_name": prof.get("display_name", ""),
+                "created_at": prof.get("first_seen_at"),
+                "last_sign_in_at": prof.get("last_active_at"),
+            }
+
+    def parse_dt(value):
+        if not value:
+            return None
+        try:
+            return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        except (ValueError, TypeError):
+            return None
+
     active_today = active_7d = active_30d = 0
     new_today = new_7d = new_30d = 0
-    total_daily_messages = total_monthly_tokens = 0
-    users = []
 
-    for user in firebase_users:
-        uid = user.get("uid", "")
+    for uid, udata in all_users_map.items():
         profile = profiles.get(uid, {})
-        created_at = user.get("created_at") or profile.get("first_seen_at")
-        last_active_at = profile.get("last_active_at")
-
-        def parse_dt(value):
-            if not value:
-                return None
-            try:
-                return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
-            except ValueError:
-                return None
+        created_at = udata.get("created_at") or profile.get("first_seen_at")
+        last_active_at = profile.get("last_active_at") or udata.get("last_sign_in_at")
 
         created_dt = parse_dt(created_at)
         active_dt = parse_dt(last_active_at)
@@ -410,22 +443,84 @@ def admin_activity_snapshot(firebase_users: list[dict]) -> dict:
             if active_dt >= month_ago:
                 active_30d += 1
 
-        doc_count = _count_subcollection(uid, "documents")
-        attempts = list(get_db().collection("users").document(uid).collection("pyq_attempts").stream())
-        task_docs = list(get_db().collection("users").document(uid).collection("study_plan_tasks").stream())
-        usage = get_db().collection("users").document(uid).collection("stats").document("usage").get().to_dict() or {}
-        storage = get_user_size(uid)
-        submitted = sum(1 for attempt in attempts if (attempt.to_dict() or {}).get("status") == "submitted")
-        completed_tasks = sum(1 for task in task_docs if (task.to_dict() or {}).get("completed"))
+    sorted_user_items = sorted(
+        all_users_map.values(),
+        key=lambda u: str(
+            profiles.get(u.get("uid", ""), {}).get("last_active_at")
+            or u.get("last_sign_in_at")
+            or u.get("created_at")
+            or ""
+        ),
+        reverse=True,
+    )
+
+    total_documents = total_storage = total_attempts = submitted_attempts = planner_tasks = completed_planner_tasks = 0
+    total_daily_messages = total_monthly_tokens = 0
+    users = []
+
+    for user in sorted_user_items[:50]:
+        uid = user.get("uid", "")
+        profile = profiles.get(uid, {})
+        created_at = user.get("created_at") or profile.get("first_seen_at")
+        last_active_at = profile.get("last_active_at") or user.get("last_sign_in_at")
+
+        doc_count = 0
+        storage = 0
+        attempts_len = 0
+        submitted = 0
+        tasks_len = 0
+        completed_tasks = 0
+        daily_msgs = 0
+        monthly_toks = 0
+
+        try:
+            db = get_db()
+            user_ref = db.collection("users").document(uid)
+
+            # 1. Documents & storage (single stream query)
+            try:
+                doc_docs = list(user_ref.collection("documents").stream())
+                doc_count = len(doc_docs)
+                storage = sum((d.to_dict() or {}).get("size_bytes", 0) for d in doc_docs)
+            except Exception:
+                pass
+
+            # 2. PYQ attempts
+            try:
+                attempts = list(user_ref.collection("pyq_attempts").stream())
+                attempts_len = len(attempts)
+                submitted = sum(1 for a in attempts if (a.to_dict() or {}).get("status") == "submitted")
+            except Exception:
+                pass
+
+            # 3. Planner tasks
+            try:
+                task_docs = list(user_ref.collection("study_plan_tasks").stream())
+                tasks_len = len(task_docs)
+                completed_tasks = sum(1 for t in task_docs if (t.to_dict() or {}).get("completed"))
+            except Exception:
+                pass
+
+            # 4. Usage stats
+            try:
+                usage_doc = user_ref.collection("stats").document("usage").get()
+                usage = usage_doc.to_dict() or {}
+                daily_msgs = usage.get("daily_messages", 0)
+                monthly_toks = usage.get("monthly_tokens", 0)
+            except Exception:
+                pass
+
+        except Exception as exc:
+            print(f"Warning: could not query subcollections for user {uid}: {exc}")
 
         total_documents += doc_count
         total_storage += storage
-        total_attempts += len(attempts)
+        total_attempts += attempts_len
         submitted_attempts += submitted
-        planner_tasks += len(task_docs)
+        planner_tasks += tasks_len
         completed_planner_tasks += completed_tasks
-        total_daily_messages += usage.get("daily_messages", 0)
-        total_monthly_tokens += usage.get("monthly_tokens", 0)
+        total_daily_messages += daily_msgs
+        total_monthly_tokens += monthly_toks
 
         users.append({
             "user_id": uid,
@@ -435,19 +530,18 @@ def admin_activity_snapshot(firebase_users: list[dict]) -> dict:
             "last_active_at": last_active_at,
             "documents": doc_count,
             "storage_bytes": storage,
-            "attempts": len(attempts),
+            "attempts": attempts_len,
             "submitted_attempts": submitted,
-            "planner_tasks": len(task_docs),
+            "planner_tasks": tasks_len,
             "completed_planner_tasks": completed_tasks,
-            "daily_messages": usage.get("daily_messages", 0),
-            "monthly_tokens": usage.get("monthly_tokens", 0),
+            "daily_messages": daily_msgs,
+            "monthly_tokens": monthly_toks,
         })
 
-    users.sort(key=lambda row: row.get("last_active_at") or row.get("created_at") or "", reverse=True)
     return {
         "generated_at": now.isoformat(),
         "users": {
-            "total": len(firebase_users),
+            "total": len(all_users_map),
             "tracked_profiles": len(profiles),
             "new_today": new_today,
             "new_7d": new_7d,
@@ -470,13 +564,20 @@ def admin_activity_snapshot(firebase_users: list[dict]) -> dict:
         "recent_users": users[:50],
     }
 
+
 def get_admin_content() -> dict:
-    doc = get_db().collection("admin").document("content").get()
-    return doc.to_dict() or {}
+    try:
+        doc = get_db().collection("admin").document("content").get()
+        return doc.to_dict() or {}
+    except Exception:
+        return {}
 
 
 def set_admin_content(content: dict):
-    get_db().collection("admin").document("content").set(content, merge=True)
+    try:
+        get_db().collection("admin").document("content").set(content, merge=True)
+    except Exception:
+        pass
 
 def create_community_post(user_id: str, post_id: str, post: dict):
     get_db().collection("community_posts").document(post_id).set(post)
