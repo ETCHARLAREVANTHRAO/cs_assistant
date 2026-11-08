@@ -61,7 +61,7 @@ _conversation_history: dict = {}  # user_id -> list of messages
 MAX_HISTORY_TURNS = 10
 
 
-def _get_llm():
+def _get_llm(prefer_fallback: bool = False):
     from dotenv import load_dotenv, find_dotenv
     load_dotenv(find_dotenv(usecwd=True))
 
@@ -77,10 +77,20 @@ def _get_llm():
         else:
             provider = "groq" if groq_key else "openrouter"
 
+    if prefer_fallback:
+        if provider == "groq" and openrouter_key:
+            provider = "openrouter"
+        elif provider == "openrouter" and groq_key:
+            provider = "groq"
+
     openrouter_model = os.getenv("OPENROUTER_MODEL") or OPENROUTER_MODEL or "nvidia/nemotron-3-ultra-550b-a55b:free"
     groq_model = os.getenv("GROQ_MODEL") or GROQ_MODEL or "llama-3.3-70b-versatile"
 
-    if provider == "openrouter":
+    # Sanitize Groq model: Groq does not accept openai/ or openrouter-style prefixed models
+    if not groq_model or groq_model.startswith("openai/") or "/" in groq_model:
+        groq_model = "llama-3.3-70b-versatile"
+
+    if provider == "openrouter" and openrouter_key:
         from langchain_openai import ChatOpenAI
         return ChatOpenAI(
             model=openrouter_model,
@@ -97,7 +107,7 @@ def _get_llm():
     from langchain_groq import ChatGroq
     return ChatGroq(
         model=groq_model,
-        api_key=groq_key,
+        api_key=groq_key or "gsk_dummy",
         max_tokens=1024,
         temperature=0.2,
     )
@@ -369,11 +379,13 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
         # If reply wasn't set cleanly or contained raw XML tool_call markup, synthesize using plain LLM
         if not reply or reply.startswith("<tool_call>") or "<function=" in reply:
             if executed_tools:
+                tool_summary = "\n\n".join([f"[{et['name']}]: {et['result']}" for et in executed_tools])
                 synth_messages = [
                     SystemMessage(
-                        content="You are a helpful personal AI assistant. Synthesize a clear, concise, and accurate answer to the user's question using the retrieved tool information below. Do not output any XML or call any tools."
+                        content="You are a helpful personal AI assistant. Answer the user's question clearly, concisely, and accurately using the retrieved tool information below. Do not output any XML or call any tools."
                     ),
-                ] + [m for m in messages if isinstance(m, (HumanMessage, ToolMessage))]
+                    HumanMessage(content=f"User question: {message}\n\nRetrieved tool information:\n{tool_summary}\n\nPlease provide a clear, direct answer.")
+                ]
                 try:
                     synth_resp = await llm_plain.ainvoke(synth_messages)
                     usage = getattr(synth_resp, "usage_metadata", None) or {}
@@ -384,15 +396,9 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
                 except Exception as synth_err:
                     _log(f"Synthesis error: {synth_err}")
 
-        # Final failsafe: if reply is still empty but we have executed tool results, present them directly
-        if not reply or reply.startswith("<tool_call>") or "<function=" in reply:
-            if executed_tools:
-                valid_results = [et["result"] for et in executed_tools if "Tool error" not in et["result"]]
-                if valid_results:
-                    reply = "Here is what I found:\n\n" + "\n\n".join(valid_results)
-
     except Exception as e:
-        _log(f"ERROR: {e}")
+        _log(f"ERROR in primary LLM: {e}")
+        # Fallback 1: Plain invocation with same LLM
         try:
             fallback = await llm_plain.ainvoke([
                 SystemMessage(content="You are a helpful assistant. Answer directly and concisely. Do not call any tools."),
@@ -400,15 +406,59 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
             ])
             usage = getattr(fallback, "usage_metadata", None) or {}
             total_tokens += usage.get("total_tokens", 0)
-            reply = fallback.content or ""
+            reply = (fallback.content or "").strip()
         except Exception as fallback_e:
-            _log(f"FALLBACK ERROR: {fallback_e}")
-            if executed_tools:
-                reply = "Here is what I found:\n\n" + "\n\n".join(et["result"] for et in executed_tools)
-            else:
-                reply = "I apologize, but I could not retrieve that information right now. Please try again."
+            _log(f"FALLBACK 1 ERROR: {fallback_e}")
+            # Fallback 2: Try alternate provider if available
+            try:
+                alt_llm = _get_llm(prefer_fallback=True)
+                alt_fallback = await alt_llm.ainvoke([
+                    SystemMessage(content="You are a helpful assistant. Answer directly and concisely. Do not call any tools."),
+                    HumanMessage(content=f"{system_with_context}\n\nUser question: {message}")
+                ])
+                usage = getattr(alt_fallback, "usage_metadata", None) or {}
+                total_tokens += usage.get("total_tokens", 0)
+                reply = (alt_fallback.content or "").strip()
+            except Exception as alt_e:
+                _log(f"FALLBACK 2 (ALT) ERROR: {alt_e}")
 
-    if not reply:
+    # Robust failsafes to guarantee user always gets a meaningful answer
+    if not reply or reply.startswith("<tool_call>") or "<function=" in reply:
+        # Failsafe A: Tool results if available
+        if executed_tools:
+            valid_results = [et["result"] for et in executed_tools if "Tool error" not in et["result"]]
+            if valid_results:
+                reply = "Here is what I found:\n\n" + "\n\n".join(valid_results)
+
+        # Failsafe B: Syllabus taxonomy knowledge synthesis for academic concepts
+        if (not reply or reply.startswith("<tool_call>") or "<function=" in reply) and roadmap:
+            title = roadmap.get("title", message)
+            subject = roadmap.get("subject", "Computer Science")
+            focus = roadmap.get("current_focus", {})
+            trap = roadmap.get("exam_trap", "")
+            adv = focus.get("advantages", "")
+            drawback = focus.get("drawbacks", "")
+            mech = focus.get("core_mechanism", "")
+            cell = focus.get("cell_type", "")
+
+            reply_parts = [
+                f"**1. Core Concept (TL;DR)**\n**{title}** is an essential topic under **{subject}**."
+            ]
+            if mech:
+                reply_parts.append(f"- **Core Mechanism**: {mech}")
+            if cell:
+                reply_parts.append(f"- **Architecture / Type**: {cell}")
+            if adv or drawback:
+                reply_parts.append("\n**2. Key Principles & Trade-offs**")
+                if adv:
+                    reply_parts.append(f"- **Advantage**: {adv}")
+                if drawback:
+                    reply_parts.append(f"- **Trade-off**: {drawback}")
+            if trap:
+                reply_parts.append(f"\n**3. Exam Focus**\n{trap}")
+            reply = "\n".join(reply_parts)
+
+    if not reply or reply.startswith("<tool_call>") or "<function=" in reply:
         reply = "I apologize, but I could not retrieve that information right now. Please try again."
 
     _log(f"REPLY: {reply[:300]}")
