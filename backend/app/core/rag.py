@@ -30,13 +30,19 @@ from .vectorstore import GLOBAL_KNOWLEDGE_USER_ID, add_documents, delete_by_sour
 from . import firestore_service
 from .tools import get_all_tools
 
+from dotenv import load_dotenv, find_dotenv
+_env_file = Path(__file__).resolve().parent.parent.parent / ".env"
+if _env_file.exists():
+    load_dotenv(_env_file)
+else:
+    load_dotenv(find_dotenv(usecwd=True))
+
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "").lower()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 _http_client = httpx.Client(verify=False)
-_async_http_client = httpx.AsyncClient(verify=False)
 
 SYSTEM_PROMPT = """You are a helpful personal AI assistant.
 
@@ -56,34 +62,36 @@ MAX_HISTORY_TURNS = 10
 
 
 def _get_llm():
-    provider = (os.getenv("LLM_PROVIDER") or LLM_PROVIDER or "").lower()
-    openrouter_key = os.getenv("OPENROUTER_API_KEY") or OPENROUTER_API_KEY
-    openrouter_model = os.getenv("OPENROUTER_MODEL") or OPENROUTER_MODEL or "nvidia/nemotron-3-ultra-550b-a55b:free"
+    from dotenv import load_dotenv, find_dotenv
+    load_dotenv(find_dotenv(usecwd=True))
+
     groq_key = os.getenv("GROQ_API_KEY") or GROQ_API_KEY
-    groq_model = os.getenv("GROQ_MODEL") or GROQ_MODEL or "openai/gpt-oss-120b"
+    openrouter_key = os.getenv("OPENROUTER_API_KEY") or OPENROUTER_API_KEY
+    provider = (os.getenv("LLM_PROVIDER") or LLM_PROVIDER or "").lower()
 
     if not provider:
-        if openrouter_key:
-            provider = "openrouter"
-        elif groq_key:
+        if groq_key:
             provider = "groq"
-        else:
+        elif openrouter_key:
             provider = "openrouter"
+        else:
+            provider = "groq" if groq_key else "openrouter"
+
+    openrouter_model = os.getenv("OPENROUTER_MODEL") or OPENROUTER_MODEL or "nvidia/nemotron-3-ultra-550b-a55b:free"
+    groq_model = os.getenv("GROQ_MODEL") or GROQ_MODEL or "llama-3.3-70b-versatile"
 
     if provider == "openrouter":
         from langchain_openai import ChatOpenAI
         return ChatOpenAI(
             model=openrouter_model,
-            openai_api_key=openrouter_key,
-            openai_api_base="https://openrouter.ai/api/v1",
+            api_key=openrouter_key,
+            base_url="https://openrouter.ai/api/v1",
             default_headers={
-                "HTTP-Referer": "https://localhost",
+                "HTTP-Referer": "https://mycsassistant.in",
                 "X-Title": "My Assistant",
             },
             max_tokens=1024,
             temperature=0.2,
-            http_client=_http_client,
-            http_async_client=_async_http_client,
         )
 
     from langchain_groq import ChatGroq
@@ -91,8 +99,7 @@ def _get_llm():
         model=groq_model,
         api_key=groq_key,
         max_tokens=1024,
-        http_client=_http_client,
-        http_async_client=_async_http_client,
+        temperature=0.2,
     )
 
 
@@ -308,16 +315,20 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
 
     reply = None
     total_tokens = 0
+    executed_tools: list[dict] = []
     try:
-        for _ in range(5):
+        for turn in range(5):
             response = await llm_with_tools.ainvoke(messages)
             messages.append(response)
             usage = getattr(response, "usage_metadata", None) or {}
             total_tokens += usage.get("total_tokens", 0)
 
+            # Check if model returned clean text without requesting more tools
+            raw_content = (response.content or "").strip()
             if not response.tool_calls:
-                reply = response.content or "Sorry, I could not generate a response."
-                break
+                if raw_content and not raw_content.startswith("<tool_call>") and "<function=" not in raw_content:
+                    reply = raw_content
+                    break
 
             for tc in response.tool_calls:
                 _log(f"TOOL CALL: {tc['name']}({tc['args']})")
@@ -331,19 +342,56 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
                     result = f"Unknown tool: {tc['name']}"
                 _log(f"TOOL RESULT: {str(result)[:300]}")
                 messages.append(ToolMessage(content=str(result), tool_call_id=tc["id"]))
+                executed_tools.append({"name": tc["name"], "result": str(result)})
+
+            # If tools were already executed and the model is looping or raw XML was produced, break to synthesize
+            if executed_tools and turn >= 1:
+                break
+
+        # If reply wasn't set cleanly or contained raw XML tool_call markup, synthesize using plain LLM
+        if not reply or reply.startswith("<tool_call>") or "<function=" in reply:
+            if executed_tools:
+                synth_messages = [
+                    SystemMessage(
+                        content="You are a helpful personal AI assistant. Synthesize a clear, concise, and accurate answer to the user's question using the retrieved tool information below. Do not output any XML or call any tools."
+                    ),
+                ] + [m for m in messages if isinstance(m, (HumanMessage, ToolMessage))]
+                try:
+                    synth_resp = await llm_plain.ainvoke(synth_messages)
+                    usage = getattr(synth_resp, "usage_metadata", None) or {}
+                    total_tokens += usage.get("total_tokens", 0)
+                    synth_content = (synth_resp.content or "").strip()
+                    if synth_content and not synth_content.startswith("<tool_call>") and "<function=" not in synth_content:
+                        reply = synth_content
+                except Exception as synth_err:
+                    _log(f"Synthesis error: {synth_err}")
+
+        # Final failsafe: if reply is still empty but we have executed tool results, present them directly
+        if not reply or reply.startswith("<tool_call>") or "<function=" in reply:
+            if executed_tools:
+                valid_results = [et["result"] for et in executed_tools if "Tool error" not in et["result"]]
+                if valid_results:
+                    reply = "Here is what I found:\n\n" + "\n\n".join(valid_results)
 
     except Exception as e:
         _log(f"ERROR: {e}")
-        fallback = await llm_plain.ainvoke([
-            SystemMessage(content="You are a helpful assistant. Answer directly and concisely. Do not call any tools."),
-            HumanMessage(content=f"{system_with_context}\n\nUser question: {message}")
-        ])
-        usage = getattr(fallback, "usage_metadata", None) or {}
-        total_tokens += usage.get("total_tokens", 0)
-        reply = fallback.content or "Sorry, I could not generate a response."
+        try:
+            fallback = await llm_plain.ainvoke([
+                SystemMessage(content="You are a helpful assistant. Answer directly and concisely. Do not call any tools."),
+                HumanMessage(content=f"{system_with_context}\n\nUser question: {message}")
+            ])
+            usage = getattr(fallback, "usage_metadata", None) or {}
+            total_tokens += usage.get("total_tokens", 0)
+            reply = fallback.content or ""
+        except Exception as fallback_e:
+            _log(f"FALLBACK ERROR: {fallback_e}")
+            if executed_tools:
+                reply = "Here is what I found:\n\n" + "\n\n".join(et["result"] for et in executed_tools)
+            else:
+                reply = "I apologize, but I could not retrieve that information right now. Please try again."
 
     if not reply:
-        reply = "Sorry, I could not complete the request."
+        reply = "I apologize, but I could not retrieve that information right now. Please try again."
 
     _log(f"REPLY: {reply[:300]}")
     _log("-" * 60)
