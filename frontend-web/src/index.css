@@ -3,34 +3,161 @@
 @tailwind utilities;
 
 html {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .font-code,
 code,
 pre {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
+/* Shadows */
 .shadow-soft {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
 .shadow-hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
 }
 
-/* Toggle switch (Settings page) */
+.shadow-glow-indigo {
+  box-shadow: 0 0 35px -5px rgba(79, 70, 229, 0.35);
+}
+
+.shadow-glow-purple {
+  box-shadow: 0 0 35px -5px rgba(168, 85, 247, 0.35);
+}
+
+.shadow-glow-cyan {
+  box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.35);
+}
+
+/* Resq.io Inspired Ambient Backgrounds & Beams */
+.resq-hero-dark {
+  background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f1123 45%, #080911 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.resq-beam {
+  position: absolute;
+  top: -15%;
+  left: 15%;
+  width: 45%;
+  height: 120%;
+  background: linear-gradient(135deg, rgba(129, 140, 248, 0.22) 0%, rgba(99, 102, 241, 0.08) 40%, transparent 70%);
+  transform: rotate(-25deg);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.resq-beam-right {
+  position: absolute;
+  top: -10%;
+  right: 10%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(225deg, rgba(168, 85, 247, 0.18) 0%, rgba(59, 130, 246, 0.06) 45%, transparent 75%);
+  transform: rotate(20deg);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.resq-stardust {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.resq-glass-dark {
+  background: rgba(17, 20, 34, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+}
+
+.resq-card-light {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resq-card-light:hover {
+  border-color: #c7d2fe;
+  box-shadow: 0 12px 30px -5px rgba(79, 70, 229, 0.08);
+  transform: translateY(-2px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-accent {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2.5s infinite;
+}
+
+/* Toggle Switch */
 .toggle-checkbox:checked {
   right: 0;
-  border-color: #3525cd;
+  border-color: #4f46e5;
 }
 .toggle-checkbox:checked + .toggle-label {
-  background-color: #3525cd;
+  background-color: #4f46e5;
 }
 .toggle-checkbox {
   right: 0;
@@ -63,14 +190,7 @@ pre {
   transform: translateX(1.5rem);
 }
 
-.glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-/* Custom scrollbar */
+/* Custom Scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -79,31 +199,31 @@ pre {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #dcd8e5;
-  border-radius: 4px;
+  background: #cbd5e1;
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c7c4d8;
+  background: #94a3b8;
 }
 
 .dark ::-webkit-scrollbar-thumb {
   background: #334155;
 }
 
-/* Dark mode surface tokens */
+/* Dark Mode Tokens */
 .dark body {
-  background: #101218;
-  color: #eef0f7;
+  background: #090a10;
+  color: #f1f5f9;
 }
 
 .dark .bg-background {
-  background-color: #101218;
+  background-color: #090a10;
 }
 
 .dark .bg-surface,
 .dark .bg-surface\/80,
 .dark .bg-surface-container-lowest {
-  background-color: #171a22;
+  background-color: #11131f;
 }
 
 .dark .bg-surface-container,
@@ -111,53 +231,42 @@ pre {
 .dark .bg-surface-container-high,
 .dark .bg-surface-container-highest,
 .dark .bg-surface-variant {
-  background-color: #222633;
+  background-color: #1a1e30;
 }
 
 .dark .text-on-background,
 .dark .text-on-surface,
-.dark .text-text-primary,
-.dark .text-primary {
-  color: #eef0f7;
+.dark .text-text-primary {
+  color: #f8fafc;
 }
 
 .dark .text-on-surface-variant,
 .dark .text-text-muted {
-  color: #aeb4c2;
+  color: #94a3b8;
 }
 
 .dark .border-border,
 .dark .border-border\/50,
 .dark .border-border\/60 {
-  border-color: #303747;
+  border-color: #272d42;
 }
 
 .dark .shadow-soft,
 .dark .shadow-hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 .dark .glass-panel {
-  background: rgba(23, 26, 34, 0.86);
+  background: rgba(17, 19, 31, 0.85);
   border-color: rgba(255, 255, 255, 0.08);
 }
 
-.sidebar-scroll {
-  scrollbar-gutter: stable;
+.dark .resq-card-light {
+  background: #11131f;
+  border-color: #272d42;
 }
 
-.sidebar-scroll::-webkit-scrollbar {
-  width: 5px;
-}
-
-.sidebar-scroll::-webkit-scrollbar-thumb {
-  background: transparent;
-}
-
-.sidebar-scroll:hover::-webkit-scrollbar-thumb {
-  background: #c7c4d8;
-}
-
-.dark .sidebar-scroll:hover::-webkit-scrollbar-thumb {
-  background: #586174;
+.dark .resq-card-light:hover {
+  border-color: #4f46e5;
+  box-shadow: 0 12px 30px -5px rgba(79, 70, 229, 0.25);
 }

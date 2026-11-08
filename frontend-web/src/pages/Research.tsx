@@ -366,13 +366,15 @@ export default function Research() {
     <Layout activePage="research" title="Research Paper Hub">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Page Top Header */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 bg-surface rounded-2xl p-6 sm:p-8 border border-border shadow-soft relative overflow-hidden">
+        <div className="relative rounded-3xl p-6 sm:p-8 resq-hero-dark text-white border border-indigo-500/20 overflow-hidden shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div className="resq-beam" />
+          <div className="resq-beam-right" />
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wide uppercase border border-primary/20">
               <span className="material-symbols-outlined text-[15px]">biotech</span>
               AI Research Paper Decomposition Engine
             </div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-on-surface">
+            <h1 className="text-2xl sm:text-3xl font-extrabold gradient-text">
               {currentPaper.title}
             </h1>
             <p className="text-xs sm:text-sm text-text-muted">

@@ -30,63 +30,96 @@ export type PageKey =
   | 'billing'
   | 'research';
 
-interface NavItem {
-  key: PageKey;
-  label: string;
-  icon: string;
-  to: string;
+interface NavSection {
+  title: string;
+  items: Array<{
+    key: PageKey;
+    label: string;
+    icon: string;
+    to: string;
+    badge?: string;
+  }>;
 }
 
-const NAV_ITEMS: NavItem[] = [
-  { key: 'chat', label: 'Chat', icon: 'chat', to: '/chat' },
-  { key: 'documents', label: 'Documents', icon: 'description', to: '/documents' },
-  { key: 'learning', label: 'Learning', icon: 'menu_book', to: '/learning' },
-  { key: 'doubts', label: 'Doubts', icon: 'psychology_alt', to: '/doubts' },
-  { key: 'revision-planner', label: 'Revision Planner', icon: 'event_note', to: '/revision-planner' },
-  { key: 'resources', label: 'Resources', icon: 'auto_stories', to: '/resources' },
-  { key: 'research', label: 'Research', icon: 'biotech', to: '/research' },
-  { key: 'quiz', label: 'Quiz', icon: 'quiz', to: '/quiz' },
-  { key: 'pyq', label: 'PYQ', icon: 'school', to: '/pyq' },
-  { key: 'progress', label: 'Progress', icon: 'leaderboard', to: '/progress' },
-  { key: 'downloads', label: 'Downloads', icon: 'download', to: '/downloads' },
-  { key: 'ai', label: 'AI', icon: 'auto_awesome', to: '/ai' },
-  { key: 'community', label: 'Community', icon: 'groups', to: '/community' },
-  { key: 'exam-info', label: 'Exam Info', icon: 'campaign', to: '/exam-info' },
-  { key: 'motivation', label: 'Motivation', icon: 'emoji_events', to: '/motivation' },
-  { key: 'revision', label: 'Revision', icon: 'event_repeat', to: '/revision' },
+const NAV_SECTIONS: NavSection[] = [
+  {
+    title: 'Core AI & Study',
+    items: [
+      { key: 'chat', label: 'AI Assistant', icon: 'smart_toy', to: '/chat' },
+      { key: 'learning', label: 'Curriculum Hub', icon: 'menu_book', to: '/learning' },
+      { key: 'doubts', label: 'Doubt Solver', icon: 'psychology_alt', to: '/doubts' },
+    ],
+  },
+  {
+    title: 'GATE Practice & Tests',
+    items: [
+      { key: 'pyq', label: 'PYQ 2012–2026', icon: 'school', to: '/pyq', badge: 'Active' },
+      { key: 'quiz', label: 'Adaptive Quiz', icon: 'quiz', to: '/quiz' },
+      { key: 'revision-planner', label: 'Revision Planner', icon: 'event_note', to: '/revision-planner' },
+    ],
+  },
+  {
+    title: 'Knowledge & Research',
+    items: [
+      { key: 'resources', label: 'GATE Resources', icon: 'auto_stories', to: '/resources' },
+      { key: 'research', label: 'Paper Hub', icon: 'biotech', to: '/research', badge: 'AI' },
+      { key: 'documents', label: 'Document Library', icon: 'folder_open', to: '/documents' },
+    ],
+  },
+  {
+    title: 'Analytics & Community',
+    items: [
+      { key: 'progress', label: 'My Progress', icon: 'analytics', to: '/progress' },
+      { key: 'motivation', label: 'Daily Motivation', icon: 'bolt', to: '/motivation' },
+      { key: 'community', label: 'Aspirants Community', icon: 'forum', to: '/community' },
+      { key: 'exam-info', label: 'GATE Exam Intel', icon: 'campaign', to: '/exam-info' },
+    ],
+  },
 ];
 
-const MOBILE_NAV_ITEMS: NavItem[] = [
-  { key: 'chat', label: 'Chat', icon: 'chat', to: '/chat' },
-  { key: 'documents', label: 'Docs', icon: 'description', to: '/documents' },
-  { key: 'learning', label: 'Learn', icon: 'menu_book', to: '/learning' },
-  { key: 'doubts', label: 'Doubts', icon: 'psychology_alt', to: '/doubts' },
-  { key: 'pyq', label: 'PYQ', icon: 'school', to: '/pyq' },
-  { key: 'resources', label: 'Resources', icon: 'auto_stories', to: '/resources' },
-  { key: 'downloads', label: 'Install', icon: 'download', to: '/downloads' },
-  { key: 'account', label: 'Profile', icon: 'settings', to: '/account' },
+const MOBILE_NAV_ITEMS = [
+  { key: 'chat' as PageKey, label: 'Assistant', icon: 'smart_toy', to: '/chat' },
+  { key: 'learning' as PageKey, label: 'Learn', icon: 'menu_book', to: '/learning' },
+  { key: 'doubts' as PageKey, label: 'Doubts', icon: 'psychology_alt', to: '/doubts' },
+  { key: 'pyq' as PageKey, label: 'PYQ', icon: 'school', to: '/pyq' },
+  { key: 'resources' as PageKey, label: 'Resources', icon: 'auto_stories', to: '/resources' },
+  { key: 'billing' as PageKey, label: 'Plans', icon: 'workspace_premium', to: '/billing' },
+  { key: 'account' as PageKey, label: 'Profile', icon: 'person', to: '/account' },
 ];
 
 interface LayoutProps {
   activePage: PageKey;
   children: ReactNode;
-  /** Header title shown on the top bar (desktop). Defaults to app name. */
   title?: string;
-  /** Optional search bar placeholder; omit to hide search box in header. */
   searchPlaceholder?: string;
 }
 
 export default function Layout({ activePage, children, title, searchPlaceholder }: LayoutProps) {
-  const { currentUser } = useAuth();
+  const { currentUser, signOutUser } = useAuth();
   const navigate = useNavigate();
   const bellRef = useRef<HTMLDivElement>(null);
   const [panelOpen, setPanelOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
-  const [notificationError, setNotificationError] = useState('');
-  const avatarLetter = (currentUser?.displayName || currentUser?.email || 'U')
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('darkMode') === 'true' || document.documentElement.classList.contains('dark');
+  });
+
+  const avatarLetter = (currentUser?.displayName || currentUser?.email || 'A')
     .charAt(0)
     .toUpperCase();
+
+  const toggleDarkMode = () => {
+    const next = !isDarkMode;
+    setIsDarkMode(next);
+    localStorage.setItem('darkMode', String(next));
+    if (next) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
 
   async function refreshNotifications() {
     if (!currentUser) return;
@@ -94,9 +127,8 @@ export default function Layout({ activePage, children, title, searchPlaceholder 
       const data = await notificationsList();
       setNotifications(data.notifications);
       setUnreadCount(data.unread_count);
-      setNotificationError('');
     } catch {
-      setNotificationError('Could not load notifications.');
+      // silently handle
     }
   }
 
@@ -127,226 +159,358 @@ export default function Layout({ activePage, children, title, searchPlaceholder 
   }
 
   async function markAllRead() {
-    const data = await notificationsMarkAllRead();
-    setNotifications(data.notifications);
-    setUnreadCount(data.unread_count);
+    try {
+      const data = await notificationsMarkAllRead();
+      setNotifications(data.notifications);
+      setUnreadCount(data.unread_count);
+    } catch {}
   }
 
   return (
-    <div className="flex h-screen w-full bg-background text-on-background font-body-md text-body-md antialiased overflow-hidden">
-      {/* SideNavBar (Desktop Only) */}
-      <aside className="hidden md:flex flex-col bg-surface dark:bg-inverse-surface shadow-sm h-full w-64 z-40 shrink-0 py-margin-desktop px-4 border-r border-border fixed left-0 top-0 min-h-0">
-        <div className="flex items-center gap-3 mb-stack-lg px-2">
-          <div className="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-white font-bold text-lg shadow-soft">
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
-              psychology
-            </span>
-          </div>
-          <div>
-            <h1 className="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">
-              my_assistant
-            </h1>
-            <p className="font-label-sm text-label-sm text-text-muted">GATE CS Aspirant</p>
+    <div className="flex h-screen w-full bg-[#f8fafc] dark:bg-[#07080e] text-slate-800 dark:text-slate-100 font-sans antialiased overflow-hidden">
+      {/* Mobile Drawer Backdrop */}
+      {mobileMenuOpen && (
+        <div
+          onClick={() => setMobileMenuOpen(false)}
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 md:hidden transition-opacity duration-300"
+        />
+      )}
+
+      {/* Sidebar (Desktop + Mobile Slide-out Drawer) */}
+      <aside
+        className={`fixed top-0 bottom-0 left-0 z-50 w-72 bg-white/95 dark:bg-[#0d0f1b]/95 backdrop-blur-xl border-r border-slate-200/80 dark:border-slate-800/80 flex flex-col transition-transform duration-300 ease-in-out md:translate-x-0 ${
+          mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        {/* Brand Header */}
+        <div className="p-5 border-b border-slate-200/70 dark:border-slate-800/70 flex items-center justify-between">
+          <Link
+            to="/chat"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center gap-3 group text-left"
+          >
+            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/25 group-hover:scale-105 transition-transform duration-200">
+              <span className="material-symbols-outlined text-[22px]">smart_toy</span>
+              <div className="absolute -inset-0.5 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-200 -z-10" />
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <span className="font-bold text-[16px] text-slate-900 dark:text-white tracking-tight">
+                  My Assistant
+                </span>
+                <span className="px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider rounded-md bg-indigo-50 dark:bg-indigo-950/70 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/60">
+                  GATE
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Computer Science AI</p>
+            </div>
+          </Link>
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="md:hidden p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+          >
+            <span className="material-symbols-outlined text-[20px]">close</span>
+          </button>
+        </div>
+
+        {/* Navigation Sections */}
+        <div className="flex-1 overflow-y-auto px-3.5 py-4 space-y-6 sidebar-scroll">
+          {NAV_SECTIONS.map((section) => (
+            <div key={section.title} className="space-y-1">
+              <h3 className="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                {section.title}
+              </h3>
+              <div className="space-y-0.5 pt-1">
+                {section.items.map((item) => {
+                  const active = item.key === activePage;
+                  return (
+                    <Link
+                      key={item.key}
+                      to={item.to}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`group relative flex items-center justify-between px-3 py-2 rounded-xl text-[13px] font-medium transition-all duration-200 ${
+                        active
+                          ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm shadow-indigo-500/25 font-semibold'
+                          : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100/80 dark:hover:bg-slate-800/60 hover:text-indigo-600 dark:hover:text-indigo-400'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <span
+                          className={`material-symbols-outlined text-[19px] transition-transform duration-200 group-hover:scale-110 ${
+                            active ? 'text-white' : 'text-slate-400 dark:text-slate-400 group-hover:text-indigo-500'
+                          }`}
+                        >
+                          {item.icon}
+                        </span>
+                        <span className="truncate">{item.label}</span>
+                      </div>
+                      {item.badge && (
+                        <span
+                          className={`text-[10px] px-1.5 py-0.2 rounded-full font-semibold uppercase tracking-wider ${
+                            active
+                              ? 'bg-white/20 text-white'
+                              : 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-800/50'
+                          }`}
+                        >
+                          {item.badge}
+                        </span>
+                      )}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+
+          {/* Quick Shortcuts */}
+          <div className="space-y-1 pt-2">
+            <h3 className="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+              Account & Utilities
+            </h3>
+            <div className="space-y-0.5 pt-1">
+              <Link
+                to="/billing"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`flex items-center justify-between px-3 py-2 rounded-xl text-[13px] font-medium transition-all duration-200 ${
+                  activePage === 'billing'
+                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100/80 dark:hover:bg-slate-800/60 hover:text-indigo-600 dark:hover:text-indigo-400'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-[19px]">workspace_premium</span>
+                  <span>Plans &amp; Billing</span>
+                </div>
+                <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 font-semibold border border-amber-500/20">
+                  PRO
+                </span>
+              </Link>
+              <Link
+                to="/settings"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`flex items-center gap-3 px-3 py-2 rounded-xl text-[13px] font-medium transition-all duration-200 ${
+                  activePage === 'settings'
+                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold'
+                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100/80 dark:hover:bg-slate-800/60 hover:text-indigo-600 dark:hover:text-indigo-400'
+                }`}
+              >
+                <span className="material-symbols-outlined text-[19px]">tune</span>
+                <span>Settings</span>
+              </Link>
+            </div>
           </div>
         </div>
-        <nav className="flex-1 min-h-0 overflow-y-auto space-y-1 pr-1 sidebar-scroll">
-          {NAV_ITEMS.map((item) => {
-            const active = item.key === activePage;
-            return (
-              <Link
-                key={item.key}
-                to={item.to}
-                className={
-                  active
-                    ? 'flex items-center gap-3 px-3 py-2 text-primary dark:text-primary-fixed font-bold bg-secondary-container/10 dark:bg-secondary-container/20 rounded-lg transition-all duration-200 ease-in-out'
-                    : 'flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-outline-variant hover:text-primary hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all duration-200 ease-in-out'
-                }
+
+        {/* User Profile Footer Card */}
+        <div className="p-3.5 border-t border-slate-200/70 dark:border-slate-800/70 bg-slate-50/60 dark:bg-[#0b0c16]/60">
+          <div className="flex items-center justify-between p-2 rounded-xl hover:bg-white dark:hover:bg-slate-800/70 transition-colors duration-200 group">
+            <Link
+              to="/account"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-2.5 min-w-0 flex-1"
+            >
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-sm">
+                {avatarLetter}
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-[13px] font-semibold text-slate-800 dark:text-slate-200 truncate">
+                  {currentUser?.displayName || currentUser?.email?.split('@')[0] || 'GATE Aspirant'}
+                </p>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <p className="text-[11px] text-slate-400 truncate">CS Aspirant Pro</p>
+                </div>
+              </div>
+            </Link>
+            <button
+              onClick={toggleDarkMode}
+              title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+              className="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700/60 rounded-lg transition-colors"
+            >
+              <span className="material-symbols-outlined text-[18px]">
+                {isDarkMode ? 'light_mode' : 'dark_mode'}
+              </span>
+            </button>
+            {currentUser && (
+              <button
+                onClick={() => signOutUser()}
+                title="Sign out"
+                className="p-1.5 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 rounded-lg transition-colors"
               >
-                <span
-                  className="material-symbols-outlined"
-                  style={active ? { fontVariationSettings: "'FILL' 1" } : undefined}
-                >
-                  {item.icon}
-                </span>
-                <span className="font-label-md text-label-md">{item.label}</span>
-              </Link>
-            );
-          })}
-        </nav>
-        <div className="mt-stack-md space-y-1 shrink-0 border-t border-border/60 pt-stack-sm">
-          <Link
-            to="/billing"
-            className={
-              activePage === 'billing'
-                ? 'flex items-center gap-3 px-3 py-2 text-primary dark:text-primary-fixed font-bold bg-secondary-container/10 dark:bg-secondary-container/20 rounded-lg transition-all duration-200 ease-in-out'
-                : 'flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-outline-variant hover:text-primary hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all duration-200 ease-in-out'
-            }
-          >
-            <span className="material-symbols-outlined">credit_card</span>
-            <span className="font-label-md text-label-md">Plans &amp; Billing</span>
-          </Link>
-          <Link
-            to="/settings"
-            className={
-              activePage === 'settings'
-                ? 'flex items-center gap-3 px-3 py-2 text-primary dark:text-primary-fixed font-bold bg-secondary-container/10 dark:bg-secondary-container/20 rounded-lg transition-all duration-200 ease-in-out'
-                : 'flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-outline-variant hover:text-primary hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all duration-200 ease-in-out'
-            }
-          >
-            <span className="material-symbols-outlined">settings</span>
-            <span className="font-label-md text-label-md">Settings</span>
-          </Link>
-          <Link
-            to="/account"
-            className="flex items-center gap-3 px-2 py-2 mt-2 rounded-lg hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors"
-          >
-            <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm shrink-0">
-              {avatarLetter}
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="font-label-md text-label-md truncate text-on-surface dark:text-inverse-on-surface">
-                {currentUser?.displayName || currentUser?.email || 'Account'}
-              </p>
-              <p className="font-label-sm text-label-sm text-text-muted truncate">View profile</p>
-            </div>
-          </Link>
+                <span className="material-symbols-outlined text-[18px]">logout</span>
+              </button>
+            )}
+          </div>
         </div>
       </aside>
 
-      {/* Main Content Area */}
-      <div className="flex-1 flex flex-col relative h-full overflow-hidden md:ml-64 bg-background text-on-background">
-        {/* TopNavBar */}
-        <header className="fixed top-0 right-0 left-0 md:left-64 z-30 flex justify-between items-center px-gutter py-4 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-xl shadow-sm border-b border-border/50">
-          <div className="flex items-center gap-4 md:hidden">
-            <button className="p-2 text-on-surface-variant rounded-full hover:bg-surface-container transition-colors">
-              <span className="material-symbols-outlined">menu</span>
+      {/* Main View Area */}
+      <div className="flex-1 flex flex-col relative h-full overflow-hidden md:ml-72 bg-[#f8fafc] dark:bg-[#07080e] text-slate-900 dark:text-slate-100">
+        {/* Top Navbar */}
+        <header className="sticky top-0 z-30 flex items-center justify-between px-5 md:px-8 py-3.5 bg-white/80 dark:bg-[#0d0f1b]/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/80 shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
+          {/* Left: Mobile Toggle & Page Title */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              aria-label="Open sidebar"
+              className="md:hidden p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"
+            >
+              <span className="material-symbols-outlined text-[22px]">menu</span>
             </button>
-            <h2 className="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">
-              my_assistant
-            </h2>
+            <div className="flex items-center gap-2">
+              <h1 className="text-[17px] md:text-[19px] font-bold text-slate-900 dark:text-white tracking-tight">
+                {title || 'My Assistant • GATE CS'}
+              </h1>
+              <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Live AI RAG
+              </span>
+            </div>
           </div>
-          {title && (
-            <h2 className="hidden md:block font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">
-              {title}
-            </h2>
-          )}
+
+          {/* Center: Search Box (Desktop) */}
           {searchPlaceholder && (
-            <div className="hidden md:flex flex-1 max-w-md mx-4 items-center">
+            <div className="hidden lg:flex flex-1 max-w-md mx-6 items-center">
               <div className="relative w-full">
-                <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted text-sm">
+                <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">
                   search
                 </span>
                 <input
-                  className="w-full pl-10 pr-4 py-2 rounded-lg bg-surface border border-border focus:ring-2 focus:ring-primary focus:border-primary font-body-md text-body-md text-on-surface placeholder:text-text-muted transition-all"
-                  placeholder={searchPlaceholder}
                   type="text"
+                  placeholder={searchPlaceholder}
+                  className="w-full pl-10 pr-10 py-1.5 bg-slate-100/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800/80 rounded-xl text-[13px] text-slate-800 dark:text-slate-200 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all"
                 />
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-semibold px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+                  ⌘K
+                </span>
               </div>
             </div>
           )}
-          <div className="flex items-center gap-4 ml-auto">
+
+          {/* Right: Quick Actions, Notifications, User */}
+          <div className="flex items-center gap-2.5 ml-auto">
+            {/* Quick Link to GATE PYQ */}
+            <Link
+              to="/pyq"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100 dark:bg-slate-800/60 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 border border-slate-200 dark:border-slate-700/60 transition-all"
+            >
+              <span className="material-symbols-outlined text-[16px] text-indigo-500">history_edu</span>
+              <span>PYQs</span>
+            </Link>
+
+            {/* Notifications Bell */}
             <div className="relative" ref={bellRef}>
               <button
                 aria-label="Notifications"
-                className="relative p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-all scale-95 active:scale-90"
                 onClick={() => {
                   setPanelOpen((open) => !open);
                   refreshNotifications();
                 }}
+                className="relative p-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all"
               >
-                <span className="material-symbols-outlined">notifications</span>
+                <span className="material-symbols-outlined text-[20px]">notifications</span>
                 {unreadCount > 0 && (
-                  <span className="absolute -right-0.5 -top-0.5 min-w-5 h-5 px-1 rounded-full bg-error text-white text-[10px] font-bold flex items-center justify-center border-2 border-surface">
+                  <span className="absolute top-1.5 right-1.5 min-w-[17px] h-[17px] px-1 rounded-full bg-rose-500 text-white text-[9px] font-bold flex items-center justify-center border-2 border-white dark:border-[#0d0f1b]">
                     {unreadCount > 9 ? '9+' : unreadCount}
                   </span>
                 )}
               </button>
+
+              {/* Notification Popover Dropdown */}
               {panelOpen && (
-                <div className="absolute right-0 mt-3 w-[min(22rem,calc(100vw-2rem))] rounded-xl border border-border bg-surface shadow-xl z-50 overflow-hidden">
-                  <div className="px-4 py-3 border-b border-border flex items-center justify-between">
-                    <div>
-                      <p className="font-label-md text-label-md font-bold text-text-primary">Notifications</p>
-                      <p className="font-label-sm text-label-sm text-text-muted">{unreadCount} unread</p>
+                <div className="absolute right-0 mt-2 w-84 sm:w-96 rounded-2xl bg-white dark:bg-[#111322] border border-slate-200 dark:border-slate-800 shadow-2xl shadow-indigo-950/20 z-50 overflow-hidden">
+                  <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 dark:border-slate-800/70 bg-slate-50/70 dark:bg-[#0c0e1a]/70">
+                    <div className="flex items-center gap-2">
+                      <span className="material-symbols-outlined text-indigo-500 text-[18px]">notifications_active</span>
+                      <span className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
+                        Study Notifications
+                      </span>
                     </div>
-                    <button
-                      className="text-primary font-label-sm text-label-sm font-bold disabled:text-text-muted"
-                      disabled={!unreadCount}
-                      onClick={markAllRead}
-                    >
-                      Mark all read
-                    </button>
+                    {unreadCount > 0 && (
+                      <button
+                        onClick={markAllRead}
+                        className="text-[11px] font-semibold text-indigo-600 dark:text-indigo-400 hover:underline"
+                      >
+                        Mark all read
+                      </button>
+                    )}
                   </div>
-                  <div className="max-h-[28rem] overflow-y-auto">
-                    {notificationError ? (
-                      <p className="px-4 py-6 text-error font-body-md text-body-md">{notificationError}</p>
-                    ) : notifications.length === 0 ? (
-                      <p className="px-4 py-6 text-text-muted font-body-md text-body-md">No notifications yet.</p>
+                  <div className="max-h-80 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-800/50">
+                    {notifications.length === 0 ? (
+                      <div className="py-8 text-center text-xs text-slate-400">
+                        No notifications yet. You're all caught up!
+                      </div>
                     ) : (
                       notifications.map((item) => (
-                        <button
+                        <div
                           key={item.notification_id}
-                          className={
-                            item.read
-                              ? 'w-full text-left px-4 py-3 border-b border-border/60 hover:bg-surface-container-lowest transition-colors'
-                              : 'w-full text-left px-4 py-3 border-b border-border/60 bg-primary/5 hover:bg-primary/10 transition-colors'
-                          }
                           onClick={() => openNotification(item)}
+                          className={`p-3.5 hover:bg-slate-50 dark:hover:bg-slate-800/40 cursor-pointer transition-colors ${
+                            !item.read ? 'bg-indigo-50/40 dark:bg-indigo-950/20' : ''
+                          }`}
                         >
-                          <div className="flex gap-3">
-                            <span
-                              className={
-                                item.read
-                                  ? 'mt-1 h-2 w-2 rounded-full bg-outline-variant shrink-0'
-                                  : 'mt-1 h-2 w-2 rounded-full bg-primary shrink-0'
-                              }
-                            />
-                            <div className="min-w-0">
-                              <p className="font-label-md text-label-md font-bold text-text-primary">{item.title}</p>
-                              <p className="font-body-sm text-body-sm text-text-muted mt-1 line-clamp-2">{item.message}</p>
+                          <div className="flex items-start gap-2.5">
+                            <span className="material-symbols-outlined text-[17px] text-indigo-500 mt-0.5">
+                              {item.type === 'alert' ? 'warning' : item.type === 'success' ? 'check_circle' : 'info'}
+                            </span>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">
+                                {item.title}
+                              </p>
+                              <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 mt-0.5">
+                                {item.message}
+                              </p>
                             </div>
+                            {!item.read && (
+                              <span className="w-2 h-2 rounded-full bg-indigo-500 shrink-0 mt-1.5" />
+                            )}
                           </div>
-                        </button>
+                        </div>
                       ))
                     )}
                   </div>
                 </div>
               )}
             </div>
+
+            {/* Quick Profile Capsule */}
             <Link
               to="/account"
-              className="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center overflow-hidden shadow-soft cursor-pointer text-primary font-bold text-sm"
+              className="flex items-center gap-2 pl-1 pr-2.5 py-1 rounded-xl bg-slate-100/80 dark:bg-slate-800/60 hover:bg-slate-200/80 dark:hover:bg-slate-700/60 border border-slate-200/80 dark:border-slate-700/60 transition-all"
             >
-              {avatarLetter}
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-indigo-600 to-purple-600 text-white font-bold text-xs flex items-center justify-center">
+                {avatarLetter}
+              </div>
+              <span className="hidden sm:inline text-xs font-semibold text-slate-700 dark:text-slate-300">
+                {currentUser?.displayName || currentUser?.email?.split('@')[0] || 'Profile'}
+              </span>
             </Link>
           </div>
         </header>
 
-        {/* Scrollable Content */}
-        <main className="flex-1 overflow-y-auto pt-[80px] pb-20 md:pb-0 bg-background text-on-background">{children}</main>
+        {/* Content Body */}
+        <main className="flex-1 overflow-y-auto relative min-h-0">
+          {children}
+        </main>
 
-        {/* Bottom Nav for Mobile */}
-        <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-surface dark:bg-inverse-surface border-t border-border flex justify-around items-center h-16 z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        {/* Mobile Bottom Navigation Bar */}
+        <nav className="md:hidden sticky bottom-0 z-40 bg-white/95 dark:bg-[#0c0d18]/95 backdrop-blur-xl border-t border-slate-200/80 dark:border-slate-800/80 flex items-center justify-around py-1.5 px-2">
           {MOBILE_NAV_ITEMS.map((item) => {
-            const active =
-              item.key === activePage ||
-              (item.key === 'account' && (activePage === 'settings' || activePage === 'billing'));
+            const active = item.key === activePage;
             return (
               <Link
                 key={item.key}
                 to={item.to}
-                className={
+                className={`flex flex-col items-center gap-0.5 px-2 py-1 rounded-lg text-[10px] font-medium transition-colors ${
                   active
-                    ? 'flex flex-col items-center justify-center w-full h-full text-primary'
-                    : 'flex flex-col items-center justify-center w-full h-full text-on-surface-variant hover:text-primary transition-colors'
-                }
+                    ? 'text-indigo-600 dark:text-indigo-400 font-bold'
+                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                }`}
               >
-                <span
-                  className="material-symbols-outlined"
-                  style={active ? { fontVariationSettings: "'FILL' 1" } : undefined}
-                >
+                <span className={`material-symbols-outlined text-[20px] ${active ? 'scale-110' : ''}`}>
                   {item.icon}
                 </span>
-                <span className="font-label-sm text-[10px] mt-1">{item.label}</span>
+                <span>{item.label}</span>
               </Link>
             );
           })}
@@ -355,8 +519,3 @@ export default function Layout({ activePage, children, title, searchPlaceholder 
     </div>
   );
 }
-
-
-
-
-

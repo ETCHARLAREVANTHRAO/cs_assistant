@@ -7,68 +7,85 @@ const ANDROID_INSTALLER =
 
 const INSTALL_OPTIONS = [
   {
-    title: 'Desktop App',
-    subtitle: 'Windows portable app with Render backend mode and bundled local AI mode.',
+    title: 'Windows Desktop Client',
+    subtitle: 'High-performance standalone desktop application with zero browser latency and offline cache.',
     icon: 'desktop_windows',
     href: DESKTOP_INSTALLER,
-    action: 'Download for Windows',
+    action: 'Download Windows 64-bit (.zip)',
+    badge: 'Desktop Pro',
   },
   {
-    title: 'Mobile App',
-    subtitle: 'Android APK package for installing the mobile app on your phone.',
+    title: 'Android Mobile Application',
+    subtitle: 'Native mobile companion APK for on-the-go revision, doubt solving, and flashcard practice.',
     icon: 'android',
     href: ANDROID_INSTALLER,
-    action: 'Install for Android',
+    action: 'Download Android APK (.apk)',
+    badge: 'Mobile Companion',
   },
 ];
 
 export default function Downloads() {
   return (
     <Layout activePage="downloads" title="Downloads">
-      <div className="min-h-full px-gutter py-stack-lg bg-background text-on-background">
-        <div className="max-w-5xl mx-auto space-y-stack-lg">
-          <div>
-            <h1 className="font-headline-lg text-headline-lg text-text-primary">
-              Install my_assistant
+      <div className="max-w-5xl mx-auto px-4 md:px-gutter pb-16 flex flex-col gap-8">
+        
+        {/* Resq.io Ambient Hero Header */}
+        <div className="relative rounded-3xl p-6 sm:p-8 resq-hero-dark text-white border border-indigo-500/20 overflow-hidden shadow-2xl">
+          <div className="resq-beam" />
+          <div className="resq-beam-right" />
+
+          <div className="relative z-10 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-400/30 text-indigo-300 text-xs font-semibold uppercase tracking-wider mb-2">
+              <span className="material-symbols-outlined text-sm">install_mobile</span>
+              Native Multi-Platform Ecosystem
+            </div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight gradient-text">
+              Install My Assistant Anywhere
             </h1>
-            <p className="mt-2 max-w-2xl font-body-md text-body-md text-text-muted">
-              Choose the app for this device. Desktop uses the local backend on your computer;
-              Android will use the mobile package when the APK is built.
+            <p className="text-xs sm:text-sm text-slate-300 mt-2 font-normal leading-relaxed">
+              Get dedicated desktop and mobile apps to study without browser tabs.
+              Seamlessly synchronizes your chat sessions, bookmarks, and mock test scores.
             </p>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {INSTALL_OPTIONS.map((option) => (
-              <article
-                key={option.title}
-                className="bg-surface border border-border rounded-lg p-5 shadow-soft flex flex-col gap-5"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-[28px]">{option.icon}</span>
+        {/* Platform Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {INSTALL_OPTIONS.map((option) => (
+            <article
+              key={option.title}
+              className="bg-surface border border-border rounded-3xl p-7 shadow-soft flex flex-col justify-between gap-6 hover:border-primary/40 hover:shadow-hover transition-all"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-2xl">{option.icon}</span>
                   </div>
-                  <div className="min-w-0">
-                    <h2 className="font-headline-sm text-headline-sm text-text-primary">
-                      {option.title}
-                    </h2>
-                    <p className="mt-1 font-body-md text-body-md text-text-muted">
-                      {option.subtitle}
-                    </p>
-                  </div>
+                  <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                    {option.badge}
+                  </span>
                 </div>
 
-                <a
-                  className="mt-auto inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 font-label-md text-label-md text-white shadow-soft hover:bg-primary-container transition-colors"
-                  href={option.href}
-                  download
-                >
-                  <span className="material-symbols-outlined text-[20px]">download</span>
-                  <span>{option.action}</span>
-                </a>
-              </article>
-            ))}
-          </div>
+                <h2 className="text-lg font-bold text-text-primary">
+                  {option.title}
+                </h2>
+                <p className="text-xs sm:text-sm text-text-muted mt-2 leading-relaxed">
+                  {option.subtitle}
+                </p>
+              </div>
+
+              <a
+                href={option.href}
+                download
+                className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-primary to-indigo-600 text-white font-bold text-xs shadow-glow-sm hover:shadow-glow-md active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-lg">download</span>
+                <span>{option.action}</span>
+              </a>
+            </article>
+          ))}
         </div>
+
       </div>
     </Layout>
   );
