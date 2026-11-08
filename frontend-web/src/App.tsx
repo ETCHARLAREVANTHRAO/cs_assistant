@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { BrowserRouter, HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminRoute from './components/AdminRoute';
 
 const Login = lazy(() => import('./pages/Login'));
 const Chat = lazy(() => import('./pages/Chat'));
@@ -74,9 +75,9 @@ function AppRoutes() {
       <Route path="/billing" element={<ProtectedRoute><Billing /></ProtectedRoute>} />
       <Route path="/research" element={<ProtectedRoute><Research /></ProtectedRoute>} />
       <Route path="/usage" element={<ProtectedRoute><UsageDashboard /></ProtectedRoute>} />
-      <Route path="/admin/drive-sync" element={<ProtectedRoute><AdminDriveSync /></ProtectedRoute>} />
-      <Route path="/admin/content" element={<ProtectedRoute><AdminContent /></ProtectedRoute>} />
-      <Route path="/admin/dashboard" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+      <Route path="/admin/drive-sync" element={<AdminRoute><AdminDriveSync /></AdminRoute>} />
+      <Route path="/admin/content" element={<AdminRoute><AdminContent /></AdminRoute>} />
+      <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
 
         <Route path="/" element={<RootRedirect />} />
         <Route path="*" element={<RootRedirect />} />

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { adminGetDashboard, type AdminDashboardResponse, type AdminDashboardUser } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
@@ -38,6 +39,12 @@ export default function AdminDashboard() {
       <div className="max-w-container-max mx-auto space-y-5">
         <header className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
+            <div className="mb-2">
+              <Link to="/account" className="inline-flex items-center gap-1.5 text-text-muted hover:text-text-primary text-sm font-label-md transition">
+                <span className="material-symbols-outlined text-sm">arrow_back</span>
+                Back to Account
+              </Link>
+            </div>
             <h1 className="font-headline-lg text-headline-lg text-text-primary">Admin Dashboard</h1>
             <p className="font-body-md text-body-md text-text-muted mt-2">Users, active members, attempts, storage, AI usage, and engagement.</p>
           </div>
