@@ -68,3 +68,7 @@ Thumbs.db
 
 # CI caches
 .cache/
+
+# Local research / scratchpad (strictly untracked & never pushed)
+/test/
+
