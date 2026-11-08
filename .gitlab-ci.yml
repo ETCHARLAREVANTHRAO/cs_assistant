@@ -22,30 +22,28 @@ backend-test:
       - .cache/pip
   before_script:
     - cd backend
+    - apt-get update && apt-get install -y --no-install-recommends libgomp1 tesseract-ocr && rm -rf /var/lib/apt/lists/*
     - python -m pip install --upgrade pip
     - pip install -r requirements.txt
   script:
     - python -m pytest tests/test_learning_data.py
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-    - if: '$CI_COMMIT_BRANCH == "main"'
-    - if: '$CI_COMMIT_BRANCH == "develop"'
-    - changes:
-        - backend/**/*
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "develop"'
 
 # ----------------------------------------------------
 # 2. Frontend Web Build & Typecheck (React + Vite)
 # ----------------------------------------------------
 frontend-web-build:
   stage: build
-  image: node:20-alpine
+  image: node:20-slim
   cache:
     key: "npm-$CI_COMMIT_REF_SLUG"
     paths:
       - .cache/npm
   before_script:
     - cd frontend-web
-    - npm install --prefer-offline --no-audit
+    - npm install --ignore-scripts --prefer-offline --no-audit
   script:
     - npm run build
   artifacts:
@@ -55,7 +53,4 @@ frontend-web-build:
     expire_in: 1 week
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-    - if: '$CI_COMMIT_BRANCH == "main"'
-    - if: '$CI_COMMIT_BRANCH == "develop"'
-    - changes:
-        - frontend-web/**/*
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "develop"'
