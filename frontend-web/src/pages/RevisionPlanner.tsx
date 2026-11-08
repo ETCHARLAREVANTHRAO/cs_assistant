@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { FormEvent } from 'react';
 import Layout from '../components/Layout';
 import {
@@ -101,17 +101,18 @@ export default function RevisionPlanner() {
     }
   }
 
-  async function reopenTask(task: StudyPlanTask) {
+  async function reopenTask(taskId: string) {
     setError('');
     try {
-      await plannerUpdateTask(task.task_id, { completed: false });
+      await plannerUpdateTask(taskId, { completed: false });
       await refresh();
     } catch (e: any) {
-      setError(e?.response?.data?.detail || 'Could not reopen this session.');
+      setError(e?.response?.data?.detail || 'Could not update this session.');
     }
   }
 
   async function deleteTask(taskId: string) {
+    if (!window.confirm('Delete this study session?')) return;
     setError('');
     try {
       await plannerDeleteTask(taskId);
@@ -135,126 +136,185 @@ export default function RevisionPlanner() {
   }
 
   return (
-    <Layout activePage="revision-planner" title="Study Planner" searchPlaceholder="Search sessions...">
-      <div className="p-gutter max-w-container-max w-full mx-auto pb-32">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-stack-lg">
-          <div>
-            <h2 className="font-headline-lg text-headline-lg text-text-primary">Study Planner</h2>
-            <p className="font-body-md text-body-md text-text-muted mt-2">Plan sessions, finish goals, and keep revision visible.</p>
-          </div>
-          {summary && (
-            <div className="grid grid-cols-3 gap-3 w-full md:w-auto">
-              <Metric icon="local_fire_department" label="Streak" value={`${summary.current_streak}d`} />
-              <Metric icon="flag" label="Goal" value={`${goalPercent}%`} />
-              <Metric icon="check_circle" label="Today" value={`${todayTasks.filter((task) => task.completed).length}/${todayTasks.length}`} />
+    <Layout activePage="revision-planner" title="Revision Planner" searchPlaceholder="Search sessions...">
+      <div className="p-4 sm:p-8 max-w-7xl mx-auto space-y-8">
+        {/* Resq Beam Header Banner */}
+        <div className="relative rounded-3xl p-6 sm:p-8 resq-hero-dark text-white border border-indigo-500/20 overflow-hidden shadow-xl">
+          <div className="resq-beam" />
+          <div className="resq-beam-right" />
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-semibold text-indigo-200">
+                <span className="material-symbols-outlined text-[14px]">event_repeat</span>
+                <span>Spaced Repetition &amp; Daily Revision Calendar</span>
+              </div>
+              <h1 className="text-2xl sm:text-3xl font-extrabold gradient-text tracking-tight">
+                GATE CS Study &amp; Revision Planner
+              </h1>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                Organize your study blocks, track daily revision streaks, and distribute high-weightage chapters evenly ahead of the exam.
+              </p>
             </div>
-          )}
+
+            {/* Quick Metrics Bar */}
+            {summary && (
+              <div className="grid grid-cols-3 gap-3 w-full md:w-auto">
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-3 text-center min-w-[90px]">
+                  <p className="text-xl font-bold text-amber-400 flex items-center justify-center gap-1">
+                    <span className="material-symbols-outlined text-[18px]">local_fire_department</span>
+                    <span>{summary.current_streak}d</span>
+                  </p>
+                  <p className="text-[10px] text-slate-300">Streak</p>
+                </div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-3 text-center min-w-[90px]">
+                  <p className="text-xl font-bold text-cyan-400">{goalPercent}%</p>
+                  <p className="text-[10px] text-slate-300">Goal Target</p>
+                </div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-3 text-center min-w-[90px]">
+                  <p className="text-xl font-bold text-emerald-400">
+                    {todayTasks.filter((t) => t.completed).length}/{todayTasks.length}
+                  </p>
+                  <p className="text-[10px] text-slate-300">Today Done</p>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         {error && (
-          <div className="mb-5 rounded-lg border border-error/30 bg-error-container/30 p-4 font-body-md text-body-md text-on-error-container">
-            {error}
+          <div className="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 text-rose-700 dark:text-rose-300 text-xs flex items-center gap-2">
+            <span className="material-symbols-outlined text-[18px]">error</span>
+            <span>{error}</span>
           </div>
         )}
 
         {loading ? (
-          <div className="flex items-center gap-3 rounded-lg bg-surface border border-border p-5 text-text-muted font-label-md text-label-md">
-            <div className="w-5 h-5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-            Loading planner...
+          <div className="py-16 text-center space-y-3">
+            <span className="material-symbols-outlined text-4xl text-indigo-500 animate-spin">progress_activity</span>
+            <p className="text-xs text-slate-400">Loading your revision calendar...</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 xl:grid-cols-12 gap-gutter items-start">
-            <section className="xl:col-span-8 space-y-stack-lg">
-              <form onSubmit={addTask} className="bg-surface rounded-lg p-5 shadow-soft border border-border space-y-4">
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="font-headline-sm text-headline-sm text-text-primary">Add Study Session</h3>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            {/* Left Column: Form & Tasks */}
+            <section className="lg:col-span-8 space-y-6">
+              {/* Add Session Form */}
+              <form onSubmit={addTask} className="rounded-2xl bg-white dark:bg-[#0f111e] border border-slate-200/80 dark:border-slate-800/80 shadow-sm p-5 sm:p-6 space-y-4">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800/60">
+                  <div className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-indigo-500 text-[20px]">add_task</span>
+                    <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">Schedule Study / Revision Block</h3>
+                  </div>
                   <button
                     type="submit"
                     disabled={saving}
-                    className="inline-flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-colors disabled:opacity-50"
+                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold text-xs shadow-md shadow-indigo-500/20 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 transition-all flex items-center gap-1.5"
                   >
-                    <span className="material-symbols-outlined text-sm">add</span>
-                    Add
+                    <span className="material-symbols-outlined text-[16px]">add</span>
+                    <span>Schedule</span>
                   </button>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <TextInput label="Title" value={form.title} onChange={(value) => setForm({ ...form, title: value })} placeholder="Process synchronization" />
-                  <SelectInput label="Subject" value={form.subject} onChange={(value) => setForm({ ...form, subject: value })} options={SUBJECTS} />
-                  <TextInput label="Topic" value={form.topic} onChange={(value) => setForm({ ...form, topic: value })} placeholder="Semaphores" />
-                  <div className="grid grid-cols-2 gap-3">
-                    <TextInput type="date" label="Date" value={form.planned_date} onChange={(value) => setForm({ ...form, planned_date: value })} />
-                    <TextInput type="time" label="Time" value={form.start_time} onChange={(value) => setForm({ ...form, start_time: value })} />
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <TextInput label="Session Title" value={form.title} onChange={(v) => setForm({ ...form, title: v })} placeholder="e.g. Memory Management & Paging" />
+                  <SelectInput label="GATE Subject" value={form.subject} onChange={(v) => setForm({ ...form, subject: v })} options={SUBJECTS} />
+                  <TextInput label="Chapter / Topic" value={form.topic} onChange={(v) => setForm({ ...form, topic: v })} placeholder="e.g. Page Replacement Algorithms" />
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <TextInput type="date" label="Date" value={form.planned_date} onChange={(v) => setForm({ ...form, planned_date: v })} />
+                    <TextInput type="time" label="Time" value={form.start_time} onChange={(v) => setForm({ ...form, start_time: v })} />
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <TextInput type="number" label="Minutes" value={String(form.duration_minutes)} onChange={(value) => setForm({ ...form, duration_minutes: Number(value) })} />
-                    <SelectInput label="Priority" value={form.priority} onChange={(value) => setForm({ ...form, priority: value })} options={['high', 'medium', 'low']} />
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <TextInput type="number" label="Duration (Mins)" value={String(form.duration_minutes)} onChange={(v) => setForm({ ...form, duration_minutes: Number(v) })} />
+                    <SelectInput label="Priority" value={form.priority} onChange={(v) => setForm({ ...form, priority: v })} options={['high', 'medium', 'low']} />
                   </div>
-                  <label className="flex items-center gap-3 rounded-lg border border-border bg-surface-container-lowest px-4 py-3 font-label-md text-label-md text-text-primary">
+
+                  <label className="flex items-center gap-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 px-3.5 py-2.5 text-xs font-semibold text-slate-700 dark:text-slate-300 cursor-pointer self-end">
                     <input
                       type="checkbox"
                       checked={form.reminder_enabled}
-                      onChange={(event) => setForm({ ...form, reminder_enabled: event.target.checked })}
-                      className="h-4 w-4 accent-primary"
+                      onChange={(e) => setForm({ ...form, reminder_enabled: e.target.checked })}
+                      className="h-4 w-4 rounded accent-indigo-600"
                     />
-                    Revision reminder
+                    <span>Enable Revision Alert</span>
                   </label>
                 </div>
-                <TextInput label="Notes" value={form.notes} onChange={(value) => setForm({ ...form, notes: value })} placeholder="Focus on PYQ mistakes" />
+
+                <TextInput label="Revision Notes / Checklist" value={form.notes} onChange={(v) => setForm({ ...form, notes: v })} placeholder="e.g. Solve 10 PYQs on FIFO and LRU page replacement..." />
               </form>
 
-              <TaskSection title="Today" tasks={todayTasks} onComplete={completeTask} onReopen={reopenTask} onDelete={deleteTask} />
-              <TaskSection title="Upcoming" tasks={upcomingTasks} onComplete={completeTask} onReopen={reopenTask} onDelete={deleteTask} />
+              {/* Today's Tasks */}
+              <TaskSection
+                title="Today's Revision Blocks"
+                badge={todayTasks.length > 0 ? `${todayTasks.filter((t) => t.completed).length}/${todayTasks.length} Done` : undefined}
+                tasks={todayTasks}
+                onComplete={completeTask}
+                onReopen={reopenTask}
+                onDelete={deleteTask}
+              />
+
+              {/* Upcoming Tasks */}
+              <TaskSection
+                title="Upcoming Schedule"
+                tasks={upcomingTasks}
+                onComplete={completeTask}
+                onReopen={reopenTask}
+                onDelete={deleteTask}
+              />
             </section>
 
-            <aside className="xl:col-span-4 space-y-stack-md">
-              <section className="bg-surface rounded-lg p-5 shadow-soft border border-border">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-headline-sm text-headline-sm text-text-primary">Weekly Goal</h3>
-                  <button onClick={saveGoal} disabled={saving} className="text-primary font-label-md text-label-md disabled:opacity-50">
-                    Save
+            {/* Right Column: Goal & Weekly Analytics */}
+            <aside className="lg:col-span-4 space-y-5">
+              <section className="rounded-2xl bg-white dark:bg-[#0f111e] border border-slate-200/80 dark:border-slate-800/80 shadow-sm p-5 space-y-4">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800/60">
+                  <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">Weekly Target</h3>
+                  <button
+                    onClick={saveGoal}
+                    disabled={saving}
+                    className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline disabled:opacity-50"
+                  >
+                    Save Target
                   </button>
                 </div>
-                <div className="flex items-center gap-3 mb-4">
+
+                <div className="flex items-center gap-3">
                   <input
                     type="number"
                     min={1}
-                    max={100}
+                    max={80}
                     value={weeklyGoal}
-                    onChange={(event) => setWeeklyGoal(Number(event.target.value))}
-                    className="w-24 rounded-lg border border-border bg-surface-container-lowest px-3 py-2 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    onChange={(e) => setWeeklyGoal(Number(e.target.value))}
+                    className="w-24 px-3 py-2 text-sm font-bold text-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
                   />
-                  <span className="font-body-md text-body-md text-text-muted">hours per week</span>
+                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">hours / week</span>
                 </div>
-                <div className="flex justify-between font-label-sm text-label-sm mb-2">
-                  <span className="text-text-muted">{minutesToHours(summary?.weekly_completed_minutes ?? 0)} done</span>
-                  <span className="text-primary font-bold">{goalPercent}%</span>
+
+                <div className="space-y-2">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-slate-400">Progress</span>
+                    <span className="font-bold text-indigo-600 dark:text-indigo-400">
+                      {Math.round((summary?.weekly_completed_minutes ?? 0) / 60)}h / {weeklyGoal}h ({goalPercent}%)
+                    </span>
+                  </div>
+                  <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-500"
+                      style={{ width: `${goalPercent}%` }}
+                    />
+                  </div>
                 </div>
-                <div className="w-full bg-surface-variant rounded-full h-2 overflow-hidden">
-                  <div className="bg-primary h-2 rounded-full" style={{ width: `${goalPercent}%` }} />
+              </section>
+
+              {/* Study Tips Box */}
+              <div className="rounded-2xl p-5 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 border border-indigo-200/50 dark:border-indigo-900/50 space-y-2.5">
+                <div className="flex items-center gap-2 text-indigo-700 dark:text-indigo-300 font-bold text-xs">
+                  <span className="material-symbols-outlined text-[17px]">tips_and_updates</span>
+                  <span>Spaced Repetition Tip</span>
                 </div>
-                <p className="mt-3 font-label-sm text-label-sm text-text-muted">
-                  {minutesToHours(summary?.weekly_planned_minutes ?? 0)} planned this week
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Review concepts 1 day, 3 days, and 7 days after first study to lock knowledge into permanent long-term memory for the GATE exam.
                 </p>
-              </section>
-
-              <section className="bg-surface rounded-lg p-5 shadow-soft border border-border">
-                <h3 className="font-headline-sm text-headline-sm text-text-primary mb-4">Revision Reminders</h3>
-                <div className="space-y-3">
-                  {(summary?.revision_reminders ?? []).length === 0 ? (
-                    <p className="font-body-md text-body-md text-text-muted">No active reminders.</p>
-                  ) : (
-                    summary?.revision_reminders.map((task) => <ReminderRow key={task.task_id} task={task} />)
-                  )}
-                </div>
-              </section>
-
-              <section className="bg-surface rounded-lg p-5 shadow-soft border border-border">
-                <h3 className="font-headline-sm text-headline-sm text-text-primary mb-4">Streak</h3>
-                <div className="grid grid-cols-2 gap-3">
-                  <Metric icon="bolt" label="Current" value={`${summary?.current_streak ?? 0}d`} />
-                  <Metric icon="workspace_premium" label="Best" value={`${summary?.longest_streak ?? 0}d`} />
-                </div>
-              </section>
+              </div>
             </aside>
           </div>
         )}
@@ -265,147 +325,150 @@ export default function RevisionPlanner() {
 
 function TaskSection({
   title,
+  badge,
   tasks,
   onComplete,
   onReopen,
   onDelete,
 }: {
   title: string;
+  badge?: string;
   tasks: StudyPlanTask[];
-  onComplete: (taskId: string) => void;
-  onReopen: (task: StudyPlanTask) => void;
-  onDelete: (taskId: string) => void;
+  onComplete: (id: string) => void;
+  onReopen: (id: string) => void;
+  onDelete: (id: string) => void;
 }) {
   return (
-    <section>
-      <div className="flex items-center gap-2 mb-stack-md">
-        <h3 className="font-headline-sm text-headline-sm text-text-primary">{title}</h3>
-        <span className="bg-surface-variant text-on-surface-variant px-2 py-1 rounded-full font-label-sm text-label-sm">
-          {tasks.length}
-        </span>
-      </div>
-      <div className="space-y-3">
-        {tasks.length === 0 ? (
-          <div className="rounded-lg border border-dashed border-border bg-surface p-5 text-text-muted font-body-md text-body-md">
-            No sessions here yet.
-          </div>
-        ) : (
-          tasks.map((task) => (
-            <div key={task.task_id} className={task.completed ? 'bg-surface-container-low rounded-lg p-5 border border-border opacity-75' : 'bg-surface rounded-lg p-5 shadow-soft border border-border'}>
-              <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                <div className="min-w-[72px]">
-                  <p className="font-label-md text-label-md text-text-primary">{task.start_time || 'Anytime'}</p>
-                  <p className="font-label-sm text-label-sm text-text-muted">{formatDate(task.planned_date)}</p>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    {task.subject && <Badge label={task.subject} />}
-                    <Badge label={`${task.duration_minutes} min`} muted />
-                    <Badge label={task.priority} muted />
-                  </div>
-                  <h4 className={task.completed ? 'font-headline-sm text-headline-sm text-text-primary line-through' : 'font-headline-sm text-headline-sm text-text-primary'}>
-                    {task.title}
-                  </h4>
-                  {(task.topic || task.notes) && (
-                    <p className="font-body-md text-body-md text-text-muted mt-1 break-words">
-                      {[task.topic, task.notes].filter(Boolean).join(' - ')}
-                    </p>
-                  )}
-                </div>
-                <div className="flex items-center gap-2 sm:justify-end">
-                  {task.completed ? (
-                    <button title="Reopen" onClick={() => onReopen(task)} className="p-2 rounded-lg text-text-muted hover:text-primary hover:bg-surface-container transition-colors">
-                      <span className="material-symbols-outlined">undo</span>
-                    </button>
-                  ) : (
-                    <button title="Complete" onClick={() => onComplete(task.task_id)} className="p-2 rounded-lg text-success hover:bg-success/10 transition-colors">
-                      <span className="material-symbols-outlined">check_circle</span>
-                    </button>
-                  )}
-                  <button title="Delete" onClick={() => onDelete(task.task_id)} className="p-2 rounded-lg text-text-muted hover:text-error hover:bg-error-container/20 transition-colors">
-                    <span className="material-symbols-outlined">delete</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))
+    <div className="space-y-3">
+      <div className="flex items-center justify-between">
+        <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200">{title}</h3>
+        {badge && (
+          <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/60">
+            {badge}
+          </span>
         )}
       </div>
-    </section>
+
+      {tasks.length === 0 ? (
+        <div className="rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-800 p-6 text-center text-xs text-slate-400">
+          No revision blocks scheduled.
+        </div>
+      ) : (
+        <div className="space-y-2.5">
+          {tasks.map((task) => (
+            <div
+              key={task.task_id}
+              className={`rounded-2xl p-4 bg-white dark:bg-[#0f111e] border transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
+                task.completed
+                  ? 'border-emerald-200/60 dark:border-emerald-900/40 bg-emerald-50/20 dark:bg-emerald-950/10'
+                  : 'border-slate-200/80 dark:border-slate-800/80 hover:border-indigo-500/40'
+              }`}
+            >
+              <div className="flex items-start gap-3 min-w-0">
+                <button
+                  onClick={() => (task.completed ? onReopen(task.task_id) : onComplete(task.task_id))}
+                  className={`mt-0.5 w-5 h-5 rounded-md border flex items-center justify-center shrink-0 transition-colors ${
+                    task.completed
+                      ? 'bg-emerald-500 border-emerald-500 text-white'
+                      : 'border-slate-300 dark:border-slate-700 hover:border-indigo-500'
+                  }`}
+                >
+                  {task.completed && <span className="material-symbols-outlined text-[14px]">check</span>}
+                </button>
+                <div className="min-w-0">
+                  <p className={`text-xs font-bold text-slate-800 dark:text-slate-100 truncate ${task.completed ? 'line-through text-slate-400 dark:text-slate-500' : ''}`}>
+                    {task.title}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-2 mt-1">
+                    {task.subject && (
+                      <span className="text-[10px] font-semibold text-indigo-600 dark:text-indigo-400">
+                        {task.subject}
+                      </span>
+                    )}
+                    <span className="text-[10px] text-slate-400">
+                      {task.planned_date} • {task.start_time} ({task.duration_minutes}m)
+                    </span>
+                    <span
+                      className={`text-[9px] font-bold uppercase px-1.5 py-0.2 rounded ${
+                        task.priority === 'high'
+                          ? 'bg-rose-50 text-rose-600 dark:bg-rose-950/50 dark:text-rose-400'
+                          : 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300'
+                      }`}
+                    >
+                      {task.priority}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => onDelete(task.task_id)}
+                className="self-end sm:self-auto p-1.5 text-slate-400 hover:text-rose-500 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                title="Delete session"
+              >
+                <span className="material-symbols-outlined text-[17px]">delete</span>
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
-function TextInput({ label, value, onChange, placeholder = '', type = 'text' }: { label: string; value: string; onChange: (value: string) => void; placeholder?: string; type?: string }) {
+function TextInput({
+  label,
+  value,
+  onChange,
+  placeholder,
+  type = 'text',
+}: {
+  label: string;
+  value: string;
+  onChange: (val: string) => void;
+  placeholder?: string;
+  type?: string;
+}) {
   return (
-    <label className="flex flex-col gap-2">
-      <span className="font-label-md text-label-md text-text-primary">{label}</span>
+    <div className="space-y-1">
+      <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">{label}</label>
       <input
         type={type}
         value={value}
+        onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-lg border border-border bg-surface-container-lowest px-4 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary"
+        className="w-full text-xs rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-1 focus:ring-indigo-500"
       />
-    </label>
+    </div>
   );
 }
 
-function SelectInput({ label, value, onChange, options }: { label: string; value: string; onChange: (value: string) => void; options: string[] }) {
+function SelectInput({
+  label,
+  value,
+  onChange,
+  options,
+}: {
+  label: string;
+  value: string;
+  onChange: (val: string) => void;
+  options: string[];
+}) {
   return (
-    <label className="flex flex-col gap-2">
-      <span className="font-label-md text-label-md text-text-primary">{label}</span>
+    <div className="space-y-1">
+      <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">{label}</label>
       <select
         value={value}
-        onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-lg border border-border bg-surface-container-lowest px-4 py-3 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary"
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full text-xs rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-3 py-2 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-1 focus:ring-indigo-500 capitalize"
       >
-        <option value="">Select</option>
-        {options.map((option) => <option key={option} value={option}>{option}</option>)}
+        <option value="">Select {label}</option>
+        {options.map((opt) => (
+          <option key={opt} value={opt}>
+            {opt}
+          </option>
+        ))}
       </select>
-    </label>
-  );
-}
-
-function Metric({ icon, label, value }: { icon: string; label: string; value: string }) {
-  return (
-    <div className="rounded-lg border border-border bg-surface px-4 py-3 min-w-0">
-      <div className="flex items-center gap-2 text-text-muted">
-        <span className="material-symbols-outlined text-sm">{icon}</span>
-        <span className="font-label-sm text-label-sm truncate">{label}</span>
-      </div>
-      <p className="font-headline-sm text-headline-sm text-primary mt-1">{value}</p>
     </div>
   );
 }
-
-function ReminderRow({ task }: { task: StudyPlanTask }) {
-  return (
-    <div className="flex items-start gap-3 border-t border-border pt-3 first:border-t-0 first:pt-0">
-      <span className="material-symbols-outlined text-secondary mt-0.5">notifications_active</span>
-      <div className="min-w-0">
-        <p className="font-label-md text-label-md text-text-primary truncate">{task.title}</p>
-        <p className="font-label-sm text-label-sm text-text-muted">{formatDate(task.planned_date)} {task.start_time}</p>
-      </div>
-    </div>
-  );
-}
-
-function Badge({ label, muted = false }: { label: string; muted?: boolean }) {
-  return (
-    <span className={muted ? 'rounded-md bg-surface-variant px-2 py-1 font-label-sm text-label-sm text-on-surface-variant' : 'rounded-md bg-primary/10 px-2 py-1 font-label-sm text-label-sm text-primary'}>
-      {label}
-    </span>
-  );
-}
-
-function formatDate(value: string) {
-  const date = new Date(`${value}T00:00:00`);
-  return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
-}
-
-function minutesToHours(minutes: number) {
-  const hours = minutes / 60;
-  return `${Number.isInteger(hours) ? hours : hours.toFixed(1)}h`;
-}
-
-

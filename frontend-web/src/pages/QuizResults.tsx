@@ -8,306 +8,291 @@ export default function QuizResults() {
   const toggle = (i: number) => setExpanded((cur) => (cur === i ? null : i));
 
   return (
-    <Layout activePage="quiz" title="Quiz Results">
-      <div className="max-w-[900px] mx-auto flex flex-col gap-stack-lg px-4 md:px-gutter pb-margin-desktop">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 font-label-sm text-label-sm text-text-muted">
-          <Link className="hover:text-primary transition-colors" to="/revision-planner">
-            Revision Planner
+    <Layout activePage="quiz" title="Practice Results">
+      <div className="max-w-4xl mx-auto flex flex-col gap-8 px-4 md:px-gutter pb-16">
+        
+        {/* Navigation Breadcrumb */}
+        <div className="flex items-center gap-2 text-xs font-semibold text-text-muted">
+          <Link className="hover:text-primary transition-colors flex items-center gap-1" to="/quiz">
+            <span className="material-symbols-outlined text-sm">arrow_back</span>
+            Practice Builder
           </Link>
-          <span className="material-symbols-outlined text-[14px]">chevron_right</span>
-          <span className="text-on-surface-variant">Mixed Subjects Mock Test</span>
+          <span className="material-symbols-outlined text-xs">chevron_right</span>
+          <span className="text-text-primary">Attempt Performance Analysis</span>
         </div>
-        {/* Hero Score Card */}
-        <section className="bg-surface border border-border rounded-xl shadow-soft p-8 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-secondary-fixed opacity-30 rounded-full blur-3xl pointer-events-none" />
-          <div className="relative w-48 h-48 flex-shrink-0 flex items-center justify-center rounded-full border-[12px] border-surface-container-highest">
-            <svg className="absolute inset-0 w-full h-full transform -rotate-90 drop-shadow-sm" viewBox="0 0 100 100">
-              <circle
-                className="text-success stroke-current"
-                cx="50"
-                cy="50"
-                fill="none"
-                r="44"
-                stroke="currentColor"
-                strokeDasharray="276.46"
-                strokeDashoffset="55.29"
-                strokeLinecap="round"
-                strokeWidth="12"
-              />
-            </svg>
-            <div className="flex flex-col items-center z-10">
-              <span className="font-headline-lg text-headline-lg font-bold text-text-primary tabular-nums">
-                8<span className="text-outline text-[24px]">/10</span>
-              </span>
-              <span className="font-label-sm text-label-sm text-success bg-success/10 px-2.5 py-0.5 rounded-full mt-1 border border-success/20">
-                80% Score
-              </span>
+
+        {/* Resq.io Ambient Hero Score Banner */}
+        <div className="relative rounded-3xl p-6 sm:p-8 resq-hero-dark text-white border border-indigo-500/20 overflow-hidden shadow-2xl">
+          <div className="resq-beam" />
+          <div className="resq-beam-right" />
+
+          <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 justify-between">
+            
+            {/* Score Ring */}
+            <div className="relative w-44 h-44 flex-shrink-0 flex items-center justify-center">
+              <svg className="absolute inset-0 w-full h-full transform -rotate-90 drop-shadow-md" viewBox="0 0 100 100">
+                <circle
+                  className="text-slate-800 stroke-current"
+                  cx="50"
+                  cy="50"
+                  fill="none"
+                  r="42"
+                  strokeWidth="8"
+                />
+                <circle
+                  className="text-emerald-400 stroke-current transition-all duration-1000 ease-out"
+                  cx="50"
+                  cy="50"
+                  fill="none"
+                  r="42"
+                  strokeWidth="8"
+                  strokeDasharray="263.89"
+                  strokeDashoffset="52.78"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <div className="flex flex-col items-center z-10 text-center">
+                <span className="text-4xl font-extrabold text-white tracking-tight">
+                  8<span className="text-slate-400 text-xl font-normal">/10</span>
+                </span>
+                <span className="text-[11px] font-bold text-emerald-300 bg-emerald-500/20 px-2.5 py-0.5 rounded-full mt-1 border border-emerald-400/30">
+                  80% Accuracy
+                </span>
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col text-center md:text-left z-10 flex-1">
-            <h1 className="font-headline-md text-headline-md text-text-primary">Great job!</h1>
-            <p className="font-body-md text-body-md text-on-surface-variant mt-2 max-w-lg">
-              You've demonstrated a strong grasp of core concepts, especially in Algorithms. Review the detailed
-              explanations for the questions you missed to solidify your understanding before the next mock.
-            </p>
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mt-6">
-              <Link
-                to="/quiz"
-                className="bg-primary text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-xl hover:bg-primary/90 transition-all shadow-sm active:scale-95 flex items-center gap-2"
-              >
-                <span className="material-symbols-outlined text-[18px]">replay</span>
-                Retake Quiz
-              </Link>
-              <Link
-                to="/revision-planner"
-                className="bg-surface-container-low text-on-surface-variant font-label-md text-label-md px-6 py-2.5 rounded-xl hover:bg-surface-container border border-outline-variant/50 transition-all active:scale-95"
-              >
-                Back to Planner
-              </Link>
+
+            {/* Assessment & CTA */}
+            <div className="flex-1 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-2">
+                <span className="material-symbols-outlined text-sm">verified</span>
+                Target Score Achieved
+              </div>
+              <h1 className="text-2xl sm:text-3xl font-extrabold gradient-text tracking-tight">
+                Outstanding Performance!
+              </h1>
+              <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-xl font-normal leading-relaxed">
+                You demonstrated solid conceptual clarity in Cache Memory and Algorithms.
+                Review the step-by-step explanations for the 2 missed questions to eliminate negative marking before your next full mock.
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mt-6">
+                <Link
+                  to="/quiz"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-primary to-indigo-600 text-white text-xs font-bold shadow-glow-sm hover:shadow-glow-md active:scale-95 transition-all flex items-center gap-2"
+                >
+                  <span className="material-symbols-outlined text-base">replay</span>
+                  Retake New Drill
+                </Link>
+                <Link
+                  to="/progress"
+                  className="px-6 py-2.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 text-xs font-bold border border-slate-700/60 transition-all active:scale-95 flex items-center gap-2"
+                >
+                  <span className="material-symbols-outlined text-base">insights</span>
+                  View Global Analytics
+                </Link>
+              </div>
             </div>
+
           </div>
-        </section>
+        </div>
+
         {/* Stats Bento Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
-          <div className="bg-surface border border-border rounded-xl p-6 shadow-soft flex items-center gap-5 transition-transform hover:-translate-y-0.5 duration-200">
-            <div className="w-14 h-14 rounded-2xl bg-secondary-fixed/50 flex items-center justify-center text-secondary border border-secondary/10 shrink-0">
-              <span className="material-symbols-outlined text-[28px]">timer</span>
+        <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="bg-surface rounded-2xl p-5 border border-border shadow-soft flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 text-primary flex items-center justify-center shrink-0">
+              <span className="material-symbols-outlined text-2xl">timer</span>
             </div>
             <div>
-              <p className="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-1">Total Time Spent</p>
-              <div className="flex items-baseline gap-2">
-                <p className="font-headline-md text-headline-md text-text-primary">
-                  24<span className="text-outline text-[16px] font-normal">m</span> 15
-                  <span className="text-outline text-[16px] font-normal">s</span>
-                </p>
-              </div>
-              <p className="text-[13px] text-text-muted mt-0.5 flex items-center gap-1">
-                <span className="material-symbols-outlined text-[14px]">speed</span>
-                Avg 2m 25s per question
+              <p className="text-[11px] font-bold text-text-muted uppercase tracking-wider">Total Time Spent</p>
+              <div className="text-xl font-extrabold text-text-primary mt-0.5">24m 15s</div>
+              <p className="text-xs text-text-muted mt-0.5 flex items-center gap-1">
+                <span className="material-symbols-outlined text-xs">speed</span>
+                2m 25s / question
               </p>
             </div>
           </div>
-          <div className="bg-surface border border-border rounded-xl p-6 shadow-soft flex flex-col justify-center">
-            <div className="flex items-center justify-between mb-4">
-              <p className="font-label-sm text-label-sm text-outline uppercase tracking-wider flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[16px]">pie_chart</span>
-                Subject Performance
+
+          <div className="bg-surface rounded-2xl p-5 border border-border shadow-soft flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+              <span className="material-symbols-outlined text-2xl">check_circle</span>
+            </div>
+            <div>
+              <p className="text-[11px] font-bold text-text-muted uppercase tracking-wider">Net Marks Scored</p>
+              <div className="text-xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5">14.67 / 18</div>
+              <p className="text-xs text-text-muted mt-0.5 flex items-center gap-1">
+                <span className="material-symbols-outlined text-xs">trending_up</span>
+                81.5% mark capture
               </p>
             </div>
-            <div className="flex flex-col gap-3.5">
-              <div>
-                <div className="flex justify-between font-label-md text-label-md mb-1.5">
-                  <span className="text-text-primary">Algorithms</span>
-                  <span className="text-success font-bold">100%</span>
-                </div>
-                <div className="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
-                  <div className="h-full bg-success w-full rounded-full transition-all duration-1000 ease-out" style={{ width: '100%' }} />
-                </div>
-              </div>
-              <div>
-                <div className="flex justify-between font-label-md text-label-md mb-1.5">
-                  <span className="text-text-primary">Operating Systems</span>
-                  <span className="text-tertiary-container font-bold">50%</span>
-                </div>
-                <div className="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-error to-tertiary-container w-1/2 rounded-full transition-all duration-1000 ease-out"
-                    style={{ width: '50%' }}
-                  />
-                </div>
-              </div>
+          </div>
+
+          <div className="bg-surface rounded-2xl p-5 border border-border shadow-soft flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+              <span className="material-symbols-outlined text-2xl">workspace_premium</span>
+            </div>
+            <div>
+              <p className="text-[11px] font-bold text-text-muted uppercase tracking-wider">Percentile Prediction</p>
+              <div className="text-xl font-extrabold text-amber-600 dark:text-amber-400 mt-0.5">Top 8.4%</div>
+              <p className="text-xs text-text-muted mt-0.5 flex items-center gap-1">
+                <span className="material-symbols-outlined text-xs">military_tech</span>
+                Estimated AIR &lt; 850
+              </p>
             </div>
           </div>
         </section>
+
         {/* Detailed Question Review */}
-        <section className="flex flex-col gap-stack-md mt-4">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="font-headline-sm text-headline-sm text-text-primary flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary">fact_check</span>
-              Question Review
-            </h3>
-            <div className="flex items-center gap-3 font-label-sm text-label-sm">
-              <span className="flex items-center gap-1 text-success">
-                <span className="material-symbols-outlined text-[16px]">check_circle</span> 8 Correct
+        <section className="flex flex-col gap-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-bold text-text-primary flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary">fact_check</span>
+                Question-by-Question Solution Review
+              </h2>
+              <p className="text-xs text-text-muted mt-0.5">Inspect full step-by-step reasoning and official answer keys</p>
+            </div>
+            <div className="flex items-center gap-3 text-xs font-semibold">
+              <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">
+                <span className="material-symbols-outlined text-sm">check_circle</span> 8 Correct
               </span>
-              <span className="flex items-center gap-1 text-error">
-                <span className="material-symbols-outlined text-[16px]">cancel</span> 2 Incorrect
+              <span className="flex items-center gap-1 text-red-600 dark:text-red-400 bg-red-500/10 px-2.5 py-1 rounded-full">
+                <span className="material-symbols-outlined text-sm">cancel</span> 2 Missed
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-3">
-            {/* Item 1: Correct */}
-            <div className="bg-surface border border-border rounded-xl overflow-hidden shadow-sm transition-shadow hover:shadow-md">
+
+          <div className="space-y-3">
+            {/* Question 1: Correct */}
+            <div className="bg-surface border border-border rounded-2xl overflow-hidden shadow-soft transition-all">
               <button
+                type="button"
                 onClick={() => toggle(0)}
-                className={`w-full p-4 flex items-center gap-4 cursor-pointer hover:bg-surface-container-low transition-colors text-left ${expanded === 0 ? 'border-b border-border' : ''}`}
+                className="w-full p-5 flex items-center gap-4 cursor-pointer hover:bg-surface-container-low transition-colors text-left"
               >
-                <div className="w-8 h-8 rounded-full bg-success/10 text-success flex items-center justify-center shrink-0 border border-success/20">
-                  <span className="material-symbols-outlined text-[18px]">check</span>
+                <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/20">
+                  <span className="material-symbols-outlined text-lg">check</span>
                 </div>
-                <div className="flex-1 pr-4">
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <span className="font-label-sm text-label-sm text-outline">Q1</span>
-                    <span className="px-2 py-0.5 rounded-full bg-surface-container text-text-muted text-[11px] font-medium tracking-wide">
-                      Computer Organization
+                <div className="flex-1 min-w-0 pr-4">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-mono font-bold text-text-muted">Q1 • 2 Marks</span>
+                    <span className="px-2 py-0.5 rounded-full bg-surface-container text-text-muted text-[10px] font-semibold uppercase tracking-wider">
+                      Computer Organization &amp; Architecture
                     </span>
                   </div>
-                  <p className="font-body-md text-body-md text-text-primary line-clamp-1">
-                    Consider a machine with a byte addressable main memory of 2^32 bytes and block size of 16
-                    bytes...
+                  <p className="text-sm font-medium text-text-primary truncate">
+                    Consider a machine with a byte addressable main memory of 2^32 bytes and block size of 16 bytes...
                   </p>
                 </div>
-                <span className="material-symbols-outlined text-outline">
+                <span className="material-symbols-outlined text-text-muted">
                   {expanded === 0 ? 'expand_less' : 'expand_more'}
                 </span>
               </button>
+
               {expanded === 0 && (
-                <div className="p-6 bg-surface-bright flex flex-col gap-5">
-                  <div className="font-body-md text-body-md text-text-primary p-4 bg-surface rounded-lg border border-border/50">
+                <div className="p-6 border-t border-border/60 bg-surface-container-lowest flex flex-col gap-4">
+                  <div className="p-4 bg-surface rounded-xl border border-border text-sm text-text-primary leading-relaxed">
                     <p>
                       Consider a machine with a byte addressable main memory of 2<sup>32</sup> bytes and block size of
                       16 bytes. Assume that a direct mapped cache consisting of 32 lines is used with this machine.
                       How many bits will be there in Tag, Line and Word field of format of main memory addresses?
                     </p>
                   </div>
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-start gap-3 p-3.5 rounded-lg bg-success/5 border border-success/20 relative overflow-hidden">
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-success" />
-                      <span className="material-symbols-outlined text-success mt-0.5">radio_button_checked</span>
-                      <div>
-                        <p className="font-label-md text-label-md text-success">Your Answer (Correct)</p>
-                        <p className="font-code text-code text-text-primary mt-1 bg-surface-container-lowest px-2 py-1 rounded inline-block border border-border/50">
-                          23, 5, 4
-                        </p>
-                      </div>
+
+                  <div className="p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/20 flex items-start gap-3">
+                    <span className="material-symbols-outlined text-emerald-500 mt-0.5">check_circle</span>
+                    <div>
+                      <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400">Your Answer (Correct)</p>
+                      <p className="text-xs font-mono font-bold text-text-primary mt-1 bg-surface px-2.5 py-1 rounded-lg border border-border inline-block">
+                        Tag: 23 bits, Line: 5 bits, Word: 4 bits
+                      </p>
                     </div>
                   </div>
-                  <div className="mt-2 p-5 rounded-lg border border-primary/20 bg-primary/5 relative">
-                    <div className="absolute -top-3 left-4 bg-surface-bright px-2 flex items-center gap-1.5 text-primary">
-                      <span className="material-symbols-outlined text-[16px]">lightbulb</span>
-                      <span className="font-label-sm text-label-sm uppercase tracking-wider">Explanation</span>
+
+                  <div className="p-5 rounded-2xl bg-indigo-500/5 border border-indigo-500/20 relative">
+                    <div className="flex items-center gap-2 text-xs font-bold text-primary mb-2">
+                      <span className="material-symbols-outlined text-base">lightbulb</span>
+                      <span>Verified GATE Explanation</span>
                     </div>
-                    <div className="font-body-md text-body-md text-text-primary space-y-2 mt-2">
-                      <p>
-                        Physical Address = <code className="font-code text-[13px] bg-white px-1 py-0.5 rounded border border-border">32 bits</code>.
-                      </p>
-                      <p>
-                        Block Size = 16 Bytes = 2<sup>4</sup> Bytes → Word Offset ={' '}
-                        <code className="font-code text-[13px] bg-white px-1 py-0.5 rounded border border-border">4 bits</code>.
-                      </p>
-                      <p>
-                        Number of Lines = 32 = 2<sup>5</sup> → Line Offset ={' '}
-                        <code className="font-code text-[13px] bg-white px-1 py-0.5 rounded border border-border">5 bits</code>.
-                      </p>
-                      <p>
-                        Tag bits = Total - (Line + Word) = 32 - (5 + 4) ={' '}
-                        <code className="font-code text-[13px] bg-white px-1 py-0.5 rounded border border-border">23 bits</code>.
-                      </p>
-                    </div>
-                    <div className="mt-4 pt-3 border-t border-primary/10 flex items-center justify-between">
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/30 shadow-sm cursor-pointer hover:border-primary/50 transition-colors">
-                        <span className="material-symbols-outlined text-[14px] text-primary">menu_book</span>
-                        Source Notes: Cache Mapping Techniques
-                      </div>
-                      <button className="text-text-muted hover:text-primary transition-colors">
-                        <span className="material-symbols-outlined text-[18px]">bookmark_add</span>
-                      </button>
+                    <div className="text-xs text-text-primary space-y-2 leading-relaxed">
+                      <p>• Total Physical Address Size = 32 bits (since memory is 2<sup>32</sup> bytes byte-addressable).</p>
+                      <p>• Block Size = 16 Bytes = 2<sup>4</sup> Bytes &rarr; Word Offset = <strong>4 bits</strong>.</p>
+                      <p>• Number of Cache Lines = 32 = 2<sup>5</sup> lines &rarr; Line (Index) Offset = <strong>5 bits</strong>.</p>
+                      <p>• Tag Bits = Total Address &minus; Line &minus; Word = 32 &minus; 5 &minus; 4 = <strong>23 bits</strong>.</p>
+                      <p>Therefore, the format is <strong>(23, 5, 4)</strong>.</p>
                     </div>
                   </div>
                 </div>
               )}
             </div>
-            {/* Item 2: Incorrect */}
-            <div className="bg-surface border border-border rounded-xl overflow-hidden shadow-sm transition-shadow hover:shadow-md">
+
+            {/* Question 2: Incorrect */}
+            <div className="bg-surface border border-border rounded-2xl overflow-hidden shadow-soft transition-all">
               <button
+                type="button"
                 onClick={() => toggle(1)}
-                className={`w-full p-4 flex items-center gap-4 cursor-pointer hover:bg-surface-container-low transition-colors text-left ${expanded === 1 ? 'border-b border-border' : ''}`}
+                className="w-full p-5 flex items-center gap-4 cursor-pointer hover:bg-surface-container-low transition-colors text-left"
               >
-                <div className="w-8 h-8 rounded-full bg-error/10 text-error flex items-center justify-center shrink-0 border border-error/20">
-                  <span className="material-symbols-outlined text-[18px]">close</span>
+                <div className="w-9 h-9 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center shrink-0 border border-red-500/20">
+                  <span className="material-symbols-outlined text-lg">close</span>
                 </div>
-                <div className="flex-1 pr-4">
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <span className="font-label-sm text-label-sm text-outline">Q2</span>
-                    <span className="px-2 py-0.5 rounded-full bg-surface-container text-text-muted text-[11px] font-medium tracking-wide">
+                <div className="flex-1 min-w-0 pr-4">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-mono font-bold text-text-muted">Q2 • 1 Mark (Negative: -0.33)</span>
+                    <span className="px-2 py-0.5 rounded-full bg-surface-container text-text-muted text-[10px] font-semibold uppercase tracking-wider">
                       Operating Systems
                     </span>
                   </div>
-                  <p className="font-body-md text-body-md text-text-primary line-clamp-1">
-                    In a virtual memory system, if a page table entry has the valid bit set to 0, it implies...
+                  <p className="text-sm font-medium text-text-primary truncate">
+                    Which scheduling algorithm avoids starvation without requiring process runtime predictions?
                   </p>
                 </div>
-                <span className="material-symbols-outlined text-outline">
+                <span className="material-symbols-outlined text-text-muted">
                   {expanded === 1 ? 'expand_less' : 'expand_more'}
                 </span>
               </button>
+
               {expanded === 1 && (
-                <div className="p-6 bg-surface-bright flex flex-col gap-5 border-t border-border">
-                  <div className="font-body-md text-body-md text-text-primary p-4 bg-surface rounded-lg border border-border/50">
-                    <p>In a virtual memory system, if a page table entry has the valid bit set to 0, it implies that:</p>
+                <div className="p-6 border-t border-border/60 bg-surface-container-lowest flex flex-col gap-4">
+                  <div className="p-4 bg-surface rounded-xl border border-border text-sm text-text-primary leading-relaxed">
+                    <p>
+                      Which of the following CPU scheduling algorithms is guaranteed not to cause starvation for any process and does not require prior estimates of burst time?
+                    </p>
                   </div>
-                  <div className="flex flex-col gap-3">
-                    <div className="flex items-start gap-3 p-3.5 rounded-lg bg-error/5 border border-error/20 relative overflow-hidden opacity-80">
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-error" />
-                      <span className="material-symbols-outlined text-error mt-0.5">cancel</span>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="p-3.5 rounded-xl bg-red-500/5 border border-red-500/20 flex items-start gap-2.5">
+                      <span className="material-symbols-outlined text-red-500 text-lg mt-0.5">cancel</span>
                       <div>
-                        <p className="font-label-md text-label-md text-error">Your Answer (Incorrect)</p>
-                        <p className="font-body-md text-text-primary mt-1">The page is in physical memory but not accessible.</p>
+                        <p className="text-xs font-bold text-red-600 dark:text-red-400">Your Selection (Incorrect)</p>
+                        <p className="text-xs text-text-primary font-medium mt-0.5">Shortest Job First (SJF)</p>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3 p-3.5 rounded-lg bg-success/5 border border-success/20 relative overflow-hidden">
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-success" />
-                      <span className="material-symbols-outlined text-success mt-0.5">check_circle</span>
+                    <div className="p-3.5 rounded-xl bg-emerald-500/5 border border-emerald-500/20 flex items-start gap-2.5">
+                      <span className="material-symbols-outlined text-emerald-500 text-lg mt-0.5">check_circle</span>
                       <div>
-                        <p className="font-label-md text-label-md text-success">Correct Answer</p>
-                        <p className="font-body-md text-text-primary mt-1">
-                          The page is not currently mapped to physical memory (Page Fault).
-                        </p>
+                        <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400">Official Correct Answer</p>
+                        <p className="text-xs text-text-primary font-medium mt-0.5">Round Robin (RR) with aging</p>
                       </div>
                     </div>
+                  </div>
+
+                  <div className="p-5 rounded-2xl bg-indigo-500/5 border border-indigo-500/20">
+                    <div className="flex items-center gap-2 text-xs font-bold text-primary mb-2">
+                      <span className="material-symbols-outlined text-base">lightbulb</span>
+                      <span>Verified GATE Explanation</span>
+                    </div>
+                    <p className="text-xs text-text-primary leading-relaxed">
+                      SJF and SRTF require burst time estimation and can cause starvation for longer processes if short processes continuously arrive.
+                      Round Robin with a finite time quantum guarantees every ready process gets CPU attention periodically, completely preventing starvation without knowing burst times.
+                    </p>
                   </div>
                 </div>
               )}
             </div>
-            {/* Item 3: Correct (Collapsed by default) */}
-            <div className="bg-surface border border-border rounded-xl overflow-hidden shadow-sm transition-shadow hover:shadow-md">
-              <button
-                onClick={() => toggle(2)}
-                className={`w-full p-4 flex items-center gap-4 cursor-pointer hover:bg-surface-container-low transition-colors text-left ${expanded === 2 ? 'border-b border-border' : ''}`}
-              >
-                <div className="w-8 h-8 rounded-full bg-success/10 text-success flex items-center justify-center shrink-0 border border-success/20">
-                  <span className="material-symbols-outlined text-[18px]">check</span>
-                </div>
-                <div className="flex-1 pr-4">
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <span className="font-label-sm text-label-sm text-outline">Q3</span>
-                    <span className="px-2 py-0.5 rounded-full bg-surface-container text-text-muted text-[11px] font-medium tracking-wide">
-                      Algorithms
-                    </span>
-                  </div>
-                  <p className="font-body-md text-body-md text-text-primary line-clamp-1">
-                    What is the worst-case time complexity of QuickSort?
-                  </p>
-                </div>
-                <span className="material-symbols-outlined text-outline">
-                  {expanded === 2 ? 'expand_less' : 'expand_more'}
-                </span>
-              </button>
-              {expanded === 2 && (
-                <div className="p-6 bg-surface-bright flex flex-col gap-5 border-t border-border">
-                  <p className="text-text-muted italic">Question details expanded.</p>
-                </div>
-              )}
-            </div>
-          </div>
-          {/* Bottom Action */}
-          <div className="flex justify-center mt-6 mb-8">
-            <button className="bg-surface text-primary border border-primary/20 font-label-md text-label-md px-6 py-2.5 rounded-xl hover:bg-primary/5 transition-all shadow-sm active:scale-95 flex items-center gap-2">
-              View All Questions
-            </button>
+
           </div>
         </section>
+
       </div>
     </Layout>
   );

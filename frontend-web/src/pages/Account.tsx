@@ -9,16 +9,16 @@ export default function Account() {
 
   const planId = localStorage.getItem('my_assistant_user_plan') || 'student';
   const planNames: Record<string, string> = {
-    free: 'Free',
-    student: 'Student (₹149/mo)',
-    pro: 'Pro (₹499/mo)',
-    research: 'Research/Power (₹999/mo)',
+    free: 'Free Explorer',
+    student: 'Student Pro (₹149/mo)',
+    pro: 'GATE CS Pro (₹499/mo)',
+    research: 'Research / Power (₹999/mo)',
     institute: 'Institute / Teams',
   };
-  const activePlanName = planNames[planId] || 'Student';
+  const activePlanName = planNames[planId] || 'Student Pro';
 
-  const displayName = currentUser?.displayName || currentUser?.email?.split('@')[0] || 'Student';
-  const email = currentUser?.email || '';
+  const displayName = currentUser?.displayName || currentUser?.email?.split('@')[0] || 'GATE Aspirant';
+  const email = currentUser?.email || 'student@gate-cs.edu';
   const avatarLetter = displayName.charAt(0).toUpperCase();
 
   const handleLogout = async () => {
@@ -28,172 +28,266 @@ export default function Account() {
 
   return (
     <Layout activePage="account" searchPlaceholder="Search documents, quizzes, or chat history...">
-      <div className="max-w-[900px] mx-auto mt-6 md:mt-8 space-y-6 px-4 md:px-0 pb-12">
-        {/* Page Header */}
-        <div className="mb-8">
-          <h2 className="font-headline-lg text-headline-lg text-on-surface">Profile &amp; Account</h2>
-          <p className="font-body-md text-body-md text-text-muted mt-1">
-            Manage your personal information and application preferences.
-          </p>
-        </div>
-        {/* Profile Header Card */}
-        <div className="bg-surface rounded-2xl p-6 border border-border shadow-soft flex flex-col sm:flex-row items-center sm:items-start gap-6">
-          <div className="relative group">
-            <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-primary/10 border-4 border-surface shadow-sm flex items-center justify-center text-primary font-bold text-4xl">
-              {avatarLetter}
+      <div className="max-w-4xl mx-auto flex flex-col gap-8 px-4 md:px-gutter pb-16">
+        
+        {/* Resq.io Ambient Hero Header */}
+        <div className="relative rounded-3xl p-6 sm:p-8 resq-hero-dark text-white border border-indigo-500/20 overflow-hidden shadow-2xl">
+          <div className="resq-beam" />
+          <div className="resq-beam-right" />
+
+          <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-6">
+            
+            {/* Avatar with Glow Ring */}
+            <div className="relative group shrink-0">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-tr from-primary to-indigo-500 p-1 shadow-glow-md">
+                <div className="w-full h-full rounded-[22px] bg-slate-950 flex items-center justify-center text-white font-extrabold text-3xl sm:text-4xl shadow-inner">
+                  {avatarLetter}
+                </div>
+              </div>
+              <span className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-emerald-500 border-2 border-slate-900 flex items-center justify-center text-white">
+                <span className="material-symbols-outlined text-xs">verified</span>
+              </span>
             </div>
-          </div>
-          <div className="flex-1 space-y-4 w-full text-center sm:text-left mt-2 sm:mt-0">
-            <div>
-              <h3 className="font-headline-md text-headline-md text-on-surface">{displayName}</h3>
-              <p className="font-body-md text-body-md text-text-muted">{email}</p>
-              <div className="mt-2 flex flex-wrap items-center gap-2">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">
-                  <span className="material-symbols-outlined text-[14px]">school</span>
+
+            {/* Profile Info */}
+            <div className="flex-1 text-center sm:text-left space-y-2">
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1">
+                <span className="px-3 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-400/30 text-indigo-300 text-xs font-semibold uppercase tracking-wider">
                   GATE CS Aspirant
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm border border-primary/20">
-                  <span className="material-symbols-outlined text-[14px]">verified</span>
-                  {activePlanName} Plan
-                </div>
+                </span>
+                <span className="px-3 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-emerald-300 text-xs font-semibold">
+                  {activePlanName}
+                </span>
               </div>
-            </div>
-          </div>
-        </div>
-        {/* Bento Grid Layout for Settings */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {/* Left Column: Account Actions */}
-          <div className="md:col-span-8 space-y-6">
-            <div className="bg-surface rounded-2xl overflow-hidden border border-border shadow-soft">
-              <div className="p-4 border-b border-border bg-surface-container-lowest">
-                <h3 className="font-headline-sm text-headline-sm text-on-surface">Account Settings</h3>
-              </div>
-              <div className="divide-y divide-border">
-                <button className="w-full flex items-center justify-between p-4 hover:bg-surface-container-lowest transition-colors group cursor-pointer text-left">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:bg-primary/10 group-hover:text-primary transition-colors">
-                      <span className="material-symbols-outlined">lock</span>
-                    </div>
-                    <div>
-                      <p className="font-label-md text-label-md text-on-surface">Change Password</p>
-                      <p className="font-body-md text-text-muted text-sm mt-0.5">
-                        Update your security credentials
-                      </p>
-                    </div>
-                  </div>
-                  <span className="material-symbols-outlined text-text-muted group-hover:text-primary">
-                    chevron_right
-                  </span>
+
+              <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight gradient-text">
+                {displayName}
+              </h1>
+              <p className="text-xs sm:text-sm text-slate-300 font-mono">
+                {email}
+              </p>
+
+              <div className="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                <button
+                  type="button"
+                  onClick={() => navigate('/billing')}
+                  className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/10 transition-all flex items-center gap-1.5"
+                >
+                  <span className="material-symbols-outlined text-sm">payments</span>
+                  Manage Subscription
                 </button>
                 <button
-                  onClick={() => navigate('/billing')}
-                  className="w-full flex items-center justify-between p-4 hover:bg-surface-container-lowest transition-colors group cursor-pointer text-left"
+                  type="button"
+                  onClick={() => navigate('/settings')}
+                  className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/10 transition-all flex items-center gap-1.5"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:bg-primary/10 group-hover:text-primary transition-colors">
-                      <span className="material-symbols-outlined">payments</span>
+                  <span className="material-symbols-outlined text-sm">settings</span>
+                  Preferences
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Bento Grid: Account Sections */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          {/* Main Column */}
+          <div className="lg:col-span-8 flex flex-col gap-6">
+            
+            {/* Study Progress Capsule */}
+            <div className="bg-surface rounded-3xl p-6 border border-border shadow-soft flex flex-col gap-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-base font-bold text-text-primary">GATE CS Preparation Readiness</h2>
+                  <p className="text-xs text-text-muted mt-0.5">Calculated from completed syllabus topics and mocks</p>
+                </div>
+                <span className="text-2xl font-extrabold text-primary font-mono">48%</span>
+              </div>
+
+              <div className="h-3 w-full bg-surface-container-high rounded-full overflow-hidden p-0.5">
+                <div
+                  className="h-full bg-gradient-to-r from-primary via-indigo-500 to-emerald-400 rounded-full transition-all duration-700"
+                  style={{ width: '48%' }}
+                />
+              </div>
+
+              <div className="grid grid-cols-3 gap-3 pt-2">
+                <div className="p-3 rounded-2xl bg-surface-container-lowest border border-border/60 text-center">
+                  <div className="text-[11px] font-bold text-text-muted uppercase tracking-wider">Hours Logged</div>
+                  <div className="text-base font-bold text-text-primary mt-0.5">142h</div>
+                </div>
+                <div className="p-3 rounded-2xl bg-surface-container-lowest border border-border/60 text-center">
+                  <div className="text-[11px] font-bold text-text-muted uppercase tracking-wider">PYQ Attempts</div>
+                  <div className="text-base font-bold text-text-primary mt-0.5">46 Tests</div>
+                </div>
+                <div className="p-3 rounded-2xl bg-surface-container-lowest border border-border/60 text-center">
+                  <div className="text-[11px] font-bold text-text-muted uppercase tracking-wider">Current Streak</div>
+                  <div className="text-base font-bold text-amber-500 mt-0.5">12 Days 🔥</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Account Settings Menu */}
+            <div className="bg-surface rounded-3xl border border-border shadow-soft overflow-hidden">
+              <div className="p-5 border-b border-border/60 bg-surface-container-lowest">
+                <h2 className="text-base font-bold text-text-primary">Account &amp; Security</h2>
+                <p className="text-xs text-text-muted mt-0.5">Authentication and active memberships</p>
+              </div>
+
+              <div className="divide-y divide-border/60">
+                <div className="p-4 sm:p-5 flex items-center justify-between hover:bg-surface-container-low transition-colors group">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-2xl bg-surface-container flex items-center justify-center text-text-muted group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                      <span className="material-symbols-outlined text-lg">shield</span>
                     </div>
                     <div>
-                      <p className="font-label-md text-label-md text-on-surface">Manage Subscription &amp; Plans</p>
-                      <p className="font-body-md text-text-muted text-sm mt-0.5">
-                        Current: <strong className="text-primary">{activePlanName}</strong> • View pricing &amp; invoices
+                      <p className="text-sm font-bold text-text-primary">Google Single Sign-On</p>
+                      <p className="text-xs text-text-muted mt-0.5">Authenticated securely via Google Identity &amp; Firebase</p>
+                    </div>
+                  </div>
+                  <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">
+                    Active &amp; Linked
+                  </span>
+                </div>
+
+                <div
+                  onClick={() => navigate('/billing')}
+                  className="p-4 sm:p-5 flex items-center justify-between hover:bg-surface-container-low transition-colors group cursor-pointer"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-2xl bg-surface-container flex items-center justify-center text-text-muted group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                      <span className="material-symbols-outlined text-lg">credit_card</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-text-primary">Subscription Plan &amp; Quotas</p>
+                      <p className="text-xs text-text-muted mt-0.5">
+                        Current: <strong className="text-primary font-semibold">{activePlanName}</strong>
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-primary px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 group-hover:bg-primary group-hover:text-on-primary transition">
-                      View Plans
+                    <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full group-hover:bg-primary group-hover:text-white transition-all">
+                      Change Plan
                     </span>
-                    <span className="material-symbols-outlined text-text-muted group-hover:text-primary">
+                    <span className="material-symbols-outlined text-text-muted group-hover:text-primary text-base">
                       chevron_right
                     </span>
                   </div>
-                </button>
-              </div>
-            </div>
-            {/* Danger Zone */}
-            <div className="bg-surface rounded-2xl overflow-hidden border border-error/20">
-              <div className="p-4 border-b border-border bg-error/5">
-                <h3 className="font-headline-sm text-headline-sm text-error">Danger Zone</h3>
-              </div>
-              <div className="p-4">
-                <button
-                  onClick={handleLogout}
-                  className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-2.5 bg-error/10 text-error rounded-xl font-label-md text-label-md hover:bg-error hover:text-on-error transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-error"
+                </div>
+
+                <div
+                  onClick={() => navigate('/documents')}
+                  className="p-4 sm:p-5 flex items-center justify-between hover:bg-surface-container-low transition-colors group cursor-pointer"
                 >
-                  <span className="material-symbols-outlined">logout</span>
-                  Log Out
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-2xl bg-surface-container flex items-center justify-center text-text-muted group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                      <span className="material-symbols-outlined text-lg">folder_open</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-text-primary">Personal Document Vault</p>
+                      <p className="text-xs text-text-muted mt-0.5">Manage uploaded notes, PDFs, and vector RAG indices</p>
+                    </div>
+                  </div>
+                  <span className="material-symbols-outlined text-text-muted group-hover:text-primary text-base">
+                    chevron_right
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Logout / Danger Zone */}
+            <div className="bg-surface rounded-3xl border border-red-500/20 shadow-soft overflow-hidden">
+              <div className="p-5 border-b border-red-500/20 bg-red-500/5 flex items-center justify-between">
+                <div>
+                  <h2 className="text-base font-bold text-red-600 dark:text-red-400">Account Session</h2>
+                  <p className="text-xs text-text-muted mt-0.5">Log out from this device</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className="px-5 py-2.5 bg-red-500/10 hover:bg-red-500 text-red-600 hover:text-white rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-base">logout</span>
+                  Sign Out
                 </button>
               </div>
             </div>
+
           </div>
-          {/* Right Column: Stats / Info */}
-          <div className="md:col-span-4 space-y-6">
-            <div className="bg-surface rounded-2xl p-5 border border-border shadow-soft">
-              <h3 className="font-label-md text-label-md text-text-muted uppercase tracking-wider mb-4">
-                Study Stats
-              </h3>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between items-end mb-1">
-                    <span className="font-label-md text-label-md text-on-surface">Syllabus Coverage</span>
-                    <span className="font-headline-sm text-headline-sm text-primary">42%</span>
+
+          {/* Right Aside: Admin & Quick Links */}
+          <aside className="lg:col-span-4 flex flex-col gap-6">
+            
+            {/* Admin Console Shortcut (only visible to authorized administrators) */}
+            {isUserAdmin(currentUser?.email) && (
+              <div className="bg-surface rounded-3xl p-6 border border-border shadow-soft flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                    <span className="material-symbols-outlined">admin_panel_settings</span>
                   </div>
-                  <div className="h-2 w-full bg-surface-container rounded-full overflow-hidden">
-                    <div className="h-full bg-primary rounded-full" style={{ width: '42%' }} />
-                  </div>
-                </div>
-                <div className="pt-2 border-t border-border">
-                  <div className="flex justify-between items-center py-2">
-                    <span className="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
-                      <span className="material-symbols-outlined text-sm text-text-muted">timer</span>
-                      Hours Logged
-                    </span>
-                    <span className="font-label-md text-label-md text-on-surface">124h</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-t border-border/50">
-                    <span className="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
-                      <span className="material-symbols-outlined text-sm text-text-muted">psychology</span>
-                      Quizzes Taken
-                    </span>
-                    <span className="font-label-md text-label-md text-on-surface">38</span>
+                  <div>
+                    <h3 className="text-base font-bold text-text-primary">Admin Control Center</h3>
+                    <p className="text-xs text-text-muted">Platform management</p>
                   </div>
                 </div>
+
+                <div className="space-y-1.5 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => navigate('/admin/dashboard')}
+                    className="w-full flex items-center justify-between rounded-xl p-3 hover:bg-surface-container text-left transition-colors text-xs font-semibold text-text-primary"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="material-symbols-outlined text-sm text-primary">dashboard</span>
+                      Admin Dashboard
+                    </span>
+                    <span className="material-symbols-outlined text-sm text-text-muted">chevron_right</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => navigate('/admin/content')}
+                    className="w-full flex items-center justify-between rounded-xl p-3 hover:bg-surface-container text-left transition-colors text-xs font-semibold text-text-primary"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="material-symbols-outlined text-sm text-primary">edit_note</span>
+                      Content &amp; Syllabus Manager
+                    </span>
+                    <span className="material-symbols-outlined text-sm text-text-muted">chevron_right</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => navigate('/admin/drive-sync')}
+                    className="w-full flex items-center justify-between rounded-xl p-3 hover:bg-surface-container text-left transition-colors text-xs font-semibold text-text-primary"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="material-symbols-outlined text-sm text-primary">cloud_sync</span>
+                      Google Drive Sync
+                    </span>
+                    <span className="material-symbols-outlined text-sm text-text-muted">chevron_right</span>
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Version & Build Badge */}
+            <div className="rounded-3xl p-5 bg-surface-container-low border border-border/60 text-xs text-text-muted flex items-start gap-3">
+              <span className="material-symbols-outlined text-primary text-xl shrink-0 mt-0.5">terminal</span>
+              <div>
+                <p className="font-bold text-text-primary mb-0.5">My Assistant &bull; Release v2.4</p>
+                <p className="leading-relaxed">
+                  Engineered with pgvector RAG, Gemini 2.5 Flash, and FastEmbed for high-yield GATE CS preparation.
+                </p>
               </div>
             </div>
-                        {isUserAdmin(currentUser?.email) && (
-              <div className="bg-surface rounded-2xl p-5 border border-border shadow-soft">
-                <h3 className="font-label-md text-label-md text-text-muted uppercase tracking-wider mb-4">Admin</h3>
-                <div className="space-y-2">
-                  <button onClick={() => navigate('/admin/dashboard')} className="w-full flex items-center justify-between rounded-lg px-3 py-2 hover:bg-surface-container text-left">
-                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">dashboard</span>Admin Dashboard</span>
-                    <span className="material-symbols-outlined text-sm">chevron_right</span>
-                  </button>
-                  <button onClick={() => navigate('/admin/content')} className="w-full flex items-center justify-between rounded-lg px-3 py-2 hover:bg-surface-container text-left">
-                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">edit_note</span>Content Controls</span>
-                    <span className="material-symbols-outlined text-sm">chevron_right</span>
-                  </button>
-                  <button onClick={() => navigate('/admin/drive-sync')} className="w-full flex items-center justify-between rounded-lg px-3 py-2 hover:bg-surface-container text-left">
-                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">sync</span>Drive Sync</span>
-                    <span className="material-symbols-outlined text-sm">chevron_right</span>
-                  </button>
-                </div>
-              </div>
-            )}<div className="bg-surface-container rounded-2xl p-5 border border-border/50">
-              <div className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-secondary mt-0.5">info</span>
-                <div>
-                  <h4 className="font-label-md text-label-md text-on-surface">App Version</h4>
-                  <p className="font-body-md text-text-muted text-sm mt-1">v1.0.0</p>
-                </div>
-              </div>
-            </div>
-          </div>
+
+          </aside>
+
         </div>
       </div>
     </Layout>
   );
 }
-
-
-

@@ -241,7 +241,9 @@ export default function Billing() {
         )}
 
         {/* Current Active Plan Overview Card */}
-        <div className="bg-surface rounded-2xl p-6 sm:p-8 border border-border shadow-soft flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
+        <div className="relative rounded-3xl p-6 sm:p-8 resq-hero-dark text-white border border-indigo-500/20 overflow-hidden shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div className="resq-beam" />
+          <div className="resq-beam-right" />
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
           <div className="space-y-2 relative z-10">
             <div className="flex items-center gap-3">
@@ -250,7 +252,7 @@ export default function Billing() {
               </span>
               <span className="text-text-muted font-body-sm text-sm">Renews automatically on Dec 01, 2026</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-on-surface">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
               {currentPlan.name} Plan
               {currentPlan.monthlyPrice !== null && (
                 <span className="text-lg sm:text-xl font-normal text-text-muted ml-3">

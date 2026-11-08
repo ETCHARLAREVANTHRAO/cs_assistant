@@ -1,4 +1,4 @@
-﻿import {
+import {
   createContext,
   useContext,
   useEffect,
@@ -7,13 +7,12 @@
 } from 'react';
 import {
   createUserWithEmailAndPassword,
-  getRedirectResult,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signInWithRedirect,
   signOut,
   GoogleAuthProvider,
   onAuthStateChanged,
+  browserPopupRedirectResolver,
   type User,
 } from 'firebase/auth';
 import { auth } from '../config/firebase';
@@ -30,7 +29,7 @@ interface AuthContextValue {
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
-export function friendlyError(code: string): string {
+export function friendlyError(code: string, fallback?: string): string {
   switch (code) {
     case 'auth/invalid-email':
       return 'Invalid email address.';
@@ -47,13 +46,19 @@ export function friendlyError(code: string): string {
     case 'auth/too-many-requests':
       return 'Too many attempts. Try again later.';
     case 'auth/popup-blocked':
-      return 'The Google sign-in popup was blocked. Try again or allow popups for this site.';
+      return 'The Google sign-in popup was blocked by your browser. Please allow popups for this site and try again.';
     case 'auth/popup-closed-by-user':
-      return 'Google sign-in was closed before it finished.';
+      return 'Google sign-in was closed before it finished. Please try again.';
     case 'auth/operation-not-supported-in-this-environment':
-      return 'This sign-in method is not supported here. Use email and password.';
+      return 'This sign-in method is not supported here. Please use email and password.';
+    case 'auth/cancelled-popup-request':
+      return 'Another sign-in popup is already open. Please close it and try again.';
+    case 'auth/unauthorized-domain':
+      return 'This domain is not authorized for Google sign-in. Please contact the app administrator.';
     default:
-      return `Something went wrong. Please try again. (${code})`;
+      return fallback
+        ? `Sign-in failed: ${fallback} (${code})`
+        : `Something went wrong (${code}). Please try again.`;
   }
 }
 
@@ -67,8 +72,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setLoading(false);
       return;
     }
-
-    getRedirectResult(auth).catch(() => {});
 
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
@@ -93,14 +96,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signInWithGoogle = async () => {
     if (!auth) throw new Error('Firebase is not configured for this deployment.');
     const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
     try {
-      await signInWithPopup(auth, provider);
-    } catch (error: any) {
-      if (error?.code === 'auth/popup-blocked' || error?.code === 'auth/popup-closed-by-user') {
-        await signInWithRedirect(auth, provider);
-        return;
-      }
-      throw error;
+      // Pass browserPopupRedirectResolver explicitly to avoid sessionStorage redirect fallback crashes
+      await signInWithPopup(auth, provider, browserPopupRedirectResolver);
+    } catch (err: any) {
+      console.error('[Google sign-in error]', err);
+      throw err;
     }
   };
 
@@ -126,6 +128,3 @@ export function useAuth(): AuthContextValue {
   if (!ctx) throw new Error('useAuth must be used within an AuthProvider');
   return ctx;
 }
-
-
-

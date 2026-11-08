@@ -244,10 +244,12 @@ export default function Learning() {
   return (
     <Layout activePage="learning" title="Learning" searchPlaceholder="Search subjects...">
       <div className="max-w-container-max mx-auto px-4 md:px-gutter pb-margin-desktop flex flex-col gap-stack-lg">
-        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div className="relative rounded-3xl p-6 sm:p-8 resq-hero-dark text-white border border-indigo-500/20 overflow-hidden shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6 mb-4">
+          <div className="resq-beam" />
+          <div className="resq-beam-right" />
           <div>
-            <h2 className="font-headline-lg text-headline-lg text-text-primary">GATE CS Learning</h2>
-            <p className="font-body-md text-body-md text-text-muted mt-2 max-w-3xl">
+            <h2 className="text-2xl sm:text-3xl font-extrabold gradient-text tracking-tight">GATE CS Learning &amp; Mastery Hub</h2>
+            <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-2xl font-normal leading-relaxed">
               Complete subject-wise syllabus map for Computer Science and Information Technology.
             </p>
           </div>

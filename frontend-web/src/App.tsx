@@ -1,10 +1,11 @@
 import { Suspense, lazy } from 'react';
 import { BrowserRouter, HashRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute';
 
 const Login = lazy(() => import('./pages/Login'));
+const Landing = lazy(() => import('./pages/Landing'));
 const Chat = lazy(() => import('./pages/Chat'));
 const Documents = lazy(() => import('./pages/Documents'));
 const Learning = lazy(() => import('./pages/Learning'));
@@ -36,51 +37,54 @@ const AdminDriveSync = lazy(() => import('./pages/AdminDriveSync'));
 const AdminContent = lazy(() => import('./pages/AdminContent'));
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 
-function RootRedirect() {
-  const { currentUser, loading } = useAuth();
-  if (loading) return null;
-  return <Navigate to={currentUser ? '/chat' : '/login'} replace />;
-}
+// "/" always shows the public landing page — no redirect needed here
 
 function AppRoutes() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-background text-text-muted flex items-center justify-center">Loading...</div>}>
       <Routes>
+        {/* Public routes */}
+        <Route path="/landing" element={<Landing />} />
         <Route path="/login" element={<Login />} />
 
-      <Route path="/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
-      <Route path="/documents" element={<ProtectedRoute><Documents /></ProtectedRoute>} />
-      <Route path="/learning" element={<ProtectedRoute><Learning /></ProtectedRoute>} />
-      <Route path="/doubts" element={<ProtectedRoute><Doubts /></ProtectedRoute>} />
-      <Route path="/revision-planner" element={<ProtectedRoute><RevisionPlanner /></ProtectedRoute>} />
-      <Route path="/resources" element={<ProtectedRoute><Resources /></ProtectedRoute>} />
-      <Route path="/ai" element={<ProtectedRoute><AIFeatures /></ProtectedRoute>} />
-      <Route path="/community" element={<ProtectedRoute><Community /></ProtectedRoute>} />
-      <Route path="/exam-info" element={<ProtectedRoute><ExamInfo /></ProtectedRoute>} />
-      <Route path="/motivation" element={<ProtectedRoute><Motivation /></ProtectedRoute>} />
-      <Route path="/revision" element={<ProtectedRoute><Revision /></ProtectedRoute>} />
-      <Route path="/quiz" element={<ProtectedRoute><QuizSetup /></ProtectedRoute>} />
-      <Route path="/quiz/results" element={<ProtectedRoute><QuizResults /></ProtectedRoute>} />
-      <Route path="/mock-test" element={<ProtectedRoute><MockTestSession /></ProtectedRoute>} />
-      <Route path="/mock-test/results" element={<ProtectedRoute><MockTestResults /></ProtectedRoute>} />
-      <Route path="/pyq" element={<ProtectedRoute><PYQHome /></ProtectedRoute>} />
-      <Route path="/pyq/:paperId/instructions" element={<ProtectedRoute><PYQInstructions /></ProtectedRoute>} />
-      <Route path="/pyq/attempt/:attemptId" element={<ProtectedRoute><PYQSession /></ProtectedRoute>} />
-      <Route path="/pyq/result/:attemptId" element={<ProtectedRoute><PYQResult /></ProtectedRoute>} />
-      <Route path="/pyq/review/:attemptId" element={<ProtectedRoute><PYQReview /></ProtectedRoute>} />
-      <Route path="/progress" element={<ProtectedRoute><Progress /></ProtectedRoute>} />
-      <Route path="/downloads" element={<ProtectedRoute><Downloads /></ProtectedRoute>} />
-      <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
-      <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
-      <Route path="/billing" element={<ProtectedRoute><Billing /></ProtectedRoute>} />
-      <Route path="/research" element={<ProtectedRoute><Research /></ProtectedRoute>} />
-      <Route path="/usage" element={<ProtectedRoute><UsageDashboard /></ProtectedRoute>} />
-      <Route path="/admin/drive-sync" element={<AdminRoute><AdminDriveSync /></AdminRoute>} />
-      <Route path="/admin/content" element={<AdminRoute><AdminContent /></AdminRoute>} />
-      <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
+        {/* Protected routes */}
+        <Route path="/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
+        <Route path="/documents" element={<ProtectedRoute><Documents /></ProtectedRoute>} />
+        <Route path="/learning" element={<ProtectedRoute><Learning /></ProtectedRoute>} />
+        <Route path="/doubts" element={<ProtectedRoute><Doubts /></ProtectedRoute>} />
+        <Route path="/revision-planner" element={<ProtectedRoute><RevisionPlanner /></ProtectedRoute>} />
+        <Route path="/resources" element={<ProtectedRoute><Resources /></ProtectedRoute>} />
+        <Route path="/ai" element={<ProtectedRoute><AIFeatures /></ProtectedRoute>} />
+        <Route path="/community" element={<ProtectedRoute><Community /></ProtectedRoute>} />
+        <Route path="/exam-info" element={<ProtectedRoute><ExamInfo /></ProtectedRoute>} />
+        <Route path="/motivation" element={<ProtectedRoute><Motivation /></ProtectedRoute>} />
+        <Route path="/revision" element={<ProtectedRoute><Revision /></ProtectedRoute>} />
+        <Route path="/quiz" element={<ProtectedRoute><QuizSetup /></ProtectedRoute>} />
+        <Route path="/quiz/results" element={<ProtectedRoute><QuizResults /></ProtectedRoute>} />
+        <Route path="/mock-test" element={<ProtectedRoute><MockTestSession /></ProtectedRoute>} />
+        <Route path="/mock-test/results" element={<ProtectedRoute><MockTestResults /></ProtectedRoute>} />
+        <Route path="/pyq" element={<ProtectedRoute><PYQHome /></ProtectedRoute>} />
+        <Route path="/pyq/:paperId/instructions" element={<ProtectedRoute><PYQInstructions /></ProtectedRoute>} />
+        <Route path="/pyq/attempt/:attemptId" element={<ProtectedRoute><PYQSession /></ProtectedRoute>} />
+        <Route path="/pyq/result/:attemptId" element={<ProtectedRoute><PYQResult /></ProtectedRoute>} />
+        <Route path="/pyq/review/:attemptId" element={<ProtectedRoute><PYQReview /></ProtectedRoute>} />
+        <Route path="/progress" element={<ProtectedRoute><Progress /></ProtectedRoute>} />
+        <Route path="/downloads" element={<ProtectedRoute><Downloads /></ProtectedRoute>} />
+        <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+        <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
+        <Route path="/billing" element={<ProtectedRoute><Billing /></ProtectedRoute>} />
+        <Route path="/research" element={<ProtectedRoute><Research /></ProtectedRoute>} />
+        <Route path="/usage" element={<ProtectedRoute><UsageDashboard /></ProtectedRoute>} />
 
-        <Route path="/" element={<RootRedirect />} />
-        <Route path="*" element={<RootRedirect />} />
+        {/* Admin only routes */}
+        <Route path="/admin/drive-sync" element={<AdminRoute><AdminDriveSync /></AdminRoute>} />
+        <Route path="/admin/content" element={<AdminRoute><AdminContent /></AdminRoute>} />
+        <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
+
+        {/* Root: shows public landing page */}
+        <Route path="/" element={<Landing />} />
+        {/* Unknown routes fall back to landing */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Suspense>
   );
@@ -99,12 +103,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-

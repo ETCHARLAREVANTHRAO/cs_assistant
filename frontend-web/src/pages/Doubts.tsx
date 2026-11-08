@@ -2,6 +2,17 @@ import { useState } from 'react';
 import Layout from '../components/Layout';
 import { solveDoubt } from '../services/api';
 
+const GATE_SUBJECT_SUGGESTIONS = [
+  'Algorithms & Data Structures',
+  'Operating Systems',
+  'Computer Networks',
+  'Database Management (DBMS)',
+  'Theory of Computation (TOC)',
+  'Compiler Design',
+  'Computer Organization (COA)',
+  'Discrete Mathematics & Linear Algebra',
+];
+
 export default function Doubts() {
   const [message, setMessage] = useState('');
   const [subject, setSubject] = useState('');
@@ -11,6 +22,7 @@ export default function Doubts() {
   const [extractedText, setExtractedText] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [copied, setCopied] = useState(false);
 
   async function submit() {
     setError('');
@@ -30,89 +42,217 @@ export default function Doubts() {
 
   const canSubmit = !loading && (message.trim() || file);
 
+  const copyAnswer = () => {
+    if (!answer) return;
+    navigator.clipboard.writeText(answer);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <Layout activePage="doubts" title="Doubt Solver">
-      <div className="max-w-container-max mx-auto px-4 md:px-gutter pb-12 grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
-        <section className="lg:col-span-5 bg-surface rounded-lg border border-border shadow-soft p-6 space-y-5">
-          <div>
-            <h2 className="font-headline-md text-headline-md text-text-primary mb-2">Ask a Doubt</h2>
-            <p className="font-body-md text-body-md text-text-muted">Type your question or upload a handwritten/photo doubt.</p>
-          </div>
-
-          {error && <div className="bg-error-container/30 border border-error/30 text-on-error-container rounded-lg p-3 font-body-md text-body-md">{error}</div>}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <input
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-              placeholder="Subject"
-              className="rounded-lg border border-border bg-surface-container-lowest px-4 py-3 focus:ring-2 focus:ring-primary focus:outline-none"
-            />
-            <input
-              value={topic}
-              onChange={(e) => setTopic(e.target.value)}
-              placeholder="Topic"
-              className="rounded-lg border border-border bg-surface-container-lowest px-4 py-3 focus:ring-2 focus:ring-primary focus:outline-none"
-            />
-          </div>
-
-          <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="Describe where you are stuck..."
-            rows={8}
-            className="w-full rounded-lg border border-border bg-surface-container-lowest px-4 py-3 focus:ring-2 focus:ring-primary focus:outline-none resize-none"
-          />
-
-          <label className="flex items-center justify-between gap-3 rounded-lg border border-dashed border-outline-variant bg-surface-container-lowest px-4 py-4 cursor-pointer hover:border-primary/50 transition-colors">
-            <div className="flex items-center gap-3 min-w-0">
-              <span className="material-symbols-outlined text-primary">upload_file</span>
-              <div className="min-w-0">
-                <p className="font-label-md text-label-md text-text-primary truncate">{file ? file.name : 'Upload image or file'}</p>
-                <p className="font-label-sm text-label-sm text-text-muted">PNG, JPG, PDF, DOCX, TXT</p>
-              </div>
+    <Layout activePage="doubts" title="AI Doubt Solver">
+      <div className="p-4 sm:p-8 max-w-7xl mx-auto space-y-8">
+        {/* Resq Beam Header Banner */}
+        <div className="relative rounded-3xl p-6 sm:p-8 resq-hero-dark text-white border border-indigo-500/20 overflow-hidden shadow-xl">
+          <div className="resq-beam" />
+          <div className="resq-beam-right" />
+          <div className="relative z-10 max-w-2xl space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-semibold text-indigo-200">
+              <span className="material-symbols-outlined text-[14px]">psychology_alt</span>
+              <span>Step-by-Step AI Examination Reasoning</span>
             </div>
-            <input
-              type="file"
-              accept=".jpg,.jpeg,.png,.bmp,.tiff,.webp,.pdf,.docx,.txt,.md"
-              className="hidden"
-              onChange={(e) => setFile(e.target.files?.[0] ?? null)}
-            />
-          </label>
+            <h1 className="text-2xl sm:text-3xl font-extrabold gradient-text tracking-tight">
+              GATE CS Doubt Solver &amp; OCR Engine
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+              Stuck on a tricky recurrence, scheduling algorithm, or normalization question? Type your problem or upload a screenshot for a detailed mathematical breakdown.
+            </p>
+          </div>
+        </div>
 
-          <button
-            onClick={submit}
-            disabled={!canSubmit}
-            className="w-full bg-primary text-white rounded-lg py-3 font-label-md text-label-md hover:bg-on-primary-fixed-variant disabled:opacity-50 flex items-center justify-center gap-2"
-          >
-            {loading && <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />}
-            Solve Doubt
-          </button>
-        </section>
-
-        <section className="lg:col-span-7 space-y-5">
-          <div className="bg-surface rounded-lg border border-border shadow-soft p-6 min-h-[320px]">
-            <div className="flex items-center gap-2 mb-4 text-primary">
-              <span className="material-symbols-outlined">school</span>
-              <h3 className="font-headline-sm text-headline-sm text-text-primary">Tutor Answer</h3>
+        {/* Workstation Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          {/* Left Form Panel */}
+          <section className="lg:col-span-5 rounded-2xl bg-white dark:bg-[#0f111e] border border-slate-200/80 dark:border-slate-800/80 shadow-sm p-6 space-y-5">
+            <div>
+              <h2 className="text-base font-bold text-slate-900 dark:text-slate-100">Submit Your Problem</h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Include subject, topic, and where your calculation deviated.
+              </p>
             </div>
-            {answer ? (
-              <div className="prose prose-sm max-w-none whitespace-pre-wrap font-body-md text-body-md text-on-surface-variant">{answer}</div>
-            ) : (
-              <div className="h-56 flex flex-col items-center justify-center text-center text-text-muted">
-                <span className="material-symbols-outlined text-5xl text-primary mb-3">psychology_alt</span>
-                <p className="font-body-md text-body-md">Your structured explanation will appear here.</p>
+
+            {error && (
+              <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 text-rose-700 dark:text-rose-300 text-xs flex items-center gap-2">
+                <span className="material-symbols-outlined text-[16px]">error</span>
+                <span>{error}</span>
               </div>
             )}
-          </div>
 
-          {extractedText && (
-            <details className="bg-surface rounded-lg border border-border shadow-soft p-5">
-              <summary className="cursor-pointer font-label-md text-label-md text-text-primary">OCR text extracted from upload</summary>
-              <pre className="mt-4 whitespace-pre-wrap font-code text-code text-on-surface-variant bg-surface-container-low rounded-lg p-4 overflow-auto max-h-80">{extractedText}</pre>
-            </details>
-          )}
-        </section>
+            {/* Quick Subject Suggestions */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Quick Subject Select</label>
+              <div className="flex flex-wrap gap-1.5">
+                {GATE_SUBJECT_SUGGESTIONS.slice(0, 4).map((sub) => (
+                  <button
+                    key={sub}
+                    type="button"
+                    onClick={() => setSubject(sub)}
+                    className={`text-[10px] px-2 py-1 rounded-lg border transition-all ${
+                      subject === sub
+                        ? 'bg-indigo-50 dark:bg-indigo-950/60 border-indigo-500 text-indigo-600 dark:text-indigo-400 font-bold'
+                        : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400'
+                    }`}
+                  >
+                    {sub}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">Subject</label>
+                <input
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                  placeholder="e.g. Operating Systems"
+                  className="w-full text-xs rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/70 px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                />
+              </div>
+              <div>
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">Topic / Chapter</label>
+                <input
+                  value={topic}
+                  onChange={(e) => setTopic(e.target.value)}
+                  placeholder="e.g. Banker's Algorithm"
+                  className="w-full text-xs rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/70 px-3 py-2.5 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">Problem Description</label>
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Paste the problem statement or describe where you are getting a contradiction..."
+                rows={6}
+                className="w-full text-xs rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/70 px-3.5 py-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 resize-none leading-relaxed"
+              />
+            </div>
+
+            {/* File & Photo Upload with OCR */}
+            <div>
+              <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1 block">Attachment (Optional OCR)</label>
+              <label className="flex items-center justify-between gap-3 rounded-xl border-2 border-dashed border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 p-3.5 cursor-pointer hover:border-indigo-500/50 transition-colors">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-[20px]">add_photo_alternate</span>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate">
+                      {file ? file.name : 'Attach problem image or document'}
+                    </p>
+                    <p className="text-[10px] text-slate-400">PNG, JPG, PDF, DOCX, TXT</p>
+                  </div>
+                </div>
+                {file && (
+                  <button
+                    type="button"
+                    onClick={(e) => { e.stopPropagation(); setFile(null); }}
+                    className="p-1 text-slate-400 hover:text-rose-500"
+                  >
+                    <span className="material-symbols-outlined text-[16px]">close</span>
+                  </button>
+                )}
+                <input
+                  type="file"
+                  accept=".jpg,.jpeg,.png,.bmp,.tiff,.webp,.pdf,.docx,.txt,.md"
+                  className="hidden"
+                  onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+                />
+              </label>
+            </div>
+
+            <button
+              onClick={submit}
+              disabled={!canSubmit}
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold text-xs shadow-md shadow-indigo-500/20 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+            >
+              {loading ? (
+                <>
+                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <span>Synthesizing Detailed Derivation...</span>
+                </>
+              ) : (
+                <>
+                  <span className="material-symbols-outlined text-[18px]">psychology</span>
+                  <span>Solve with Step-by-Step AI</span>
+                </>
+              )}
+            </button>
+          </section>
+
+          {/* Right Solution Canvas */}
+          <section className="lg:col-span-7 space-y-4">
+            <div className="rounded-2xl bg-white dark:bg-[#0f111e] border border-slate-200/80 dark:border-slate-800/80 shadow-sm p-6 min-h-[420px] flex flex-col">
+              <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100 dark:border-slate-800/60">
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                    <span className="material-symbols-outlined text-[18px]">verified</span>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">Verified AI Explanation</h3>
+                    <p className="text-[10px] text-slate-400">Standard GATE conventions &amp; notations applied</p>
+                  </div>
+                </div>
+
+                {answer && (
+                  <button
+                    onClick={copyAnswer}
+                    className="flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100 dark:bg-slate-800 rounded-lg transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-[15px]">
+                      {copied ? 'check' : 'content_copy'}
+                    </span>
+                    <span>{copied ? 'Copied' : 'Copy'}</span>
+                  </button>
+                )}
+              </div>
+
+              {answer ? (
+                <div className="flex-1 text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed whitespace-pre-wrap selection:bg-indigo-500/20">
+                  {answer}
+                </div>
+              ) : (
+                <div className="flex-1 flex flex-col items-center justify-center text-center py-16 text-slate-400 space-y-3">
+                  <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-indigo-500">
+                    <span className="material-symbols-outlined text-3xl">psychology</span>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-700 dark:text-slate-300">Your solution will appear here</h4>
+                    <p className="text-xs text-slate-400 max-w-xs mt-1">
+                      Our system provides formal definitions, counter-examples for false options, and step-by-step arithmetic.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* OCR Extracted Text Drawer */}
+            {extractedText && (
+              <details className="rounded-2xl bg-white dark:bg-[#0f111e] border border-slate-200/80 dark:border-slate-800/80 shadow-sm p-4">
+                <summary className="cursor-pointer text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                  <span className="material-symbols-outlined text-[16px] text-indigo-500">document_scanner</span>
+                  <span>Extracted OCR Problem Text</span>
+                </summary>
+                <pre className="mt-3 whitespace-pre-wrap font-mono text-[11px] text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/60 rounded-xl p-3 max-h-60 overflow-auto border border-slate-200/60 dark:border-slate-800/60">
+                  {extractedText}
+                </pre>
+              </details>
+            )}
+          </section>
+        </div>
       </div>
     </Layout>
   );
