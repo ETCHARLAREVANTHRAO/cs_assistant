@@ -344,6 +344,7 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
     reply = None
     total_tokens = 0
     executed_tools: list[dict] = []
+    llm_error_detail = None
     try:
         for turn in range(5):
             response = await llm_with_tools.ainvoke(messages)
@@ -398,6 +399,7 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
 
     except Exception as e:
         _log(f"ERROR in primary LLM: {e}")
+        llm_error_detail = str(e)
         # Fallback 1: Plain invocation with same LLM
         try:
             fallback = await llm_plain.ainvoke([
@@ -409,6 +411,7 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
             reply = (fallback.content or "").strip()
         except Exception as fallback_e:
             _log(f"FALLBACK 1 ERROR: {fallback_e}")
+            llm_error_detail = str(fallback_e)
             # Fallback 2: Try alternate provider if available
             try:
                 alt_llm = _get_llm(prefer_fallback=True)
@@ -421,6 +424,7 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
                 reply = (alt_fallback.content or "").strip()
             except Exception as alt_e:
                 _log(f"FALLBACK 2 (ALT) ERROR: {alt_e}")
+                llm_error_detail = str(alt_e)
 
     # Robust failsafes to guarantee user always gets a meaningful answer
     if not reply or reply.startswith("<tool_call>") or "<function=" in reply:
@@ -430,36 +434,44 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
             if valid_results:
                 reply = "Here is what I found:\n\n" + "\n\n".join(valid_results)
 
-        # Failsafe B: Syllabus taxonomy knowledge synthesis for academic concepts
+        # Failsafe B: Syllabus taxonomy knowledge synthesis for academic concepts with verified curated data
         if (not reply or reply.startswith("<tool_call>") or "<function=" in reply) and roadmap:
-            title = roadmap.get("title", message)
-            subject = roadmap.get("subject", "Computer Science")
-            focus = roadmap.get("current_focus", {})
-            trap = roadmap.get("exam_trap", "")
-            adv = focus.get("advantages", "")
-            drawback = focus.get("drawbacks", "")
-            mech = focus.get("core_mechanism", "")
-            cell = focus.get("cell_type", "")
+            if roadmap.get("concept_key") != "dynamic_concept":
+                title = roadmap.get("title", message)
+                subject = roadmap.get("subject", "Computer Science")
+                focus = roadmap.get("current_focus", {})
+                trap = roadmap.get("exam_trap", "")
+                adv = focus.get("advantages", "")
+                drawback = focus.get("drawbacks", "")
+                mech = focus.get("core_mechanism", "")
+                cell = focus.get("cell_type", "")
 
-            reply_parts = [
-                f"**1. Core Concept (TL;DR)**\n**{title}** is an essential topic under **{subject}**."
-            ]
-            if mech:
-                reply_parts.append(f"- **Core Mechanism**: {mech}")
-            if cell:
-                reply_parts.append(f"- **Architecture / Type**: {cell}")
-            if adv or drawback:
-                reply_parts.append("\n**2. Key Principles & Trade-offs**")
-                if adv:
-                    reply_parts.append(f"- **Advantage**: {adv}")
-                if drawback:
-                    reply_parts.append(f"- **Trade-off**: {drawback}")
-            if trap:
-                reply_parts.append(f"\n**3. Exam Focus**\n{trap}")
-            reply = "\n".join(reply_parts)
+                reply_parts = [
+                    f"**1. Core Concept (TL;DR)**\n**{title}** is an essential topic under **{subject}**."
+                ]
+                if mech:
+                    reply_parts.append(f"- **Core Mechanism**: {mech}")
+                if cell:
+                    reply_parts.append(f"- **Architecture / Type**: {cell}")
+                if adv or drawback:
+                    reply_parts.append("\n**2. Key Principles & Trade-offs**")
+                    if adv:
+                        reply_parts.append(f"- **Advantage**: {adv}")
+                    if drawback:
+                        reply_parts.append(f"- **Trade-off**: {drawback}")
+                if trap:
+                    reply_parts.append(f"\n**3. Exam Focus**\n{trap}")
+                reply = "\n".join(reply_parts)
 
     if not reply or reply.startswith("<tool_call>") or "<function=" in reply:
-        reply = "I apologize, but I could not retrieve that information right now. Please try again."
+        if llm_error_detail and ("401" in llm_error_detail or "api key" in llm_error_detail.lower() or "authentication" in llm_error_detail.lower()):
+            reply = (
+                "⚠️ **LLM Authentication Notice**: The AI assistant could not connect to the cloud language model "
+                "because the API key on the backend is invalid or missing. "
+                "Please configure a valid `OPENROUTER_API_KEY` or `GROQ_API_KEY` in the server environment settings."
+            )
+        else:
+            reply = "I apologize, but I could not retrieve that information right now. Please check server connectivity or try again."
 
     _log(f"REPLY: {reply[:300]}")
     _log("-" * 60)
