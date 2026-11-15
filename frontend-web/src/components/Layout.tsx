@@ -29,7 +29,13 @@ export type PageKey =
   | 'usage'
   | 'billing'
   | 'research'
-  | 'resume';
+  | 'resume'
+  | 'interview'
+  | 'algorithms'
+  | 'flashcards'
+  | 'battle'
+  | 'predictor'
+  | 'offline-ai';
 
 interface NavSection {
   title: string;
@@ -49,6 +55,7 @@ const NAV_SECTIONS: NavSection[] = [
       { key: 'chat', label: 'AI Assistant', icon: 'smart_toy', to: '/chat' },
       { key: 'learning', label: 'Curriculum Hub', icon: 'menu_book', to: '/learning' },
       { key: 'doubts', label: 'Doubt Solver', icon: 'psychology_alt', to: '/doubts' },
+      { key: 'offline-ai', label: 'Offline Edge AI', icon: 'terminal', to: '/offline-ai', badge: 'Local' },
     ],
   },
   {
@@ -56,6 +63,8 @@ const NAV_SECTIONS: NavSection[] = [
     items: [
       { key: 'pyq', label: 'PYQ 2012–2026', icon: 'school', to: '/pyq', badge: 'Active' },
       { key: 'quiz', label: 'Adaptive Quiz', icon: 'quiz', to: '/quiz' },
+      { key: 'flashcards', label: 'SM-2 Flashcards', icon: 'psychology', to: '/flashcards', badge: 'Recall' },
+      { key: 'battle', label: '1v1 Speed Duel', icon: 'swords', to: '/battle', badge: 'New' },
       { key: 'revision-planner', label: 'Revision Planner', icon: 'event_note', to: '/revision-planner' },
     ],
   },
@@ -63,6 +72,7 @@ const NAV_SECTIONS: NavSection[] = [
     title: 'Knowledge & Research',
     items: [
       { key: 'resources', label: 'GATE Resources', icon: 'auto_stories', to: '/resources' },
+      { key: 'algorithms', label: 'Algo Visualizer', icon: 'hub', to: '/algorithms', badge: 'Viz' },
       { key: 'research', label: 'Paper Hub', icon: 'biotech', to: '/research', badge: 'AI' },
       { key: 'documents', label: 'Document Library', icon: 'folder_open', to: '/documents' },
     ],
@@ -71,6 +81,8 @@ const NAV_SECTIONS: NavSection[] = [
     title: 'Career & Placement',
     items: [
       { key: 'resume', label: 'AI Resume Builder', icon: 'assignment_ind', to: '/resume', badge: 'Live AI' },
+      { key: 'interview', label: 'AI Tech Interview', icon: 'record_voice_over', to: '/interview', badge: 'Voice AI' },
+      { key: 'predictor', label: 'IIT & PSU Predictor', icon: 'analytics', to: '/predictor', badge: 'COAP' },
     ],
   },
   {
@@ -90,19 +102,20 @@ const MOBILE_NAV_ITEMS = [
   { key: 'doubts' as PageKey, label: 'Doubts', icon: 'psychology_alt', to: '/doubts' },
   { key: 'pyq' as PageKey, label: 'PYQ', icon: 'school', to: '/pyq' },
   { key: 'resume' as PageKey, label: 'Resume', icon: 'assignment_ind', to: '/resume' },
-  { key: 'resources' as PageKey, label: 'Resources', icon: 'auto_stories', to: '/resources' },
+  { key: 'interview' as PageKey, label: 'Mock', icon: 'record_voice_over', to: '/interview' },
+  { key: 'battle' as PageKey, label: 'Duel', icon: 'swords', to: '/battle' },
   { key: 'billing' as PageKey, label: 'Plans', icon: 'workspace_premium', to: '/billing' },
   { key: 'account' as PageKey, label: 'Profile', icon: 'person', to: '/account' },
 ];
 
 interface LayoutProps {
-  activePage: PageKey;
+  activePage?: PageKey;
   children: ReactNode;
   title?: string;
   searchPlaceholder?: string;
 }
 
-export default function Layout({ activePage, children, title, searchPlaceholder }: LayoutProps) {
+export default function Layout({ activePage = 'chat', children, title, searchPlaceholder }: LayoutProps) {
   const { currentUser, signOutUser } = useAuth();
   const navigate = useNavigate();
   const bellRef = useRef<HTMLDivElement>(null);

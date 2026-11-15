@@ -34,6 +34,10 @@ from app.routes import (
     notifications,
     research,
     resume,
+    interview,
+    flashcards,
+    predictor,
+    battle,
 )
 
 
@@ -107,6 +111,10 @@ _api_routers = [
     notifications.router,
     research.router,
     resume.router,
+    interview.router,
+    flashcards.router,
+    predictor.router,
+    battle.router,
 ]
 
 for router in _api_routers:

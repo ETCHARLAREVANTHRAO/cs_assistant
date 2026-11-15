@@ -37,6 +37,12 @@ const UsageDashboard = lazy(() => import('./pages/UsageDashboard'));
 const AdminDriveSync = lazy(() => import('./pages/AdminDriveSync'));
 const AdminContent = lazy(() => import('./pages/AdminContent'));
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
+const MockInterview = lazy(() => import('./pages/MockInterview'));
+const AlgorithmVisualizer = lazy(() => import('./pages/AlgorithmVisualizer'));
+const Flashcards = lazy(() => import('./pages/Flashcards'));
+const SpeedBattle = lazy(() => import('./pages/SpeedBattle'));
+const RankPredictor = lazy(() => import('./pages/RankPredictor'));
+const OfflineAI = lazy(() => import('./pages/OfflineAI'));
 
 // "/" always shows the public landing page — no redirect needed here
 
@@ -77,6 +83,12 @@ function AppRoutes() {
         <Route path="/research" element={<ProtectedRoute><Research /></ProtectedRoute>} />
         <Route path="/resume" element={<ProtectedRoute><ResumeBuilder /></ProtectedRoute>} />
         <Route path="/resume-builder" element={<ProtectedRoute><ResumeBuilder /></ProtectedRoute>} />
+        <Route path="/interview" element={<ProtectedRoute><MockInterview /></ProtectedRoute>} />
+        <Route path="/algorithms" element={<ProtectedRoute><AlgorithmVisualizer /></ProtectedRoute>} />
+        <Route path="/flashcards" element={<ProtectedRoute><Flashcards /></ProtectedRoute>} />
+        <Route path="/battle" element={<ProtectedRoute><SpeedBattle /></ProtectedRoute>} />
+        <Route path="/predictor" element={<ProtectedRoute><RankPredictor /></ProtectedRoute>} />
+        <Route path="/offline-ai" element={<ProtectedRoute><OfflineAI /></ProtectedRoute>} />
         <Route path="/usage" element={<ProtectedRoute><UsageDashboard /></ProtectedRoute>} />
 
         {/* Admin only routes */}
