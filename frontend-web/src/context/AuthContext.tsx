@@ -10,6 +10,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  sendEmailVerification,
   GoogleAuthProvider,
   onAuthStateChanged,
   browserPopupRedirectResolver,
@@ -18,11 +19,33 @@ import {
 import { auth } from '../config/firebase';
 import { activityPing } from '../services/api';
 
+export const ADMIN_EMAILS = new Set([
+  'etcharlarevanthrao9402@gmail.com',
+  'revrao9550@gmail.com',
+]);
+
+export function isUserAdmin(email?: string | null): boolean {
+  if (!email) return false;
+  return ADMIN_EMAILS.has(email.trim().toLowerCase());
+}
+
+export function isAccountVerified(user: User | null): boolean {
+  if (!user) return false;
+  if (user.emailVerified) return true;
+  if (isUserAdmin(user.email)) return true;
+  // If provider is Google, email is inherently verified
+  if (user.providerData?.some((p) => p.providerId === 'google.com')) return true;
+  return false;
+}
+
 interface AuthContextValue {
   currentUser: User | null;
   loading: boolean;
-  signIn: (email: string, password: string) => Promise<void>;
-  signUp: (email: string, password: string) => Promise<void>;
+  signIn: (email: string, password: string) => Promise<User>;
+  signUp: (email: string, password: string) => Promise<User>;
+  sendVerificationEmail: (user?: User | null) => Promise<void>;
+  resendVerificationForEmail: (email: string, password: string) => Promise<void>;
+  reloadUser: () => Promise<boolean>;
   signInWithGoogle: () => Promise<void>;
   signOutUser: () => Promise<void>;
 }
@@ -32,19 +55,26 @@ const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 export function friendlyError(code: string, fallback?: string): string {
   switch (code) {
     case 'auth/invalid-email':
-      return 'Invalid email address.';
+      return 'Please enter a valid email address.';
     case 'auth/user-not-found':
-      return 'No account found with this email.';
+      return 'No account found with this email. Please sign up.';
     case 'auth/wrong-password':
       return 'Incorrect password.';
     case 'auth/email-already-in-use':
-      return 'An account with this email already exists.';
+      return 'An account with this email already exists. Please log in.';
     case 'auth/weak-password':
-      return 'Password must be at least 6 characters.';
+    case 'auth/password-too-weak':
+      return 'Password must be at least 8 characters and include letters and numbers.';
+    case 'auth/password-mismatch':
+      return 'Passwords do not match.';
+    case 'auth/disposable-email':
+      return 'Disposable or temporary emails are not permitted. Please use your real email address.';
+    case 'auth/unverified-email':
+      return 'Please verify your email address. We sent a verification link to your inbox.';
     case 'auth/invalid-credential':
       return 'Incorrect email or password.';
     case 'auth/too-many-requests':
-      return 'Too many attempts. Try again later.';
+      return 'Too many attempts. Please wait a few moments and try again.';
     case 'auth/popup-blocked':
       return 'The Google sign-in popup was blocked by your browser. Please allow popups for this site and try again.';
     case 'auth/popup-closed-by-user':
@@ -57,7 +87,7 @@ export function friendlyError(code: string, fallback?: string): string {
       return 'This domain is not authorized for Google sign-in. Please contact the app administrator.';
     default:
       return fallback
-        ? `Sign-in failed: ${fallback} (${code})`
+        ? `Authentication notice: ${fallback} (${code})`
         : `Something went wrong (${code}). Please try again.`;
   }
 }
@@ -83,14 +113,60 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return unsubscribe;
   }, []);
 
-  const signIn = async (email: string, password: string) => {
-    if (!auth) throw new Error('Firebase is not configured for this deployment.');
-    await signInWithEmailAndPassword(auth, email, password);
+  const sendVerificationEmail = async (user?: User | null) => {
+    const target = user || auth?.currentUser;
+    if (!target) {
+      throw new Error('No user is currently available to send a verification email to.');
+    }
+    await sendEmailVerification(target);
   };
 
-  const signUp = async (email: string, password: string) => {
+  const resendVerificationForEmail = async (email: string, password: string) => {
     if (!auth) throw new Error('Firebase is not configured for this deployment.');
-    await createUserWithEmailAndPassword(auth, email, password);
+    const cred = await signInWithEmailAndPassword(auth, email, password);
+    try {
+      await sendEmailVerification(cred.user);
+    } finally {
+      await signOut(auth);
+    }
+  };
+
+  const reloadUser = async (): Promise<boolean> => {
+    if (!auth?.currentUser) return false;
+    await auth.currentUser.reload();
+    const updated = auth.currentUser;
+    setCurrentUser(updated ? ({ ...updated } as User) : null);
+    return isAccountVerified(updated);
+  };
+
+  const signIn = async (email: string, password: string): Promise<User> => {
+    if (!auth) throw new Error('Firebase is not configured for this deployment.');
+    const cred = await signInWithEmailAndPassword(auth, email, password);
+
+    // Enforce email verification check for email/password users
+    if (!isAccountVerified(cred.user)) {
+      await signOut(auth);
+      const err: any = new Error('Email verification required.');
+      err.code = 'auth/unverified-email';
+      err.email = cred.user.email;
+      throw err;
+    }
+
+    return cred.user;
+  };
+
+  const signUp = async (email: string, password: string): Promise<User> => {
+    if (!auth) throw new Error('Firebase is not configured for this deployment.');
+    const cred = await createUserWithEmailAndPassword(auth, email, password);
+
+    // Immediately dispatch email verification link
+    try {
+      await sendEmailVerification(cred.user);
+    } catch (verr) {
+      console.warn('[Auth] Failed to dispatch verification email:', verr);
+    }
+
+    return cred.user;
   };
 
   const signInWithGoogle = async () => {
@@ -98,7 +174,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
     try {
-      // Pass browserPopupRedirectResolver explicitly to avoid sessionStorage redirect fallback crashes
       await signInWithPopup(auth, provider, browserPopupRedirectResolver);
     } catch (err: any) {
       console.error('[Google sign-in error]', err);
@@ -116,6 +191,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     loading,
     signIn,
     signUp,
+    sendVerificationEmail,
+    resendVerificationForEmail,
+    reloadUser,
     signInWithGoogle,
     signOutUser,
   };

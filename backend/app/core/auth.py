@@ -34,7 +34,16 @@ def verify_token(credentials: HTTPAuthorizationCredentials | None = Security(_be
     try:
         _init_firebase()
         decoded = auth.verify_id_token(credentials.credentials)
+        user_email = (decoded.get("email") or "").strip().lower()
+        is_verified = decoded.get("email_verified", False)
+        if user_email and not is_verified and user_email not in get_admin_emails():
+            raise HTTPException(
+                status_code=403,
+                detail="Email verification required. Please verify your email before accessing the platform.",
+            )
         return decoded["uid"]
+    except HTTPException:
+        raise
     except Exception:
         raise HTTPException(
             status_code=401,
@@ -49,6 +58,10 @@ def optional_verify_token(credentials: HTTPAuthorizationCredentials | None = Sec
     try:
         _init_firebase()
         decoded = auth.verify_id_token(credentials.credentials)
+        user_email = (decoded.get("email") or "").strip().lower()
+        is_verified = decoded.get("email_verified", False)
+        if user_email and not is_verified and user_email not in get_admin_emails():
+            return None
         return decoded["uid"]
     except Exception:
         return None
