@@ -260,33 +260,33 @@ def classify_intent_and_roadmap(query: str) -> tuple[str, Optional[dict[str, Any
             return "ACADEMIC_SUBJECT", {
                 "concept_key": signal,
                 "title": dynamic_title,
-                "subject": "GATE Computer Science & IT",
-                "unit": "Core Subject Foundations",
-                "gate_weightage": "High-Yield Exam Topic",
+                "subject": "Computer Science & Systems Engineering",
+                "unit": "Core Systems & Algorithmic Foundations",
+                "gate_weightage": "Core Technical Foundation",
                 "prerequisites_above": [
-                    {"level": "Foundation", "title": "Core CS Fundamentals"},
-                    {"level": "Subject", "title": "Theoretical & Applied Concepts"},
+                    {"level": "Foundation", "title": "Computer Science Fundamentals"},
+                    {"level": "Architecture", "title": "Theoretical & Applied Systems"},
                     {"level": "Prerequisite", "title": f"Key Principles of {signal.upper()}"}
                 ],
                 "current_focus": {
                     "title": dynamic_title,
-                    "cell_type": "Core Concept",
-                    "core_mechanism": "Direct analytical problem solving",
-                    "advantages": "Frequent appearance in GATE / Technical Interviews",
-                    "drawbacks": "Prone to edge-case and boundary value mistakes"
+                    "cell_type": "Core Mechanism",
+                    "core_mechanism": "Underlying computational and algorithmic principle",
+                    "advantages": "High computational efficiency and architectural significance",
+                    "drawbacks": "Requires careful consideration of boundary conditions and synchronization"
                 },
-                "exam_trap": "⚠️ Exam Trap: Always double-check edge conditions, base cases (e.g. n=0 or n=1), and unit conversions before marking the final answer!",
+                "exam_trap": "⚠️ Engineering Pitfall & Edge Case: Ensure boundary limits, state invariants, and memory bounds are strictly handled.",
                 "what_to_learn_below": [
-                    {"title": f"Advanced {signal.capitalize()} Variations", "category": "Deep Dive", "desc": "Complex configurations and optimizations"},
-                    {"title": "Previous Years Question (PYQ) Patterns", "category": "Exam Prep", "desc": "Standard question formulations from past 15 years"},
-                    {"title": "Time & Space Complexity Bounds", "category": "Analysis", "desc": "Worst-case, average-case and amortized bounds"}
+                    {"title": f"Advanced {signal.capitalize()} Architecture", "category": "Deep Dive", "desc": "Production implementations and optimizations"},
+                    {"title": "System Design & Practical Benchmarks", "category": "Applied CS", "desc": "Real-world engineering patterns and trade-offs"},
+                    {"title": "Time & Space Complexity Bounds", "category": "Analysis", "desc": "Worst-case, average-case, and amortized complexity"}
                 ],
                 "click_to_ask_chips": [
-                    f"Show a worked GATE numerical for {signal}",
-                    f"Key formulas and shortcut tricks for {signal}",
-                    f"What is the most common mistake students make in {signal}?"
+                    f"Explain real-world production implementation of {signal}",
+                    f"Key architectural trade-offs in {signal}",
+                    f"Common edge cases and pitfalls in {signal}"
                 ],
-                "practice_pyq": "Search GATE CS PYQs on this topic"
+                "practice_pyq": f"Benchmark engineering problems for {signal}"
             }
 
     # Default to NON_ACADEMIC for casual conversation

@@ -145,15 +145,15 @@ export const RoadmapCard: React.FC<RoadmapCardProps> = ({ roadmap, onSelectPromp
 
       </div>
 
-      {/* High-Yield Exam Trap Callout */}
+      {/* Engineering Pitfall & Edge Case Callout */}
       {roadmap.exam_trap && (
         <div className="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-900 dark:text-amber-200 text-[11px] leading-relaxed flex items-start gap-2">
           <span className="material-symbols-outlined text-amber-600 dark:text-amber-400 text-[18px] shrink-0 mt-0.5">
             warning
           </span>
           <div>
-            <span className="font-bold text-amber-700 dark:text-amber-300">Exam Trap Alert: </span>
-            <span>{roadmap.exam_trap.replace(/^⚠️\s*Exam Trap:\s*/i, '')}</span>
+            <span className="font-bold text-amber-700 dark:text-amber-300">Engineering Pitfall / Edge Case: </span>
+            <span>{roadmap.exam_trap.replace(/^⚠️\s*(Exam Trap|Engineering Pitfall & Edge Case):\s*/i, '')}</span>
           </div>
         </div>
       )}
@@ -181,11 +181,11 @@ export const RoadmapCard: React.FC<RoadmapCardProps> = ({ roadmap, onSelectPromp
             {roadmap.practice_pyq && (
               <button
                 type="button"
-                onClick={() => onSelectPrompt?.(`Solve the previous years GATE question for ${roadmap.title}: ${roadmap.practice_pyq}`)}
+                onClick={() => onSelectPrompt?.(`Explain benchmark and engineering challenges for ${roadmap.title}: ${roadmap.practice_pyq}`)}
                 className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 font-bold text-[11px] hover:bg-emerald-600 hover:text-white transition-all shadow-sm active:scale-95"
               >
                 <span className="material-symbols-outlined text-[13px]">quiz</span>
-                <span>Practice PYQ ({roadmap.practice_pyq})</span>
+                <span>Benchmarks ({roadmap.practice_pyq})</span>
               </button>
             )}
           </div>

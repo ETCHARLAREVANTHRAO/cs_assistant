@@ -56,45 +56,45 @@ interface NavSection {
 
 const NAV_SECTIONS: NavSection[] = [
   {
-    title: 'Core AI & Study',
+    title: 'Core AI & Engineering',
     items: [
       { key: 'chat', label: 'AI Assistant', icon: 'smart_toy', to: '/chat' },
-      { key: 'learning', label: 'Curriculum Hub', icon: 'menu_book', to: '/learning' },
+      { key: 'learning', label: 'Curriculum & Concepts', icon: 'menu_book', to: '/learning' },
       { key: 'doubts', label: 'Doubt Solver', icon: 'psychology_alt', to: '/doubts' },
       { key: 'audio-study', label: 'Audio & Podcasts', icon: 'podcasts', to: '/audio-study', badge: 'Audio' },
       { key: 'offline-ai', label: 'Offline Edge AI', icon: 'terminal', to: '/offline-ai', badge: 'Local' },
     ],
   },
   {
-    title: 'GATE Practice & Tests',
+    title: 'Labs & Interactive Practice',
     items: [
-      { key: 'calculator', label: 'TCS Virtual Calc', icon: 'calculate', to: '/calculator', badge: 'TCS iON' },
-      { key: 'knowledge-graph', label: 'AIR Weakness Radar', icon: 'radar', to: '/knowledge-graph', badge: 'AIR' },
-      { key: 'pyq', label: 'PYQ 2012–2026', icon: 'school', to: '/pyq', badge: 'Active' },
-      { key: 'quiz', label: 'Adaptive Quiz', icon: 'quiz', to: '/quiz' },
-      { key: 'flashcards', label: 'SM-2 Flashcards', icon: 'psychology', to: '/flashcards', badge: 'Recall' },
-      { key: 'battle', label: '1v1 Speed Duel', icon: 'swords', to: '/battle', badge: 'New' },
-      { key: 'revision-planner', label: 'Revision Planner', icon: 'event_note', to: '/revision-planner' },
+      { key: 'calculator', label: 'Scientific & Exam Calc', icon: 'calculate', to: '/calculator', badge: 'Precision' },
+      { key: 'knowledge-graph', label: 'Skill & Competency Radar', icon: 'radar', to: '/knowledge-graph', badge: 'Analytics' },
+      { key: 'pyq', label: 'Exam & Benchmark Archives', icon: 'school', to: '/pyq', badge: 'Active' },
+      { key: 'quiz', label: 'Adaptive Skills Quiz', icon: 'quiz', to: '/quiz' },
+      { key: 'flashcards', label: 'Active Recall (SM-2)', icon: 'psychology', to: '/flashcards', badge: 'Recall' },
+      { key: 'battle', label: '1v1 Speed Duel', icon: 'swords', to: '/battle', badge: 'Duel' },
+      { key: 'revision-planner', label: 'Study & Revision Planner', icon: 'event_note', to: '/revision-planner' },
     ],
   },
   {
-    title: 'Knowledge & Research',
+    title: 'Knowledge, Code & Research',
     items: [
-      { key: 'automata', label: 'TOC Automata Studio', icon: 'schema', to: '/automata', badge: 'DFA' },
+      { key: 'automata', label: 'Automata & State Machines', icon: 'schema', to: '/automata', badge: 'DFA' },
       { key: 'sandbox', label: 'C Memory & Pointers', icon: 'memory', to: '/sandbox', badge: 'C/C++' },
       { key: 'notes-scanner', label: 'Notes to LaTeX OCR', icon: 'document_scanner', to: '/notes-scanner', badge: 'OCR' },
-      { key: 'resources', label: 'GATE Resources', icon: 'auto_stories', to: '/resources' },
-      { key: 'algorithms', label: 'Algo Visualizer', icon: 'hub', to: '/algorithms', badge: 'Viz' },
-      { key: 'research', label: 'Paper Hub', icon: 'biotech', to: '/research', badge: 'AI' },
+      { key: 'resources', label: 'CS Knowledge Base', icon: 'auto_stories', to: '/resources' },
+      { key: 'algorithms', label: 'Systems Visualizer', icon: 'hub', to: '/algorithms', badge: 'Viz' },
+      { key: 'research', label: 'Research Paper Hub', icon: 'biotech', to: '/research', badge: 'arXiv' },
       { key: 'documents', label: 'Document Library', icon: 'folder_open', to: '/documents' },
     ],
   },
   {
-    title: 'Career & Placement',
+    title: 'Career & Professional Growth',
     items: [
       { key: 'resume', label: 'AI Resume Builder', icon: 'assignment_ind', to: '/resume', badge: 'Live AI' },
-      { key: 'interview', label: 'AI Tech Interview', icon: 'record_voice_over', to: '/interview', badge: 'Voice AI' },
-      { key: 'predictor', label: 'IIT & PSU Predictor', icon: 'analytics', to: '/predictor', badge: 'COAP' },
+      { key: 'interview', label: 'AI Technical Interview', icon: 'record_voice_over', to: '/interview', badge: 'Voice AI' },
+      { key: 'predictor', label: 'Admissions & PSU Predictor', icon: 'analytics', to: '/predictor', badge: 'Analytics' },
     ],
   },
   {
@@ -102,8 +102,8 @@ const NAV_SECTIONS: NavSection[] = [
     items: [
       { key: 'progress', label: 'My Progress', icon: 'analytics', to: '/progress' },
       { key: 'motivation', label: 'Daily Motivation', icon: 'bolt', to: '/motivation' },
-      { key: 'community', label: 'Aspirants Community', icon: 'forum', to: '/community' },
-      { key: 'exam-info', label: 'GATE Exam Intel', icon: 'campaign', to: '/exam-info' },
+      { key: 'community', label: 'Engineers Community', icon: 'forum', to: '/community' },
+      { key: 'exam-info', label: 'Tech & Exam Intelligence', icon: 'campaign', to: '/exam-info' },
     ],
   },
 ];

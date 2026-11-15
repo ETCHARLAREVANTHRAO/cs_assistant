@@ -44,17 +44,18 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 _http_client = httpx.Client(verify=False)
 
-SYSTEM_PROMPT = """You are a helpful personal AI assistant.
+SYSTEM_PROMPT = """You are My Assistant, an elite AI Computer Science, Systems Architecture, and Software Engineering Copilot.
+You assist software engineers, computer scientists, researchers, and technical professionals with depth, rigor, and clarity.
 
-Document context from the user's uploaded files may be provided below. Follow these rules:
+Document context from the user's uploaded files or library may be provided below. Follow these rules:
 1. If the question is about the user's documents, resume, notes, or files - answer using the document context provided.
 2. If the question is about the current date or time - call get_datetime.
 3. If the question is about weather - call get_weather.
-4. If the question is about news, sports, or facts not in the documents - call internet_search.
+4. If the question is about news, sports, live facts, or external information - call internet_search.
 5. If the question is about calendar events - call add_calendar_event or get_calendar_events.
-6. Only call one tool at a time. Never call a tool if the document context already answers the question.
-
-Be concise, accurate, and friendly."""
+6. Only call one tool at a time. Never call a tool if the context or your knowledge already answers the question.
+7. Treat this as a comprehensive, modern Computer Science & Engineering intelligence hub — not merely an exam preparation site. When technical topics are discussed, explain with systems architecture depth, practical implementations, complexity bounds, and real-world trade-offs.
+8. When greeting or conversing casually, be warm, articulate, and natural. Do not force robotic academic headers."""
 
 
 _conversation_history: dict = {}  # user_id -> list of messages
@@ -312,24 +313,25 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
     llm_plain = _get_llm()
 
     mode_instructions = {
-        "server": "Knowledge mode: GATE Library. Use only the shared server-side study library as document context. If it is insufficient, say what is missing.",
-        "local": "Knowledge mode: My Docs. Use only the student-provided documents available on this device/account. Do not use internet search or server-library context. If the local documents are insufficient, say what is missing.",
-        "hybrid": "Knowledge mode: Best Answer. Use both the shared GATE Library and the student-provided documents when available, and prefer the most relevant cited context.",
+        "server": "Knowledge mode: Knowledge Library. Use the centralized engineering & CS library as context. If insufficient, note what is missing.",
+        "local": "Knowledge mode: My Docs. Use only user-provided workspace documents available on this device/account. Do not use internet search or server-library context.",
+        "hybrid": "Knowledge mode: Comprehensive. Synthesize from both the knowledge repository and user documents, preferring the most relevant cited context.",
     }[mode]
     system_with_context = f"{SYSTEM_PROMPT}\n\n{mode_instructions}"
 
     if intent == "ACADEMIC_SUBJECT":
         system_with_context += (
-            "\n\nStudent Doubt / Academic Question detected. Structure your answer using the high-yield standard format:"
-            "\n1. Core Concept (TL;DR): 1-2 crisp, direct sentences."
-            "\n2. Key Working Principles / Architecture: Use clear bullet points or comparison table with bolded terms and numerical values."
-            "\n3. Exam Focus / Common Trap: Point out common exam pitfalls, unit conversions, or edge cases."
-            "\nBe direct, precise, and avoid unnecessary chatty greetings."
+            "\n\nTechnical / Computer Science Topic detected."
+            "\nProvide an authoritative, clear, and comprehensive engineering explanation:"
+            "\n- Break down the core theoretical foundation and intuitive mechanism."
+            "\n- Discuss practical engineering trade-offs, architecture, and asymptotic complexity (time/space) where applicable."
+            "\n- Mention subtle edge cases, concurrency hazards, or design pitfalls."
+            "\nUse formatting (tables, bullet points, clean code snippets, LaTeX math) naturally without forcing rigid exam templates unless the user explicitly requests exam prep."
         )
     else:
         system_with_context += (
-            "\n\nUtility / casual conversation detected (weather, time, calendar, chitchat)."
-            "\nAnswer directly and concisely in 1-2 friendly sentences. Do not use academic blocks or exam warnings."
+            "\n\nConversational or general utility query."
+            "\nRespond naturally, concisely, and helpfully."
         )
 
     if doc_context:
@@ -447,20 +449,21 @@ async def chat(message: str, user_id: str = "anonymous", knowledge_mode: str = "
                 cell = focus.get("cell_type", "")
 
                 reply_parts = [
-                    f"**1. Core Concept (TL;DR)**\n**{title}** is an essential topic under **{subject}**."
+                    f"**Core Concept: {title}**\n**{title}** is an essential topic in **{subject}**."
                 ]
                 if mech:
-                    reply_parts.append(f"- **Core Mechanism**: {mech}")
+                    reply_parts.append(f"- **Mechanism**: {mech}")
                 if cell:
-                    reply_parts.append(f"- **Architecture / Type**: {cell}")
+                    reply_parts.append(f"- **Classification**: {cell}")
                 if adv or drawback:
-                    reply_parts.append("\n**2. Key Principles & Trade-offs**")
+                    reply_parts.append("\n**Key Principles & Architectural Trade-offs**")
                     if adv:
                         reply_parts.append(f"- **Advantage**: {adv}")
                     if drawback:
                         reply_parts.append(f"- **Trade-off**: {drawback}")
                 if trap:
-                    reply_parts.append(f"\n**3. Exam Focus**\n{trap}")
+                    clean_trap = trap.replace("⚠️ Exam Trap:", "⚠️ Engineering Pitfall & Edge Case:")
+                    reply_parts.append(f"\n{clean_trap}")
                 reply = "\n".join(reply_parts)
 
     if not reply or reply.startswith("<tool_call>") or "<function=" in reply:
