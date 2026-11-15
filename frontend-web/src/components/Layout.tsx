@@ -28,7 +28,8 @@ export type PageKey =
   | 'account'
   | 'usage'
   | 'billing'
-  | 'research';
+  | 'research'
+  | 'resume';
 
 interface NavSection {
   title: string;
@@ -67,6 +68,12 @@ const NAV_SECTIONS: NavSection[] = [
     ],
   },
   {
+    title: 'Career & Placement',
+    items: [
+      { key: 'resume', label: 'AI Resume Builder', icon: 'assignment_ind', to: '/resume', badge: 'Live AI' },
+    ],
+  },
+  {
     title: 'Analytics & Community',
     items: [
       { key: 'progress', label: 'My Progress', icon: 'analytics', to: '/progress' },
@@ -82,6 +89,7 @@ const MOBILE_NAV_ITEMS = [
   { key: 'learning' as PageKey, label: 'Learn', icon: 'menu_book', to: '/learning' },
   { key: 'doubts' as PageKey, label: 'Doubts', icon: 'psychology_alt', to: '/doubts' },
   { key: 'pyq' as PageKey, label: 'PYQ', icon: 'school', to: '/pyq' },
+  { key: 'resume' as PageKey, label: 'Resume', icon: 'assignment_ind', to: '/resume' },
   { key: 'resources' as PageKey, label: 'Resources', icon: 'auto_stories', to: '/resources' },
   { key: 'billing' as PageKey, label: 'Plans', icon: 'workspace_premium', to: '/billing' },
   { key: 'account' as PageKey, label: 'Profile', icon: 'person', to: '/account' },

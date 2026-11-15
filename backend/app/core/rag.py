@@ -61,7 +61,7 @@ _conversation_history: dict = {}  # user_id -> list of messages
 MAX_HISTORY_TURNS = 10
 
 
-def _get_llm(prefer_fallback: bool = False):
+def _get_llm(prefer_fallback: bool = False, max_tokens: int = 1024):
     from dotenv import load_dotenv, find_dotenv
     load_dotenv(find_dotenv(usecwd=True))
 
@@ -100,7 +100,7 @@ def _get_llm(prefer_fallback: bool = False):
                 "HTTP-Referer": "https://mycsassistant.in",
                 "X-Title": "My Assistant",
             },
-            max_tokens=1024,
+            max_tokens=max_tokens,
             temperature=0.2,
         )
 
@@ -108,7 +108,7 @@ def _get_llm(prefer_fallback: bool = False):
     return ChatGroq(
         model=groq_model,
         api_key=groq_key or "gsk_dummy",
-        max_tokens=1024,
+        max_tokens=max_tokens,
         temperature=0.2,
     )
 

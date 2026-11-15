@@ -33,6 +33,7 @@ from app.routes import (
     local_chat,
     notifications,
     research,
+    resume,
 )
 
 
@@ -105,6 +106,7 @@ _api_routers = [
     local_chat.router,
     notifications.router,
     research.router,
+    resume.router,
 ]
 
 for router in _api_routers:

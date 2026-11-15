@@ -629,3 +629,79 @@ def get_all_documents() -> list[dict]:
 
 
 
+
+# ==========================================
+# RESUME STORAGE FUNCTIONS
+# ==========================================
+
+_local_resumes: dict[str, dict[str, dict]] = {}
+
+def list_user_resumes(user_id: str) -> list[dict]:
+    """Returns metadata for all resumes saved by the user."""
+    try:
+        docs = get_db().collection("users").document(user_id).collection("resumes").stream()
+        res = []
+        for d in docs:
+            item = d.to_dict() or {}
+            item["resume_id"] = d.id
+            # Omit huge resume data in list view for performance
+            item.pop("resume", None)
+            res.append(item)
+        res.sort(key=lambda x: x.get("updated_at", ""), reverse=True)
+        return res
+    except Exception:
+        user_res = _local_resumes.get(user_id, {})
+        res = []
+        for rid, item in user_res.items():
+            entry = dict(item)
+            entry["resume_id"] = rid
+            entry.pop("resume", None)
+            res.append(entry)
+        res.sort(key=lambda x: x.get("updated_at", ""), reverse=True)
+        return res
+
+
+def get_user_resume(user_id: str, resume_id: str) -> Optional[dict]:
+    """Returns the full resume document for the user."""
+    try:
+        doc = get_db().collection("users").document(user_id).collection("resumes").document(resume_id).get()
+        if doc.exists:
+            data = doc.to_dict() or {}
+            data["resume_id"] = doc.id
+            return data
+    except Exception:
+        pass
+    return _local_resumes.get(user_id, {}).get(resume_id)
+
+
+def save_user_resume(user_id: str, resume_id: str, title: str, resume_data: dict, ats_score: int = 0) -> dict:
+    """Saves or updates a user resume in Firestore."""
+    now = datetime.now(timezone.utc).isoformat()
+    record = {
+        "title": title or "My Tech Resume",
+        "resume": resume_data,
+        "ats_score": ats_score,
+        "updated_at": now,
+    }
+    try:
+        get_db().collection("users").document(user_id).collection("resumes").document(resume_id).set(record, merge=True)
+        record["resume_id"] = resume_id
+        return record
+    except Exception:
+        if user_id not in _local_resumes:
+            _local_resumes[user_id] = {}
+        _local_resumes[user_id][resume_id] = record
+        record["resume_id"] = resume_id
+        return record
+
+
+def delete_user_resume(user_id: str, resume_id: str) -> bool:
+    """Deletes a resume from Firestore."""
+    try:
+        get_db().collection("users").document(user_id).collection("resumes").document(resume_id).delete()
+        return True
+    except Exception:
+        if user_id in _local_resumes and resume_id in _local_resumes[user_id]:
+            _local_resumes[user_id].pop(resume_id, None)
+            return True
+        return True
