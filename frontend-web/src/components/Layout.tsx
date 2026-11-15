@@ -35,7 +35,13 @@ export type PageKey =
   | 'flashcards'
   | 'battle'
   | 'predictor'
-  | 'offline-ai';
+  | 'offline-ai'
+  | 'calculator'
+  | 'automata'
+  | 'knowledge-graph'
+  | 'sandbox'
+  | 'audio-study'
+  | 'notes-scanner';
 
 interface NavSection {
   title: string;
@@ -55,12 +61,15 @@ const NAV_SECTIONS: NavSection[] = [
       { key: 'chat', label: 'AI Assistant', icon: 'smart_toy', to: '/chat' },
       { key: 'learning', label: 'Curriculum Hub', icon: 'menu_book', to: '/learning' },
       { key: 'doubts', label: 'Doubt Solver', icon: 'psychology_alt', to: '/doubts' },
+      { key: 'audio-study', label: 'Audio & Podcasts', icon: 'podcasts', to: '/audio-study', badge: 'Audio' },
       { key: 'offline-ai', label: 'Offline Edge AI', icon: 'terminal', to: '/offline-ai', badge: 'Local' },
     ],
   },
   {
     title: 'GATE Practice & Tests',
     items: [
+      { key: 'calculator', label: 'TCS Virtual Calc', icon: 'calculate', to: '/calculator', badge: 'TCS iON' },
+      { key: 'knowledge-graph', label: 'AIR Weakness Radar', icon: 'radar', to: '/knowledge-graph', badge: 'AIR' },
       { key: 'pyq', label: 'PYQ 2012–2026', icon: 'school', to: '/pyq', badge: 'Active' },
       { key: 'quiz', label: 'Adaptive Quiz', icon: 'quiz', to: '/quiz' },
       { key: 'flashcards', label: 'SM-2 Flashcards', icon: 'psychology', to: '/flashcards', badge: 'Recall' },
@@ -71,6 +80,9 @@ const NAV_SECTIONS: NavSection[] = [
   {
     title: 'Knowledge & Research',
     items: [
+      { key: 'automata', label: 'TOC Automata Studio', icon: 'schema', to: '/automata', badge: 'DFA' },
+      { key: 'sandbox', label: 'C Memory & Pointers', icon: 'memory', to: '/sandbox', badge: 'C/C++' },
+      { key: 'notes-scanner', label: 'Notes to LaTeX OCR', icon: 'document_scanner', to: '/notes-scanner', badge: 'OCR' },
       { key: 'resources', label: 'GATE Resources', icon: 'auto_stories', to: '/resources' },
       { key: 'algorithms', label: 'Algo Visualizer', icon: 'hub', to: '/algorithms', badge: 'Viz' },
       { key: 'research', label: 'Paper Hub', icon: 'biotech', to: '/research', badge: 'AI' },

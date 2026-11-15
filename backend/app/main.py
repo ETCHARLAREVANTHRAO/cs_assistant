@@ -38,6 +38,11 @@ from app.routes import (
     flashcards,
     predictor,
     battle,
+    automata,
+    knowledge_graph,
+    code_sandbox,
+    audio_study,
+    notes_scanner,
 )
 
 
@@ -115,6 +120,11 @@ _api_routers = [
     flashcards.router,
     predictor.router,
     battle.router,
+    automata.router,
+    knowledge_graph.router,
+    code_sandbox.router,
+    audio_study.router,
+    notes_scanner.router,
 ]
 
 for router in _api_routers:
